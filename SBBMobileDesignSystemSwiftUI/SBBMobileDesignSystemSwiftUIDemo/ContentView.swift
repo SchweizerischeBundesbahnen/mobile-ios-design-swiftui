@@ -11,7 +11,7 @@ import SBBMobileDesignSystemSwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!").foregroundColor(SBBColors.sbb_blue)
+        Text("Hello, World!").foregroundColor(SBBColor.red)
     }
 }
 

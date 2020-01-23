@@ -19,6 +19,7 @@
 		2D804EA623D9D1E000CC9C0C /* SBBMobileDesignSystemSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D804E5723D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.framework */; };
 		2D804EA723D9D1E000CC9C0C /* SBBMobileDesignSystemSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D804E5723D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */; };
+		2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		2D804E9923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMobileDesignSystemSwiftUIDemoUITests.swift; sourceTree = "<group>"; };
 		2D804E9B23D9D16300CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColors.swift; sourceTree = "<group>"; };
+		2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				2D804EAB23D9D1F000CC9C0C /* Colors */,
+				2D804EAE23D9D3BE00CC9C0C /* Resources */,
 				2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */,
 				2D804E5B23D9D0DF00CC9C0C /* Info.plist */,
 			);
@@ -199,6 +202,14 @@
 				2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */,
 			);
 			path = Colors;
+			sourceTree = "<group>";
+		};
+		2D804EAE23D9D3BE00CC9C0C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
