@@ -1,0 +1,23 @@
+{
+  "name": "SBBMobileDesignSystemSDK",
+  "version": "1.0.0",
+  "swift_version": "5.0",
+  "summary": "This SDK contains the UI elements that respects the SBB Styleguides.",
+  "homepage": "https://confluence-ext.sbb.ch/display/STYLEGUIDE/SBB+Mobile+Styleguide",
+  "license": {
+    "file": "LICENSE.txt",
+    "type": "Commercial"
+  },
+  "authors": {
+    "Schweizerische Bundesbahnen SBB": "mobile@sbb.ch"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+  	"git": "https://code.sbb.ch/scm/kd_esta/esta-mobile-ios-design.git",
+  	"tag": "1.0.0"
+  }, 
+  "source_files": "MobileDesignSystemSDK/**/*.{swift}",
+  "resources": ["MobileDesignSystemSDK/**/**/*.{ttf}","MobileDesignSystemSDK/**/*.xcassets","MobileDesignSystemSDK/**/**/**/*.{xib}","MobileDesignSystemSDK/**/**/*.{storyboard}"]
+}
