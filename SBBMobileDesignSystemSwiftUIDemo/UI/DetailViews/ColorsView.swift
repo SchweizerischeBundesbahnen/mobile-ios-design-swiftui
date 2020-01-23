@@ -30,6 +30,12 @@ struct ColorsView: View {
 
 struct ColorsView_Previews: PreviewProvider {
     static var previews: some View {
-        ColorsView()
+        Group {
+            ColorsView()
+                .previewDisplayName("Light")
+           ColorsView()
+                .previewDisplayName("Dark")
+                .environment(\.colorScheme, .dark)
+        }
     }
 }
