@@ -80,6 +80,7 @@
 		2D804E9B23D9D16300CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColors.swift; sourceTree = "<group>"; };
 		2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D804EB123D9DAAB00CC9C0C /* SBBMobileDesignSystemSDK.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBMobileDesignSystemSDK.podspec.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +119,7 @@
 		2D804E4D23D9D0DF00CC9C0C = {
 			isa = PBXGroup;
 			children = (
+				2D804EB123D9DAAB00CC9C0C /* SBBMobileDesignSystemSDK.podspec.json */,
 				2D804E7623D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */,
 				2D804E8D23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests */,
 				2D804E9823D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */,
