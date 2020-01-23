@@ -11,7 +11,14 @@ import SBBMobileDesignSystemSwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!").foregroundColor(SBBColor.red).bold()
+        NavigationView {
+            List {
+                NavigationLink(destination: ColorsView()) {
+                    Text("Colors")
+                }
+            }
+                .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
+        }
     }
 }
 
