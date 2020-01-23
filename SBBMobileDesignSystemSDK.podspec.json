@@ -1,0 +1,23 @@
+{
+  "name": "SBBMobileDesignSystemSwiftUI",
+  "version": "0.0.1",
+  "swift_version": "5.1",
+  "summary": "This SDK contains the UI elements that respects the SBB Styleguides (only for SwiftUI).",
+  "homepage": "https://digital.sbb.ch/de/mobile",
+  "license": {
+    "file": "LICENSE.txt",
+    "type": "Commercial"
+  },
+  "authors": {
+    "Schweizerische Bundesbahnen SBB": "mobile@sbb.ch"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+  	"git": "https://code.sbb.ch/scm/kd_esta/esta-mobile-ios-design-swiftui.git",
+  	"tag": "0.0.1"
+  }, 
+  "source_files": "SBBMobileDesignSystemSwiftUI/**/*.{swift}",
+  "resources": ["SBBMobileDesignSystemSwiftUI/**/**/*.{ttf}","SBBMobileDesignSystemSwiftUI/**/*.xcassets"]
+}
