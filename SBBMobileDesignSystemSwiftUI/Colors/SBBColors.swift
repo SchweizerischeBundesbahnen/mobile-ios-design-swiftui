@@ -10,13 +10,14 @@ import Foundation
 import SwiftUI
 
 public struct SBBColor {
-    static let bundleId = "ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI"
+    
+    class SBBColorDummyClass { /* needed so that we can have the framework bundle via Bundle(for: SBBColorDummyClass.self) */ }
     
     public init() {}
     
     public static var red: Color { color(withString: "red") }
     
     private static func color(withString color: String) -> Color {
-        return Color(UIColor(named: color, in: Bundle(identifier: bundleId), compatibleWith: nil)!)
+        return Color(UIColor(named: color, in: Bundle(for: SBBColorDummyClass.self), compatibleWith: nil)!)
     }
 }
