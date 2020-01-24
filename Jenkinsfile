@@ -18,12 +18,9 @@ pipeline {
         ARTIFACTORY_CREDENTIALS = credentials('userpass_artifactory')
         BIN_REPO_ID = "designsystem.ios"
         BIN_GROUP_ID = "ch/sbb/designsystem-swiftui"
-
-        // Simulator
-        RESET_SIMULATOR_BEFORE_UNIT_TESTS = "true"
         
         // Xcode
-        //REQUIRED_XCODE_VERSION = "~> 10.0"
+        //REQUIRED_XCODE_VERSION = "~> 11.0"
 
         // SBBCocoaPods (podspec)
         POD_REPO_NAME = "sbb-scm-kd_cp-sbbcocoapods"
