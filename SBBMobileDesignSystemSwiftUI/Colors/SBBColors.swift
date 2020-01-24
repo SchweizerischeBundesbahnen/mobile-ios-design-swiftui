@@ -45,6 +45,6 @@ public struct SBBColor {
     
     
     private static func color(withString color: String) -> Color {
-        return Color(UIColor(named: color, in: Bundle(for: SBBColorDummyClass.self), compatibleWith: nil)!)
+        return Color(UIColor(named: color, in: Bundle(for: SBBColorDummyClass.self), compatibleWith: nil) ?? UIColor.white)
     }
 }
