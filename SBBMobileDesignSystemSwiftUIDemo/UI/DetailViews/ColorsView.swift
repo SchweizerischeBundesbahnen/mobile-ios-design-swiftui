@@ -15,11 +15,24 @@ struct ColorsView: View {
             List(colors, id: \.name) { element in
                 GeometryReader { metrics in
                     HStack {
-                        Rectangle()
-                            .size(width: 100, height: metrics.size.height)
-                            .foregroundColor(element.color)
-                        Text(element.name)
+                        ZStack(alignment: .bottomTrailing) {
+                            Rectangle()
+                                .frame(width: 100, height: metrics.size.height, alignment: .leading)
+                                .foregroundColor(element.color)
+                                .colorScheme(.light)
+                            Text(".light")
+                                .font(.footnote)
+                        }
+                        ZStack(alignment: .bottomTrailing) {
+                            Rectangle()
+                                .frame(width: 100, height: metrics.size.height, alignment: .leading)
+                                .foregroundColor(element.color)
+                                .colorScheme(.dark)
+                            Text(".dark")
+                                .font(.footnote)
+                        }
                         Spacer()
+                        Text(element.name)
                     }
                 }
             }
