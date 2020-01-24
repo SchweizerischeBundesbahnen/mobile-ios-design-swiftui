@@ -15,7 +15,6 @@
 		2D804E8123D9D16300CC9C0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D804E8023D9D16300CC9C0C /* Preview Assets.xcassets */; };
 		2D804E8423D9D16300CC9C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D804E8223D9D16300CC9C0C /* LaunchScreen.storyboard */; };
 		2D804E8F23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E8E23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.swift */; };
-		2D804E9A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E9923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift */; };
 		2D804EA623D9D1E000CC9C0C /* SBBMobileDesignSystemSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D804E5723D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.framework */; };
 		2D804EA723D9D1E000CC9C0C /* SBBMobileDesignSystemSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D804E5723D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */; };
@@ -25,13 +24,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		2D804E8B23D9D16300CC9C0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D804E4E23D9D0DF00CC9C0C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D804E7423D9D16000CC9C0C;
-			remoteInfo = SBBMobileDesignSystemSwiftUIDemo;
-		};
-		2D804E9623D9D16300CC9C0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2D804E4E23D9D0DF00CC9C0C /* Project object */;
 			proxyType = 1;
@@ -76,9 +68,6 @@
 		2D804E8A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBMobileDesignSystemSwiftUIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D804E8E23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMobileDesignSystemSwiftUIDemoTests.swift; sourceTree = "<group>"; };
 		2D804E9023D9D16300CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D804E9523D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBMobileDesignSystemSwiftUIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D804E9923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMobileDesignSystemSwiftUIDemoUITests.swift; sourceTree = "<group>"; };
-		2D804E9B23D9D16300CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColors.swift; sourceTree = "<group>"; };
 		2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D804EB123D9DAAB00CC9C0C /* SBBMobileDesignSystemSDK.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBMobileDesignSystemSDK.podspec.json; sourceTree = "<group>"; };
@@ -110,13 +99,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D804E9223D9D16300CC9C0C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -128,7 +110,6 @@
 				7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */,
 				2D804E7623D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */,
 				2D804E8D23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests */,
-				2D804E9823D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */,
 				2D804E5923D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI */,
 				2D804E5823D9D0DF00CC9C0C /* Products */,
 				2D804EA523D9D1E000CC9C0C /* Frameworks */,
@@ -141,7 +122,6 @@
 				2D804E5723D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.framework */,
 				2D804E7523D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo.app */,
 				2D804E8A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.xctest */,
-				2D804E9523D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -186,15 +166,6 @@
 				2D804E9023D9D16300CC9C0C /* Info.plist */,
 			);
 			path = SBBMobileDesignSystemSwiftUIDemoTests;
-			sourceTree = "<group>";
-		};
-		2D804E9823D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2D804E9923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift */,
-				2D804E9B23D9D16300CC9C0C /* Info.plist */,
-			);
-			path = SBBMobileDesignSystemSwiftUIDemoUITests;
 			sourceTree = "<group>";
 		};
 		2D804EA523D9D1E000CC9C0C /* Frameworks */ = {
@@ -306,24 +277,6 @@
 			productReference = 2D804E8A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2D804E9423D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D804EA223D9D16300CC9C0C /* Build configuration list for PBXNativeTarget "SBBMobileDesignSystemSwiftUIDemoUITests" */;
-			buildPhases = (
-				2D804E9123D9D16300CC9C0C /* Sources */,
-				2D804E9223D9D16300CC9C0C /* Frameworks */,
-				2D804E9323D9D16300CC9C0C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D804E9723D9D16300CC9C0C /* PBXTargetDependency */,
-			);
-			name = SBBMobileDesignSystemSwiftUIDemoUITests;
-			productName = SBBMobileDesignSystemSwiftUIDemoUITests;
-			productReference = 2D804E9523D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -345,10 +298,6 @@
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 2D804E7423D9D16000CC9C0C;
 					};
-					2D804E9423D9D16300CC9C0C = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 2D804E7423D9D16000CC9C0C;
-					};
 				};
 			};
 			buildConfigurationList = 2D804E5123D9D0DF00CC9C0C /* Build configuration list for PBXProject "SBBMobileDesignSystemSwiftUI" */;
@@ -366,7 +315,6 @@
 			targets = (
 				2D804E7423D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */,
 				2D804E8923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests */,
-				2D804E9423D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */,
 				2D804E5623D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI */,
 			);
 		};
@@ -392,13 +340,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D804E8823D9D16300CC9C0C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D804E9323D9D16300CC9C0C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -435,14 +376,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D804E9123D9D16300CC9C0C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D804E9A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -450,11 +383,6 @@
 			isa = PBXTargetDependency;
 			target = 2D804E7423D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */;
 			targetProxy = 2D804E8B23D9D16300CC9C0C /* PBXContainerItemProxy */;
-		};
-		2D804E9723D9D16300CC9C0C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D804E7423D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */;
-			targetProxy = 2D804E9623D9D16300CC9C0C /* PBXContainerItemProxy */;
 		};
 		2D804EA923D9D1E000CC9C0C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -736,46 +664,6 @@
 			};
 			name = Release;
 		};
-		2D804EA323D9D16300CC9C0C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUIDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SBBMobileDesignSystemSwiftUIDemo;
-			};
-			name = Debug;
-		};
-		2D804EA423D9D16300CC9C0C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUIDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SBBMobileDesignSystemSwiftUIDemo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -811,15 +699,6 @@
 			buildConfigurations = (
 				2D804EA023D9D16300CC9C0C /* Debug */,
 				2D804EA123D9D16300CC9C0C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D804EA223D9D16300CC9C0C /* Build configuration list for PBXNativeTarget "SBBMobileDesignSystemSwiftUIDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D804EA323D9D16300CC9C0C /* Debug */,
-				2D804EA423D9D16300CC9C0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
