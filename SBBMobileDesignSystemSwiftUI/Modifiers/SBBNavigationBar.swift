@@ -25,10 +25,11 @@ struct NavigationInlineBackgroundNC: UIViewControllerRepresentable {
         if let nb = navController.navigationController?.navigationBar {
             // modify NavigationView with displayMode .inline
             // if displayMode is .large, the navigationBar is not inside navController.navigationController.navigationBar. Use setupAppearance in this case.
+            nb.tintColor = .white
             nb.barTintColor = UIColor(cgColor: CGColor(srgbRed: 235, green: 0, blue: 0, alpha: 1))
             nb.titleTextAttributes =
-                [NSAttributedString.Key.foregroundColor: UIColor.white/*,
-                NSAttributedString.Key.font : SBBFonts().sbbWeb_Light(size: 22)*/]    // todo: Fonts
+                [NSAttributedString.Key.foregroundColor: UIColor.white,
+                NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 22)!]
         }
     }
 }

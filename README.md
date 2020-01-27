@@ -42,6 +42,17 @@ Sample app SBBMobileDesignSystemSwiftUIDemo is included in Xcode project
 
 In the next chapters you can see a quick resume of how to use the existing UI elements.
 
+## NavigationBar
+To setup the NavigationBar (& StatusBar) in the SBB style, you need to apply the SBBNavigationBar() modifier to its first child:
+```
+    NavigationView {
+        Group {
+            ContentView()
+        }
+            .modifier(SBBNavigationBar())       // you need to add this
+            .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
+    }
+```
 
 ## Colors
 
