@@ -17,6 +17,7 @@ struct ContentView: View {
                     Text("Colors")
                 }
             }
+                .modifier(SBBNavigationBar())
                 .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
         }
     }
