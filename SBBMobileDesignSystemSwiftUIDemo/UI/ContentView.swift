@@ -16,6 +16,9 @@ struct ContentView: View {
                 NavigationLink(destination: ColorsView()) {
                     Text("Colors")
                 }
+                NavigationLink(destination: TypographyView()) {
+                    Text("Typography")
+                }
             }
                 .modifier(SBBNavigationBar())
                 .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)

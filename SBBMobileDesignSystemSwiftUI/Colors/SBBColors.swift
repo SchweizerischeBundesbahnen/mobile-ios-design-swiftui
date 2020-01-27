@@ -11,10 +11,9 @@ import SwiftUI
 
 public struct SBBColor {
     
-    class SBBColorDummyClass { /* needed so that we can have the framework bundle via Bundle(for: SBBColorDummyClass.self) */ }
-    
     public init() {}
     
+    // Colors
     public static var red: Color { color(withString: "Red") }
     public static var red125: Color { color(withString: "Red125") }
     public static var red150: Color { color(withString: "Red150") }
@@ -43,6 +42,14 @@ public struct SBBColor {
     public static var lemon: Color { color(withString: "Lemon") }
     public static var green: Color { color(withString: "Green") }
     
+    // Semantic Colors
+    public static var textBlack: Color { color(withString: "textBlack") }
+    public static var textMetal: Color { color(withString: "textMetal") }
+    public static var textRed: Color { color(withString: "textRed") }
+    public static var textWhite: Color { color(withString: "textWhite") }
+    public static var background: Color { color(withString: "background") }
+    public static var buttonBackground: Color { color(withString: "buttonBackground") }
+    public static var tabViewBackground: Color { color(withString: "tabViewBackground") }
     
     private static func color(withString color: String) -> Color {
         return Color(UIColor(named: color, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white)

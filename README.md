@@ -21,9 +21,15 @@ pod install
 
 ## Initialize the Library in your app
 
-Use the following import statement, wherever you want to use the library
+Call the method setupSBBApperance() in the AppDelegate.
 ```
-    import SBBMobileDesignSystemSwiftUI
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        
+        SBBAppearance.setupSBBAppearance()
+        
+        return true
+    }
 ```
 
 ## Documentation
@@ -39,7 +45,10 @@ In the next chapters you can see a quick resume of how to use the existing UI el
 
 ## Colors
 
-SBBColor returns the matching color for the current theme (light or dark). This means that you will get a different color for light theme than for dark theme.
+SBBColor contains two types of colors:
+1. The SBB Color palette (e.g. SBBColor.red). Those colors are the same for all themes (light or dark).
+2. Semantic colors (e.g. SBBColor.textBlack). Those colors return the matching color for the current theme (light or dark). This means that you will get a different color for light theme than for dark theme.
+
 You can use colors like so:
 
 ```
