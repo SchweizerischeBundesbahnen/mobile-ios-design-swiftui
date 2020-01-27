@@ -67,13 +67,14 @@ You can use colors like so:
 ```
 ## Fonts
 
-SBBFonts are scaling dynamically. (except in Preview - current SwiftUI/XCode bug)
+SBBFonts are scaling dynamically (except in Preview - current SwiftUI/XCode bug). You can overwrite font size and lineSpacing if desired.
 You can use colors like so:
 
 ```
     Text("SBB Body\(longText)")
-        .sbbFont(.body)
-        .foregroundColor(SBBColor.textBlack)    // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWihte
+        .sbbFont(.body)                             // default usage
+        .sbbFont(.body, size: 25, lineSpacing: 6)   // overwriting font size and lineSpacing
+        .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWihte
 ```
 
 ## Authors
