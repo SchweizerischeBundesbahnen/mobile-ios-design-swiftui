@@ -65,6 +65,16 @@ You can use colors like so:
 ```
     SBBColor.red    // returns Color (not UIColor)
 ```
+## Fonts
+
+SBBFonts are scaling dynamically. (except in Preview - current SwiftUI/XCode bug)
+You can use colors like so:
+
+```
+    Text("SBB Body\(longText)")
+        .sbbFont(.body)
+        .foregroundColor(SBBColor.textBlack)    // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWihte
+```
 
 ## Authors
 
