@@ -8,7 +8,9 @@ import SBBMobileDesignSystemSwiftUI
 struct TypographyView: View {
     
     @State var colorScheme: ColorScheme = .light
+    
     let padding: CGFloat = 4
+    let longText = "\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     
     var body: some View {
         VStack {
@@ -86,45 +88,45 @@ struct TypographyView: View {
                         .padding(self.padding)
                 }
                 Group {
-                    Text("SBB Body black")
+                    Text("SBB Body black\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.body)
                         .foregroundColor(SBBColor.textBlack)
                         .padding(self.padding)
-                    Text("SBB Body metal")
+                    Text("SBB Body metal\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.body)
                         .foregroundColor(SBBColor.textMetal)
                         .padding(self.padding)
-                    Text("SBB Body red")
+                    Text("SBB Body red\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.body)
                         .foregroundColor(SBBColor.textRed)
                         .padding(self.padding)
                 }
                 Group {
-                    Text("SBB Legend black")
+                    Text("SBB Legend black\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.legend)
                         .foregroundColor(SBBColor.textBlack)
                         .padding(self.padding)
-                    Text("SBB Legend metal")
+                    Text("SBB Legend metal\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.legend)
                         .foregroundColor(SBBColor.textMetal)
                         .padding(self.padding)
-                    Text("SBB Legend red")
+                    Text("SBB Legend red\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.legend)
                         .foregroundColor(SBBColor.textRed)
                         .padding(self.padding)
-                    Text("SBB Legend white")
+                    Text("SBB Legend white\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.legend)
                         .foregroundColor(SBBColor.textWhite)
                         .background(SBBColor.black)
                         .padding(self.padding)
-                    Text("SBB Legend small")
+                    Text("SBB Legend small\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.legendSmall)
                         .foregroundColor(SBBColor.textMetal)
