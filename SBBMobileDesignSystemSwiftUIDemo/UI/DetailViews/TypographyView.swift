@@ -52,7 +52,7 @@ struct TypographyView: View {
                     Text("SBB Title metal")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.titleDefault)
-                        .foregroundColor(SBBColor.metal)
+                        .foregroundColor(SBBColor.textMetal)
                         .padding(self.padding)
                     Text("SBB Title Modul")
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -69,7 +69,7 @@ struct TypographyView: View {
                     Text("SBB Subtitle metal")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.subtitle)
-                        .foregroundColor(SBBColor.metal)
+                        .foregroundColor(SBBColor.textMetal)
                         .padding(self.padding)
                 }
                 Group {
@@ -94,7 +94,7 @@ struct TypographyView: View {
                     Text("SBB Body metal")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.body)
-                        .foregroundColor(SBBColor.metal)
+                        .foregroundColor(SBBColor.textMetal)
                         .padding(self.padding)
                     Text("SBB Body red")
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -111,7 +111,7 @@ struct TypographyView: View {
                     Text("SBB Legend metal")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.legend)
-                        .foregroundColor(SBBColor.metal)
+                        .foregroundColor(SBBColor.textMetal)
                         .padding(self.padding)
                     Text("SBB Legend red")
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -127,7 +127,7 @@ struct TypographyView: View {
                     Text("SBB Legend small")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.legendSmall)
-                        .foregroundColor(SBBColor.metal)
+                        .foregroundColor(SBBColor.textMetal)
                         .padding(self.padding)
                 }
             }
