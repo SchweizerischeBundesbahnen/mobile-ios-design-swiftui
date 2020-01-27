@@ -103,6 +103,11 @@ struct TypographyView: View {
                         .sbbFont(.body)
                         .foregroundColor(SBBColor.textRed)
                         .padding(self.padding)
+                    Text("SBB Body black (custom size: 25)\(longText)")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .sbbFont(.body, size: 25)
+                        .foregroundColor(SBBColor.textBlack)
+                        .padding(self.padding)
                 }
                 Group {
                     Text("SBB Legend black\(longText)")

@@ -11,16 +11,18 @@ import SwiftUI
 struct ScaledFont: ViewModifier {
     @Environment(\.sizeCategory) var sizeCategory
     var font: SBBFont
+    var size: CGFloat?
+    var lineSpacing: CGFloat?
   
     func body(content: Content) -> some View {
-        let scaledSize = UIFontMetrics.default.scaledValue(for: font.fontParameters.size)
-        return content.font(.custom(font.fontParameters.name, size: scaledSize)).lineSpacing(font.fontParameters.lineSpacing)
+        let scaledSize = UIFontMetrics.default.scaledValue(for: size ?? font.fontParameters.size)
+        return content.font(.custom(font.fontParameters.name, size: scaledSize)).lineSpacing(lineSpacing ?? font.fontParameters.lineSpacing)
     }
 }
 
 public extension View {
-    func sbbFont(_ font: SBBFont) -> some View {
-        return self.modifier(ScaledFont(font: font))
+    func sbbFont(_ font: SBBFont, size: CGFloat? = nil, lineSpacing: CGFloat? = nil) -> some View {
+        return self.modifier(ScaledFont(font: font, size: size, lineSpacing: lineSpacing))
     }
 }
 
