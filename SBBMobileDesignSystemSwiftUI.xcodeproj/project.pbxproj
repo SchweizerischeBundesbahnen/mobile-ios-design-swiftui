@@ -34,6 +34,7 @@
 		7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99A23DED934001ADBE8 /* TypographyView.swift */; };
 		7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */; };
 		7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */; };
+		7CAFE9A123DF2C62001ADBE8 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE9A023DF2C62001ADBE8 /* BubbleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		7CAFE99A23DED934001ADBE8 /* TypographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyView.swift; sourceTree = "<group>"; };
 		7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFontLoader.swift; sourceTree = "<group>"; };
 		7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAppearance.swift; sourceTree = "<group>"; };
+		7CAFE9A023DF2C62001ADBE8 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +247,7 @@
 		7C6665F423DB5DED002549F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7CAFE9A023DF2C62001ADBE8 /* BubbleView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -437,6 +440,7 @@
 			files = (
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
+				7CAFE9A123DF2C62001ADBE8 /* BubbleView.swift in Sources */,
 				7C6665F723DB5E7E002549F1 /* SBBNavigationBar.swift in Sources */,
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
