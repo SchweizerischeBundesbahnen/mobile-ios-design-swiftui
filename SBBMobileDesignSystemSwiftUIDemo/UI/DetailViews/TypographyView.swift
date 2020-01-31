@@ -10,7 +10,7 @@ struct TypographyView: View {
     @State var colorScheme: ColorScheme = .light
     
     let padding: CGFloat = 4
-    let longText = "\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    let longText = "\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat."
     
     var body: some View {
         VStack {
@@ -141,7 +141,7 @@ struct TypographyView: View {
                 .padding()
         }
             .navigationBarTitle("Typography")
-            .background(SBBColor.background)
+            .background(SBBColor.viewBackground)
             .colorScheme(colorScheme)
             
     }
