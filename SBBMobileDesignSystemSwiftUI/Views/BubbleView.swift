@@ -4,20 +4,31 @@
 
 import SwiftUI
 
-struct BubbleView: View {
+public struct BubbleView: View {
     
-    @State var image: Image
-    @State var title: String
-    @State var subtitle: String?
-    @State var detail: String?
+    var image: Image
+    var title: String
+    var subtitle: String?
+    var detail: String?
     @State var expanded: Bool = true
     
-    var body: some View {
-        HStack {
+    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Bool = true) {
+        self.image = image
+        self.title = title
+        self.subtitle = subtitle
+        self.detail = detail
+        self.expanded = expanded
+    }
+    
+    public var body: some View {
+        HStack(alignment: .top) {
             image
-            VStack {
-                HStack {
+                .padding(.trailing, 16)
+            VStack(alignment: .leading) {
+                HStack(alignment: .top) {
                     Text(self.title)
+                        .sbbFont(.titleDefault)
+                    Spacer()
                     if (self.detail != nil) {
                         Button(action: {
                             self.expanded.toggle()
@@ -30,12 +41,14 @@ struct BubbleView: View {
                         }
                     }
                 }
-                if (self.detail != nil) {
+                if (self.detail != nil) && self.expanded {
                     Divider()
                     Text(self.detail!)
+                        .sbbFont(.body)
                 }
             }
         }
+            .padding(16)
     }
 }
 
@@ -48,7 +61,9 @@ struct BubbleView_Previews: PreviewProvider {
                 .previewDisplayName("Subtitle")
             BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                 .previewDisplayName("Detail")
-            
+            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+                .previewDisplayName("Detail dark")
+                .environment(\.colorScheme, .dark)
         }
             .previewLayout(.sizeThatFits)
     }
