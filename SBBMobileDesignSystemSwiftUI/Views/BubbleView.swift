@@ -34,11 +34,12 @@ public struct BubbleView: View {
                             self.expanded.toggle()
                         }) {
                             if self.expanded {
-                                Image(systemName: "chevron.up")
+                                Image(SBBIcon.chevronSmallUp)
                             } else {
-                                Image(systemName: "chevron.down")
+                                Image(SBBIcon.chevronSmallDown)
                             }
                         }
+                            .foregroundColor(SBBColor.textBlack)
                     }
                 }
                 if (self.detail != nil) && self.expanded {
@@ -49,6 +50,8 @@ public struct BubbleView: View {
             }
         }
             .padding(16)
+            .background(SBBColor.viewBackground)
+            .cornerRadius(16)
     }
 }
 

@@ -141,7 +141,7 @@ struct TypographyView: View {
                 .padding()
         }
             .navigationBarTitle("Typography")
-            .background(SBBColor.viewBackground)
+            .background(SBBColor.background)
             .colorScheme(colorScheme)
             
     }
