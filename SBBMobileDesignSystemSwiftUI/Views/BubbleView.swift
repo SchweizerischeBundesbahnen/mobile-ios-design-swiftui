@@ -15,7 +15,7 @@ public struct BubbleView: View {
     var titleVoiceover: String?
     var subtitleVoiceover: String?
     var detailVoiceover: String?
-    
+        
     public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Bool = true, titleVoiceover: String? = nil, subtitleVoiceover: String? = nil, detailVoiceover: String? = nil) {
         self.image = image
         self.title = title
@@ -72,12 +72,13 @@ public struct BubbleView: View {
                         }
                     }
                 }
+                    .disabled(self.detail == nil)
                     .padding(16)
                     .background(SBBColor.viewBackground)
                     .cornerRadius(16)
                     .accentColor(SBBColor.textBlack)
                     .accessibilityElement(children: .combine)
-                    .accessibility(hint: self.expanded ? Text("collapse") : Text("expand"))
+                    .accessibility(hint: self.expanded ? Text("collapse".localize()) : Text("expand".localize()))
             }
                 .padding(.horizontal, 16)
         }
