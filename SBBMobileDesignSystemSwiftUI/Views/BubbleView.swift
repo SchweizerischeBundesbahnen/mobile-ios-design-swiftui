@@ -23,9 +23,9 @@ public struct BubbleView: View {
     public var body: some View {
         HStack(alignment: .top) {
             image
-                .padding(.trailing, 16)
+                .frame(width: 36, height: 36, alignment: .center)
             VStack(alignment: .leading) {
-                HStack(alignment: .top) {
+                HStack(alignment: .center) {
                     Text(self.title)
                         .sbbFont(.titleDefault)
                     Spacer()
@@ -34,16 +34,19 @@ public struct BubbleView: View {
                             self.expanded.toggle()
                         }) {
                             if self.expanded {
-                                Image(SBBIcon.chevronSmallUp)
+                                Image("chevron_small_up", bundle: Helper.bundle)
                             } else {
-                                Image(SBBIcon.chevronSmallDown)
+                                Image("chevron_small_down", bundle: Helper.bundle)
                             }
                         }
                             .foregroundColor(SBBColor.textBlack)
                     }
                 }
+                    .frame(minHeight: 36, maxHeight: 36)
                 if (self.detail != nil) && self.expanded {
                     Divider()
+                        .background(SBBColor.divider)
+                        .padding(.bottom, 8)
                     Text(self.detail!)
                         .sbbFont(.body)
                 }

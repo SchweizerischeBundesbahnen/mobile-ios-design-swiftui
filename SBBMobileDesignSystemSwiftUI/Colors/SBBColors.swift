@@ -50,6 +50,7 @@ public struct SBBColor {
     public static var background: Color { color(withString: "background") }
     public static var buttonBackground: Color { color(withString: "buttonBackground") }
     public static var viewBackground: Color { color(withString: "viewBackground") }
+    public static var divider: Color { color(withString: "divider") }
     
     private static func color(withString color: String) -> Color {
         return Color(UIColor(named: color, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white)
