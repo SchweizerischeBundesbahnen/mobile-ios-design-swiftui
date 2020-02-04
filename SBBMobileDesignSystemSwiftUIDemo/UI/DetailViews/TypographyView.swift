@@ -7,22 +7,13 @@ import SBBMobileDesignSystemSwiftUI
 
 struct TypographyView: View {
     
-    @State var colorScheme: ColorScheme = .light
+    @Binding var colorScheme: ColorScheme
     
     let padding: CGFloat = 4
     let longText = "\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat."
     
     var body: some View {
         VStack {
-            Form {
-                Section(header: Text("ColorScheme")) {
-                    Picker(selection: $colorScheme, label: Text("ColorScheme")) {
-                        Text("light").tag(ColorScheme.light)
-                        Text("dark").tag(ColorScheme.dark)
-                    }.pickerStyle(SegmentedPickerStyle())
-                }
-            }
-                .frame(minHeight: 0, maxHeight: 100)
             ScrollView {
                 Group {
                     Text("SBB Header")
@@ -148,7 +139,16 @@ struct TypographyView: View {
 }
 
 struct TypographyView_Previews: PreviewProvider {
+    @State static var lightScheme: ColorScheme = .light
+    @State static var darkScheme: ColorScheme = .dark
+    
     static var previews: some View {
-        TypographyView()
+        Group {
+            TypographyView(colorScheme: $lightScheme)
+                .previewDisplayName("Light")
+            TypographyView(colorScheme: $darkScheme)
+                .previewDisplayName("Dark")
+                .environment(\.colorScheme, .dark)
+        }
     }
 }

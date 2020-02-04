@@ -26,10 +26,10 @@ public struct BubbleView: View {
                 .fill(SBBColor.red)
                 .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
             Group {
-                HStack(alignment: .top) {
+                HStack(alignment: .top, spacing: 16) {
                     image
                         .frame(width: 36, height: 36, alignment: .center)
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 0) {
                         HStack(alignment: .center) {
                             Text(self.title)
                                 .sbbFont(.titleDefault)
@@ -53,11 +53,12 @@ public struct BubbleView: View {
                                 .sbbFont(.body)
                         }
                         if (self.detail != nil) && self.expanded {
-                            Divider()
-                                .background(SBBColor.divider)
-                                .padding(.bottom, 8)
+                            Rectangle()     // Divider cannot be used here, since you cannot change its color
+                                .fill(SBBColor.divider)
+                                .frame(idealWidth: .infinity, minHeight: 1, maxHeight: 1)
                             Text(self.detail!)
                                 .sbbFont(.body)
+                                .padding(.top, 8)
                         }
                     }
                 }

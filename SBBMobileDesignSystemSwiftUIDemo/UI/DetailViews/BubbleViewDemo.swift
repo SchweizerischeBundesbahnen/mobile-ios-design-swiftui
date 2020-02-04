@@ -7,6 +7,8 @@ import SBBMobileDesignSystemSwiftUI
 
 struct BubbleViewDemo: View {
     
+    @Binding var colorScheme: ColorScheme
+    
     var image = Image(systemName: "car")
     var title = "IC6 nach Basel"
     var subtitle = "Gleis 2 und 3."
@@ -22,15 +24,19 @@ struct BubbleViewDemo: View {
         }
             .navigationBarTitle("BubbleView")
             .background(SBBColor.background)
+            .colorScheme(colorScheme)
     }
 }
 
 struct BubbleViewDemo_Previews: PreviewProvider {
+    @State static var lightScheme: ColorScheme = .light
+    @State static var darkScheme: ColorScheme = .dark
+    
     static var previews: some View {
         Group {
-            BubbleViewDemo()
+            BubbleViewDemo(colorScheme: $lightScheme)
                 .previewDisplayName("Light")
-            BubbleViewDemo()
+            BubbleViewDemo(colorScheme: $darkScheme)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }
