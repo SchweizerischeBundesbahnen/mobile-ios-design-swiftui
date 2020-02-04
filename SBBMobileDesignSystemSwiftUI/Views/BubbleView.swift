@@ -12,12 +12,20 @@ public struct BubbleView: View {
     var detail: String?
     @State var expanded: Bool
     
-    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Bool = true) {
+    var titleVoiceover: String?
+    var subtitleVoiceover: String?
+    var detailVoiceover: String?
+    
+    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Bool = true, titleVoiceover: String? = nil, subtitleVoiceover: String? = nil, detailVoiceover: String? = nil) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.detail = detail
         _expanded = State(initialValue: expanded)
+        
+        self.titleVoiceover = titleVoiceover
+        self.subtitleVoiceover = subtitleVoiceover
+        self.detailVoiceover = detailVoiceover
     }
     
     public var body: some View {
@@ -26,45 +34,50 @@ public struct BubbleView: View {
                 .fill(SBBColor.red)
                 .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
             Group {
-                HStack(alignment: .top, spacing: 16) {
-                    image
-                        .frame(width: 36, height: 36, alignment: .center)
-                    VStack(alignment: .leading, spacing: 0) {
-                        HStack(alignment: .center) {
-                            Text(self.title)
-                                .sbbFont(.titleDefault)
-                            Spacer()
-                            if (self.detail != nil) {
-                                Button(action: {
-                                    self.expanded.toggle()
-                                }) {
+                Button(action: {
+                    self.expanded.toggle()
+                }) {
+                    HStack(alignment: .top, spacing: 16) {
+                        image
+                            .frame(width: 36, height: 36, alignment: .center)
+                        VStack(alignment: .leading, spacing: 0) {
+                            HStack(alignment: .center) {
+                                Text(self.title)
+                                    .sbbFont(.titleDefault)
+                                    .accessibility(label: Text(self.titleVoiceover ?? self.title))
+                                Spacer()
+                                if (self.detail != nil) {
                                     if self.expanded {
                                         Image("chevron_small_up", bundle: Helper.bundle)
                                     } else {
                                         Image("chevron_small_down", bundle: Helper.bundle)
                                     }
                                 }
-                                    .foregroundColor(SBBColor.textBlack)
                             }
-                        }
-                            .frame(minHeight: 36, maxHeight: 36)
-                        if (self.subtitle != nil) {
-                            Text(self.subtitle!)
-                                .sbbFont(.body)
-                        }
-                        if (self.detail != nil) && self.expanded {
-                            Rectangle()     // Divider cannot be used here, since you cannot change its color
-                                .fill(SBBColor.divider)
-                                .frame(idealWidth: .infinity, minHeight: 1, maxHeight: 1)
-                            Text(self.detail!)
-                                .sbbFont(.body)
-                                .padding(.top, 8)
+                                .frame(minHeight: 36, maxHeight: 36)
+                            if (self.subtitle != nil) {
+                                Text(self.subtitle!)
+                                    .sbbFont(.body)
+                                    .accessibility(label: Text(self.subtitleVoiceover ?? self.subtitle!))
+                            }
+                            if (self.detail != nil) && self.expanded {
+                                Rectangle()     // Divider cannot be used here, since you cannot change its color
+                                    .fill(SBBColor.divider)
+                                    .frame(idealWidth: .infinity, minHeight: 1, maxHeight: 1)
+                                Text(self.detail!)
+                                    .sbbFont(.body)
+                                    .padding(.top, 8)
+                                    .accessibility(label: Text(self.detailVoiceover ?? self.detail!))
+                            }
                         }
                     }
                 }
                     .padding(16)
                     .background(SBBColor.viewBackground)
                     .cornerRadius(16)
+                    .accentColor(SBBColor.textBlack)
+                    .accessibilityElement(children: .combine)
+                    .accessibility(hint: self.expanded ? Text("collapse") : Text("expand"))
             }
                 .padding(.horizontal, 16)
         }
