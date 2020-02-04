@@ -9,7 +9,7 @@ struct ColorsView: View {
     
     typealias ColorAndName = (color: Color, name: String)
     var colors: [ColorAndName] = [(SBBColor.red, "red"), (SBBColor.red125, "red125"), (SBBColor.red150, "red150"), (SBBColor.white, "white"), (SBBColor.milk, "milk"), (SBBColor.cloud, "cloud"), (SBBColor.silver, "silver"), (SBBColor.aluminium, "aluminium"), (SBBColor.platinum, "platinum"), (SBBColor.cement, "cement"), (SBBColor.graphite, "graphite"), (SBBColor.storm, "storm"), (SBBColor.smoke, "smoke"), (SBBColor.metal, "metal"), (SBBColor.granite, "granite"), (SBBColor.anthracite, "anthracite"), (SBBColor.iron, "iron"), (SBBColor.black, "black"), (SBBColor.blue, "blue"), (SBBColor.sky, "sky"), (SBBColor.night, "night"), (SBBColor.violet, "violet"), (SBBColor.autumn, "autumn"), (SBBColor.orange, "orange"), (SBBColor.peach, "peach"), (SBBColor.lemon, "lemon"), (SBBColor.green, "green")]
-    var semanticColors: [ColorAndName] = [(SBBColor.textBlack, "textBlack"), (SBBColor.textMetal, "textMetal"), (SBBColor.textWhite, "textWhite"), (SBBColor.textRed, "textRed"), (SBBColor.background, "background"), (SBBColor.buttonBackground, "buttonBackground"), (SBBColor.viewBackground, "biewBackground")]
+    var semanticColors: [ColorAndName] = [(SBBColor.textBlack, "textBlack"), (SBBColor.textMetal, "textMetal"), (SBBColor.textWhite, "textWhite"), (SBBColor.textRed, "textRed"), (SBBColor.background, "background"), (SBBColor.buttonBackground, "buttonBackground"), (SBBColor.viewBackground, "viewBackground"), (SBBColor.divider, "dividers")]
     
     var body: some View {
         Group {
@@ -66,7 +66,7 @@ struct ColorsView_Previews: PreviewProvider {
         Group {
             ColorsView()
                 .previewDisplayName("Light")
-           ColorsView()
+            ColorsView()
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }

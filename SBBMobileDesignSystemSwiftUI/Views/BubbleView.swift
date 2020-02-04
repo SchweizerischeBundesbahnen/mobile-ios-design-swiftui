@@ -10,51 +10,63 @@ public struct BubbleView: View {
     var title: String
     var subtitle: String?
     var detail: String?
-    @State var expanded: Bool = true
+    @State var expanded: Bool
     
     public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Bool = true) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.detail = detail
-        self.expanded = expanded
+        _expanded = State(initialValue: expanded)
     }
     
     public var body: some View {
-        HStack(alignment: .top) {
-            image
-                .frame(width: 36, height: 36, alignment: .center)
-            VStack(alignment: .leading) {
-                HStack(alignment: .center) {
-                    Text(self.title)
-                        .sbbFont(.titleDefault)
-                    Spacer()
-                    if (self.detail != nil) {
-                        Button(action: {
-                            self.expanded.toggle()
-                        }) {
-                            if self.expanded {
-                                Image("chevron_small_up", bundle: Helper.bundle)
-                            } else {
-                                Image("chevron_small_down", bundle: Helper.bundle)
+        ZStack(alignment: .top) {
+            Rectangle()
+                .fill(SBBColor.red)
+                .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
+            Group {
+                HStack(alignment: .top) {
+                    image
+                        .frame(width: 36, height: 36, alignment: .center)
+                    VStack(alignment: .leading) {
+                        HStack(alignment: .center) {
+                            Text(self.title)
+                                .sbbFont(.titleDefault)
+                            Spacer()
+                            if (self.detail != nil) {
+                                Button(action: {
+                                    self.expanded.toggle()
+                                }) {
+                                    if self.expanded {
+                                        Image("chevron_small_up", bundle: Helper.bundle)
+                                    } else {
+                                        Image("chevron_small_down", bundle: Helper.bundle)
+                                    }
+                                }
+                                    .foregroundColor(SBBColor.textBlack)
                             }
                         }
-                            .foregroundColor(SBBColor.textBlack)
+                            .frame(minHeight: 36, maxHeight: 36)
+                        if (self.subtitle != nil) {
+                            Text(self.subtitle!)
+                                .sbbFont(.body)
+                        }
+                        if (self.detail != nil) && self.expanded {
+                            Divider()
+                                .background(SBBColor.divider)
+                                .padding(.bottom, 8)
+                            Text(self.detail!)
+                                .sbbFont(.body)
+                        }
                     }
                 }
-                    .frame(minHeight: 36, maxHeight: 36)
-                if (self.detail != nil) && self.expanded {
-                    Divider()
-                        .background(SBBColor.divider)
-                        .padding(.bottom, 8)
-                    Text(self.detail!)
-                        .sbbFont(.body)
-                }
+                    .padding(16)
+                    .background(SBBColor.viewBackground)
+                    .cornerRadius(16)
             }
+                .padding(.horizontal, 16)
         }
-            .padding(16)
-            .background(SBBColor.viewBackground)
-            .cornerRadius(16)
     }
 }
 
