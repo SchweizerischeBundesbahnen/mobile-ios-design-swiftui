@@ -36,10 +36,10 @@ struct ContentView: View {
                         Text("BubbleView")
                     }
                 }
-                    .modifier(SBBNavigationBar())
-                    .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
             }
                 .colorScheme(colorScheme)
+                .modifier(SBBNavigationBar())
+                .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
         }
     }
 }

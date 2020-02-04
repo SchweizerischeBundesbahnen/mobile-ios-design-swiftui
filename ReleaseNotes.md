@@ -1,8 +1,11 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.0.3 - 24 Jan 2020
+## V0.0.3 - 04 Feb 2020
 
 ### Features
-* SBBColors (light & dark mode (dark mode not yet 100% complete))
+* SBBColors (including semantic colors)
+* SBBFonts
+* BubbleView
+* NavigationBar
 
 ### Bugfixes
