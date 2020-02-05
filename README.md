@@ -84,12 +84,26 @@ You can use colors like so:
 
 BubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, detail, titleVoiceover, subtitleVoiceover and detailVoiceover (use the voiceover parameters to modify the voiceover Texts). It is by default in an expanded state (if detail is set), but you can overwrite the state if needed.
 
-You can use the BubbleView like so:
+If you want your BubbleView to be expandable, you can use it like so:
 
 ```
-    VStack {
-        BubbleView(image: Image("sample"), title: "Your title", detail: "Your longer text", expanded: false)    // The BubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
-        // other elements below BubbleView
+    @State var expanded = true
+    
+    var body: some View {
+        VStack {
+            BubbleView(image: Image("sample"), title: "Your title", detail: "Your longer text", expanded: $expanded)    // The BubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // other elements below BubbleView
+        }
+    }
+```
+If your BubbleView contains no detail (and is not expandable), you can use it like so:
+
+```    
+    var body: some View {
+        VStack {
+        BubbleView(image: Image("sample"), title: "Your title", expanded: .constant(false))    // The BubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // other elements below BubbleView
+        }
     }
 ```
 
