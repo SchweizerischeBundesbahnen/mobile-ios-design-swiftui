@@ -42,9 +42,9 @@ public struct BubbleView: View {
                             .frame(width: 36, height: 36, alignment: .center)
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(alignment: .center) {
-                                Text(self.title)
+                                Text(LocalizedStringKey(self.title))
                                     .sbbFont(.titleDefault)
-                                    .accessibility(label: Text(self.titleVoiceover ?? self.title))
+                                    .accessibility(label: Text(LocalizedStringKey(self.titleVoiceover ?? self.title)))
                                 Spacer()
                                 if (self.detail != nil) {
                                     if self.expanded {
