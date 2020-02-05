@@ -14,14 +14,14 @@ struct BubbleViewDemo: View {
     var subtitle = "Gleis 2 und 3."
     var detail = "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03."
     
-    var titleVoiceover = "IC6 nach Basel"
-    var subtitleVoiceover = "Gleis 2 und 3."
-    var detailVoiceover = "Wagen 3, Erste Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03."
+    var titleAccessibility = "IC6 nach Basel"
+    var subtitleAccessibility = "Gleis 2 und 3."
+    var detailAccessibility = "Wagen 3, Erste Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03."
     
     var body: some View {
         VStack {
             BubbleView(image: image, title: title, detail: detail)
-            BubbleView(image: image, title: "\(title) - voiceover", detail: detail, expanded: false, titleVoiceover: titleVoiceover, detailVoiceover: detailVoiceover)
+            BubbleView(image: image, title: "\(title) - voiceover", detail: detail, expanded: false, titleAccessibility: titleAccessibility, detailAccessibility: detailAccessibility)
             BubbleView(image: image, title: title)
             BubbleView(image: image, title: title, subtitle: subtitle)
             Spacer()

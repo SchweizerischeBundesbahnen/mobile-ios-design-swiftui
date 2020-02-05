@@ -12,20 +12,20 @@ public struct BubbleView: View {
     var detail: String?
     @State var expanded: Bool
     
-    var titleVoiceover: String?
-    var subtitleVoiceover: String?
-    var detailVoiceover: String?
+    var titleAccessibility: String?
+    var subtitleAccessibility: String?
+    var detailAccessibility: String?
         
-    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Bool = true, titleVoiceover: String? = nil, subtitleVoiceover: String? = nil, detailVoiceover: String? = nil) {
+    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Bool = true, titleAccessibility: String? = nil, subtitleAccessibility: String? = nil, detailAccessibility: String? = nil) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.detail = detail
         _expanded = State(initialValue: expanded)
         
-        self.titleVoiceover = titleVoiceover
-        self.subtitleVoiceover = subtitleVoiceover
-        self.detailVoiceover = detailVoiceover
+        self.titleAccessibility = titleAccessibility
+        self.subtitleAccessibility = subtitleAccessibility
+        self.detailAccessibility = detailAccessibility
     }
     
     public var body: some View {
@@ -44,7 +44,7 @@ public struct BubbleView: View {
                             HStack(alignment: .center) {
                                 Text(LocalizedStringKey(self.title))
                                     .sbbFont(.titleDefault)
-                                    .accessibility(label: Text(LocalizedStringKey(self.titleVoiceover ?? self.title)))
+                                    .accessibility(label: Text(LocalizedStringKey(self.titleAccessibility ?? self.title)))
                                 Spacer()
                                 if (self.detail != nil) {
                                     if self.expanded {
@@ -58,7 +58,7 @@ public struct BubbleView: View {
                             if (self.subtitle != nil) {
                                 Text(self.subtitle!)
                                     .sbbFont(.body)
-                                    .accessibility(label: Text(self.subtitleVoiceover ?? self.subtitle!))
+                                    .accessibility(label: Text(self.subtitleAccessibility ?? self.subtitle!))
                             }
                             if (self.detail != nil) && self.expanded {
                                 Rectangle()     // Divider cannot be used here, since you cannot change its color
@@ -67,7 +67,7 @@ public struct BubbleView: View {
                                 Text(self.detail!)
                                     .sbbFont(.body)
                                     .padding(.top, 8)
-                                    .accessibility(label: Text(self.detailVoiceover ?? self.detail!))
+                                    .accessibility(label: Text(self.detailAccessibility ?? self.detail!))
                             }
                         }
                     }
