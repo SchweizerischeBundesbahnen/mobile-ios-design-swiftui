@@ -10,18 +10,18 @@ public struct BubbleView: View {
     var title: String
     var subtitle: String?
     var detail: String?
-    @State var expanded: Bool
+    @Binding var expanded: Bool
     
     var titleAccessibility: String?
     var subtitleAccessibility: String?
     var detailAccessibility: String?
         
-    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Bool = true, titleAccessibility: String? = nil, subtitleAccessibility: String? = nil, detailAccessibility: String? = nil) {
+    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Binding<Bool>, titleAccessibility: String? = nil, subtitleAccessibility: String? = nil, detailAccessibility: String? = nil) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.detail = detail
-        _expanded = State(initialValue: expanded)
+        self._expanded = expanded
         
         self.titleAccessibility = titleAccessibility
         self.subtitleAccessibility = subtitleAccessibility
@@ -88,13 +88,13 @@ public struct BubbleView: View {
 struct BubbleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel")
+            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", expanded: .constant(true))
                 .previewDisplayName("Title only")
-            BubbleView(image: Image(systemName: "car"), title: "Biel / Bienne", subtitle: "Gleis 2 und 3.")
+            BubbleView(image: Image(systemName: "car"), title: "Biel / Bienne", subtitle: "Gleis 2 und 3.", expanded: .constant(true))
                 .previewDisplayName("Subtitle")
-            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
                 .previewDisplayName("Detail")
-            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
                 .previewDisplayName("Detail dark")
                 .environment(\.colorScheme, .dark)
         }

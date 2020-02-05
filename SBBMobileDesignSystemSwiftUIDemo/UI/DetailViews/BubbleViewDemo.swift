@@ -9,6 +9,9 @@ struct BubbleViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
+    @State var expanded1 = true
+    @State var expanded2 = false
+    
     var image = Image(systemName: "car")
     var title = "IC6 nach Basel"
     var subtitle = "Gleis 2 und 3."
@@ -20,10 +23,23 @@ struct BubbleViewDemo: View {
     
     var body: some View {
         VStack {
-            BubbleView(image: image, title: title, detail: detail)
-            BubbleView(image: image, title: "\(title) - voiceover", detail: detail, expanded: false, titleAccessibility: titleAccessibility, detailAccessibility: detailAccessibility)
-            BubbleView(image: image, title: title)
-            BubbleView(image: image, title: title, subtitle: subtitle)
+            BubbleView(image: image, title: title, detail: detail, expanded: $expanded1)
+            Button(action: {
+                self.expanded1.toggle()
+            }) {
+                Text("toggle expanded state from Parentview")
+            }
+            Divider()
+            BubbleView(image: image, title: "\(title) - voiceover", detail: detail, expanded: $expanded2, titleAccessibility: titleAccessibility, detailAccessibility: detailAccessibility)
+            Button(action: {
+                self.expanded2.toggle()
+            }) {
+                Text("toggle expanded state from Parentview")
+            }
+            Divider()
+            BubbleView(image: image, title: title, expanded: .constant(false))
+            Divider()
+            BubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
             Spacer()
         }
             .navigationBarTitle("BubbleView")
