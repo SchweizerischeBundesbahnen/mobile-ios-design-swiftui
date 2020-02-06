@@ -82,7 +82,7 @@ You can use colors like so:
 
 ## BubbleView
 
-BubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, detail, titleAccessibility, subtitleAccessibility and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts). It is by default in an expanded state (if detail is set), but you can overwrite the state if needed.
+BubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, detail, titleAccessibility, subtitleAccessibility and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
 
 If you want your BubbleView to be expandable, you can use it like so:
 
