@@ -43,14 +43,15 @@ Sample app SBBMobileDesignSystemSwiftUIDemo is included in Xcode project
 In the next chapters you can see a quick resume of how to use the existing UI elements.
 
 ## NavigationBar
+
 To setup the NavigationBar (& StatusBar) in the SBB style, you need to apply the SBBNavigationBar() modifier to its first child:
 ```
     NavigationView {
         Group {
             ContentView()
         }
-            .modifier(SBBNavigationBar())       // you need to add this
-            .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
+            .modifier(SBBNavigationBar())                                   // you need to add this
+            .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)    // SBB Design only supports .inline for the time being
     }
 ```
 
@@ -65,9 +66,11 @@ You can use colors like so:
 ```
     SBBColor.red    // returns Color (not UIColor)
 ```
+
 ## Fonts
 
 SBBFonts are scaling dynamically (except in Preview - current SwiftUI/XCode bug). You can overwrite font size and lineSpacing if desired.
+
 You can use colors like so:
 
 ```
@@ -75,6 +78,33 @@ You can use colors like so:
         .sbbFont(.body)                             // default usage
         .sbbFont(.body, size: 25, lineSpacing: 6)   // overwriting font size and lineSpacing
         .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWihte
+```
+
+## BubbleView
+
+BubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, detail, titleAccessibility, subtitleAccessibility and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
+
+If you want your BubbleView to be expandable, you can use it like so:
+
+```
+    @State var expanded = true
+    
+    var body: some View {
+        VStack {
+            BubbleView(image: Image("sample"), title: "Your title", detail: "Your longer text", expanded: $expanded)    // The BubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // other elements below BubbleView
+        }
+    }
+```
+If your BubbleView contains no detail (and is not expandable), you can use it like so:
+
+```    
+    var body: some View {
+        VStack {
+        BubbleView(image: Image("sample"), title: "Your title", expanded: .constant(false))    // The BubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // other elements below BubbleView
+        }
+    }
 ```
 
 ## Authors

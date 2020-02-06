@@ -12,3 +12,10 @@ class Helper {
         }
     }
 }
+
+extension String {
+    func localize() -> String{
+        let s =  NSLocalizedString(self, tableName: nil, bundle: Helper.bundle, value: "", comment: "")
+        return s
+    }
+}

@@ -10,16 +10,34 @@ import SwiftUI
 import SBBMobileDesignSystemSwiftUI
 
 struct ContentView: View {
+    
+    @State var colorScheme: ColorScheme = .light
+    
     var body: some View {
         NavigationView {
-            List {
-                NavigationLink(destination: ColorsView()) {
-                    Text("Colors")
+            VStack(spacing: 0) {
+                Form {
+                    Section(header: Text("ColorScheme")) {
+                        Picker(selection: $colorScheme, label: Text("ColorScheme")) {
+                            Text("light").tag(ColorScheme.light)
+                            Text("dark").tag(ColorScheme.dark)
+                        }.pickerStyle(SegmentedPickerStyle())
+                    }
                 }
-                NavigationLink(destination: TypographyView()) {
-                    Text("Typography")
+                    .frame(minHeight: 0, maxHeight: 100)
+                List {
+                    NavigationLink(destination: ColorsView(colorScheme: $colorScheme)) {
+                        Text("Colors")
+                    }
+                    NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
+                        Text("Typography")
+                    }
+                    NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
+                        Text("BubbleView")
+                    }
                 }
             }
+                .colorScheme(colorScheme)
                 .modifier(SBBNavigationBar())
                 .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
         }
@@ -29,9 +47,9 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ContentView()
+            ContentView(colorScheme: .light)
                 .previewDisplayName("Light")
-           ContentView()
+            ContentView(colorScheme: .dark)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }
