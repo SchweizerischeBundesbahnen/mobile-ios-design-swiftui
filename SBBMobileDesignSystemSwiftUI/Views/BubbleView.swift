@@ -35,7 +35,9 @@ public struct BubbleView: View {
                 .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
             Group {
                 Button(action: {
-                    self.expanded.toggle()
+                    withAnimation {
+                        self.expanded.toggle()
+                    }
                 }) {
                     HStack(alignment: .top, spacing: 16) {
                         image
