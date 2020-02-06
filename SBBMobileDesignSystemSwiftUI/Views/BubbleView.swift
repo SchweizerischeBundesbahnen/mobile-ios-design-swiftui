@@ -58,18 +58,18 @@ public struct BubbleView: View {
                             }
                                 .frame(minHeight: 36, maxHeight: 36)
                             if (self.subtitle != nil) {
-                                Text(self.subtitle!)
+                                Text(LocalizedStringKey(self.subtitle!))
                                     .sbbFont(.body)
-                                    .accessibility(label: Text(self.subtitleAccessibility ?? self.subtitle!))
+                                    .accessibility(label: Text(LocalizedStringKey(self.subtitleAccessibility ?? self.subtitle!)))
                             }
                             if (self.detail != nil) && self.expanded {
                                 Rectangle()     // Divider cannot be used here, since you cannot change its color
                                     .fill(SBBColor.divider)
                                     .frame(idealWidth: .infinity, minHeight: 1, maxHeight: 1)
-                                Text(self.detail!)
+                                Text(LocalizedStringKey(self.detail!))
                                     .sbbFont(.body)
                                     .padding(.top, 8)
-                                    .accessibility(label: Text(self.detailAccessibility ?? self.detail!))
+                                    .accessibility(label: Text(LocalizedStringKey(self.detailAccessibility ?? self.detail!)))
                             }
                         }
                     }
