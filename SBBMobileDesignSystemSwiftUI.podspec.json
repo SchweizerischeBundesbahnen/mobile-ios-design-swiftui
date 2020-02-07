@@ -15,7 +15,7 @@
     "ios": "13.0"
   },
   "source": {
-  	"git": "https://code.sbb.ch/scm/kd_esta/esta-mobile-ios-design-swiftui.git",
+  	"git": "https://code.sbb.ch/scm/kd_esta_mobile/esta-mobile-ios-design-swiftui.git",
   	"tag": "0.0.1"
   }, 
   "source_files": "SBBMobileDesignSystemSwiftUI/**/*.{swift}",
