@@ -15,22 +15,33 @@
 		2D804E8123D9D16300CC9C0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D804E8023D9D16300CC9C0C /* Preview Assets.xcassets */; };
 		2D804E8423D9D16300CC9C0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D804E8223D9D16300CC9C0C /* LaunchScreen.storyboard */; };
 		2D804E8F23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E8E23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.swift */; };
-		2D804E9A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E9923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift */; };
 		2D804EA623D9D1E000CC9C0C /* SBBMobileDesignSystemSwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D804E5723D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.framework */; };
 		2D804EA723D9D1E000CC9C0C /* SBBMobileDesignSystemSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D804E5723D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */; };
 		2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */; };
+		7C2B7E7123D9F8940012CF62 /* ColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2B7E7023D9F8940012CF62 /* ColorsView.swift */; };
+		7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */; };
+		7C6665F723DB5E7E002549F1 /* SBBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6665F623DB5E7E002549F1 /* SBBNavigationBar.swift */; };
+		7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE98523DECD9B001ADBE8 /* Helper.swift */; };
+		7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE98823DED65C001ADBE8 /* SBBFont.swift */; };
+		7CAFE99223DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98A23DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf */; };
+		7CAFE99323DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98B23DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf */; };
+		7CAFE99423DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98C23DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf */; };
+		7CAFE99523DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98D23DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf */; };
+		7CAFE99623DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98E23DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf */; };
+		7CAFE99723DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98F23DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf */; };
+		7CAFE99823DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE99023DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf */; };
+		7CAFE99923DED6DD001ADBE8 /* sbbweb-light-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE99123DED6DD001ADBE8 /* sbbweb-light-reduce.ttf */; };
+		7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99A23DED934001ADBE8 /* TypographyView.swift */; };
+		7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */; };
+		7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */; };
+		7CAFE9A123DF2C62001ADBE8 /* BubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE9A023DF2C62001ADBE8 /* BubbleView.swift */; };
+		7CDFFD8123E9C3C000250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8323E9C3C000250717 /* Localizable.strings */; };
+		7CDFFD8A23E9C77300250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8C23E9C77300250717 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		2D804E8B23D9D16300CC9C0C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2D804E4E23D9D0DF00CC9C0C /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2D804E7423D9D16000CC9C0C;
-			remoteInfo = SBBMobileDesignSystemSwiftUIDemo;
-		};
-		2D804E9623D9D16300CC9C0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2D804E4E23D9D0DF00CC9C0C /* Project object */;
 			proxyType = 1;
@@ -75,12 +86,36 @@
 		2D804E8A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBMobileDesignSystemSwiftUIDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D804E8E23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMobileDesignSystemSwiftUIDemoTests.swift; sourceTree = "<group>"; };
 		2D804E9023D9D16300CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2D804E9523D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBMobileDesignSystemSwiftUIDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D804E9923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMobileDesignSystemSwiftUIDemoUITests.swift; sourceTree = "<group>"; };
-		2D804E9B23D9D16300CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColors.swift; sourceTree = "<group>"; };
 		2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D804EB123D9DAAB00CC9C0C /* SBBMobileDesignSystemSDK.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBMobileDesignSystemSDK.podspec.json; sourceTree = "<group>"; };
+		7C2B7E7023D9F8940012CF62 /* ColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsView.swift; sourceTree = "<group>"; };
+		7C2B7E7223DAC4FD0012CF62 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNotes.md; sourceTree = "<group>"; };
+		7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewDemo.swift; sourceTree = "<group>"; };
+		7C6665F623DB5E7E002549F1 /* SBBNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBNavigationBar.swift; sourceTree = "<group>"; };
+		7CAFE98523DECD9B001ADBE8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		7CAFE98823DED65C001ADBE8 /* SBBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFont.swift; sourceTree = "<group>"; };
+		7CAFE98A23DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-ultralight-reduce.ttf"; sourceTree = "<group>"; };
+		7CAFE98B23DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-condensed-bold-reduce.ttf"; sourceTree = "<group>"; };
+		7CAFE98C23DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-bold-reduce.ttf"; sourceTree = "<group>"; };
+		7CAFE98D23DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-thin-reduce.ttf"; sourceTree = "<group>"; };
+		7CAFE98E23DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-roman-reduce.ttf"; sourceTree = "<group>"; };
+		7CAFE98F23DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-condensed-heavy-reduce.ttf"; sourceTree = "<group>"; };
+		7CAFE99023DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-italic-reduce.ttf"; sourceTree = "<group>"; };
+		7CAFE99123DED6DD001ADBE8 /* sbbweb-light-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-light-reduce.ttf"; sourceTree = "<group>"; };
+		7CAFE99A23DED934001ADBE8 /* TypographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyView.swift; sourceTree = "<group>"; };
+		7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFontLoader.swift; sourceTree = "<group>"; };
+		7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAppearance.swift; sourceTree = "<group>"; };
+		7CAFE9A023DF2C62001ADBE8 /* BubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleView.swift; sourceTree = "<group>"; };
+		7CDFFD8223E9C3C000250717 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CDFFD8423E9C3D100250717 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CDFFD8523E9C3DF00250717 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CDFFD8623E9C3EA00250717 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CDFFD8B23E9C77300250717 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CDFFD8D23E9C77500250717 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CDFFD8E23E9C77600250717 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7CDFFD8F23E9C77700250717 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,13 +141,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D804E9223D9D16300CC9C0C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -120,9 +148,10 @@
 			isa = PBXGroup;
 			children = (
 				2D804EB123D9DAAB00CC9C0C /* SBBMobileDesignSystemSDK.podspec.json */,
+				7C2B7E7223DAC4FD0012CF62 /* README.md */,
+				7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */,
 				2D804E7623D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */,
 				2D804E8D23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests */,
-				2D804E9823D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */,
 				2D804E5923D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI */,
 				2D804E5823D9D0DF00CC9C0C /* Products */,
 				2D804EA523D9D1E000CC9C0C /* Frameworks */,
@@ -135,7 +164,6 @@
 				2D804E5723D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.framework */,
 				2D804E7523D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo.app */,
 				2D804E8A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.xctest */,
-				2D804E9523D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,10 +171,15 @@
 		2D804E5923D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				7C6665F523DB5E63002549F1 /* Modifiers */,
+				7C6665F423DB5DED002549F1 /* Views */,
 				2D804EAB23D9D1F000CC9C0C /* Colors */,
+				7CAFE98723DECFE1001ADBE8 /* Fonts */,
 				2D804EAE23D9D3BE00CC9C0C /* Resources */,
+				7CAFE98423DEC816001ADBE8 /* Helper */,
 				2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */,
 				2D804E5B23D9D0DF00CC9C0C /* Info.plist */,
+				7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */,
 			);
 			path = SBBMobileDesignSystemSwiftUI;
 			sourceTree = "<group>";
@@ -156,10 +189,11 @@
 			children = (
 				2D804E7723D9D16000CC9C0C /* AppDelegate.swift */,
 				2D804E7923D9D16000CC9C0C /* SceneDelegate.swift */,
-				2D804E7B23D9D16000CC9C0C /* ContentView.swift */,
+				7C2B7E6E23D9F8700012CF62 /* UI */,
 				2D804E7D23D9D16300CC9C0C /* Assets.xcassets */,
 				2D804E8223D9D16300CC9C0C /* LaunchScreen.storyboard */,
 				2D804E8523D9D16300CC9C0C /* Info.plist */,
+				7CDFFD8723E9C74100250717 /* Resources */,
 				2D804E7F23D9D16300CC9C0C /* Preview Content */,
 			);
 			path = SBBMobileDesignSystemSwiftUIDemo;
@@ -182,15 +216,6 @@
 			path = SBBMobileDesignSystemSwiftUIDemoTests;
 			sourceTree = "<group>";
 		};
-		2D804E9823D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2D804E9923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift */,
-				2D804E9B23D9D16300CC9C0C /* Info.plist */,
-			);
-			path = SBBMobileDesignSystemSwiftUIDemoUITests;
-			sourceTree = "<group>";
-		};
 		2D804EA523D9D1E000CC9C0C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +235,75 @@
 			isa = PBXGroup;
 			children = (
 				2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */,
+				7CDFFD8323E9C3C000250717 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C2B7E6E23D9F8700012CF62 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2D804E7B23D9D16000CC9C0C /* ContentView.swift */,
+				7C2B7E6F23D9F8890012CF62 /* DetailViews */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7C2B7E6F23D9F8890012CF62 /* DetailViews */ = {
+			isa = PBXGroup;
+			children = (
+				7C2B7E7023D9F8940012CF62 /* ColorsView.swift */,
+				7CAFE99A23DED934001ADBE8 /* TypographyView.swift */,
+				7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */,
+			);
+			path = DetailViews;
+			sourceTree = "<group>";
+		};
+		7C6665F423DB5DED002549F1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7CAFE9A023DF2C62001ADBE8 /* BubbleView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7C6665F523DB5E63002549F1 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				7C6665F623DB5E7E002549F1 /* SBBNavigationBar.swift */,
+			);
+			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		7CAFE98423DEC816001ADBE8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		7CAFE98723DECFE1001ADBE8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7CAFE98823DED65C001ADBE8 /* SBBFont.swift */,
+				7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */,
+				7CAFE98C23DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf */,
+				7CAFE98B23DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf */,
+				7CAFE98F23DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf */,
+				7CAFE99023DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf */,
+				7CAFE99123DED6DD001ADBE8 /* sbbweb-light-reduce.ttf */,
+				7CAFE98E23DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf */,
+				7CAFE98D23DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf */,
+				7CAFE98A23DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7CDFFD8723E9C74100250717 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7CDFFD8C23E9C77300250717 /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -283,24 +377,6 @@
 			productReference = 2D804E8A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2D804E9423D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2D804EA223D9D16300CC9C0C /* Build configuration list for PBXNativeTarget "SBBMobileDesignSystemSwiftUIDemoUITests" */;
-			buildPhases = (
-				2D804E9123D9D16300CC9C0C /* Sources */,
-				2D804E9223D9D16300CC9C0C /* Frameworks */,
-				2D804E9323D9D16300CC9C0C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2D804E9723D9D16300CC9C0C /* PBXTargetDependency */,
-			);
-			name = SBBMobileDesignSystemSwiftUIDemoUITests;
-			productName = SBBMobileDesignSystemSwiftUIDemoUITests;
-			productReference = 2D804E9523D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -322,10 +398,6 @@
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 2D804E7423D9D16000CC9C0C;
 					};
-					2D804E9423D9D16300CC9C0C = {
-						CreatedOnToolsVersion = 11.3.1;
-						TestTargetID = 2D804E7423D9D16000CC9C0C;
-					};
 				};
 			};
 			buildConfigurationList = 2D804E5123D9D0DF00CC9C0C /* Build configuration list for PBXProject "SBBMobileDesignSystemSwiftUI" */;
@@ -335,6 +407,9 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				de,
+				it,
 			);
 			mainGroup = 2D804E4D23D9D0DF00CC9C0C;
 			productRefGroup = 2D804E5823D9D0DF00CC9C0C /* Products */;
@@ -343,7 +418,6 @@
 			targets = (
 				2D804E7423D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */,
 				2D804E8923D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests */,
-				2D804E9423D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests */,
 				2D804E5623D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI */,
 			);
 		};
@@ -354,7 +428,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CAFE99323DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf in Resources */,
+				7CAFE99823DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf in Resources */,
+				7CAFE99523DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf in Resources */,
 				2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */,
+				7CAFE99923DED6DD001ADBE8 /* sbbweb-light-reduce.ttf in Resources */,
+				7CAFE99723DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf in Resources */,
+				7CAFE99423DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf in Resources */,
+				7CAFE99223DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf in Resources */,
+				7CAFE99623DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf in Resources */,
+				7CDFFD8123E9C3C000250717 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,19 +446,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D804E8423D9D16300CC9C0C /* LaunchScreen.storyboard in Resources */,
+				7CDFFD8A23E9C77300250717 /* Localizable.strings in Resources */,
 				2D804E8123D9D16300CC9C0C /* Preview Assets.xcassets in Resources */,
 				2D804E7E23D9D16300CC9C0C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		2D804E8823D9D16300CC9C0C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2D804E9323D9D16300CC9C0C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -390,6 +467,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
+				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
+				7CAFE9A123DF2C62001ADBE8 /* BubbleView.swift in Sources */,
+				7C6665F723DB5E7E002549F1 /* SBBNavigationBar.swift in Sources */,
+				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
+				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
+				7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,9 +480,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C2B7E7123D9F8940012CF62 /* ColorsView.swift in Sources */,
 				2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */,
 				2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */,
 				2D804E7C23D9D16000CC9C0C /* ContentView.swift in Sources */,
+				7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */,
+				7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,14 +497,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2D804E9123D9D16300CC9C0C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2D804E9A23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -426,11 +504,6 @@
 			isa = PBXTargetDependency;
 			target = 2D804E7423D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */;
 			targetProxy = 2D804E8B23D9D16300CC9C0C /* PBXContainerItemProxy */;
-		};
-		2D804E9723D9D16300CC9C0C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2D804E7423D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */;
-			targetProxy = 2D804E9623D9D16300CC9C0C /* PBXContainerItemProxy */;
 		};
 		2D804EA923D9D1E000CC9C0C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -448,6 +521,28 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		7CDFFD8323E9C3C000250717 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CDFFD8223E9C3C000250717 /* en */,
+				7CDFFD8423E9C3D100250717 /* fr */,
+				7CDFFD8523E9C3DF00250717 /* de */,
+				7CDFFD8623E9C3EA00250717 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7CDFFD8C23E9C77300250717 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7CDFFD8B23E9C77300250717 /* en */,
+				7CDFFD8D23E9C77500250717 /* fr */,
+				7CDFFD8E23E9C77600250717 /* de */,
+				7CDFFD8F23E9C77700250717 /* it */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -455,6 +550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -518,6 +614,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -587,7 +684,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -613,7 +710,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
+				MARKETING_VERSION = 0.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -627,17 +724,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"SBBMobileDesignSystemSwiftUIDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = ZB8B4MY472;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUIDemo;
+				MARKETING_VERSION = 0.0.3;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -648,17 +748,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"SBBMobileDesignSystemSwiftUIDemo/Preview Content\"";
+				DEVELOPMENT_TEAM = ZB8B4MY472;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.2;
-				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUIDemo;
+				MARKETING_VERSION = 0.0.3;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -706,44 +809,6 @@
 			};
 			name = Release;
 		};
-		2D804EA323D9D16300CC9C0C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUIDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SBBMobileDesignSystemSwiftUIDemo;
-			};
-			name = Debug;
-		};
-		2D804EA423D9D16300CC9C0C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUIDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = SBBMobileDesignSystemSwiftUIDemo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -779,15 +844,6 @@
 			buildConfigurations = (
 				2D804EA023D9D16300CC9C0C /* Debug */,
 				2D804EA123D9D16300CC9C0C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2D804EA223D9D16300CC9C0C /* Build configuration list for PBXNativeTarget "SBBMobileDesignSystemSwiftUIDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2D804EA323D9D16300CC9C0C /* Debug */,
-				2D804EA423D9D16300CC9C0C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
