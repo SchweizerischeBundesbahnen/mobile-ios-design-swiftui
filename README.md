@@ -36,7 +36,7 @@ Call the method setupSBBApperance() in the AppDelegate.
 
 https://digital.sbb.ch/de/mobile contains a documentation of the SBB Design.
 
-https://code.sbb.ch/projects/KD_ESTA/repos/esta-mobile-ios-design-swiftui/ contains the following documentation:
+https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/ contains the following documentation:
 Framework API is generated in /docs on every build if Jazzy is installed.
 Sample app SBBMobileDesignSystemSwiftUIDemo is included in Xcode project
 
