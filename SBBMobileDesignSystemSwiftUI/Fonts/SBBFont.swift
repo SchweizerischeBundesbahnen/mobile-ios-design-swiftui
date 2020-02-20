@@ -42,6 +42,7 @@ public enum SBBFont {
     case body
     case legend
     case legendSmall
+    case tableHeader
     
     var fontParameters: FontParameters {
         switch self {
@@ -54,6 +55,7 @@ public enum SBBFont {
         case .body: return FontParameters(name: "SBBWeb-Light", size: 16, lineSpacing: 4)
         case .legend: return FontParameters(name: "SBBWeb-Light", size: 14, lineSpacing: 6)
         case .legendSmall: return FontParameters(name: "SBBWeb-Light", size: 12, lineSpacing: 8)
+        case .tableHeader: return FontParameters(name: "SBBWeb-Roman", size: 14, lineSpacing: 0)
         }
     }
 }
