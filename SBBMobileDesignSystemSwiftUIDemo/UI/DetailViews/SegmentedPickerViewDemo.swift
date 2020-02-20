@@ -9,19 +9,23 @@ struct SegmentedPickerViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
-    @State private var selectedSegment = 1
+    @State private var selectedSegment = 0
     
     var body: some View {
         Group {
             VStack {
                 Picker(selection: self.$selectedSegment, label: EmptyView()) {
-                    Text("Segment 1").tag(1)
-                    Text("Segment 2").tag(2)
+                    Text("Segment 1").tag(0)
+                    Text("Segment 2").tag(1)
                 }
                     .pickerStyle(SegmentedPickerStyle())
                 Text("Selected Segment: \(selectedSegment)")
                     .sbbFont(.body)
                 Spacer()
+                SegmentedPicker(selection: self.$selectedSegment) {
+                    Text("Segment 1")
+                    Text("Segment 2")
+                }
             }
                 .padding(16)
         }

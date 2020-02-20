@@ -4,40 +4,29 @@
 
 import SwiftUI
 
-public struct SegmentedPicker<SelectionValue, Content>: View where SelectionValue: Hashable, Content: View {
-    
-    @Binding var selection: SelectionValue
-    let items: [AnyView]
-    
-    public init(selection: Binding<SelectionValue>, @ViewBuilder content: () -> Content) { // this init will be used for any non-supported number of TupleView
+public struct SegmentedPicker<Segment>: View where Segment: View {
+     
+    @Binding var selection: Int
+    let childs : [Segment]
+     
+    public init(selection: Binding<Int>, @ArrayBuilder<Segment> content: () -> [Segment]) {
         self._selection = selection
-        let views = content()
-        self.items = [AnyView(views)]
+        self.childs = content()
     }
     
-    // MARK: TupleView support (currently min 2 elements, max 4 elements)
-    /*
-    public init(@ViewBuilder content: () -> TupleView<(Content, Content)>) {
-        let views = content().value
-        self.items = [AnyView(views.0), AnyView(views.1)]
-    }
-    
-    public init(@ViewBuilder content: () -> TupleView<(Content, Content, Content)>) {
-        let views = content().value
-        self.items = [AnyView(views.0), AnyView(views.1), AnyView(views.2)]
-    }
-    
-    public init(@ViewBuilder content: () -> TupleView<(Content, Content, Content, Content)>) {
-        let views = content().value
-        self.items = [AnyView(views.0), AnyView(views.1), AnyView(views.2), AnyView(views.3)]
-    }
-    */
     public var body: some View {
         ZStack {
             HStack {
-                ForEach(0..<items.count) { index in
-                    self.items[index]
+                ForEach(0..<childs.count) { index in
+                    if index == self.selection {
+                        self.childs[index]
+                            .background(Color.orange)
+                    }
+                    else {
+                        self.childs[index]
+                    }
                 }
+
             }
         }
             .frame(maxWidth: .infinity)
@@ -61,5 +50,21 @@ struct SegmentedPicker_Previews: PreviewProvider {
                 .environment(\.colorScheme, .dark)
         }
             .previewLayout(.sizeThatFits)
+    }
+}
+
+// https://github.com/SwiftUIX/SwiftUIX/blob/master/Sources/Intermodular/Helpers/Swift/ArrayBuilder.swift
+@_functionBuilder
+public class ArrayBuilder<Element> {
+    public static func buildBlock() -> [Element] {
+        return []
+    }
+    
+    public static func buildBlock(_ element: Element) -> [Element] {
+        return [element]
+    }
+    
+    public static func buildBlock(_ elements: Element...) -> [Element] {
+        return elements
     }
 }
