@@ -32,10 +32,20 @@ public struct SegmentedPicker<Segment>: View where Segment: View {
                             .sbbFont(.body)
                             .foregroundColor(SBBColor.textBlack)
                             .padding(.horizontal, 16)
-                            .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
+                            .frame(width: self.segmentWidth(parentWidth: geometry.size.width), height: 40)
+                            .onTapGesture {
+                                self.selection = index
+                                //self.updateOffset(parentWidth: geometry.size.width)
+                            }
                     }
                 }
             }
+            .gesture(
+                DragGesture()
+                    .onChanged {
+                        self.selection = self.segment(for: $0.location.x, in: geometry.size.width)
+                    }
+            )
         }
             .padding(2)
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
@@ -43,12 +53,12 @@ public struct SegmentedPicker<Segment>: View where Segment: View {
             .cornerRadius(22)
     }
     
-    private func segmentWidth(parentWidth: CGFloat) -> CGFloat {
-        return parentWidth / CGFloat(self.childs.count)
+    private func segment(for xPosition: CGFloat, in parentWidth: CGFloat) -> Int {
+        return min(Int(xPosition / segmentWidth(parentWidth: parentWidth)), childs.count - 1)
     }
     
-    private func currentSegmentOffset(parentWidth: CGFloat) -> CGFloat {
-        return self.segmentWidth(parentWidth: parentWidth) * CGFloat(self.selection)
+    private func segmentWidth(parentWidth: CGFloat) -> CGFloat {
+        return parentWidth / CGFloat(self.childs.count)
     }
 }
 
