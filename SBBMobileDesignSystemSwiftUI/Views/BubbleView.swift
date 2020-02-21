@@ -76,7 +76,7 @@ public struct BubbleView: View {
                 }
                     .disabled(self.detail == nil)
                     .padding(16)
-                    .background(SBBColor.viewBackground)
+                    .background(SBBColor.controlBackground)
                     .cornerRadius(16)
                     .accentColor(SBBColor.textBlack)
                     .accessibilityElement(children: .combine)

@@ -15,22 +15,40 @@ public struct SegmentedPicker<Segment>: View where Segment: View {
     }
     
     public var body: some View {
-        ZStack {
-            HStack {
-                ForEach(0..<childs.count) { index in
-                    if index == self.selection {
+        GeometryReader { geometry in
+            ZStack(alignment: .leading) {
+                // Highlighter for current segment
+                Rectangle()
+                    .fill(SBBColor.controlBackground)
+                    .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
+                    .cornerRadius(20)
+                    .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selection))
+                    .animation(.default)
+
+                // Segments
+                HStack(spacing: 0) {
+                    ForEach(0..<self.childs.count) { index in
                         self.childs[index]
-                            .background(Color.orange)
-                    }
-                    else {
-                        self.childs[index]
+                            .sbbFont(.body)
+                            .foregroundColor(SBBColor.textBlack)
+                            .padding(.horizontal, 16)
+                            .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
                     }
                 }
-
             }
         }
-            .frame(maxWidth: .infinity)
-            .background(SBBColor.divider)
+            .padding(2)
+            .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
+            .background(SBBColor.segmentedPickerBackground)
+            .cornerRadius(22)
+    }
+    
+    private func segmentWidth(parentWidth: CGFloat) -> CGFloat {
+        return parentWidth / CGFloat(self.childs.count)
+    }
+    
+    private func currentSegmentOffset(parentWidth: CGFloat) -> CGFloat {
+        return self.segmentWidth(parentWidth: parentWidth) * CGFloat(self.selection)
     }
 }
 
@@ -42,7 +60,7 @@ struct SegmentedPicker_Previews: PreviewProvider {
                 Text("Tab2")
             }
                 .previewDisplayName("Light")
-            SegmentedPicker(selection: .constant(0)) {
+            SegmentedPicker(selection: .constant(1)) {
                 Text("Tab1")
                 Text("Tab2")
             }
