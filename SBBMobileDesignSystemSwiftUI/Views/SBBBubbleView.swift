@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-public struct BubbleView: View {
+public struct SBBBubbleView: View {
     
     var image: Image
     var title: String
@@ -87,16 +87,16 @@ public struct BubbleView: View {
     }
 }
 
-struct BubbleView_Previews: PreviewProvider {
+struct SBBBubbleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", expanded: .constant(true))
                 .previewDisplayName("Title only")
-            BubbleView(image: Image(systemName: "car"), title: "Biel / Bienne", subtitle: "Gleis 2 und 3.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: "Biel / Bienne", subtitle: "Gleis 2 und 3.", expanded: .constant(true))
                 .previewDisplayName("Subtitle")
-            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
                 .previewDisplayName("Detail")
-            BubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
                 .previewDisplayName("Detail dark")
                 .environment(\.colorScheme, .dark)
         }

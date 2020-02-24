@@ -80,9 +80,9 @@ You can use colors like so:
         .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWihte
 ```
 
-## BubbleView
+## SBBBubbleView
 
-BubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, detail, titleAccessibility, subtitleAccessibility and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
+SBBBubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, detail, titleAccessibility, subtitleAccessibility and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
 
 If you want your BubbleView to be expandable, you can use it like so:
 
@@ -91,8 +91,8 @@ If you want your BubbleView to be expandable, you can use it like so:
     
     var body: some View {
         VStack {
-            BubbleView(image: Image("sample"), title: "Your title", detail: "Your longer text", expanded: $expanded)    // The BubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
-            // other elements below BubbleView
+            SBBBubbleView(image: Image("sample"), title: "Your title", detail: "Your longer text", expanded: $expanded)    // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // other elements below SBBBubbleView
         }
     }
 ```
@@ -101,11 +101,34 @@ If your BubbleView contains no detail (and is not expandable), you can use it li
 ```    
     var body: some View {
         VStack {
-        BubbleView(image: Image("sample"), title: "Your title", expanded: .constant(false))    // The BubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
-            // other elements below BubbleView
+        SBBBubbleView(image: Image("sample"), title: "Your title", expanded: .constant(false))    // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // other elements below SBBBubbleView
         }
     }
 ```
+## SBBSegmentedPicker
+
+SBBSegmentedPicker is the SBB-Implementation of the standard SwiftUI Picker with SegmentedPickerStyle. You need to set its current selection and all its unique tags (of type Hashable).
+
+You can use the SBBSegmentedPicker like so:
+```
+   enum PickerOptions: String {
+        case departures
+        case platform
+    }
+```
+
+```
+    @State private var selectedSegment2: PickerOptions = .departures
+    
+    var body: some View {
+        SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
+            Text("Departures")
+            Text("Platform")
+        }
+    }
+```
+
 
 ## Authors
 

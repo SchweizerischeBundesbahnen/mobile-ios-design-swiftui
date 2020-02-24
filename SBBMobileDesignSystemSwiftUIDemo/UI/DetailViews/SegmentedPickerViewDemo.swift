@@ -9,30 +9,43 @@ struct SegmentedPickerViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
-    @State private var selectedSegment = 0
+    @State private var selectedSegment1 = 0
+    @State private var selectedSegment2: PickerOptions = .departures
     
     var body: some View {
         Group {
-            VStack {
-                Picker(selection: self.$selectedSegment, label: EmptyView()) {
-                    Text("Segment 1").tag(0)
-                    Text("Segment 2").tag(1)
+            VStack(spacing: 16) {
+                Text("Simple Integer Picker")
+                    .sbbFont(.header)
+                SBBSegmentedPicker(selection: self.$selectedSegment1, tags: [0, 1, 2]) {
+                    Text("Opt 1")
+                    Text("Opt 2")
+                    Text("Opt 3")
                 }
-                    .pickerStyle(SegmentedPickerStyle())
-                Text("Selected Segment: \(selectedSegment)")
+                Text("Selected Segment: \(selectedSegment1)")
+                    .sbbFont(.body)
+                Divider()
+                Text("Enum Picker")
+                    .sbbFont(.header)
+                SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
+                    Text("Departures")
+                    Text("Platform")
+                }
+                Text("Selected Segment: .\(selectedSegment2.rawValue)")
                     .sbbFont(.body)
                 Spacer()
-                SegmentedPicker(selection: self.$selectedSegment) {
-                    Text("Segment 1")
-                    Text("Segment 2")
-                }
             }
                 .padding(16)
         }
-            .navigationBarTitle("BubbleView")
+            .navigationBarTitle("SegmentedPicker")
             .background(SBBColor.background)
             .colorScheme(colorScheme)
     }
+}
+
+enum PickerOptions: String {
+    case departures
+    case platform
 }
 
 struct SegmentedPickerViewDemo_Previews: PreviewProvider {
