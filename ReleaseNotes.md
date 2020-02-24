@@ -7,6 +7,8 @@
 * new semantic SBBColor .controlBackground
 
 ### Bugfixes
+* SBBBubbleView background red now reflects the opacity from the SBBNavigationBar (to be removed once the opacity can be set to false on the NavBar)
+* SBBBubbleView voiceover now only reads the hint, if the view is expandable (i.e. has a detail text)
 
 ## V0.0.5 - 14 Feb 2020
 
