@@ -1,5 +1,5 @@
 //
-// Copyright (C) Schweizerische Bundesbahnen SBB, 2019.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
 import SwiftUI
@@ -62,9 +62,7 @@ public struct SBBBubbleView: View {
                                 .accessibility(label: Text(LocalizedStringKey(self.subtitleAccessibility ?? self.subtitle!)))
                         }
                         if (self.detail != nil) && self.expanded {
-                            Rectangle()     // Divider cannot be used here, since you cannot change its color
-                                .fill(SBBColor.divider)
-                                .frame(idealWidth: .infinity, minHeight: 1, maxHeight: 1)
+                            SBBDivider()
                             Text(LocalizedStringKey(self.detail!))
                                 .sbbFont(.body)
                                 .padding(.top, 8)
@@ -81,9 +79,9 @@ public struct SBBBubbleView: View {
                     .accessibility(hint: ((self.detail == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
             }
                 .padding(.horizontal, 16)
-            .onTapGesture {
-                self.expanded.toggle()
-            }
+                .onTapGesture {
+                    self.expanded.toggle()
+                }
         }
     }
 }

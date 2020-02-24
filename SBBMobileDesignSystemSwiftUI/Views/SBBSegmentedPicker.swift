@@ -6,10 +6,10 @@ import SwiftUI
 
 public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, Selection: Hashable {
      
-    @Binding var selection: Selection
-    let tags: [Selection]
-    let segments: [Segment]
-    var selectionIndex: Int {
+    @Binding private var selection: Selection
+    private let tags: [Selection]
+    private let segments: [Segment]
+    private var selectionIndex: Int {
         return tags.firstIndex(of: selection) ?? 0
     }
      
@@ -49,15 +49,14 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                             .frame(width: self.segmentWidth(parentWidth: geometry.size.width), height: 40)
                             .accessibility(hint: Text("\(index + 1) \("of".localized) \(self.segments.count)"))
                             .accessibilityElement(children: .combine)
+                            .simultaneousGesture(DragGesture()
+                                .onChanged {
+                                    self.selection = self.segment(for: $0.location.x, in: geometry.size.width)
+                                }
+                            )
                     }
                 }
             }
-            .gesture(
-                DragGesture()
-                    .onChanged {
-                        self.selection = self.segment(for: $0.location.x, in: geometry.size.width)
-                    }
-            )
         }
             .padding(2)
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)

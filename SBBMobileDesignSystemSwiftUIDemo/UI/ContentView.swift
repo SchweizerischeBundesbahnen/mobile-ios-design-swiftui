@@ -32,6 +32,9 @@ struct ContentView: View {
                     NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
                         Text("Typography")
                     }
+                    NavigationLink(destination: DividerViewDemo(colorScheme: $colorScheme)) {
+                        Text("Divider")
+                    }
                     NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
                         Text("BubbleView")
                     }

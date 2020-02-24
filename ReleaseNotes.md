@@ -4,6 +4,7 @@
 
 ### Features
 * SBBSegmentedPicker
+* SBBDivider
 * new semantic SBBColor .controlBackground
 * new SBBFont .tableHeader
 

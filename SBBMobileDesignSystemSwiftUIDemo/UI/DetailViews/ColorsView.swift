@@ -1,5 +1,5 @@
 //
-// Copyright (C) Schweizerische Bundesbahnen SBB, 2019.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
 import SwiftUI

@@ -79,6 +79,17 @@ You can use colors like so:
         .sbbFont(.body, size: 25, lineSpacing: 6)   // overwriting font size and lineSpacing
         .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWihte
 ```
+## SBBDivider
+
+SBBDivider replaces the standard Swiftui Divider.
+
+You can use it like so:
+
+```    
+    var body: some View {
+        SBBDivider()
+    }
+```
 
 ## SBBBubbleView
 
