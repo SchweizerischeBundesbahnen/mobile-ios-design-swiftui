@@ -1,6 +1,6 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.0.6 - 24 Feb 2020
+## V0.0.7 - 24 Feb 2020
 
 ### Features
 * SBBSegmentedPicker
