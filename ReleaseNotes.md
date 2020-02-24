@@ -5,6 +5,7 @@
 ### Features
 * SBBSegmentedPicker
 * new semantic SBBColor .controlBackground
+* new SBBFont .tableHeader
 
 ### Bugfixes
 * SBBBubbleView background red now reflects the opacity from the SBBNavigationBar (to be removed once the opacity can be set to false on the NavBar)
