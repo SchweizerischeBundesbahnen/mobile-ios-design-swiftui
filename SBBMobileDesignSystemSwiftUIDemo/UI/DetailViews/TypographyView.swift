@@ -79,6 +79,13 @@ struct TypographyView: View {
                         .padding(self.padding)
                 }
                 Group {
+                    Text("SBB TableHeader black")
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                        .sbbFont(.tableHeader)
+                        .foregroundColor(SBBColor.textBlack)
+                        .padding(self.padding)
+                }
+                Group {
                     Text("SBB Body black\(longText)")
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .sbbFont(.body)

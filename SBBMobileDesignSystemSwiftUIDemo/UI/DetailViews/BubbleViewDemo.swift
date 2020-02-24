@@ -1,5 +1,5 @@
 //
-// Copyright (C) Schweizerische Bundesbahnen SBB, 2019.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
 import SwiftUI
@@ -23,23 +23,23 @@ struct BubbleViewDemo: View {
     
     var body: some View {
         VStack {
-            BubbleView(image: image, title: title, detail: detail, expanded: $expanded1)
+            SBBBubbleView(image: image, title: title, detail: detail, expanded: $expanded1)
             Button(action: {
                 self.expanded1.toggle()
             }) {
                 Text("toggle expanded state from Parentview")
             }
             Divider()
-            BubbleView(image: image, title: "\(title) - voiceover", detail: detail, expanded: $expanded2, titleAccessibility: titleAccessibility, detailAccessibility: detailAccessibility)
+            SBBBubbleView(image: image, title: "\(title) - voiceover", detail: detail, expanded: $expanded2, titleAccessibility: titleAccessibility, detailAccessibility: detailAccessibility)
             Button(action: {
                 self.expanded2.toggle()
             }) {
                 Text("toggle expanded state from Parentview")
             }
             Divider()
-            BubbleView(image: image, title: title, expanded: .constant(false))
+            SBBBubbleView(image: image, title: title, expanded: .constant(false))
             Divider()
-            BubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
+            SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
             Spacer()
         }
             .navigationBarTitle("BubbleView")

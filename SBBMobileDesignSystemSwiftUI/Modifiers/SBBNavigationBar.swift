@@ -11,7 +11,7 @@ public struct SBBNavigationBar: ViewModifier {
     public func body(content: Content) -> some View {
         content
             .background(NavigationInlineBackgroundNC())
-            .navigationBarItems(trailing: Image("sbb-logo-small", bundle: Helper.bundle))
+            .navigationBarItems(trailing: Image("sbb-logo-small", bundle: Helper.bundle).accessibility(hidden: true))
     }
 }
 
