@@ -35,43 +35,40 @@ public struct SBBBubbleView: View {
                 .fill(SBBColor.bubbleRedTODORemove)   // TODO - remove once translucency can be set to false for Navigationbar (current SwiftUI bug). Until then, we change the BubbleView Red color to match the SBBNavigationBar color.
                 .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
             Group {
-                Button(action: {
-                    withAnimation {
-                        self.expanded.toggle()
-                    }
-                }) {
-                    HStack(alignment: .top, spacing: 16) {
-                        image
-                            .frame(width: 36, height: 36, alignment: .center)
-                        VStack(alignment: .leading, spacing: 0) {
-                            HStack(alignment: .center) {
-                                Text(LocalizedStringKey(self.title))
-                                    .sbbFont(.titleDefault)
-                                    .accessibility(label: Text(LocalizedStringKey(self.titleAccessibility ?? self.title)))
-                                Spacer()
-                                if (self.detail != nil) {
-                                    if self.expanded {
-                                        Image("chevron_small_up", bundle: Helper.bundle)
-                                    } else {
-                                        Image("chevron_small_down", bundle: Helper.bundle)
-                                    }
+                HStack(alignment: .top, spacing: 16) {
+                    image
+                        .frame(width: 36, height: 36, alignment: .center)
+                        .accessibility(hidden: true)
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack(alignment: .center) {
+                            Text(LocalizedStringKey(self.title))
+                                .sbbFont(.titleDefault)
+                                .accessibility(label: Text(LocalizedStringKey(self.titleAccessibility ?? self.title)))
+                            Spacer()
+                            if (self.detail != nil) {
+                                if self.expanded {
+                                    Image("chevron_small_up", bundle: Helper.bundle)
+                                        .accessibility(hidden: true)
+                                } else {
+                                    Image("chevron_small_down", bundle: Helper.bundle)
+                                        .accessibility(hidden: true)
                                 }
                             }
-                                .frame(minHeight: 36, maxHeight: 36)
-                            if (self.subtitle != nil) {
-                                Text(LocalizedStringKey(self.subtitle!))
-                                    .sbbFont(.body)
-                                    .accessibility(label: Text(LocalizedStringKey(self.subtitleAccessibility ?? self.subtitle!)))
-                            }
-                            if (self.detail != nil) && self.expanded {
-                                Rectangle()     // Divider cannot be used here, since you cannot change its color
-                                    .fill(SBBColor.divider)
-                                    .frame(idealWidth: .infinity, minHeight: 1, maxHeight: 1)
-                                Text(LocalizedStringKey(self.detail!))
-                                    .sbbFont(.body)
-                                    .padding(.top, 8)
-                                    .accessibility(label: Text(LocalizedStringKey(self.detailAccessibility ?? self.detail!)))
-                            }
+                        }
+                            .frame(minHeight: 36, maxHeight: 36)
+                        if (self.subtitle != nil) {
+                            Text(LocalizedStringKey(self.subtitle!))
+                                .sbbFont(.body)
+                                .accessibility(label: Text(LocalizedStringKey(self.subtitleAccessibility ?? self.subtitle!)))
+                        }
+                        if (self.detail != nil) && self.expanded {
+                            Rectangle()     // Divider cannot be used here, since you cannot change its color
+                                .fill(SBBColor.divider)
+                                .frame(idealWidth: .infinity, minHeight: 1, maxHeight: 1)
+                            Text(LocalizedStringKey(self.detail!))
+                                .sbbFont(.body)
+                                .padding(.top, 8)
+                                .accessibility(label: Text(LocalizedStringKey(self.detailAccessibility ?? self.detail!)))
                         }
                     }
                 }
@@ -81,9 +78,12 @@ public struct SBBBubbleView: View {
                     .cornerRadius(16)
                     .accentColor(SBBColor.textBlack)
                     .accessibilityElement(children: .combine)
-                    .accessibility(hint: self.expanded ? Text("collapse".localized) : Text("expand".localized))
+                    .accessibility(hint: ((self.detail == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
             }
                 .padding(.horizontal, 16)
+            .onTapGesture {
+                self.expanded.toggle()
+            }
         }
     }
 }
