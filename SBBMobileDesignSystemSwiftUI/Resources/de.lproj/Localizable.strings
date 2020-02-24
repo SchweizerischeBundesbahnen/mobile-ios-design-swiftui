@@ -2,6 +2,10 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
-// BubbleView
+// SBBBubbleView
 "collapse" = "zusammenklappen";
 "expand" = "auseinanderklappen";
+
+// SBBSegmentedPicker
+"selected" = "Auswahl";
+"of" = "von";

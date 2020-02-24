@@ -18,10 +18,10 @@ struct ContentView: View {
             VStack(spacing: 0) {
                 Form {
                     Section(header: Text("ColorScheme")) {
-                        Picker(selection: $colorScheme, label: Text("ColorScheme")) {
-                            Text("light").tag(ColorScheme.light)
-                            Text("dark").tag(ColorScheme.dark)
-                        }.pickerStyle(SegmentedPickerStyle())
+                        SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
+                            Text("light")
+                            Text("dark")
+                        }
                     }
                 }
                     .frame(minHeight: 0, maxHeight: 100)
@@ -32,8 +32,14 @@ struct ContentView: View {
                     NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
                         Text("Typography")
                     }
+                    NavigationLink(destination: DividerViewDemo(colorScheme: $colorScheme)) {
+                        Text("Divider")
+                    }
                     NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
                         Text("BubbleView")
+                    }
+                    NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: $colorScheme)) {
+                        Text("SegmentedPicker")
                     }
                 }
             }
