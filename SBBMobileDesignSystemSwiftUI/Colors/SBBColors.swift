@@ -55,6 +55,7 @@ public struct SBBColor {
     
     // Private semantic Colors (only to be used for MDS Elements
     static var segmentedPickerBackground: Color { color(withString: "segmentedPickerBackground") }
+    static var bubbleRedTODORemove: Color { color(withString: "bubbleRedTODORemove") }  // TODO - remove once translucency can be set to false for Navigationbar (current SwiftUI bug). Until then, we change the BubbleView Red color to match the SBBNavigationBar color.
     
     private static func color(withString color: String) -> Color {
         return Color(UIColor(named: color, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white)
