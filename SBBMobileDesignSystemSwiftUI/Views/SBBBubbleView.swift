@@ -80,7 +80,7 @@ public struct SBBBubbleView: View {
                     .cornerRadius(16)
                     .accentColor(SBBColor.textBlack)
                     .accessibilityElement(children: .combine)
-                    .accessibility(hint: self.expanded ? Text("collapse".localize()) : Text("expand".localize()))
+                    .accessibility(hint: self.expanded ? Text("collapse".localized) : Text("expand".localized))
             }
                 .padding(.horizontal, 16)
         }

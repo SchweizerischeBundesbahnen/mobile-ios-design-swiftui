@@ -33,14 +33,22 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                 // Segments
                 HStack(spacing: 0) {
                     ForEach(0..<self.segments.count) { index in
-                        self.segments[index]
+                        Button(action: {
+                                self.selection = self.tags[index]
+                        }) {
+                            HStack(spacing: 0) {
+                                Spacer()
+                                    .accessibility(label: Text((index == self.selectionIndex) ? "selected".localized : ""))
+                                self.segments[index]
+                                Spacer()
+                            }
+                        }
                             .sbbFont(.body)
                             .foregroundColor(SBBColor.textBlack)
                             .padding(.horizontal, 16)
                             .frame(width: self.segmentWidth(parentWidth: geometry.size.width), height: 40)
-                            .onTapGesture {
-                                self.selection = self.tags[index]
-                            }
+                            .accessibility(hint: Text("\(index + 1) \("of".localized) \(self.segments.count)"))
+                            .accessibilityElement(children: .combine)
                     }
                 }
             }
