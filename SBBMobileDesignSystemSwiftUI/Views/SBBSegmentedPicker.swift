@@ -49,14 +49,14 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                             .frame(width: self.segmentWidth(parentWidth: geometry.size.width), height: 40)
                             .accessibility(hint: Text("\(index + 1) \("of".localized) \(self.segments.count)"))
                             .accessibilityElement(children: .combine)
-                            .simultaneousGesture(DragGesture()
-                                .onChanged {
-                                    self.selection = self.segment(for: $0.location.x, in: geometry.size.width)
-                                }
-                            )
                     }
                 }
             }
+                .highPriorityGesture(DragGesture()
+                    .onChanged {
+                        self.selection = self.segment(for: $0.location.x, in: geometry.size.width)
+                    }
+                )
         }
             .padding(2)
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
@@ -66,7 +66,8 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
     }
     
     private func segment(for xPosition: CGFloat, in parentWidth: CGFloat) -> Selection {
-        let index = min(Int(xPosition / segmentWidth(parentWidth: parentWidth)), segments.count - 1)
+        var index = min(Int(xPosition / segmentWidth(parentWidth: parentWidth)), segments.count - 1)
+        index = max(0, min(index, segments.count - 1))
         return tags[index]
     }
     
