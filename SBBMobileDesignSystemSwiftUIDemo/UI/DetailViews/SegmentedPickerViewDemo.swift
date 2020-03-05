@@ -24,7 +24,7 @@ struct SegmentedPickerViewDemo: View {
                 }
                 Text("Selected Segment: \(selectedSegment1)")
                     .sbbFont(.body)
-                Divider()
+                SBBDivider()
                 Text("Enum Picker")
                     .sbbFont(.header)
                 SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
