@@ -74,6 +74,7 @@ public struct SBBBubbleView: View {
                     .padding(16)
                     .background(SBBColor.controlBackground)
                     .cornerRadius(16)
+                    .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(SBBColor.textBlack)
                     .accessibilityElement(children: .combine)
                     .accessibility(hint: ((self.detail == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))

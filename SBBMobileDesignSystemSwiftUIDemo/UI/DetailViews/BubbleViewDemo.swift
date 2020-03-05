@@ -29,16 +29,16 @@ struct BubbleViewDemo: View {
             }) {
                 Text("toggle expanded state from Parentview")
             }
-            Divider()
+            SBBDivider()
             SBBBubbleView(image: image, title: "\(title) - voiceover", detail: detail, expanded: $expanded2, titleAccessibility: titleAccessibility, detailAccessibility: detailAccessibility)
             Button(action: {
                 self.expanded2.toggle()
             }) {
                 Text("toggle expanded state from Parentview")
             }
-            Divider()
+            SBBDivider()
             SBBBubbleView(image: image, title: title, expanded: .constant(false))
-            Divider()
+            SBBDivider()
             SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
             Spacer()
         }
