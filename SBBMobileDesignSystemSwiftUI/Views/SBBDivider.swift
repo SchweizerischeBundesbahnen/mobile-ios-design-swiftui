@@ -11,7 +11,7 @@ public struct SBBDivider: View {
     public var body: some View {
         Rectangle()
             .fill(SBBColor.divider)
-            .frame(idealWidth: .infinity, minHeight: 1, maxHeight: 1)
+            .frame(height: 1)
     }
 }
 
