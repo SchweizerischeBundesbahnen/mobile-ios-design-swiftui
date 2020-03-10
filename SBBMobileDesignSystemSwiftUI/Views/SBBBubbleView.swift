@@ -7,25 +7,40 @@ import SwiftUI
 public struct SBBBubbleView: View {
     
     var image: Image
-    var title: String
-    var subtitle: String?
-    var detail: String?
+    var title: LocalizedStringKey
+    var subtitle: LocalizedStringKey?
+    var detail: LocalizedStringKey?
     @Binding var expanded: Bool
     
-    var titleAccessibility: String?
-    var subtitleAccessibility: String?
-    var detailAccessibility: String?
+    var titleAccessibility: LocalizedStringKey
+    var subtitleAccessibility: LocalizedStringKey?
+    var detailAccessibility: LocalizedStringKey?
         
     public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Binding<Bool>, titleAccessibility: String? = nil, subtitleAccessibility: String? = nil, detailAccessibility: String? = nil) {
         self.image = image
-        self.title = title
-        self.subtitle = subtitle
-        self.detail = detail
+        
+        self.title = LocalizedStringKey(title)
+        self.titleAccessibility = LocalizedStringKey(titleAccessibility ?? title)
+        
+        if let subtitle = subtitle {
+            self.subtitle = LocalizedStringKey(subtitle)
+            self.subtitleAccessibility = LocalizedStringKey(subtitleAccessibility ?? subtitle)
+        } else {
+            self.subtitle = nil
+            self.subtitleAccessibility = nil
+        }
+        
+        if let detail = detail {
+            self.detail = LocalizedStringKey(detail)
+            self.detailAccessibility = LocalizedStringKey(detailAccessibility ?? detail)
+        } else {
+            self.detail = nil
+            self.detailAccessibility = nil
+        }
+        
         self._expanded = expanded
         
-        self.titleAccessibility = titleAccessibility
-        self.subtitleAccessibility = subtitleAccessibility
-        self.detailAccessibility = detailAccessibility
+        
     }
     
     public var body: some View {
@@ -34,16 +49,16 @@ public struct SBBBubbleView: View {
                 //.fill(SBBColor.red)
                 .fill(SBBColor.bubbleRedTODORemove)   // TODO - remove once translucency can be set to false for Navigationbar (current SwiftUI bug). Until then, we change the BubbleView Red color to match the SBBNavigationBar color.
                 .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
-            Group {
+            HStack {
                 HStack(alignment: .top, spacing: 16) {
                     image
                         .frame(width: 36, height: 36, alignment: .center)
                         .accessibility(hidden: true)
                     VStack(alignment: .leading, spacing: 0) {
                         HStack(alignment: .center) {
-                            Text(LocalizedStringKey(self.title))
+                            Text(self.title)
                                 .sbbFont(.titleDefault)
-                                .accessibility(label: Text(LocalizedStringKey(self.titleAccessibility ?? self.title)))
+                                .accessibility(label: Text(self.titleAccessibility))
                             Spacer()
                             if (self.detail != nil) {
                                 if self.expanded {
@@ -57,18 +72,19 @@ public struct SBBBubbleView: View {
                         }
                             .frame(minHeight: 36, maxHeight: 36)
                         if (self.subtitle != nil) {
-                            Text(LocalizedStringKey(self.subtitle!))
+                            Text(self.subtitle!)
                                 .sbbFont(.body)
-                                .accessibility(label: Text(LocalizedStringKey(self.subtitleAccessibility ?? self.subtitle!)))
+                                .accessibility(label: Text(self.subtitleAccessibility!))
                         }
                         if (self.detail != nil) && self.expanded {
                             SBBDivider()
-                            Text(LocalizedStringKey(self.detail!))
+                            Text(self.detail!)
                                 .sbbFont(.body)
                                 .padding(.top, 8)
-                                .accessibility(label: Text(LocalizedStringKey(self.detailAccessibility ?? self.detail!)))
+                                .accessibility(label: Text(self.detailAccessibility!))
                         }
                     }
+                        .accessibilityElement(children: .combine)   // TODO - delete once SwiftUI bug is solved
                 }
                     .disabled(self.detail == nil)
                     .padding(16)
@@ -76,7 +92,7 @@ public struct SBBBubbleView: View {
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(SBBColor.textBlack)
-                    .accessibilityElement(children: .combine)
+                    //.accessibilityElement(children: .combine) / TODO - uncomment once SwiftUI bug (.combine does not reload voiceover if children element Strings are changed) is solved
                     .accessibility(hint: ((self.detail == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
             }
                 .padding(.horizontal, 16)
