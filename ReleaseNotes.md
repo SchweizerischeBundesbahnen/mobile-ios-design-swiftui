@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.0.11 - 10 Mar 2020
+
+### Bugfixes
+* SBBBubbleView reloading voiceover on title change
+
 ## V0.0.10 - 05 Mar 2020
 
 ### Features
