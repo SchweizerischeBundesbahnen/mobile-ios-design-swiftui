@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.0.12 - 24 Mar 2020
+
+### Bugfixes
+* SBBSegmentedPicker shadow only on inner element
+
 ## V0.0.11 - 10 Mar 2020
 
 ### Bugfixes
