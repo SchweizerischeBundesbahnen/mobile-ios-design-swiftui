@@ -27,6 +27,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     .fill(SBBColor.controlBackground)
                     .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
                     .cornerRadius(20)
+                    .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selectionIndex))
                     .animation(.default)
 
@@ -62,7 +63,6 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
             .background(SBBColor.segmentedPickerBackground)
             .cornerRadius(22)
-            .shadow(radius: 4, y: 2)
     }
     
     private func segment(for xPosition: CGFloat, in parentWidth: CGFloat) -> Selection {
