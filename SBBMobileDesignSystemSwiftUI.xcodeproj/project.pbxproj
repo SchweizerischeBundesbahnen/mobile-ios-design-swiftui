@@ -24,7 +24,6 @@
 		7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */; };
 		7C6454892403F50A005997AB /* SBBDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6454882403F50A005997AB /* SBBDivider.swift */; };
 		7C64548B2403F690005997AB /* DividerViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C64548A2403F690005997AB /* DividerViewDemo.swift */; };
-		7C6665F723DB5E7E002549F1 /* SBBNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6665F623DB5E7E002549F1 /* SBBNavigationBar.swift */; };
 		7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C43038823FD86110033865F /* SBBSegmentedPicker.swift */; };
 		7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE98523DECD9B001ADBE8 /* Helper.swift */; };
 		7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE98823DED65C001ADBE8 /* SBBFont.swift */; };
@@ -92,7 +91,6 @@
 		2D804E9023D9D16300CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColors.swift; sourceTree = "<group>"; };
 		2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2D804EB123D9DAAB00CC9C0C /* SBBMobileDesignSystemSDK.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBMobileDesignSystemSDK.podspec.json; sourceTree = "<group>"; };
 		7C2B7E7023D9F8940012CF62 /* ColorsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsView.swift; sourceTree = "<group>"; };
 		7C2B7E7223DAC4FD0012CF62 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNotes.md; sourceTree = "<group>"; };
@@ -101,7 +99,6 @@
 		7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewDemo.swift; sourceTree = "<group>"; };
 		7C6454882403F50A005997AB /* SBBDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBDivider.swift; sourceTree = "<group>"; };
 		7C64548A2403F690005997AB /* DividerViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividerViewDemo.swift; sourceTree = "<group>"; };
-		7C6665F623DB5E7E002549F1 /* SBBNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBNavigationBar.swift; sourceTree = "<group>"; };
 		7CAFE98523DECD9B001ADBE8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		7CAFE98823DED65C001ADBE8 /* SBBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFont.swift; sourceTree = "<group>"; };
 		7CAFE98A23DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-ultralight-reduce.ttf"; sourceTree = "<group>"; };
@@ -124,6 +121,7 @@
 		7CDFFD8D23E9C77500250717 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CDFFD8E23E9C77600250717 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CDFFD8F23E9C77700250717 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A7DEBF272433A4F400CC330B /* SBBMobileDesignSystemSwiftUI.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBMobileDesignSystemSwiftUI.podspec.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +153,7 @@
 		2D804E4D23D9D0DF00CC9C0C = {
 			isa = PBXGroup;
 			children = (
-				2D804EB123D9DAAB00CC9C0C /* SBBMobileDesignSystemSDK.podspec.json */,
+				A7DEBF272433A4F400CC330B /* SBBMobileDesignSystemSwiftUI.podspec.json */,
 				7C2B7E7223DAC4FD0012CF62 /* README.md */,
 				7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */,
 				2D804E7623D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */,
@@ -179,7 +177,6 @@
 		2D804E5923D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
-				7C6665F523DB5E63002549F1 /* Modifiers */,
 				7C6665F423DB5DED002549F1 /* Views */,
 				2D804EAB23D9D1F000CC9C0C /* Colors */,
 				7CAFE98723DECFE1001ADBE8 /* Fonts */,
@@ -277,14 +274,6 @@
 				7C6454882403F50A005997AB /* SBBDivider.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		7C6665F523DB5E63002549F1 /* Modifiers */ = {
-			isa = PBXGroup;
-			children = (
-				7C6665F623DB5E7E002549F1 /* SBBNavigationBar.swift */,
-			);
-			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		7CAFE98423DEC816001ADBE8 /* Helper */ = {
@@ -482,7 +471,6 @@
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
-				7C6665F723DB5E7E002549F1 /* SBBNavigationBar.swift in Sources */,
 				7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */,
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
@@ -695,12 +683,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.12;
+				MARKETING_VERSION = 0.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -721,12 +710,13 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.12;
+				MARKETING_VERSION = 0.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -746,11 +736,12 @@
 				DEVELOPMENT_TEAM = ZB8B4MY472;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.12;
+				MARKETING_VERSION = 0.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
@@ -770,11 +761,12 @@
 				DEVELOPMENT_TEAM = ZB8B4MY472;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.12;
+				MARKETING_VERSION = 0.0.13;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";
