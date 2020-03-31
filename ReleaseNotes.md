@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.0.13 - 31 Mar 2020
+
+### Bugfixes
+* With iOS 13.4 Apple has fixed NavigationBar tint bug and changed the way it works. So we use appearance to customize it.
+
 ## V0.0.12 - 24 Mar 2020
 
 ### Bugfixes
