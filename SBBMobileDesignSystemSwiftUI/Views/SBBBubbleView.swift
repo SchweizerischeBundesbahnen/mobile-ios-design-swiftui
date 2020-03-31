@@ -46,8 +46,7 @@ public struct SBBBubbleView: View {
     public var body: some View {
         ZStack(alignment: .top) {
             Rectangle()
-                //.fill(SBBColor.red)
-                .fill(SBBColor.bubbleRedTODORemove)   // TODO - remove once translucency can be set to false for Navigationbar (current SwiftUI bug). Until then, we change the BubbleView Red color to match the SBBNavigationBar color.
+                .fill(SBBColor.red)
                 .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
             HStack {
                 HStack(alignment: .top, spacing: 16) {
