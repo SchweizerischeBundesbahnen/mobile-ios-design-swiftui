@@ -41,6 +41,9 @@ struct ContentView: View {
                     NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: $colorScheme)) {
                         Text("SegmentedPicker")
                     }
+                    NavigationLink(destination: TextAreaView(colorScheme: $colorScheme)) {
+                        Text("Textarea")
+                    }
                 }
             }
                 .colorScheme(colorScheme)
