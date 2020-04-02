@@ -8,11 +8,21 @@ import SBBMobileDesignSystemSwiftUI
 struct TextAreaView: View {
     
     @Binding var colorScheme: ColorScheme
-    @State private var text = ""//"My nice text"
+    @State private var text = "My nice text"
+    @State private var emptyText = ""
     
     var body: some View {
         VStack {
             SBBTextArea(text: $text, placeholder: "Placeholder")
+                .frame(maxHeight: 100)
+            Text("Content is: \(text)")
+            Button("Set default text") {
+                self.text = "My Nice text"
+            }
+            Button("Clear text") {
+                self.text = ""
+            }
+            SBBTextArea(text: $emptyText, placeholder: "Placeholder")
                 .frame(maxHeight: 100)
             Spacer()
         }

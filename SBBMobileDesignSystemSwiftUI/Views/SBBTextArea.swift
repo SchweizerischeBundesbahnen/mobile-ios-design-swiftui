@@ -9,8 +9,8 @@ public struct SBBTextArea: UIViewRepresentable {
     @Binding private var text: String
     private var placeholder: String?
     
-    private let descriptionLabel = UILabel()
-    private let placeholderLabel = UILabel()
+    let descriptionLabel = UILabel()
+    let placeholderLabel = UILabel()
     
     public init(text: Binding<String>, placeholder: String? = nil) {
         self._text = text
@@ -19,12 +19,15 @@ public struct SBBTextArea: UIViewRepresentable {
     
     public func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
-        
+        view.delegate = context.coordinator
+                        
         let scaledFontSize = UIFontMetrics.default.scaledValue(for: 16)
         view.font = UIFont(name: "SBBWeb-Light", size: scaledFontSize)
         view.textContainerInset = UIEdgeInsets(top: 17, left: 11, bottom: 16, right: 11)
         view.layer.cornerRadius = 16
         view.backgroundColor = UIColor(named: "controlBackground", in: Helper.bundle, compatibleWith: nil)
+        let placeholderScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
+        view.textContainerInset = UIEdgeInsets(top: placeholderScaledFontSize + 7, left: 11, bottom: 16, right: 11)
         
         descriptionLabel.text = placeholder
         let descriptionScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
@@ -49,13 +52,39 @@ public struct SBBTextArea: UIViewRepresentable {
         let trailingConstraint = placeholderLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         view.addConstraints([topConstraint, leadingConstraint, trailingConstraint])
         
+        let hasContent = !text.isEmpty
+        descriptionLabel.isHidden = !hasContent
+        placeholderLabel.isHidden = hasContent
+        
         return view
     }
 
     public func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
+        context.coordinator.updatePlaceholder(for: uiView)
+    }
+    
+    public func makeCoordinator() -> TextAreaCoordinator {
+        return TextAreaCoordinator(self)
+    }
+    
+    public class TextAreaCoordinator: NSObject, UITextViewDelegate {
         
-        let placeholderScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
-        uiView.textContainerInset = UIEdgeInsets(top: placeholderScaledFontSize + 7, left: 11, bottom: 16, right: 11)
+        private let parent: SBBTextArea
+        
+        public init(_ parent: SBBTextArea) {
+            self.parent = parent
+        }
+    
+        public func textViewDidChange(_ textView: UITextView) {
+            parent.text = textView.text
+            updatePlaceholder(for: textView)
+        }
+        
+        public func updatePlaceholder(for textView: UITextView) {
+            let hasContent = !textView.text.isEmpty
+            parent.descriptionLabel.isHidden = !hasContent
+            parent.placeholderLabel.isHidden = hasContent
+        }
     }
 }
