@@ -1,0 +1,40 @@
+//
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
+//
+
+import SwiftUI
+import SBBMobileDesignSystemSwiftUI
+
+struct TextFieldView: View {
+    
+    @Binding var colorScheme: ColorScheme
+    @State private var text1 = ""
+    @State private var text2 = "My nice Text"
+    @State private var text3 = ""
+    @State private var text4 = "My nice Text"
+    
+    var body: some View {
+        VStack {
+            Text("Without placeholder:")
+            SBBTextField(text: $text1)
+            SBBTextField(text: $text2)
+            Text("With placeholder:")
+            SBBTextField(text: $text3, title: "Placeholder")
+            SBBTextField(text: $text4, title: "Placeholder")
+            Spacer()
+        }
+        .padding(16)
+        .navigationBarTitle("TextField")
+        .background(SBBColor.background)
+        .colorScheme(colorScheme)
+    }
+}
+
+struct TextFieldView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            TextFieldView(colorScheme: .constant(.light))
+            TextFieldView(colorScheme: .constant(.dark))
+        }
+    }
+}

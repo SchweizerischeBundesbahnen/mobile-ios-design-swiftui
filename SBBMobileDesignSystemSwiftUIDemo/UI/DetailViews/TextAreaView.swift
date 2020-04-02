@@ -27,7 +27,7 @@ struct TextAreaView: View {
             Spacer()
         }
         .padding(16)
-        .navigationBarTitle("Textarea")
+        .navigationBarTitle("TextArea")
         .background(SBBColor.background)
         .colorScheme(colorScheme)
     }
