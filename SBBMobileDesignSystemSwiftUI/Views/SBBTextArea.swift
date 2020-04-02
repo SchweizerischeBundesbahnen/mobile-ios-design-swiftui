@@ -90,13 +90,11 @@ public struct SBBTextArea: UIViewRepresentable {
 }
 
 struct SBBTextArea_Previews: PreviewProvider {
-    @State static var text = ""
-    
     static var previews: some View {
         Group {
-            SBBTextArea(text: $text, placeholder: "Placeholder")
+            SBBTextArea(text: .constant(""), placeholder: "Placeholder")
                 .previewDisplayName("Light")
-            SBBTextArea(text: $text, placeholder: "Placeholder")
+            SBBTextArea(text: .constant(""), placeholder: "Placeholder")
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }

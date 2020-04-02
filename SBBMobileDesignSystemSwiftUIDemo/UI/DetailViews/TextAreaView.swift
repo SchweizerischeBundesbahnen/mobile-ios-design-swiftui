@@ -34,13 +34,10 @@ struct TextAreaView: View {
 }
 
 struct TextAreaView_Previews: PreviewProvider {
-    @State static var lightScheme: ColorScheme = .light
-    @State static var darkScheme: ColorScheme = .dark
-    
     static var previews: some View {
         Group {
-            TextAreaView(colorScheme: $lightScheme)
-            TextAreaView(colorScheme: $darkScheme)
+            TextAreaView(colorScheme: .constant(.light))
+            TextAreaView(colorScheme: .constant(.dark))
         }
     }
 }
