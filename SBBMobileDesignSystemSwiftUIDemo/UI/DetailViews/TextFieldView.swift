@@ -12,15 +12,19 @@ struct TextFieldView: View {
     @State private var text2 = "My nice Text"
     @State private var text3 = ""
     @State private var text4 = "My nice Text"
+    @State private var disabled = false
     
     var body: some View {
         VStack {
             Text("Without placeholder:")
-            SBBTextField(text: $text1)
-            SBBTextField(text: $text2)
+            SBBTextField(text: $text1).disabled(disabled)
+            SBBTextField(text: $text2).disabled(disabled)
             Text("With placeholder:")
-            SBBTextField(text: $text3, title: "Placeholder")
-            SBBTextField(text: $text4, title: "Placeholder")
+            SBBTextField(text: $text3, title: "Placeholder").disabled(disabled)
+            SBBTextField(text: $text4, title: "Placeholder").disabled(disabled)
+            Toggle(isOn: $disabled) {
+                Text("Disabled:")
+            }
             Spacer()
         }
         .padding(16)

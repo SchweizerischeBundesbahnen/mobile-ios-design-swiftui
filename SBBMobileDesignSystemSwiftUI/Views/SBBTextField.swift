@@ -6,6 +6,7 @@ import SwiftUI
 
 public struct SBBTextField: View {
     
+    @Environment(\.isEnabled) var isEnabled
     @Binding var text: String
     let title: String
     
@@ -20,7 +21,7 @@ public struct SBBTextField: View {
                 .padding(16)
                 .sbbFont(.body)
                 .offset(x: 0, y: (!text.isEmpty && !title.isEmpty) ? 7 : 0)
-                .foregroundColor(SBBColor.textBlack)
+                .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
             Text(title)
                 .sbbFont(.body, size: 10, lineSpacing: nil)
                 .offset(x: 16, y: -11)
