@@ -22,9 +22,7 @@ struct TextFieldView: View {
             Text("With placeholder:")
             SBBTextField(text: $text3, title: "Placeholder").disabled(disabled)
             SBBTextField(text: $text4, title: "Placeholder").disabled(disabled)
-            Toggle(isOn: $disabled) {
-                Text("Disabled:")
-            }
+            SBBCheckBox(isOn: $disabled, label: "Disabled")
             Spacer()
         }
         .padding(16)

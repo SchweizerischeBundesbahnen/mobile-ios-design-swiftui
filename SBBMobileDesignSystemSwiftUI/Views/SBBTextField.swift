@@ -6,8 +6,8 @@ import SwiftUI
 
 public struct SBBTextField: View {
     
-    @Environment(\.isEnabled) var isEnabled
-    @Binding var text: String
+    @Environment(\.isEnabled) private var isEnabled
+    @Binding private var text: String
     let title: String
     
     public init(text: Binding<String>, title: String = "") {

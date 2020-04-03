@@ -27,9 +27,7 @@ struct TextAreaView: View {
             SBBTextArea(text: $emptyText, placeholder: "Placeholder")
                 .frame(maxHeight: 100)
                 .disabled(disabled)
-            Toggle(isOn: $disabled) {
-                Text("Disabled:")
-            }
+            SBBCheckBox(isOn: $disabled, label: "Disabled")
             Spacer()
         }
         .padding(16)
