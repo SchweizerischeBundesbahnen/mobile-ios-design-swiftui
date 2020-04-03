@@ -10,11 +10,13 @@ struct TextAreaView: View {
     @Binding var colorScheme: ColorScheme
     @State private var text = "My nice text"
     @State private var emptyText = ""
+    @State private var disabled = false
     
     var body: some View {
         VStack {
             SBBTextArea(text: $text, placeholder: "Placeholder")
                 .frame(maxHeight: 100)
+                .disabled(disabled)
             Text("Content is: \(text)")
             Button("Set default text") {
                 self.text = "My Nice text"
@@ -24,6 +26,10 @@ struct TextAreaView: View {
             }
             SBBTextArea(text: $emptyText, placeholder: "Placeholder")
                 .frame(maxHeight: 100)
+                .disabled(disabled)
+            Toggle(isOn: $disabled) {
+                Text("Disabled:")
+            }
             Spacer()
         }
         .padding(16)

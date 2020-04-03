@@ -62,6 +62,12 @@ public struct SBBTextArea: UIViewRepresentable {
     public func updateUIView(_ uiView: UITextView, context: Context) {
         uiView.text = text
         context.coordinator.updatePlaceholder(for: uiView)
+        
+        if context.environment.isEnabled {
+            uiView.textColor = UIColor(named: "textBlack", in: Helper.bundle, compatibleWith: nil)
+        } else {
+            uiView.textColor = UIColor(named: "textMetal", in: Helper.bundle, compatibleWith: nil)
+        }
     }
     
     public func makeCoordinator() -> TextAreaCoordinator {
