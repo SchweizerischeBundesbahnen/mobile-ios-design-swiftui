@@ -33,6 +33,42 @@ public struct SBBFormGroup: View {
         rows = [AnyView(tuple.0), AnyView(tuple.1), AnyView(tuple.2), AnyView(tuple.3)]
     }
     
+    public init<C0: View, C1: View, C2: View, C3: View, C4: View>(title: String = "", @ViewBuilder content: () -> TupleView<(C0, C1, C2, C3, C4)>) {
+        self.title = title
+        let tuple = content().value
+        rows = [AnyView(tuple.0), AnyView(tuple.1), AnyView(tuple.2), AnyView(tuple.3), AnyView(tuple.4)]
+    }
+    
+    public init<C0: View, C1: View, C2: View, C3: View, C4: View, C5: View>(title: String = "", @ViewBuilder content: () -> TupleView<(C0, C1, C2, C3, C4, C5)>) {
+        self.title = title
+        let tuple = content().value
+        rows = [AnyView(tuple.0), AnyView(tuple.1), AnyView(tuple.2), AnyView(tuple.3), AnyView(tuple.4), AnyView(tuple.5)]
+    }
+    
+    public init<C0: View, C1: View, C2: View, C3: View, C4: View, C5: View, C6: View>(title: String = "", @ViewBuilder content: () -> TupleView<(C0, C1, C2, C3, C4, C5, C6)>) {
+        self.title = title
+        let tuple = content().value
+        rows = [AnyView(tuple.0), AnyView(tuple.1), AnyView(tuple.2), AnyView(tuple.3), AnyView(tuple.4), AnyView(tuple.5), AnyView(tuple.6)]
+    }
+    
+    public init<C0: View, C1: View, C2: View, C3: View, C4: View, C5: View, C6: View, C7: View>(title: String = "", @ViewBuilder content: () -> TupleView<(C0, C1, C2, C3, C4, C5, C6, C7)>) {
+        self.title = title
+        let tuple = content().value
+        rows = [AnyView(tuple.0), AnyView(tuple.1), AnyView(tuple.2), AnyView(tuple.3), AnyView(tuple.4), AnyView(tuple.5), AnyView(tuple.6), AnyView(tuple.7)]
+    }
+    
+    public init<C0: View, C1: View, C2: View, C3: View, C4: View, C5: View, C6: View, C7: View, C8: View>(title: String = "", @ViewBuilder content: () -> TupleView<(C0, C1, C2, C3, C4, C5, C6, C7, C8)>) {
+        self.title = title
+        let tuple = content().value
+        rows = [AnyView(tuple.0), AnyView(tuple.1), AnyView(tuple.2), AnyView(tuple.3), AnyView(tuple.4), AnyView(tuple.5), AnyView(tuple.6), AnyView(tuple.7), AnyView(tuple.8)]
+    }
+    
+    public init<C0: View, C1: View, C2: View, C3: View, C4: View, C5: View, C6: View, C7: View, C8: View, C9: View>(title: String = "", @ViewBuilder content: () -> TupleView<(C0, C1, C2, C3, C4, C5, C6, C7, C8, C9)>) {
+        self.title = title
+        let tuple = content().value
+        rows = [AnyView(tuple.0), AnyView(tuple.1), AnyView(tuple.2), AnyView(tuple.3), AnyView(tuple.4), AnyView(tuple.5), AnyView(tuple.6), AnyView(tuple.7), AnyView(tuple.8), AnyView(tuple.9)]
+    }
+    
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if !title.isEmpty {
