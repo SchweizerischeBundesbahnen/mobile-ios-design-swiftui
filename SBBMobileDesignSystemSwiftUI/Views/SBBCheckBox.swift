@@ -33,7 +33,7 @@ public struct SBBCheckBox: View {
         }
         .padding(16)
         .onTapGesture {
-            self.isOn = !self.isOn
+            self.isOn.toggle()
         }
     }
 }
