@@ -44,9 +44,12 @@
 		A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706C155243715060029BD8D /* SBBCheckBox.swift */; };
 		A737348A2436135B00E34716 /* SBBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73734892436135B00E34716 /* SBBTextField.swift */; };
 		A737348C2436141200E34716 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737348B2436141200E34716 /* TextFieldView.swift */; };
+		A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */; };
+		A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C8B722437634500BF26E3 /* ArrayBuilder.swift */; };
 		A75AAE2024373C0C0054B54A /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */; };
 		A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA362434951500753AE1 /* SBBTextArea.swift */; };
 		A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA3A2434958600753AE1 /* TextAreaView.swift */; };
+		A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F54687243B5BED0068B542 /* FormGroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -130,10 +133,13 @@
 		A706C155243715060029BD8D /* SBBCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBCheckBox.swift; sourceTree = "<group>"; };
 		A73734892436135B00E34716 /* SBBTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextField.swift; sourceTree = "<group>"; };
 		A737348B2436141200E34716 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFormGroup.swift; sourceTree = "<group>"; };
+		A74C8B722437634500BF26E3 /* ArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayBuilder.swift; sourceTree = "<group>"; };
 		A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
 		A7DEBF272433A4F400CC330B /* SBBMobileDesignSystemSwiftUI.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBMobileDesignSystemSwiftUI.podspec.json; sourceTree = "<group>"; };
 		A7EDCA362434951500753AE1 /* SBBTextArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextArea.swift; sourceTree = "<group>"; };
 		A7EDCA3A2434958600753AE1 /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
+		A7F54687243B5BED0068B542 /* FormGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormGroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +283,7 @@
 				A7EDCA3A2434958600753AE1 /* TextAreaView.swift */,
 				A737348B2436141200E34716 /* TextFieldView.swift */,
 				A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */,
+				A7F54687243B5BED0068B542 /* FormGroupView.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -287,6 +294,7 @@
 				7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */,
 				A706C155243715060029BD8D /* SBBCheckBox.swift */,
 				7C6454882403F50A005997AB /* SBBDivider.swift */,
+				A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */,
 				7C43038823FD86110033865F /* SBBSegmentedPicker.swift */,
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
@@ -297,6 +305,7 @@
 		7CAFE98423DEC816001ADBE8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
 			);
 			path = Helper;
@@ -486,11 +495,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6454892403F50A005997AB /* SBBDivider.swift in Sources */,
+				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
 				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
+				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
 				7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */,
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
 				A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */,
@@ -509,6 +520,7 @@
 				2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */,
 				2D804E7C23D9D16000CC9C0C /* ContentView.swift in Sources */,
 				7C43038723FD72610033865F /* SegmentedPickerViewDemo.swift in Sources */,
+				A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */,
 				A75AAE2024373C0C0054B54A /* CheckBoxView.swift in Sources */,
 				A737348C2436141200E34716 /* TextFieldView.swift in Sources */,
 				7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */,

@@ -50,6 +50,9 @@ struct ContentView: View {
                     NavigationLink(destination: CheckBoxView(colorScheme: $colorScheme)) {
                         Text("CheckBox")
                     }
+                    NavigationLink(destination: FormGroupView(colorScheme: $colorScheme)) {
+                        Text("FormGroup")
+                    }
                 }
             }
                 .colorScheme(colorScheme)

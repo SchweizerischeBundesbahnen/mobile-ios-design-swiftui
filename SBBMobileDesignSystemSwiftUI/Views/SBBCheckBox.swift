@@ -31,7 +31,7 @@ public struct SBBCheckBox: View {
             }
             Spacer()
         }
-        .padding([.top, .bottom], 16)
+        .padding(16)
         .onTapGesture {
             self.isOn = !self.isOn
         }

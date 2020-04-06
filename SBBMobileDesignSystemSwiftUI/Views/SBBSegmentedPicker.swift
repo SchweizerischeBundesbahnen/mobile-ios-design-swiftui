@@ -94,20 +94,3 @@ struct SBBSegmentedPicker_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
-
-// Somehow the SwiftUI @ViewBuilder doesn't seem to work properly (it always calls the default initializer and not the appropiate one with the correct number of TupleViews). That's why we're using this workaround for now. Drawback: You can only assign views of the same type (e.g. TextView).
-// https://github.com/SwiftUIX/SwiftUIX/blob/master/Sources/Intermodular/Helpers/Swift/ArrayBuilder.swift
-@_functionBuilder
-public class ArrayBuilder<Element> {
-    public static func buildBlock() -> [Element] {
-        return []
-    }
-    
-    public static func buildBlock(_ element: Element) -> [Element] {
-        return [element]
-    }
-    
-    public static func buildBlock(_ elements: Element...) -> [Element] {
-        return elements
-    }
-}
