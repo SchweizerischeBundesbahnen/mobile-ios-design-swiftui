@@ -49,6 +49,7 @@ public struct SBBColor {
     public static var textWhite: Color { color(withString: "textWhite") }
     public static var background: Color { color(withString: "background") }
     public static var buttonBackground: Color { color(withString: "buttonBackground") }
+    public static var disabledButtonBackground: Color { color(withString: "disabledButtonBackground") }
     public static var viewBackground: Color { color(withString: "viewBackground") }
     public static var controlBackground: Color { color(withString: "controlBackground") }
     public static var divider: Color { color(withString: "divider") }

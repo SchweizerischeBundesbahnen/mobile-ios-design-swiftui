@@ -47,6 +47,9 @@
 		A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */; };
 		A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C8B722437634500BF26E3 /* ArrayBuilder.swift */; };
 		A75AAE2024373C0C0054B54A /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */; };
+		A7DE2066243C5A3B00557F4D /* SBBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE2065243C5A3B00557F4D /* SBBButton.swift */; };
+		A7DE2069243C5A7900557F4D /* SBBButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE2068243C5A7900557F4D /* SBBButtonStyle.swift */; };
+		A7DE206B243C60FE00557F4D /* ButtonDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE206A243C60FE00557F4D /* ButtonDemo.swift */; };
 		A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA362434951500753AE1 /* SBBTextArea.swift */; };
 		A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA3A2434958600753AE1 /* TextAreaView.swift */; };
 		A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F54687243B5BED0068B542 /* FormGroupView.swift */; };
@@ -136,6 +139,9 @@
 		A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFormGroup.swift; sourceTree = "<group>"; };
 		A74C8B722437634500BF26E3 /* ArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayBuilder.swift; sourceTree = "<group>"; };
 		A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		A7DE2065243C5A3B00557F4D /* SBBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBButton.swift; sourceTree = "<group>"; };
+		A7DE2068243C5A7900557F4D /* SBBButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBButtonStyle.swift; sourceTree = "<group>"; };
+		A7DE206A243C60FE00557F4D /* ButtonDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDemo.swift; sourceTree = "<group>"; };
 		A7DEBF272433A4F400CC330B /* SBBMobileDesignSystemSwiftUI.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBMobileDesignSystemSwiftUI.podspec.json; sourceTree = "<group>"; };
 		A7EDCA362434951500753AE1 /* SBBTextArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextArea.swift; sourceTree = "<group>"; };
 		A7EDCA3A2434958600753AE1 /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
@@ -199,6 +205,7 @@
 				2D804EAB23D9D1F000CC9C0C /* Colors */,
 				7CAFE98723DECFE1001ADBE8 /* Fonts */,
 				2D804EAE23D9D3BE00CC9C0C /* Resources */,
+				A7DE2067243C5A5A00557F4D /* Styles */,
 				7CAFE98423DEC816001ADBE8 /* Helper */,
 				2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */,
 				2D804E5B23D9D0DF00CC9C0C /* Info.plist */,
@@ -284,6 +291,7 @@
 				A737348B2436141200E34716 /* TextFieldView.swift */,
 				A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */,
 				A7F54687243B5BED0068B542 /* FormGroupView.swift */,
+				A7DE206A243C60FE00557F4D /* ButtonDemo.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -291,6 +299,7 @@
 		7C6665F423DB5DED002549F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A7DE2065243C5A3B00557F4D /* SBBButton.swift */,
 				7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */,
 				A706C155243715060029BD8D /* SBBCheckBox.swift */,
 				7C6454882403F50A005997AB /* SBBDivider.swift */,
@@ -334,6 +343,14 @@
 				7CDFFD8C23E9C77300250717 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A7DE2067243C5A5A00557F4D /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A7DE2068243C5A7900557F4D /* SBBButtonStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,6 +513,7 @@
 			files = (
 				7C6454892403F50A005997AB /* SBBDivider.swift in Sources */,
 				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
+				A7DE2069243C5A7900557F4D /* SBBButtonStyle.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
@@ -503,6 +521,7 @@
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
 				7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */,
+				A7DE2066243C5A3B00557F4D /* SBBButton.swift in Sources */,
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
 				A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
@@ -526,6 +545,7 @@
 				7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */,
 				7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */,
 				7C64548B2403F690005997AB /* DividerViewDemo.swift in Sources */,
+				A7DE206B243C60FE00557F4D /* ButtonDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

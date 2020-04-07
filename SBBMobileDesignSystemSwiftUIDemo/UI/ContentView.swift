@@ -53,6 +53,9 @@ struct ContentView: View {
                     NavigationLink(destination: FormGroupView(colorScheme: $colorScheme)) {
                         Text("FormGroup")
                     }
+                    NavigationLink(destination: ButtonDemo(colorScheme: $colorScheme)) {
+                        Text("Button")
+                    }
                 }
             }
                 .colorScheme(colorScheme)
