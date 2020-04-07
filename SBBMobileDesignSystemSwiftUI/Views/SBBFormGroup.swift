@@ -74,7 +74,8 @@ public struct SBBFormGroup: View {
             if !title.isEmpty {
                 Text(title)
                     .sbbFont(.body)
-                    .padding(16)
+                    .padding(.top, 24)
+                    .padding([.bottom, .leading, .trailing], 16)
             }
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(0 ..< rows.count) { index in

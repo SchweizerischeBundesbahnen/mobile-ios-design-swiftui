@@ -16,7 +16,7 @@ public struct SBBCheckBox: View {
     }
     
     public var body: some View {
-        HStack(spacing: 16) {
+        HStack(spacing: 8) {
             if isOn && isEnabled {
                 Image("on", bundle: Helper.bundle)
             } else if isOn {
