@@ -79,12 +79,14 @@ public struct SBBFormGroup: View {
             }
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(0 ..< rows.count) { index in
-                    HStack {
-                        self.rows[index]
-                        Spacer()
-                    }
-                    if index < self.rows.count - 1 {
-                        SBBDivider().padding(.leading, 16)
+                    VStack(spacing: 0) {
+                        HStack {
+                            self.rows[index]
+                            Spacer()
+                        }
+                        if index < self.rows.count - 1 {
+                            SBBDivider().padding(.leading, 16)
+                        }
                     }
                 }
             }
