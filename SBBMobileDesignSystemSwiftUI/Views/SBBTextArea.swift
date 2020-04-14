@@ -29,7 +29,9 @@ public struct SBBTextArea: UIViewRepresentable {
         let placeholderScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
         view.textContainerInset = UIEdgeInsets(top: placeholderScaledFontSize + 7, left: 11, bottom: 16, right: 11)
         
-        descriptionLabel.text = placeholder
+        if let placeholder = placeholder {
+            descriptionLabel.text = NSLocalizedString(placeholder, comment: "")
+        }
         let descriptionScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
         descriptionLabel.font = UIFont(name: "SBBWeb-Light", size: descriptionScaledFontSize)
         descriptionLabel.textColor = UIColor(named: "textMetal", in: Helper.bundle, compatibleWith: nil)

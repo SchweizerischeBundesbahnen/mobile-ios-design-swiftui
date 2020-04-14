@@ -8,25 +8,36 @@ public struct SBBTextField: View {
     
     @Environment(\.isEnabled) private var isEnabled
     @Binding private var text: String
-    let title: String
+    let title: LocalizedStringKey?
     
-    public init(text: Binding<String>, title: String = "") {
+    public init(text: Binding<String>, title: String? = nil) {
         self._text = text
-        self.title = title
+        if let title = title {
+            self.title = LocalizedStringKey(title)
+        } else {
+            self.title = nil
+        }
     }
     
     public var body: some View {
         ZStack(alignment: .leading) {
-            TextField(title, text: $text)
-                .padding(16)
-                .sbbFont(.body)
-                .offset(x: 0, y: (!text.isEmpty && !title.isEmpty) ? 7 : 0)
-                .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
-            Text(title)
-                .sbbFont(.body, size: 10, lineSpacing: nil)
-                .offset(x: 16, y: -11)
-                .foregroundColor(SBBColor.textMetal)
-                .opacity(text.isEmpty ? 0.0 : 1.0)
+            if title != nil {
+                TextField(title!, text: $text)
+                    .padding(16)
+                    .sbbFont(.body)
+                    .offset(x: 0, y: (!text.isEmpty) ? 7 : 0)
+                    .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
+                Text(title!)
+                    .sbbFont(.body, size: 10, lineSpacing: nil)
+                    .offset(x: 16, y: -11)
+                    .foregroundColor(SBBColor.textMetal)
+                    .opacity(text.isEmpty ? 0.0 : 1.0)
+            } else {
+                TextField("", text: $text)
+                    .padding(16)
+                    .sbbFont(.body)
+                    .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
+            }
         }
         .frame(height: 48)
         .background(SBBColor.controlBackground)

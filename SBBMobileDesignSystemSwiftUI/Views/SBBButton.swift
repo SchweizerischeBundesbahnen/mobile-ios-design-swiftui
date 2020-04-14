@@ -8,11 +8,11 @@ public struct SBBButton: View {
     
     @Environment(\.isEnabled) private var isEnabled
     private let action: () -> Void
-    private let label: String
+    private let label: LocalizedStringKey
     
     public init(action: @escaping () -> Void, label: String) {
         self.action = action
-        self.label = label
+        self.label = LocalizedStringKey(label)
     }
     
     public var body: some View {

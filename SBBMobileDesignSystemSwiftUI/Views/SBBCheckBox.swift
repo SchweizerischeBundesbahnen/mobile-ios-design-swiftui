@@ -8,11 +8,15 @@ public struct SBBCheckBox: View {
     
     @Environment(\.isEnabled) private var isEnabled
     @Binding private var isOn: Bool
-    private var label: String
+    private var label: LocalizedStringKey?
     
-    public init(isOn: Binding<Bool>, label: String = "") {
+    public init(isOn: Binding<Bool>, label: String? = nil) {
         self._isOn = isOn
-        self.label = label
+        if let label = label {
+            self.label = LocalizedStringKey(label)
+        } else {
+            self.label = nil
+        }
     }
     
     public var body: some View {
@@ -24,8 +28,8 @@ public struct SBBCheckBox: View {
             } else {
                 Image("off", bundle: Helper.bundle)
             }
-            if !label.isEmpty {
-                Text(label)
+            if label != nil {
+                Text(label!)
                     .sbbFont(.body)
                     .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
             }
