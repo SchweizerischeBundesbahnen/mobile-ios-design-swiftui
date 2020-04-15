@@ -31,6 +31,8 @@ public struct SBBTextArea: UIViewRepresentable {
         
         if let placeholder = placeholder {
             descriptionLabel.text = NSLocalizedString(placeholder, comment: "")
+            view.accessibilityLabel = placeholder
+            view.accessibilityValue = text
         }
         let descriptionScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
         descriptionLabel.font = UIFont(name: "SBBWeb-Light", size: descriptionScaledFontSize)

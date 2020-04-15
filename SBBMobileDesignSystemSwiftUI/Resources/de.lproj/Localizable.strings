@@ -9,3 +9,7 @@
 // SBBSegmentedPicker
 "selected" = "Auswahl";
 "of" = "von";
+
+// SBBCheckBox
+"Enabled" = "Aktiviert";
+"Disabled" = "Deaktiviert";

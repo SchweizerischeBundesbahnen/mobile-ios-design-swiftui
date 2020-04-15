@@ -39,6 +39,13 @@ public struct SBBCheckBox: View {
         .onTapGesture {
             self.isOn.toggle()
         }
+        .accessibilityElement(children: .ignore)
+        .accessibility(label: label != nil ? Text(label!) : Text(""))
+        .accessibility(addTraits: .isButton)
+        .accessibility(value: isOn ? Text("\("Enabled".localized)") : Text("\("Disabled".localized)"))
+        .accessibilityAction {
+            self.isOn.toggle()
+        }
     }
 }
 

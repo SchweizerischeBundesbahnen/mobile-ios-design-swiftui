@@ -116,6 +116,7 @@ public struct SBBFormGroup: View {
                     .sbbFont(.body)
                     .padding(.top, 24)
                     .padding([.bottom, .leading, .trailing], 16)
+                    .accessibility(addTraits: .isHeader)
             }
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(0 ..< rows.count) { index in
