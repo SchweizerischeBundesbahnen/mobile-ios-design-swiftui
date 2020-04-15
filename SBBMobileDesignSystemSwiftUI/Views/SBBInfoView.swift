@@ -51,7 +51,7 @@ public struct SBBInfoView: View {
                     }
                 }
                     .padding(16)
-                    .background(SBBColor.controlBackground)
+                    .background(SBBColor.viewBackground)
                     .cornerRadius(16)
                     .accentColor(SBBColor.textBlack)
                     .accessibilityElement(children: .combine)

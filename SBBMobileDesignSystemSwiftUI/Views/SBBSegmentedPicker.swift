@@ -26,7 +26,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
             ZStack(alignment: .leading) {
                 // Highlighter for current segment
                 Rectangle()
-                    .fill(SBBColor.controlBackground)
+                    .fill(SBBColor.tabViewBackground)
                     .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
                     .cornerRadius(20)
                     .overlay(

@@ -92,7 +92,7 @@ public struct SBBBubbleView: View {
                 }
                     .disabled(self.detail == nil)
                     .padding(16)
-                    .background(SBBColor.controlBackground)
+                    .background(SBBColor.tabViewBackground)
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(SBBColor.textBlack)

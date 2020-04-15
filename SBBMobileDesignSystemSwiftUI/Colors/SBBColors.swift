@@ -41,7 +41,9 @@ public struct SBBColor {
     public static var peach: Color { color(withString: "Peach") }
     public static var lemon: Color { color(withString: "Lemon") }
     public static var green: Color { color(withString: "Green") }
-    
+    public static var shadow: Color { color(withString: "Shadow") }
+    public static var charcoal: Color { color(withString: "Charcoal") }
+
     // Semantic Colors
     public static var textBlack: Color { color(withString: "textBlack") }
     public static var textMetal: Color { color(withString: "textMetal") }
@@ -50,12 +52,13 @@ public struct SBBColor {
     public static var background: Color { color(withString: "background") }
     public static var buttonBackground: Color { color(withString: "buttonBackground") }
     public static var viewBackground: Color { color(withString: "viewBackground") }
-    public static var controlBackground: Color { color(withString: "controlBackground") }
     public static var divider: Color { color(withString: "divider") }
     public static var border: Color { color(withString: "border") }
-    
+    public static var tabViewBackground: Color { color(withString: "tabViewBackground") }
+
     // Private semantic Colors (only to be used for MDS Elements)
     static var segmentedPickerBackground: Color { color(withString: "segmentedPickerBackground") }
+    static var segmentedPickerSelectedSegmentBackground: Color { color(withString: "segmentedPickerSelectedSegmentBackground") }
     
     private static func color(withString color: String) -> Color {
         return Color(UIColor(named: color, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white)
