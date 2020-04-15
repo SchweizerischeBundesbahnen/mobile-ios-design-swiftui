@@ -1,6 +1,6 @@
 {
   "name": "SBBMobileDesignSystemSwiftUI",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "swift_version": "5.1",
   "summary": "This SDK contains the UI elements that respects the SBB Styleguides (only for SwiftUI).",
   "homepage": "https://digital.sbb.ch/de/mobile",
