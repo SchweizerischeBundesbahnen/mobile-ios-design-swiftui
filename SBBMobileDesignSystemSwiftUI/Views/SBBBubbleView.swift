@@ -53,33 +53,38 @@ public struct SBBBubbleView: View {
                     image
                         .frame(width: 36, height: 36, alignment: .center)
                         .accessibility(hidden: true)
-                    VStack(alignment: .leading, spacing: 0) {
-                        HStack(alignment: .center) {
-                            Text(self.title)
-                                .sbbFont(.titleDefault)
-                                .accessibility(label: Text(self.titleAccessibility))
-                            Spacer()
-                            if (self.detail != nil) {
-                                if self.expanded {
-                                    Image("chevron_small_up", bundle: Helper.bundle)
+                    VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 0) {
+                            HStack(alignment: .center) {
+                                Text(self.title)
+                                    .sbbFont(.titleDefault)
+                                    .accessibility(label: Text(self.titleAccessibility))
+                                Spacer()
+                                if (self.detail != nil) {
+                                    Group {
+                                        if self.expanded {
+                                            Image("chevron_small_up", bundle: Helper.bundle)
+                                        } else {
+                                            Image("chevron_small_down", bundle: Helper.bundle)
+                                        }
+                                    }
                                         .accessibility(hidden: true)
-                                } else {
-                                    Image("chevron_small_down", bundle: Helper.bundle)
-                                        .accessibility(hidden: true)
+                                        .frame(width: 32, height: 32)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(SBBColor.border))
                                 }
                             }
-                        }
-                            .frame(minHeight: 36, maxHeight: 36)
-                        if (self.subtitle != nil) {
-                            Text(self.subtitle!)
-                                .sbbFont(.body)
-                                .accessibility(label: Text(self.subtitleAccessibility!))
+                                .frame(minHeight: 36, maxHeight: 36)
+                            if (self.subtitle != nil) {
+                                Text(self.subtitle!)
+                                    .sbbFont(.body)
+                                    .accessibility(label: Text(self.subtitleAccessibility!))
+                            }
                         }
                         if (self.detail != nil) && self.expanded {
                             SBBDivider()
                             Text(self.detail!)
                                 .sbbFont(.body)
-                                .padding(.top, 8)
                                 .accessibility(label: Text(self.detailAccessibility!))
                         }
                     }

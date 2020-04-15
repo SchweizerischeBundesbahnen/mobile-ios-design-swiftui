@@ -1,5 +1,12 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.0.14 - 15 Apr 2020
+
+### Features
+* SBBInfoView
+* SBBBubbleView with new arrow styling (featuring a circular border around the arrow)
+* New semantic SBBColor .border
+
 ## V0.0.13 - 31 Mar 2020
 
 ### Bugfixes

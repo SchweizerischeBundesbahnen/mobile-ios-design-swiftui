@@ -117,6 +117,21 @@ If your BubbleView contains no detail (and is not expandable), you can use it li
         }
     }
 ```
+
+## SBBInfoView
+
+SBBInfoView is an expandable view with a title and a text to be used for showing general information. You need to set its title. Optional parameters are its detail, titleAccessibility,  and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
+
+You can use the SBBInfoView it like so:
+
+```
+    @State var expanded = true
+    
+    var body: some View {
+        SBBInfoView(title: "Your title", detail: "Your longer text", expanded: $expanded)
+    }
+```
+
 ## SBBSegmentedPicker
 
 SBBSegmentedPicker is the SBB-Implementation of the standard SwiftUI Picker with SegmentedPickerStyle. You need to set its current selection and all its unique tags (of type Hashable).
