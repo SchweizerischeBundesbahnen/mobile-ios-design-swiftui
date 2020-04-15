@@ -131,7 +131,7 @@ public struct SBBFormGroup: View {
                     }
                 }
             }
-            .background(SBBColor.controlBackground)
+            .background(SBBColor.viewBackground)
             .cornerRadius(16)
         }
     }

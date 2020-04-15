@@ -43,7 +43,7 @@ public struct SBBTextField: View {
             }
         }
         .frame(height: 48)
-        .background(SBBColor.controlBackground)
+        .background(SBBColor.viewBackground)
         .cornerRadius(16)
     }
 }

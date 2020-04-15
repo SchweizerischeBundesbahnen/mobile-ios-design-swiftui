@@ -25,7 +25,7 @@ public struct SBBTextArea: UIViewRepresentable {
         view.font = UIFont(name: "SBBWeb-Light", size: scaledFontSize)
         view.textContainerInset = UIEdgeInsets(top: 17, left: 11, bottom: 16, right: 11)
         view.layer.cornerRadius = 16
-        view.backgroundColor = UIColor(named: "controlBackground", in: Helper.bundle, compatibleWith: nil)
+        view.backgroundColor = UIColor(named: "viewBackground", in: Helper.bundle, compatibleWith: nil)
         let placeholderScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
         view.textContainerInset = UIEdgeInsets(top: placeholderScaledFontSize + 7, left: 11, bottom: 16, right: 11)
         
