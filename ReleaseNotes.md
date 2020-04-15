@@ -4,7 +4,7 @@
 
 ### Features
 * SBBInfoView
-* SBBBubbleView with new arrow styling (featuring a circular border around the arrow).
+* SBBBubbleView with new arrow styling (featuring a circular border around the arrow) and animated toggle.
 * SBBSegmentedPicker has now border around selected segment in dark mode.
 * New semantic SBBColor .border.
 * New semantic SBBColor .tabViewBackground replaces .controlBackground.

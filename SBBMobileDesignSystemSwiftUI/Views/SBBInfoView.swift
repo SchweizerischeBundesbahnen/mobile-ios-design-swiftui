@@ -33,11 +33,8 @@ public struct SBBInfoView: View {
                             .accessibility(label: Text(self.titleAccessibility))
                         Spacer()
                         Group {
-                            if self.expanded {
-                                Image("chevron_small_up", bundle: Helper.bundle)
-                            } else {
-                                Image("chevron_small_down", bundle: Helper.bundle)
-                            }
+                            Image("chevron_small_up", bundle: Helper.bundle)
+                                .rotationEffect(.degrees(self.expanded ? 0 : 180))
                         }
                             .accessibility(hidden: true)
                             .frame(width: 32, height: 32)
@@ -57,7 +54,9 @@ public struct SBBInfoView: View {
                     .accessibilityElement(children: .combine)
                     .accessibility(hint: self.expanded ? Text("collapse".localized) : Text("expand".localized))
                     .onTapGesture {
-                        self.expanded.toggle()
+                        withAnimation{
+                            self.expanded.toggle()
+                        }
                     }
             }
         }

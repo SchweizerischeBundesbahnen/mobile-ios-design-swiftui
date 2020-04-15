@@ -62,11 +62,8 @@ public struct SBBBubbleView: View {
                                 Spacer()
                                 if (self.detail != nil) {
                                     Group {
-                                        if self.expanded {
-                                            Image("chevron_small_up", bundle: Helper.bundle)
-                                        } else {
-                                            Image("chevron_small_down", bundle: Helper.bundle)
-                                        }
+                                        Image("chevron_small_up", bundle: Helper.bundle)
+                                            .rotationEffect(.degrees(self.expanded ? 0 : 180))
                                     }
                                         .accessibility(hidden: true)
                                         .frame(width: 32, height: 32)
@@ -101,7 +98,9 @@ public struct SBBBubbleView: View {
             }
                 .padding(.horizontal, 16)
                 .onTapGesture {
-                    self.expanded.toggle()
+                    withAnimation{
+                        self.expanded.toggle()
+                    }
                 }
         }
     }
