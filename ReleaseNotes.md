@@ -1,5 +1,18 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.0.14 - 15 Apr 2020
+
+### Features
+* SBBInfoView
+* SBBBubbleView with new arrow styling (featuring a circular border around the arrow) and animated toggle.
+* SBBSegmentedPicker has now border around selected segment in dark mode.
+* New semantic SBBColor .border.
+* New semantic SBBColor .tabViewBackground replaces .controlBackground.
+* New official SBBColors .charcoal and .shadow.
+
+### Bugfixes
+* Updated background colors of SBBBubbleView and SBBSegmentedPicker
+
 ## V0.0.13 - 31 Mar 2020
 
 ### Bugfixes

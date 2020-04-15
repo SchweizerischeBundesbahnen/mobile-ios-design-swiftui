@@ -12,6 +12,8 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
     private var selectionIndex: Int {
         return tags.firstIndex(of: selection) ?? 0
     }
+    
+    @Environment(\.colorScheme) var colorScheme
      
     public init(selection: Binding<Selection>, tags: [Selection], @ArrayBuilder<Segment> content: () -> [Segment]) {
         self._selection = selection
@@ -24,9 +26,13 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
             ZStack(alignment: .leading) {
                 // Highlighter for current segment
                 Rectangle()
-                    .fill(SBBColor.controlBackground)
+                    .fill(SBBColor.tabViewBackground)
                     .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
                     .cornerRadius(20)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(SBBColor.smoke, lineWidth: self.colorScheme == .dark ? 1 : 0)   // only draw border for dark mode
+                    )
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selectionIndex))
                     .animation(.default)

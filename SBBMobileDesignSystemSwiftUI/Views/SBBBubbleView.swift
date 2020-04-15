@@ -53,33 +53,35 @@ public struct SBBBubbleView: View {
                     image
                         .frame(width: 36, height: 36, alignment: .center)
                         .accessibility(hidden: true)
-                    VStack(alignment: .leading, spacing: 0) {
-                        HStack(alignment: .center) {
-                            Text(self.title)
-                                .sbbFont(.titleDefault)
-                                .accessibility(label: Text(self.titleAccessibility))
-                                .padding([.bottom, .top], 8)
-                            Spacer()
-                            if (self.detail != nil) {
-                                if self.expanded {
-                                    Image("chevron_small_up", bundle: Helper.bundle)
+                    VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 0) {
+                            HStack(alignment: .center) {
+                                Text(self.title)
+                                    .sbbFont(.titleDefault)
+                                    .accessibility(label: Text(self.titleAccessibility))
+                                    .padding([.bottom, .top], 8)
+                                Spacer()
+                                if (self.detail != nil) {
+                                    Group {
+                                        Image("chevron_small_up", bundle: Helper.bundle)
+                                            .rotationEffect(.degrees(self.expanded ? 0 : 180))
+                                    }
                                         .accessibility(hidden: true)
-                                } else {
-                                    Image("chevron_small_down", bundle: Helper.bundle)
-                                        .accessibility(hidden: true)
+                                        .frame(width: 32, height: 32)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(SBBColor.border))
                                 }
                             }
-                        }
-                        if (self.subtitle != nil) {
-                            Text(self.subtitle!)
-                                .sbbFont(.body)
-                                .accessibility(label: Text(self.subtitleAccessibility!))
+                            if (self.subtitle != nil) {
+                                Text(self.subtitle!)
+                                    .sbbFont(.body)
+                                    .accessibility(label: Text(self.subtitleAccessibility!))
+                            }
                         }
                         if (self.detail != nil) && self.expanded {
                             SBBDivider()
                             Text(self.detail!)
                                 .sbbFont(.body)
-                                .padding(.top, 8)
                                 .accessibility(label: Text(self.detailAccessibility!))
                         }
                     }
@@ -87,7 +89,7 @@ public struct SBBBubbleView: View {
                 }
                     .disabled(self.detail == nil)
                     .padding(16)
-                    .background(SBBColor.controlBackground)
+                    .background(SBBColor.tabViewBackground)
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(SBBColor.textBlack)
@@ -96,7 +98,9 @@ public struct SBBBubbleView: View {
             }
                 .padding(.horizontal, 16)
                 .onTapGesture {
-                    self.expanded.toggle()
+                    withAnimation{
+                        self.expanded.toggle()
+                    }
                 }
         }
     }

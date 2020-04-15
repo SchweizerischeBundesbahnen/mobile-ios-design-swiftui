@@ -38,6 +38,9 @@ struct ContentView: View {
                     NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
                         Text("BubbleView")
                     }
+                    NavigationLink(destination: InfoViewDemo(colorScheme: $colorScheme)) {
+                        Text("InfoView")
+                    }
                     NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: $colorScheme)) {
                         Text("SegmentedPicker")
                     }
