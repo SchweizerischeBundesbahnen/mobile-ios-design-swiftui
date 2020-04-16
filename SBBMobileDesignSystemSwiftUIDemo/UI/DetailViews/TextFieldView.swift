@@ -20,8 +20,8 @@ struct TextFieldView: View {
             SBBTextField(text: $text1).disabled(disabled)
             SBBTextField(text: $text2).disabled(disabled)
             Text("With placeholder:")
-            SBBTextField(text: $text3, title: "Placeholder").disabled(disabled)
-            SBBTextField(text: $text4, title: "Placeholder").disabled(disabled)
+            SBBTextField(text: $text3, label: "Placeholder").disabled(disabled)
+            SBBTextField(text: $text4, label: "Placeholder").disabled(disabled)
             SBBCheckBox(isOn: $disabled, label: "Disabled")
             Spacer()
         }

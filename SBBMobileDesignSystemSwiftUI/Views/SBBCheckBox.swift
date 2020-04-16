@@ -42,7 +42,7 @@ public struct SBBCheckBox: View {
         .accessibilityElement(children: .ignore)
         .accessibility(label: label != nil ? Text(label!) : Text(""))
         .accessibility(addTraits: .isButton)
-        .accessibility(value: isOn ? Text("\("Enabled".localized)") : Text("\("Disabled".localized)"))
+        .accessibility(value: isOn ? Text("\("ON".localized)") : Text("\("OFF".localized)"))
         .accessibilityAction {
             self.isOn.toggle()
         }

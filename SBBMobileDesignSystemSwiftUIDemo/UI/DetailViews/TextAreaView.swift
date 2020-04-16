@@ -14,7 +14,7 @@ struct TextAreaView: View {
     
     var body: some View {
         VStack {
-            SBBTextArea(text: $text, placeholder: "Placeholder")
+            SBBTextArea(text: $text, label: "Placeholder")
                 .frame(maxHeight: 100)
                 .disabled(disabled)
             Text("Content is: \(text)")
@@ -24,7 +24,7 @@ struct TextAreaView: View {
             Button("Clear text") {
                 self.text = ""
             }
-            SBBTextArea(text: $emptyText, placeholder: "Placeholder")
+            SBBTextArea(text: $emptyText, label: "Placeholder")
                 .frame(maxHeight: 100)
                 .disabled(disabled)
             SBBCheckBox(isOn: $disabled, label: "Disabled")

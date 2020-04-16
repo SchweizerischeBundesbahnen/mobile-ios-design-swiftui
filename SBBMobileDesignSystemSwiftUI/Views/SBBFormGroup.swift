@@ -146,13 +146,13 @@ struct SBBFormGroup_Previews: PreviewProvider {
             .previewDisplayName("One row, no title, light")
             SBBFormGroup(title: "Title") {
                 Text("Text").sbbFont(.body).padding(16)
-                SBBTextField(text: .constant("Value"), title: "title")
+                SBBTextField(text: .constant("Value"), label: "title")
                 SBBCheckBox(isOn: .constant(true), label: "Placeholder")
             }
             .previewDisplayName("Light")
             SBBFormGroup(title: "Title") {
                 Text("Text").sbbFont(.body).padding(16)
-                SBBTextField(text: .constant("Value"), title: "title")
+                SBBTextField(text: .constant("Value"), label: "title")
                 SBBCheckBox(isOn: .constant(true), label: "Placeholder")
             }
             .previewDisplayName("Dark")

@@ -7,14 +7,14 @@ import SwiftUI
 public struct SBBTextArea: UIViewRepresentable {
     
     @Binding private var text: String
-    private var placeholder: String?
+    private var label: String?
     
     let descriptionLabel = UILabel()
     let placeholderLabel = UILabel()
     
-    public init(text: Binding<String>, placeholder: String? = nil) {
+    public init(text: Binding<String>, label: String? = nil) {
         self._text = text
-        self.placeholder = placeholder
+        self.label = label
     }
     
     public func makeUIView(context: Context) -> UITextView {
@@ -29,7 +29,7 @@ public struct SBBTextArea: UIViewRepresentable {
         let placeholderScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
         view.textContainerInset = UIEdgeInsets(top: placeholderScaledFontSize + 7, left: 11, bottom: 16, right: 11)
         
-        if let placeholder = placeholder {
+        if let placeholder = label {
             descriptionLabel.text = NSLocalizedString(placeholder, comment: "")
             view.accessibilityLabel = placeholder
             view.accessibilityValue = text
@@ -45,7 +45,7 @@ public struct SBBTextArea: UIViewRepresentable {
         let descriptionTrailingConstraint = descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         view.addConstraints([descriptionTopConstraint, descriptionLeadingConstraint, descriptionTrailingConstraint])
         
-        placeholderLabel.text = placeholder
+        placeholderLabel.text = label
         placeholderLabel.font = UIFont(name: "SBBWeb-Light", size: scaledFontSize)
         placeholderLabel.textColor = UIColor(named: "textMetal", in: Helper.bundle, compatibleWith: nil)
         view.addSubview(placeholderLabel)
@@ -102,9 +102,9 @@ public struct SBBTextArea: UIViewRepresentable {
 struct SBBTextArea_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBTextArea(text: .constant(""), placeholder: "Placeholder")
+            SBBTextArea(text: .constant(""), label: "Placeholder")
                 .previewDisplayName("Light")
-            SBBTextArea(text: .constant(""), placeholder: "Placeholder")
+            SBBTextArea(text: .constant(""), label: "Placeholder")
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }

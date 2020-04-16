@@ -11,5 +11,5 @@
 "of" = "of";
 
 // SBBCheckBox
-"Enabled" = "Enabled";
-"Disabled" = "Disabled";
+"ON" = "ON";
+"OFF" = "OFF";
