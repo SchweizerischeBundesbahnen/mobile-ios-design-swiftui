@@ -4,11 +4,15 @@
 
 import SwiftUI
 
-struct SBBButtonStyle: ButtonStyle {
+public struct SBBPrimaryButtonStyle: ButtonStyle {
     
-    var enabled: Bool
+    private let enabled: Bool
     
-    func makeBody(configuration: Self.Configuration) -> some View {
+    public init(enabled: Bool) {
+        self.enabled = enabled
+    }
+    
+    public func makeBody(configuration: Self.Configuration) -> some View {
       configuration.label
         .sbbFont(.body)
         .foregroundColor(enabled ? SBBColor.textWhite : SBBColor.textMetal)
@@ -29,29 +33,29 @@ struct SBBButtonStyle: ButtonStyle {
     }
 }
 
-struct SBBButtonStyle_Previews: PreviewProvider {
+struct SBBPrimaryButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBButtonStyle(enabled: true))
+            .buttonStyle(SBBPrimaryButtonStyle(enabled: true))
             .previewDisplayName("Light enabled")
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBButtonStyle(enabled: false))
+            .buttonStyle(SBBPrimaryButtonStyle(enabled: false))
             .previewDisplayName("Light disabled")
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBButtonStyle(enabled: true))
+            .buttonStyle(SBBPrimaryButtonStyle(enabled: true))
             .previewDisplayName("Dark enabled")
             .environment(\.colorScheme, .dark)
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBButtonStyle(enabled: false))
+            .buttonStyle(SBBPrimaryButtonStyle(enabled: false))
             .previewDisplayName("Dark disabled")
             .environment(\.colorScheme, .dark)
         }

@@ -12,8 +12,30 @@ struct ButtonDemo: View {
     @State private var disabled = false
     
     var body: some View {
-        VStack {
-            SBBButton(action: increment, label: "My Button").disabled(disabled)
+        VStack(alignment: .center, spacing: 8) {
+            
+            // init using shortcut
+            Button(action: increment) {
+                Text("My .sbbPrimary() button")
+            }
+            .sbbPrimary()
+            .disabled(disabled)
+            
+            // init using view modifier
+            Button(action: increment) {
+                Text("My button with modifier")
+            }
+            .modifier(SBBPrimaryButton())
+            .disabled(disabled)
+            
+            // init using button style
+            Button(action: increment) {
+                Text("My button with style")
+            }
+            .buttonStyle(SBBPrimaryButtonStyle(enabled: !disabled))
+            .disabled(disabled)
+            
+            Spacer()
             Text("Counter: \(counter)").padding()
             SBBCheckBox(isOn: $disabled, label: "Disabled")
             Spacer()
