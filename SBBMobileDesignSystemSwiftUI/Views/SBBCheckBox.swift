@@ -32,8 +32,8 @@ public struct SBBCheckBox: View {
                 Text(label!)
                     .sbbFont(.body)
                     .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
+                Spacer()
             }
-            Spacer()
         }
         .padding(16)
         .onTapGesture {
