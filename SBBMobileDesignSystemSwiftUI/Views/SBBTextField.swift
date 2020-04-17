@@ -41,6 +41,7 @@ public struct SBBTextField: View {
                     .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
             }
         }
+        .animation(.linear)
         .frame(height: 48)
         .background(SBBColor.viewBackground)
         .cornerRadius(16)
