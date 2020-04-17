@@ -14,25 +14,18 @@ struct ButtonDemo: View {
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
             
+            // init using button style
+            Button(action: increment) {
+                Text("My button with style")
+            }
+            .buttonStyle(SBBPrimaryButtonStyle())
+            .disabled(disabled)
+            
             // init using shortcut
             Button(action: increment) {
                 Text("My .sbbPrimary() button")
             }
             .sbbPrimary()
-            .disabled(disabled)
-            
-            // init using view modifier
-            Button(action: increment) {
-                Text("My button with modifier")
-            }
-            .modifier(SBBPrimaryButton())
-            .disabled(disabled)
-            
-            // init using button style
-            Button(action: increment) {
-                Text("My button with style")
-            }
-            .buttonStyle(SBBPrimaryButtonStyle(enabled: !disabled))
             .disabled(disabled)
             
             Spacer()

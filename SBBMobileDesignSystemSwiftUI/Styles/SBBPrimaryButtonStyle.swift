@@ -5,30 +5,36 @@
 import SwiftUI
 
 public struct SBBPrimaryButtonStyle: ButtonStyle {
-    
-    private let enabled: Bool
-    
-    public init(enabled: Bool) {
-        self.enabled = enabled
-    }
+        
+    public init() {}
     
     public func makeBody(configuration: Self.Configuration) -> some View {
-      configuration.label
-        .sbbFont(.body)
-        .foregroundColor(enabled ? SBBColor.textWhite : SBBColor.textMetal)
-        .frame(height: 46)
-        .frame(minWidth: 0, maxWidth: .infinity)
-        .background(getBackgroundColor(enabled: enabled, isPressed: configuration.isPressed))
-        .cornerRadius(23)
+        SBBPrimaryButton(configuration: configuration)
     }
     
-    private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
-        if !enabled {
-            return SBBColor.disabledButtonBackground
-        } else if isPressed {
-            return SBBColor.red150
-        } else {
-            return SBBColor.red
+    private struct SBBPrimaryButton: View {
+        
+        let configuration: ButtonStyle.Configuration
+        @Environment(\.isEnabled) private var isEnabled: Bool
+        
+        var body: some View {
+            configuration.label
+                .sbbFont(.body)
+                .foregroundColor(isEnabled ? SBBColor.textWhite : SBBColor.textMetal)
+                .frame(height: 46)
+                .frame(minWidth: 0, maxWidth: .infinity)
+                .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
+                .cornerRadius(23)
+        }
+        
+        private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
+            if !enabled {
+                return SBBColor.disabledButtonBackground
+            } else if isPressed {
+                return SBBColor.red150
+            } else {
+                return SBBColor.red
+            }
         }
     }
 }
@@ -39,23 +45,23 @@ struct SBBPrimaryButtonStyle_Previews: PreviewProvider {
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle(enabled: true))
+            .buttonStyle(SBBPrimaryButtonStyle())
             .previewDisplayName("Light enabled")
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle(enabled: false))
+            .buttonStyle(SBBPrimaryButtonStyle())
             .previewDisplayName("Light disabled")
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle(enabled: true))
+            .buttonStyle(SBBPrimaryButtonStyle())
             .previewDisplayName("Dark enabled")
             .environment(\.colorScheme, .dark)
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle(enabled: false))
+            .buttonStyle(SBBPrimaryButtonStyle())
             .previewDisplayName("Dark disabled")
             .environment(\.colorScheme, .dark)
         }
