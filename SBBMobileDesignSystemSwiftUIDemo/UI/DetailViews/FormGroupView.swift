@@ -21,7 +21,7 @@ struct FormGroupView: View {
                 SBBCheckBox(isOn: $isOn, label: "CheckBox")
             }
             Text("No title:").padding(16)
-            SBBFormGroup() {
+            SBBFormGroup {
                 Text("My Text").sbbFont(.body).padding(16)
                 SBBTextField(text: $emptyText, label: "Placeholder")
                 SBBTextField(text: $text, label: "Placeholder")

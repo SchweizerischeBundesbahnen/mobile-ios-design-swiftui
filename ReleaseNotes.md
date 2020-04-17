@@ -1,13 +1,13 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.0.15 - 16 Apr 2020
+## V0.0.15 - 17 Apr 2020
 
 ### Features
-* SBBButton
 * SBBCheckBox
 * SBBTextField
 * SBBTextArea
 * SBBFormGroup
+* SBBPrimaryButtonStyle
 
 ### Bugfixes
 * Display SBBBubbleView title on multiple line when text is too long and/or too big

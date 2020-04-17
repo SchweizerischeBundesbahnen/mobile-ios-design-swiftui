@@ -13,22 +13,11 @@ struct ButtonDemo: View {
     
     var body: some View {
         VStack(alignment: .center, spacing: 8) {
-            
-            // init using button style
             Button(action: increment) {
-                Text("My button with style")
+                Text("My Primary Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle())
-            .disabled(disabled)
-            
-            // init using shortcut
-            Button(action: increment) {
-                Text("My .sbbPrimary() button")
-            }
-            .sbbPrimary()
-            .disabled(disabled)
-            
-            Spacer()
+                .buttonStyle(SBBPrimaryButtonStyle())
+                .disabled(disabled)
             Text("Counter: \(counter)").padding()
             SBBCheckBox(isOn: $disabled, label: "Disabled")
             Spacer()
