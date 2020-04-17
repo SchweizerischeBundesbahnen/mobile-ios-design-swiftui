@@ -43,6 +43,17 @@
 		7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */; };
 		7CDFFD8123E9C3C000250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8323E9C3C000250717 /* Localizable.strings */; };
 		7CDFFD8A23E9C77300250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8C23E9C77300250717 /* Localizable.strings */; };
+		A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706C155243715060029BD8D /* SBBCheckBox.swift */; };
+		A737348A2436135B00E34716 /* SBBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73734892436135B00E34716 /* SBBTextField.swift */; };
+		A737348C2436141200E34716 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737348B2436141200E34716 /* TextFieldView.swift */; };
+		A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */; };
+		A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74C8B722437634500BF26E3 /* ArrayBuilder.swift */; };
+		A75AAE2024373C0C0054B54A /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */; };
+		A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE2068243C5A7900557F4D /* SBBPrimaryButtonStyle.swift */; };
+		A7DE206B243C60FE00557F4D /* ButtonDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DE206A243C60FE00557F4D /* ButtonDemo.swift */; };
+		A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA362434951500753AE1 /* SBBTextArea.swift */; };
+		A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA3A2434958600753AE1 /* TextAreaView.swift */; };
+		A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F54687243B5BED0068B542 /* FormGroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,7 +136,18 @@
 		7CDFFD8D23E9C77500250717 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CDFFD8E23E9C77600250717 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CDFFD8F23E9C77700250717 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A706C155243715060029BD8D /* SBBCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBCheckBox.swift; sourceTree = "<group>"; };
+		A73734892436135B00E34716 /* SBBTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextField.swift; sourceTree = "<group>"; };
+		A737348B2436141200E34716 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFormGroup.swift; sourceTree = "<group>"; };
+		A74C8B722437634500BF26E3 /* ArrayBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayBuilder.swift; sourceTree = "<group>"; };
+		A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		A7DE2068243C5A7900557F4D /* SBBPrimaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPrimaryButtonStyle.swift; sourceTree = "<group>"; };
+		A7DE206A243C60FE00557F4D /* ButtonDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonDemo.swift; sourceTree = "<group>"; };
 		A7DEBF272433A4F400CC330B /* SBBMobileDesignSystemSwiftUI.podspec.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBMobileDesignSystemSwiftUI.podspec.json; sourceTree = "<group>"; };
+		A7EDCA362434951500753AE1 /* SBBTextArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextArea.swift; sourceTree = "<group>"; };
+		A7EDCA3A2434958600753AE1 /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
+		A7F54687243B5BED0068B542 /* FormGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormGroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6665F423DB5DED002549F1 /* Views */,
+				A7DE2067243C5A5A00557F4D /* Styles */,
 				2D804EAB23D9D1F000CC9C0C /* Colors */,
 				7CAFE98723DECFE1001ADBE8 /* Fonts */,
 				2D804EAE23D9D3BE00CC9C0C /* Resources */,
@@ -266,6 +289,11 @@
 				7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */,
 				7C43038623FD72610033865F /* SegmentedPickerViewDemo.swift */,
 				7C64548A2403F690005997AB /* DividerViewDemo.swift */,
+				A7EDCA3A2434958600753AE1 /* TextAreaView.swift */,
+				A737348B2436141200E34716 /* TextFieldView.swift */,
+				A75AAE1F24373C0C0054B54A /* CheckBoxView.swift */,
+				A7F54687243B5BED0068B542 /* FormGroupView.swift */,
+				A7DE206A243C60FE00557F4D /* ButtonDemo.swift */,
 				7CA464E02445F58B00118D7B /* InfoViewDemo.swift */,
 			);
 			path = DetailViews;
@@ -275,8 +303,12 @@
 			isa = PBXGroup;
 			children = (
 				7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */,
-				7C43038823FD86110033865F /* SBBSegmentedPicker.swift */,
+				A706C155243715060029BD8D /* SBBCheckBox.swift */,
 				7C6454882403F50A005997AB /* SBBDivider.swift */,
+				A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */,
+				7C43038823FD86110033865F /* SBBSegmentedPicker.swift */,
+				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
+				A73734892436135B00E34716 /* SBBTextField.swift */,
 				7CA464DE2445F31100118D7B /* SBBInfoView.swift */,
 			);
 			path = Views;
@@ -285,6 +317,7 @@
 		7CAFE98423DEC816001ADBE8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
 			);
 			path = Helper;
@@ -313,6 +346,14 @@
 				7CDFFD8C23E9C77300250717 /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A7DE2067243C5A5A00557F4D /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				A7DE2068243C5A7900557F4D /* SBBPrimaryButtonStyle.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -474,12 +515,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6454892403F50A005997AB /* SBBDivider.swift in Sources */,
+				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
+				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
 				7CA464DF2445F31100118D7B /* SBBInfoView.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
+				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
+				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
+				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
 				7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */,
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
+				A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
 				7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */,
 			);
@@ -491,13 +538,18 @@
 			files = (
 				7C2B7E7123D9F8940012CF62 /* ColorsView.swift in Sources */,
 				2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */,
+				A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */,
 				2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */,
 				2D804E7C23D9D16000CC9C0C /* ContentView.swift in Sources */,
 				7C43038723FD72610033865F /* SegmentedPickerViewDemo.swift in Sources */,
+				A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */,
+				A75AAE2024373C0C0054B54A /* CheckBoxView.swift in Sources */,
+				A737348C2436141200E34716 /* TextFieldView.swift in Sources */,
 				7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */,
 				7CA464E12445F58B00118D7B /* InfoViewDemo.swift in Sources */,
 				7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */,
 				7C64548B2403F690005997AB /* DividerViewDemo.swift in Sources */,
+				A7DE206B243C60FE00557F4D /* ButtonDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +749,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.14;
+				MARKETING_VERSION = 0.0.15;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -724,7 +776,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.14;
+				MARKETING_VERSION = 0.0.15;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -749,7 +801,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.14;
+				MARKETING_VERSION = 0.0.15;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
@@ -774,7 +826,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.0.14;
+				MARKETING_VERSION = 0.0.15;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";

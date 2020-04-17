@@ -59,6 +59,7 @@ public struct SBBBubbleView: View {
                                 Text(self.title)
                                     .sbbFont(.titleDefault)
                                     .accessibility(label: Text(self.titleAccessibility))
+                                    .padding([.bottom, .top], 8)
                                 Spacer()
                                 if (self.detail != nil) {
                                     Group {
@@ -71,7 +72,6 @@ public struct SBBBubbleView: View {
                                         .overlay(Circle().stroke(SBBColor.border))
                                 }
                             }
-                                .frame(minHeight: 36, maxHeight: 36)
                             if (self.subtitle != nil) {
                                 Text(self.subtitle!)
                                     .sbbFont(.body)
