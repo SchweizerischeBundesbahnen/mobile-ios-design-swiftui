@@ -155,11 +155,90 @@ You can use the SBBSegmentedPicker like so:
     }
 ```
 
+## SBBCheckBox
+
+SBBCheckBox is a SBB-styled SwiftUI Toggle.
+
+```
+    @State private var isOn = true
+    
+    var body: some View {
+        VStack {
+            SBBCheckBox(isOn: $isOn)
+            SBBCheckBox(isOn: $isOn, label: "Label")
+        }
+    }
+```
+
+## SBBTextField
+
+SBBTextField is a SBB-styled SwiftUI TextField with floating label.
+
+```
+    @State private var text = ""
+    
+    var body: some View {
+        VStack {
+            SBBTextField(text: $text)
+            SBBTextField(text: $text, label: "Placeholder")
+        }
+    }
+```
+
+## SBBTextArea
+
+SBBTextArea is a SwiftUI equivalent of UITextView with SBB style.
+
+```
+    @State private var text = ""
+    
+    var body: some View {
+        VStack {
+            SBBTextArea(text: $text)
+            SBBTextArea(text: $text, label: "Placeholder")
+        }
+    }
+```
+
+## SBBFormGroup
+
+SBBFormGroup is a SBB-styled section of a form. It takes from 1 to 10 elements with an optional header.
+
+```    
+    var body: some View {
+        VStack {
+            SBBFormGroup(title: "Header") {
+                Text("Row 1")
+                Text("Row 2")
+                Text("Row 3")
+            }
+            SBBFormGroup {
+                Text("Row 1")
+                Text("Row 2")
+                Text("Row 3")
+            }
+        }
+    }
+```
+
+## SBBPrimaryButtonStyle
+
+SwiftUI ButtonStyle implementation of SBB primary button. 
+
+```    
+    var body: some View {
+        Button(action: myAction) {
+            Text("My Button")
+        }
+        .buttonStyle(SBBPrimaryButtonStyle())
+    }
+```
 
 ## Authors
 
 * **Antoniadis Georgios**
 * **Brunner Nicolas**
+* **Vessaz François**
 
 
 ## License

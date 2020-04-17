@@ -26,23 +26,42 @@ struct ContentView: View {
                 }
                     .frame(minHeight: 0, maxHeight: 100)
                 List {
-                    NavigationLink(destination: ColorsView(colorScheme: $colorScheme)) {
-                        Text("Colors")
+                    Section {
+                        NavigationLink(destination: ColorsView(colorScheme: $colorScheme)) {
+                            Text("Colors")
+                        }
+                        NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
+                            Text("Typography")
+                        }
+                        NavigationLink(destination: DividerViewDemo(colorScheme: $colorScheme)) {
+                            Text("Divider")
+                        }
+                        NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
+                            Text("BubbleView")
+                        }
+                        NavigationLink(destination: InfoViewDemo(colorScheme: $colorScheme)) {
+                            Text("InfoView")
+                        }
+                        NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: $colorScheme)) {
+                            Text("SegmentedPicker")
+                        }
+                        NavigationLink(destination: TextAreaView(colorScheme: $colorScheme)) {
+                            Text("TextArea")
+                        }
+                        NavigationLink(destination: TextFieldView(colorScheme: $colorScheme)) {
+                            Text("TextField")
+                        }
+                        NavigationLink(destination: CheckBoxView(colorScheme: $colorScheme)) {
+                            Text("CheckBox")
+                        }
+                        NavigationLink(destination: FormGroupView(colorScheme: $colorScheme)) {
+                            Text("FormGroup")
+                        }
                     }
-                    NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
-                        Text("Typography")
-                    }
-                    NavigationLink(destination: DividerViewDemo(colorScheme: $colorScheme)) {
-                        Text("Divider")
-                    }
-                    NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
-                        Text("BubbleView")
-                    }
-                    NavigationLink(destination: InfoViewDemo(colorScheme: $colorScheme)) {
-                        Text("InfoView")
-                    }
-                    NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: $colorScheme)) {
-                        Text("SegmentedPicker")
+                    Section {
+                        NavigationLink(destination: ButtonDemo(colorScheme: $colorScheme)) {
+                            Text("Button")
+                        }
                     }
                 }
             }
