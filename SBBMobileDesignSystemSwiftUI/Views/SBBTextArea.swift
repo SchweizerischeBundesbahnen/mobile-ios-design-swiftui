@@ -45,7 +45,9 @@ public struct SBBTextArea: UIViewRepresentable {
         let descriptionTrailingConstraint = descriptionLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         view.addConstraints([descriptionTopConstraint, descriptionLeadingConstraint, descriptionTrailingConstraint])
         
-        placeholderLabel.text = label
+        if let placeholder = label {
+            placeholderLabel.text = NSLocalizedString(placeholder, comment: "")
+        }
         placeholderLabel.font = UIFont(name: "SBBWeb-Light", size: scaledFontSize)
         placeholderLabel.textColor = UIColor(named: "textMetal", in: Helper.bundle, compatibleWith: nil)
         view.addSubview(placeholderLabel)
