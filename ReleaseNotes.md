@@ -1,5 +1,11 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.0.16 - 23 Apr 2020
+
+### Bugfixes
+* Localization of placeholder in SBBTextArea
+* textMetal color for dark mode
+
 ## V0.0.15 - 17 Apr 2020
 
 ### Features
