@@ -13,14 +13,14 @@ struct FormGroupView: View {
     @State private var isOn = true
     
     var body: some View {
-        VStack {
+        VStack(spacing: 24) {
             SBBFormGroup(title: "Title:") {
                 Text("My Text").sbbFont(.body).padding(16)
                 SBBTextField(text: $emptyText, label: "Placeholder")
                 SBBTextField(text: $text, label: "Placeholder")
                 SBBCheckBox(isOn: $isOn, label: "CheckBox")
             }
-            Text("No title:").padding(16)
+            Text("No title:")
             SBBFormGroup {
                 Text("My Text").sbbFont(.body).padding(16)
                 SBBTextField(text: $emptyText, label: "Placeholder")

@@ -114,7 +114,6 @@ public struct SBBFormGroup: View {
             if title != nil {
                 Text(title!)
                     .sbbFont(.body)
-                    .padding(.top, 24)
                     .padding([.bottom, .leading, .trailing], 16)
                     .accessibility(addTraits: .isHeader)
             }
