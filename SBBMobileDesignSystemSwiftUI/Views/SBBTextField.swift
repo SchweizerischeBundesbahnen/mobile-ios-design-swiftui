@@ -31,7 +31,7 @@ public struct SBBTextField: View {
                 Text(label!)
                     .sbbFont(.body, size: 10, lineSpacing: nil)
                     .offset(x: 16, y: -11)
-                    .foregroundColor(SBBColor.textMetal)
+                    .foregroundColor(SBBColor.placeholder)
                     .opacity(text.isEmpty ? 0.0 : 1.0)
                     .accessibility(hidden: true)
             } else {

@@ -9,6 +9,12 @@ Run this command on the terminal:
 pod init
 ```
 
+Add the SBB pod repository on top of file in addition with the existing source instruction:
+```
+source 'https://github.com/CocoaPods/Specs.git'
+source 'ssh://git@code.sbb.ch:7999/kd_cp/sbbcocoapods.git'
+```
+
 Open the file pod and make sure you add the following pod
 ```
 pod 'SBBMobileDesignSystemSwiftUI'

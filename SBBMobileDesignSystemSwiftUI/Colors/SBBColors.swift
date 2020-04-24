@@ -56,6 +56,7 @@ public struct SBBColor {
     public static var divider: Color { color(withString: "divider") }
     public static var border: Color { color(withString: "border") }
     public static var tabViewBackground: Color { color(withString: "tabViewBackground") }
+    public static var placeholder: Color { color(withString: "placeholder") }
 
     // Private semantic Colors (only to be used for MDS Elements)
     static var segmentedPickerBackground: Color { color(withString: "segmentedPickerBackground") }
