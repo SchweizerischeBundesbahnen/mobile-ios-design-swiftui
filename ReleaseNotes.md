@@ -4,7 +4,7 @@
 
 ### Bugfixes
 * Localization of placeholder in SBBTextArea
-* textMetal color for dark mode
+* Placeholder color for SBBTextField and SBBTextArea
 
 ## V0.0.15 - 17 Apr 2020
 

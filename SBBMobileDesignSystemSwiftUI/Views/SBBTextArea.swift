@@ -36,7 +36,7 @@ public struct SBBTextArea: UIViewRepresentable {
         }
         let descriptionScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
         descriptionLabel.font = UIFont(name: "SBBWeb-Light", size: descriptionScaledFontSize)
-        descriptionLabel.textColor = UIColor(named: "textMetal", in: Helper.bundle, compatibleWith: nil)
+        descriptionLabel.textColor = UIColor(named: "placeholder", in: Helper.bundle, compatibleWith: nil)
         view.addSubview(descriptionLabel)
         
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +49,7 @@ public struct SBBTextArea: UIViewRepresentable {
             placeholderLabel.text = NSLocalizedString(placeholder, comment: "")
         }
         placeholderLabel.font = UIFont(name: "SBBWeb-Light", size: scaledFontSize)
-        placeholderLabel.textColor = UIColor(named: "textMetal", in: Helper.bundle, compatibleWith: nil)
+        placeholderLabel.textColor = UIColor(named: "placeholder", in: Helper.bundle, compatibleWith: nil)
         view.addSubview(placeholderLabel)
         
         placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
