@@ -5,6 +5,7 @@
 ### Bugfixes
 * Localization of placeholder in SBBTextArea
 * Placeholder color for SBBTextField and SBBTextArea
+* Remove padding above title in SBBFormGroup
 
 ## V0.0.15 - 17 Apr 2020
 
