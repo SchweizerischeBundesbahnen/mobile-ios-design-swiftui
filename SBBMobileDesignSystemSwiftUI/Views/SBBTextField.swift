@@ -22,7 +22,7 @@ public struct SBBTextField: View {
     public var body: some View {
         Group {
             if label != nil {
-                VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: 4) {
                     if !text.isEmpty {
                         Text(label!)
                             .sbbFont(.body, size: 10, lineSpacing: nil)
