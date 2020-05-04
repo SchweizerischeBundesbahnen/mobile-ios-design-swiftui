@@ -112,17 +112,21 @@ public struct SBBFormGroup: View {
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             if title != nil {
-                Text(title!)
-                    .sbbFont(.body)
-                    .padding([.bottom, .leading, .trailing], 16)
-                    .accessibility(addTraits: .isHeader)
+                HStack(alignment: .top, spacing: 0) {
+                    Text(title!)
+                        .sbbFont(.body)
+                        .padding([.bottom, .leading, .trailing], 16)
+                        .accessibility(addTraits: .isHeader)
+                    Spacer(minLength: 0)
+                }
+                .accessibilityElement(children: .combine)
             }
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(0 ..< rows.count) { index in
                     VStack(spacing: 0) {
                         HStack {
                             self.rows[index]
-                            Spacer()
+                            Spacer(minLength: 0)
                         }
                         if index < self.rows.count - 1 {
                             SBBDivider().padding(.leading, 16)

@@ -15,8 +15,8 @@ struct CheckBoxView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
             Text("Checkbox").sbbFont(.tableHeader)
-            SBBCheckBox(isOn: $isOn).disabled(isDisabled)
-            SBBCheckBox(isOn: $isOff).disabled(isDisabled)
+            SBBCheckBox(isOn: $isOn).padding(16).disabled(isDisabled)
+            SBBCheckBox(isOn: $isOff).padding(16).disabled(isDisabled)
             SBBCheckBox(isOn: $isOn, label: "Label").disabled(isDisabled)
             SBBCheckBox(isOn: $isOff, label: "Label").disabled(isDisabled)
             SBBCheckBox(isOn: $isDisabled, label: "Disabled")

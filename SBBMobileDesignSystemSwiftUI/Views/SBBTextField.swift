@@ -20,20 +20,22 @@ public struct SBBTextField: View {
     }
     
     public var body: some View {
-        ZStack(alignment: .leading) {
+        Group {
             if label != nil {
-                TextField(label!, text: $text)
-                    .padding(16)
-                    .sbbFont(.body)
-                    .offset(x: 0, y: (!text.isEmpty) ? 7 : 0)
-                    .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
-                    .accessibility(label: text.isEmpty ? Text("") : Text(label!))
-                Text(label!)
-                    .sbbFont(.body, size: 10, lineSpacing: nil)
-                    .offset(x: 16, y: -11)
-                    .foregroundColor(SBBColor.placeholder)
-                    .opacity(text.isEmpty ? 0.0 : 1.0)
-                    .accessibility(hidden: true)
+                VStack(alignment: .leading, spacing: 4) {
+                    if !text.isEmpty {
+                        Text(label!)
+                            .sbbFont(.body, size: 10, lineSpacing: nil)
+                            .foregroundColor(SBBColor.placeholder)
+                            .opacity(text.isEmpty ? 0.0 : 1.0)
+                            .accessibility(hidden: true)
+                    }
+                    TextField(label!, text: $text)
+                        .sbbFont(.body)
+                        .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
+                        .accessibility(label: text.isEmpty ? Text("") : Text(label!))
+                }
+                .padding(.horizontal, 16)
             } else {
                 TextField("", text: $text)
                     .padding(16)
@@ -41,10 +43,10 @@ public struct SBBTextField: View {
                     .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
             }
         }
-        .animation(.linear)
-        .frame(height: 48)
+        .frame(minHeight: 48)
         .background(SBBColor.viewBackground)
         .cornerRadius(16)
+        .animation(.linear)
     }
 }
 

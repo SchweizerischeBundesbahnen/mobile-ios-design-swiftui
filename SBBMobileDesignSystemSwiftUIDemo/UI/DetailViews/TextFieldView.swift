@@ -15,7 +15,7 @@ struct TextFieldView: View {
     @State private var disabled = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 8) {
             Text("Without placeholder:")
             SBBTextField(text: $text1).disabled(disabled)
             SBBTextField(text: $text2).disabled(disabled)
