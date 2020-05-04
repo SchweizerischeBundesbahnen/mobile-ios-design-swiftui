@@ -1,5 +1,12 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.0.17 - 5 May 2020
+
+### Bugfixes
+* Fix padding on SBBCheckBox
+* Fix padding and spacing for SBBGroupForm
+* Fix SBBTextField layout when using big dynamic types
+
 ## V0.0.16 - 23 Apr 2020
 
 ### Bugfixes
