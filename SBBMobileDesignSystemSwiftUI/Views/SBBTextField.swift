@@ -35,7 +35,7 @@ public struct SBBTextField: View {
                         .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
                         .accessibility(label: text.isEmpty ? Text("") : Text(label!))
                 }
-                .padding([.leading, .trailing], 16)
+                .padding(.horizontal, 16)
             } else {
                 TextField("", text: $text)
                     .padding(16)
