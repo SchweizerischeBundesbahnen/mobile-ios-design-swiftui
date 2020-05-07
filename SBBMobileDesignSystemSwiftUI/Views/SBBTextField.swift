@@ -8,6 +8,7 @@ public struct SBBTextField: View {
     
     @Environment(\.isEnabled) private var isEnabled
     @Binding private var text: String
+    @State private var isEditing = false
     let label: LocalizedStringKey?
     
     public init(text: Binding<String>, label: String? = nil) {
@@ -16,6 +17,15 @@ public struct SBBTextField: View {
             self.label = LocalizedStringKey(label)
         } else {
             self.label = nil
+        }
+    }
+    
+    private var bottomLineColor: Color {
+        switch (isEnabled, isEditing) {
+        case (true, true):
+            return SBBColor.textfieldLineActive
+        default:
+            return SBBColor.textfieldLineInactive
         }
     }
     
@@ -30,22 +40,28 @@ public struct SBBTextField: View {
                             .opacity(text.isEmpty ? 0.0 : 1.0)
                             .accessibility(hidden: true)
                     }
-                    TextField(label!, text: $text)
+                    TextField(label!, text: $text, onEditingChanged: { editing in
+                        DispatchQueue.main.async {
+                            self.isEditing = editing
+                        }
+                    })
                         .sbbFont(.body)
                         .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
                         .accessibility(label: text.isEmpty ? Text("") : Text(label!))
                 }
-                .padding(.horizontal, 16)
             } else {
-                TextField("", text: $text)
-                    .padding(16)
+                TextField("", text: $text, onEditingChanged: { editing in
+                    DispatchQueue.main.async {
+                        self.isEditing = editing
+                    }
+                })
                     .sbbFont(.body)
                     .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
             }
         }
         .frame(minHeight: 48)
-        .background(SBBColor.viewBackground)
-        .cornerRadius(16)
+        .background(bottomLineColor.frame(height: 1), alignment: .bottom)
+        .padding(.leading, 16)
         .animation(.linear)
     }
 }
