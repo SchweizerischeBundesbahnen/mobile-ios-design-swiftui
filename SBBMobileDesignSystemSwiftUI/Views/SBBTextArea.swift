@@ -18,6 +18,9 @@ public struct SBBTextArea: View {
     public var body: some View {
         SBBTextAreaImpl(text: $text, isEditing: $isEditing, label: label)
             .background((isEditing ? SBBColor.textfieldLineActive : SBBColor.textfieldLineInactive).frame(height: 1), alignment: .bottom)
+            .accessibilityElement(children: .ignore)
+            .accessibility(label: label != nil ? Text(label!) : Text(text))
+            .accessibility(value: label != nil ? Text(text) : Text(""))
     }
     
     private struct SBBTextAreaImpl: UIViewRepresentable {
@@ -47,8 +50,6 @@ public struct SBBTextArea: View {
             
             if let placeholder = label {
                 descriptionLabel.text = NSLocalizedString(placeholder, comment: "")
-                view.accessibilityLabel = placeholder
-                view.accessibilityValue = text
             }
             let descriptionScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
             descriptionLabel.font = UIFont(name: "SBBWeb-Light", size: descriptionScaledFontSize)
