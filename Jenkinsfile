@@ -52,7 +52,7 @@ pipeline {
                     'SBBMobileDesignSystemSwiftUIDemo': {
                         node('ios') {
                             checkout scm
-                            fastlane lane:'appstore_build', scheme:'SBBMobileDesignSystemSwiftUI', app_identifier:'ch.sbb.SBBMobileDesignSystemSwiftUIDemo', repo_artifact_id:'mobiledesignsystemswiftuidemo-ios', team_profile:'sbb_cargo_appstore', stash_to:'mobiledesignsystemswiftuidemo-ios'
+                            fastlane lane:'appstore_build', scheme:'SBBMobileDesignSystemSwiftUIDemo', app_identifier:'ch.sbb.SBBMobileDesignSystemSwiftUIDemo', repo_artifact_id:'mobiledesignsystemswiftuidemo-ios', team_profile:'sbb_cargo_appstore', stash_to:'mobiledesignsystemswiftuidemo-ios'
                         }
                     }
                     )
