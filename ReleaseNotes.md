@@ -1,6 +1,6 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.1.1 - 08 May 2020
+## V0.1.2 - 08 May 2020
 
 ### Bugfixes
 * Fix design of SBBCheckBox (icons & line bellow)
