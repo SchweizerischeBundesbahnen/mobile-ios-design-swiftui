@@ -1,6 +1,6 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.1.0 - 07 May 2020
+## V0.1.1 - 07 May 2020
 
 ### Features
 * First internal distribution using Testflight
