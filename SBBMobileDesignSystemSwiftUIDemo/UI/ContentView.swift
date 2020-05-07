@@ -16,15 +16,12 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                Form {
-                    Section(header: Text("ColorScheme")) {
-                        SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
-                            Text("light")
-                            Text("dark")
-                        }
-                    }
+                SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
+                    Text("light")
+                    Text("dark")
                 }
-                    .frame(minHeight: 0, maxHeight: 100)
+                    .padding(16)
+                    .background(SBBColor.background)
                 List {
                     Section {
                         NavigationLink(destination: ColorsView(colorScheme: $colorScheme)) {
