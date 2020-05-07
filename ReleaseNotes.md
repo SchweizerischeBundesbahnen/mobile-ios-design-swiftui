@@ -1,5 +1,13 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.1 - 08 May 2020
+
+### Bugfixes
+* Fix design of SBBCheckBox (icons & line bellow)
+* Fix design of SBBTextField (line bellow with editing status)
+* Fix design of SBBTextArea (line bellow with editing status)
+* Fix a bug in demo app with segmented picker for color scheme
+
 ## V0.1.1 - 07 May 2020
 
 ### Features
