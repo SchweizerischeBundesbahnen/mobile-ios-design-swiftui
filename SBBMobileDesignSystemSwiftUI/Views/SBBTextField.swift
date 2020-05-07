@@ -30,7 +30,7 @@ public struct SBBTextField: View {
     }
     
     public var body: some View {
-        Group {
+        HStack {
             if label != nil {
                 VStack(alignment: .leading, spacing: 4) {
                     if !text.isEmpty {
@@ -58,6 +58,7 @@ public struct SBBTextField: View {
                     .sbbFont(.body)
                     .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
             }
+            Spacer(minLength: 0)
         }
         .frame(minHeight: 48)
         .background(bottomLineColor.frame(height: 1), alignment: .bottom)
