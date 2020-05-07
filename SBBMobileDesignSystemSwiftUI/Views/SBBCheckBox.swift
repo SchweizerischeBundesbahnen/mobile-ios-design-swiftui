@@ -39,12 +39,13 @@ public struct SBBCheckBox: View {
                 Text(label!)
                     .sbbFont(.body)
                     .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
+                    .padding(.trailing, 16)
                 Spacer()
             }
         }
-        .padding(label != nil ? 16 : 0)
         .frame(minHeight: label != nil ? 48 : 0)
         .background((label != nil ? SBBColor.textfieldLineInactive : Color.clear).frame(height: 1), alignment: .bottom)
+        .padding(.leading, label != nil ? 16 : 0)
         .onTapGesture {
             self.isOn.toggle()
         }
