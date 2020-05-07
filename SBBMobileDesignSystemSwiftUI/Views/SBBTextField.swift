@@ -30,7 +30,7 @@ public struct SBBTextField: View {
     }
     
     public var body: some View {
-        HStack {
+        Group {
             if label != nil {
                 VStack(alignment: .leading, spacing: 4) {
                     if !text.isEmpty {
@@ -42,7 +42,9 @@ public struct SBBTextField: View {
                     }
                     TextField(label!, text: $text, onEditingChanged: { editing in
                         DispatchQueue.main.async {
-                            self.isEditing = editing
+                            withAnimation {
+                                self.isEditing = editing
+                            }
                         }
                     })
                         .sbbFont(.body)
@@ -52,18 +54,19 @@ public struct SBBTextField: View {
             } else {
                 TextField("", text: $text, onEditingChanged: { editing in
                     DispatchQueue.main.async {
-                        self.isEditing = editing
+                        withAnimation {
+                            self.isEditing = editing
+                        }
                     }
                 })
                     .sbbFont(.body)
                     .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
             }
-            Spacer(minLength: 0)
         }
         .frame(minHeight: 48)
+        .animation(.linear)
         .background(bottomLineColor.frame(height: 1), alignment: .bottom)
         .padding(.leading, 16)
-        .animation(.linear)
     }
 }
 
