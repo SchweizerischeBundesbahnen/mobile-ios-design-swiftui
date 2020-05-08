@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.3 - 08 May 2020
+
+### Bugfixes
+* Demo App now also works on iPad
+
 ## V0.1.2 - 08 May 2020
 
 ### Bugfixes
