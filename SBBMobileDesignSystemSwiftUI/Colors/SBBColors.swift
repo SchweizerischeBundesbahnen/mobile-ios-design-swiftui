@@ -57,12 +57,11 @@ public struct SBBColor {
     public static var border: Color { color(withString: "border") }
     public static var tabViewBackground: Color { color(withString: "tabViewBackground") }
     public static var placeholder: Color { color(withString: "placeholder") }
-    public static var textfieldLineActive: Color { color(withString: "textfieldLineActive") }
-    public static var textfieldLineInactive: Color { color(withString: "textfieldLineInactive") }
 
     // Private semantic Colors (only to be used for MDS Elements)
     static var segmentedPickerBackground: Color { color(withString: "segmentedPickerBackground") }
     static var segmentedPickerSelectedSegmentBackground: Color { color(withString: "segmentedPickerSelectedSegmentBackground") }
+    static var textfieldLineInactive: Color { color(withString: "textfieldLineInactive") }
     
     private static func color(withString color: String) -> Color {
         return Color(UIColor(named: color, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white)

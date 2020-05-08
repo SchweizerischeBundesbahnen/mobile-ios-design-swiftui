@@ -23,7 +23,7 @@ public struct SBBTextField: View {
     private var bottomLineColor: Color {
         switch (isEnabled, isEditing) {
         case (true, true):
-            return SBBColor.textfieldLineActive
+            return SBBColor.textBlack
         default:
             return SBBColor.textfieldLineInactive
         }
