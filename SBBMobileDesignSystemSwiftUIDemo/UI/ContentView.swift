@@ -65,6 +65,7 @@ struct ContentView: View {
                 .colorScheme(colorScheme)
                 .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
         }
+            .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
     }
 }
 
