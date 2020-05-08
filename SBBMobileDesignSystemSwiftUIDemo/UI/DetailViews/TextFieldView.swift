@@ -25,7 +25,6 @@ struct TextFieldView: View {
             SBBCheckBox(isOn: $disabled, label: "Disabled")
             Spacer()
         }
-        .padding(16)
         .navigationBarTitle("TextField")
         .background(SBBColor.background)
         .colorScheme(colorScheme)

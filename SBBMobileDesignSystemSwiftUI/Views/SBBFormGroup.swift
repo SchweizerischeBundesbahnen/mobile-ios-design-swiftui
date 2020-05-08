@@ -128,9 +128,6 @@ public struct SBBFormGroup: View {
                             self.rows[index]
                             Spacer(minLength: 0)
                         }
-                        if index < self.rows.count - 1 {
-                            SBBDivider().padding(.leading, 16)
-                        }
                     }
                 }
             }
