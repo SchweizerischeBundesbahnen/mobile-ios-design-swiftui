@@ -10,36 +10,38 @@ struct BubbleViewDemo: View {
     @Binding var colorScheme: ColorScheme
     
     @State var expanded1 = true
-    @State var expanded2 = false
+    @State var expanded2 = true
     
     var image = Image(systemName: "car")
-    var title = "IC6 nach Basel"
-    var subtitle = "Gleis 2 und 3."
-    var detail = "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03."
+    var title = Text("IC6 nach Basel")
+    var subtitle = Text("Gleis 2.")
+    var detail1 = Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+    var detail2 = Text("ca. +2'").foregroundColor(SBBColor.red).font(.sbbTitleDefault)
     
-    var titleAccessibility = "IC6 nach Basel"
-    var subtitleAccessibility = "Gleis 2 und 3."
-    var detailAccessibility = "Wagen 3, Erste Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03."
+    var titleAccessibility = Text("IC6 nach Basel")
+    var subtitleAccessibility = Text("Heute auf Gleis 2.")
+    var detail1Accessibility = Text("Wagen 3, Erste Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+    var detail2Accessibility = Text("circa +5 Minuten Verspätung.")
     
     var body: some View {
         VStack {
-            SBBBubbleView(image: image, title: title, detail: detail, expanded: $expanded1)
+            SBBBubbleView(image: image, title: title, expanded: .constant(false))
+            SBBDivider()
+            SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
+            SBBDivider()
+            SBBBubbleView(image: image, title: title, detail: [detail1], expanded: $expanded1)
             Button(action: {
                 self.expanded1.toggle()
             }) {
                 Text("toggle expanded state from Parentview")
             }
             SBBDivider()
-            SBBBubbleView(image: image, title: "\(title) - voiceover", detail: detail, expanded: $expanded2, titleAccessibility: titleAccessibility, detailAccessibility: detailAccessibility)
+            SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, detail: [detail1, detail2], detailAccessibility: [detail1Accessibility, detail2Accessibility], expanded: $expanded2)
             Button(action: {
                 self.expanded2.toggle()
             }) {
                 Text("toggle expanded state from Parentview")
             }
-            SBBDivider()
-            SBBBubbleView(image: image, title: title, expanded: .constant(false))
-            SBBDivider()
-            SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
             Spacer()
         }
             .navigationBarTitle("BubbleView")

@@ -6,41 +6,24 @@ import SwiftUI
 
 public struct SBBBubbleView: View {
     
-    var image: Image
-    var title: LocalizedStringKey
-    var subtitle: LocalizedStringKey?
-    var detail: LocalizedStringKey?
-    @Binding var expanded: Bool
+    private let image: Image
+    private let title: Text
+    private let titleAccessibility: Text?
+    private let subtitle: Text?
+    private let subtitleAccessibility: Text?
+    private let detail: [Text]?
+    private let detailAccessibility: [Text]?
+    @Binding private var expanded: Bool
     
-    var titleAccessibility: LocalizedStringKey
-    var subtitleAccessibility: LocalizedStringKey?
-    var detailAccessibility: LocalizedStringKey?
-        
-    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Binding<Bool>, titleAccessibility: String? = nil, subtitleAccessibility: String? = nil, detailAccessibility: String? = nil) {
+    public init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, detail: [Text]? = nil, detailAccessibility: [Text]? = nil, expanded: Binding<Bool>) {
         self.image = image
-        
-        self.title = LocalizedStringKey(title)
-        self.titleAccessibility = LocalizedStringKey(titleAccessibility ?? title)
-        
-        if let subtitle = subtitle {
-            self.subtitle = LocalizedStringKey(subtitle)
-            self.subtitleAccessibility = LocalizedStringKey(subtitleAccessibility ?? subtitle)
-        } else {
-            self.subtitle = nil
-            self.subtitleAccessibility = nil
-        }
-        
-        if let detail = detail {
-            self.detail = LocalizedStringKey(detail)
-            self.detailAccessibility = LocalizedStringKey(detailAccessibility ?? detail)
-        } else {
-            self.detail = nil
-            self.detailAccessibility = nil
-        }
-        
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = subtitle
+        self.subtitleAccessibility = subtitleAccessibility
+        self.detail = detail
+        self.detailAccessibility = detailAccessibility
         self._expanded = expanded
-        
-        
     }
     
     public var body: some View {
@@ -56,9 +39,9 @@ public struct SBBBubbleView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(alignment: .center) {
-                                Text(self.title)
+                                title
                                     .sbbFont(.titleDefault)
-                                    .accessibility(label: Text(self.titleAccessibility))
+                                    .accessibility(label: self.titleAccessibility ?? self.title)
                                     .padding([.bottom, .top], 8)
                                 Spacer()
                                 if (self.detail != nil) {
@@ -73,16 +56,18 @@ public struct SBBBubbleView: View {
                                 }
                             }
                             if (self.subtitle != nil) {
-                                Text(self.subtitle!)
+                                subtitle!
                                     .sbbFont(.body)
-                                    .accessibility(label: Text(self.subtitleAccessibility!))
+                                    .accessibility(label: self.subtitleAccessibility ?? self.subtitle!)
                             }
                         }
                         if (self.detail != nil) && self.expanded {
                             SBBDivider()
-                            Text(self.detail!)
-                                .sbbFont(.body)
-                                .accessibility(label: Text(self.detailAccessibility!))
+                            ForEach(self.detail!.indices, id: \.self) { index in
+                                self.detail![index]
+                                    .sbbFont(.body)
+                                    .accessibility(label: (self.detailAccessibility?.indices.contains(index) ?? false) ? self.detailAccessibility![index] : self.detail![index])
+                            }
                         }
                     }
                         .accessibilityElement(children: .combine)   // TODO - delete once SwiftUI bug is solved
@@ -109,15 +94,17 @@ public struct SBBBubbleView: View {
 struct SBBBubbleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true))
                 .previewDisplayName("Title only")
-            SBBBubbleView(image: Image(systemName: "car"), title: "Biel / Bienne", subtitle: "Gleis 2 und 3.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."), expanded: .constant(true))
                 .previewDisplayName("Subtitle")
-            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), detail: [Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")], expanded: .constant(true))
                 .previewDisplayName("Detail")
-            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), detail: [Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")], expanded: .constant(true))
                 .previewDisplayName("Detail dark")
                 .environment(\.colorScheme, .dark)
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), detail: [Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03."), Text("ca. +12'").foregroundColor(SBBColor.red).font(.sbbTitleDefault)], expanded: .constant(true))
+                .previewDisplayName("Detail")
         }
             .previewLayout(.sizeThatFits)
     }
