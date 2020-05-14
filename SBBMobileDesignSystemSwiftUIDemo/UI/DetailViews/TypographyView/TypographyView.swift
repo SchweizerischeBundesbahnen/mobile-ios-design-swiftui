@@ -9,24 +9,32 @@ struct TypographyView: View {
     
     @Binding var colorScheme: ColorScheme
     @State var fontView: Int = 1
+    @State var infoViewExpanded: Bool = true
     
     var body: some View {
-        VStack {
-            SBBSegmentedPicker(selection: $fontView, tags: [1, 2]) {
+        VStack(spacing: 16) {
+            SBBSegmentedPicker(selection: $fontView, tags: [1, 2, 3]) {
                 Text(".font")
                 Text(".sbbFont")
+                Text("custom")
             }
-                .padding()
-            ScrollView {
-                if fontView == 1 {
-                    TypographyFontView()
-                } else if fontView == 2 {
-                    TypographySBBFontView()
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 16) {
+                    if fontView == 1 {
+                        SBBInfoView(title: Text(".font ReadMe"), detail: Text("Using the .font() View Modifier, you can select all available SBB Fonts. However this does not apply SBB specific LineSpacing. If you want SBB specific LineSpacing, use the .sbbFont() View Modifier instead."), expanded: $infoViewExpanded)
+                        TypographyFontView()
+                    } else if fontView == 2 {
+                        SBBInfoView(title: Text(".sbbFont ReadMe"), detail: Text("Using the .sbbFont() View Modifier, you can select all available SBB Fonts. SBB specific LineSpacing is also applied."), expanded: $infoViewExpanded)
+                        TypographySBBFontView()
+                    } else if fontView == 3 {
+                        SBBInfoView(title: Text("Custom Font ReadMe"), detail: Text("Using the .font(.sbbFont(size: 10)) you can create your own Font based on the available SBB Font Styles by specifying a size of your choice"), expanded: $infoViewExpanded)
+                        TypographyCustomFontView()
+                    }
                 }
             }
-                .padding()
         }
             .navigationBarTitle("Typography")
+            .padding()
             .background(SBBColor.background)
             .colorScheme(colorScheme)
             

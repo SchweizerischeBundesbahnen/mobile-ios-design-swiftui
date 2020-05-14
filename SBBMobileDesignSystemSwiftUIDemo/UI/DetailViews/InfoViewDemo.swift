@@ -12,11 +12,11 @@ struct InfoViewDemo: View {
     @State var expanded1 = true
     @State var expanded2 = false
     
-    var title = "Hinweis"
-    var detail = "In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."
+    var title = Text("Hinweis")
+    var detail = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein.")
     
-    var titleAccessibility = "Hinweis"
-    var detailAccessibility = "In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."
+    var titleAccessibility = Text("Hinweis")
+    var detailAccessibility = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein.")
     
     var body: some View {
         VStack {
@@ -27,7 +27,7 @@ struct InfoViewDemo: View {
                 Text("toggle expanded state from Parentview")
             }
             SBBDivider()
-            SBBInfoView(title: "\(title) - voiceover", detail: detail, expanded: $expanded2, titleAccessibility: titleAccessibility, detailAccessibility: detailAccessibility)
+            SBBInfoView(title: title, titleAccessibility: titleAccessibility, detail: detail, detailAccessibility: detailAccessibility, expanded: $expanded2)
             Button(action: {
                 self.expanded2.toggle()
             }) {
