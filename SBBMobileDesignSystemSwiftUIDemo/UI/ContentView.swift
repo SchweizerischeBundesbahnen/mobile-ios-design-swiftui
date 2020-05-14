@@ -30,9 +30,6 @@ struct ContentView: View {
                         NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
                             Text("Typography")
                         }
-                        NavigationLink(destination: TypographyViewNew(colorScheme: $colorScheme)) {
-                            Text("Typography New")
-                        }
                         NavigationLink(destination: DividerViewDemo(colorScheme: $colorScheme)) {
                             Text("Divider")
                         }
@@ -54,9 +51,9 @@ struct ContentView: View {
                         NavigationLink(destination: CheckBoxView(colorScheme: $colorScheme)) {
                             Text("CheckBox")
                         }
-                        /*NavigationLink(destination: FormGroupView(colorScheme: $colorScheme)) {
+                        NavigationLink(destination: FormGroupView(colorScheme: $colorScheme)) {
                             Text("FormGroup")
-                        }*/
+                        }
                     }
                     Section {
                         NavigationLink(destination: ButtonDemo(colorScheme: $colorScheme)) {

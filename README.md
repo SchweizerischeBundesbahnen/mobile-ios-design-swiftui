@@ -75,16 +75,34 @@ You can use colors like so:
 
 ## Fonts
 
-SBBFonts are scaling dynamically (except in Preview - current SwiftUI/XCode bug). You can overwrite font size and lineSpacing if desired.
+There are 2 ways in which you can use SBB Fonts
 
-You can use colors like so:
+### Using .font() View Modifier
+
+Using the .font() View Modifier, you can select all available SBB Fonts. However this does not apply SBB specific LineSpacing. If you want SBB specific LineSpacing, use the .sbbFont() View Modifier instead. You can also create your own Fonts based on the available SBB Font Styles by specifying a size of your choice. 
+
+You can use .font() like so:
 
 ```
     Text("SBB Body\(longText)")
-        .sbbFont(.body)                             // default usage
-        .sbbFont(.body, size: 25, lineSpacing: 6)   // overwriting font size and lineSpacing
-        .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWihte
+        .font(.sbbBody)                             // default usage
+        .font(.sbbLight(size: 12))                  // or create own font based on available SBB Font Styles
+        .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWhite
 ```
+
+### Using .sbbFont() View Modifier
+
+Using the .sbbFont() View Modifier, SBB specific LineSpacing is also applied.
+SBBFonts are scaling dynamically (except in Preview - current SwiftUI/XCode bug). 
+
+You can use .sbbFont() like so:
+
+```
+    Text("SBB Body\(longText)")
+        .sbbFont(.body)
+        .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWhite
+```
+
 ## SBBDivider
 
 SBBDivider replaces the standard Swiftui Divider.
