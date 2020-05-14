@@ -21,7 +21,7 @@ struct BubbleViewDemo: View {
     var titleAccessibility = Text("IC6 nach Basel")
     var subtitleAccessibility = Text("Heute auf Gleis 2.")
     var detail1Accessibility = Text("Wagen 3, Erste Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-    var detail2Accessibility = Text("circa +5 Minuten Verspätung.")
+    var detail2Accessibility = Text("circa +2 Minuten Verspätung.")
     
     var body: some View {
         VStack {
@@ -29,14 +29,21 @@ struct BubbleViewDemo: View {
             SBBDivider()
             SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
             SBBDivider()
-            SBBBubbleView(image: image, title: title, detail: [detail1], expanded: $expanded1)
+            SBBBubbleView(image: image, title: title, expanded: $expanded1) {
+                self.detail1
+            }
             Button(action: {
                 self.expanded1.toggle()
             }) {
                 Text("toggle expanded state from Parentview")
             }
             SBBDivider()
-            SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, detail: [detail1, detail2], detailAccessibility: [detail1Accessibility, detail2Accessibility], expanded: $expanded2)
+            SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded2) {
+                self.detail1
+                    .accessibility(label: self.detail1Accessibility)
+                self.detail2
+                    .accessibility(label: self.detail2Accessibility)
+            }
             Button(action: {
                 self.expanded2.toggle()
             }) {
