@@ -75,16 +75,34 @@ You can use colors like so:
 
 ## Fonts
 
-SBBFonts are scaling dynamically (except in Preview - current SwiftUI/XCode bug). You can overwrite font size and lineSpacing if desired.
+There are 2 ways in which you can use SBB Fonts
 
-You can use colors like so:
+### Using .font() View Modifier
+
+Using the .font() View Modifier, you can select all available SBB Fonts. However this does not apply SBB specific LineSpacing. If you want SBB specific LineSpacing, use the .sbbFont() View Modifier instead. You can also create your own Fonts based on the available SBB Font Styles by specifying a size of your choice. 
+
+You can use .font() like so:
 
 ```
     Text("SBB Body\(longText)")
-        .sbbFont(.body)                             // default usage
-        .sbbFont(.body, size: 25, lineSpacing: 6)   // overwriting font size and lineSpacing
-        .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWihte
+        .font(.sbbBody)                             // default usage
+        .font(.sbbLight(size: 12))                  // or create own font based on available SBB Font Styles
+        .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWhite
 ```
+
+### Using .sbbFont() View Modifier
+
+Using the .sbbFont() View Modifier, SBB specific LineSpacing is also applied.
+SBBFonts are scaling dynamically (except in Preview - current SwiftUI/XCode bug). 
+
+You can use .sbbFont() like so:
+
+```
+    Text("SBB Body\(longText)")
+        .sbbFont(.body)
+        .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWhite
+```
+
 ## SBBDivider
 
 SBBDivider replaces the standard Swiftui Divider.
@@ -99,7 +117,7 @@ You can use it like so:
 
 ## SBBBubbleView
 
-SBBBubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, detail, titleAccessibility, subtitleAccessibility and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
+SBBBubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, titleAccessibility, subtitleAccessibility and content as a Viewbuilder defining what will be shown in the expandable part (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Views inside the ViewBuilder as you want and they will be stacked vertically by default.
 
 If you want your BubbleView to be expandable, you can use it like so:
 
@@ -108,7 +126,10 @@ If you want your BubbleView to be expandable, you can use it like so:
     
     var body: some View {
         VStack {
-            SBBBubbleView(image: Image("sample"), title: "Your title", detail: "Your longer text", expanded: $expanded)    // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            SBBBubbleView(image: Image("sample"), title: Text("Your title"), detail: [Text("Your longer text")], expanded: $expanded) {   
+                Text("Your longer text")    // you can add whatever Views you want inside ViewBuilder for the Detail part of BubbleView
+            }
             // other elements below SBBBubbleView
         }
     }
@@ -118,7 +139,8 @@ If your BubbleView contains no detail (and is not expandable), you can use it li
 ```    
     var body: some View {
         VStack {
-        SBBBubbleView(image: Image("sample"), title: "Your title", expanded: .constant(false))    // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            SBBBubbleView(image: Image("sample"), title: Text("Your title"), expanded: .constant(false))    
             // other elements below SBBBubbleView
         }
     }
@@ -134,7 +156,7 @@ You can use the SBBInfoView it like so:
     @State var expanded = true
     
     var body: some View {
-        SBBInfoView(title: "Your title", detail: "Your longer text", expanded: $expanded)
+        SBBInfoView(title: Text("Your title"), detail: Text("Your longer text"), expanded: $expanded)
     }
 ```
 
