@@ -3,7 +3,8 @@
 ## V0.1.4 - 15 May 2020
 
 ### Features
-* SBBBubbleView and SBBInfoView now accept Text instead of String as their parameters (e.g. so you can customize the font color)
+* SBBBubbleView now accept Text instead of String as their parameters and a ViewBuilder for its Detail (e.g. so you can customize the font color)
+* SBBInfoView now accept Text instead of String as their parameters (e.g. so you can customize the font color)
 * Font Extension featuring all SBBFonts
 
 ## V0.1.3 - 08 May 2020

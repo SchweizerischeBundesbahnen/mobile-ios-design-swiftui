@@ -117,7 +117,7 @@ You can use it like so:
 
 ## SBBBubbleView
 
-SBBBubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, detail, titleAccessibility, subtitleAccessibility and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Text Views inside the detail Array and they will be stacked vertically (note: you need to pass the same number of Text Views for detailAccessibility if you want to use specific accessibility labels. If the number does not match, detailAccessibility will be ignored.).
+SBBBubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, titleAccessibility, subtitleAccessibility and content as a Viewbuilder defining what will be shown in the expandable part (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Views inside the ViewBuilder as you want and they will be stacked vertically by default.
 
 If you want your BubbleView to be expandable, you can use it like so:
 
@@ -126,7 +126,10 @@ If you want your BubbleView to be expandable, you can use it like so:
     
     var body: some View {
         VStack {
-            SBBBubbleView(image: Image("sample"), title: Text("Your title"), detail: [Text("Your longer text")], expanded: $expanded)    // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            SBBBubbleView(image: Image("sample"), title: Text("Your title"), detail: [Text("Your longer text")], expanded: $expanded) {   
+                Text("Your longer text")    // you can add whatever Views you want inside ViewBuilder for the Detail part of BubbleView
+            }
             // other elements below SBBBubbleView
         }
     }
@@ -136,7 +139,8 @@ If your BubbleView contains no detail (and is not expandable), you can use it li
 ```    
     var body: some View {
         VStack {
-        SBBBubbleView(image: Image("sample"), title: Text("Your title"), expanded: .constant(false))    // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            SBBBubbleView(image: Image("sample"), title: Text("Your title"), expanded: .constant(false))    
             // other elements below SBBBubbleView
         }
     }
