@@ -35,7 +35,7 @@ public struct SBBTextField: View {
                 VStack(alignment: .leading, spacing: 4) {
                     if !text.isEmpty {
                         Text(label!)
-                            .sbbFont(.body, size: 10, lineSpacing: nil)
+                            .font(.sbbLight(size: 10))
                             .foregroundColor(SBBColor.placeholder)
                             .opacity(text.isEmpty ? 0.0 : 1.0)
                             .accessibility(hidden: true)

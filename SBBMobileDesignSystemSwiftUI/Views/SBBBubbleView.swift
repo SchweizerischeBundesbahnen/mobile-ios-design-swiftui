@@ -4,43 +4,37 @@
 
 import SwiftUI
 
-public struct SBBBubbleView: View {
-    
-    var image: Image
-    var title: LocalizedStringKey
-    var subtitle: LocalizedStringKey?
-    var detail: LocalizedStringKey?
-    @Binding var expanded: Bool
-    
-    var titleAccessibility: LocalizedStringKey
-    var subtitleAccessibility: LocalizedStringKey?
-    var detailAccessibility: LocalizedStringKey?
-        
-    public init(image: Image, title: String, subtitle: String? = nil, detail: String? = nil, expanded: Binding<Bool>, titleAccessibility: String? = nil, subtitleAccessibility: String? = nil, detailAccessibility: String? = nil) {
+// initializer without detail
+public extension SBBBubbleView where Content == EmptyView {
+    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>) {
         self.image = image
-        
-        self.title = LocalizedStringKey(title)
-        self.titleAccessibility = LocalizedStringKey(titleAccessibility ?? title)
-        
-        if let subtitle = subtitle {
-            self.subtitle = LocalizedStringKey(subtitle)
-            self.subtitleAccessibility = LocalizedStringKey(subtitleAccessibility ?? subtitle)
-        } else {
-            self.subtitle = nil
-            self.subtitleAccessibility = nil
-        }
-        
-        if let detail = detail {
-            self.detail = LocalizedStringKey(detail)
-            self.detailAccessibility = LocalizedStringKey(detailAccessibility ?? detail)
-        } else {
-            self.detail = nil
-            self.detailAccessibility = nil
-        }
-        
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = subtitle
+        self.subtitleAccessibility = subtitleAccessibility
         self._expanded = expanded
-        
-        
+        self.content = nil
+    }
+}
+
+public struct SBBBubbleView<Content>: View where Content: View {
+    
+    private let image: Image
+    private let title: Text
+    private let titleAccessibility: Text?
+    private let subtitle: Text?
+    private let subtitleAccessibility: Text?
+    @Binding private var expanded: Bool
+    private let content: Content?
+    
+    public init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) {
+        self.image = image
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = subtitle
+        self.subtitleAccessibility = subtitleAccessibility
+        self._expanded = expanded
+        self.content = content()
     }
     
     public var body: some View {
@@ -56,12 +50,13 @@ public struct SBBBubbleView: View {
                     VStack(alignment: .leading, spacing: 8) {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(alignment: .center) {
-                                Text(self.title)
+                                title
                                     .sbbFont(.titleDefault)
-                                    .accessibility(label: Text(self.titleAccessibility))
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .accessibility(label: self.titleAccessibility ?? self.title)
                                     .padding([.bottom, .top], 8)
                                 Spacer()
-                                if (self.detail != nil) {
+                                if (content != nil) {
                                     Group {
                                         Image("chevron_small_up", bundle: Helper.bundle)
                                             .rotationEffect(.degrees(self.expanded ? 0 : 180))
@@ -73,28 +68,28 @@ public struct SBBBubbleView: View {
                                 }
                             }
                             if (self.subtitle != nil) {
-                                Text(self.subtitle!)
+                                subtitle!
                                     .sbbFont(.body)
-                                    .accessibility(label: Text(self.subtitleAccessibility!))
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .accessibility(label: self.subtitleAccessibility ?? self.subtitle!)
                             }
                         }
-                        if (self.detail != nil) && self.expanded {
+                        if (content != nil) && self.expanded {
                             SBBDivider()
-                            Text(self.detail!)
+                            content
                                 .sbbFont(.body)
-                                .accessibility(label: Text(self.detailAccessibility!))
                         }
                     }
                         .accessibilityElement(children: .combine)   // TODO - delete once SwiftUI bug is solved
                 }
-                    .disabled(self.detail == nil)
+                    .disabled(self.content == nil)
                     .padding(16)
                     .background(SBBColor.tabViewBackground)
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(SBBColor.textBlack)
                     //.accessibilityElement(children: .combine) / TODO - uncomment once SwiftUI bug (.combine does not reload voiceover if children element Strings are changed) is solved
-                    .accessibility(hint: ((self.detail == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
+                    .accessibility(hint: ((self.content == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
             }
                 .padding(.horizontal, 16)
                 .onTapGesture {
@@ -109,15 +104,26 @@ public struct SBBBubbleView: View {
 struct SBBBubbleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true))
                 .previewDisplayName("Title only")
-            SBBBubbleView(image: Image(systemName: "car"), title: "Biel / Bienne", subtitle: "Gleis 2 und 3.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."), expanded: .constant(true))
                 .previewDisplayName("Subtitle")
-            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
+                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+            }
                 .previewDisplayName("Detail")
-            SBBBubbleView(image: Image(systemName: "car"), title: "IC6 nach Basel", detail: "Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.", expanded: .constant(true))
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
+                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+            }
                 .previewDisplayName("Detail dark")
                 .environment(\.colorScheme, .dark)
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
+                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+                Text("ca. +12'")
+                    .foregroundColor(SBBColor.red)
+                    .font(.sbbTitleDefault)
+            }
+                .previewDisplayName("Detail")
         }
             .previewLayout(.sizeThatFits)
     }

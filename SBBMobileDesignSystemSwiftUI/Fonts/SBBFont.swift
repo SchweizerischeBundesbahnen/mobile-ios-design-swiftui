@@ -8,28 +8,10 @@ import SwiftUI
 // Usage: .sbbFont(.sbb_legend)
 // Custom font dynamic sizing does not seem to work inside the PreviewProvider atm (SwiftUI bug?)
 
-struct ScaledFont: ViewModifier {
-    @Environment(\.sizeCategory) var sizeCategory
-    var font: SBBFont
-    var size: CGFloat?
-    var lineSpacing: CGFloat?
-  
-    func body(content: Content) -> some View {
-        let scaledSize = UIFontMetrics.default.scaledValue(for: size ?? font.fontParameters.size)
-        return content.font(.custom(font.fontParameters.name, size: scaledSize)).lineSpacing(lineSpacing ?? font.fontParameters.lineSpacing)
-    }
-}
-
 public extension View {
-    func sbbFont(_ font: SBBFont, size: CGFloat? = nil, lineSpacing: CGFloat? = nil) -> some View {
-        return self.modifier(ScaledFont(font: font, size: size, lineSpacing: lineSpacing))
+    func sbbFont(_ sbbFont: SBBFont) -> some View {
+        return self.font(sbbFont.font).lineSpacing(sbbFont.lineSpacing)
     }
-}
-
-struct FontParameters {
-    let name: String
-    let size: CGFloat
-    let lineSpacing: CGFloat
 }
 
 public enum SBBFont {
@@ -44,18 +26,33 @@ public enum SBBFont {
     case legendSmall
     case tableHeader
     
-    var fontParameters: FontParameters {
+    var font: Font {
         switch self {
-        case .header: return FontParameters(name: "SBBWeb-Light", size: 22, lineSpacing: 2)
-        case .headline: return FontParameters(name: "SBBWeb-Bold", size: 18, lineSpacing: 4)
-        case .titleDefault: return FontParameters(name: "SBBWeb-Bold", size: 16, lineSpacing: 6)
-        case .titleModul: return FontParameters(name: "SBBWeb-Light", size: 18, lineSpacing: 8)
-        case .subtitle: return FontParameters(name: "SBBWeb-Bold", size: 14, lineSpacing: 6)
-        case .copy: return FontParameters(name: "SBBWeb-Light", size: 18, lineSpacing: 6)
-        case .body: return FontParameters(name: "SBBWeb-Light", size: 16, lineSpacing: 4)
-        case .legend: return FontParameters(name: "SBBWeb-Light", size: 14, lineSpacing: 6)
-        case .legendSmall: return FontParameters(name: "SBBWeb-Light", size: 12, lineSpacing: 8)
-        case .tableHeader: return FontParameters(name: "SBBWeb-Roman", size: 14, lineSpacing: 0)
+        case .header: return .sbbHeader
+        case .headline: return .sbbHeadline
+        case .titleDefault: return .sbbTitleDefault
+        case .titleModul: return .sbbTitleModul
+        case .subtitle: return .sbbSubtitle
+        case .copy: return .sbbCopy
+        case .body: return .sbbBody
+        case .legend: return .sbbLegend
+        case .legendSmall: return .sbbLegendSmall
+        case .tableHeader: return .sbbTableHeader
+        }
+    }
+    
+    var lineSpacing: CGFloat {
+        switch self {
+        case .header: return 2
+        case .headline: return 4
+        case .titleDefault: return 6
+        case .titleModul: return 8
+        case .subtitle: return 6
+        case .copy: return 6
+        case .body: return 4
+        case .legend: return 6
+        case .legendSmall: return 8
+        case .tableHeader: return 0
         }
     }
 }
