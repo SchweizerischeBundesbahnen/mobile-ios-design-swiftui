@@ -5,7 +5,7 @@
 import Foundation
 import SwiftUI
 
-// Usage: .font(.sbbBody) or .font(.sbbBody(size: 12))
+// Usage: .font(.sbbBody) or .font(.sbbLight(size: 12))
 
 public extension Font {
     
