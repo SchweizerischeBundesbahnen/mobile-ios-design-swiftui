@@ -52,6 +52,7 @@ public struct SBBBubbleView<Content>: View where Content: View {
                             HStack(alignment: .center) {
                                 title
                                     .sbbFont(.titleDefault)
+                                    .fixedSize(horizontal: false, vertical: true)
                                     .accessibility(label: self.titleAccessibility ?? self.title)
                                     .padding([.bottom, .top], 8)
                                 Spacer()
@@ -69,6 +70,7 @@ public struct SBBBubbleView<Content>: View where Content: View {
                             if (self.subtitle != nil) {
                                 subtitle!
                                     .sbbFont(.body)
+                                    .fixedSize(horizontal: false, vertical: true)
                                     .accessibility(label: self.subtitleAccessibility ?? self.subtitle!)
                             }
                         }

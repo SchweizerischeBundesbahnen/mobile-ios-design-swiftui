@@ -7,6 +7,9 @@
 * SBBInfoView now accept Text instead of String as their parameters (e.g. so you can customize the font color)
 * Font Extension featuring all SBBFonts
 
+### Bugfixes
+* SBBBubbleView and SBBInfoView now support multiline for all their Text Views
+
 ## V0.1.3 - 08 May 2020
 
 ### Bugfixes

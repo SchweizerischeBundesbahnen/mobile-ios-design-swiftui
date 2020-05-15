@@ -9,14 +9,13 @@ struct BubbleViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
-    @State var expanded1 = true
-    @State var expanded2 = true
+    @State var expanded = true
     
     var image = Image(systemName: "car")
     var title = Text("IC6 nach Basel")
     var subtitle = Text("Gleis 2.")
     var detail1 = Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-    var detail2 = Text("ca. +2'").foregroundColor(SBBColor.red).font(.sbbTitleDefault)
+    var detail2 = Text("ca. +2'")
     
     var titleAccessibility = Text("IC6 nach Basel")
     var subtitleAccessibility = Text("Heute auf Gleis 2.")
@@ -29,23 +28,18 @@ struct BubbleViewDemo: View {
             SBBDivider()
             SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
             SBBDivider()
-            SBBBubbleView(image: image, title: title, expanded: $expanded1) {
+            SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded) {
                 self.detail1
-            }
-            Button(action: {
-                self.expanded1.toggle()
-            }) {
-                Text("toggle expanded state from Parentview")
-            }
-            SBBDivider()
-            SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded2) {
-                self.detail1
+                    .fixedSize(horizontal: false, vertical: true)
                     .accessibility(label: self.detail1Accessibility)
                 self.detail2
+                    .foregroundColor(SBBColor.red)
+                    .font(.sbbTitleDefault)
+                    .fixedSize(horizontal: false, vertical: true)
                     .accessibility(label: self.detail2Accessibility)
             }
             Button(action: {
-                self.expanded2.toggle()
+                self.expanded.toggle()
             }) {
                 Text("toggle expanded state from Parentview")
             }

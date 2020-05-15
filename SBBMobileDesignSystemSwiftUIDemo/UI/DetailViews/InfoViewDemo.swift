@@ -19,23 +19,25 @@ struct InfoViewDemo: View {
     var detailAccessibility = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein.")
     
     var body: some View {
-        VStack {
-            SBBInfoView(title: title, detail: detail, expanded: $expanded1)
-            Button(action: {
-                self.expanded1.toggle()
-            }) {
-                Text("toggle expanded state from Parentview")
+        ScrollView(showsIndicators: false) {
+            VStack {
+                SBBInfoView(title: title, detail: detail, expanded: $expanded1)
+                Button(action: {
+                    self.expanded1.toggle()
+                }) {
+                    Text("toggle expanded state from Parentview")
+                }
+                SBBDivider()
+                SBBInfoView(title: title, titleAccessibility: titleAccessibility, detail: detail, detailAccessibility: detailAccessibility, expanded: $expanded2)
+                Button(action: {
+                    self.expanded2.toggle()
+                }) {
+                    Text("toggle expanded state from Parentview")
+                }
+                Spacer()
             }
-            SBBDivider()
-            SBBInfoView(title: title, titleAccessibility: titleAccessibility, detail: detail, detailAccessibility: detailAccessibility, expanded: $expanded2)
-            Button(action: {
-                self.expanded2.toggle()
-            }) {
-                Text("toggle expanded state from Parentview")
-            }
-            Spacer()
-        }
             .padding(16)
+        }
             .navigationBarTitle("InfoView")
             .background(SBBColor.background)
             .colorScheme(colorScheme)

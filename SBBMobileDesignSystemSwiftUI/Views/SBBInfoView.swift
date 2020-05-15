@@ -27,6 +27,7 @@ public struct SBBInfoView: View {
                     HStack(alignment: .center) {
                         self.title
                             .sbbFont(.titleDefault)
+                            .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: self.titleAccessibility ?? self.title)
                         Spacer()
                         Group {
@@ -41,6 +42,7 @@ public struct SBBInfoView: View {
                     if self.expanded {
                         self.detail
                             .sbbFont(.body)
+                            .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: self.detailAccessibility ?? self.detail)
                     }
                 }
