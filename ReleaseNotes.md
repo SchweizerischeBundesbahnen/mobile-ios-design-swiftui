@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.5 - 18 May 2020
+
+### Bugfixes
+* "Segmentation Fault: 11" Archive Build Error using Cocoapod is fixed
+
 ## V0.1.4 - 15 May 2020
 
 ### Features
