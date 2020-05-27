@@ -59,6 +59,12 @@ struct ContentView: View {
                         NavigationLink(destination: ButtonDemo(colorScheme: $colorScheme)) {
                             Text("Button")
                         }
+                        NavigationLink(destination: ListItemDemo(colorScheme: $colorScheme)) {
+                            Text("ListItem")
+                        }
+                        NavigationLink(destination: ToggleDemo(colorScheme: $colorScheme)) {
+                            Text("Toggle")
+                        }
                     }
                 }
             }

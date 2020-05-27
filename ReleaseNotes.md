@@ -1,5 +1,12 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.6 - 27 May 2020
+
+### Features
+* SBBFormGroup now shows a SBBDivider by default between Views.
+* SBBListItem
+* Toggle now has SBB-specific background color (red)
+
 ## V0.1.5 - 18 May 2020
 
 ### Bugfixes

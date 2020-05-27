@@ -249,6 +249,27 @@ SBBFormGroup is a SBB-styled section of a form. It takes from 1 to 10 elements w
     }
 ```
 
+## SBBListItem
+
+SBBListItem is usually used inside a SBBFormGroup and in combination with NavigationLink. You need to set its label. Optional parameters are its labelAccessibility, image, footnote, footnoteAccessibility and its type (SBBListItemType which is by default .normal).
+
+```    
+    var body: some View {
+        VStack {
+            SBBFormGroup(title: "Label only") {
+                NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { 
+                    SBBListItem(label: Text("Label")) 
+                })
+            }
+            SBBFormGroup(title: "All parameters set") {
+                NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { 
+                SBBListItem(label: Text("Label"), labelAccessibility: Text("Voiceover for label"), image: Image("my_image_name"), footnote: Text("FootNote"), footnoteAccessibility: Text("Voiceover for footnote"), type: .info)
+                })
+            }
+        }
+    }
+```
+
 ## SBBPrimaryButtonStyle
 
 SwiftUI ButtonStyle implementation of SBB primary button. 
@@ -261,6 +282,10 @@ SwiftUI ButtonStyle implementation of SBB primary button.
         .buttonStyle(SBBPrimaryButtonStyle())
     }
 ```
+
+## Toggle
+
+The standard SwiftUI toggle can be used. It will by default feature the SBB specific background color (red). 
 
 ## Authors
 
