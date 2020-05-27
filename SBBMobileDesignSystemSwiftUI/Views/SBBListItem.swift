@@ -34,6 +34,7 @@ public struct SBBListItem: View {
                     if image != nil {
                         image!
                             .resizeToContentSizeCategory(originalHeight: 24)
+                            .accessibility(hidden: true)
                     }
                     label
                         .sbbFont(.body)
