@@ -16,6 +16,7 @@ public class SBBAppearance {
     public class func setupSBBAppearance() {
         setupSBBFonts()
         setupSBBNavigationBar()
+        setupSBBToggle()
     }
     
     private class func setupSBBFonts() {
@@ -31,6 +32,10 @@ public class SBBAppearance {
                                              NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 22)!]
         UINavigationBar.appearance().standardAppearance = newAppearance
         UINavigationBar.appearance().tintColor = UIColor(named: "textWhite", in: Bundle.init(for: SBBAppearance.self), compatibleWith: nil)
+    }
+    
+    private class func setupSBBToggle() {
+        UISwitch.appearance().onTintColor = UIColor(named: "Red", in: Bundle.init(for: SBBAppearance.self), compatibleWith: nil)
     }
 }
 

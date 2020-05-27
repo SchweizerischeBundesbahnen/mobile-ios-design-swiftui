@@ -283,6 +283,10 @@ SwiftUI ButtonStyle implementation of SBB primary button.
     }
 ```
 
+## Toggle
+
+The standard SwiftUI toggle can be used. It will by default feature the SBB specific background color (red). 
+
 ## Authors
 
 * **Antoniadis Georgios**
