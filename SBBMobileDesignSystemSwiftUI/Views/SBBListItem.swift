@@ -17,15 +17,13 @@ public struct SBBListItem: View {
     private let footnote: Text?
     private let footnoteAccessibility: Text?
     private let imageRight: Image
-    private let action: (() -> Void)?
     
-    public init(label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal, action: (() -> Void)? = nil) {
+    public init(label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.image = image
         self.footnote = footnote
         self.footnoteAccessibility = footnoteAccessibility
-        self.action = action
         self.imageRight = Image(type == .normal ? "chevron_small_right_45_small" : "circle_information_small_small", bundle: Helper.bundle)
     }
     

@@ -18,23 +18,25 @@ struct ListItemDemo: View {
             VStack(spacing: 16) {
                 SBBFormGroup(title: "Label") {
                     NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label) })
-                    SBBListItem(label: self.label)
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label) })
                 }
                 SBBFormGroup(title: "Label (info type)") {
-                    SBBListItem(label: self.label, type: .info)
-                    SBBListItem(label: self.label, type: .info)
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, type: .info) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, type: .info) })
                 }
                 SBBFormGroup(title: "Label and Image") {
-                    SBBListItem(label: self.label, image: image)
-                    SBBListItem(label: self.label, image: image)
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, image: image) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, image: image) })
                 }
                 SBBFormGroup(title: "Label and Footnote") {
-                    SBBListItem(label: self.label, footnote: footnote)
-                    SBBListItem(label: self.label, footnote: footnote)
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, footnote: footnote) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, footnote: footnote) })
                 }
                 SBBFormGroup(title: "Label, Image and Footnote") {
-                    SBBListItem(label: self.label, image: image, footnote: footnote)
-                    SBBListItem(label: self.label, image: image, footnote: footnote)
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: {                     SBBListItem(label: self.label, image: image, footnote: footnote)
+ })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: {                     SBBListItem(label: self.label, image: image, footnote: footnote)
+ })
                 }
             }
             .padding(16)
