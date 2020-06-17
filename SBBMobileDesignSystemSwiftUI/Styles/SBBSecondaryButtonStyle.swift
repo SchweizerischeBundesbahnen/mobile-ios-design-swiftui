@@ -21,7 +21,7 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
             configuration.label
                 .sbbFont(.body)
                 .foregroundColor(getColor(enabled: isEnabled, isPressed: configuration.isPressed))
-                .frame(height: 46)
+                .frame(height: 44)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .overlay(
                     RoundedRectangle(cornerRadius: 23)
