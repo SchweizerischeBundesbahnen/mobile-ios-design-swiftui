@@ -4,15 +4,15 @@
 
 import SwiftUI
 
-public struct SBBPrimaryButtonStyle: ButtonStyle {
+public struct SBBSecondaryButtonStyle: ButtonStyle {
         
     public init() {}
     
     public func makeBody(configuration: Self.Configuration) -> some View {
-        SBBPrimaryButton(configuration: configuration)
+        SBBSecondaryButton(configuration: configuration)
     }
     
-    private struct SBBPrimaryButton: View {
+    private struct SBBSecondaryButton: View {
         
         let configuration: ButtonStyle.Configuration
         @Environment(\.isEnabled) private var isEnabled: Bool
@@ -20,18 +20,21 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .sbbFont(.body)
-                .foregroundColor(isEnabled ? SBBColor.textWhite : SBBColor.textMetal)
-                .frame(height: 46)
+                .foregroundColor(getColor(enabled: isEnabled, isPressed: configuration.isPressed))
+                .frame(height: 44)
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
-                .cornerRadius(23)
+                .contentShape(RoundedRectangle(cornerRadius: 23))
+                .background(
+                    RoundedRectangle(cornerRadius: 23)
+                        .stroke(getColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
+                )
         }
         
-        private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
+        private func getColor(enabled: Bool, isPressed: Bool) -> Color {
             if !enabled {
-                return SBBColor.disabledButtonBackground
+                return SBBColor.metal
             } else if isPressed {
-                return SBBColor.red150
+                return SBBColor.red125
             } else {
                 return SBBColor.red
             }
@@ -39,33 +42,33 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
     }
 }
 
-struct SBBPrimaryButtonStyle_Previews: PreviewProvider {
+struct SBBSecondaryButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle())
+            .buttonStyle(SBBSecondaryButtonStyle())
             .previewDisplayName("Light enabled")
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle())
-            .previewDisplayName("Light disabled")
+            .buttonStyle(SBBSecondaryButtonStyle())
             .environment(\.isEnabled, false)
+            .previewDisplayName("Light disabled")
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle())
+            .buttonStyle(SBBSecondaryButtonStyle())
             .previewDisplayName("Dark enabled")
             .environment(\.colorScheme, .dark)
             Button(action: {}) {
                 Text("Button")
             }
-            .buttonStyle(SBBPrimaryButtonStyle())
+            .buttonStyle(SBBSecondaryButtonStyle())
+            .environment(\.isEnabled, false)
             .previewDisplayName("Dark disabled")
             .environment(\.colorScheme, .dark)
-            .environment(\.isEnabled, false)
         }
         .previewLayout(.sizeThatFits)
     }
