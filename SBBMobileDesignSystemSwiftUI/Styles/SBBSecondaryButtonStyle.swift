@@ -23,7 +23,8 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
                 .foregroundColor(getColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .frame(height: 44)
                 .frame(minWidth: 0, maxWidth: .infinity)
-                .overlay(
+                .contentShape(RoundedRectangle(cornerRadius: 23))
+                .background(
                     RoundedRectangle(cornerRadius: 23)
                         .stroke(getColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
                 )
