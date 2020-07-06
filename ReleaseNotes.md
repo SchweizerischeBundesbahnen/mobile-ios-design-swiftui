@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.8 - 6 July 2020
+
+### Bugfixes
+* SBBFormGroup is now also redrawn when using a SBBCheckBox inside with an ObservableObject model.
+
 ## V0.1.7 - 18 June 2020
 
 ### Features
