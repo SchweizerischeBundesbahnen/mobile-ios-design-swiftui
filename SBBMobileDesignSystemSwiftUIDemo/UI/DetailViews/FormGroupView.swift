@@ -14,21 +14,21 @@ struct FormGroupView: View {
     
     var body: some View {
         VStack(spacing: 24) {
-            SBBFormGroup(title: "Title:", hideDivider: true) {
-                SBBTextField(text: $emptyText, label: "Placeholder")
-                SBBCheckBox(isOn: $isOn, label: "CheckBox")
-                SBBTextField(text: $text, label: "Placeholder")
-                SBBCheckBox(isOn: $isOn, label: "CheckBox")
+            SBBFormGroup(title: "Title:") {
+                SBBTextField(text: self.$emptyText, label: "Placeholder")
+                SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+                SBBTextField(text: self.$text, label: "Placeholder")
+                SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
             }
             Text("No title:")
-            SBBFormGroup(hideDivider: true) {
-                SBBCheckBox(isOn: $isOn, label: "CheckBox")
-                SBBTextField(text: $emptyText, label: "Placeholder")
-                SBBCheckBox(isOn: $isOn, label: "CheckBox")
-                SBBTextField(text: $text, label: "Placeholder")
+            SBBFormGroup {
+                SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+                SBBTextField(text: self.$emptyText, label: "Placeholder")
+                SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+                SBBTextField(text: self.$text, label: "Placeholder")
             }
             SBBFormGroup(title: "One row:") {
-                SBBTextArea(text: $text)
+                SBBTextArea(text: self.$text)
             }
             Spacer()
         }

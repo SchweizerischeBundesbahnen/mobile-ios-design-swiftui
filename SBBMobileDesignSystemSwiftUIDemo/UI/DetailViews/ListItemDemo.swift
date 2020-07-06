@@ -25,17 +25,17 @@ struct ListItemDemo: View {
                     NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, type: .info) })
                 }
                 SBBFormGroup(title: "Label and Image") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, image: image) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, image: image) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, image: self.image) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, image: self.image) })
                 }
                 SBBFormGroup(title: "Label and Footnote") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, footnote: footnote) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, footnote: footnote) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, footnote: self.footnote) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, footnote: self.footnote) })
                 }
                 SBBFormGroup(title: "Label, Image and Footnote") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: {                     SBBListItem(label: self.label, image: image, footnote: footnote)
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: {                     SBBListItem(label: self.label, image: self.image, footnote: self.footnote)
  })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: {                     SBBListItem(label: self.label, image: image, footnote: footnote)
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: {                     SBBListItem(label: self.label, image: self.image, footnote: self.footnote)
  })
                 }
             }
