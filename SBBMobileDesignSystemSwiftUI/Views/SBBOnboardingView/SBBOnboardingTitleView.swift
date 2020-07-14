@@ -32,6 +32,7 @@ public struct SBBOnboardingTitleView: View {
 }
 
 struct SBBOnboardingTitleView_Previews: PreviewProvider {
+    
     static let image = Image(systemName: "car")
     static let title = Text("Welcome to the best SBB App")
     

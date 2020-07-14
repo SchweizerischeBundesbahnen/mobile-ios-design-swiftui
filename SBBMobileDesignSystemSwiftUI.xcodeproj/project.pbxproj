@@ -55,6 +55,7 @@
 		7CBA441424BDB11E0078E68F /* SBBOnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */; };
 		7CBA441624BDB4250078E68F /* OnboardingTitleViewWithControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441524BDB4250078E68F /* OnboardingTitleViewWithControls.swift */; };
 		7CBA441824BDE47A0078E68F /* OnboardingCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */; };
+		7CBA441A24BDEB5B0078E68F /* SBBOnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */; };
 		7CDFFD8123E9C3C000250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8323E9C3C000250717 /* Localizable.strings */; };
 		7CDFFD8A23E9C77300250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8C23E9C77300250717 /* Localizable.strings */; };
 		A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706C155243715060029BD8D /* SBBCheckBox.swift */; };
@@ -157,6 +158,7 @@
 		7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingState.swift; sourceTree = "<group>"; };
 		7CBA441524BDB4250078E68F /* OnboardingTitleViewWithControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTitleViewWithControls.swift; sourceTree = "<group>"; };
 		7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardsView.swift; sourceTree = "<group>"; };
+		7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingCardView.swift; sourceTree = "<group>"; };
 		7CDFFD8223E9C3C000250717 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CDFFD8423E9C3D100250717 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CDFFD8523E9C3DF00250717 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -402,6 +404,7 @@
 				7CBA440F24BDA65F0078E68F /* SBBOnboardingTitleView.swift */,
 				7CBA441524BDB4250078E68F /* OnboardingTitleViewWithControls.swift */,
 				7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */,
+				7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */,
 				7CBA441124BDAD3C0078E68F /* SBBOnboardingView.swift */,
 				7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */,
 			);
@@ -593,6 +596,7 @@
 				7CBA441824BDE47A0078E68F /* OnboardingCardsView.swift in Sources */,
 				7CA464DF2445F31100118D7B /* SBBInfoView.swift in Sources */,
 				7CBA441424BDB11E0078E68F /* SBBOnboardingState.swift in Sources */,
+				7CBA441A24BDEB5B0078E68F /* SBBOnboardingCardView.swift in Sources */,
 				7C624898247E315800F54C9D /* ImageExtension.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
