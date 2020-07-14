@@ -50,6 +50,11 @@
 		7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */; };
 		7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */; };
 		7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */; };
+		7CBA441024BDA65F0078E68F /* SBBOnboardingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA440F24BDA65F0078E68F /* SBBOnboardingTitleView.swift */; };
+		7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441124BDAD3C0078E68F /* SBBOnboardingView.swift */; };
+		7CBA441424BDB11E0078E68F /* SBBOnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */; };
+		7CBA441624BDB4250078E68F /* OnboardingTitleViewWithControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441524BDB4250078E68F /* OnboardingTitleViewWithControls.swift */; };
+		7CBA441824BDE47A0078E68F /* OnboardingCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */; };
 		7CDFFD8123E9C3C000250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8323E9C3C000250717 /* Localizable.strings */; };
 		7CDFFD8A23E9C77300250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8C23E9C77300250717 /* Localizable.strings */; };
 		A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706C155243715060029BD8D /* SBBCheckBox.swift */; };
@@ -147,6 +152,11 @@
 		7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFontLoader.swift; sourceTree = "<group>"; };
 		7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAppearance.swift; sourceTree = "<group>"; };
 		7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBBubbleView.swift; sourceTree = "<group>"; };
+		7CBA440F24BDA65F0078E68F /* SBBOnboardingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingTitleView.swift; sourceTree = "<group>"; };
+		7CBA441124BDAD3C0078E68F /* SBBOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingView.swift; sourceTree = "<group>"; };
+		7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingState.swift; sourceTree = "<group>"; };
+		7CBA441524BDB4250078E68F /* OnboardingTitleViewWithControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTitleViewWithControls.swift; sourceTree = "<group>"; };
+		7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardsView.swift; sourceTree = "<group>"; };
 		7CDFFD8223E9C3C000250717 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CDFFD8423E9C3D100250717 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7CDFFD8523E9C3DF00250717 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -343,6 +353,7 @@
 				A73734892436135B00E34716 /* SBBTextField.swift */,
 				7CA464DE2445F31100118D7B /* SBBInfoView.swift */,
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
+				7CBA440E24BDA63E0078E68F /* SBBOnboardingView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -383,6 +394,18 @@
 				7CAFE98A23DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		7CBA440E24BDA63E0078E68F /* SBBOnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				7CBA440F24BDA65F0078E68F /* SBBOnboardingTitleView.swift */,
+				7CBA441524BDB4250078E68F /* OnboardingTitleViewWithControls.swift */,
+				7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */,
+				7CBA441124BDAD3C0078E68F /* SBBOnboardingView.swift */,
+				7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */,
+			);
+			path = SBBOnboardingView;
 			sourceTree = "<group>";
 		};
 		7CDFFD8723E9C74100250717 /* Resources */ = {
@@ -567,15 +590,20 @@
 				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
+				7CBA441824BDE47A0078E68F /* OnboardingCardsView.swift in Sources */,
 				7CA464DF2445F31100118D7B /* SBBInfoView.swift in Sources */,
+				7CBA441424BDB11E0078E68F /* SBBOnboardingState.swift in Sources */,
 				7C624898247E315800F54C9D /* ImageExtension.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
+				7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */,
+				7CBA441624BDB4250078E68F /* OnboardingTitleViewWithControls.swift in Sources */,
 				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
 				7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */,
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
+				7CBA441024BDA65F0078E68F /* SBBOnboardingTitleView.swift in Sources */,
 				A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
 				7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */,
