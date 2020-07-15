@@ -21,7 +21,7 @@ public class SBBOnboardingViewModel: ObservableObject {
     let cardViewModels: [SBBOnboardingCardViewModel]
     
     public init(state: SBBOnboardingState = .startView, startViewModel: SBBOnboardingTitleViewModel, endViewModel: SBBOnboardingTitleViewModel, cardViewModels: [SBBOnboardingCardViewModel]) {
-        self.state = .startView
+        self.state = state
         self.startViewModel = startViewModel
         self.endViewModel = endViewModel
         self.cardViewModels = cardViewModels

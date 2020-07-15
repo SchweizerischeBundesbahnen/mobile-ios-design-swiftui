@@ -283,6 +283,28 @@ SBBPaginationView is used in a pagination context to give the user a quick overv
     }
 ```
 
+## SBBOnboardingView
+
+SBBOnboardingView is used to present basic app functionality to your users on the first  app launch. It consists of a StartView, multiple CardViews and an EndView. 
+
+```   
+    let startViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
+    let endViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
+    let cardsViewModel = [SBBOnboardingCardViewModel(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text")), ...]
+    
+    @ObservedObject var onboardingViewModel = SBBOnboardingViewModel(startViewModel: startViewModel, endViewModel: endViewModel, cardViewModels: cardsViewModel)
+
+    var body: some View {
+        Group {
+            if onboardingViewModel.state == .hidden {
+                // your ContentView here (NavigationView goes also here, if you want to use it)
+            } else {
+                SBBOnboardingView(viewModel: onboardingViewModel)
+            }
+        }
+    }
+```
+
 ## SBBButtonStyle
 
 SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary large / tertiary small buttons. 

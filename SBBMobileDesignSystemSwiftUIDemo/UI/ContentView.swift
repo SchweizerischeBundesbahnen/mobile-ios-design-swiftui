@@ -12,7 +12,7 @@ import SBBMobileDesignSystemSwiftUI
 struct ContentView: View {
     
     @State var colorScheme: ColorScheme = .light
-    @ObservedObject var onboardingViewModel: SBBOnboardingViewModel = FakeSBBOnboardingViewModels.startView
+    @ObservedObject var onboardingViewModel: SBBOnboardingViewModel = FakeSBBOnboardingViewModels.hidden
     
     var body: some View {
         Group {
@@ -81,7 +81,7 @@ struct ContentView: View {
                 }
                     .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
             } else {
-                SBBOnboardingView(viewModel: FakeSBBOnboardingViewModels.startView)
+                SBBOnboardingView(viewModel: onboardingViewModel)
             }
         }
         
