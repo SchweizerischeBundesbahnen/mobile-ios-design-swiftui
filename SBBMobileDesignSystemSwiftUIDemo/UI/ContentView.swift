@@ -12,11 +12,11 @@ import SBBMobileDesignSystemSwiftUI
 struct ContentView: View {
     
     @State var colorScheme: ColorScheme = .light
-    @State var onboardingState: SBBOnboardingState = .hidden
+    @ObservedObject var onboardingViewModel: SBBOnboardingViewModel = FakeSBBOnboardingViewModels.startView
     
     var body: some View {
         Group {
-            if onboardingState == .hidden {
+            if onboardingViewModel.state == .hidden {
                 NavigationView {
                     VStack(spacing: 0) {
                         SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
@@ -69,7 +69,7 @@ struct ContentView: View {
                                     Text("Toggle")
                                 }
                                 Button(action: {
-                                    self.onboardingState = .startView
+                                    self.onboardingViewModel.state = .startView
                                 }) {
                                     Text("Onboarding")
                                 }
@@ -81,7 +81,7 @@ struct ContentView: View {
                 }
                     .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
             } else {
-                SBBOnboardingView(onboardingState: $onboardingState, startView: SBBOnboardingTitleView(image: Image(systemName: "car"), title: Text("Test title")), endView: SBBOnboardingTitleView(image: Image(systemName: "car"), title: Text("Test title")), cardViews: [SBBOnboardingCardView(image: Image(systemName: "car"), title: Text("Test title 1"), text: Text("Test text 1")), SBBOnboardingCardView(image: Image(systemName: "car"), title: Text("Test title 2"), text: Text("Test text 2"))])
+                SBBOnboardingView(viewModel: FakeSBBOnboardingViewModels.startView)
             }
         }
         

@@ -6,17 +6,19 @@ import SwiftUI
 
 struct OnboardingCardsView: View {
     
-    @Binding var onboardingState: SBBOnboardingState
+    @ObservedObject var viewModel: SBBOnboardingViewModel
     @State var currentCardIndex: Int = 0
     
-    let cardViews: [SBBOnboardingCardView]
-    
+    var currentCardViewModel: SBBOnboardingCardViewModel {
+        return viewModel.cardViewModels[currentCardIndex]
+    }
+        
     var body: some View {
         VStack(spacing: 0) {
-            if currentCardIndex < cardViews.count {
+            if currentCardIndex < viewModel.cardViewModels.count {
                 GeometryReader { geometry in
                     ZStack {
-                        self.cardViews[self.currentCardIndex]
+                        OnboardingCardView(image: self.currentCardViewModel.image, title: self.currentCardViewModel.title, text: self.currentCardViewModel.text)
                     }
                         .padding(.top, geometry.safeAreaInsets.top)
                         .background(SBBColor.red.edgesIgnoringSafeArea(.top))
@@ -40,7 +42,7 @@ struct OnboardingCardsView: View {
                         
                     }
                     Spacer()
-                    SBBPaginationView(currentPageIndex: $currentCardIndex, numberOfPages: cardViews.count)
+                    SBBPaginationView(currentPageIndex: $currentCardIndex, numberOfPages: viewModel.cardViewModels.count)
                     Spacer()
                     Button(action: {
                         self.showNextCard()
@@ -55,7 +57,7 @@ struct OnboardingCardsView: View {
                     }
                 }
                 Button(action: {
-                    self.onboardingState = .hidden
+                    self.viewModel.state = .hidden
                 }) {
                     Text("Rundgang abbrechen")
                 }
@@ -70,15 +72,15 @@ struct OnboardingCardsView: View {
     
     private func showPreviousCard() {
         if currentCardIndex == 0 {
-            onboardingState = .startView
+            viewModel.state = .startView
         } else {
             currentCardIndex -= 1
         }
     }
     
     private func showNextCard() {
-        if currentCardIndex == cardViews.count - 1 {
-            onboardingState = .endView
+        if currentCardIndex == viewModel.cardViewModels.count - 1 {
+            viewModel.state = .endView
         } else {
             currentCardIndex += 1
         }
@@ -87,14 +89,11 @@ struct OnboardingCardsView: View {
 
 struct OnboardingCardsView_Previews: PreviewProvider {
     
-    static let cardView = SBBOnboardingCardView(image: Image(systemName: "car"), title: Text("Test title"), text: Text("Test text"))
-    static let cardViews = [cardView, cardView]
-    
     static var previews: some View {
         Group {
-            OnboardingCardsView(onboardingState: .constant(.startView), cardViews: cardViews)
+            OnboardingCardsView(viewModel: FakeSBBOnboardingViewModels.startView)
                 .previewDisplayName("Light")
-            OnboardingCardsView(onboardingState: .constant(.startView), cardViews: cardViews)
+            OnboardingCardsView(viewModel: FakeSBBOnboardingViewModels.startView)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }

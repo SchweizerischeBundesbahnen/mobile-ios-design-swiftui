@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-public struct SBBOnboardingCardView: View {
+public struct OnboardingCardView: View {
     
     private let image: Image
     private let title: Text
@@ -38,9 +38,9 @@ struct OnboardingCardView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SBBOnboardingCardView(image: image, title: title, text: text)
+            OnboardingCardView(image: image, title: title, text: text)
                 .previewDisplayName("Light")
-            SBBOnboardingCardView(image: image, title: title, text: text)
+            OnboardingCardView(image: image, title: title, text: text)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }
