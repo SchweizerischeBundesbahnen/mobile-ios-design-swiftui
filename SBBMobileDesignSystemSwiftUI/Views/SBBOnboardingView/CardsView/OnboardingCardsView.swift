@@ -7,6 +7,7 @@ import SwiftUI
 struct OnboardingCardsView: View {
     
     @ObservedObject var viewModel: SBBOnboardingViewModel
+    @State private var dragOffset = CGSize.zero
         
     var body: some View {
         VStack(spacing: 0) {
@@ -63,6 +64,26 @@ struct OnboardingCardsView: View {
         }
             .foregroundColor(SBBColor.textBlack)
             .background(SBBColor.background.edgesIgnoringSafeArea(.all))
+            .gesture(
+                DragGesture()
+                    .onChanged { gesture in
+                        self.dragOffset = gesture.translation
+                        print(self.dragOffset.width)
+                    }
+
+                    .onEnded { _ in
+                        if abs(self.dragOffset.width) > 100 {   // TODO - define meaningful threshold
+                            if self.dragOffset.width > 0 {  // swipe right
+                                self.showPreviousCard()
+                            } else {    // swipe left
+                                self.showNextCard()
+                            }
+                            self.dragOffset = .zero
+                        } else {
+                            self.dragOffset = .zero
+                        }
+                    }
+            )
     }
     
     private func showPreviousCard() {
