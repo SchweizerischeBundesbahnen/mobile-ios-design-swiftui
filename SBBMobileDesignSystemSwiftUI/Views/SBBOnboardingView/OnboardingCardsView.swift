@@ -14,10 +14,16 @@ struct OnboardingCardsView: View {
     var body: some View {
         VStack(spacing: 0) {
             if currentCardIndex < cardViews.count {
-                ZStack {
-                    cardViews[currentCardIndex]
+                GeometryReader { geometry in
+                    ZStack {
+                        self.cardViews[self.currentCardIndex]
+                    }
+                        .padding(.top, geometry.safeAreaInsets.top)
+                        .background(SBBColor.red.edgesIgnoringSafeArea(.top))
+                        .cornerRadius(16, corners: .bottomLeft)
+                        .cornerRadius(16, corners: .bottomRight)
+                        .edgesIgnoringSafeArea(.top)
                 }
-                    .background(SBBColor.red)
             }
             VStack(spacing: 16) {
                 HStack {
@@ -59,7 +65,7 @@ struct OnboardingCardsView: View {
                 .padding(.vertical, 24)
         }
             .foregroundColor(SBBColor.textBlack)
-            .background(SBBColor.background)
+            .background(SBBColor.background.edgesIgnoringSafeArea(.all))
     }
     
     private func showPreviousCard() {

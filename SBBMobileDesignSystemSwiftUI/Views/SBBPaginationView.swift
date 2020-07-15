@@ -16,10 +16,11 @@ public struct SBBPaginationView: View {
                     Circle()
                         .fill(SBBColor.textBlack)
                         .frame(width: 8, height: 8)
+                } else {
+                    Circle()
+                        .fill(SBBColor.paginationInactive)
+                        .frame(width: 4, height: 4)
                 }
-                Circle()
-                    .fill(SBBColor.paginationInactive)
-                    .frame(width: 4, height: 4)
             }
         }
     }

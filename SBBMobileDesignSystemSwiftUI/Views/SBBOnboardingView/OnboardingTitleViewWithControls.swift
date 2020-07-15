@@ -28,8 +28,6 @@ struct OnboardingTitleViewWithControls: View {
         }
             .padding(16)
             .background(SBBColor.red.edgesIgnoringSafeArea(.all))
-            .navigationBarTitle("TODO delete string")
-            .navigationBarHidden(true)
     }
 }
 

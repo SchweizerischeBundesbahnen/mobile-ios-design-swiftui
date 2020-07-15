@@ -29,6 +29,8 @@ public struct SBBOnboardingView: View {
                 OnboardingTitleViewWithControls(onboardingState: $onboardingState, onboardingTitleView: endView)
             }
         }
+            .navigationBarTitle("TODO delete string")   // Navigation Bar Title needs to be set for ignoring Safe Area Edges
+            .navigationBarHidden(true)
     }
 }
 

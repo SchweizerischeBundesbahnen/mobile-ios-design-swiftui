@@ -81,7 +81,7 @@ struct ContentView: View {
                 }
                     .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
             } else {
-                SBBOnboardingView(onboardingState: $onboardingState, startView: SBBOnboardingTitleView(image: Image(systemName: "car"), title: Text("Test title")), endView: SBBOnboardingTitleView(image: Image(systemName: "car"), title: Text("Test title")), cardViews: [SBBOnboardingCardView(image: Image(systemName: "car"), title: Text("Test title"), text: Text("Test text"))])
+                SBBOnboardingView(onboardingState: $onboardingState, startView: SBBOnboardingTitleView(image: Image(systemName: "car"), title: Text("Test title")), endView: SBBOnboardingTitleView(image: Image(systemName: "car"), title: Text("Test title")), cardViews: [SBBOnboardingCardView(image: Image(systemName: "car"), title: Text("Test title 1"), text: Text("Test text 1")), SBBOnboardingCardView(image: Image(systemName: "car"), title: Text("Test title 2"), text: Text("Test text 2"))])
             }
         }
         
