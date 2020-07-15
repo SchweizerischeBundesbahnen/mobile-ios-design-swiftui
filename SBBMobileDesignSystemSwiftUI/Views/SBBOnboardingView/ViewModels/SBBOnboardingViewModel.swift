@@ -7,6 +7,14 @@ import Foundation
 public class SBBOnboardingViewModel: ObservableObject {
     
     @Published public var state: SBBOnboardingState // TODO - Use UserDefaults to persist the state
+    @Published var currentCardIndex: Int = 0 {
+        didSet {
+            if cardViewModels.indices.contains(currentCardIndex) {
+                currentCardViewModel = cardViewModels[currentCardIndex]
+            }
+        }
+    }
+    @Published var currentCardViewModel: SBBOnboardingCardViewModel?
     
     let startViewModel: SBBOnboardingTitleViewModel
     let endViewModel: SBBOnboardingTitleViewModel
@@ -17,5 +25,6 @@ public class SBBOnboardingViewModel: ObservableObject {
         self.startViewModel = startViewModel
         self.endViewModel = endViewModel
         self.cardViewModels = cardViewModels
+        self.currentCardViewModel = cardViewModels.first
     }
 }

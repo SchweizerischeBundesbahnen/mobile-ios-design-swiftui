@@ -12,14 +12,16 @@ public struct SBBPaginationView: View {
     public var body: some View {
         HStack(spacing: 10) {
             ForEach(0..<numberOfPages) { index in
-                if index == self.currentPageIndex {
-                    Circle()
-                        .fill(SBBColor.textBlack)
-                        .frame(width: 8, height: 8)
-                } else {
-                    Circle()
-                        .fill(SBBColor.paginationInactive)
-                        .frame(width: 4, height: 4)
+                HStack {    // Workaround needed, so that the Circle-Views get reloaded after a currentPageIndex change, see https://developer.apple.com/forums/thread/131577
+                    if index == self.currentPageIndex {
+                        Circle()
+                            .fill(SBBColor.textBlack)
+                            .frame(width: 8, height: 8)
+                    } else {
+                        Circle()
+                            .fill(SBBColor.paginationInactive)
+                            .frame(width: 4, height: 4)
+                    }
                 }
             }
         }

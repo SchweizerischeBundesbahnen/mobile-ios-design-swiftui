@@ -7,18 +7,13 @@ import SwiftUI
 struct OnboardingCardsView: View {
     
     @ObservedObject var viewModel: SBBOnboardingViewModel
-    @State var currentCardIndex: Int = 0
-    
-    var currentCardViewModel: SBBOnboardingCardViewModel {
-        return viewModel.cardViewModels[currentCardIndex]
-    }
         
     var body: some View {
         VStack(spacing: 0) {
-            if currentCardIndex < viewModel.cardViewModels.count {
+            if viewModel.currentCardViewModel != nil {
                 GeometryReader { geometry in
                     ZStack {
-                        OnboardingCardView(image: self.currentCardViewModel.image, title: self.currentCardViewModel.title, text: self.currentCardViewModel.text)
+                        OnboardingCardView(image: self.viewModel.currentCardViewModel!.image, title: self.viewModel.currentCardViewModel!.title, text: self.viewModel.currentCardViewModel!.text)
                     }
                         .padding(.top, geometry.safeAreaInsets.top)
                         .background(SBBColor.red.edgesIgnoringSafeArea(.top))
@@ -42,7 +37,7 @@ struct OnboardingCardsView: View {
                         
                     }
                     Spacer()
-                    SBBPaginationView(currentPageIndex: $currentCardIndex, numberOfPages: viewModel.cardViewModels.count)
+                    SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViewModels.count)
                     Spacer()
                     Button(action: {
                         self.showNextCard()
@@ -71,18 +66,18 @@ struct OnboardingCardsView: View {
     }
     
     private func showPreviousCard() {
-        if currentCardIndex == 0 {
+        if viewModel.currentCardIndex == 0 {
             viewModel.state = .startView
         } else {
-            currentCardIndex -= 1
+            viewModel.currentCardIndex -= 1
         }
     }
     
     private func showNextCard() {
-        if currentCardIndex == viewModel.cardViewModels.count - 1 {
+        if viewModel.currentCardIndex == viewModel.cardViewModels.count - 1 {
             viewModel.state = .endView
         } else {
-            currentCardIndex += 1
+            viewModel.currentCardIndex += 1
         }
     }
 }
