@@ -270,6 +270,19 @@ SBBListItem is usually used inside a SBBFormGroup and in combination with Naviga
     }
 ```
 
+## SBBPaginationView
+
+SBBPaginationView is used in a pagination context to give the user a quick overview on how many pages are available and which one is currently displayed.
+
+```    
+    @State var currentPageIndex: Int = 0
+    var pages: [View]
+    
+    var body: some View {
+        SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: pages.count)
+    }
+```
+
 ## SBBButtonStyle
 
 SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary large / tertiary small buttons. 

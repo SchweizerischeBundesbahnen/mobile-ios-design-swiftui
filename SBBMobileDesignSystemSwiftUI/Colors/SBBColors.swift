@@ -64,6 +64,7 @@ public struct SBBColor {
     static var segmentedPickerBackground: Color { color(withString: "segmentedPickerBackground") }
     static var segmentedPickerSelectedSegmentBackground: Color { color(withString: "segmentedPickerSelectedSegmentBackground") }
     static var textfieldLineInactive: Color { color(withString: "textfieldLineInactive") }
+    static var paginationInactive: Color { color(withString: "paginationInactive") }
     
     private static func color(withString color: String) -> Color {
         return Color(UIColor(named: color, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white)

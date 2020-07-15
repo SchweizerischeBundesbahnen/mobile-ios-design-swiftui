@@ -34,7 +34,7 @@ struct OnboardingCardsView: View {
                         
                     }
                     Spacer()
-                    Text("\(currentCardIndex + 1) von \(cardViews.count)")
+                    SBBPaginationView(currentPageIndex: $currentCardIndex, numberOfPages: cardViews.count)
                     Spacer()
                     Button(action: {
                         self.showNextCard()
