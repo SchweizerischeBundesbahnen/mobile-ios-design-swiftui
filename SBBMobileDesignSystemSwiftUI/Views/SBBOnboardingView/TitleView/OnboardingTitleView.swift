@@ -12,6 +12,14 @@ struct OnboardingTitleView: View {
         VStack(spacing: 16) {
             HStack {
                 Spacer()
+                Image("sbb-logo-small", bundle: Helper.bundle)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(height: 14)
+                
+            }
+            HStack {
+                Spacer()
                 VStack(spacing: 36) {
                     Spacer()
                     if viewModel.state == .startView {
@@ -39,12 +47,14 @@ struct OnboardingTitleView: View {
                 }) {
                     Text("App Rundgang starten")
                 }
+                    .buttonStyle(SBBPrimaryButtonStyle())
             }
             Button(action: {
                 self.viewModel.state = .hidden
             }) {
                 Text("App Rundgang beenden")
             }
+                .buttonStyle(SBBPrimaryButtonStyle())
         }
             .padding(16)
             .background(SBBColor.red.edgesIgnoringSafeArea(.all))
