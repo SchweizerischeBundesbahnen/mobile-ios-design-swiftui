@@ -17,7 +17,7 @@ public struct SBBOnboardingTitleView: View {
     public var body: some View {
         HStack {
             Spacer()
-            VStack {
+            VStack(spacing: 36) {
                 Spacer()
                 image
                 title

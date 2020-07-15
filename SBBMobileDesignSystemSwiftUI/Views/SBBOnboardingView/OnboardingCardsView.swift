@@ -12,29 +12,54 @@ struct OnboardingCardsView: View {
     let cardViews: [SBBOnboardingCardView]
     
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             if currentCardIndex < cardViews.count {
-                cardViews[currentCardIndex]
-            }
-            HStack {
-                Button(action: {
-                    self.showPreviousCard()
-                }) {
-                    Text("zurück")
+                ZStack {
+                    cardViews[currentCardIndex]
                 }
-                Text("\(currentCardIndex + 1) von \(cardViews.count)")
-                Button(action: {
-                    self.showNextCard()
-                }) {
-                    Text("weiter")
+                    .background(SBBColor.red)
+            }
+            VStack(spacing: 16) {
+                HStack {
+                    Button(action: {
+                        self.showPreviousCard()
+                    }) {
+                        HStack {
+                            Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                                .rotationEffect(Angle(degrees: 180))
+                                .frame(width: 32, height: 32)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(SBBColor.border))
+                        }
+                        
+                    }
+                    Spacer()
+                    Text("\(currentCardIndex + 1) von \(cardViews.count)")
+                    Spacer()
+                    Button(action: {
+                        self.showNextCard()
+                    }) {
+                        HStack {
+                            Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                                .frame(width: 32, height: 32)
+                                .clipShape(Circle())
+                                .overlay(Circle().stroke(SBBColor.border))
+                        }
+                        
+                    }
                 }
+                Button(action: {
+                    self.onboardingState = .hidden
+                }) {
+                    Text("Rundgang abbrechen")
+                }
+                    .buttonStyle(SBBTertiarySmallButtonStyle())
             }
-            Button(action: {
-                self.onboardingState = .hidden
-            }) {
-                Text("Rundgang abbrechen")
-            }
+                .padding(.horizontal, 16)
+                .padding(.vertical, 24)
         }
+            .foregroundColor(SBBColor.textBlack)
+            .background(SBBColor.background)
     }
     
     private func showPreviousCard() {

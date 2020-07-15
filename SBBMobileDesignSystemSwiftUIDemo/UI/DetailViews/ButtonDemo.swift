@@ -23,6 +23,16 @@ struct ButtonDemo: View {
             }
                 .buttonStyle(SBBSecondaryButtonStyle())
                 .disabled(disabled)
+            Button(action: increment) {
+                Text("My Tertiary Large Button")
+            }
+                .buttonStyle(SBBTertiaryLargeButtonStyle())
+                .disabled(disabled)
+            Button(action: increment) {
+                Text("My Tertiary Small Button")
+            }
+                .buttonStyle(SBBTertiarySmallButtonStyle())
+                .disabled(disabled)
             Text("Counter: \(counter)").padding()
             SBBCheckBox(isOn: $disabled, label: "Disabled")
             Spacer()

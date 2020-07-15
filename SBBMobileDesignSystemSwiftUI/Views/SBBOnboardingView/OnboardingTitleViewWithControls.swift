@@ -11,7 +11,7 @@ struct OnboardingTitleViewWithControls: View {
     let onboardingTitleView: SBBOnboardingTitleView
     
     var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             onboardingTitleView
             if onboardingState == .startView {
                 Button(action: {

@@ -270,9 +270,9 @@ SBBListItem is usually used inside a SBBFormGroup and in combination with Naviga
     }
 ```
 
-## SBBPrimaryButtonStyle
+## SBBButtonStyle
 
-SwiftUI ButtonStyle implementation of SBB primary button. 
+SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary large / tertiary small buttons. 
 
 ```    
     var body: some View {
@@ -280,6 +280,9 @@ SwiftUI ButtonStyle implementation of SBB primary button.
             Text("My Button")
         }
         .buttonStyle(SBBPrimaryButtonStyle())
+        //.buttonStyle(SBBSecondaryButtonStyle())
+        //.buttonStyle(SBBTertiaryLargeButtonStyle())
+        //.buttonStyle(SBBTertiarySmallButtonStyle())
     }
 ```
 

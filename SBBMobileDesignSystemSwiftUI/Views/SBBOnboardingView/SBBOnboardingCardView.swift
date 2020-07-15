@@ -17,10 +17,15 @@ public struct SBBOnboardingCardView: View {
     }
     
     public var body: some View {
-        VStack {
-            image
-            title
-            text
+        HStack {
+            Spacer()
+            VStack {
+                image
+                title
+                text
+                Spacer()
+            }
+            Spacer()
         }
     }
 }
