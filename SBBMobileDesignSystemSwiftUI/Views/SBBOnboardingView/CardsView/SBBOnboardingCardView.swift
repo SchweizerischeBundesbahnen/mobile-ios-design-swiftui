@@ -4,16 +4,28 @@
 
 import SwiftUI
 
-public struct OnboardingCardView: View {
+// initializer without detail
+public extension SBBOnboardingCardView where Content == AnyView {
+    init(image: Image, title: Text, text: Text) {
+        self.image = image
+        self.title = title
+        self.text = text
+        self.content = nil
+    }
+}
+
+public struct SBBOnboardingCardView<Content>: View where Content: View {
     
     private let image: Image
     private let title: Text
     private let text: Text
+    private let content: Content?
     
-    public init(image: Image, title: Text, text: Text) {
+    public init(image: Image, title: Text, text: Text, @ViewBuilder content: @escaping () -> Content) {
         self.image = image
         self.title = title
         self.text = text
+        self.content = content()
     }
     
     public var body: some View {
@@ -33,6 +45,9 @@ public struct OnboardingCardView: View {
                     .sbbFont(.body)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
+                if content != nil {
+                    content
+                }
             }
                 .padding(16)
         }
@@ -43,17 +58,15 @@ public struct OnboardingCardView: View {
 
 struct OnboardingCardView_Previews: PreviewProvider {
     
-    static let image = FakeSBBOnboardingCardViewModels.card1.image
-    static let title = FakeSBBOnboardingCardViewModels.card1.title
-    static let text = FakeSBBOnboardingCardViewModels.card1.text
-    
     static var previews: some View {
         Group {
-            OnboardingCardView(image: image, title: title, text: text)
+            FakeSBBOnboardingCardViews.card1
                 .previewDisplayName("Light")
-            OnboardingCardView(image: image, title: title, text: text)
+            FakeSBBOnboardingCardViews.card1
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
+            FakeSBBOnboardingCardViews.cardWithButton
+                .previewDisplayName("Light, Card with custom content")
         }
             .previewLayout(.fixed(width: 300, height: 400))
     }

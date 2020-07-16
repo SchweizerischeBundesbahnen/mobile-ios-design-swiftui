@@ -11,10 +11,10 @@ struct OnboardingCardsView: View {
         
     var body: some View {
         VStack(spacing: 0) {
-            if viewModel.currentCardViewModel != nil {
+            if viewModel.currentCardView != nil {
                 GeometryReader { geometry in
                     ZStack {
-                        OnboardingCardView(image: self.viewModel.currentCardViewModel!.image, title: self.viewModel.currentCardViewModel!.title, text: self.viewModel.currentCardViewModel!.text)
+                        self.viewModel.currentCardView
                     }
                         .padding(.top, geometry.safeAreaInsets.top)
                         .background(SBBColor.red.edgesIgnoringSafeArea(.top))
@@ -38,7 +38,7 @@ struct OnboardingCardsView: View {
                         
                     }
                     Spacer()
-                    SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViewModels.count)
+                    SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViews.count)
                     Spacer()
                     Button(action: {
                         self.showNextCard()
@@ -95,7 +95,7 @@ struct OnboardingCardsView: View {
     }
     
     private func showNextCard() {
-        if viewModel.currentCardIndex == viewModel.cardViewModels.count - 1 {
+        if viewModel.currentCardIndex == viewModel.cardViews.count - 1 {
             viewModel.state = .endView
         } else {
             viewModel.currentCardIndex += 1

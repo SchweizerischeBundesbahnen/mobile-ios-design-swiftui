@@ -285,14 +285,18 @@ SBBPaginationView is used in a pagination context to give the user a quick overv
 
 ## SBBOnboardingView
 
-SBBOnboardingView is used to present basic app functionality to your users on the first  app launch. It consists of a StartView, multiple CardViews and an EndView. 
+SBBOnboardingView is used to present basic app functionality to your users on the first  app launch. It consists of a StartView, multiple CardViews and an EndView. You can specify StartView and EndView content using StartViewModel and EndViewModel. You can pass up to 6 Views which will be displayed as cards. In a normal setting, you will use SBBOnboardingCardView for the cards, however you can use any custom view you wish if desired.
 
 ```   
     let startViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
     let endViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
-    let cardsViewModel = [SBBOnboardingCardViewModel(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text")), ...]
+    let cardView1 = SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text"))   // SBBOnboardingCardView
+    let cardView2 = SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text")) { // SBBOnboardingCardView with additional custom View (displayed on the bottom of the card)
+        YourCustomView()
+    }
+    let cardView3 = YourCustomView()    // Custom View of yours
     
-    @ObservedObject var onboardingViewModel = SBBOnboardingViewModel(startViewModel: startViewModel, endViewModel: endViewModel, cardViewModels: cardsViewModel)
+    @ObservedObject var onboardingViewModel = SBBOnboardingViewModel(startViewModel: startViewModel, endViewModel: endViewModel, cardView1, cardView2, cardView3)
 
     var body: some View {
         Group {
