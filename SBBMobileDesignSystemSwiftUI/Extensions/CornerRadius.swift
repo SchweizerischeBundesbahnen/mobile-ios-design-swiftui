@@ -7,7 +7,7 @@ import SwiftUI
 // This View extension allows to apply cornerRadius only to certain corners (e.g. top left).
 // Found in: https://stackoverflow.com/questions/56760335/round-specific-corners-swiftui
 
-extension View {
+public extension View {
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
         clipShape( RoundedCorner(radius: radius, corners: corners) )
     }

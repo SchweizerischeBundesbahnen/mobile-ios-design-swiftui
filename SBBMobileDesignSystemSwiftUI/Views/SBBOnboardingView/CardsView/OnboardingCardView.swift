@@ -17,24 +17,35 @@ public struct OnboardingCardView: View {
     }
     
     public var body: some View {
-        HStack {
-            Spacer()
-            VStack {
-                image
-                title
-                text
-                Spacer()
+        VStack {
+            GeometryReader { geometry in
+                self.image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .clipped()
             }
-            Spacer()
+            VStack(spacing: 16) {
+                title
+                    .sbbFont(.titleDefault)
+                    .fixedSize(horizontal: false, vertical: true)
+                text
+                    .sbbFont(.body)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+                .padding(16)
         }
+            .background(SBBColor.viewBackground)
+            .cornerRadius(16)
     }
 }
 
 struct OnboardingCardView_Previews: PreviewProvider {
     
-    static let image = Image(systemName: "car")
-    static let title = Text("Title")
-    static let text = Text("...")
+    static let image = FakeSBBOnboardingCardViewModels.card1.image
+    static let title = FakeSBBOnboardingCardViewModels.card1.title
+    static let text = FakeSBBOnboardingCardViewModels.card1.text
     
     static var previews: some View {
         Group {
@@ -44,6 +55,6 @@ struct OnboardingCardView_Previews: PreviewProvider {
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }
-            .previewLayout(.sizeThatFits)
+            .previewLayout(.fixed(width: 300, height: 400))
     }
 }
