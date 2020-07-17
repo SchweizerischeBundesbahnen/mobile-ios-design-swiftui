@@ -68,6 +68,12 @@ struct ContentView: View {
                                 NavigationLink(destination: ToggleDemo(colorScheme: $colorScheme)) {
                                     Text("Toggle")
                                 }
+                                NavigationLink(destination: PaginationViewDemo(colorScheme: $colorScheme)) {
+                                    Text("Pagination")
+                                }
+                                NavigationLink(destination: ModalViewDemo(colorScheme: $colorScheme)) {
+                                    Text("Modal View")
+                                }
                                 Button(action: {
                                     self.onboardingViewModel.state = .startView
                                 }) {

@@ -6,8 +6,13 @@ import SwiftUI
 
 public struct SBBPaginationView: View {
     
-    @Binding public var currentPageIndex: Int
-    public var numberOfPages: Int
+    @Binding private var currentPageIndex: Int
+    private var numberOfPages: Int
+    
+    public init(currentPageIndex: Binding<Int>, numberOfPages: Int) {
+        self._currentPageIndex = currentPageIndex
+        self.numberOfPages = numberOfPages
+    }
     
     public var body: some View {
         HStack(spacing: 10) {
