@@ -26,12 +26,22 @@ struct ButtonDemo: View {
             Button(action: increment) {
                 Text("My Tertiary Large Button")
             }
-                .buttonStyle(SBBTertiaryLargeButtonStyle())
+                .buttonStyle(SBBTertiaryButtonStyle())
                 .disabled(disabled)
             Button(action: increment) {
                 Text("My Tertiary Small Button")
             }
-                .buttonStyle(SBBTertiarySmallButtonStyle())
+            .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                .disabled(disabled)
+            Button(action: increment) {
+                Image("station_117_small")
+            }
+                .buttonStyle(SBBIconButtonStyle())
+                .disabled(disabled)
+            Button(action: increment) {
+                Image("station_117_small")
+            }
+                .buttonStyle(SBBIconButtonStyle(size: .small))
                 .disabled(disabled)
             Text("Counter: \(counter)").padding()
             SBBCheckBox(isOn: $disabled, label: "Disabled")

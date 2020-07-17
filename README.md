@@ -311,17 +311,22 @@ SBBOnboardingView is used to present basic app functionality to your users on th
 
 ## SBBButtonStyle
 
-SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary large / tertiary small buttons. 
+SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small) buttons. 
 
 ```    
     var body: some View {
         Button(action: myAction) {
-            Text("My Button")
+            Text("Your Button")
         }
-        .buttonStyle(SBBPrimaryButtonStyle())
-        //.buttonStyle(SBBSecondaryButtonStyle())
-        //.buttonStyle(SBBTertiaryLargeButtonStyle())
-        //.buttonStyle(SBBTertiarySmallButtonStyle())
+            .buttonStyle(SBBPrimaryButtonStyle())
+            //.buttonStyle(SBBSecondaryButtonStyle())
+            //.buttonStyle(SBBTertiaryButtonStyle(size: .small))   // .large is default
+        
+        Button(action: myAction) {
+            Image("Your image")
+                .resizable  // resizable needs to be set if your Image is not 24x24 (same for .large & .small)
+        }
+            .buttonStyle(SBBIconButtonStyle(size: .small))   // .large is default
     }
 ```
 

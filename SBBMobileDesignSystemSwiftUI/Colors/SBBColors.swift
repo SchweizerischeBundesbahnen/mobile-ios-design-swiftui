@@ -59,6 +59,8 @@ public struct SBBColor {
     public static var placeholder: Color { color(withString: "placeholder") }
 
     // Private semantic Colors (only to be used for MDS Elements)
+    static var buttonTertiaryDisabledForeground: Color { color(withString: "buttonTertiaryDisabledForeground") }
+    static var buttonTertiaryDisabledBorder: Color { color(withString: "buttonTertiaryDisabledBorder") }
     static var buttonTertiaryBackground: Color { color(withString: "buttonTertiaryBackground") }
     static var buttonTertiaryPressedBackground: Color { color(withString: "buttonTertiaryPressedBackground") }
     static var segmentedPickerBackground: Color { color(withString: "segmentedPickerBackground") }

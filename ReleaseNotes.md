@@ -3,7 +3,7 @@
 ## V0.1.9 - 17 July 2020
 
 ### Features
-* SBBSTertiaryLargeButtonStyle and SBBSTertiarySmallButtonStyle (without specific design for disabled state, is still missing in Sketch template)
+* SBBSTertiaryButtonStyle & SBBIconButtonStyle (large & small)
 * SBBOnboardingView
 * SBBPaginationView
 

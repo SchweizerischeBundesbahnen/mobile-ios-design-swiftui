@@ -28,36 +28,28 @@ struct OnboardingCardsView: View {
                     Button(action: {
                         self.showPreviousCard()
                     }) {
-                        HStack {
-                            Image("chevron_small_right_45_small", bundle: Helper.bundle)
-                                .rotationEffect(Angle(degrees: 180))
-                                .frame(width: 32, height: 32)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(SBBColor.border))
-                        }
-                        
+                        Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                            .resizable()
+                            .rotationEffect(Angle(degrees: 180))
                     }
+                        .buttonStyle(SBBIconButtonStyle(size: .small))
                     Spacer()
                     SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViews.count)
                     Spacer()
                     Button(action: {
                         self.showNextCard()
                     }) {
-                        HStack {
-                            Image("chevron_small_right_45_small", bundle: Helper.bundle)
-                                .frame(width: 32, height: 32)
-                                .clipShape(Circle())
-                                .overlay(Circle().stroke(SBBColor.border))
-                        }
-                        
+                        Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                            .resizable()
                     }
+                        .buttonStyle(SBBIconButtonStyle(size: .small))
                 }
                 Button(action: {
                     self.viewModel.state = .hidden
                 }) {
                     Text("Rundgang abbrechen")
                 }
-                    .buttonStyle(SBBTertiarySmallButtonStyle())
+                    .buttonStyle(SBBTertiaryButtonStyle(size: .small))
             }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 24)
