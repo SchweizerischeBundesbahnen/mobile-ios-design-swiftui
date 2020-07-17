@@ -6,6 +6,7 @@
 * SBBSTertiaryButtonStyle & SBBIconButtonStyle (large & small)
 * SBBOnboardingView
 * SBBPaginationView
+* SBBModalView
 
 ## V0.1.8 - 6 July 2020
 

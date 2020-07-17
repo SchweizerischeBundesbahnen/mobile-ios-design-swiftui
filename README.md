@@ -309,6 +309,27 @@ SBBOnboardingView is used to present basic app functionality to your users on th
     }
 ```
 
+## SBBModalView
+
+SBBModalView is used to display a View above another View, typically using .sheet.
+
+```    
+    @State var showingModalView = false
+    
+    var body: some View {
+        Button(action: {
+            self.showingModalView = true
+        }) {
+            Text("Click Me")
+        }
+            .sheet(isPresented: $showingModalView, content: {
+                SBBModalView(title: Text("Your title"), isPresented: self.$showingModalView) {
+                    YourContentView()
+                }
+            })
+    }
+```
+
 ## SBBButtonStyle
 
 SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small) buttons. 

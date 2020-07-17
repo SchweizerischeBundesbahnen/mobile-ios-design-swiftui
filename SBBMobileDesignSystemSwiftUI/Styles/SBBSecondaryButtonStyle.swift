@@ -70,6 +70,6 @@ struct SBBSecondaryButtonStyle_Previews: PreviewProvider {
             .previewDisplayName("Dark disabled")
             .environment(\.colorScheme, .dark)
         }
-        .previewLayout(.sizeThatFits)
+            .previewLayout(.sizeThatFits)
     }
 }

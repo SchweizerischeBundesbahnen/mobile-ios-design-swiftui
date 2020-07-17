@@ -28,7 +28,11 @@ struct FakeSBBOnboardingCardViewCustomButton: View {
             .buttonStyle(SBBSecondaryButtonStyle())
             .sheet(isPresented: $showingModalView, content: {
                 SBBModalView(title: Text("Try it out - example"), isPresented: self.$showingModalView) {
-                    Text("Your content here")
+                    VStack {
+                        Spacer()
+                        Text("Your content here")
+                        Spacer()
+                    }
                 }
             })
     }

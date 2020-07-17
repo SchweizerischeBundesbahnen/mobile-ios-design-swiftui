@@ -17,24 +17,37 @@ public struct SBBModalView<Content>: View where Content: View {
     }
     
     public var body: some View {
-        VStack {
+        VStack(spacing: 16) {
             HStack {
                 title
+                    .sbbFont(.titleModul)
+                Spacer()
                 Button(action: {
                     self.isPresented = false
                 }) {
-                    Text("close")
+                    Image("cross_104_small", bundle: Helper.bundle)
                 }
+                    .buttonStyle(SBBIconButtonStyle(size: .small))
             }
             content
         }
+            .padding(16)
     }
 }
 
 struct SBBModalView_Previews: PreviewProvider {
     static var previews: some View {
-        SBBModalView(title: Text("Modal View"), isPresented: .constant(true)) {
-            Text("Custom content")
+        Group {
+            SBBModalView(title: Text("Modal View"), isPresented: .constant(true)) {
+                Text("Custom content")
+            }
+                .previewDisplayName("Light")
+            SBBModalView(title: Text("Modal View"), isPresented: .constant(true)) {
+                Text("Custom content")
+            }
+                .previewDisplayName("Dark")
+                .environment(\.colorScheme, .dark)
         }
+            .previewLayout(.sizeThatFits)
     }
 }
