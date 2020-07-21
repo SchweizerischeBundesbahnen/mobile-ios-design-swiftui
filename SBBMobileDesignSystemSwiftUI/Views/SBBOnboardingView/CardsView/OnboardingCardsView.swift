@@ -14,9 +14,13 @@ struct OnboardingCardsView: View {
             if viewModel.currentCardView != nil {
                 GeometryReader { geometry in
                     ZStack {
-                        self.viewModel.currentCardView
+                        ForEach((0..<self.viewModel.cardViews.count).reversed(), id: \.self) { index in
+                            self.viewModel.cardViews[index]
+                                .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width) + (self.showDragOffsetForCard(at: index) ? self.dragOffset.width : 0))
+                        }
                     }
                         .padding(.top, geometry.safeAreaInsets.top)
+                        .padding(16)
                         .background(SBBColor.red.edgesIgnoringSafeArea(.top))
                         .cornerRadius(16, corners: .bottomLeft)
                         .cornerRadius(16, corners: .bottomRight)
@@ -92,6 +96,23 @@ struct OnboardingCardsView: View {
         } else {
             viewModel.currentCardIndex += 1
         }
+    }
+    
+    private func xOffsetForCard(at index: Int, cardWidth: CGFloat) -> CGFloat {
+        if index < self.viewModel.currentCardIndex {
+            return CGFloat(index - self.viewModel.currentCardIndex) * cardWidth
+        }
+        
+        return 0
+    }
+    
+    private func showDragOffsetForCard(at index: Int) -> Bool {
+        if dragOffset.width < 0 {    // dragging to the left
+            return index <= self.viewModel.currentCardIndex
+        } else if dragOffset.width > 0 {    // dragging to the right
+            return index < self.viewModel.currentCardIndex
+        }
+        return false
     }
 }
 

@@ -12,10 +12,12 @@ public class SBBOnboardingViewModel: ObservableObject {
         didSet {
             if cardViews.indices.contains(currentCardIndex) {
                 currentCardView = cardViews[currentCardIndex]
+                previousCardView = cardViews.indices.contains(currentCardIndex - 1) ? cardViews[currentCardIndex - 1] : nil
             }
         }
     }
     @Published var currentCardView: AnyView?
+    @Published var previousCardView: AnyView?   // the CardView before the current CardView
     
     let startViewModel: SBBOnboardingTitleViewModel
     let endViewModel: SBBOnboardingTitleViewModel
