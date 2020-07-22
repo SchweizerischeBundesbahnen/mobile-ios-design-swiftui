@@ -49,6 +49,7 @@ public struct SBBOnboardingCardView<Content>: View where Content: View {
                     content
                 }
             }
+                .foregroundColor(SBBColor.textBlack)
                 .padding(16)
         }
             .background(SBBColor.viewBackground)

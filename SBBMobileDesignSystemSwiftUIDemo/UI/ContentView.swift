@@ -88,6 +88,7 @@ struct ContentView: View {
                     .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
             } else {
                 SBBOnboardingView(viewModel: onboardingViewModel)
+                    .colorScheme(colorScheme)
             }
         }
         

@@ -17,6 +17,9 @@ struct OnboardingCardsView: View {
                         ForEach((0..<self.viewModel.cardViews.count).reversed(), id: \.self) { index in
                             self.viewModel.cardViews[index]
                                 .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width) + (self.showDragOffsetForCard(at: index) ? self.dragOffset.width : 0))
+                                .offset(y: self.yOffsetForCard(at: index))
+                                .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)  // TODO - bugfix: The Text Views are hidden after changing the scaleFactor
+                                .opacity(self.opacityForCard(at: index))
                         }
                     }
                         .padding(.top, geometry.safeAreaInsets.top)
@@ -86,7 +89,9 @@ struct OnboardingCardsView: View {
         if viewModel.currentCardIndex == 0 {
             viewModel.state = .startView
         } else {
-            viewModel.currentCardIndex -= 1
+            withAnimation {
+                viewModel.currentCardIndex -= 1
+            }
         }
     }
     
@@ -94,7 +99,9 @@ struct OnboardingCardsView: View {
         if viewModel.currentCardIndex == viewModel.cardViews.count - 1 {
             viewModel.state = .endView
         } else {
-            viewModel.currentCardIndex += 1
+            withAnimation {
+                viewModel.currentCardIndex += 1
+            }
         }
     }
     
@@ -104,6 +111,30 @@ struct OnboardingCardsView: View {
         }
         
         return 0
+    }
+    
+    private func yOffsetForCard(at index: Int) -> CGFloat {
+        if index > self.viewModel.currentCardIndex {
+            return -CGFloat(index - self.viewModel.currentCardIndex) * 12
+        }
+        
+        return 0
+    }
+    
+    private func scaleFactorForCard(at index: Int) -> CGFloat {
+        if index > self.viewModel.currentCardIndex {
+            return 1 - (CGFloat(index - self.viewModel.currentCardIndex) * 0.1)
+        }
+        
+        return 1
+    }
+    
+    private func opacityForCard(at index: Int) -> Double {
+        if index > self.viewModel.currentCardIndex {
+            return 1 - (Double(index - self.viewModel.currentCardIndex) * 0.2)
+        }
+        
+        return 1
     }
     
     private func showDragOffsetForCard(at index: Int) -> Bool {
