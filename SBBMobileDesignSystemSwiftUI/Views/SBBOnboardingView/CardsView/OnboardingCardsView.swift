@@ -16,7 +16,7 @@ struct OnboardingCardsView: View {
                     ZStack {
                         ForEach((0..<self.viewModel.cardViews.count).reversed(), id: \.self) { index in
                             self.viewModel.cardViews[index]
-                                .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width) + (self.showDragOffsetForCard(at: index) ? self.dragOffset.width : 0))
+                                .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width))
                                 .offset(y: self.yOffsetForCard(at: index))
                                 .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)  // TODO - bugfix: The Text Views are hidden after changing the scaleFactor
                                 .opacity(self.opacityForCard(at: index))
@@ -71,7 +71,7 @@ struct OnboardingCardsView: View {
                     }
 
                     .onEnded { _ in
-                        if abs(self.dragOffset.width) > 100 {   // TODO - define meaningful threshold
+                        if abs(self.dragOffset.width) > UIScreen.main.bounds.size.width / 4 {
                             if self.dragOffset.width > 0 {  // swipe right
                                 self.showPreviousCard()
                             } else {    // swipe left
@@ -106,11 +106,13 @@ struct OnboardingCardsView: View {
     }
     
     private func xOffsetForCard(at index: Int, cardWidth: CGFloat) -> CGFloat {
+        let dragOffset = self.showDragOffsetForCard(at: index) ? self.dragOffset.width : 0
+        
         if index < self.viewModel.currentCardIndex {
-            return CGFloat(index - self.viewModel.currentCardIndex) * cardWidth
+            return CGFloat(index - self.viewModel.currentCardIndex) * cardWidth + dragOffset
         }
         
-        return 0
+        return 0 + dragOffset
     }
     
     private func yOffsetForCard(at index: Int) -> CGFloat {
