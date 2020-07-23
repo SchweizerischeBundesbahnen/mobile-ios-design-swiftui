@@ -27,11 +27,13 @@ struct OnboardingTitleView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                         viewModel.startViewModel.title
+                            .fixedSize(horizontal: false, vertical: true)
                     } else if viewModel.state == .endView {
                         viewModel.endViewModel.image
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                         viewModel.endViewModel.title
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                         
                     Spacer()
@@ -48,6 +50,10 @@ struct OnboardingTitleView: View {
                     Text("App Rundgang starten")
                 }
                     .buttonStyle(SBBPrimaryButtonStyle())
+                    .background(
+                        RoundedRectangle(cornerRadius: 23)
+                            .stroke(SBBColor.white, lineWidth: 1)
+                    )
             }
             Button(action: {
                 self.viewModel.state = .hidden
@@ -55,6 +61,10 @@ struct OnboardingTitleView: View {
                 Text("App Rundgang beenden")
             }
                 .buttonStyle(SBBPrimaryButtonStyle())
+                .background(
+                    RoundedRectangle(cornerRadius: 23)
+                        .stroke((viewModel.state == .startView) ? Color.clear : SBBColor.white, lineWidth: 1)
+                )
         }
             .padding(16)
             .background(SBBColor.red.edgesIgnoringSafeArea(.all))

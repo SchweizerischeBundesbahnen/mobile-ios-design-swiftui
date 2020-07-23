@@ -38,6 +38,7 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
                     RoundedRectangle(cornerRadius: height / 2)
                         .stroke(getBorderColor(enabled: isEnabled), lineWidth: 1)
                 )
+                .minimumScaleFactor(0.1)
         }
         
         private func getForegroundColor(enabled: Bool) -> Color {
