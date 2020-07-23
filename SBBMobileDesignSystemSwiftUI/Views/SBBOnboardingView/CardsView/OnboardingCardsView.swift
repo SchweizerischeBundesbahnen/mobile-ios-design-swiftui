@@ -18,7 +18,7 @@ struct OnboardingCardsView: View {
                             self.viewModel.cardViews[index]
                                 .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width))
                                 .offset(y: self.yOffsetForCard(at: index))
-                                .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)  // TODO - bugfix: The Text Views are hidden after changing the scaleFactor
+                                .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)
                                 .opacity(self.opacityForCard(at: index))
                         }
                     }
@@ -67,7 +67,6 @@ struct OnboardingCardsView: View {
                 DragGesture()
                     .onChanged { gesture in
                         self.dragOffset = gesture.translation
-                        print(self.dragOffset.width)
                     }
 
                     .onEnded { _ in
@@ -77,7 +76,6 @@ struct OnboardingCardsView: View {
                             } else {    // swipe left
                                 self.showNextCard()
                             }
-                            self.dragOffset = .zero
                         } else {
                             self.dragOffset = .zero
                         }
@@ -91,6 +89,7 @@ struct OnboardingCardsView: View {
         } else {
             withAnimation {
                 viewModel.currentCardIndex -= 1
+                self.dragOffset = .zero
             }
         }
     }
@@ -101,6 +100,7 @@ struct OnboardingCardsView: View {
         } else {
             withAnimation {
                 viewModel.currentCardIndex += 1
+                self.dragOffset = .zero
             }
         }
     }
@@ -128,7 +128,7 @@ struct OnboardingCardsView: View {
             return 1 - (CGFloat(index - self.viewModel.currentCardIndex) * 0.1)
         }
         
-        return 1
+        return 0.9999999    // TODO - this should be 1, but with 1 the Text Views of the SBBOnboardingCardView disappear if a card is presented (SwiftUI bug?)
     }
     
     private func opacityForCard(at index: Int) -> Double {
