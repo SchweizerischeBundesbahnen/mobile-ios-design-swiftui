@@ -6,7 +6,7 @@ import SwiftUI
 
 struct OnboardingTitleView: View {
     
-    @ObservedObject var viewModel: SBBOnboardingViewModel
+    @ObservedObject var viewModel: OnboardingViewModel
     
     var body: some View {
         VStack(spacing: 16) {
@@ -75,15 +75,15 @@ struct OnboardingTitleView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            OnboardingTitleView(viewModel: FakeSBBOnboardingViewModels.startView)
+            OnboardingTitleView(viewModel: FakeOnboardingViewModels.startView)
                 .previewDisplayName("StartView")
-            OnboardingTitleView(viewModel: FakeSBBOnboardingViewModels.startView)
+            OnboardingTitleView(viewModel: FakeOnboardingViewModels.startView)
                 .previewDisplayName("StartView Dark")
                 .environment(\.colorScheme, .dark)
-            OnboardingTitleView(viewModel: FakeSBBOnboardingViewModels.endView)
+            OnboardingTitleView(viewModel: FakeOnboardingViewModels.endView)
                 .previewDisplayName("EndView")
                 .environment(\.colorScheme, .dark)
-            OnboardingTitleView(viewModel: FakeSBBOnboardingViewModels.endView)
+            OnboardingTitleView(viewModel: FakeOnboardingViewModels.endView)
                 .previewDisplayName("EndView Dark")
                 .environment(\.colorScheme, .dark)
         }

@@ -6,9 +6,18 @@ import SwiftUI
 
 public struct SBBOnboardingView: View {
     
-    @ObservedObject private var viewModel: SBBOnboardingViewModel
+    @ObservedObject private var viewModel: OnboardingViewModel
     
-    public init(viewModel: SBBOnboardingViewModel) {
+    public init(state: Binding<SBBOnboardingState>, startViewModel: SBBOnboardingTitleViewModel, endViewModel: SBBOnboardingTitleViewModel) {
+        self.viewModel = OnboardingViewModel(state: state, startViewModel: startViewModel, endViewModel: endViewModel, cardViews: [SBBOnboardingCardView]())
+    }
+    
+    public init(state: Binding<SBBOnboardingState>, startViewModel: SBBOnboardingTitleViewModel, endViewModel: SBBOnboardingTitleViewModel, @ArrayBuilder<SBBOnboardingCardView> content: () -> [SBBOnboardingCardView]) {
+        self.viewModel = OnboardingViewModel(state: state, startViewModel: startViewModel, endViewModel: endViewModel, cardViews: content())
+    }
+    
+    // non-public initializer for SwiftUI Previews with Fake Model
+    init(viewModel: OnboardingViewModel) {
         self.viewModel = viewModel
     }
         
@@ -29,9 +38,9 @@ struct SBBOnboardingView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SBBOnboardingView(viewModel: FakeSBBOnboardingViewModels.startView)
+            SBBOnboardingView(viewModel: FakeOnboardingViewModels.startView)
                 .previewDisplayName("StartView Light")
-            SBBOnboardingView(viewModel: FakeSBBOnboardingViewModels.startView)
+            SBBOnboardingView(viewModel: FakeOnboardingViewModels.startView)
                 .previewDisplayName("StartView Dark")
                 .environment(\.colorScheme, .dark)
         }

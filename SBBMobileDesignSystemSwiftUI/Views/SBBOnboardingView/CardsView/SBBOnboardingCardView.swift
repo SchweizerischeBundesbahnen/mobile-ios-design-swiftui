@@ -4,30 +4,30 @@
 
 import SwiftUI
 
-// initializer without detail
-public extension SBBOnboardingCardView where Content == AnyView {
-    init(image: Image, title: Text, text: Text) {
+public struct SBBOnboardingCardView: View {
+    
+    private let image: Image?
+    private let title: Text?
+    private let text: Text?
+    private let content: AnyView?
+    let actionOnCardDisappear: (() -> ())?
+    
+    public init(image: Image? = nil, title: Text? = nil, text: Text? = nil, actionOnCardDisappear: (() -> ())? = nil) {
         self.image = image
         self.title = title
         self.text = text
         self.content = nil
+        self.actionOnCardDisappear = actionOnCardDisappear
         
         UIScrollView.appearance().bounces = false
     }
-}
-
-public struct SBBOnboardingCardView<Content>: View where Content: View {
     
-    private let image: Image
-    private let title: Text
-    private let text: Text
-    private let content: Content?
-    
-    public init(image: Image, title: Text, text: Text, @ViewBuilder content: @escaping () -> Content) {
+    public init<Content: View>(image: Image? = nil, title: Text? = nil, text: Text? = nil, actionOnCardDisappear: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.image = image
         self.title = title
         self.text = text
-        self.content = content()
+        self.content = AnyView(content())
+        self.actionOnCardDisappear = actionOnCardDisappear
         
         UIScrollView.appearance().bounces = false
     }
@@ -35,17 +35,23 @@ public struct SBBOnboardingCardView<Content>: View where Content: View {
     public var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
-                self.image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
+                if image != nil {
+                    self.image!
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }
                 VStack(spacing: 16) {
-                    title
-                        .sbbFont(.titleDefault)
-                        .fixedSize(horizontal: false, vertical: true)
-                    text
-                        .sbbFont(.body)
-                        .multilineTextAlignment(.center)
-                        .fixedSize(horizontal: false, vertical: true)
+                    if title != nil {
+                        title
+                            .sbbFont(.titleDefault)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    if text != nil {
+                        text
+                            .sbbFont(.body)
+                            .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                     if content != nil {
                         content
                     }

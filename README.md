@@ -290,24 +290,40 @@ SBBOnboardingView is used to present basic app functionality to your users on th
 ```   
     let startViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
     let endViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
-    let cardView1 = SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text"))   // SBBOnboardingCardView
-    let cardView2 = SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text")) { // SBBOnboardingCardView with additional custom View (displayed on the bottom of the card)
-        YourCustomView()
-    }
-    let cardView3 = YourCustomView()    // Custom View of yours
     
-    @ObservedObject var onboardingViewModel = SBBOnboardingViewModel(startViewModel: startViewModel, endViewModel: endViewModel, cardView1, cardView2, cardView3)
+    @State var onboardingState: SBBOnboardingState = .hidden
 
     var body: some View {
         Group {
             if onboardingViewModel.state == .hidden {
                 // your ContentView here (NavigationView goes also here, if you want to use it)
             } else {
-                SBBOnboardingView(viewModel: onboardingViewModel)
+                SBBOnboardingView(state: $onboardingState, startViewModel: startViewModel, endViewModel: endViewModel) {
+                    // add SBBOnboardingCardViews here
+                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 1"), text: Text("Text Card 1"))
+                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 2"), text: Text("Text Card 2"))
+                }
             }
         }
     }
 ```
+### SBBOnboardingCardView
+
+SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView. In a normal setting you specify an image, title and text. However you can also add whatever custom view you want using its ViewBuilder. You can also pass an action which will be executed once the user swipes to the next card (e.g. to ask for certain app permissions).
+
+```   
+    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text"))
+    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text"), actionOnCardDisappear:{
+        // your action here
+    })
+    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text")) {
+        // Your custom View here
+    }
+    SBBOnboardingCardView {
+        // Your custom View here
+    }
+```
+
 
 ## SBBModalView
 

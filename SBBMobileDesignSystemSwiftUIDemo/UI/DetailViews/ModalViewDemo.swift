@@ -11,20 +11,24 @@ struct ModalViewDemo: View {
     @State var showingModalView = false
     
     var body: some View {
-        Button(action: {
-            self.showingModalView = true
-        }) {
-            Text("Click Me")
-        }
-            .sheet(isPresented: $showingModalView, content: {
-                SBBModalView(title: Text("Your title"), isPresented: self.$showingModalView) {
-                    VStack {
-                        Spacer()
-                        Text("Your custom content")
-                        Spacer()
+        VStack {
+            Button(action: {
+                self.showingModalView = true
+            }) {
+                Text("Click Me")
+            }
+                .buttonStyle(SBBPrimaryButtonStyle())
+                .sheet(isPresented: $showingModalView, content: {
+                    SBBModalView(title: Text("Your title"), isPresented: self.$showingModalView) {
+                        VStack {
+                            Spacer()
+                            Text("Your custom content")
+                            Spacer()
+                        }
                     }
-                }
-            })
+                })
+        }
+            .colorScheme(colorScheme)
     }
 }
 

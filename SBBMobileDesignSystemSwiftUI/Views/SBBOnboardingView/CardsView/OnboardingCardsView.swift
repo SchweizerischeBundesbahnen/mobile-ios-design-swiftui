@@ -6,7 +6,7 @@ import SwiftUI
 
 struct OnboardingCardsView: View {
     
-    @ObservedObject var viewModel: SBBOnboardingViewModel
+    @ObservedObject var viewModel: OnboardingViewModel
     @State private var dragOffset = CGSize.zero
         
     var body: some View {
@@ -98,6 +98,7 @@ struct OnboardingCardsView: View {
         if viewModel.currentCardIndex == viewModel.cardViews.count - 1 {
             viewModel.state = .endView
         } else {
+            viewModel.currentCardView?.actionOnCardDisappear?()
             withAnimation {
                 viewModel.currentCardIndex += 1
                 self.dragOffset = .zero
@@ -153,9 +154,9 @@ struct OnboardingCardsView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            OnboardingCardsView(viewModel: FakeSBBOnboardingViewModels.startView)
+            OnboardingCardsView(viewModel: FakeOnboardingViewModels.startView)
                 .previewDisplayName("Light")
-            OnboardingCardsView(viewModel: FakeSBBOnboardingViewModels.startView)
+            OnboardingCardsView(viewModel: FakeOnboardingViewModels.startView)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }

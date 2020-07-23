@@ -12,86 +12,75 @@ import SBBMobileDesignSystemSwiftUI
 struct ContentView: View {
     
     @State var colorScheme: ColorScheme = .light
-    @ObservedObject var onboardingViewModel: SBBOnboardingViewModel = FakeSBBOnboardingViewModels.hidden
     
     var body: some View {
-        Group {
-            if onboardingViewModel.state == .hidden {
-                NavigationView {
-                    VStack(spacing: 0) {
-                        SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
-                            Text("light")
-                            Text("dark")
+        NavigationView {
+            VStack(spacing: 0) {
+                SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
+                    Text("light")
+                    Text("dark")
+                }
+                .padding(16)
+                .background(SBBColor.background)
+                List {
+                    Section {
+                        NavigationLink(destination: ColorsView(colorScheme: $colorScheme)) {
+                            Text("Colors")
                         }
-                            .padding(16)
-                            .background(SBBColor.background)
-                        List {
-                            Section {
-                                NavigationLink(destination: ColorsView(colorScheme: $colorScheme)) {
-                                    Text("Colors")
-                                }
-                                NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
-                                    Text("Typography")
-                                }
-                                NavigationLink(destination: DividerViewDemo(colorScheme: $colorScheme)) {
-                                    Text("Divider")
-                                }
-                                NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
-                                    Text("BubbleView")
-                                }
-                                NavigationLink(destination: InfoViewDemo(colorScheme: $colorScheme)) {
-                                    Text("InfoView")
-                                }
-                                NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: $colorScheme)) {
-                                    Text("SegmentedPicker")
-                                }
-                                NavigationLink(destination: TextAreaView(colorScheme: $colorScheme)) {
-                                    Text("TextArea")
-                                }
-                                NavigationLink(destination: TextFieldView(colorScheme: $colorScheme)) {
-                                    Text("TextField")
-                                }
-                                NavigationLink(destination: CheckBoxView(colorScheme: $colorScheme)) {
-                                    Text("CheckBox")
-                                }
-                                NavigationLink(destination: FormGroupView(colorScheme: $colorScheme)) {
-                                    Text("FormGroup")
-                                }
-                            }
-                            Section {
-                                NavigationLink(destination: ButtonDemo(colorScheme: $colorScheme)) {
-                                    Text("Button")
-                                }
-                                NavigationLink(destination: ListItemDemo(colorScheme: $colorScheme)) {
-                                    Text("ListItem")
-                                }
-                                NavigationLink(destination: ToggleDemo(colorScheme: $colorScheme)) {
-                                    Text("Toggle")
-                                }
-                                NavigationLink(destination: PaginationViewDemo(colorScheme: $colorScheme)) {
-                                    Text("Pagination")
-                                }
-                                NavigationLink(destination: ModalViewDemo(colorScheme: $colorScheme)) {
-                                    Text("Modal View")
-                                }
-                                Button(action: {
-                                    self.onboardingViewModel.state = .startView
-                                }) {
-                                    Text("Onboarding")
-                                }
-                            }
+                        NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
+                            Text("Typography")
+                        }
+                        NavigationLink(destination: DividerViewDemo(colorScheme: $colorScheme)) {
+                            Text("Divider")
+                        }
+                        NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
+                            Text("BubbleView")
+                        }
+                        NavigationLink(destination: InfoViewDemo(colorScheme: $colorScheme)) {
+                            Text("InfoView")
+                        }
+                        NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: $colorScheme)) {
+                            Text("SegmentedPicker")
+                        }
+                        NavigationLink(destination: TextAreaView(colorScheme: $colorScheme)) {
+                            Text("TextArea")
+                        }
+                        NavigationLink(destination: TextFieldView(colorScheme: $colorScheme)) {
+                            Text("TextField")
+                        }
+                        NavigationLink(destination: CheckBoxView(colorScheme: $colorScheme)) {
+                            Text("CheckBox")
+                        }
+                        NavigationLink(destination: FormGroupView(colorScheme: $colorScheme)) {
+                            Text("FormGroup")
                         }
                     }
-                        .colorScheme(colorScheme)
-                        .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
+                    Section {
+                        NavigationLink(destination: ButtonDemo(colorScheme: $colorScheme)) {
+                            Text("Button")
+                        }
+                        NavigationLink(destination: ListItemDemo(colorScheme: $colorScheme)) {
+                            Text("ListItem")
+                        }
+                        NavigationLink(destination: ToggleDemo(colorScheme: $colorScheme)) {
+                            Text("Toggle")
+                        }
+                        NavigationLink(destination: PaginationViewDemo(colorScheme: $colorScheme)) {
+                            Text("Pagination")
+                        }
+                        NavigationLink(destination: ModalViewDemo(colorScheme: $colorScheme)) {
+                            Text("Modal View")
+                        }
+                        NavigationLink(destination: OnboardingViewDemo(colorScheme: $colorScheme)) {
+                            Text("Onboarding View")
+                        }
+                    }
                 }
-                    .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
-            } else {
-                SBBOnboardingView(viewModel: onboardingViewModel)
-                    .colorScheme(colorScheme)
             }
+            .colorScheme(colorScheme)
+            .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
         }
-        
+            .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
     }
 }
 
