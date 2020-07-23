@@ -11,6 +11,8 @@ public extension SBBOnboardingCardView where Content == AnyView {
         self.title = title
         self.text = text
         self.content = nil
+        
+        UIScrollView.appearance().bounces = false
     }
 }
 
@@ -26,31 +28,31 @@ public struct SBBOnboardingCardView<Content>: View where Content: View {
         self.title = title
         self.text = text
         self.content = content()
+        
+        UIScrollView.appearance().bounces = false
     }
     
     public var body: some View {
-        VStack {
-            GeometryReader { geometry in
+        ScrollView(showsIndicators: false) {
+            VStack {
                 self.image
                     .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: geometry.size.width, height: geometry.size.height)
-                    .clipped()
-            }
-            VStack(spacing: 16) {
-                title
-                    .sbbFont(.titleDefault)
-                    .fixedSize(horizontal: false, vertical: true)
-                text
-                    .sbbFont(.body)
-                    .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
-                if content != nil {
-                    content
+                    .aspectRatio(contentMode: .fit)
+                VStack(spacing: 16) {
+                    title
+                        .sbbFont(.titleDefault)
+                        .fixedSize(horizontal: false, vertical: true)
+                    text
+                        .sbbFont(.body)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                    if content != nil {
+                        content
+                    }
                 }
+                    .foregroundColor(SBBColor.textBlack)
+                    .padding(16)
             }
-                .foregroundColor(SBBColor.textBlack)
-                .padding(16)
         }
             .background(SBBColor.viewBackground)
             .cornerRadius(16)
