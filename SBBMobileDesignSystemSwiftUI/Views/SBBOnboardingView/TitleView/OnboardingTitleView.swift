@@ -7,6 +7,7 @@ import SwiftUI
 struct OnboardingTitleView: View {
     
     @ObservedObject var viewModel: OnboardingViewModel
+    let sbbOnboardingTitleView: SBBOnboardingTitleView
     
     var body: some View {
         VStack(spacing: 16) {
@@ -18,31 +19,7 @@ struct OnboardingTitleView: View {
                     .frame(height: 14)
                 
             }
-            HStack {
-                Spacer()
-                VStack(spacing: 36) {
-                    Spacer()
-                    if viewModel.state == .startView {
-                        viewModel.startViewModel.image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        viewModel.startViewModel.title
-                            .fixedSize(horizontal: false, vertical: true)
-                    } else if viewModel.state == .endView {
-                        viewModel.endViewModel.image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                        viewModel.endViewModel.title
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                        
-                    Spacer()
-                }
-                Spacer()
-            }
-                .font(.sbbLight(size: 30))
-                .multilineTextAlignment(.center)
-                .foregroundColor(SBBColor.white)
+            sbbOnboardingTitleView
             if viewModel.state == .startView {
                 Button(action: {
                     self.viewModel.state = .cardsView
@@ -75,15 +52,15 @@ struct OnboardingTitleView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            OnboardingTitleView(viewModel: FakeOnboardingViewModels.startView)
+            OnboardingTitleView(viewModel: FakeOnboardingViewModels.startView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.start)
                 .previewDisplayName("StartView")
-            OnboardingTitleView(viewModel: FakeOnboardingViewModels.startView)
+            OnboardingTitleView(viewModel: FakeOnboardingViewModels.startView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.start)
                 .previewDisplayName("StartView Dark")
                 .environment(\.colorScheme, .dark)
-            OnboardingTitleView(viewModel: FakeOnboardingViewModels.endView)
+            OnboardingTitleView(viewModel: FakeOnboardingViewModels.endView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.end)
                 .previewDisplayName("EndView")
                 .environment(\.colorScheme, .dark)
-            OnboardingTitleView(viewModel: FakeOnboardingViewModels.endView)
+            OnboardingTitleView(viewModel: FakeOnboardingViewModels.endView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.end)
                 .previewDisplayName("EndView Dark")
                 .environment(\.colorScheme, .dark)
         }

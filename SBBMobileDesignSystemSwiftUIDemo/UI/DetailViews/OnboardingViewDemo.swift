@@ -8,7 +8,10 @@ import SBBMobileDesignSystemSwiftUI
 struct OnboardingViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
-    @State var onboardingState: SBBOnboardingState = .hidden
+    @State private var onboardingState: SBBOnboardingState = .hidden
+    
+    private let startView = SBBOnboardingTitleView(image: Image("TODO"), title: Text("Willkommen bei Ihrer SBB App"))
+    private let endView = SBBOnboardingTitleView(image: Image("TODO"), title: Text("Starten"))
 
     var body: some View {
         Group {
@@ -20,7 +23,7 @@ struct OnboardingViewDemo: View {
                 }
                     .buttonStyle(SBBPrimaryButtonStyle())
             } else {
-                SBBOnboardingView(state: $onboardingState, startViewModel: SBBOnboardingTitleViewModel(image: Image("Onboarding_Luc"), title: Text("Willkommen bei Ihrer SBB App")), endViewModel: SBBOnboardingTitleViewModel(image: Image("Onboarding_Luc"), title: Text("Starten"))) {
+                SBBOnboardingView(state: $onboardingState, startView: startView, endView: endView) {
                     SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card 1"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."), actionOnCardDisappear:{
                         print("Action on card disappear.")
                     })

@@ -7,24 +7,29 @@ import SwiftUI
 public struct SBBOnboardingView: View {
     
     @ObservedObject private var viewModel: OnboardingViewModel
+    private var startView: OnboardingTitleView
+    private var endView: OnboardingTitleView
     
-    public init(state: Binding<SBBOnboardingState>, startViewModel: SBBOnboardingTitleViewModel, endViewModel: SBBOnboardingTitleViewModel) {
-        self.viewModel = OnboardingViewModel(state: state, startViewModel: startViewModel, endViewModel: endViewModel, cardViews: [SBBOnboardingCardView]())
-    }
-    
-    public init(state: Binding<SBBOnboardingState>, startViewModel: SBBOnboardingTitleViewModel, endViewModel: SBBOnboardingTitleViewModel, @ArrayBuilder<SBBOnboardingCardView> content: () -> [SBBOnboardingCardView]) {
-        self.viewModel = OnboardingViewModel(state: state, startViewModel: startViewModel, endViewModel: endViewModel, cardViews: content())
-    }
-    
-    // non-public initializer for SwiftUI Previews with Fake Model
-    init(viewModel: OnboardingViewModel) {
+    public init(state: Binding<SBBOnboardingState>, startView: SBBOnboardingTitleView, endView: SBBOnboardingTitleView) {
+        let viewModel = OnboardingViewModel(state: state, cardViews: [SBBOnboardingCardView]())
         self.viewModel = viewModel
+        self.startView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: startView)
+        self.endView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: endView)
+    }
+    
+    public init(state: Binding<SBBOnboardingState>, startView: SBBOnboardingTitleView, endView: SBBOnboardingTitleView, @ArrayBuilder<SBBOnboardingCardView> content: () -> [SBBOnboardingCardView]) {
+        let viewModel = OnboardingViewModel(state: state, cardViews: content())
+        self.viewModel = viewModel
+        self.startView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: startView)
+        self.endView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: endView)
     }
         
     public var body: some View {
         Group {
-            if viewModel.state == .startView || viewModel.state == .endView {
-                OnboardingTitleView(viewModel: viewModel)
+            if viewModel.state == .startView {
+                startView
+            } else if viewModel.state == .endView {
+                endView
             } else if viewModel.state == .cardsView {
                 OnboardingCardsView(viewModel: viewModel)
             }
@@ -38,9 +43,9 @@ struct SBBOnboardingView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SBBOnboardingView(viewModel: FakeOnboardingViewModels.startView)
+            SBBOnboardingView(state: .constant(.startView), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end)
                 .previewDisplayName("StartView Light")
-            SBBOnboardingView(viewModel: FakeOnboardingViewModels.startView)
+            SBBOnboardingView(state: .constant(.startView), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end)
                 .previewDisplayName("StartView Dark")
                 .environment(\.colorScheme, .dark)
         }

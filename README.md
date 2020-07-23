@@ -307,6 +307,15 @@ SBBOnboardingView is used to present basic app functionality to your users on th
         }
     }
 ```
+
+### SBBOnboardingTitleView
+
+SBBOnboardingTitleView is used for the start and end view of SBBOnboardingView. You can specify an image and a text to display.
+
+```   
+    SBBOnboardingTitleView(image: Image("TODO"), title: Text("Willkommen bei Ihrer SBB App"))
+```
+
 ### SBBOnboardingCardView
 
 SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView. In a normal setting you specify an image, title and text. However you can also add whatever custom view you want using its ViewBuilder. You can also pass an action which will be executed once the user swipes to the next card (e.g. to ask for certain app permissions).
