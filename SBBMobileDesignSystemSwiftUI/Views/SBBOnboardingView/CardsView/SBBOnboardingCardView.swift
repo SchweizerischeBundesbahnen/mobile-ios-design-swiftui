@@ -58,6 +58,9 @@ public struct SBBOnboardingCardView: View {
                 }
                     .foregroundColor(SBBColor.textBlack)
                     .padding(16)
+                HStack {
+                    Spacer()
+                }
             }
         }
             .background(SBBColor.viewBackground)
@@ -75,7 +78,10 @@ struct OnboardingCardView_Previews: PreviewProvider {
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
             FakeSBBOnboardingCardViews.cardWithButton
-                .previewDisplayName("Light, Card with custom content")
+                .previewDisplayName("Light, Normal Card with custom content")
+            FakeSBBOnboardingCardViews.customCard
+                .previewDisplayName("Dark, Custom Card")
+                .environment(\.colorScheme, .dark)
         }
             .previewLayout(.fixed(width: 300, height: 400))
     }
