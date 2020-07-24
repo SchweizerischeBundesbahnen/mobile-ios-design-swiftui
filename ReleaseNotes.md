@@ -9,6 +9,7 @@
 * SBBModalView
 * Renaming of the old SBBInfoView to SBBInfoViewCollapsible
 * New SBBInfoView
+* CornerRadius View Extension
 
 ## V0.1.8 - 6 July 2020
 

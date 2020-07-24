@@ -34,7 +34,7 @@ public struct SBBOnboardingView: View {
                 OnboardingCardsView(viewModel: viewModel)
             }
         }
-            .navigationBarTitle("TODO delete string")   // Navigation Bar Title needs to be set for ignoring Safe Area Edges
+            .navigationBarTitle("Hidden Title")   // Navigation Bar Title needs to be set for ignoring Safe Area Edges
             .navigationBarHidden(true)
     }
 }

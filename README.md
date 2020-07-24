@@ -329,7 +329,7 @@ SBBOnboardingView is used to present basic app functionality to your users on th
 SBBOnboardingTitleView is used for the start and end view of SBBOnboardingView. You can specify an image and a text to display.
 
 ```   
-    SBBOnboardingTitleView(image: Image("TODO"), title: Text("Willkommen bei Ihrer SBB App"))
+    SBBOnboardingTitleView(image: Image("Your Image"), title: Text("Willkommen bei Ihrer SBB App"))
 ```
 
 ### SBBOnboardingCardView
@@ -395,6 +395,24 @@ SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large
 ## Toggle
 
 The standard SwiftUI toggle can be used. It will by default feature the SBB specific background color (red). 
+
+## CornerRadius
+
+CornerRadius is a View Extension which allows to add a corner radius to specific corners only.
+
+```    
+    YourView()
+        .cornerRadius(16, corners: .bottomRight)
+```
+
+## ResizeToContentSizeCategory
+
+ResizeToContentSizeCategory is an Image Extension which allows to the image to dynamically resize according to the current ContentSizeCategory.
+
+```    
+    Image("Your Image")
+        .resizeToContentSizeCategory(originalHeight: 36)
+```
 
 ## Authors
 
