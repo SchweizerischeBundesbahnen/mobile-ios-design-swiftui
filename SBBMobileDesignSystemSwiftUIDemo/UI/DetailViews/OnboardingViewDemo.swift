@@ -64,7 +64,7 @@ struct OnboardingViewDemo: View {
                 }
                     .padding(16)
                     .navigationBarTitle("Onboarding")
-                    .background(SBBColor.background)
+                    .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
             } else {
                 SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: startView, endView: endView) {
                     createCardViews()

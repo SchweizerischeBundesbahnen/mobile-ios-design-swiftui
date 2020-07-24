@@ -31,7 +31,7 @@ struct ModalViewDemo: View {
         }
             .padding(16)
             .navigationBarTitle("ModalView")
-            .background(SBBColor.background)
+            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

@@ -43,9 +43,23 @@ struct SBBOnboardingView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SBBOnboardingView(state: .constant(.startView), currentCardIndex: .constant(0), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end)
+            SBBOnboardingView(state: .constant(.startView), currentCardIndex: .constant(0), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end) {
+                SBBOnboardingCardView() {
+                    EmptyView()
+                }
+                SBBOnboardingCardView() {
+                    EmptyView()
+                }
+            }
                 .previewDisplayName("StartView Light")
-            SBBOnboardingView(state: .constant(.startView), currentCardIndex: .constant(0), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end)
+            SBBOnboardingView(state: .constant(.startView), currentCardIndex: .constant(0), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end) {
+                SBBOnboardingCardView() {
+                    EmptyView()
+                }
+                SBBOnboardingCardView() {
+                    EmptyView()
+                }
+            }
                 .previewDisplayName("StartView Dark")
                 .environment(\.colorScheme, .dark)
         }

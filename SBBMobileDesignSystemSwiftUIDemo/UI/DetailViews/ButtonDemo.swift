@@ -49,7 +49,7 @@ struct ButtonDemo: View {
         }
         .padding(16)
         .navigationBarTitle("Buttons")
-        .background(SBBColor.background)
+        .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
     

@@ -74,7 +74,6 @@ struct ColorsView_Previews: PreviewProvider {
                 .previewDisplayName("Light")
             ColorsView(colorScheme: $darkScheme)
                 .previewDisplayName("Dark")
-                .environment(\.colorScheme, .dark)
         }
     }
 }

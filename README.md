@@ -148,7 +148,7 @@ If your BubbleView contains no detail (and is not expandable), you can use it li
 
 ## SBBInfoView
 
-SBBInfoView is an expandable view with a title and a text to be used for showing general information. You need to set its title. Optional parameters are its detail, titleAccessibility,  and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
+SBBInfoView is an expandable view with an image and a text. It is usually displayed as the upmost View to provide some information about the current screen.
 
 You can use the SBBInfoView it like so:
 
@@ -156,7 +156,22 @@ You can use the SBBInfoView it like so:
     @State var expanded = true
     
     var body: some View {
-        SBBInfoView(title: Text("Your title"), detail: Text("Your longer text"), expanded: $expanded)
+    SBBInfoView(image: Image("Your Image"), text: Text("Your title"))
+    }
+```
+
+
+## SBBInfoViewCollapsible
+
+SBBInfoViewCollapsible is an expandable view with a title and a text to be used for showing general information. You need to set its title. Optional parameters are its detail, titleAccessibility,  and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
+
+You can use the SBBInfoView it like so:
+
+```
+    @State var expanded = true
+    
+    var body: some View {
+        SBBInfoViewCollapsible(title: Text("Your title"), detail: Text("Your longer text"), expanded: $expanded)
     }
 ```
 
