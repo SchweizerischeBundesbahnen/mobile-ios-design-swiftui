@@ -8,22 +8,26 @@ import SwiftUI
 class OnboardingViewModel: ObservableObject {
     
     @Binding var state: SBBOnboardingState
-    @Published var currentCardIndex: Int = 0 {
+    @Binding var currentCardIndex: Int {
         didSet {
             if cardViews.indices.contains(currentCardIndex) {
                 currentCardView = cardViews[currentCardIndex]
-                previousCardView = cardViews.indices.contains(currentCardIndex - 1) ? cardViews[currentCardIndex - 1] : nil
             }
         }
     }
     @Published var currentCardView: SBBOnboardingCardView?
-    @Published var previousCardView: SBBOnboardingCardView?   // the CardView before the current CardView
     
     let cardViews: [SBBOnboardingCardView]
     
-    init(state: Binding<SBBOnboardingState>, cardViews: [SBBOnboardingCardView]) {
+    init(state: Binding<SBBOnboardingState>, currentCardIndex: Binding<Int>, cardViews: [SBBOnboardingCardView]) {
         self._state = state
+        self._currentCardIndex = currentCardIndex
         self.cardViews = cardViews
-        self.currentCardView = cardViews.first
+        
+        if !cardViews.indices.contains(currentCardIndex.wrappedValue) {
+            fatalError("currentCardIndex \(currentCardIndex.wrappedValue) passed to SBBOnboardingView is bigger than the number of passed cardViews \(cardViews.count)")
+        }
+        
+        self.currentCardView = cardViews[currentCardIndex.wrappedValue]
     }
 }

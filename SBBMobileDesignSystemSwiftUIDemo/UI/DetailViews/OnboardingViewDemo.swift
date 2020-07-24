@@ -31,6 +31,7 @@ struct OnboardingViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
     @State private var onboardingState: SBBOnboardingState = .hidden
+    @State private var currentOnboardingCardIndex: Int = 0
     @State private var showingAlert = false
     
     @ObservedObject private var viewModel = OnboardingViewDemoModel()
@@ -54,6 +55,7 @@ struct OnboardingViewDemo: View {
                     }
                     Spacer()
                     Button(action: {
+                        self.currentOnboardingCardIndex = 0
                         self.onboardingState = .startView
                     }) {
                         Text("Show Onboarding View")
@@ -64,7 +66,7 @@ struct OnboardingViewDemo: View {
                     .navigationBarTitle("Onboarding")
                     .background(SBBColor.background)
             } else {
-                SBBOnboardingView(state: $onboardingState, startView: startView, endView: endView) {
+                SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: startView, endView: endView) {
                     createCardViews()
                 }
                     .alert(isPresented: $showingAlert) {

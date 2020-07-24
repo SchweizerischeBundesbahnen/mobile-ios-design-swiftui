@@ -10,15 +10,15 @@ public struct SBBOnboardingView: View {
     private var startView: OnboardingTitleView
     private var endView: OnboardingTitleView
     
-    public init(state: Binding<SBBOnboardingState>, startView: SBBOnboardingTitleView, endView: SBBOnboardingTitleView) {
-        let viewModel = OnboardingViewModel(state: state, cardViews: [SBBOnboardingCardView]())
+    public init(state: Binding<SBBOnboardingState>, currentCardIndex: Binding<Int>, startView: SBBOnboardingTitleView, endView: SBBOnboardingTitleView) {
+        let viewModel = OnboardingViewModel(state: state, currentCardIndex: currentCardIndex, cardViews: [SBBOnboardingCardView]())
         self.viewModel = viewModel
         self.startView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: startView)
         self.endView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: endView)
     }
     
-    public init(state: Binding<SBBOnboardingState>, startView: SBBOnboardingTitleView, endView: SBBOnboardingTitleView, @ArrayBuilder<SBBOnboardingCardView> content: () -> [SBBOnboardingCardView]) {
-        let viewModel = OnboardingViewModel(state: state, cardViews: content())
+    public init(state: Binding<SBBOnboardingState>, currentCardIndex: Binding<Int>, startView: SBBOnboardingTitleView, endView: SBBOnboardingTitleView, @ArrayBuilder<SBBOnboardingCardView> content: () -> [SBBOnboardingCardView]) {
+        let viewModel = OnboardingViewModel(state: state, currentCardIndex: currentCardIndex, cardViews: content())
         self.viewModel = viewModel
         self.startView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: startView)
         self.endView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: endView)
@@ -43,9 +43,9 @@ struct SBBOnboardingView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SBBOnboardingView(state: .constant(.startView), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end)
+            SBBOnboardingView(state: .constant(.startView), currentCardIndex: .constant(0), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end)
                 .previewDisplayName("StartView Light")
-            SBBOnboardingView(state: .constant(.startView), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end)
+            SBBOnboardingView(state: .constant(.startView), currentCardIndex: .constant(0), startView: FakeSBBOnboardingTitleViews.start, endView: FakeSBBOnboardingTitleViews.end)
                 .previewDisplayName("StartView Dark")
                 .environment(\.colorScheme, .dark)
         }
