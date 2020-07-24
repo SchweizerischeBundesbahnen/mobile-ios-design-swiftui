@@ -98,7 +98,7 @@ struct OnboardingCardsView: View {
         if viewModel.currentCardIndex == viewModel.cardViews.count - 1 {
             viewModel.state = .endView
         } else {
-            viewModel.currentCardView?.actionOnCardDisappear?()
+            viewModel.currentCardView?.actionOnCardDisappear?() // TODO - if presenting an alert, the view is not redrawn (and somehow the index gets incremented first but remains the old value later???)
             withAnimation {
                 viewModel.currentCardIndex += 1
                 self.dragOffset = .zero

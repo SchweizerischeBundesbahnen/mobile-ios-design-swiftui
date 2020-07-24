@@ -291,7 +291,7 @@ SBBOnboardingView is used to present basic app functionality to your users on th
     let startViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
     let endViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
     
-    @State var onboardingState: SBBOnboardingState = .hidden
+    @State var onboardingState: SBBOnboardingState = .hidden    // You will typically persist this state to UserDefaults
 
     var body: some View {
         Group {

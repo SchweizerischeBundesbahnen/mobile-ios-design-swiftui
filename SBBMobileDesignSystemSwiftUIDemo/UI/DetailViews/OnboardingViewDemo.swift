@@ -5,38 +5,105 @@
 import SwiftUI
 import SBBMobileDesignSystemSwiftUI
 
+class OnboardingViewDemoModel: ObservableObject {
+    @Published var numberOfCards: Int = 3
+    var minimumNumberOfCards: Int {
+        return (withCustomButton ? 1 : 0) + (withCustomCard ? 1 : 0) + (withCustomAction ? 1 : 0)
+    }
+    @Published var withCustomButton: Bool = false {
+        didSet { updateMinimumNumberOfCards() }
+    }
+    @Published var withCustomCard: Bool = false {
+        didSet { updateMinimumNumberOfCards() }
+    }
+    @Published var withCustomAction: Bool = false {
+        didSet { updateMinimumNumberOfCards() }
+    }
+
+    private func updateMinimumNumberOfCards() {
+        if numberOfCards < minimumNumberOfCards {
+            numberOfCards = minimumNumberOfCards
+        }
+    }
+}
+
 struct OnboardingViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
     @State private var onboardingState: SBBOnboardingState = .hidden
+    @State private var showingAlert = false
     
-    private let startView = SBBOnboardingTitleView(image: Image("TODO"), title: Text("Willkommen bei Ihrer SBB App"))
-    private let endView = SBBOnboardingTitleView(image: Image("TODO"), title: Text("Starten"))
+    @ObservedObject private var viewModel = OnboardingViewDemoModel()
+
+    private let startView = SBBOnboardingTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen bei SBB MDS"))
+    private let endView = SBBOnboardingTitleView(image: Image("Onboarding_Gang"), title: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB MDS"))
 
     var body: some View {
         Group {
             if onboardingState == .hidden {
-                Button(action: {
-                    self.onboardingState = .startView
-                }) {
-                    Text("Show Onboarding View")
+                VStack(spacing: 16) {
+                    SBBFormGroup(title: "Number of Cards") {
+                        Stepper("\(self.viewModel.numberOfCards)", value: self.$viewModel.numberOfCards, in: 1...10)
+                            .sbbFont(.body)
+                        .padding(16)
+                    }
+                    SBBFormGroup(title: "Customize Content") {
+                        SBBCheckBox(isOn: self.$viewModel.withCustomButton, label: "Card with additional custom content")
+                        SBBCheckBox(isOn: self.$viewModel.withCustomAction, label: "Card with custom action")
+                        SBBCheckBox(isOn: self.$viewModel.withCustomCard, label: "Custom Card")
+                    }
+                    Spacer()
+                    Button(action: {
+                        self.onboardingState = .startView
+                    }) {
+                        Text("Show Onboarding View")
+                    }
+                        .buttonStyle(SBBPrimaryButtonStyle())
                 }
-                    .buttonStyle(SBBPrimaryButtonStyle())
+                    .padding(16)
+                    .navigationBarTitle("Onboarding")
+                    .background(SBBColor.background)
             } else {
                 SBBOnboardingView(state: $onboardingState, startView: startView, endView: endView) {
-                    SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card 1"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."), actionOnCardDisappear:{
-                        print("Action on card disappear.")
-                    })
-                    SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card 2"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")) {
-                            FakeSBBOnboardingCardViewCustomButton()
-                    }
-                    SBBOnboardingCardView {
-                        Text("Custom Card")
-                    }
+                    createCardViews()
                 }
+                    .alert(isPresented: $showingAlert) {
+                        Alert(title: Text("Custom Action"), message: Text("This alert is presented as a custom executable action on card disappear."), dismissButton: .default(Text("Got it!")))
+                    }
             }
         }
              .colorScheme(colorScheme)
+    }
+    
+    
+    
+    private func createCardViews() -> [SBBOnboardingCardView] {
+        let text = Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+        
+        var cardViews = [SBBOnboardingCardView]()
+        if viewModel.withCustomButton {
+            cardViews.append(SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card with additional custom content"), text: text) {
+                FakeSBBOnboardingCardViewCustomButton()
+            })
+        }
+        if viewModel.withCustomAction {
+            cardViews.append(SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card with custom action"), text: text, actionOnCardDisappear:{
+                self.showingAlert = true
+            }))
+        }
+        if viewModel.withCustomCard {
+            cardViews.append(SBBOnboardingCardView {
+                Text("Custom Card")
+            })
+        }
+        
+        if viewModel.numberOfCards > viewModel.minimumNumberOfCards {
+            for n in 1...(viewModel.numberOfCards - viewModel.minimumNumberOfCards) {
+                cardViews.append(SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card \(n)"), text: text))
+            }
+        }
+        
+        return cardViews
     }
 }
 
@@ -57,11 +124,11 @@ struct FakeSBBOnboardingCardViewCustomButton: View {
         Button(action: {
             self.showingModalView = true
         }) {
-            Text("Try it out")
+            Text("Diese Funktion ausprobieren")
         }
             .buttonStyle(SBBSecondaryButtonStyle())
             .sheet(isPresented: $showingModalView, content: {
-                SBBModalView(title: Text("Try it out - example"), isPresented: self.$showingModalView) {
+                SBBModalView(title: Text("Funktion Ausprobieren"), isPresented: self.$showingModalView) {
                     VStack {
                         Spacer()
                         Text("Your content here")

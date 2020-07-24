@@ -15,7 +15,7 @@ struct ModalViewDemo: View {
             Button(action: {
                 self.showingModalView = true
             }) {
-                Text("Click Me")
+                Text("Show ModalView")
             }
                 .buttonStyle(SBBPrimaryButtonStyle())
                 .sheet(isPresented: $showingModalView, content: {
@@ -27,7 +27,11 @@ struct ModalViewDemo: View {
                         }
                     }
                 })
+            Spacer()
         }
+            .padding(16)
+            .navigationBarTitle("ModalView")
+            .background(SBBColor.background)
             .colorScheme(colorScheme)
     }
 }

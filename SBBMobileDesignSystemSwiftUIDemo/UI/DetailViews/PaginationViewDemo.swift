@@ -13,7 +13,9 @@ struct PaginationViewDemo: View {
     
     var body: some View {
         VStack(spacing: 16) {
+            Spacer()
             SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: numberOfPages)
+            Spacer()
             SBBDivider()
             HStack {
                 Button(action: {
@@ -32,9 +34,11 @@ struct PaginationViewDemo: View {
                 }
                     .buttonStyle(SBBIconButtonStyle(size: .small))
             }
-            Spacer()
         }
             .padding(16)
+            .navigationBarTitle("Pagination")
+            .background(SBBColor.background)
+            .colorScheme(colorScheme)
     }
 }
 
