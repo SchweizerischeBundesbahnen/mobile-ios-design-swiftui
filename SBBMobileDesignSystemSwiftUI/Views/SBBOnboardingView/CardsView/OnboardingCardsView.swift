@@ -20,6 +20,8 @@ struct OnboardingCardsView: View {
                                 .offset(y: self.yOffsetForCard(at: index))
                                 .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)
                                 .opacity(self.opacityForCard(at: index))
+                                .accessibilityElement(children: self.accessibilityHiddenForCard(at: index) ? .combine : .contain)   // elements of hidden cards need to be combined first (otherwise they are not hidden)
+                                .accessibility(hidden: self.accessibilityHiddenForCard(at: index))
                         }
                     }
                         .padding(.top, geometry.safeAreaInsets.top)
@@ -38,16 +40,19 @@ struct OnboardingCardsView: View {
                         Image("chevron_small_right_45_small", bundle: Helper.bundle)
                             .resizable()
                             .rotationEffect(Angle(degrees: 180))
+                            .accessibility(label: Text("back"))
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                     Spacer()
                     SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViews.count)
+                        .accessibility(hidden: true)
                     Spacer()
                     Button(action: {
                         self.showNextCard()
                     }) {
                         Image("chevron_small_right_45_small", bundle: Helper.bundle)
                             .resizable()
+                            .accessibility(label: Text("forward"))
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                 }
@@ -147,6 +152,10 @@ struct OnboardingCardsView: View {
             return index < self.viewModel.currentCardIndex
         }
         return false
+    }
+    
+    private func accessibilityHiddenForCard(at index: Int) -> Bool {
+        return !(index == self.viewModel.currentCardIndex)
     }
 }
 

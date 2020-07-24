@@ -13,3 +13,7 @@
 // SBBCheckBox
 "ON" = "Attivato";
 "OFF" = "Disattivato";
+
+// SBBOnboardingView
+"back" = "indietro";
+"forward" = "avanti";

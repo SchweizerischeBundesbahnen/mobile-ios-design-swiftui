@@ -22,6 +22,7 @@ public struct SBBOnboardingTitleView: View {
                 image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .accessibility(hidden: true)
                 title
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer()

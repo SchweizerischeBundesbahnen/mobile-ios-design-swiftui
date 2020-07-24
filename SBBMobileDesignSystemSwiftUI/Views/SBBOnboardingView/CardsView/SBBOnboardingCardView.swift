@@ -39,12 +39,14 @@ public struct SBBOnboardingCardView: View {
                     self.image!
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .accessibility(hidden: true)
                 }
                 VStack(spacing: 16) {
                     if title != nil {
                         title
                             .sbbFont(.titleDefault)
                             .fixedSize(horizontal: false, vertical: true)
+                            .accessibility(addTraits: .isHeader)
                     }
                     if text != nil {
                         text
