@@ -85,14 +85,14 @@ public struct SBBBubbleView<Content>: View where Content: View {
                         }
                     }
                 }
+                    .accessibilityElement(children: .combine)
+                    .accessibility(hint: ((self.content == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
                     .disabled(self.content == nil)
                     .padding(16)
                     .background(SBBColor.tabViewBackground)
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(SBBColor.textBlack)
-                    .accessibilityElement(children: .combine)
-                    .accessibility(hint: ((self.content == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
             }
                 .padding(.horizontal, 16)
                 .onTapGesture {
