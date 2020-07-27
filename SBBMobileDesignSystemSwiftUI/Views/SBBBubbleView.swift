@@ -44,49 +44,52 @@ public struct SBBBubbleView<Content>: View where Content: View {
                 .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
-                    VStack(alignment: .leading, spacing: 0) {
-                        HStack(alignment: .center) {
-                            image
-                                .frame(width: 36, height: 36, alignment: .center)
-                                .accessibility(hidden: true)
-                            title
-                                .sbbFont(.titleDefault)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .accessibility(label: self.titleAccessibility ?? self.title)
-                                .padding([.bottom, .top], 8)
-                            Spacer()
-                            if (content != nil) {
-                                Group {
-                                    Image("chevron_small_up", bundle: Helper.bundle)
-                                        .rotationEffect(.degrees(self.expanded ? 0 : 180))
-                                }
+                    VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 0) {
+                            HStack(alignment: .center) {
+                                image
+                                    .frame(width: 36, height: 36, alignment: .center)
                                     .accessibility(hidden: true)
-                                    .frame(width: 32, height: 32)
-                                    .clipShape(Circle())
-                                    .overlay(Circle().stroke(SBBColor.border))
+                                VStack(alignment: .leading, spacing: 8) {
+                                    title
+                                        .sbbFont(.titleDefault)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .accessibility(label: self.titleAccessibility ?? self.title)
+                                    if (self.subtitle != nil) {
+                                        subtitle!
+                                            .sbbFont(.body)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                            .accessibility(label: self.subtitleAccessibility ?? self.subtitle!)
+                                    }
+                                }
+                                Spacer()
+                                if (content != nil) {
+                                    Group {
+                                        Image("chevron_small_up", bundle: Helper.bundle)
+                                            .rotationEffect(.degrees(self.expanded ? 0 : 180))
+                                    }
+                                        .accessibility(hidden: true)
+                                        .frame(width: 32, height: 32)
+                                        .clipShape(Circle())
+                                        .overlay(Circle().stroke(SBBColor.border))
+                                }
                             }
                         }
-                        if (self.subtitle != nil) {
-                            subtitle!
-                                .sbbFont(.body)
-                                .fixedSize(horizontal: false, vertical: true)
-                                .accessibility(label: self.subtitleAccessibility ?? self.subtitle!)
-                        }
-                    }
-                    if (content != nil) && self.expanded {
-                        HStack(spacing: 0) {
-                            Spacer(minLength: 44)
-                            VStack(alignment: .leading, spacing: 0) {
-                                SBBDivider()
-                                content
-                                    .sbbFont(.body)
-                                    .padding(.top, 8)
+                        if (content != nil) && self.expanded {
+                            HStack(spacing: 0) {
+                                Spacer(minLength: 44)
+                                VStack(alignment: .leading, spacing: 0) {
+                                    SBBDivider()
+                                    content
+                                        .sbbFont(.body)
+                                        .padding(.top, 8)
+                                }
                             }
                         }
                     }
+                        .accessibilityElement(children: .combine)
+                        .accessibility(hint: ((self.content == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
                 }
-                    .accessibilityElement(children: .combine)
-                    .accessibility(hint: ((self.content == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
                     .disabled(self.content == nil)
                     .padding(16)
                     .background(SBBColor.tabViewBackground)
