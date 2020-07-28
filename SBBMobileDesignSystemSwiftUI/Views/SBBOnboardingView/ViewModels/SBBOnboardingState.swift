@@ -4,9 +4,9 @@
 
 import Foundation
 
-public enum SBBOnboardingState: Equatable {
-    case hidden
-    case startView
-    case cardsView
-    case endView
+public enum SBBOnboardingState: String, Equatable {
+    case hidden = "hidden"
+    case startView = "startView"
+    case cardsView = "cardsView"
+    case endView = "endView"
 }
