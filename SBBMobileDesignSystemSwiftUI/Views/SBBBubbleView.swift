@@ -43,53 +43,57 @@ public struct SBBBubbleView<Content>: View where Content: View {
                 .fill(SBBColor.red)
                 .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
             HStack {
-                HStack(alignment: .top, spacing: 16) {
-                    image
-                        .frame(width: 36, height: 36, alignment: .center)
-                        .accessibility(hidden: true)
-                    VStack(alignment: .leading, spacing: 8) {
-                        VStack(alignment: .leading, spacing: 0) {
-                            HStack(alignment: .center) {
+                VStack(alignment: .leading, spacing: 8) {
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack(alignment: .center) {
+                            image
+                                .frame(width: 36, height: 36, alignment: .center)
+                                .accessibility(hidden: true)
+                            VStack(alignment: .leading, spacing: 8) {
                                 title
                                     .sbbFont(.titleDefault)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .accessibility(label: self.titleAccessibility ?? self.title)
-                                    .padding([.bottom, .top], 8)
-                                Spacer()
-                                if (content != nil) {
-                                    Group {
-                                        Image("chevron_small_up", bundle: Helper.bundle)
-                                            .rotationEffect(.degrees(self.expanded ? 0 : 180))
-                                    }
-                                        .accessibility(hidden: true)
-                                        .frame(width: 32, height: 32)
-                                        .clipShape(Circle())
-                                        .overlay(Circle().stroke(SBBColor.border))
+                                if (self.subtitle != nil) {
+                                    subtitle!
+                                        .sbbFont(.body)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .accessibility(label: self.subtitleAccessibility ?? self.subtitle!)
                                 }
                             }
-                            if (self.subtitle != nil) {
-                                subtitle!
-                                    .sbbFont(.body)
-                                    .fixedSize(horizontal: false, vertical: true)
-                                    .accessibility(label: self.subtitleAccessibility ?? self.subtitle!)
+                            Spacer()
+                            if (content != nil) {
+                                Group {
+                                    Image("chevron_small_up", bundle: Helper.bundle)
+                                        .rotationEffect(.degrees(self.expanded ? 0 : 180))
+                                }
+                                    .accessibility(hidden: true)
+                                    .frame(width: 32, height: 32)
+                                    .clipShape(Circle())
+                                    .overlay(Circle().stroke(SBBColor.border))
                             }
                         }
-                        if (content != nil) && self.expanded {
-                            SBBDivider()
-                            content
-                                .sbbFont(.body)
+                    }
+                    if (content != nil) && self.expanded {
+                        HStack(spacing: 0) {
+                            Spacer(minLength: 44)
+                            VStack(alignment: .leading, spacing: 0) {
+                                SBBDivider()
+                                content
+                                    .sbbFont(.body)
+                                    .padding(.top, 8)
+                            }
                         }
                     }
-                        .accessibilityElement(children: .combine)   // TODO - delete once SwiftUI bug is solved
                 }
                     .disabled(self.content == nil)
                     .padding(16)
+                    .accessibilityElement(children: .combine)
+                    .accessibility(hint: ((self.content == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
                     .background(SBBColor.tabViewBackground)
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(SBBColor.textBlack)
-                    //.accessibilityElement(children: .combine) / TODO - uncomment once SwiftUI bug (.combine does not reload voiceover if children element Strings are changed) is solved
-                    .accessibility(hint: ((self.content == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
             }
                 .padding(.horizontal, 16)
                 .onTapGesture {
@@ -123,7 +127,12 @@ struct SBBBubbleView_Previews: PreviewProvider {
                     .foregroundColor(SBBColor.red)
                     .font(.sbbTitleDefault)
             }
-                .previewDisplayName("Detail")
+                .previewDisplayName("Detail - multiple views")
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true)) {
+                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+            }
+                .previewDisplayName("Long title")
+            
         }
             .previewLayout(.sizeThatFits)
     }

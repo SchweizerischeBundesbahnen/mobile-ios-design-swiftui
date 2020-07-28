@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.9 - 27 July 2020
+
+### Bugfixes
+* SBBBubbleView icon is vertically centered when title has multiple lines.
+
 ## V0.1.8 - 6 July 2020
 
 ### Bugfixes
