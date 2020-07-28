@@ -1,6 +1,6 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.1.9 - 24 July 2020
+## V0.1.10 - 28 July 2020
 
 ### Features
 * SBBSTertiaryButtonStyle & SBBIconButtonStyle (large & small)
@@ -10,6 +10,11 @@
 * Renaming of the old SBBInfoView to SBBInfoViewCollapsible
 * New SBBInfoView
 * CornerRadius View Extension
+
+## V0.1.9 - 27 July 2020
+
+### Bugfixes
+* SBBBubbleView icon is vertically centered when title has multiple lines.
 
 ## V0.1.8 - 6 July 2020
 
