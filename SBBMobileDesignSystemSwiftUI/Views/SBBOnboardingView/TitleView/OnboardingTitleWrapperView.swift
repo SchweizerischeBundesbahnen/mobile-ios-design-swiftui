@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-struct OnboardingTitleView: View {
+struct OnboardingTitleWrapperView: View {
     
     @ObservedObject var viewModel: OnboardingViewModel
     let sbbOnboardingTitleView: SBBOnboardingTitleView
@@ -48,19 +48,19 @@ struct OnboardingTitleView: View {
     }
 }
 
-struct OnboardingTitleView_Previews: PreviewProvider {
+struct OnboardingTitleWrapperView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            OnboardingTitleView(viewModel: FakeOnboardingViewModels.startView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.start)
+            OnboardingTitleWrapperView(viewModel: FakeOnboardingViewModels.startView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.start)
                 .previewDisplayName("StartView")
-            OnboardingTitleView(viewModel: FakeOnboardingViewModels.startView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.start)
+            OnboardingTitleWrapperView(viewModel: FakeOnboardingViewModels.startView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.start)
                 .previewDisplayName("StartView Dark")
                 .environment(\.colorScheme, .dark)
-            OnboardingTitleView(viewModel: FakeOnboardingViewModels.endView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.end)
+            OnboardingTitleWrapperView(viewModel: FakeOnboardingViewModels.endView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.end)
                 .previewDisplayName("EndView")
                 .environment(\.colorScheme, .dark)
-            OnboardingTitleView(viewModel: FakeOnboardingViewModels.endView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.end)
+            OnboardingTitleWrapperView(viewModel: FakeOnboardingViewModels.endView, sbbOnboardingTitleView: FakeSBBOnboardingTitleViews.end)
                 .previewDisplayName("EndView Dark")
                 .environment(\.colorScheme, .dark)
         }

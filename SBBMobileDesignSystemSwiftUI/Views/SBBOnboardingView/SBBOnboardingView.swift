@@ -7,21 +7,21 @@ import SwiftUI
 public struct SBBOnboardingView: View {
     
     @ObservedObject private var viewModel: OnboardingViewModel
-    private var startView: OnboardingTitleView
-    private var endView: OnboardingTitleView
+    private var startView: OnboardingTitleWrapperView
+    private var endView: OnboardingTitleWrapperView
     
     public init(state: Binding<SBBOnboardingState>, currentCardIndex: Binding<Int>, startView: SBBOnboardingTitleView, endView: SBBOnboardingTitleView) {
         let viewModel = OnboardingViewModel(state: state, currentCardIndex: currentCardIndex, cardViews: [SBBOnboardingCardView]())
         self.viewModel = viewModel
-        self.startView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: startView)
-        self.endView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: endView)
+        self.startView = OnboardingTitleWrapperView(viewModel: viewModel, sbbOnboardingTitleView: startView)
+        self.endView = OnboardingTitleWrapperView(viewModel: viewModel, sbbOnboardingTitleView: endView)
     }
     
     public init(state: Binding<SBBOnboardingState>, currentCardIndex: Binding<Int>, startView: SBBOnboardingTitleView, endView: SBBOnboardingTitleView, @ArrayBuilder<SBBOnboardingCardView> content: () -> [SBBOnboardingCardView]) {
         let viewModel = OnboardingViewModel(state: state, currentCardIndex: currentCardIndex, cardViews: content())
         self.viewModel = viewModel
-        self.startView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: startView)
-        self.endView = OnboardingTitleView(viewModel: viewModel, sbbOnboardingTitleView: endView)
+        self.startView = OnboardingTitleWrapperView(viewModel: viewModel, sbbOnboardingTitleView: startView)
+        self.endView = OnboardingTitleWrapperView(viewModel: viewModel, sbbOnboardingTitleView: endView)
     }
         
     public var body: some View {
@@ -31,7 +31,7 @@ public struct SBBOnboardingView: View {
             } else if viewModel.state == .endView {
                 endView
             } else if viewModel.state == .cardsView {
-                OnboardingCardsView(viewModel: viewModel)
+                OnboardingCardsWrapperView(viewModel: viewModel)
             }
         }
             .navigationBarTitle("Hidden Title")   // Navigation Bar Title needs to be set for ignoring Safe Area Edges

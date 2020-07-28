@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-struct OnboardingCardsView: View {
+struct OnboardingCardsWrapperView: View {
     
     @ObservedObject var viewModel: OnboardingViewModel
     @State private var dragOffset = CGSize.zero
@@ -159,13 +159,13 @@ struct OnboardingCardsView: View {
     }
 }
 
-struct OnboardingCardsView_Previews: PreviewProvider {
+struct OnboardingCardsWrapperView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            OnboardingCardsView(viewModel: FakeOnboardingViewModels.startView)
+            OnboardingCardsWrapperView(viewModel: FakeOnboardingViewModels.startView)
                 .previewDisplayName("Light")
-            OnboardingCardsView(viewModel: FakeOnboardingViewModels.startView)
+            OnboardingCardsWrapperView(viewModel: FakeOnboardingViewModels.startView)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }

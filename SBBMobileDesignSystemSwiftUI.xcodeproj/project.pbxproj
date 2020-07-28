@@ -62,8 +62,8 @@
 		7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */; };
 		7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441124BDAD3C0078E68F /* SBBOnboardingView.swift */; };
 		7CBA441424BDB11E0078E68F /* SBBOnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */; };
-		7CBA441624BDB4250078E68F /* OnboardingTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441524BDB4250078E68F /* OnboardingTitleView.swift */; };
-		7CBA441824BDE47A0078E68F /* OnboardingCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */; };
+		7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */; };
+		7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441724BDE47A0078E68F /* OnboardingCardsWrapperView.swift */; };
 		7CBA441A24BDEB5B0078E68F /* SBBOnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */; };
 		7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68C24C16B86002289EE /* SBBModalView.swift */; };
 		7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */; };
@@ -181,8 +181,8 @@
 		7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBBubbleView.swift; sourceTree = "<group>"; };
 		7CBA441124BDAD3C0078E68F /* SBBOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingView.swift; sourceTree = "<group>"; };
 		7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingState.swift; sourceTree = "<group>"; };
-		7CBA441524BDB4250078E68F /* OnboardingTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTitleView.swift; sourceTree = "<group>"; };
-		7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardsView.swift; sourceTree = "<group>"; };
+		7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTitleWrapperView.swift; sourceTree = "<group>"; };
+		7CBA441724BDE47A0078E68F /* OnboardingCardsWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardsWrapperView.swift; sourceTree = "<group>"; };
 		7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingCardView.swift; sourceTree = "<group>"; };
 		7CDBA68C24C16B86002289EE /* SBBModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalView.swift; sourceTree = "<group>"; };
 		7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconButtonStyle.swift; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 		7C28872724BF397E00EDBD27 /* TitleView */ = {
 			isa = PBXGroup;
 			children = (
-				7CBA441524BDB4250078E68F /* OnboardingTitleView.swift */,
+				7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */,
 				7CE5D76724C9D8B300282976 /* SBBOnboardingTitleView.swift */,
 			);
 			path = TitleView;
@@ -369,7 +369,7 @@
 		7C28872824BF398E00EDBD27 /* CardsView */ = {
 			isa = PBXGroup;
 			children = (
-				7CBA441724BDE47A0078E68F /* OnboardingCardsView.swift */,
+				7CBA441724BDE47A0078E68F /* OnboardingCardsWrapperView.swift */,
 				7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */,
 			);
 			path = CardsView;
@@ -687,7 +687,7 @@
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
 				7C28872224BF2B3800EDBD27 /* FakeOnboardingViewModels.swift in Sources */,
 				7CE5D76824C9D8B300282976 /* SBBOnboardingTitleView.swift in Sources */,
-				7CBA441824BDE47A0078E68F /* OnboardingCardsView.swift in Sources */,
+				7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */,
 				7CA464DF2445F31100118D7B /* SBBInfoViewCollapsible.swift in Sources */,
 				7C28872024BF2B2800EDBD27 /* FakeSBBOnboardingCardViews.swift in Sources */,
 				7C28871224BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift in Sources */,
@@ -699,7 +699,7 @@
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */,
-				7CBA441624BDB4250078E68F /* OnboardingTitleView.swift in Sources */,
+				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
 				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
 				7C28871624BF055900EDBD27 /* SBBPaginationView.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
