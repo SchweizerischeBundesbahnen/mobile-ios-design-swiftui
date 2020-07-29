@@ -117,7 +117,7 @@ You can use it like so:
 
 ## SBBBubbleView
 
-SBBBubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, titleAccessibility, subtitleAccessibility and content as a Viewbuilder defining what will be shown in the expandable part (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Views inside the ViewBuilder as you want and they will be stacked vertically by default.
+SBBBubbleView is a view that is mainly used right underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, titleAccessibility, subtitleAccessibility and content as a Viewbuilder defining what will be shown in the expandable part (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Views inside the ViewBuilder as you want and they will be stacked vertically by default. You can also use SBBBubbleView anywhere in your View, in that case you need to set the extendNavigationBarBackground parameter to false to hide the red top background.
 
 If you want your BubbleView to be expandable, you can use it like so:
 

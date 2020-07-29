@@ -10,6 +10,7 @@
 * Renaming of the old SBBInfoView to SBBInfoViewCollapsible
 * New SBBInfoView
 * CornerRadius View Extension
+* SBBBubbleView can now also hide the NavigationBar background extension if it needs to be displayed not on top of the view
 
 ## V0.1.9 - 27 July 2020
 
