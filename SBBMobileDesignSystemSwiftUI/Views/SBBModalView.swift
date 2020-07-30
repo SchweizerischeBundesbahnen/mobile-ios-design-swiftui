@@ -29,9 +29,10 @@ public struct SBBModalView<Content>: View where Content: View {
                 }
                     .buttonStyle(SBBIconButtonStyle(size: .small))
             }
+                .padding(16)
             content
         }
-            .padding(16)
+            
     }
 }
 
