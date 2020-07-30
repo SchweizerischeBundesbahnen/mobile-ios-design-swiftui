@@ -32,7 +32,7 @@ public struct SBBModalView<Content>: View where Content: View {
                 .padding(16)
             content
         }
-            
+            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
     }
 }
 
