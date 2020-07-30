@@ -40,7 +40,7 @@ struct OnboardingCardsWrapperView: View {
                         Image("chevron_small_right_45_small", bundle: Helper.bundle)
                             .resizable()
                             .rotationEffect(Angle(degrees: 180))
-                            .accessibility(label: Text("back"))
+                            .accessibility(label: Text("back".localized))
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                     Spacer()
@@ -52,7 +52,7 @@ struct OnboardingCardsWrapperView: View {
                     }) {
                         Image("chevron_small_right_45_small", bundle: Helper.bundle)
                             .resizable()
-                            .accessibility(label: Text("forward"))
+                            .accessibility(label: Text("forward".localized))
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                 }

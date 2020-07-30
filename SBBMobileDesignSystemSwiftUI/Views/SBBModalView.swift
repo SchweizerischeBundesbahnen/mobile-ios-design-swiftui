@@ -27,7 +27,7 @@ public struct SBBModalView<Content>: View where Content: View {
                     self.isPresented = false
                 }) {
                     Image("cross_104_small", bundle: Helper.bundle)
-                        .accessibility(label: Text("close"))
+                        .accessibility(label: Text("close".localized))
                 }
                     .buttonStyle(SBBIconButtonStyle(size: .small))
             }
