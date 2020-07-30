@@ -18,3 +18,5 @@
 "back" = "retourner";
 "forward" = "continuer";
 
+// SBBModalView
+"close" = "fermer";

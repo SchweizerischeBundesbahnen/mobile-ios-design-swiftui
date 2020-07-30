@@ -17,3 +17,6 @@
 // SBBOnboardingView
 "back" = "back";
 "forward" = "forward";
+
+// SBBModalView
+"close" = "close";

@@ -21,11 +21,13 @@ public struct SBBModalView<Content>: View where Content: View {
             HStack {
                 title
                     .sbbFont(.titleModul)
+                    .accessibility(addTraits: .isHeader)
                 Spacer()
                 Button(action: {
                     self.isPresented = false
                 }) {
                     Image("cross_104_small", bundle: Helper.bundle)
+                        .accessibility(label: Text("close"))
                 }
                     .buttonStyle(SBBIconButtonStyle(size: .small))
             }

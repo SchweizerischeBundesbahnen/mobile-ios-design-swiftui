@@ -17,3 +17,6 @@
 // SBBOnboardingView
 "back" = "indietro";
 "forward" = "avanti";
+
+// SBBModalView
+"close" = "chiudere";
