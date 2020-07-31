@@ -12,6 +12,10 @@ public struct SBBOnboardingCardView: View {
     private let content: AnyView?
     let actionOnCardDisappear: (() -> ())?
     
+    private var isCustomCard: Bool {
+        return image == nil && title == nil && text == nil && content != nil
+    }
+    
     public init(image: Image? = nil, title: Text? = nil, text: Text? = nil, actionOnCardDisappear: (() -> ())? = nil) {
         self.image = image
         self.title = title
@@ -33,40 +37,53 @@ public struct SBBOnboardingCardView: View {
     }
     
     public var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
-                if image != nil {
-                    self.image!
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .accessibility(hidden: true)
-                }
-                VStack(spacing: 16) {
-                    if title != nil {
-                        title
-                            .sbbFont(.titleDefault)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .accessibility(addTraits: .isHeader)
+        GeometryReader { geometry in
+            ScrollView(showsIndicators: false) {
+                if self.isCustomCard {
+                    self.content
+                } else {
+                    ZStack(alignment: .top) {
+                        if self.image != nil {
+                            self.image!
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .accessibility(hidden: true)
+                        }
+                        VStack(spacing: 0) {
+                            Spacer()
+                                .frame(minHeight: 200, maxHeight: .infinity)
+                            HStack(spacing: 0) {
+                                Spacer()
+                                VStack(spacing: 16) {
+                                    if self.title != nil {
+                                        self.title
+                                            .sbbFont(.titleDefault)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                            .accessibility(addTraits: .isHeader)
+                                    }
+                                    if self.text != nil {
+                                        self.text
+                                            .sbbFont(.body)
+                                            .multilineTextAlignment(.center)
+                                            .fixedSize(horizontal: false, vertical: true)
+                                    }
+                                    if self.content != nil {
+                                        self.content
+                                    }
+                                }
+                                Spacer()
+                            }
+                                .padding(16)
+                                .foregroundColor(SBBColor.textBlack)
+                                .background(SBBColor.viewBackground)
+                        }
                     }
-                    if text != nil {
-                        text
-                            .sbbFont(.body)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    if content != nil {
-                        content
-                    }
-                }
-                    .foregroundColor(SBBColor.textBlack)
-                    .padding(16)
-                HStack {
-                    Spacer()
+                        .frame(minHeight: geometry.size.height)
                 }
             }
+                .background(SBBColor.viewBackground)
+                .cornerRadius(16)
         }
-            .background(SBBColor.viewBackground)
-            .cornerRadius(16)
     }
 }
 

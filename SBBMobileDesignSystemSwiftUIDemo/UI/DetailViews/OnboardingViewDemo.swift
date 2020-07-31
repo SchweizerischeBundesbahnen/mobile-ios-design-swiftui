@@ -95,7 +95,14 @@ struct OnboardingViewDemo: View {
         }
         if viewModel.withCustomCard {
             cardViews.append(SBBOnboardingCardView {
-                Text("Custom Card")
+                HStack {
+                    Spacer()
+                    VStack {
+                        Text("Custom Card")
+                        Spacer()
+                    }
+                    Spacer()
+                }
             })
         }
         

@@ -352,7 +352,7 @@ SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView.
 
 ## SBBModalView
 
-SBBModalView is used to display a View above another View, typically using .sheet. If you want a back button in your ModalView header, simply pass an action for the optional actionOnBackButtonTouched parameter.
+SBBModalView is used to display a View above another View, typically using .sheet. If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the optional actionOnBackButtonTouched parameter.
 
 ```    
     @State var showingModalView = false
