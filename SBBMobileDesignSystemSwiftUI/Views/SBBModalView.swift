@@ -8,17 +8,35 @@ public struct SBBModalView<Content>: View where Content: View {
 
     private let title: Text
     @Binding private var isPresented: Bool
+    @Binding private var showBackButton: Bool
+    private let actionOnBackButtonTouched: (() -> ())?
     private let content: Content
 
-    public init(title: Text, isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) {
+    public init(title: Text, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self._isPresented = isPresented
+        self._showBackButton = showBackButton
+        self.actionOnBackButtonTouched = actionOnBackButtonTouched
         self.content = content()
     }
     
     public var body: some View {
         VStack(spacing: 16) {
             HStack {
+                if showBackButton {
+                    Button(action: {
+                        self.actionOnBackButtonTouched?()
+                    }) {
+                        Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                            .rotationEffect(Angle(degrees: 180))
+                            .accessibility(label: Text("back".localized))
+                    }
+                        .buttonStyle(SBBIconButtonStyle(size: .small))
+                } else {
+                    Spacer()
+                        .frame(width: 32)
+                }
+                Spacer()
                 title
                     .sbbFont(.titleModul)
                     .accessibility(addTraits: .isHeader)
@@ -50,6 +68,10 @@ struct SBBModalView_Previews: PreviewProvider {
             }
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
+            SBBModalView(title: Text("Modal View"), isPresented: .constant(true), showBackButton: .constant(true)) {
+                Text("Custom content")
+            }
+                .previewDisplayName("Light, Back Button")
         }
             .previewLayout(.sizeThatFits)
     }
