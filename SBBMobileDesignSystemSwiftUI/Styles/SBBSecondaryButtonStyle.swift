@@ -28,6 +28,7 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
                     RoundedRectangle(cornerRadius: 23)
                         .stroke(getColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
                 )
+                .minimumScaleFactor(0.1)
         }
         
         private func getColor(enabled: Bool, isPressed: Bool) -> Color {
@@ -70,6 +71,6 @@ struct SBBSecondaryButtonStyle_Previews: PreviewProvider {
             .previewDisplayName("Dark disabled")
             .environment(\.colorScheme, .dark)
         }
-        .previewLayout(.sizeThatFits)
+            .previewLayout(.sizeThatFits)
     }
 }

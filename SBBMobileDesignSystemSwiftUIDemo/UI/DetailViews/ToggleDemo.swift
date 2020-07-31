@@ -39,7 +39,7 @@ struct ToggleDemo: View {
         }
             .padding(16)
             .navigationBarTitle("Toggle")
-            .background(SBBColor.background)
+            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

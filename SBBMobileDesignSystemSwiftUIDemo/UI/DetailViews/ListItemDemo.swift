@@ -42,7 +42,7 @@ struct ListItemDemo: View {
             .padding(16)
         }
             .navigationBarTitle("ListItem")
-            .background(SBBColor.background)
+            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

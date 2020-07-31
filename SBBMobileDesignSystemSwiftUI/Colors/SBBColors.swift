@@ -59,9 +59,14 @@ public struct SBBColor {
     public static var placeholder: Color { color(withString: "placeholder") }
 
     // Private semantic Colors (only to be used for MDS Elements)
+    static var buttonTertiaryDisabledForeground: Color { color(withString: "buttonTertiaryDisabledForeground") }
+    static var buttonTertiaryDisabledBorder: Color { color(withString: "buttonTertiaryDisabledBorder") }
+    static var buttonTertiaryBackground: Color { color(withString: "buttonTertiaryBackground") }
+    static var buttonTertiaryPressedBackground: Color { color(withString: "buttonTertiaryPressedBackground") }
     static var segmentedPickerBackground: Color { color(withString: "segmentedPickerBackground") }
     static var segmentedPickerSelectedSegmentBackground: Color { color(withString: "segmentedPickerSelectedSegmentBackground") }
     static var textfieldLineInactive: Color { color(withString: "textfieldLineInactive") }
+    static var paginationInactive: Color { color(withString: "paginationInactive") }
     
     private static func color(withString color: String) -> Color {
         return Color(UIColor(named: color, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white)

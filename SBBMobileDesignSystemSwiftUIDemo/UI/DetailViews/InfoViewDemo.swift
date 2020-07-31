@@ -12,34 +12,16 @@ struct InfoViewDemo: View {
     @State var expanded1 = true
     @State var expanded2 = false
     
-    var title = Text("Hinweis")
-    var detail = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein.")
-    
-    var titleAccessibility = Text("Hinweis")
-    var detailAccessibility = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein.")
+    var text = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben.")
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack {
-                SBBInfoView(title: title, detail: detail, expanded: $expanded1)
-                Button(action: {
-                    self.expanded1.toggle()
-                }) {
-                    Text("toggle expanded state from Parentview")
-                }
-                SBBDivider()
-                SBBInfoView(title: title, titleAccessibility: titleAccessibility, detail: detail, detailAccessibility: detailAccessibility, expanded: $expanded2)
-                Button(action: {
-                    self.expanded2.toggle()
-                }) {
-                    Text("toggle expanded state from Parentview")
-                }
-                Spacer()
-            }
-            .padding(16)
+        VStack {
+            SBBInfoView(image: Image("station_117_small"), text: text)
+            Spacer()
         }
+            .padding(16)
             .navigationBarTitle("InfoView")
-            .background(SBBColor.background)
+            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

@@ -13,3 +13,10 @@
 // SBBCheckBox
 "ON" = "Aktiviert";
 "OFF" = "Deaktiviert";
+
+// SBBOnboardingView
+"back" = "zurück";
+"forward" = "vorwärts";
+
+// SBBModalView
+"close" = "schliessen";

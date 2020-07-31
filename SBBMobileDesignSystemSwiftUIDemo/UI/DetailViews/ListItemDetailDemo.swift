@@ -20,7 +20,7 @@ struct ListItemDetailDemo: View {
         }
             .padding(16)
             .navigationBarTitle("Detail View")
-            .background(SBBColor.background)
+            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

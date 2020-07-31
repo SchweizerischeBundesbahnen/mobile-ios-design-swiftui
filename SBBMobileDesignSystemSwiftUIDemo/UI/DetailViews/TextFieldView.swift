@@ -26,7 +26,7 @@ struct TextFieldView: View {
             Spacer()
         }
         .navigationBarTitle("TextField")
-        .background(SBBColor.background)
+        .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
 }

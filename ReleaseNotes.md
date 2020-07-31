@@ -1,5 +1,17 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.10 - 28 July 2020
+
+### Features
+* SBBSTertiaryButtonStyle & SBBIconButtonStyle (large & small)
+* SBBOnboardingView
+* SBBPaginationView
+* SBBModalView
+* Renaming of the old SBBInfoView to SBBInfoViewCollapsible
+* New SBBInfoView
+* CornerRadius View Extension
+* SBBBubbleView can now also hide the NavigationBar background extension if it needs to be displayed not on top of the view
+
 ## V0.1.9 - 27 July 2020
 
 ### Bugfixes

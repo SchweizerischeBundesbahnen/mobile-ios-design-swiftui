@@ -25,6 +25,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(23)
+                .minimumScaleFactor(0.1)
         }
         
         private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {

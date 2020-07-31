@@ -140,5 +140,6 @@ struct SBBTextArea_Previews: PreviewProvider {
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }
+            .previewLayout(.sizeThatFits)
     }
 }
