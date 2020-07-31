@@ -15,59 +15,76 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
-                SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
-                    Text("light")
-                    Text("dark")
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 16) {
+                    SBBInfoView(image: Image("smartphone_84_medium"), text: Text("This demo app showcases all features of the Mobile Design System (MDS) SwiftUI Library."))
+                    SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
+                        Text("light")
+                        Text("dark")
+                    }
+                    SBBFormGroup(title: "Basics") {
+                        NavigationLink(destination: ColorsView(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("Colors"))
+                        }
+                        NavigationLink(destination: TypographyView(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("Typography"))
+                        }
+                    }
+                    SBBFormGroup(title: "Elements") {
+                        NavigationLink(destination: ButtonDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("Button"))
+                        }
+                        NavigationLink(destination: TextAreaView(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("TextArea"))
+                        }
+                        NavigationLink(destination: TextFieldView(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("TextField"))
+                        }
+                        NavigationLink(destination: CheckBoxView(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("CheckBox"))
+                        }
+                        NavigationLink(destination: DividerViewDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("Divider"))
+                        }
+                        NavigationLink(destination: ListItemDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("ListItem"))
+                        }
+                        NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("Toggle"))
+                        }
+                        NavigationLink(destination: PaginationViewDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("Pagination"))
+                        }
+                        NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("SegmentedPicker"))
+                        }
+                    }
+                    SBBFormGroup(title: "Modules") {
+                        NavigationLink(destination: BubbleViewDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("BubbleView"))
+                        }
+                        NavigationLink(destination: InfoViewDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("InfoView"))
+                        }
+                        NavigationLink(destination: InfoViewCollapsibleDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("InfoViewCollapsible"))
+                        }
+                        NavigationLink(destination: FormGroupView(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("FormGroup"))
+                        }
+                        NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("ModalView"))
+                        }
+                    }
+                    SBBFormGroup(title: "PageTypes") {
+                        NavigationLink(destination: OnboardingViewDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("OnboardingView"))
+                        }
+                    }
                 }
                     .padding(16)
-                    .background(SBBColor.background)
-                List {
-                    Section {
-                        NavigationLink(destination: ColorsView(colorScheme: $colorScheme)) {
-                            Text("Colors")
-                        }
-                        NavigationLink(destination: TypographyView(colorScheme: $colorScheme)) {
-                            Text("Typography")
-                        }
-                        NavigationLink(destination: DividerViewDemo(colorScheme: $colorScheme)) {
-                            Text("Divider")
-                        }
-                        NavigationLink(destination: BubbleViewDemo(colorScheme: $colorScheme)) {
-                            Text("BubbleView")
-                        }
-                        NavigationLink(destination: InfoViewDemo(colorScheme: $colorScheme)) {
-                            Text("InfoView")
-                        }
-                        NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: $colorScheme)) {
-                            Text("SegmentedPicker")
-                        }
-                        NavigationLink(destination: TextAreaView(colorScheme: $colorScheme)) {
-                            Text("TextArea")
-                        }
-                        NavigationLink(destination: TextFieldView(colorScheme: $colorScheme)) {
-                            Text("TextField")
-                        }
-                        NavigationLink(destination: CheckBoxView(colorScheme: $colorScheme)) {
-                            Text("CheckBox")
-                        }
-                        NavigationLink(destination: FormGroupView(colorScheme: $colorScheme)) {
-                            Text("FormGroup")
-                        }
-                    }
-                    Section {
-                        NavigationLink(destination: ButtonDemo(colorScheme: $colorScheme)) {
-                            Text("Button")
-                        }
-                        NavigationLink(destination: ListItemDemo(colorScheme: $colorScheme)) {
-                            Text("ListItem")
-                        }
-                        NavigationLink(destination: ToggleDemo(colorScheme: $colorScheme)) {
-                            Text("Toggle")
-                        }
-                    }
-                }
             }
+                .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
                 .colorScheme(colorScheme)
                 .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
         }
@@ -82,7 +99,6 @@ struct ContentView_Previews: PreviewProvider {
                 .previewDisplayName("Light")
             ContentView(colorScheme: .dark)
                 .previewDisplayName("Dark")
-                .environment(\.colorScheme, .dark)
         }
     }
 }

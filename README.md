@@ -117,7 +117,7 @@ You can use it like so:
 
 ## SBBBubbleView
 
-SBBBubbleView is a view that can only be used underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, titleAccessibility, subtitleAccessibility and content as a Viewbuilder defining what will be shown in the expandable part (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Views inside the ViewBuilder as you want and they will be stacked vertically by default.
+SBBBubbleView is a view that is mainly used right underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, titleAccessibility, subtitleAccessibility and content as a Viewbuilder defining what will be shown in the expandable part (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Views inside the ViewBuilder as you want and they will be stacked vertically by default. You can also use SBBBubbleView anywhere in your View, in that case you need to set the extendNavigationBarBackground parameter to false to hide the red top background.
 
 If you want your BubbleView to be expandable, you can use it like so:
 
@@ -148,7 +148,7 @@ If your BubbleView contains no detail (and is not expandable), you can use it li
 
 ## SBBInfoView
 
-SBBInfoView is an expandable view with a title and a text to be used for showing general information. You need to set its title. Optional parameters are its detail, titleAccessibility,  and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
+SBBInfoView is an expandable view with an image and a text. It is usually displayed as the upmost View to provide some information about the current screen.
 
 You can use the SBBInfoView it like so:
 
@@ -156,7 +156,22 @@ You can use the SBBInfoView it like so:
     @State var expanded = true
     
     var body: some View {
-        SBBInfoView(title: Text("Your title"), detail: Text("Your longer text"), expanded: $expanded)
+    SBBInfoView(image: Image("Your Image"), text: Text("Your title"))
+    }
+```
+
+
+## SBBInfoViewCollapsible
+
+SBBInfoViewCollapsible is an expandable view with a title and a text to be used for showing general information. You need to set its title. Optional parameters are its detail, titleAccessibility,  and detailAccessibility (use the Accessibility parameters to modify the voiceover Texts).
+
+You can use the SBBInfoView it like so:
+
+```
+    @State var expanded = true
+    
+    var body: some View {
+        SBBInfoViewCollapsible(title: Text("Your title"), detail: Text("Your longer text"), expanded: $expanded)
     }
 ```
 
@@ -270,22 +285,134 @@ SBBListItem is usually used inside a SBBFormGroup and in combination with Naviga
     }
 ```
 
-## SBBPrimaryButtonStyle
+## SBBPaginationView
 
-SwiftUI ButtonStyle implementation of SBB primary button. 
+SBBPaginationView is used in a pagination context to give the user a quick overview on how many pages are available and which one is currently displayed.
+
+```    
+    @State var currentPageIndex: Int = 0
+    var pages: [View]
+    
+    var body: some View {
+        SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: pages.count)
+    }
+```
+
+## SBBOnboardingView
+
+SBBOnboardingView is used to present basic app functionality to your users on the first  app launch. It consists of a StartView, multiple CardViews and an EndView. You can specify StartView and EndView content using StartViewModel and EndViewModel. You can pass up to 6 Views which will be displayed as cards. In a normal setting, you will use SBBOnboardingCardView for the cards, however you can use any custom view you wish if desired.
+
+```   
+    let startViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
+    let endViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
+    
+    @State var onboardingState: SBBOnboardingState = .hidden    // You will typically persist this state to UserDefaults
+    @State private var currentOnboardingCardIndex: Int = 0
+
+    var body: some View {
+        Group {
+            if onboardingViewModel.state == .hidden {
+                // your ContentView here (NavigationView goes also here, if you want to use it)
+            } else {
+            SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startViewModel: startViewModel, endViewModel: endViewModel) {
+                    // add SBBOnboardingCardViews here
+                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 1"), text: Text("Text Card 1"))
+                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 2"), text: Text("Text Card 2"))
+                }
+            }
+        }
+    }
+```
+
+### SBBOnboardingTitleView
+
+SBBOnboardingTitleView is used for the start and end view of SBBOnboardingView. You can specify an image and a text to display.
+
+```   
+    SBBOnboardingTitleView(image: Image("Your Image"), title: Text("Willkommen bei Ihrer SBB App"))
+```
+
+### SBBOnboardingCardView
+
+SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView. In a normal setting you specify an image, title and text. However you can also add whatever custom view you want using its ViewBuilder. You can also pass an action which will be executed once the user swipes to the next card (e.g. to ask for certain app permissions).
+
+```   
+    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text"))
+    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text"), actionOnCardDisappear:{
+        // your action here
+    })
+    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Your Title"), text: Text("Your Text")) {
+        // Your custom View here
+    }
+    SBBOnboardingCardView {
+        // Your custom View here
+    }
+```
+
+
+## SBBModalView
+
+SBBModalView is used to display a View above another View, typically using .sheet. If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the optional actionOnBackButtonTouched parameter.
+
+```    
+    @State var showingModalView = false
+    
+    var body: some View {
+        Button(action: {
+            self.showingModalView = true
+        }) {
+            Text("Click Me")
+        }
+            .sheet(isPresented: $showingModalView, content: {
+                SBBModalView(title: Text("Your title"), isPresented: self.$showingModalView) {
+                    YourContentView()
+                }
+            })
+    }
+```
+
+## SBBButtonStyle
+
+SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small) buttons. 
 
 ```    
     var body: some View {
         Button(action: myAction) {
-            Text("My Button")
+            Text("Your Button")
         }
-        .buttonStyle(SBBPrimaryButtonStyle())
+            .buttonStyle(SBBPrimaryButtonStyle())
+            //.buttonStyle(SBBSecondaryButtonStyle())
+            //.buttonStyle(SBBTertiaryButtonStyle(size: .small))   // .large is default
+        
+        Button(action: myAction) {
+            Image("Your image")
+                .resizable  // resizable needs to be set if your Image is not 24x24 (same for .large & .small)
+        }
+            .buttonStyle(SBBIconButtonStyle(size: .small))   // .large is default
     }
 ```
 
 ## Toggle
 
 The standard SwiftUI toggle can be used. It will by default feature the SBB specific background color (red). 
+
+## CornerRadius
+
+CornerRadius is a View Extension which allows to add a corner radius to specific corners only.
+
+```    
+    YourView()
+        .cornerRadius(16, corners: .bottomRight)
+```
+
+## ResizeToContentSizeCategory
+
+ResizeToContentSizeCategory is an Image Extension which allows to the image to dynamically resize according to the current ContentSizeCategory.
+
+```    
+    Image("Your Image")
+        .resizeToContentSizeCategory(originalHeight: 36)
+```
 
 ## Authors
 

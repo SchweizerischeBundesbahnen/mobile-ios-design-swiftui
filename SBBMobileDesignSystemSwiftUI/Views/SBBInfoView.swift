@@ -5,72 +5,43 @@
 import SwiftUI
 
 public struct SBBInfoView: View {
+    let image: Image
+    let text: Text
     
-    private let title: Text
-    private let titleAccessibility: Text?
-    private let detail: Text
-    private let detailAccessibility: Text?
-    @Binding private var expanded: Bool
-    
-    public init(title: Text, titleAccessibility: Text? = nil, detail: Text, detailAccessibility: Text? = nil, expanded: Binding<Bool>) {
-        self.title = title
-        self.titleAccessibility = titleAccessibility
-        self.detail = detail
-        self.detailAccessibility = detailAccessibility
-        self._expanded = expanded
+    public init(image: Image, text: Text) {
+        self.image = image
+        self.text = text
     }
     
     public var body: some View {
-        VStack {
-            HStack {
-                VStack(alignment: .leading, spacing: 10) {
-                    HStack(alignment: .center) {
-                        self.title
-                            .sbbFont(.titleDefault)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .accessibility(label: self.titleAccessibility ?? self.title)
-                        Spacer()
-                        Group {
-                            Image("chevron_small_up", bundle: Helper.bundle)
-                                .rotationEffect(.degrees(self.expanded ? 0 : 180))
-                        }
-                            .accessibility(hidden: true)
-                            .frame(width: 32, height: 32)
-                            .clipShape(Circle())
-                            .overlay(Circle().stroke(SBBColor.border))
-                    }
-                    if self.expanded {
-                        self.detail
-                            .sbbFont(.body)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .accessibility(label: self.detailAccessibility ?? self.detail)
-                    }
-                }
-                    .padding(16)
-                    .background(SBBColor.viewBackground)
-                    .cornerRadius(16)
-                    .accentColor(SBBColor.textBlack)
-                    .accessibilityElement(children: .combine)
-                    .accessibility(hint: self.expanded ? Text("collapse".localized) : Text("expand".localized))
-                    .onTapGesture {
-                        withAnimation{
-                            self.expanded.toggle()
-                        }
-                    }
-            }
+        HStack(alignment: .top, spacing: 16) {
+            image
+                .resizeToContentSizeCategory(originalHeight: 36)
+                .accessibility(hidden: true)
+            text
+                .sbbFont(.body)
+                .fixedSize(horizontal: false, vertical: true)
+            Spacer()
         }
+            .padding(16)
+            .background(SBBColor.viewBackground)
+            .cornerRadius(16)
+            .accentColor(SBBColor.textBlack)
+            .accessibilityElement(children: .combine)
     }
 }
 
 struct SBBInfoView_Previews: PreviewProvider {
+    
+    static let image = Image("circle_information_small_small", bundle: Helper.bundle)
+    static let text = Text("Dies ist ein Info Text. Er informiert über Informationen.")
+    
     static var previews: some View {
         Group {
-            SBBInfoView(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(false))
-                .previewDisplayName("Detail collapsed")
-            SBBInfoView(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(true))
-                .previewDisplayName("Detail expanded")
-            SBBInfoView(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(true))
-                .previewDisplayName("Detail expanded, dark")
+            SBBInfoView(image: image, text: text)
+                .previewDisplayName("Light")
+            SBBInfoView(image: image, text: text)
+                .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }
             .previewLayout(.sizeThatFits)

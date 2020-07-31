@@ -13,3 +13,10 @@
 // SBBCheckBox
 "ON" = "ON";
 "OFF" = "OFF";
+
+// SBBOnboardingView
+"back" = "back";
+"forward" = "forward";
+
+// SBBModalView
+"close" = "close";

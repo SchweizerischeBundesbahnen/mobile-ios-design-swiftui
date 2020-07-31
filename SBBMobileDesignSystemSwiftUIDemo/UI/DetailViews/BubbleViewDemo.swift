@@ -26,9 +26,9 @@ struct BubbleViewDemo: View {
         VStack {
             SBBBubbleView(image: image, title: title, expanded: .constant(false))
             SBBDivider()
-            SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false))
+            SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false), extendNavigationBarBackground: false)
             SBBDivider()
-            SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded) {
+            SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded, extendNavigationBarBackground: false) {
                 self.detail1
                     .fixedSize(horizontal: false, vertical: true)
                     .accessibility(label: self.detail1Accessibility)
@@ -46,7 +46,7 @@ struct BubbleViewDemo: View {
             Spacer()
         }
             .navigationBarTitle("BubbleView")
-            .background(SBBColor.background)
+            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

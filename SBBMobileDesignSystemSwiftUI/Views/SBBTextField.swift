@@ -84,6 +84,6 @@ struct SBBTextField_Previews: PreviewProvider {
                 .previewDisplayName("Dark with text")
                 .environment(\.colorScheme, .dark)
         }
-        .previewLayout(.sizeThatFits)
+            .previewLayout(.sizeThatFits)
     }
 }

@@ -23,13 +23,33 @@ struct ButtonDemo: View {
             }
                 .buttonStyle(SBBSecondaryButtonStyle())
                 .disabled(disabled)
+            Button(action: increment) {
+                Text("My Tertiary Large Button")
+            }
+                .buttonStyle(SBBTertiaryButtonStyle())
+                .disabled(disabled)
+            Button(action: increment) {
+                Text("My Tertiary Small Button")
+            }
+            .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                .disabled(disabled)
+            Button(action: increment) {
+                Image("station_117_small")
+            }
+                .buttonStyle(SBBIconButtonStyle())
+                .disabled(disabled)
+            Button(action: increment) {
+                Image("station_117_small")
+            }
+                .buttonStyle(SBBIconButtonStyle(size: .small))
+                .disabled(disabled)
             Text("Counter: \(counter)").padding()
             SBBCheckBox(isOn: $disabled, label: "Disabled")
             Spacer()
         }
         .padding(16)
         .navigationBarTitle("Buttons")
-        .background(SBBColor.background)
+        .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
     

@@ -24,7 +24,7 @@ struct CheckBoxView: View {
         }
         .padding(16)
         .navigationBarTitle("CheckBox")
-        .background(SBBColor.background)
+        .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
 }

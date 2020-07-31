@@ -47,6 +47,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                                 Spacer()
                                     .accessibility(label: Text((index == self.selectionIndex) ? "selected".localized : ""))
                                 self.segments[index]
+                                    .minimumScaleFactor(0.1)
                                 Spacer()
                             }
                         }

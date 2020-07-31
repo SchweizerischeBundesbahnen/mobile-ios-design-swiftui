@@ -6,13 +6,14 @@ import SwiftUI
 
 // initializer without detail
 public extension SBBBubbleView where Content == EmptyView {
-    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>) {
+    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true) {
         self.image = image
         self.title = title
         self.titleAccessibility = titleAccessibility
         self.subtitle = subtitle
         self.subtitleAccessibility = subtitleAccessibility
         self._expanded = expanded
+        self.extendNavigationBarBackground = extendNavigationBarBackground
         self.content = nil
     }
 }
@@ -25,23 +26,27 @@ public struct SBBBubbleView<Content>: View where Content: View {
     private let subtitle: Text?
     private let subtitleAccessibility: Text?
     @Binding private var expanded: Bool
+    private let extendNavigationBarBackground: Bool
     private let content: Content?
     
-    public init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) {
+    public init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder content: @escaping () -> Content) {
         self.image = image
         self.title = title
         self.titleAccessibility = titleAccessibility
         self.subtitle = subtitle
         self.subtitleAccessibility = subtitleAccessibility
         self._expanded = expanded
+        self.extendNavigationBarBackground = extendNavigationBarBackground
         self.content = content()
     }
     
     public var body: some View {
         ZStack(alignment: .top) {
-            Rectangle()
-                .fill(SBBColor.red)
-                .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
+            if extendNavigationBarBackground {
+                Rectangle()
+                    .fill(SBBColor.red)
+                    .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
+            }
             HStack {
                 VStack(alignment: .leading, spacing: 8) {
                     VStack(alignment: .leading, spacing: 0) {
@@ -116,6 +121,10 @@ struct SBBBubbleView_Previews: PreviewProvider {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             }
                 .previewDisplayName("Detail")
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true), extendNavigationBarBackground: false) {
+                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+            }
+                .previewDisplayName("Detail, no NavigationBar background extension")
             SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             }
