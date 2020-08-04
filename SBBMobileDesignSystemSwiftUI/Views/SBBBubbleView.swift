@@ -29,6 +29,8 @@ public struct SBBBubbleView<Content>: View where Content: View {
     private let extendNavigationBarBackground: Bool
     private let content: Content?
     
+    @Environment(\.sizeCategory) var sizeCategory
+    
     public init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder content: @escaping () -> Content) {
         self.image = image
         self.title = title
@@ -51,9 +53,11 @@ public struct SBBBubbleView<Content>: View where Content: View {
                 VStack(alignment: .leading, spacing: 8) {
                     VStack(alignment: .leading, spacing: 0) {
                         HStack(alignment: .center) {
-                            image
-                                .frame(width: 36, height: 36, alignment: .center)
-                                .accessibility(hidden: true)
+                            if !SizeCategories.accessibility.contains(sizeCategory) {
+                                image
+                                    .frame(width: 36, height: 36, alignment: .center)
+                                    .accessibility(hidden: true)
+                            }
                             VStack(alignment: .leading, spacing: 8) {
                                 title
                                     .sbbFont(.titleDefault)
@@ -81,7 +85,9 @@ public struct SBBBubbleView<Content>: View where Content: View {
                     }
                     if (content != nil) && self.expanded {
                         HStack(spacing: 0) {
-                            Spacer(minLength: 44)
+                            if !SizeCategories.accessibility.contains(sizeCategory) {
+                                Spacer(minLength: 44)
+                            }
                             VStack(alignment: .leading, spacing: 0) {
                                 SBBDivider()
                                 content
@@ -130,6 +136,11 @@ struct SBBBubbleView_Previews: PreviewProvider {
             }
                 .previewDisplayName("Detail dark")
                 .environment(\.colorScheme, .dark)
+            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
+                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+            }
+                .previewDisplayName("Accessibility Text Size (no icon)")
+                .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
             SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                 Text("ca. +12'")
