@@ -1,5 +1,12 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.11 - 05 August 2020
+
+### Bugfixes
+* SBBOnboarding all texts are now localized
+* SBBOnboarding ignoring SBB Icon in voiceover
+* Correct ContentShape for Cards with initial offset
+
 ## V0.1.10 - 28 July 2020
 
 ### Features
