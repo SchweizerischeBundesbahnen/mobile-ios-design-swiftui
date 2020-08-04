@@ -97,6 +97,7 @@ struct OnboardingCardsWrapperView: View {
                 self.dragOffset = .zero
             }
         }
+        UIAccessibility.post(notification: .screenChanged, argument: nil)   // reset voiceover focus (to the current card)
     }
     
     private func showNextCard() {
@@ -109,6 +110,7 @@ struct OnboardingCardsWrapperView: View {
                 self.dragOffset = .zero
             }
         }
+        UIAccessibility.post(notification: .screenChanged, argument: nil)   // reset voiceover focus (to the current card)
     }
     
     private func xOffsetForCard(at index: Int, cardWidth: CGFloat) -> CGFloat {
