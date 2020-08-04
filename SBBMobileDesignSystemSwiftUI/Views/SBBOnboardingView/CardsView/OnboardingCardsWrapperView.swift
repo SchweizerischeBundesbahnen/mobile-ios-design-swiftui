@@ -134,7 +134,7 @@ struct OnboardingCardsWrapperView: View {
             return 1 - (CGFloat(index - self.viewModel.currentCardIndex) * 0.1)
         }
         
-        return 0.9999999    // TODO - this should be 1, but with 1 the Text Views of the SBBOnboardingCardView disappear if a card is presented (SwiftUI bug?)
+        return 1
     }
     
     private func opacityForCard(at index: Int) -> Double {
