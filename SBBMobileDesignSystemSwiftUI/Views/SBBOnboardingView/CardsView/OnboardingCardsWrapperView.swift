@@ -59,7 +59,7 @@ struct OnboardingCardsWrapperView: View {
                 Button(action: {
                     self.viewModel.state = .hidden
                 }) {
-                    Text("Rundgang abbrechen")
+                    Text("abort tour".localized)
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
             }
