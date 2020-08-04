@@ -17,14 +17,15 @@ struct OnboardingTitleWrapperView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 14)
-                
+                    .accessibility(hidden: true)
             }
             sbbOnboardingTitleView
+                .accessibility(addTraits: .isHeader)
             if viewModel.state == .startView {
                 Button(action: {
                     self.viewModel.state = .cardsView
                 }) {
-                    Text("App Rundgang starten")
+                    Text("Start App tour".localized)
                 }
                     .buttonStyle(SBBPrimaryButtonStyle())
                     .background(
@@ -35,7 +36,7 @@ struct OnboardingTitleWrapperView: View {
             Button(action: {
                 self.viewModel.state = .hidden
             }) {
-                Text("App Rundgang beenden")
+                Text("End App tour".localized)
             }
                 .buttonStyle(SBBPrimaryButtonStyle())
                 .background(

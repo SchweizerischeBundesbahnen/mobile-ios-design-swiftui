@@ -17,6 +17,9 @@
 // SBBOnboardingView
 "back" = "back";
 "forward" = "forward";
+"abort tour" = "abort tour";
+"Start App tour" = "Start App tour";
+"End App tour" = "End App tour";
 
 // SBBModalView
 "close" = "close";

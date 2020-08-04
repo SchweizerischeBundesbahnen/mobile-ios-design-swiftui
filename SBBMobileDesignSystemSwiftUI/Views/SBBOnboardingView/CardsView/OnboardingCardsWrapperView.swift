@@ -59,7 +59,7 @@ struct OnboardingCardsWrapperView: View {
                 Button(action: {
                     self.viewModel.state = .hidden
                 }) {
-                    Text("Rundgang abbrechen")
+                    Text("abort tour".localized)
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
             }
@@ -97,6 +97,7 @@ struct OnboardingCardsWrapperView: View {
                 self.dragOffset = .zero
             }
         }
+        UIAccessibility.post(notification: .screenChanged, argument: nil)   // reset voiceover focus (to the current card)
     }
     
     private func showNextCard() {
@@ -109,6 +110,7 @@ struct OnboardingCardsWrapperView: View {
                 self.dragOffset = .zero
             }
         }
+        UIAccessibility.post(notification: .screenChanged, argument: nil)   // reset voiceover focus (to the current card)
     }
     
     private func xOffsetForCard(at index: Int, cardWidth: CGFloat) -> CGFloat {
@@ -134,7 +136,7 @@ struct OnboardingCardsWrapperView: View {
             return 1 - (CGFloat(index - self.viewModel.currentCardIndex) * 0.1)
         }
         
-        return 0.9999999    // TODO - this should be 1, but with 1 the Text Views of the SBBOnboardingCardView disappear if a card is presented (SwiftUI bug?)
+        return 1
     }
     
     private func opacityForCard(at index: Int) -> Double {
