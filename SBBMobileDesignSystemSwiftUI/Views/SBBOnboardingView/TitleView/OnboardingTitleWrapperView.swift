@@ -13,7 +13,7 @@ struct OnboardingTitleWrapperView: View {
         VStack(spacing: 16) {
             HStack {
                 Spacer()
-                Image("sbb-logo-small", bundle: Helper.bundle)
+                Image(sbbName: "sbb-logo", size: .small)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(height: 14)

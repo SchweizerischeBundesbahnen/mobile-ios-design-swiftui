@@ -73,7 +73,7 @@ public struct SBBBubbleView<Content>: View where Content: View {
                             Spacer()
                             if (content != nil) {
                                 Group {
-                                    Image("chevron_small_up", bundle: Helper.bundle)
+                                    Image(sbbName: "chevron-small-up", size: .small)
                                         .rotationEffect(.degrees(self.expanded ? 0 : 180))
                                 }
                                     .accessibility(hidden: true)
@@ -119,36 +119,36 @@ public struct SBBBubbleView<Content>: View where Content: View {
 struct SBBBubbleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true))
+            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true))
                 .previewDisplayName("Title only")
-            SBBBubbleView(image: Image(systemName: "car"), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."), expanded: .constant(true))
+            SBBBubbleView(image: Image(sbbName: "station", size: .medium), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."), expanded: .constant(true))
                 .previewDisplayName("Subtitle")
-            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
+            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             }
                 .previewDisplayName("Detail")
-            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true), extendNavigationBarBackground: false) {
+            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), extendNavigationBarBackground: false) {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             }
                 .previewDisplayName("Detail, no NavigationBar background extension")
-            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
+            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             }
                 .previewDisplayName("Detail dark")
                 .environment(\.colorScheme, .dark)
-            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
+            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             }
                 .previewDisplayName("Accessibility Text Size (no icon)")
                 .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
-            SBBBubbleView(image: Image(systemName: "car"), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
+            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true)) {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                 Text("ca. +12'")
                     .foregroundColor(SBBColor.red)
                     .font(.sbbTitleDefault)
             }
                 .previewDisplayName("Detail - multiple views")
-            SBBBubbleView(image: Image(systemName: "car"), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true)) {
+            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true)) {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             }
                 .previewDisplayName("Long title")

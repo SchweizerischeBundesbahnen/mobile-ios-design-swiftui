@@ -74,24 +74,24 @@ struct SSBBIconButtonStyle_Previews: PreviewProvider {
         Group {
             Group {
                 Button(action: {}) {
-                    Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                    Image(sbbName: "chevron-small-right", size: .small)
                     .resizable()
                 }
                     .previewDisplayName("Large, Light enabled")
                 Button(action: {}) {
-                    Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                    Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
                     .previewDisplayName("Large, Light disabled")
                 Button(action: {}) {
-                    Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                    Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
                 }
                     .previewDisplayName("Large, Dark enabled")
                     .environment(\.colorScheme, .dark)
                 Button(action: {}) {
-                    Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                    Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
@@ -101,24 +101,24 @@ struct SSBBIconButtonStyle_Previews: PreviewProvider {
                 .buttonStyle(SBBIconButtonStyle())
             Group {
                 Button(action: {}) {
-                    Image("todelete", bundle: Helper.bundle)
+                    Image(sbbName: "chevron-small-right", size: .small)
                     .resizable()
                 }
                     .previewDisplayName("Small, Light enabled")
                 Button(action: {}) {
-                    Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                    Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
                     .previewDisplayName("Small, Light disabled")
                 Button(action: {}) {
-                    Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                    Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
                 }
                     .previewDisplayName("Small, Dark enabled")
                     .environment(\.colorScheme, .dark)
                 Button(action: {}) {
-                    Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                    Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)

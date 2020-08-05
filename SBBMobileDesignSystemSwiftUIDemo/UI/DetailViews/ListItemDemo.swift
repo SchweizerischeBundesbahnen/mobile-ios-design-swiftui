@@ -10,7 +10,8 @@ struct ListItemDemo: View {
     @Binding var colorScheme: ColorScheme
     
     let label = Text("Label")
-    let image = Image("station_117_small")
+    let image = Image(sbbName: "station", size: .small)
+
     let footnote = Text("This is a footnote.")
     
     var body: some View {
