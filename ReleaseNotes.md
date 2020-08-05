@@ -1,5 +1,11 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.12 - 05 August 2020
+
+### Features
+* SBBBubbleView and SBBInfoView hide image if current SizeCategory is one of the accessibility ones
+* New Helper SizeCategories
+
 ## V0.1.11 - 05 August 2020
 
 ### Bugfixes

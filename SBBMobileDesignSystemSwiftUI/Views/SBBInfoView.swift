@@ -5,8 +5,11 @@
 import SwiftUI
 
 public struct SBBInfoView: View {
+    
     let image: Image
     let text: Text
+    
+    @Environment(\.sizeCategory) var sizeCategory
     
     public init(image: Image, text: Text) {
         self.image = image
@@ -15,9 +18,11 @@ public struct SBBInfoView: View {
     
     public var body: some View {
         HStack(alignment: .top, spacing: 16) {
-            image
-                .resizeToContentSizeCategory(originalHeight: 36)
-                .accessibility(hidden: true)
+            if !SizeCategories.accessibility.contains(sizeCategory) {
+                image
+                    .resizeToContentSizeCategory(originalHeight: 36)
+                    .accessibility(hidden: true)
+            }
             text
                 .sbbFont(.body)
                 .fixedSize(horizontal: false, vertical: true)
@@ -43,6 +48,9 @@ struct SBBInfoView_Previews: PreviewProvider {
             SBBInfoView(image: image, text: text)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
+            SBBInfoView(image: image, text: text)
+                .previewDisplayName("Accessibility Text Size (no icon)")
+                .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
         }
             .previewLayout(.sizeThatFits)
     }
