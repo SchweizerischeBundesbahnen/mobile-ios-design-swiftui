@@ -29,6 +29,9 @@ struct ContentView: View {
                         NavigationLink(destination: TypographyView(colorScheme: self.$colorScheme)) {
                             SBBListItem(label: Text("Typography"))
                         }
+                        NavigationLink(destination: IconDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("Icons"))
+                        }
                     }
                     SBBFormGroup(title: "Elements") {
                         NavigationLink(destination: ButtonDemo(colorScheme: self.$colorScheme)) {

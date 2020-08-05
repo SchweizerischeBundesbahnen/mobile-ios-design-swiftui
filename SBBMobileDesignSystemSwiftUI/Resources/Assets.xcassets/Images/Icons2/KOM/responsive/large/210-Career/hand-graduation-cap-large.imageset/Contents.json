@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "hand-graduation-cap-large.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+  }
+}
