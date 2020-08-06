@@ -20,6 +20,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .sbbFont(.body)
+                .padding(.horizontal, 8)
                 .foregroundColor(isEnabled ? SBBColor.textWhite : SBBColor.textMetal)
                 .frame(height: 46)
                 .frame(minWidth: 0, maxWidth: .infinity)
