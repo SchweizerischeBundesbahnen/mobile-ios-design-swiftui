@@ -24,7 +24,7 @@ public struct SBBOnboardingTitleView: View {
                     .aspectRatio(contentMode: .fit)
                     .accessibility(hidden: true)
                 title
-                    .fixedSize(horizontal: false, vertical: true)
+                    .minimumScaleFactor(0.1)
                 Spacer()
             }
             Spacer()

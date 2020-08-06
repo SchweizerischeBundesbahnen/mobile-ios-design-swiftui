@@ -27,7 +27,7 @@ public struct SBBModalView<Content>: View where Content: View {
                     Button(action: {
                         self.actionOnBackButtonTouched?()
                     }) {
-                        Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                        Image(sbbName: "chevron-small-right", size: .small)
                             .rotationEffect(Angle(degrees: 180))
                             .accessibility(label: Text("back".localized))
                     }
@@ -44,7 +44,7 @@ public struct SBBModalView<Content>: View where Content: View {
                 Button(action: {
                     self.isPresented = false
                 }) {
-                    Image("cross_104_small", bundle: Helper.bundle)
+                    Image(sbbName: "cross", size: .small)
                         .accessibility(label: Text("close".localized))
                 }
                     .buttonStyle(SBBIconButtonStyle(size: .small))

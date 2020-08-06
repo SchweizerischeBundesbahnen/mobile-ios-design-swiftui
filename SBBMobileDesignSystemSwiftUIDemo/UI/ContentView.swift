@@ -17,7 +17,7 @@ struct ContentView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(spacing: 16) {
-                    SBBInfoView(image: Image("smartphone_84_medium"), text: Text("This demo app showcases all features of the Mobile Design System (MDS) SwiftUI Library."))
+                    SBBInfoView(image: Image(sbbName: "smartphone", size: .medium), text: Text("This demo app showcases all features of the Mobile Design System (MDS) SwiftUI Library."))
                     SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
                         Text("light")
                         Text("dark")
@@ -28,6 +28,9 @@ struct ContentView: View {
                         }
                         NavigationLink(destination: TypographyView(colorScheme: self.$colorScheme)) {
                             SBBListItem(label: Text("Typography"))
+                        }
+                        NavigationLink(destination: IconDemo(colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("Icons"))
                         }
                     }
                     SBBFormGroup(title: "Elements") {

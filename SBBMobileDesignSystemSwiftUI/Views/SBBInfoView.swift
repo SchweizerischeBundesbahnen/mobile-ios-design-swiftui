@@ -38,7 +38,7 @@ public struct SBBInfoView: View {
 
 struct SBBInfoView_Previews: PreviewProvider {
     
-    static let image = Image("circle_information_small_small", bundle: Helper.bundle)
+    static let image = Image(sbbName: "circle-information-small", size: .medium)
     static let text = Text("Dies ist ein Info Text. Er informiert über Informationen.")
     
     static var previews: some View {
