@@ -1,6 +1,11 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.1.13 - 05 August 2020
+## V0.1.14 - 06 August 2020
+
+### Bugfixes
+* Horizontal padding for ButtonStyles
+
+## V0.1.13 - 06 August 2020
 
 ### Features
 * All SBB Icons (KOM & FPL) are added in the Asset Catalog
