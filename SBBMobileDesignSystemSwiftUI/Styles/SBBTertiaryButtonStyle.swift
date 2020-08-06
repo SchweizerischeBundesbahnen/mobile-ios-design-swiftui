@@ -29,6 +29,7 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .sbbFont(.body)
+                .padding(.horizontal, 8)
                 .foregroundColor(getForegroundColor(enabled: isEnabled))
                 .frame(height: height)
                 .padding(.horizontal, 16)

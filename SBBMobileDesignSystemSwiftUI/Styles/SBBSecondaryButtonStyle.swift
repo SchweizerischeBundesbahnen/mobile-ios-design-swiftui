@@ -20,6 +20,7 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .sbbFont(.body)
+                .padding(.horizontal, 8)
                 .foregroundColor(getColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .frame(height: 44)
                 .frame(minWidth: 0, maxWidth: .infinity)
