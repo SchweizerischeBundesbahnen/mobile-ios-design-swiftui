@@ -6,6 +6,8 @@
 * All SBB Icons (KOM & FPL) are added in the Asset Catalog
 * Image extension for usage of SBB Icons
 
+### Bugfixes
+* SBBOnboarding Start/EndView are now always showing the buttons (specially with larger SizeCategories)
 
 ## V0.1.12 - 05 August 2020
 
