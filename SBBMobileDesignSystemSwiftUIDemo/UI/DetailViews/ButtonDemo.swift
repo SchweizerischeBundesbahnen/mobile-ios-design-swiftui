@@ -34,12 +34,12 @@ struct ButtonDemo: View {
             .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                 .disabled(disabled)
             Button(action: increment) {
-                Image("station_117_small")
+                Image(sbbName: "station", size: .small)
             }
                 .buttonStyle(SBBIconButtonStyle())
                 .disabled(disabled)
             Button(action: increment) {
-                Image("station_117_small")
+                Image(sbbName: "station", size: .small)
             }
                 .buttonStyle(SBBIconButtonStyle(size: .small))
                 .disabled(disabled)

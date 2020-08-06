@@ -21,7 +21,7 @@ struct PaginationViewDemo: View {
                 Button(action: {
                     self.currentPageIndex = (self.currentPageIndex + self.numberOfPages - 1) % 4
                 }) {
-                    Image("chevron_small_right_45_small")
+                    Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
                         .rotationEffect(Angle(degrees: 180))
                 }
@@ -29,7 +29,7 @@ struct PaginationViewDemo: View {
                 Button(action: {
                     self.currentPageIndex = (self.currentPageIndex + 1) % 4
                 }) {
-                    Image("chevron_small_right_45_small")
+                    Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
                 }
                     .buttonStyle(SBBIconButtonStyle(size: .small))

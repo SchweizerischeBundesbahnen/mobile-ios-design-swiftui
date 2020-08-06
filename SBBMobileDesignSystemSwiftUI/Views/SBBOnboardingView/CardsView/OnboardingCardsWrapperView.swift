@@ -37,7 +37,7 @@ struct OnboardingCardsWrapperView: View {
                     Button(action: {
                         self.showPreviousCard()
                     }) {
-                        Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                        Image(sbbName: "chevron-small-right", size: .small)
                             .resizable()
                             .rotationEffect(Angle(degrees: 180))
                             .accessibility(label: Text("back".localized))
@@ -50,7 +50,7 @@ struct OnboardingCardsWrapperView: View {
                     Button(action: {
                         self.showNextCard()
                     }) {
-                        Image("chevron_small_right_45_small", bundle: Helper.bundle)
+                        Image(sbbName: "chevron-small-right", size: .small)
                             .resizable()
                             .accessibility(label: Text("forward".localized))
                     }

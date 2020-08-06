@@ -31,7 +31,7 @@ public struct SBBInfoViewCollapsible: View {
                             .accessibility(label: self.titleAccessibility ?? self.title)
                         Spacer()
                         Group {
-                            Image("chevron_small_up", bundle: Helper.bundle)
+                            Image(sbbName: "chevron-small-up", size: .small)
                                 .rotationEffect(.degrees(self.expanded ? 0 : 180))
                         }
                             .accessibility(hidden: true)

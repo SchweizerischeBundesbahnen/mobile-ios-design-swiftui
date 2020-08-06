@@ -103,6 +103,15 @@ You can use .sbbFont() like so:
         .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWhite
 ```
 
+## Icons
+
+There are 2 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color.
+
+```
+    Image(sbbName: "product-ir-40")                 // FPL icons
+    Image(sbbName: "station", size: .small)         // KOM icons (note that not all icons are available in all sizes)
+```
+
 ## SBBDivider
 
 SBBDivider replaces the standard Swiftui Divider.
