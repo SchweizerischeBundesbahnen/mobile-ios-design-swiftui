@@ -18,6 +18,8 @@ public struct SBBListItem: View {
     private let footnoteAccessibility: Text?
     private let imageRight: Image
     
+    @Environment(\.sizeCategory) var sizeCategory
+    
     public init(label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal) {
         self.label = label
         self.labelAccessibility = labelAccessibility
@@ -31,7 +33,7 @@ public struct SBBListItem: View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
                 HStack {
-                    if image != nil {
+                    if image != nil && !SizeCategories.accessibility.contains(sizeCategory) {
                         image!
                             .resizeToContentSizeCategory(originalHeight: 24)
                             .accessibility(hidden: true)

@@ -15,8 +15,10 @@ public extension View {
                         .resizable()
                         .frame(width: 28, height: 14, alignment: .top)
                         .foregroundColor(SBBColor.textWhite)
+                        .padding(.bottom, 7)
                 }
-                    .accessibility(hidden: true)
+                    .accessibility(hidden: onTouchAction == nil)
+                    .disabled(onTouchAction == nil)
             )
     }
 }

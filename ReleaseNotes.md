@@ -1,5 +1,12 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.16 - 14 August 2020
+
+### Improvements
+* Correct Positioning of SBB Icon in NavBar (and disabling button if no action passed)
+* SBBListItem now hides image for all accessibility ContentSizes
+* SBBModalView has now customizable title alignment
+
 ## V0.1.15 - 13 August 2020
 
 ### Features

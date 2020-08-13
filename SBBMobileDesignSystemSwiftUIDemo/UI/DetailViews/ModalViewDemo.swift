@@ -10,11 +10,25 @@ struct ModalViewDemo: View {
     @Binding var colorScheme: ColorScheme
     @State var showingModalView = false
     @State var showBackButton = false
+    @State var titleAlignment: SBBModalViewTitleAlignment = .center
     
     @State var backButtonCounter = 0
     
     var body: some View {
         VStack(spacing: 16) {
+            SBBFormGroup(title: "Configure ModalView") {
+                SBBCheckBox(isOn: self.$showBackButton, label: "Show back button")
+                HStack {
+                    Text("Title alignment")
+                        .sbbFont(.body)
+                    SBBSegmentedPicker(selection: self.$titleAlignment, tags: [SBBModalViewTitleAlignment.leading, SBBModalViewTitleAlignment.center]) {
+                        Text("leading")
+                        Text("center")
+                    }
+                }
+                    .padding(16)
+            }
+            Spacer()
             Button(action: {
                 self.showingModalView = true
             }) {
@@ -22,7 +36,7 @@ struct ModalViewDemo: View {
             }
                 .buttonStyle(SBBPrimaryButtonStyle())
                 .sheet(isPresented: $showingModalView, content: {
-                    SBBModalView(title: Text("Your title"), isPresented: self.$showingModalView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                    SBBModalView(title: Text("Your title"), titleAlignment: self.titleAlignment, isPresented: self.$showingModalView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
                         self.backButtonCounter += 1
                     }) {
                         VStack(spacing: 16) {
@@ -42,7 +56,6 @@ struct ModalViewDemo: View {
                             .padding(16)
                     }
                 })
-            Spacer()
         }
             .padding(16)
             .navigationBarTitle("ModalView")

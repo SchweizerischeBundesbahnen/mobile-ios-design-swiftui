@@ -4,16 +4,23 @@
 
 import SwiftUI
 
+public enum SBBModalViewTitleAlignment {
+    case leading
+    case center
+}
+
 public struct SBBModalView<Content>: View where Content: View {
 
     private let title: Text
+    private let titleAlignment: SBBModalViewTitleAlignment
     @Binding private var isPresented: Bool
     @Binding private var showBackButton: Bool
     private let actionOnBackButtonTouched: (() -> ())?
     private let content: Content
 
-    public init(title: Text, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
+    public init(title: Text, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
+        self.titleAlignment = titleAlignment
         self._isPresented = isPresented
         self._showBackButton = showBackButton
         self.actionOnBackButtonTouched = actionOnBackButtonTouched
@@ -32,11 +39,13 @@ public struct SBBModalView<Content>: View where Content: View {
                             .accessibility(label: Text("back".localized))
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
-                } else {
+                } else if titleAlignment == .center {
                     Spacer()
                         .frame(width: 32)
                 }
-                Spacer()
+                if titleAlignment == .center {
+                    Spacer()
+                }
                 title
                     .sbbFont(.titleModul)
                     .accessibility(addTraits: .isHeader)
@@ -62,13 +71,17 @@ struct SBBModalView_Previews: PreviewProvider {
             SBBModalView(title: Text("Modal View"), isPresented: .constant(true)) {
                 Text("Custom content")
             }
-                .previewDisplayName("Light")
+                .previewDisplayName("Light, leading alignment")
             SBBModalView(title: Text("Modal View"), isPresented: .constant(true)) {
                 Text("Custom content")
             }
-                .previewDisplayName("Dark")
+                .previewDisplayName("Dark, leading alignment")
                 .environment(\.colorScheme, .dark)
-            SBBModalView(title: Text("Modal View"), isPresented: .constant(true), showBackButton: .constant(true)) {
+            SBBModalView(title: Text("Modal View"), titleAlignment: .center, isPresented: .constant(true)) {
+                Text("Custom content")
+            }
+                .previewDisplayName("Light, center alignment")
+            SBBModalView(title: Text("Modal View"), titleAlignment: .center, isPresented: .constant(true), showBackButton: .constant(true)) {
                 Text("Custom content")
             }
                 .previewDisplayName("Light, Back Button")
