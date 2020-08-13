@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.15 - 13 August 2020
+
+### Features
+* ViewModifier to add a SBB Icon as a right NavigationBarItem (.navigationBarWithSBBIcon)
+
 ## V0.1.14 - 06 August 2020
 
 ### Bugfixes

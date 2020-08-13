@@ -50,14 +50,19 @@ In the next chapters you can see a quick resume of how to use the existing UI el
 
 ## NavigationBar
 
-To setup the NavigationBar (& StatusBar) in the SBB style, you need to apply the SBBNavigationBar() modifier to its first child:
+Initializing the Library in your app will setup all NavigationBars (& StatusBars) in the SBB style.
+If you want the SBB Icon as a right NavigationBarItem (recommended) you will need to add the .navigationBarWithSBBIcon ViewModifier.
+
 ```
     NavigationView {
         Group {
             ContentView()
         }
-            .modifier(SBBNavigationBar())                                   // you need to add this
             .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)    // SBB Design only supports .inline for the time being
+            .navigationBarWithSBBIcon()     // Display SBB Icon as a right NavigationBarItem
+            .navigationBarWithSBBIcon(onTouchAction: {  // Display SBB Icon as a right NavigationBarItem with custom action
+                // your action here
+            })
     }
 ```
 
