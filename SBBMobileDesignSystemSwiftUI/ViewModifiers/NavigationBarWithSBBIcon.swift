@@ -16,6 +16,7 @@ public extension View {
                         .frame(width: 28, height: 14, alignment: .top)
                         .foregroundColor(SBBColor.textWhite)
                 }
+                    .accessibility(hidden: true)
             )
     }
 }
