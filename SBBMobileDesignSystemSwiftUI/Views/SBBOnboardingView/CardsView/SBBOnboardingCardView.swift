@@ -58,6 +58,7 @@ public struct SBBOnboardingCardView: View {
                                     if self.title != nil {
                                         self.title
                                             .sbbFont(.titleDefault)
+                                            .multilineTextAlignment(.center)
                                             .fixedSize(horizontal: false, vertical: true)
                                             .accessibility(addTraits: .isHeader)
                                     }
