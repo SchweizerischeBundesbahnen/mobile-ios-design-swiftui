@@ -5,6 +5,9 @@
 ### Features
 * ViewModifier to add a SBB Icon as a right NavigationBarItem (.navigationBarWithSBBIcon)
 
+### Bugfixes
+* Center alignment for multiline titles in SBBOnboardingCardView
+
 ## V0.1.14 - 06 August 2020
 
 ### Bugfixes
