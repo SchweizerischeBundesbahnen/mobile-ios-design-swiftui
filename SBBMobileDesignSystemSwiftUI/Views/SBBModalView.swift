@@ -29,7 +29,7 @@ public struct SBBModalView<Content>: View where Content: View {
     
     public var body: some View {
         VStack(spacing: 0) {
-            HStack {
+            HStack(alignment: .top) {
                 if showBackButton {
                     Button(action: {
                         self.actionOnBackButtonTouched?()
@@ -47,6 +47,7 @@ public struct SBBModalView<Content>: View where Content: View {
                     Spacer()
                 }
                 title
+                    .padding(.top, 7)
                     .sbbFont(.titleModul)
                     .accessibility(addTraits: .isHeader)
                 Spacer()
