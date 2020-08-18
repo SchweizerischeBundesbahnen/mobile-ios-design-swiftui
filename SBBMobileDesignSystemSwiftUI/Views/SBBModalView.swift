@@ -28,7 +28,7 @@ public struct SBBModalView<Content>: View where Content: View {
     }
     
     public var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: 0) {
             HStack {
                 if showBackButton {
                     Button(action: {
