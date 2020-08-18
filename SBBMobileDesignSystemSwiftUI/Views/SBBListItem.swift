@@ -40,6 +40,7 @@ public struct SBBListItem: View {
                     }
                     label
                         .sbbFont(.body)
+                        .fixedSize(horizontal: false, vertical: true)
                         .accessibility(label: labelAccessibility ?? label)
                 }
                 if footnote != nil {
