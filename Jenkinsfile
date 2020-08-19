@@ -58,17 +58,6 @@ pipeline {
                     )
             }
         }
-        stage('Release Tag') {
-            when {
-                branch 'master'
-            }
-            steps {
-                node('ios') {
-                    checkout scm
-                    fastlane lane:'release_ios', unstash_from:'mobiledesignsystemswiftui-ios'
-                }
-            }
-        }
         stage('TestFlight') {
             when {
                 branch 'master'
@@ -81,6 +70,19 @@ pipeline {
 							fastlane unstash_from:'mobiledesignsystemswiftuidemo-ios', lane:'upload_testflight', team_profile:'sbb_cargo_appstore'
 						}
                     })
+            }
+        }
+        stage('Release Tag') {
+            /*
+            when {
+                branch 'master'
+            }
+            */
+            steps {
+                node('ios') {
+                    checkout scm
+                    fastlane lane:'release_ios', unstash_from:'mobiledesignsystemswiftui-ios'
+                }
             }
         }
     }
