@@ -38,9 +38,11 @@ pipeline {
             }
         }
         stage('Build & Sign') {
+            /*
             when {
                 expression { BRANCH_NAME ==~ /(master|release\/.*)/ }
             }
+            */
             steps {
                 parallel(
                     'SBBMobileDesignSystemSwiftUI': {
