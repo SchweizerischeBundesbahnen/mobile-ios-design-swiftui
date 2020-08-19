@@ -131,30 +131,44 @@ You can use it like so:
 
 ## SBBBubbleView
 
-SBBBubbleView is a view that is mainly used right underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, titleAccessibility, subtitleAccessibility and content as a Viewbuilder defining what will be shown in the expandable part (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Views inside the ViewBuilder as you want and they will be stacked vertically by default. You can also use SBBBubbleView anywhere in your View, in that case you need to set the extendNavigationBarBackground parameter to false to hide the red top background.
+SBBBubbleView is a view that is mainly used right underneath the SBBNavigationBar. You need to set its image and title. Optional parameters are its subtitle, titleAccessibility, subtitleAccessibility, fixed content as a ViewBuilder (shown at the bottom of the BubbleView), collapsed state and collapsible content as a Viewbuilder defining what will be shown in the expandable part (use the Accessibility parameters to modify the voiceover Texts). You can pass as many Views inside the ViewBuilders as you want and they will be stacked vertically by default. You can also use SBBBubbleView anywhere in your View, in that case you need to set the extendNavigationBarBackground parameter to false to hide the red top background.
+
+If your BubbleView contains no detail (and is not expandable), you can use it like so:
+```    
+    var body: some View {
+        VStack {
+            // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
+            SBBBubbleView(image: Image("sample"), title: Text("Your title"))    
+            // other elements below SBBBubbleView
+        }
+    }
+```
 
 If you want your BubbleView to be expandable, you can use it like so:
-
 ```
     @State var expanded = true
     
     var body: some View {
         VStack {
             // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
-            SBBBubbleView(image: Image("sample"), title: Text("Your title"), detail: [Text("Your longer text")], expanded: $expanded) {   
+            SBBBubbleView(image: Image("sample"), title: Text("Your title"), detail: [Text("Your longer text")], expanded: $expanded, expandedContent: {   
                 Text("Your longer text")    // you can add whatever Views you want inside ViewBuilder for the Detail part of BubbleView
-            }
+            })
             // other elements below SBBBubbleView
         }
     }
 ```
-If your BubbleView contains no detail (and is not expandable), you can use it like so:
 
-```    
+If you want your BubbleView to have non collabsible custom content, you can use it like so:
+```
+    @State var expanded = true
+    
     var body: some View {
         VStack {
             // The SBBBubbleView always needs to be the first element inside a VStack (to position it right below the SBBNavigationBar)
-            SBBBubbleView(image: Image("sample"), title: Text("Your title"), expanded: .constant(false))    
+            SBBBubbleView(image: Image("sample"), title: Text("Your title"), detail: [Text("Your longer text")], fixedContent: {   
+                Text("Your longer text")    // you can add whatever Views you want inside ViewBuilder for the bottom part of BubbleView
+            })
             // other elements below SBBBubbleView
         }
     }

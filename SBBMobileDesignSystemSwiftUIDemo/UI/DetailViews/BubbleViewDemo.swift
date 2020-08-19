@@ -8,8 +8,10 @@ import SBBMobileDesignSystemSwiftUI
 struct BubbleViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
-    
-    @State var expanded = true
+    @State var expanded1 = true
+    @State var expanded2 = true
+    @State var segmentedPickerSelection1 = 0
+    @State var segmentedPickerSelection2 = 0
     
     var image = Image(sbbName: "train", size: .medium)
     var title = Text("IC6 nach Basel")
@@ -23,27 +25,56 @@ struct BubbleViewDemo: View {
     var detail2Accessibility = Text("circa +2 Minuten Verspätung.")
     
     var body: some View {
-        VStack {
-            SBBBubbleView(image: image, title: title, expanded: .constant(false))
-            SBBDivider()
-            SBBBubbleView(image: image, title: title, subtitle: subtitle, expanded: .constant(false), extendNavigationBarBackground: false)
-            SBBDivider()
-            SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded, extendNavigationBarBackground: false) {
-                self.detail1
-                    .fixedSize(horizontal: false, vertical: true)
-                    .accessibility(label: self.detail1Accessibility)
-                self.detail2
-                    .foregroundColor(SBBColor.red)
-                    .font(.sbbTitleDefault)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .accessibility(label: self.detail2Accessibility)
+        VStack(spacing: 0) {
+            SBBBubbleView(image: image, title: title)
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 16) {
+                    SBBDivider()
+                    SBBBubbleView(image: image, title: title, subtitle: subtitle, extendNavigationBarBackground: false)
+                    SBBDivider()
+                    SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded1, extendNavigationBarBackground: false, expandableContent: {
+                        self.detail1
+                            .fixedSize(horizontal: false, vertical: true)
+                            .accessibility(label: self.detail1Accessibility)
+                        self.detail2
+                            .foregroundColor(SBBColor.red)
+                            .font(.sbbTitleDefault)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .accessibility(label: self.detail2Accessibility)
+                    })
+                    Button(action: {
+                        self.expanded1.toggle()
+                    }) {
+                        Text("toggle expanded state from Parentview")
+                    }
+                        .buttonStyle(SBBTertiaryButtonStyle())
+                    SBBDivider()
+                    SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, extendNavigationBarBackground: false, fixedContent: {
+                        SBBSegmentedPicker(selection: self.$segmentedPickerSelection1, tags: [0, 1], content: {
+                            Text("Wagen")
+                            Text("Perlschnur")
+                        })
+                    })
+                    SBBDivider()
+                    SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded2, extendNavigationBarBackground: false, expandableContent: {
+                        self.detail1
+                            .fixedSize(horizontal: false, vertical: true)
+                            .accessibility(label: self.detail1Accessibility)
+                    }, fixedContent: {
+                        SBBSegmentedPicker(selection: self.$segmentedPickerSelection2, tags: [0, 1], content: {
+                            Text("Wagen")
+                            Text("Perlschnur")
+                        })
+                    })
+                    Button(action: {
+                        self.expanded2.toggle()
+                    }) {
+                        Text("toggle expanded state from Parentview")
+                    }
+                        .buttonStyle(SBBTertiaryButtonStyle())
+                }
+                    .padding(.top, 16)
             }
-            Button(action: {
-                self.expanded.toggle()
-            }) {
-                Text("toggle expanded state from Parentview")
-            }
-            Spacer()
         }
             .navigationBarTitle("BubbleView")
             .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
