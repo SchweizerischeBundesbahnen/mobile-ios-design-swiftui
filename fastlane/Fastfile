@@ -1,4 +1,0 @@
-import_from_git(
-	url: "ssh://git@codessh.sbb.ch:7999/kd_esta_mobile/esta-mobile-ios-fastlane.git",
-	branch: "feature/improve-tagging"
-)
