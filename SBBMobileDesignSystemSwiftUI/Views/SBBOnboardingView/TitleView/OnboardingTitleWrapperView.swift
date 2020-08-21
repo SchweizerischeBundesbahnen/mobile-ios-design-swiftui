@@ -45,10 +45,10 @@ struct OnboardingTitleWrapperView: View {
                     RoundedRectangle(cornerRadius: 23)
                         .stroke((viewModel.state == .startView) ? Color.clear : SBBColor.white, lineWidth: 1)
                 )
+                .accessibility(identifier: "onboardingTitleViewEndTourButton")
         }
             .padding(16)
             .background(SBBColor.red.edgesIgnoringSafeArea(.all))
-            .accessibility(identifier: "onboardingTitleViewEndTourButton")
     }
 }
 
