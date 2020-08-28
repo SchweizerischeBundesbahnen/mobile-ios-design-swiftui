@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.17 - 21 August 2020
+
+### Improvements
+* Added accessibility identifiers to support XCUITests
+
 ## V0.1.16 - 14 August 2020
 
 ### Improvements

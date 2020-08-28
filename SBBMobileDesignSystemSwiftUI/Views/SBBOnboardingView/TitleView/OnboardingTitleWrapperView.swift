@@ -21,6 +21,7 @@ struct OnboardingTitleWrapperView: View {
             }
             sbbOnboardingTitleView
                 .accessibility(addTraits: .isHeader)
+                .accessibility(identifier: "onboardingTitleViewText")
             if viewModel.state == .startView {
                 Button(action: {
                     self.viewModel.state = .cardsView
@@ -32,6 +33,7 @@ struct OnboardingTitleWrapperView: View {
                         RoundedRectangle(cornerRadius: 23)
                             .stroke(SBBColor.white, lineWidth: 1)
                     )
+                    .accessibility(identifier: "onboardingTitleViewStartTourButton")
             }
             Button(action: {
                 self.viewModel.state = .hidden
@@ -43,6 +45,7 @@ struct OnboardingTitleWrapperView: View {
                     RoundedRectangle(cornerRadius: 23)
                         .stroke((viewModel.state == .startView) ? Color.clear : SBBColor.white, lineWidth: 1)
                 )
+                .accessibility(identifier: "onboardingTitleViewEndTourButton")
         }
             .padding(16)
             .background(SBBColor.red.edgesIgnoringSafeArea(.all))
