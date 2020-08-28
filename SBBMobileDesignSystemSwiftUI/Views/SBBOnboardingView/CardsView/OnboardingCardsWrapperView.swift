@@ -43,6 +43,7 @@ struct OnboardingCardsWrapperView: View {
                             .accessibility(label: Text("back".localized))
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
+                        .accessibility(identifier: "onboardingPreviousCardButton")
                     Spacer()
                     SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViews.count)
                         .accessibility(hidden: true)
@@ -55,6 +56,7 @@ struct OnboardingCardsWrapperView: View {
                             .accessibility(label: Text("forward".localized))
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
+                        .accessibility(identifier: "onboardingNextCardButton")
                 }
                 Button(action: {
                     self.viewModel.state = .hidden
@@ -62,6 +64,7 @@ struct OnboardingCardsWrapperView: View {
                     Text("abort tour".localized)
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                    .accessibility(identifier: "onboardingAbortTourButton")
             }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 24)
