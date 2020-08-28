@@ -8,9 +8,9 @@ import SwiftUI
 // Usage: .font(.sbbBody) or .font(.sbbLight(size: 12))
 
 public extension Font {
-    
+        
     static var sbbHeader: Font {
-        sbbLight(size: 22)
+        UIAccessibility.isBoldTextEnabled ? sbbBold(size: 22) : sbbLight(size: 22)
     }
     
     static var sbbHeadline: Font {
@@ -22,7 +22,7 @@ public extension Font {
     }
     
     static var sbbTitleModul: Font {
-        sbbLight(size: 18)
+        UIAccessibility.isBoldTextEnabled ? sbbBold(size: 18) : sbbLight(size: 18)
     }
     
     static var sbbSubtitle: Font {
@@ -30,23 +30,23 @@ public extension Font {
     }
     
     static var sbbCopy: Font {
-        sbbLight(size: 18)
+        UIAccessibility.isBoldTextEnabled ? sbbBold(size: 18) : sbbLight(size: 18)
     }
     
     static var sbbBody: Font {
-        sbbLight(size: 16)
+        UIAccessibility.isBoldTextEnabled ? sbbBold(size: 16) : sbbLight(size: 16)
     }
     
     static var sbbLegend: Font {
-        sbbLight(size: 14)
+        UIAccessibility.isBoldTextEnabled ? sbbBold(size: 14) : sbbLight(size: 14)
     }
     
     static var sbbLegendSmall: Font {
-        sbbLight(size: 12)
+        UIAccessibility.isBoldTextEnabled ? sbbBold(size: 12) : sbbLight(size: 12)
     }
     
     static var sbbTableHeader: Font {
-        sbbRoman(size: 14)
+        UIAccessibility.isBoldTextEnabled ? sbbBold(size: 14) : sbbRoman(size: 14)
     }
     
     static func sbbBold(size: CGFloat) -> Font {
