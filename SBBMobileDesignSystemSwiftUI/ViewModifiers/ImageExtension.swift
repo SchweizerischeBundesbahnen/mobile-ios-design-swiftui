@@ -10,17 +10,17 @@ public enum SBBIconSize: String {
     case large = "large"
 }
 
-extension Image {
+public extension Image {
     
-    public init(sbbName: String) {
+    init(sbbName: String) {
         self.init(sbbName, bundle: Helper.bundle)
     }
     
-    public init(sbbName: String, size: SBBIconSize) {
+    init(sbbName: String, size: SBBIconSize) {
         self.init("\(sbbName)-\(size.rawValue)", bundle: Helper.bundle)
     }
     
-    public func resizeToContentSizeCategory(originalHeight: CGFloat) -> some View {
+    func resizeToContentSizeCategory(originalHeight: CGFloat) -> some View {
         self
             .resizable()
             .aspectRatio(contentMode: .fit)
