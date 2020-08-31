@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Pfeil-rechts-aufwaerts-blau.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Pfeil-rechts-aufwaerts-blau@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Pfeil-rechts-aufwaerts-blau@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

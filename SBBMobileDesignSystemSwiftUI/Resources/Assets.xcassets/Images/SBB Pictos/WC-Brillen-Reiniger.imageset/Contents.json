@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "WC-Brillen-Reiniger.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "WC-Brillen-Reiniger@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "WC-Brillen-Reiniger@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Rolltreppe-abwaerts_l.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Rolltreppe-abwaerts_l@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Rolltreppe-abwaerts_l@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
