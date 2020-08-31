@@ -3,6 +3,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 public enum SBBIconSize: String {
     case small = "small"
@@ -11,6 +12,10 @@ public enum SBBIconSize: String {
 }
 
 public extension Image {
+    
+    static func exists(sbbName: String) -> Bool {
+        return UIImage(named: sbbName, in: Helper.bundle, with: nil) != nil
+    }
     
     init(sbbName: String) {
         self.init(sbbName, bundle: Helper.bundle)
