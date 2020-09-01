@@ -9,13 +9,14 @@ struct IconDemo: View {
     
     @State var fplIconName: String = "product-ir-40"
     @State var komIconName: String = "station"
+    @State var pictogramName: String = "Zug_r"
     
     @Binding var colorScheme: ColorScheme
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 24) {
-                SBBInfoView(image: Image(sbbName: "circle-information", size: .small), text: Text("There are 2 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color."))
+                SBBInfoView(image: Image(sbbName: "circle-information", size: .small), text: Text("There are 3 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color. Pictograms are only available in one size and have a fixed color."))
                 SBBFormGroup(title: "Fahrplan Icons (FPL):") {
                     SBBTextField(text: self.$fplIconName, label: "Icon Name")
                     HStack {
@@ -67,6 +68,29 @@ struct IconDemo: View {
                         UIApplication.shared.open(url)
                     }) {
                         Text("See all available KOM icons")
+                    }
+                        .buttonStyle(SBBSecondaryButtonStyle())
+                        .padding(16)
+                }
+                SBBFormGroup(title: "Pictograms (Piktogramme):") {
+                    SBBTextField(text: self.$pictogramName, label: "Pictogram Name")
+                    HStack(alignment: .bottom) {
+                        Spacer()
+                        VStack {
+                            Image(sbbName: self.pictogramName)
+                        }
+                        Spacer()
+                    }
+                        .sbbFont(.legend)
+                        .padding(16)
+                    Button(action: {
+                        guard let url = URL(string: "https://digital.sbb.ch/de/brand_elemente/piktogramme"),
+                            UIApplication.shared.canOpenURL(url) else {
+                            return
+                        }
+                        UIApplication.shared.open(url)
+                    }) {
+                        Text("See all available pictograms")
                     }
                         .buttonStyle(SBBSecondaryButtonStyle())
                         .padding(16)
