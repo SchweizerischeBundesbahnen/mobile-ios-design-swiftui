@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Dusche.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Dusche@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Dusche@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Dusche.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

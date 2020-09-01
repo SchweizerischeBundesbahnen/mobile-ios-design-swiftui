@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gleis-73_k_it.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gleis-73_k_it@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gleis-73_k_it@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gleis-73_k_it.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

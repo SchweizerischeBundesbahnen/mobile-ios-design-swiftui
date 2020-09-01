@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gepaeck-Schubwagen.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gepaeck-Schubwagen@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gepaeck-Schubwagen@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gepaeck-Schubwagen.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

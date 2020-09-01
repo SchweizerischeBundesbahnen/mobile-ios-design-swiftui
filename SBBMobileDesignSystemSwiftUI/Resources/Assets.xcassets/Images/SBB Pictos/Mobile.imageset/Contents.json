@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Mobile.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Mobile@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Mobile@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Mobile.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

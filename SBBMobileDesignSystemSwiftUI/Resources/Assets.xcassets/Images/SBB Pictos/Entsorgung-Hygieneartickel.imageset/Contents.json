@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Entsorgung-Hygieneartickel.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Entsorgung-Hygieneartickel@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Entsorgung-Hygieneartickel@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Entsorgung-Hygieneartickel.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

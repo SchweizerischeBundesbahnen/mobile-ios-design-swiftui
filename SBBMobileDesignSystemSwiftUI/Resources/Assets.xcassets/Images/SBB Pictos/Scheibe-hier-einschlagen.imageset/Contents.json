@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Scheibe-hier-einschlagen.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Scheibe-hier-einschlagen@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Scheibe-hier-einschlagen@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Scheibe-hier-einschlagen.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

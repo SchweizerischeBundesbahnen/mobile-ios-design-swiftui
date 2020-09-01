@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Mobilitaetseinschraenkung-Gebrechlich.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Mobilitaetseinschraenkung-Gebrechlich@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Mobilitaetseinschraenkung-Gebrechlich@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Mobilitaetseinschraenkung-Gebrechlich.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

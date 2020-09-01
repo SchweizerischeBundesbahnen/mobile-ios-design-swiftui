@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Autofaehre_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Autofaehre_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Autofaehre_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Autofaehre_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

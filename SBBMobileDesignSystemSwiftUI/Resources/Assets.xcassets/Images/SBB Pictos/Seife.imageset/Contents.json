@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Seife.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Seife@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Seife@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Seife.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

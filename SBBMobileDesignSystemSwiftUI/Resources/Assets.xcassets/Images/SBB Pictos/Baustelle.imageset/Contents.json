@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Baustelle.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Baustelle@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Baustelle@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Baustelle.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

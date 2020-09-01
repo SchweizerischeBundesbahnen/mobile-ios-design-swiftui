@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Hilferuf.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Hilferuf@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Hilferuf@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Hilferuf.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

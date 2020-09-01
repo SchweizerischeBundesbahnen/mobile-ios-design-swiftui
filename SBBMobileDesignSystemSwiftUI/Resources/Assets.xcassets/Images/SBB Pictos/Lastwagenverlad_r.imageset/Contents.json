@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Lastwagenverlad_r.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Lastwagenverlad_r@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Lastwagenverlad_r@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Lastwagenverlad_r.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

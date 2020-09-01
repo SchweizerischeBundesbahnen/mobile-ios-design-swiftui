@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "WC-Damen.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "WC-Damen@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "WC-Damen@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "WC-Damen.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

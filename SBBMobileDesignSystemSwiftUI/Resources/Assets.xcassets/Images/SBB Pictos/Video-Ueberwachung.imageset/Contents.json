@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Video-Ueberwachung.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Video-Ueberwachung@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Video-Ueberwachung@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Video-Ueberwachung.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

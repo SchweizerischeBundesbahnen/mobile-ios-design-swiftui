@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Aufspringen-bei-Tuerschliessung-verboten_r.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Aufspringen-bei-Tuerschliessung-verboten_r@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Aufspringen-bei-Tuerschliessung-verboten_r@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Aufspringen-bei-Tuerschliessung-verboten_r.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

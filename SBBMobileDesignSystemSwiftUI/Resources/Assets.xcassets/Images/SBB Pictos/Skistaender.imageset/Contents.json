@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Skistaender.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Skistaender@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Skistaender@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Skistaender.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

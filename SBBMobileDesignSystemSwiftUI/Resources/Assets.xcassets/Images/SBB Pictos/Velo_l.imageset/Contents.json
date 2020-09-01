@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Velo_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Velo_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Velo_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Velo_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Velo-Reservation_r.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Velo-Reservation_r@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Velo-Reservation_r@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Velo-Reservation_r.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

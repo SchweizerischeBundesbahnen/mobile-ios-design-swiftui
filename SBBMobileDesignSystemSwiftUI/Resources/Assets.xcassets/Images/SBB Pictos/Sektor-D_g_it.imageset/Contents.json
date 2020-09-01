@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Sektor-D_g_it.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Sektor-D_g_it@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Sektor-D_g_it@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Sektor-D_g_it.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Notleiter.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Notleiter@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Notleiter@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Notleiter.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

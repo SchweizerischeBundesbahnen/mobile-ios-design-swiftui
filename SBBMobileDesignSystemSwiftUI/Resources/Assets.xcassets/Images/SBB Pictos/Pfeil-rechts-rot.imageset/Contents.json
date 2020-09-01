@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Pfeil-rechts-rot.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Pfeil-rechts-rot@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Pfeil-rechts-rot@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Pfeil-rechts-rot.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

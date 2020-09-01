@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Car-Sharing_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Car-Sharing_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Car-Sharing_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Car-Sharing_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

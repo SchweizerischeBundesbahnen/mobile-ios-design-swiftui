@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gepaeckschubwagen-Verboten.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gepaeckschubwagen-Verboten@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gepaeckschubwagen-Verboten@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gepaeckschubwagen-Verboten.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

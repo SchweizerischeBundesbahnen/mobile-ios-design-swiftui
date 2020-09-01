@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Notbremse.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Notbremse@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Notbremse@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Notbremse.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

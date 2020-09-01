@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gepaeck.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gepaeck@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gepaeck@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gepaeck.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

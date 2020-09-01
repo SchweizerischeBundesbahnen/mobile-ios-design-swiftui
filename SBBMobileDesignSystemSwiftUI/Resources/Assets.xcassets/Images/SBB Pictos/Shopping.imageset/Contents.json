@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Shopping.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Shopping@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Shopping@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Shopping.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

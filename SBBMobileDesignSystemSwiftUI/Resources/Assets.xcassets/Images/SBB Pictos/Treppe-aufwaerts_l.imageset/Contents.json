@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Treppe-aufwaerts_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Treppe-aufwaerts_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Treppe-aufwaerts_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Treppe-aufwaerts_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

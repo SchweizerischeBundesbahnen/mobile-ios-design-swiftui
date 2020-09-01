@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Mofa-Parkplatz_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Mofa-Parkplatz_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Mofa-Parkplatz_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Mofa-Parkplatz_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

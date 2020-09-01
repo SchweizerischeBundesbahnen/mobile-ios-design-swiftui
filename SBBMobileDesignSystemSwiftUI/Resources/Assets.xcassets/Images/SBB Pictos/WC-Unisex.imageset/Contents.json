@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "WC-Unisex.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "WC-Unisex@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "WC-Unisex@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "WC-Unisex.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

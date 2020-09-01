@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gepaeckaufgabe.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gepaeckaufgabe@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gepaeckaufgabe@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gepaeckaufgabe.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

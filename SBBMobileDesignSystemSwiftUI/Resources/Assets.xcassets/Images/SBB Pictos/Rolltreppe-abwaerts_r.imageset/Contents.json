@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Rolltreppe-abwaerts_r.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Rolltreppe-abwaerts_r@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Rolltreppe-abwaerts_r@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Rolltreppe-abwaerts_r.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Pfeil-links-abwaerts-gruen.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Pfeil-links-abwaerts-gruen@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Pfeil-links-abwaerts-gruen@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Pfeil-links-abwaerts-gruen.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Velovermietung_l_it.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Velovermietung_l_it@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Velovermietung_l_it@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Velovermietung_l_it.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

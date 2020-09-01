@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Multifunktionsabteil.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Multifunktionsabteil@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Multifunktionsabteil@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Multifunktionsabteil.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

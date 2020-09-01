@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Mobilitaetseinschraenkung-Blind.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Mobilitaetseinschraenkung-Blind@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Mobilitaetseinschraenkung-Blind@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Mobilitaetseinschraenkung-Blind.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

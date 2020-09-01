@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Rolltreppe-aufwaerts_r.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Rolltreppe-aufwaerts_r@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Rolltreppe-aufwaerts_r@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Rolltreppe-aufwaerts_r.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

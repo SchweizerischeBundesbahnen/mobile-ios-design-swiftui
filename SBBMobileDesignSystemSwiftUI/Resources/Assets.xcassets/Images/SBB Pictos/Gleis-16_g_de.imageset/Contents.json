@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gleis-16_g_de.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gleis-16_g_de@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gleis-16_g_de@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gleis-16_g_de.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

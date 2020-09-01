@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Reservation.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Reservation@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Reservation@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Reservation.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

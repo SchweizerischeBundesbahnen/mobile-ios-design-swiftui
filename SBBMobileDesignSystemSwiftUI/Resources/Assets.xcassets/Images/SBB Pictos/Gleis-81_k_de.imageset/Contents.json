@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gleis-81_k_de.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gleis-81_k_de@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gleis-81_k_de@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gleis-81_k_de.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

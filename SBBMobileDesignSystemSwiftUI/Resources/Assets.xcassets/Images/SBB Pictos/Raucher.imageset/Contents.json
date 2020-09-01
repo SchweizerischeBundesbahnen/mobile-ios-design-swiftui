@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Raucher.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Raucher@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Raucher@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Raucher.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

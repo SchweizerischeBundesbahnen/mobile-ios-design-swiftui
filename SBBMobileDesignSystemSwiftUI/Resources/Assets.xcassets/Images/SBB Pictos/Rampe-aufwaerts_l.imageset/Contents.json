@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Rampe-aufwaerts_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Rampe-aufwaerts_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Rampe-aufwaerts_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Rampe-aufwaerts_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

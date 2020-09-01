@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Erste-Hilfe.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Erste-Hilfe@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Erste-Hilfe@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Erste-Hilfe.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

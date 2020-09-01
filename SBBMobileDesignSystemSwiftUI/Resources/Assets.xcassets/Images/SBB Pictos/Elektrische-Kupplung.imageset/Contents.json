@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Elektrische-Kupplung.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Elektrische-Kupplung@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Elektrische-Kupplung@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Elektrische-Kupplung.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

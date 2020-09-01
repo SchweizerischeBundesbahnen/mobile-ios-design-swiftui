@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Telefon.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Telefon@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Telefon@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Telefon.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

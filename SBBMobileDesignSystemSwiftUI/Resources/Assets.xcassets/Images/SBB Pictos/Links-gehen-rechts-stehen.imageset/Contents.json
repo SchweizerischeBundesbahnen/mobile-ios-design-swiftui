@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Links-gehen-rechts-stehen.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Links-gehen-rechts-stehen@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Links-gehen-rechts-stehen@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Links-gehen-rechts-stehen.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

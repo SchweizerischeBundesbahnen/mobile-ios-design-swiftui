@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "WC-Herren.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "WC-Herren@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "WC-Herren@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "WC-Herren.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

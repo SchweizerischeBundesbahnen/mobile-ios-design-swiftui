@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Flugzeug_r.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Flugzeug_r@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Flugzeug_r@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Flugzeug_r.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gepaeckaufbewahrung.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gepaeckaufbewahrung@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gepaeckaufbewahrung@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gepaeckaufbewahrung.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

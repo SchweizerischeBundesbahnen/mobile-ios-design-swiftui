@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Metro_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Metro_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Metro_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Metro_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

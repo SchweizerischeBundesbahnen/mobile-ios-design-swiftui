@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Flugzeugbestuhlung.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Flugzeugbestuhlung@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Flugzeugbestuhlung@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Flugzeugbestuhlung.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

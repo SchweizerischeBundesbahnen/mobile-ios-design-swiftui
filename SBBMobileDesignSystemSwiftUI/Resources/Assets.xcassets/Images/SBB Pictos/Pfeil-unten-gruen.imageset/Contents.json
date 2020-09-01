@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Pfeil-unten-gruen.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Pfeil-unten-gruen@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Pfeil-unten-gruen@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Pfeil-unten-gruen.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

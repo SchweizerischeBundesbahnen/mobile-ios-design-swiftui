@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Notausgang-Fenster_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Notausgang-Fenster_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Notausgang-Fenster_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Notausgang-Fenster_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

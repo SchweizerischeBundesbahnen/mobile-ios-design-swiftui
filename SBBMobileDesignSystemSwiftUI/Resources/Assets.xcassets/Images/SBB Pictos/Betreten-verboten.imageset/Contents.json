@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Betreten-verboten.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Betreten-verboten@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Betreten-verboten@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Betreten-verboten.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

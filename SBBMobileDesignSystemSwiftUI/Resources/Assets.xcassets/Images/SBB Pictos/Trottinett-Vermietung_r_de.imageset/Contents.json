@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Trottinett-Vermietung_r_de.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Trottinett-Vermietung_r_de@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Trottinett-Vermietung_r_de@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Trottinett-Vermietung_r_de.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

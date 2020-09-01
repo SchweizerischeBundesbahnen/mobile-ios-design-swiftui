@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Mobilitaetseinschraenkung-Verletzt.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Mobilitaetseinschraenkung-Verletzt@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Mobilitaetseinschraenkung-Verletzt@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Mobilitaetseinschraenkung-Verletzt.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

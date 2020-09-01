@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Pfeil-unten-rot.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Pfeil-unten-rot@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Pfeil-unten-rot@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Pfeil-unten-rot.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

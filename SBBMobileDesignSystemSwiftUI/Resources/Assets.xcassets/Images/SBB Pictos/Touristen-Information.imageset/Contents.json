@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Touristen-Information.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Touristen-Information@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Touristen-Information@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Touristen-Information.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

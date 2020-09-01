@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gepaeckablage.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gepaeckablage@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gepaeckablage@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gepaeckablage.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

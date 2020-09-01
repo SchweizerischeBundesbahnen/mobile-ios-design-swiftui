@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Autovermietung_l_fr.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Autovermietung_l_fr@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Autovermietung_l_fr@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Autovermietung_l_fr.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

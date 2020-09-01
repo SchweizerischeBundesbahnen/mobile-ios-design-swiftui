@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gleis-1_g_fr.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gleis-1_g_fr@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gleis-1_g_fr@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gleis-1_g_fr.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

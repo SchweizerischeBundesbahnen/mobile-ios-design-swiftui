@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "E-Velo-Ladestation_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "E-Velo-Ladestation_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "E-Velo-Ladestation_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "E-Velo-Ladestation_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

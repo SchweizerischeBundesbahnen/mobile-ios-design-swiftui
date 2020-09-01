@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Bus_r.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Bus_r@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Bus_r@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Bus_r.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

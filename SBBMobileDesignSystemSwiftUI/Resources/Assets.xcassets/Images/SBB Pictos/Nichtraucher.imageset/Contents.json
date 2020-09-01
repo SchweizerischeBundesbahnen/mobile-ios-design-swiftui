@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Nichtraucher.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Nichtraucher@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Nichtraucher@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Nichtraucher.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

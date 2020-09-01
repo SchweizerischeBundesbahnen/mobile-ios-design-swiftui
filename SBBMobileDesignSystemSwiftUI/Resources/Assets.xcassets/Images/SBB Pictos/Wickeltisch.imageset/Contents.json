@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Wickeltisch.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Wickeltisch@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Wickeltisch@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Wickeltisch.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

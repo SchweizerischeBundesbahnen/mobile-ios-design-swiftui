@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Gondelbahn_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Gondelbahn_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Gondelbahn_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Gondelbahn_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

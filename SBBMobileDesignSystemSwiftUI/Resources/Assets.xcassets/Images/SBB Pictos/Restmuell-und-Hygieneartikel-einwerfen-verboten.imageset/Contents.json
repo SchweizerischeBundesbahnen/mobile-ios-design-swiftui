@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Restmuell-und-Hygieneartikel-einwerfen-verboten.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Restmuell-und-Hygieneartikel-einwerfen-verboten@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Restmuell-und-Hygieneartikel-einwerfen-verboten@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Restmuell-und-Hygieneartikel-einwerfen-verboten.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

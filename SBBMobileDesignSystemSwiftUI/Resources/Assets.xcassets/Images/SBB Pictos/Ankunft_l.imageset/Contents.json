@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Ankunft_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Ankunft_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Ankunft_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Ankunft_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

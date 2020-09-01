@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Achtung-Zug_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Achtung-Zug_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Achtung-Zug_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Achtung-Zug_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

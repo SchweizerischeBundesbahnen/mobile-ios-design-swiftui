@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Hinauslehnen-verboten.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Hinauslehnen-verboten@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Hinauslehnen-verboten@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Hinauslehnen-verboten.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

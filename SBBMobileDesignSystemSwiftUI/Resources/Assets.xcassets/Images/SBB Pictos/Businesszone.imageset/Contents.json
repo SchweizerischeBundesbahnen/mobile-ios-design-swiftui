@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Businesszone.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Businesszone@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Businesszone@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Businesszone.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

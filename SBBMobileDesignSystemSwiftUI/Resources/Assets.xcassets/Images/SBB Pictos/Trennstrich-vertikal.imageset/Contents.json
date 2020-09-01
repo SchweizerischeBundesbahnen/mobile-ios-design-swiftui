@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Trennstrich-vertikal.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Trennstrich-vertikal@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Trennstrich-vertikal@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Trennstrich-vertikal.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

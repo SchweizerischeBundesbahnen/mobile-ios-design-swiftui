@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Kante-I_g_en.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Kante-I_g_en@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Kante-I_g_en@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Kante-I_g_en.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

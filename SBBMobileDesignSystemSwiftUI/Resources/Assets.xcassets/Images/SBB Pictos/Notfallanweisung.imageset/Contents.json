@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Notfallanweisung.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Notfallanweisung@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Notfallanweisung@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Notfallanweisung.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

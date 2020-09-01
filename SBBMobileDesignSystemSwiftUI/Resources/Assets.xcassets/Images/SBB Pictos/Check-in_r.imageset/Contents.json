@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Check-in_r.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Check-in_r@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Check-in_r@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Check-in_r.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

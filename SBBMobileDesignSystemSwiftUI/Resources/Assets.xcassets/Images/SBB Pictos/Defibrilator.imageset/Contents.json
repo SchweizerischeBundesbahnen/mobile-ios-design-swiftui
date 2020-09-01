@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Defibrilator.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Defibrilator@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Defibrilator@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Defibrilator.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

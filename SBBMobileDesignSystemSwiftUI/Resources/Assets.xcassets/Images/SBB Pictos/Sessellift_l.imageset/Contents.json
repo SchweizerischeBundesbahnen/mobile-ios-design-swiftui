@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Sessellift_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Sessellift_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Sessellift_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Sessellift_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

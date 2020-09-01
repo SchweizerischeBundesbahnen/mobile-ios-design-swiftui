@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Achtung-Sturzgefahr.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Achtung-Sturzgefahr@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Achtung-Sturzgefahr@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Achtung-Sturzgefahr.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

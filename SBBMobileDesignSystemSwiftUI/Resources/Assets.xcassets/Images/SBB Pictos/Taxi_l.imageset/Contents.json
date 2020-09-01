@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Taxi_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Taxi_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Taxi_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Taxi_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

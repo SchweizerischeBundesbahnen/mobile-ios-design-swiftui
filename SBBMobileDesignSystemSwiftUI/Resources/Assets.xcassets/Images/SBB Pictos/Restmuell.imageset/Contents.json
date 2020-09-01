@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Restmuell.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Restmuell@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Restmuell@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Restmuell.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

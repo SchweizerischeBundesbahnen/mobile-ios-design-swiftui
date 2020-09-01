@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Notfallnummer.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Notfallnummer@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Notfallnummer@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Notfallnummer.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

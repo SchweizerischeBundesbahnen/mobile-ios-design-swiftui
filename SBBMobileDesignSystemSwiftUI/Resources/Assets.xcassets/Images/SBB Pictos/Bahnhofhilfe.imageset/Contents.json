@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Bahnhofhilfe.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Bahnhofhilfe@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Bahnhofhilfe@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Bahnhofhilfe.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

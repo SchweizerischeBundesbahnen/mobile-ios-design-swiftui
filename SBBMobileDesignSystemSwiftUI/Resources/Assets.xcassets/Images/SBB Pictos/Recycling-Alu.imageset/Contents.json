@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Recycling-Alu.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Recycling-Alu@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Recycling-Alu@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Recycling-Alu.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Trinkwasser.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Trinkwasser@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Trinkwasser@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Trinkwasser.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

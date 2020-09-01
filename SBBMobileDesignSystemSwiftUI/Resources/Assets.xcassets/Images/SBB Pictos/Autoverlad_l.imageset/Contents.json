@@ -1,19 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "Autoverlad_l.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "Autoverlad_l@2x.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "Autoverlad_l@3x.png",
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Autoverlad_l.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {
