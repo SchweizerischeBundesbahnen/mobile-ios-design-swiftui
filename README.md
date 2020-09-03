@@ -110,11 +110,12 @@ You can use .sbbFont() like so:
 
 ## Icons
 
-There are 2 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color.
+There are 3 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color. Pictograms are only available in one size.
 
 ```
     Image(sbbName: "product-ir-40")                 // FPL icons
     Image(sbbName: "station", size: .small)         // KOM icons (note that not all icons are available in all sizes)
+    Image(sbbName: "Zug_r")                         // Pictograms
 ```
 
 ## SBBDivider
