@@ -37,9 +37,8 @@ struct OnboardingCardsWrapperView: View {
                     Button(action: {
                         self.showPreviousCard()
                     }) {
-                        Image(sbbName: "chevron-small-right", size: .small)
+                        Image(sbbName: "chevron-small-left", size: .small)
                             .resizable()
-                            .rotationEffect(Angle(degrees: 180))
                             .accessibility(label: Text("back".localized))
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
