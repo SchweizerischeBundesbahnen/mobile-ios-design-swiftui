@@ -51,6 +51,7 @@ public struct SBBInfoViewCollapsible: View {
                     .cornerRadius(16)
                     .accentColor(SBBColor.textBlack)
                     .accessibilityElement(children: .combine)
+                    .accessibility(identifier: "infoViewCollapsible")
                     .accessibility(hint: self.expanded ? Text("collapse".localized) : Text("expand".localized))
                     .onTapGesture {
                         withAnimation{

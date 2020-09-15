@@ -33,6 +33,7 @@ public struct SBBInfoView: View {
             .cornerRadius(16)
             .accentColor(SBBColor.textBlack)
             .accessibilityElement(children: .combine)
+            .accessibility(identifier: "infoView")
     }
 }
 
