@@ -30,7 +30,7 @@ pipeline {
     stages {
         stage('Unit Test') {
             steps {
-                node('ios-beta') {
+                node('ios') {
                     checkout scm
                     fastlane lane:'unit_test', scheme:'SBBMobileDesignSystemSwiftUIDemo'
                     archive 'build/*_reports/**/*'
@@ -44,13 +44,13 @@ pipeline {
             steps {
                 parallel(
                     'SBBMobileDesignSystemSwiftUI': {
-                        node('ios-beta') {
+                        node('ios') {
                             checkout scm
                             fastlane lane:'framework_build', scheme:'SBBMobileDesignSystemSwiftUI', repo_artifact_id:'mobiledesignsystemswiftui-ios', stash_to:'mobiledesignsystemswiftui-ios'
                         }
                     },
                     'SBBMobileDesignSystemSwiftUIDemo': {
-                        node('ios-beta') {
+                        node('ios') {
                             checkout scm
                             fastlane lane:'appstore_build', scheme:'SBBMobileDesignSystemSwiftUIDemo', app_identifier:'ch.sbb.SBBMobileDesignSystemSwiftUIDemo', repo_artifact_id:'mobiledesignsystemswiftuidemo-ios', team_profile:'sbb_cargo_appstore', stash_to:'mobiledesignsystemswiftuidemo-ios'
                         }
@@ -65,7 +65,7 @@ pipeline {
             steps {
                 parallel(
                     'SBBMobileDesignSystemSwiftUI': {
-						node('ios-beta') {
+						node('ios') {
 							checkout scm
 							fastlane unstash_from:'mobiledesignsystemswiftuidemo-ios', lane:'upload_testflight', team_profile:'sbb_cargo_appstore'
 						}
@@ -77,7 +77,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                node('ios-beta') {
+                node('ios') {
                     checkout scm
                     fastlane lane:'release_ios', unstash_from:'mobiledesignsystemswiftui-ios'
                 }
