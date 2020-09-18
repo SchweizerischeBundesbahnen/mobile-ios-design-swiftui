@@ -21,16 +21,20 @@ struct ToggleDemo: View {
                 Toggle(isOn: $toggle1) {
                     Text("Toggle on")
                 }
+                    .toggleStyle(SBBSwitchStyle())
                 Toggle(isOn: $toggle2) {
                     Text("Toggle on disabled")
                 }
+                    .toggleStyle(SBBSwitchStyle())
                     .disabled(true)
                 Toggle(isOn: $toggle3) {
                     Text("Toggle off")
                 }
+                    .toggleStyle(SBBSwitchStyle())
                 Toggle(isOn: $toggle4) {
                     Text("Toggle off disabled")
                 }
+                    .toggleStyle(SBBSwitchStyle())
                     .disabled(true)
                 Spacer()
             }

@@ -353,6 +353,27 @@ SBBOnboardingView is used to present basic app functionality to your users on th
     }
 ```
 
+This also possible with a shortand init when having just one `SBBOnboardingCardView`.
+
+```   
+    let startViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
+    let endViewModel = SBBOnboardingTitleViewModel(image: Image("Your Image"), title: Text("Your Title"))
+    
+    @State var onboardingState: SBBOnboardingState = .hidden    // You will typically persist this state to UserDefaults
+
+    var body: some View {
+        Group {
+            if onboardingViewModel.state == .hidden {
+                // your ContentView here (NavigationView goes also here, if you want to use it)
+            } else {
+            SBBOnboardingView(state: $onboardingState, startViewModel: startViewModel, endViewModel: endViewModel) {
+                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Only card"), text: Text("Text Card"))
+                }
+            }
+        }
+    }
+```
+
 ### SBBOnboardingTitleView
 
 SBBOnboardingTitleView is used for the start and end view of SBBOnboardingView. You can specify an image and a text to display.
