@@ -20,7 +20,7 @@ pipeline {
         BIN_GROUP_ID = "ch/sbb/designsystem-swiftui"
         
         // Xcode
-        REQUIRED_XCODE_VERSION = "~> 11.6.0"
+        REQUIRED_XCODE_VERSION = "~> 12.0"
 
         // SBBCocoaPods (podspec)
         POD_REPO_NAME = "sbb-scm-kd_cp-sbbcocoapods"

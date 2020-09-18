@@ -66,9 +66,7 @@ struct OnboardingViewDemo: View {
                     .navigationBarTitle("Onboarding")
                     .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
             } else {
-                SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: startView, endView: endView) {
-                    createCardViews()
-                }
+                SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: startView, endView: endView, content: createCardViews)
                     .alert(isPresented: $showingAlert) {
                         Alert(title: Text("Custom Action"), message: Text("This alert is presented as a custom executable action on card disappear."), dismissButton: .default(Text("Got it!")))
                     }
