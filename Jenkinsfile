@@ -77,9 +77,11 @@ pipeline {
             }
         }
         stage('Release Tag') {
+            /*
             when {
                 branch 'master'
             }
+            */
             steps {
                 node('ios') {
                     checkout scm
