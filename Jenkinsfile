@@ -28,25 +28,29 @@ pipeline {
         PODSPEC_RELEASE = "true"
     }
     stages {
+        /*
         stage('Unit Test') {
             steps {
                 node('ios') {
                     checkout scm
                     fastlane lane:'unit_test', scheme:'SBBMobileDesignSystemSwiftUIDemo'
-                    archive 'build/*_reports/**/*'
+                    archive 'build/*_reports/** /*'
                 }
             }
         }
+        */
         stage('Build & Sign') {
+            /*
             when {
                 expression { BRANCH_NAME ==~ /(master|release\/.*)/ }
             }
+            */
             steps {
                 parallel(
                     'SBBMobileDesignSystemSwiftUI': {
                         node('ios') {
                             checkout scm
-                            fastlane lane:'framework_build', scheme:'SBBMobileDesignSystemSwiftUI', repo_artifact_id:'mobiledesignsystemswiftui-ios', stash_to:'mobiledesignsystemswiftui-ios'
+                            fastlane lane:'iphoneos_framework_build', scheme:'SBBMobileDesignSystemSwiftUI', repo_artifact_id:'mobiledesignsystemswiftui-ios', stash_to:'mobiledesignsystemswiftui-ios'
                         }
                     },
                     'SBBMobileDesignSystemSwiftUIDemo': {
