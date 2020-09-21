@@ -46,7 +46,7 @@ pipeline {
                     'SBBMobileDesignSystemSwiftUI': {
                         node('ios') {
                             checkout scm
-                            fastlane lane:'framework_build', scheme:'SBBMobileDesignSystemSwiftUI', repo_artifact_id:'mobiledesignsystemswiftui-ios', stash_to:'mobiledesignsystemswiftui-ios'
+                            fastlane lane:'xcframework_ios_build', scheme:'SBBMobileDesignSystemSwiftUI', repo_artifact_id:'mobiledesignsystemswiftui-ios', stash_to:'mobiledesignsystemswiftui-ios'
                         }
                     },
                     'SBBMobileDesignSystemSwiftUIDemo': {
@@ -55,7 +55,7 @@ pipeline {
                             fastlane lane:'appstore_build', scheme:'SBBMobileDesignSystemSwiftUIDemo', app_identifier:'ch.sbb.SBBMobileDesignSystemSwiftUIDemo', repo_artifact_id:'mobiledesignsystemswiftuidemo-ios', team_profile:'sbb_cargo_appstore', stash_to:'mobiledesignsystemswiftuidemo-ios'
                         }
                     }
-                    )
+                )
             }
         }
         stage('TestFlight') {
