@@ -22,7 +22,7 @@ struct TextFieldView: View {
             Text("With placeholder:")
             SBBTextField(text: $text3, label: "Placeholder").disabled(disabled)
             SBBTextField(text: $text4, label: "Placeholder").disabled(disabled)
-            SBBCheckBox(isOn: $disabled, label: "Disabled")
+            SBBCheckBox(isOn: $disabled, label: Text("Disabled"), showTextFieldLine: false)
             Spacer()
         }
         .navigationBarTitle("TextField")

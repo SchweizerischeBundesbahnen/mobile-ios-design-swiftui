@@ -1,5 +1,11 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.21 - 07 October 2020
+
+### Improvements
+* SBBCheckBox now also supports custom content (and an optional image)
+* SBBCheckBox VoiceOver frame is now also correct on iOS 14
+
 ## V0.1.20 - 18 September 2020
 
 ### Improvements

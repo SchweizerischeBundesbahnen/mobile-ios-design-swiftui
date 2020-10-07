@@ -49,9 +49,9 @@ struct OnboardingViewDemo: View {
                         .padding(16)
                     }
                     SBBFormGroup(title: "Customize Content") {
-                        SBBCheckBox(isOn: self.$viewModel.withCustomButton, label: "Card with additional custom content")
-                        SBBCheckBox(isOn: self.$viewModel.withCustomAction, label: "Card with custom action")
-                        SBBCheckBox(isOn: self.$viewModel.withCustomCard, label: "Custom Card")
+                        SBBCheckBox(isOn: self.$viewModel.withCustomButton, label: Text("Card with additional custom content"))
+                        SBBCheckBox(isOn: self.$viewModel.withCustomAction, label: Text("Card with custom action"))
+                        SBBCheckBox(isOn: self.$viewModel.withCustomCard, label: Text("Custom Card"))
                     }
                     Spacer()
                     Button(action: {

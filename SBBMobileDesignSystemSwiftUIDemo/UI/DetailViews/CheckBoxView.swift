@@ -13,16 +13,51 @@ struct CheckBoxView: View {
     @State private var isDisabled = false
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text("Checkbox").sbbFont(.tableHeader)
-            SBBCheckBox(isOn: $isOn).padding(16).disabled(isDisabled)
-            SBBCheckBox(isOn: $isOff).padding(16).disabled(isDisabled)
-            SBBCheckBox(isOn: $isOn, label: "Label").disabled(isDisabled)
-            SBBCheckBox(isOn: $isOff, label: "Label").disabled(isDisabled)
-            SBBCheckBox(isOn: $isDisabled, label: "Disabled")
-            Spacer()
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 16) {
+                Toggle(isOn: $isDisabled) {
+                    Text("Disable Checkboxes")
+                        .sbbFont(.body)
+                }
+                    .toggleStyle(SBBSwitchStyle())
+                VStack(alignment: .leading, spacing: 0) {
+                    SBBCheckBox(isOn: $isOn, label: Text("Normal Checkbox"), showTextFieldLine: false)
+                        .disabled(isDisabled)
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: Text("Checkbox with Icon"), showTextFieldLine: false)
+                        .disabled(isDisabled)
+                    SBBCheckBox(isOn: $isOn, showTextFieldLine: false) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Custom Checkbox")
+                                .sbbFont(.body)
+                            Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln.")
+                                .sbbFont(.body)
+                            Text("Modell: iPhone 11 Pro\niOS Version: 14.0")
+                                .sbbFont((.legend))
+                        }
+                    }
+                        .disabled(isDisabled)
+                }
+                SBBFormGroup(title: "Checkbox in FormGroup") {
+                    SBBCheckBox(isOn: $isOn, label: Text("Normal Checkbox with line"))
+                        .disabled(isDisabled)
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: Text("Checkbox with Icon and line"))
+                        .disabled(isDisabled)
+                    SBBCheckBox(isOn: $isOn) {
+                        VStack(alignment: .leading, spacing: 8) {
+                            Text("Custom Checkbox with line")
+                                .sbbFont(.body)
+                            Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln.")
+                                .sbbFont(.body)
+                            Text("Modell: iPhone 11 Pro\niOS Version: 14.0")
+                                .sbbFont((.legend))
+                        }
+                    }
+                        .disabled(isDisabled)
+                }
+                Spacer()
+            }
+                .padding(16)
         }
-        .padding(16)
         .navigationBarTitle("CheckBox")
         .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
