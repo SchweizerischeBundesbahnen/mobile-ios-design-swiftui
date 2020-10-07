@@ -17,15 +17,15 @@ struct FormGroupView: View {
             VStack(spacing: 24) {
                 SBBFormGroup(title: "Title:") {
                     SBBTextField(text: self.$emptyText, label: "Placeholder")
-                    SBBCheckBox(isOn: self.$isOn, label: Text("CheckBox"))
+                    SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
                     SBBTextField(text: self.$text, label: "Placeholder")
-                    SBBCheckBox(isOn: self.$isOn, label: Text("CheckBox"))
+                    SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
                 }
                 Text("No title:")
                 SBBFormGroup {
-                    SBBCheckBox(isOn: self.$isOn, label: Text("CheckBox"))
+                    SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
                     SBBTextField(text: self.$emptyText, label: "Placeholder")
-                    SBBCheckBox(isOn: self.$isOn, label: Text("CheckBox"))
+                    SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
                     SBBTextField(text: self.$text, label: "Placeholder")
                 }
                 SBBFormGroup(title: "One row:") {

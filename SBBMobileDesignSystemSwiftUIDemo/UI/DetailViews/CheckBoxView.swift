@@ -21,9 +21,9 @@ struct CheckBoxView: View {
                 }
                     .toggleStyle(SBBSwitchStyle())
                 VStack(alignment: .leading, spacing: 0) {
-                    SBBCheckBox(isOn: $isOn, label: Text("Normal Checkbox"), showTextFieldLine: false)
+                    SBBCheckBox(isOn: $isOn, label: "Normal Checkbox", showTextFieldLine: false)
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: Text("Checkbox with Icon"), showTextFieldLine: false)
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: "Checkbox with Icon", showTextFieldLine: false)
                         .disabled(isDisabled)
                     SBBCheckBox(isOn: $isOn, showTextFieldLine: false) {
                         VStack(alignment: .leading, spacing: 8) {
@@ -38,9 +38,9 @@ struct CheckBoxView: View {
                         .disabled(isDisabled)
                 }
                 SBBFormGroup(title: "Checkbox in FormGroup") {
-                    SBBCheckBox(isOn: $isOn, label: Text("Normal Checkbox with line"))
+                    SBBCheckBox(isOn: $isOn, label: "Normal Checkbox with line")
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: Text("Checkbox with Icon and line"))
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: "Checkbox with Icon and line")
                         .disabled(isDisabled)
                     SBBCheckBox(isOn: $isOn) {
                         VStack(alignment: .leading, spacing: 8) {

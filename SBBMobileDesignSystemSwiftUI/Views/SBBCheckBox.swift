@@ -5,10 +5,10 @@
 import SwiftUI
 
 public extension SBBCheckBox where Content == EmptyView {
-    init(isOn: Binding<Bool>, image: Image? = nil, label: Text, showTextFieldLine: Bool = true) {
+    init(isOn: Binding<Bool>, image: Image? = nil, label: String, showTextFieldLine: Bool = true) {
         self._isOn = isOn
         self.image = image
-        self.label = label
+        self.label = LocalizedStringKey(label)
         self.showTextFieldLine = showTextFieldLine
         self.content = nil
     }
@@ -19,7 +19,7 @@ public struct SBBCheckBox<Content>: View where Content: View {
     @Environment(\.isEnabled) private var isEnabled
     @Binding private var isOn: Bool
     private var image: Image?
-    private var label: Text?
+    private var label: LocalizedStringKey?
     private let content: Content?
     private let showTextFieldLine: Bool
     
@@ -55,7 +55,7 @@ public struct SBBCheckBox<Content>: View where Content: View {
                         .accessibility(hidden: true)
                 }
                 if label != nil {
-                    label!
+                    Text(label!)
                         .sbbFont(.body)
                         .padding(.top, 2)
                         .fixedSize(horizontal: false, vertical: true)
@@ -90,14 +90,14 @@ public struct SBBCheckBox<Content>: View where Content: View {
 struct SBBCheckBox_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBCheckBox(isOn: .constant(true), label: Text("Label"))
+            SBBCheckBox(isOn: .constant(true), label: "Label")
                 .previewDisplayName("Light, text only")
-            SBBCheckBox(isOn: .constant(true), label: Text("Label"))
+            SBBCheckBox(isOn: .constant(true), label: "Label")
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark, text only")
-            SBBCheckBox(isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), label: Text("Label"))
+            SBBCheckBox(isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
                 .previewDisplayName("Light, with image")
-            SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), label: Text("Label"))
+            SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
                 .disabled(true)
                 .previewDisplayName("Light, disabled")
             SBBCheckBox(isOn: .constant(true)) {

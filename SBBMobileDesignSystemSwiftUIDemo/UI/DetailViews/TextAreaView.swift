@@ -31,7 +31,7 @@ struct TextAreaView: View {
             SBBTextArea(text: $text)
                 .frame(maxHeight: 100)
                 .disabled(disabled)
-            SBBCheckBox(isOn: $disabled, label: Text("Disabled"), showTextFieldLine: false)
+            SBBCheckBox(isOn: $disabled, label: "Disabled", showTextFieldLine: false)
             Spacer()
         }
         .padding(16)
