@@ -229,15 +229,21 @@ You can use the SBBSegmentedPicker like so:
 
 ## SBBCheckBox
 
-SBBCheckBox is a SBB-styled SwiftUI Toggle.
+SBBCheckBox is a SBB-styled SwiftUI Toggle. You can use it by passing Text and optionally Image as init parameters. Alternatively you can also pass your custom View(s) as content. By default, SBBCheckBox shows a separator line at its bottom since it will mostly be used inside SBBFormGroup. However you can also optionally hide the separator line.
 
 ```
     @State private var isOn = true
+    @State private var disabled = true
     
     var body: some View {
         VStack {
-            SBBCheckBox(isOn: $isOn)
-            SBBCheckBox(isOn: $isOn, label: "Label")
+            SBBCheckBox(isOn: $isOn, label: Text("Label"))
+            SBBCheckBox(isOn: $isOn, image: Image("your image"), label: Text("Label"))  // with additional image
+                .disabled(disabled)
+            SBBCheckBox(isOn: $isOn) {                                                  // with custom content
+                // Your custom content
+            }
+            SBBCheckBox(isOn: $isOn, label: Text("Label"), showTextFieldLine: false)    // hiding the separator line
         }
     }
 ```
