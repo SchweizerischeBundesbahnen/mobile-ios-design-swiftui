@@ -78,6 +78,14 @@ You can use colors like so:
     SBBColor.red    // returns Color (not UIColor)
 ```
 
+### UIColor
+
+Sometimes it it necessary to create a UIViewRepresentable or UIViewControllerRepresentable. Inside these you can use SBB Colors as follows:
+
+```
+    SBBColor.color(withSBBColor: .textMetal) // returns UIColor (not Color)
+```
+
 ## Fonts
 
 There are 2 ways in which you can use SBB Fonts
@@ -106,6 +114,15 @@ You can use .sbbFont() like so:
     Text("SBB Body\(longText)")
         .sbbFont(.body)
         .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWhite
+```
+
+### Using UIFont in UIKit
+
+Sometimes it it necessary to create a UIViewRepresentable or UIViewControllerRepresentable. Inside these you can use SBB Fonts with UIFont as follows:
+
+```
+    headerWhiteLabel.font = .sbbHeader
+    headerWhiteLabel.textColor = SBBColor.color(withSBBColor: .textWhite)
 ```
 
 ## Icons
