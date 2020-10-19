@@ -11,7 +11,6 @@ import SBBMobileDesignSystemSwiftUI
 
 class TypographyViewController: UIViewController {
     
-
     @IBOutlet weak var headerWhiteLabel: UILabel!
     @IBOutlet weak var headlineBlackLabel: UILabel!
     @IBOutlet weak var headlineWhiteLabel: UILabel!
@@ -37,28 +36,27 @@ class TypographyViewController: UIViewController {
         navigationItem.title = "Typography"
         
         headerWhiteLabel.font = .sbbHeader
-        headerWhiteLabel.textColor = SBBColor.color(withSBBColor: .textWhite)
+        headerWhiteLabel.textColor = .sbbColor(.textWhite)
         
         headlineBlackLabel.font = .sbbHeadline
         
         headlineWhiteLabel.font = .sbbHeadline
-        headlineWhiteLabel.textColor = SBBColor.color(withSBBColor: .textWhite)
+        headlineWhiteLabel.textColor = .sbbColor(.textWhite)
         
         titleBlackLabel.font = .sbbTitleDefault
         titleMetalLabel.font = .sbbTitleDefault
-        titleMetalLabel.textColor = SBBColor.color(withSBBColor: .textMetal)
+        titleMetalLabel.textColor = .sbbColor(.textMetal)
         
         titleModulLabel.font = .sbbTitleModul
         
         subtitleBlackLabel.font = .sbbSubtitle
         subtitleMetalLabel.font = .sbbSubtitle
-        subtitleMetalLabel.textColor = SBBColor.color(withSBBColor: .textMetal)
+        subtitleMetalLabel.textColor = .sbbColor(.textMetal)
         
         copyBlackLabel.font = .sbbCopy
         
         copyWhiteLabel.font = .sbbCopy
         copyWhiteLabel.textColor = .white
-        
         
         bodyBlackLabel.font = .sbbBody
         bodyBlackLabel.text = """
@@ -67,14 +65,14 @@ class TypographyViewController: UIViewController {
         """
         
         bodyMetalLabel.font = .sbbBody
-        bodyMetalLabel.textColor = SBBColor.color(withSBBColor: .textMetal)
+        bodyMetalLabel.textColor = .sbbColor(.textMetal)
         bodyMetalLabel.text = """
         SBB Body metal
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
         bodyRedLabel.font = .sbbBody
-        bodyRedLabel.textColor = SBBColor.color(withSBBColor: .textRed)
+        bodyRedLabel.textColor = .sbbColor(.textRed)
         bodyRedLabel.text = """
         SBB Body red
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat. thisl
@@ -87,21 +85,21 @@ class TypographyViewController: UIViewController {
         """
         
         legendNormalMetalLabel.font = .sbbLegend
-        legendNormalMetalLabel.textColor = SBBColor.color(withSBBColor: .textMetal)
+        legendNormalMetalLabel.textColor = .sbbColor(.textMetal)
         legendNormalMetalLabel.text = """
         SBB Legend Normal metal
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
         legendNormalRedLabel.font = .sbbLegend
-        legendNormalRedLabel.textColor = SBBColor.color(withSBBColor: .textRed)
+        legendNormalRedLabel.textColor = .sbbColor(.textRed)
         legendNormalRedLabel.text = """
         SBB Legend Normal red
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
         legendNormalWhiteLabel.font = .sbbLegend
-        legendNormalWhiteLabel.textColor = SBBColor.color(withSBBColor: .textWhite)
+        legendNormalWhiteLabel.textColor = .sbbColor(.textWhite)
         legendNormalWhiteLabel.text = """
         SBB Legend Normal white
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
