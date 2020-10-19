@@ -8,7 +8,7 @@ import SBBMobileDesignSystemSwiftUI
 struct TypographyView: View {
     
     @Binding var colorScheme: ColorScheme
-    @State var fontView: Int = 1
+    @State var fontView: Int = 4
     @State var infoViewExpanded: Bool = true
     
     var body: some View {
@@ -37,7 +37,7 @@ struct TypographyView: View {
             }
             if fontView == 4 {
                 // putting it here, because the storyboard view already has a UIScrollView. And a UIScrollView inside a ScrollView makes the UIScrollView disappear. No time to find out why...be my guest if you are curious.
-                TypographyUIKitView()
+                TypographyUIKitView(isDarkMode: colorScheme == .dark)
             }
         }
             .navigationBarTitle("Typography")

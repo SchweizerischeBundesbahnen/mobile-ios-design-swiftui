@@ -1,8 +1,4 @@
 //
-//  ME01TypographyViewController.swift
-//  MobileDesignSystem
-//
-//  Created by Terence on 13.07.18.
 //  Copyright © 2018 SBB. All rights reserved.
 //
 
@@ -39,26 +35,34 @@ class TypographyViewController: UIViewController {
         headerWhiteLabel.textColor = .sbbColor(.textWhite)
         
         headlineBlackLabel.font = .sbbHeadline
+        headlineBlackLabel.textColor = .sbbColor(.textBlack)
         
         headlineWhiteLabel.font = .sbbHeadline
         headlineWhiteLabel.textColor = .sbbColor(.textWhite)
         
         titleBlackLabel.font = .sbbTitleDefault
+        titleBlackLabel.textColor = .sbbColor(.textBlack)
+        
         titleMetalLabel.font = .sbbTitleDefault
         titleMetalLabel.textColor = .sbbColor(.textMetal)
         
         titleModulLabel.font = .sbbTitleModul
+        titleModulLabel.textColor = .sbbColor(.textBlack)
         
         subtitleBlackLabel.font = .sbbSubtitle
+        subtitleBlackLabel.textColor = .sbbColor(.textBlack)
+        
         subtitleMetalLabel.font = .sbbSubtitle
         subtitleMetalLabel.textColor = .sbbColor(.textMetal)
         
         copyBlackLabel.font = .sbbCopy
+        copyBlackLabel.textColor = .sbbColor(.textBlack)
         
         copyWhiteLabel.font = .sbbCopy
         copyWhiteLabel.textColor = .white
         
         bodyBlackLabel.font = .sbbBody
+        bodyBlackLabel.textColor = .sbbColor(.textBlack)
         bodyBlackLabel.text = """
         SBB Body black
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
@@ -79,6 +83,7 @@ class TypographyViewController: UIViewController {
         """
         
         legendNormalBlackLabel.font = .sbbLegend
+        legendNormalBlackLabel.textColor = .sbbColor(.textBlack)
         legendNormalBlackLabel.text = """
         SBB Legend Normal black
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
@@ -106,6 +111,7 @@ class TypographyViewController: UIViewController {
         """
         
         legendSmallLabel.font = .sbbLegendSmall
+        legendSmallLabel.textColor = .sbbColor(.textBlack)
         legendSmallLabel.text = """
         SBB Legend Small
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
