@@ -11,7 +11,7 @@
         <!--Typography View Controller-->
         <scene sceneID="Iwi-va-46e">
             <objects>
-                <viewController storyboardIdentifier="ME01TypographyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1qC-Ln-eKJ" customClass="ME01TypographyViewController" customModule="INT_MobileDesignSystem" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TypographyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1qC-Ln-eKJ" customClass="TypographyViewController" customModule="SBBMobileDesignSystemSwiftUIDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iwB-qU-TfH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X2Y-xP-Cfr">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="SBB Header white" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkg-f7-bvG" customClass="SBBLabelHeader" customModule="MobileDesignSystemSDK">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="SBB Header white" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkg-f7-bvG">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -43,7 +43,7 @@
                                                             <constraint firstAttribute="trailing" secondItem="fkg-f7-bvG" secondAttribute="trailing" id="aLc-ib-SLq"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Headline black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lq-Sg-YP0" customClass="SBBLabelHeadlineBlack" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Headline black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Lq-Sg-YP0">
                                                         <rect key="frame" x="97.5" y="35.5" width="148.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -52,7 +52,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o8t-xz-zX4">
                                                         <rect key="frame" x="0.0" y="71" width="343" height="20.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="SBB Headline white" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIh-MT-Inl" customClass="SBBLabelHeadlineWhite" customModule="MobileDesignSystemSDK">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="SBB Headline white" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIh-MT-Inl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -67,37 +67,37 @@
                                                             <constraint firstItem="LIh-MT-Inl" firstAttribute="leading" secondItem="o8t-xz-zX4" secondAttribute="leading" id="e34-6y-Ydh"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Title Default black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiR-bF-Avr" customClass="SBBLabelTitleDefaultBlack" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Title Default black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tiR-bF-Avr">
                                                         <rect key="frame" x="85" y="106.5" width="173.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Title Default metal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq6-Hq-mWP" customClass="SBBLabelTitleDefaultMetal" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Title Default metal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fq6-Hq-mWP">
                                                         <rect key="frame" x="84" y="142" width="175" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Title Modul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-xE-1Ys" customClass="SBBLabelTitleModul" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Title Modul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-xE-1Ys">
                                                         <rect key="frame" x="111" y="177.5" width="121" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Subtitle black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3S-Ay-AFo" customClass="SBBLabelSubtitleBlack" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Subtitle black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3S-Ay-AFo">
                                                         <rect key="frame" x="101.5" y="213" width="140" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Subtitle metal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hya-wN-wWB" customClass="SBBLabelSubtitleMetal" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Subtitle metal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hya-wN-wWB">
                                                         <rect key="frame" x="101" y="248.5" width="141.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Copy black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcQ-dL-Vxf" customClass="SBBLabelCopyBlack" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Copy black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcQ-dL-Vxf">
                                                         <rect key="frame" x="111" y="284" width="121.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -106,7 +106,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dge-Wk-HBL">
                                                         <rect key="frame" x="0.0" y="319.5" width="343" height="20.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="SBB Copy white" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vZ-Jm-ECa" customClass="SBBLabelCopyWhite" customModule="MobileDesignSystemSDK">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="SBB Copy white" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1vZ-Jm-ECa">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -121,37 +121,37 @@
                                                             <constraint firstItem="1vZ-Jm-ECa" firstAttribute="leading" secondItem="Dge-Wk-HBL" secondAttribute="leading" id="tIH-vP-ykU"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Body black" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZs-5z-dxI" customClass="SBBLabelBodyBlack" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Body black" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZs-5z-dxI">
                                                         <rect key="frame" x="111.5" y="355" width="120.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Body metal" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Quk-gk-Bxk" customClass="SBBLabelBodyMetal" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Body metal" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Quk-gk-Bxk">
                                                         <rect key="frame" x="110.5" y="390.5" width="122" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Body red" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHo-qH-Y4d" customClass="SBBLabelBodyRed" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Body red" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHo-qH-Y4d">
                                                         <rect key="frame" x="119" y="426" width="105" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Legend Normal black" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5Z-GQ-bhv" customClass="SBBLabelLegendNormalBlack" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Legend Normal black" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5Z-GQ-bhv">
                                                         <rect key="frame" x="72.5" y="461.5" width="198" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Legend Normal metal" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCj-Mp-OAi" customClass="SBBLabelLegendNormalMetal" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Legend Normal metal" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCj-Mp-OAi">
                                                         <rect key="frame" x="72" y="497" width="199.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Legend Normal red" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJB-yA-sxT" customClass="SBBLabelLegendNormalRed" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Legend Normal red" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tJB-yA-sxT">
                                                         <rect key="frame" x="80.5" y="532.5" width="182" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -160,7 +160,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I5n-on-TN7">
                                                         <rect key="frame" x="0.0" y="568" width="343" height="20.5"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="SBB Legend Normal white" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kro-Ts-cXb" customClass="SBBLabelLegendNormalWhite" customModule="MobileDesignSystemSDK">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="SBB Legend Normal white" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kro-Ts-cXb">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
@@ -175,7 +175,7 @@
                                                             <constraint firstItem="kro-Ts-cXb" firstAttribute="top" secondItem="I5n-on-TN7" secondAttribute="top" id="veP-Yd-X2g"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Legend Small" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrF-Wc-y45" customClass="SBBLabelLegendSmall" customModule="MobileDesignSystemSDK">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SBB Legend Small" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vrF-Wc-y45">
                                                         <rect key="frame" x="102" y="603.5" width="139" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -235,7 +235,11 @@
                         <outlet property="legendNormalRedLabel" destination="tJB-yA-sxT" id="5tn-bW-3Vf"/>
                         <outlet property="legendNormalWhiteLabel" destination="kro-Ts-cXb" id="wzj-FC-3kb"/>
                         <outlet property="legendSmallLabel" destination="vrF-Wc-y45" id="0xc-uG-H1B"/>
+                        <outlet property="subtitleBlackLabel" destination="W3S-Ay-AFo" id="tez-gT-WgQ"/>
+                        <outlet property="subtitleMetalLabel" destination="hya-wN-wWB" id="Jhx-ps-Gb3"/>
                         <outlet property="titleBlackLabel" destination="tiR-bF-Avr" id="XgV-Px-I0o"/>
+                        <outlet property="titleMetalLabel" destination="fq6-Hq-mWP" id="Bfx-9G-2Cv"/>
+                        <outlet property="titleModulLabel" destination="iaI-xE-1Ys" id="Im1-g9-X2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FZJ-5B-CQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -243,60 +247,4 @@
             <point key="canvasLocation" x="3030" y="286"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="1vZ-Jm-ECa">
-            <size key="intrinsicContentSize" width="121.5" height="20.5"/>
-        </designable>
-        <designable name="7Lq-Sg-YP0">
-            <size key="intrinsicContentSize" width="148.5" height="20.5"/>
-        </designable>
-        <designable name="HCj-Mp-OAi">
-            <size key="intrinsicContentSize" width="199.5" height="20.5"/>
-        </designable>
-        <designable name="LIh-MT-Inl">
-            <size key="intrinsicContentSize" width="148.5" height="20.5"/>
-        </designable>
-        <designable name="MHo-qH-Y4d">
-            <size key="intrinsicContentSize" width="105" height="20.5"/>
-        </designable>
-        <designable name="Quk-gk-Bxk">
-            <size key="intrinsicContentSize" width="122" height="20.5"/>
-        </designable>
-        <designable name="W3S-Ay-AFo">
-            <size key="intrinsicContentSize" width="140" height="20.5"/>
-        </designable>
-        <designable name="cZs-5z-dxI">
-            <size key="intrinsicContentSize" width="120.5" height="20.5"/>
-        </designable>
-        <designable name="fkg-f7-bvG">
-            <size key="intrinsicContentSize" width="137.5" height="20.5"/>
-        </designable>
-        <designable name="fq6-Hq-mWP">
-            <size key="intrinsicContentSize" width="175" height="20.5"/>
-        </designable>
-        <designable name="hya-wN-wWB">
-            <size key="intrinsicContentSize" width="141.5" height="20.5"/>
-        </designable>
-        <designable name="iaI-xE-1Ys">
-            <size key="intrinsicContentSize" width="121" height="20.5"/>
-        </designable>
-        <designable name="kro-Ts-cXb">
-            <size key="intrinsicContentSize" width="198" height="20.5"/>
-        </designable>
-        <designable name="n5Z-GQ-bhv">
-            <size key="intrinsicContentSize" width="198" height="20.5"/>
-        </designable>
-        <designable name="qcQ-dL-Vxf">
-            <size key="intrinsicContentSize" width="121.5" height="20.5"/>
-        </designable>
-        <designable name="tJB-yA-sxT">
-            <size key="intrinsicContentSize" width="182" height="20.5"/>
-        </designable>
-        <designable name="tiR-bF-Avr">
-            <size key="intrinsicContentSize" width="173.5" height="20.5"/>
-        </designable>
-        <designable name="vrF-Wc-y45">
-            <size key="intrinsicContentSize" width="139" height="20.5"/>
-        </designable>
-    </designables>
 </document>

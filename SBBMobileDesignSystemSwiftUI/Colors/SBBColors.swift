@@ -1,8 +1,4 @@
 //
-//  SBBColors.swift
-//  SBBMobileDesignSystemSwiftUI
-//
-//  Created by Georgios Antoniadis on 23.01.20.
 //  Copyright © 2020 SBB. All rights reserved.
 //
 
@@ -70,5 +66,9 @@ public struct SBBColor {
     
     private static func color(withString color: String) -> Color {
         return Color(UIColor(named: color, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white)
+    }
+    
+    public static func color(withSBBColor colorName: SBBColorName) -> UIColor {
+        return UIColor(named: colorName.rawValue, in: Helper.bundle, compatibleWith: nil) ?? UIColor.white
     }
 }

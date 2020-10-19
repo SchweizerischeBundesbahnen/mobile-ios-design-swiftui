@@ -7,15 +7,13 @@ import SBBMobileDesignSystemSwiftUI
 
 struct TypographyUIKitView: UIViewControllerRepresentable {
     
-    func makeUIViewController(context: Context) -> ME01TypographyViewController {
+    func makeUIViewController(context: Context) -> TypographyViewController {
         let sb = UIStoryboard(name: "Typography", bundle: .main)
-        let ctrl = sb.instantiateViewController(identifier: "ME01TypographyViewController")
-        
-        return ctrl as! ME01TypographyViewController
+        let ctrl = sb.instantiateViewController(identifier: "TypographyViewController")
+        return ctrl as! TypographyViewController
     }
     
-    func updateUIViewController(_ uiViewController: ME01TypographyViewController, context: Context) {
-        
+    func updateUIViewController(_ uiViewController: TypographyViewController, context: Context) {
     }
     
 }

@@ -5,7 +5,7 @@
 import Foundation
 import UIKit
 
-extension UIFont {
+public extension UIFont {
     
 static var sbbHeader: UIFont {
     UIAccessibility.isBoldTextEnabled ? sbbBold(size: 22) : sbbLight(size: 22)

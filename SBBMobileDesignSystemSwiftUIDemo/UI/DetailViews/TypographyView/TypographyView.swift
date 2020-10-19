@@ -13,10 +13,11 @@ struct TypographyView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            SBBSegmentedPicker(selection: $fontView, tags: [1, 2, 3]) {
+            SBBSegmentedPicker(selection: $fontView, tags: [1, 2, 3, 4]) {
                 Text(".font")
-                Text(".sbbFont")
+                Text(".sbb Font")
                 Text("custom")
+                Text("UIFont")
             }
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
@@ -29,8 +30,14 @@ struct TypographyView: View {
                     } else if fontView == 3 {
                         SBBInfoViewCollapsible(title: Text("ReadMe   -   Custom Font"), detail: Text("Using the .font(.sbbFont(size: 10)) you can create your own Font based on the available SBB Font Styles by specifying a size of your choice"), expanded: $infoViewExpanded)
                         TypographyCustomFontView()
+                    } else if fontView == 4 {
+                        SBBInfoViewCollapsible(title: Text("ReadMe   -   UIKit"), detail: Text("In case you use UIKit Views with UIViewRepresentable or UIViewControllerRepresentable, you can use the SBB Font Styles on UIFont. Line spacing is not applied."), expanded: $infoViewExpanded)
                     }
                 }
+            }
+            if fontView == 4 {
+                // putting it here, because the storyboard view already has a UIScrollView. And a UIScrollView inside a ScrollView makes the UIScrollView disappear. No time to find out why...be my guest if you are curious.
+                TypographyUIKitView()
             }
         }
             .navigationBarTitle("Typography")
