@@ -83,7 +83,7 @@ You can use colors like so:
 Sometimes it it necessary to create a UIViewRepresentable or UIViewControllerRepresentable. Inside these you can use SBB Colors as follows:
 
 ```
-    SBBColor.color(withSBBColor: .textMetal) // returns UIColor (not Color)
+    UIColor.sbbColor(.textBlack)
 ```
 
 ## Fonts
@@ -122,7 +122,7 @@ Sometimes it it necessary to create a UIViewRepresentable or UIViewControllerRep
 
 ```
     headerWhiteLabel.font = .sbbHeader
-    headerWhiteLabel.textColor = SBBColor.color(withSBBColor: .textWhite)
+    headerWhiteLabel.textColor = .sbbColor(.textWhite)
 ```
 
 ## Icons
