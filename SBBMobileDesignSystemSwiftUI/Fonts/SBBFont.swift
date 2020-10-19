@@ -51,6 +51,21 @@ public enum SBBFont {
         }
     }
     
+    var uiFont: UIFont {
+        switch self {
+        case .header: return .sbbHeader
+        case .headline: return .sbbHeadline
+        case .titleDefault: return .sbbTitleDefault
+        case .titleModul: return .sbbTitleModul
+        case .subtitle: return .sbbSubtitle
+        case .copy: return .sbbCopy
+        case .body: return .sbbBody
+        case .legend: return .sbbLegend
+        case .legendSmall: return .sbbLegendSmall
+        case .tableHeader: return .sbbTableHeader
+        }
+    }
+    
     var lineSpacing: CGFloat {
         switch self {
         case .header: return 2
