@@ -15,7 +15,7 @@ struct TypographyView: View {
         VStack(spacing: 16) {
             SBBSegmentedPicker(selection: $fontView, tags: [1, 2, 3, 4]) {
                 Text(".font")
-                Text(".sbbFont")
+                Text(".sbb Font")
                 Text("custom")
                 Text("UIFont")
             }
