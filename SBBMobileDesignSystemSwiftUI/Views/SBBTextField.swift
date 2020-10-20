@@ -23,9 +23,9 @@ public struct SBBTextField: View {
     private var bottomLineColor: Color {
         switch (isEnabled, isEditing) {
         case (true, true):
-            return SBBColor.textBlack
+            return .sbbColor(.textBlack)
         default:
-            return SBBColor.textfieldLineInactive
+            return .sbbColorInternal(.textfieldLineInactive)
         }
     }
     
@@ -36,7 +36,7 @@ public struct SBBTextField: View {
                     if !text.isEmpty {
                         Text(label!)
                             .font(.sbbLight(size: 10))
-                            .foregroundColor(SBBColor.placeholder)
+                            .foregroundColor(.sbbColor(.placeholder))
                             .opacity(text.isEmpty ? 0.0 : 1.0)
                             .accessibility(hidden: true)
                     }
@@ -48,7 +48,7 @@ public struct SBBTextField: View {
                         }
                     })
                         .sbbFont(.body)
-                        .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
+                        .foregroundColor(isEnabled ? .sbbColor(.textBlack) : .sbbColor(.textMetal))
                         .accessibility(label: text.isEmpty ? Text("") : Text(label!))
                 }
             } else {
@@ -60,7 +60,7 @@ public struct SBBTextField: View {
                     }
                 })
                     .sbbFont(.body)
-                    .foregroundColor(isEnabled ? SBBColor.textBlack : SBBColor.textMetal)
+                    .foregroundColor(isEnabled ? .sbbColor(.textBlack) : .sbbColor(.textMetal))
             }
         }
         .frame(minHeight: 48)

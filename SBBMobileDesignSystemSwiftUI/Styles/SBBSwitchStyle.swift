@@ -20,7 +20,7 @@ public struct SBBSwitchStyle: ToggleStyle {
         var body: some View {
             if #available(iOS 14.0, *) {
                 Toggle<ToggleStyleConfiguration.Label>(isOn: configuration.$isOn, label: { configuration.label })
-                    .toggleStyle(SwitchToggleStyle(tint: SBBColor.red))
+                    .toggleStyle(SwitchToggleStyle(tint: .sbbColor(.red)))
             } else {
                 Toggle<ToggleStyleConfiguration.Label>(isOn: configuration.$isOn, label: { configuration.label })
             }

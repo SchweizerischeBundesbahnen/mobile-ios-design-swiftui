@@ -26,12 +26,12 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
             ZStack(alignment: .leading) {
                 // Highlighter for current segment
                 Rectangle()
-                    .fill(SBBColor.tabViewBackground)
+                    .fill(Color.sbbColor(.tabViewBackground))
                     .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
                     .cornerRadius(20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(SBBColor.smoke, lineWidth: self.colorScheme == .dark ? 1 : 0)   // only draw border for dark mode
+                            .stroke(Color.sbbColor(.smoke), lineWidth: self.colorScheme == .dark ? 1 : 0)   // only draw border for dark mode
                     )
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selectionIndex))
@@ -52,7 +52,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                             }
                         }
                             .sbbFont(.body)
-                            .foregroundColor(SBBColor.textBlack)
+                            .foregroundColor(Color.sbbColor(.textBlack))
                             .padding(.horizontal, 16)
                             .frame(width: self.segmentWidth(parentWidth: geometry.size.width), height: 40)
                             .accessibility(hint: Text("\(index + 1) \("of".localized) \(self.segments.count)"))
@@ -68,7 +68,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
         }
             .padding(2)
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
-            .background(SBBColor.segmentedPickerBackground)
+            .background(Color.sbbColorInternal(.segmentedPickerBackground))
             .cornerRadius(22)
     }
     

@@ -47,7 +47,7 @@ public struct SBBListItem: View {
                     footnote!
                         .fixedSize(horizontal: false, vertical: true)
                         .sbbFont(.legend)
-                        .foregroundColor(SBBColor.textMetal)
+                        .foregroundColor(.sbbColor(.textMetal))
                         .accessibility(label: footnoteAccessibility ?? footnote!)
                 }
             }
@@ -56,12 +56,12 @@ public struct SBBListItem: View {
                 .accessibility(hidden: true)
                 .frame(width: 32, height: 32)
                 .clipShape(Circle())
-                .overlay(Circle().stroke(SBBColor.border))
+                .overlay(Circle().stroke(Color.sbbColor(.border)))
         }
             .padding(.vertical, 10)
             .padding(.horizontal, 16)
-            .foregroundColor(SBBColor.textBlack)
-            .background( SBBColor.viewBackground)
+            .foregroundColor(.sbbColor(.textBlack))
+            .background(Color.sbbColor(.viewBackground))
             .accessibilityElement(children: .combine)
     }
 }

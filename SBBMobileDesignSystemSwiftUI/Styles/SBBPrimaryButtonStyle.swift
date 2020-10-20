@@ -21,7 +21,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
             configuration.label
                 .sbbFont(.body)
                 .padding(.horizontal, 8)
-                .foregroundColor(isEnabled ? SBBColor.textWhite : SBBColor.textMetal)
+                .foregroundColor(isEnabled ? .sbbColor(.textWhite) : .sbbColor(.textMetal))
                 .frame(height: 46)
                 .frame(minWidth: 0, maxWidth: .infinity)
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
@@ -31,11 +31,11 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
         
         private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
             if !enabled {
-                return SBBColor.disabledButtonBackground
+                return .sbbColor(.disabledButtonBackground)
             } else if isPressed {
-                return SBBColor.red150
+                return .sbbColor(.red150)
             } else {
-                return SBBColor.red
+                return .sbbColor(.red)
             }
         }
     }

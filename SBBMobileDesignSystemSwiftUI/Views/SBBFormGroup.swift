@@ -33,7 +33,7 @@ public struct SBBFormGroup<Content>: View where Content: View {
             VStack(alignment: .leading, spacing: 0) {
                 content()
             }
-            .background(SBBColor.viewBackground)
+            .background(Color.sbbColor(.viewBackground))
             .cornerRadius(16)
         }
     }

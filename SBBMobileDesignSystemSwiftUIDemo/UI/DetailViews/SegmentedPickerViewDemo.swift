@@ -38,7 +38,7 @@ struct SegmentedPickerViewDemo: View {
                 .padding(16)
         }
             .navigationBarTitle("SegmentedPicker")
-            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

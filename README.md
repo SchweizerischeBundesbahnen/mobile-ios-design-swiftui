@@ -68,14 +68,15 @@ If you want the SBB Icon as a right NavigationBarItem (recommended) you will nee
 
 ## Colors
 
-SBBColor contains two types of colors:
-1. The SBB Color palette (e.g. SBBColor.red). Those colors are the same for all themes (light or dark).
-2. Semantic colors (e.g. SBBColor.textBlack). Those colors return the matching color for the current theme (light or dark). This means that you will get a different color for light theme than for dark theme.
+The Color / UIColor class has been extended to support SBB Color. They contains two types of colors:
+1. The SBB Color palette (e.g. Color.sbbColor(.red) ). Those colors are the same for all themes (light or dark).
+2. Semantic colors (e.g. Color.sbbColor(.textBlack) ). Those colors return the matching color for the current theme (light or dark). This means that you will get a different color for light theme than for dark theme.
 
 You can use colors like so:
 
 ```
-    SBBColor.red    // returns Color (not UIColor)
+    Color.sbbColor(.red)    // returns Color
+    UIColor.sbbColor(.red)  // returns UIColor, for UIViewRepresentable or UIViewControllerRepresentable
 ```
 
 ## Fonts
@@ -106,6 +107,15 @@ You can use .sbbFont() like so:
     Text("SBB Body\(longText)")
         .sbbFont(.body)
         .foregroundColor(SBBColor.textBlack)        // you need to set the color manually - there are 4 options for semantic text colors: .textBlack, .textMetal, .textRed, .textWhite
+```
+
+### Using UIFont in UIKit
+
+Sometimes it it necessary to create a UIViewRepresentable or UIViewControllerRepresentable. Inside these you can use SBB Fonts with UIFont as follows:
+
+```
+    headerWhiteLabel.font = .sbbHeader
+    headerWhiteLabel.textColor = .sbbColor(.textWhite)
 ```
 
 ## Icons

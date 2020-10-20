@@ -37,7 +37,7 @@ struct PaginationViewDemo: View {
         }
             .padding(16)
             .navigationBarTitle("Pagination")
-            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

@@ -10,7 +10,7 @@ public struct SBBDivider: View {
     
     public var body: some View {
         Rectangle()
-            .fill(SBBColor.divider)
+            .fill(Color.sbbColor(.divider))
             .frame(height: 1)
     }
 }
