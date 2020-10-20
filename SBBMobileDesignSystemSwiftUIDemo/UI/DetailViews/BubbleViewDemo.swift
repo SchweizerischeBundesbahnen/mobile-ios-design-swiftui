@@ -37,7 +37,7 @@ struct BubbleViewDemo: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: self.detail1Accessibility)
                         self.detail2
-                            .foregroundColor(SBBColor.red)
+                            .foregroundColor(.sbbColor(.red))
                             .font(.sbbTitleDefault)
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: self.detail2Accessibility)
@@ -77,7 +77,7 @@ struct BubbleViewDemo: View {
             }
         }
             .navigationBarTitle("BubbleView")
-            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

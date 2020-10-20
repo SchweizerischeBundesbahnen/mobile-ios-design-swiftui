@@ -9,6 +9,7 @@ public enum SBBColorName: String {
     case red = "Red"
     case red125 = "Red125"
     case red150 = "Red150"
+    case white = "White"
     case milk = "Milk"
     case cloud = "Cloud"
     case silver = "Silver"
@@ -24,6 +25,7 @@ public enum SBBColorName: String {
     case iron = "Iron"
     case black = "Black"
     case blue = "Blue"
+    case sky = "Sky"
     case night = "Night"
     case violet = "Violet"
     case autumn = "Autumn"
@@ -47,15 +49,5 @@ public enum SBBColorName: String {
     case border = "border"
     case tabViewBackground = "tabViewBackground"
     case placeholder = "placeholder"
-    
-    // Private semantic Colors (only to be used for MDS Elements)
-    case buttonTertiaryDisabledForeground = "buttonTertiaryDisabledForeground"
-    case buttonTertiaryDisabledBorder = "buttonTertiaryDisabledBorder"
-    case buttonTertiaryBackground = "buttonTertiaryBackground"
-    case buttonTertiaryPressedBackground = "buttonTertiaryPressedBackground"
-    case segmentedPickerBackground = "segmentedPickerBackground"
-    case segmentedPickerSelectedSegmentBackground = "segmentedPickerSelectedSegmentBackground"
-    case textfieldLineInactive = "textfieldLineInactive"
-    case paginationInactive = "paginationInactive"
     
 }

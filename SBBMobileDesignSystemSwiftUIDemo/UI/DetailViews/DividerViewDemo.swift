@@ -21,7 +21,7 @@ struct DividerViewDemo: View {
             Spacer()
         }
             .padding(16)
-            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

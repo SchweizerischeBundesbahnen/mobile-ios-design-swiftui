@@ -75,14 +75,14 @@ public struct SBBOnboardingCardView: View {
                                 Spacer()
                             }
                                 .padding(16)
-                                .foregroundColor(SBBColor.textBlack)
-                                .background(SBBColor.viewBackground)
+                                .foregroundColor(.sbbColor(.textBlack))
+                                .background(Color.sbbColor(.viewBackground))
                         }
                     }
                         .frame(minHeight: geometry.size.height)
                 }
             }
-                .background(SBBColor.viewBackground)
+                .background(Color.sbbColor(.viewBackground))
                 .cornerRadius(16)
         }
     }

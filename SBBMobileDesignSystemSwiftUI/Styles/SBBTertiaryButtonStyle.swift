@@ -44,25 +44,25 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
         
         private func getForegroundColor(enabled: Bool) -> Color {
             if !enabled {
-                return SBBColor.buttonTertiaryDisabledForeground
+                return .sbbColorInternal(.buttonTertiaryDisabledForeground)
             } else {
-                return SBBColor.textBlack
+                return .sbbColor(.textBlack)
             }
         }
         
         private func getBorderColor(enabled: Bool) -> Color {
             if !enabled {
-                return SBBColor.buttonTertiaryDisabledBorder
+                return .sbbColorInternal(.buttonTertiaryDisabledBorder)
             } else {
-                return SBBColor.smoke
+                return .sbbColor(.smoke)
             }
         }
         
         private func getBackgroundColor(isPressed: Bool) -> Color {
             if isPressed {
-                return SBBColor.buttonTertiaryPressedBackground
+                return .sbbColorInternal(.buttonTertiaryPressedBackground)
             } else {
-                return SBBColor.buttonTertiaryBackground
+                return .sbbColorInternal(.buttonTertiaryBackground)
             }
         }
     }

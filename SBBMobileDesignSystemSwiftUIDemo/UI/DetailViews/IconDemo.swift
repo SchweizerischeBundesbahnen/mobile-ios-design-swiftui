@@ -100,7 +100,7 @@ struct IconDemo: View {
                 .padding(16)
         }
             .navigationBarTitle("Icons")
-            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

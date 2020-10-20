@@ -8,14 +8,14 @@ import SBBMobileDesignSystemSwiftUI
 struct TypographyView: View {
     
     @Binding var colorScheme: ColorScheme
-    @State var fontView: Int = 4
+    @State var fontView: Int = 1
     @State var infoViewExpanded: Bool = true
     
     var body: some View {
         VStack(spacing: 16) {
             SBBSegmentedPicker(selection: $fontView, tags: [1, 2, 3, 4]) {
                 Text(".font")
-                Text(".sbb Font")
+                Text(".sbbFont")
                 Text("custom")
                 Text("UIFont")
             }
@@ -42,7 +42,7 @@ struct TypographyView: View {
         }
             .navigationBarTitle("Typography")
             .padding()
-            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
             
     }

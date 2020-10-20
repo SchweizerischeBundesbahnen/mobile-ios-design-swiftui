@@ -34,11 +34,11 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
         
         private func getColor(enabled: Bool, isPressed: Bool) -> Color {
             if !enabled {
-                return SBBColor.metal
+                return .sbbColor(.metal)
             } else if isPressed {
-                return SBBColor.red125
+                return .sbbColor(.red125)
             } else {
-                return SBBColor.red
+                return .sbbColor(.red)
             }
         }
     }

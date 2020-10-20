@@ -59,7 +59,7 @@ struct ModalViewDemo: View {
         }
             .padding(16)
             .navigationBarTitle("ModalView")
-            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }

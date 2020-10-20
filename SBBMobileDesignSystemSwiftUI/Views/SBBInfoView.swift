@@ -29,9 +29,9 @@ public struct SBBInfoView: View {
             Spacer()
         }
             .padding(16)
-            .background(SBBColor.viewBackground)
+            .background(Color.sbbColor(.viewBackground))
             .cornerRadius(16)
-            .accentColor(SBBColor.textBlack)
+            .accentColor(.sbbColor(.textBlack))
             .accessibilityElement(children: .combine)
             .accessibility(identifier: "infoView")
     }

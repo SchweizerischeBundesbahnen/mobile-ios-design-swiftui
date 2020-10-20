@@ -14,7 +14,7 @@ public extension View {
                     Image("sbb-logo-small", bundle: Helper.bundle)
                         .resizable()
                         .frame(width: 28, height: 14, alignment: .top)
-                        .foregroundColor(SBBColor.textWhite)
+                        .foregroundColor(.sbbColor(.textWhite))
                         .padding(.bottom, 7)
                 }
                     .accessibility(hidden: onTouchAction == nil)
