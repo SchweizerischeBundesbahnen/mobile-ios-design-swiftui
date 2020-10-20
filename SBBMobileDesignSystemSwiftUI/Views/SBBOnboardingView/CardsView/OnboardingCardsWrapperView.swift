@@ -26,7 +26,7 @@ struct OnboardingCardsWrapperView: View {
                     }
                         .padding(.top, geometry.safeAreaInsets.top)
                         .padding(16)
-                        .background(SBBColor.red.edgesIgnoringSafeArea(.top))
+                        .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.top))
                         .cornerRadius(16, corners: .bottomLeft)
                         .cornerRadius(16, corners: .bottomRight)
                         .edgesIgnoringSafeArea(.top)
@@ -68,8 +68,8 @@ struct OnboardingCardsWrapperView: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 24)
         }
-            .foregroundColor(SBBColor.textBlack)
-            .background(SBBColor.background.edgesIgnoringSafeArea(.all))
+            .foregroundColor(.sbbColor(.textBlack))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.all))
             .gesture(
                 DragGesture()
                     .onChanged { gesture in

@@ -92,7 +92,7 @@ struct ContentView: View {
                 }
                     .padding(16)
             }
-                .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+                .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
                 .colorScheme(colorScheme)
                 .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
                 .navigationBarWithSBBIcon()

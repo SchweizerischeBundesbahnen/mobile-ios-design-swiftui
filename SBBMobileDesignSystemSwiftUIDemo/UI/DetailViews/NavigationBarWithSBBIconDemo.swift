@@ -28,7 +28,7 @@ struct NavigationBarWithSBBIconDemo: View {
         .navigationBarWithSBBIcon(onTouchAction: {
             self.counter += 1
         })
-        .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+        .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
 }

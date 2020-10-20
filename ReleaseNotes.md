@@ -1,5 +1,12 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.22 - 19 October 2020
+
+### Improvements
+* Supports now SBB Fonts for UIFont
+* Supports now SBB Colors for UIColor
+* Breaking Change: Class SBBColor has been deleted. Please use the Color extension instead (Color.sbbColor(.red) instead of SBBColor.red )
+
 ## V0.1.21 - 07 October 2020
 
 ### Improvements

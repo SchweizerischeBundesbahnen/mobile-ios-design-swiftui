@@ -17,7 +17,7 @@ public struct SBBTextArea: View {
     
     public var body: some View {
         SBBTextAreaImpl(text: $text, isEditing: $isEditing, label: label)
-            .background((isEditing ? SBBColor.textBlack : SBBColor.textfieldLineInactive).frame(height: 1), alignment: .bottom)
+            .background((isEditing ? Color.sbbColor(.textBlack) : Color.sbbColorInternal(.textfieldLineInactive)).frame(height: 1), alignment: .bottom)
             .accessibilityElement(children: .ignore)
             .accessibility(label: label != nil ? Text(label!) : Text(text))
             .accessibility(value: label != nil ? Text(text) : Text(""))

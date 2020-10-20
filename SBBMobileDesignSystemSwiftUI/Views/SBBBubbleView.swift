@@ -77,7 +77,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
         ZStack(alignment: .top) {
             if extendNavigationBarBackground {
                 Rectangle()
-                    .fill(SBBColor.red)
+                    .fill(Color.sbbColor(.red))
                     .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
             }
             HStack {
@@ -111,7 +111,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                                         .accessibility(hidden: true)
                                         .frame(width: 32, height: 32)
                                         .clipShape(Circle())
-                                        .overlay(Circle().stroke(SBBColor.border))
+                                        .overlay(Circle().stroke(Color.sbbColor(.border)))
                                 }
                             }
                         }
@@ -139,10 +139,10 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                     }
                 }
                     .padding(16)
-                    .background(SBBColor.tabViewBackground)
+                    .background(Color.sbbColor(.tabViewBackground))
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
-                    .accentColor(SBBColor.textBlack)
+                    .accentColor(.sbbColor(.textBlack))
                     .onTapGesture {
                         withAnimation{
                             self.expanded.toggle()
@@ -182,7 +182,7 @@ struct SBBBubbleView_Previews: PreviewProvider {
             SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
                 Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                 Text("ca. +12'")
-                    .foregroundColor(SBBColor.red)
+                    .foregroundColor(.sbbColor(.red))
                     .font(.sbbTitleDefault)
             })
                 .previewDisplayName("Detail - multiple views")

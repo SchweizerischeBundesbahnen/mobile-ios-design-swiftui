@@ -37,7 +37,7 @@ public struct SBBInfoViewCollapsible: View {
                             .accessibility(hidden: true)
                             .frame(width: 32, height: 32)
                             .clipShape(Circle())
-                            .overlay(Circle().stroke(SBBColor.border))
+                            .overlay(Circle().stroke(Color.sbbColor(.border)))
                     }
                     if self.expanded {
                         self.detail
@@ -47,9 +47,9 @@ public struct SBBInfoViewCollapsible: View {
                     }
                 }
                     .padding(16)
-                    .background(SBBColor.viewBackground)
+                    .background(Color.sbbColor(.viewBackground))
                     .cornerRadius(16)
-                    .accentColor(SBBColor.textBlack)
+                    .accentColor(.sbbColor(.textBlack))
                     .accessibilityElement(children: .combine)
                     .accessibility(identifier: "infoViewCollapsible")
                     .accessibility(hint: self.expanded ? Text("collapse".localized) : Text("expand".localized))

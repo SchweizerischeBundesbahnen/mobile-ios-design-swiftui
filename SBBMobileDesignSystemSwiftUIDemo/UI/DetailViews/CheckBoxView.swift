@@ -59,7 +59,7 @@ struct CheckBoxView: View {
                 .padding(16)
         }
         .navigationBarTitle("CheckBox")
-        .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+        .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
 }

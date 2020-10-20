@@ -31,7 +31,7 @@ public struct SBBOnboardingTitleView: View {
         }
             .font(.sbbLight(size: 30))
             .multilineTextAlignment(.center)
-            .foregroundColor(SBBColor.white)
+            .foregroundColor(.sbbColor(.white))
     }
 }
 

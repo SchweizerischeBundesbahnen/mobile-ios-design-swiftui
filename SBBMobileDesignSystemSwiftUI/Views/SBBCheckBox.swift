@@ -69,7 +69,7 @@ public struct SBBCheckBox<Content>: View where Content: View {
                 .padding(.horizontal, 16)
             if showTextFieldLine {
                 Rectangle()
-                    .fill(SBBColor.textfieldLineInactive)
+                    .fill(Color.sbbColorInternal(.textfieldLineInactive))
                     .frame(height: 1)
                     .padding(.leading, 16)
             }

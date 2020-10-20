@@ -13,10 +13,11 @@ struct TypographyView: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            SBBSegmentedPicker(selection: $fontView, tags: [1, 2, 3]) {
+            SBBSegmentedPicker(selection: $fontView, tags: [1, 2, 3, 4]) {
                 Text(".font")
-                Text(".sbbFont")
+                Text(".sbb Font")
                 Text("custom")
+                Text("UIFont")
             }
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
@@ -29,13 +30,17 @@ struct TypographyView: View {
                     } else if fontView == 3 {
                         SBBInfoViewCollapsible(title: Text("ReadMe   -   Custom Font"), detail: Text("Using the .font(.sbbFont(size: 10)) you can create your own Font based on the available SBB Font Styles by specifying a size of your choice"), expanded: $infoViewExpanded)
                         TypographyCustomFontView()
+                    } else if fontView == 4 {
+                        SBBInfoViewCollapsible(title: Text("ReadMe   -   UIKit"), detail: Text("In case you use UIKit Views with UIViewRepresentable or UIViewControllerRepresentable, you can use the SBB Font Styles on UIFont. Line spacing is not applied."), expanded: $infoViewExpanded)
+                        TypographyUIKitView(isDarkMode: colorScheme == .dark)
+                            .frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 1300, idealHeight: 1300, maxHeight: .infinity, alignment: .center)
                     }
                 }
             }
         }
             .navigationBarTitle("Typography")
             .padding()
-            .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
             
     }

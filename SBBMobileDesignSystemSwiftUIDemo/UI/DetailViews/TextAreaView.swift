@@ -36,7 +36,7 @@ struct TextAreaView: View {
         }
         .padding(16)
         .navigationBarTitle("TextArea")
-        .background(SBBColor.background.edgesIgnoringSafeArea(.bottom))
+        .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
 }
