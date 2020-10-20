@@ -32,12 +32,10 @@ struct TypographyView: View {
                         TypographyCustomFontView()
                     } else if fontView == 4 {
                         SBBInfoViewCollapsible(title: Text("ReadMe   -   UIKit"), detail: Text("In case you use UIKit Views with UIViewRepresentable or UIViewControllerRepresentable, you can use the SBB Font Styles on UIFont. Line spacing is not applied."), expanded: $infoViewExpanded)
+                        TypographyUIKitView(isDarkMode: colorScheme == .dark)
+                            .frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 1300, idealHeight: 1300, maxHeight: .infinity, alignment: .center)
                     }
                 }
-            }
-            if fontView == 4 {
-                // putting it here, because the storyboard view already has a UIScrollView. And a UIScrollView inside a ScrollView makes the UIScrollView disappear. No time to find out why...be my guest if you are curious.
-                TypographyUIKitView(isDarkMode: colorScheme == .dark)
             }
         }
             .navigationBarTitle("Typography")
