@@ -48,6 +48,7 @@ public struct SBBOnboardingCardView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .accessibility(hidden: true)
+                                .frame(maxHeight: geometry.size.height, alignment: .top)
                         }
                         VStack(spacing: 0) {
                             Spacer()

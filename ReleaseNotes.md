@@ -5,6 +5,9 @@
 ### Improvements
 * Improved french translations for SBBOnboarding
 
+### Bugfixes
+* SBBOnboardingCardView content is not clipped anymore if content of ScrollView is bigger than view (bug introduced with iOS 14)
+
 ## V0.1.22 - 19 October 2020
 
 ### Improvements
