@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.23 - 21 October 2020
+
+### Improvements
+* Improved french translations for SBBOnboarding
+
 ## V0.1.22 - 19 October 2020
 
 ### Improvements
