@@ -17,7 +17,7 @@
 // SBBOnboardingView
 "back" = "back";
 "forward" = "forward";
-"abort tour" = "abort tour";
+"abort tour" = "cancel tour";
 "Start App tour" = "Start App tour";
 "End App tour" = "End App tour";
 
