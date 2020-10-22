@@ -11,25 +11,29 @@ struct OnboardingCardsWrapperView: View {
         
     var body: some View {
         VStack(spacing: 0) {
-            if viewModel.currentCardView != nil {
-                GeometryReader { geometry in
-                    ZStack {
-                        ForEach((0..<self.viewModel.cardViews.count).reversed(), id: \.self) { index in
-                            self.viewModel.cardViews[index]
-                                .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width))
-                                .offset(y: self.yOffsetForCard(at: index))
-                                .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)
-                                .opacity(self.opacityForCard(at: index))
-                                .accessibilityElement(children: self.accessibilityHiddenForCard(at: index) ? .combine : .contain)   // elements of hidden cards need to be combined first (otherwise they are not hidden)
-                                .accessibility(hidden: self.accessibilityHiddenForCard(at: index))
+            ZStack(alignment: .topLeading) {
+                Rectangle() // Fill the upper cornerRadius edges with red color, so that the View appears to only have cornerRadius at the bottom
+                    .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.top))
+                    .frame(height: 16)
+                if viewModel.currentCardView != nil {
+                    GeometryReader { geometry in
+                        ZStack {
+                            ForEach((0..<self.viewModel.cardViews.count).reversed(), id: \.self) { index in
+                                self.viewModel.cardViews[index]
+                                    .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width))
+                                    .offset(y: self.yOffsetForCard(at: index))
+                                    .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)
+                                    .opacity(self.opacityForCard(at: index))
+                                    .accessibilityElement(children: self.accessibilityHiddenForCard(at: index) ? .combine : .contain)   // elements of hidden cards need to be combined first (otherwise they are not hidden)
+                                    .accessibility(hidden: self.accessibilityHiddenForCard(at: index))
+                            }
                         }
+                            .padding(.top, geometry.safeAreaInsets.top)
+                            .padding(16)
+                            .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.top))
+                            .cornerRadius(16)
+                            .edgesIgnoringSafeArea(.top)
                     }
-                        .padding(.top, geometry.safeAreaInsets.top)
-                        .padding(16)
-                        .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.top))
-                        .cornerRadius(16, corners: .bottomLeft)
-                        .cornerRadius(16, corners: .bottomRight)
-                        .edgesIgnoringSafeArea(.top)
                 }
             }
             VStack(spacing: 16) {
