@@ -9,18 +9,24 @@ public struct SBBTextArea: View {
     @Binding private var text: String
     @State private var isEditing = false
     private var label: String?
+    private var localizedLabel: LocalizedStringKey?
     
     public init(text: Binding<String>, label: String? = nil) {
         self._text = text
         self.label = label
+        if let label = label {
+            self.localizedLabel = LocalizedStringKey(label)
+        } else {
+            self.localizedLabel = nil
+        }
     }
     
     public var body: some View {
         SBBTextAreaImpl(text: $text, isEditing: $isEditing, label: label)
             .background((isEditing ? Color.sbbColor(.textBlack) : Color.sbbColorInternal(.textfieldLineInactive)).frame(height: 1), alignment: .bottom)
             .accessibilityElement(children: .ignore)
-            .accessibility(label: label != nil ? Text(label!) : Text(text))
-            .accessibility(value: label != nil ? Text(text) : Text(""))
+            .accessibility(label: localizedLabel != nil ? Text(localizedLabel!) : Text(text))
+            .accessibility(value: localizedLabel != nil ? Text(text) : Text(""))
     }
     
     private struct SBBTextAreaImpl: UIViewRepresentable {
