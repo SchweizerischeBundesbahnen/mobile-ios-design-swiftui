@@ -25,7 +25,6 @@
 		2DCEC9022539E34A008EDD15 /* TypographyUIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC9012539E34A008EDD15 /* TypographyUIKitView.swift */; };
 		2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC917253D83B7008EDD15 /* SBBColorName.swift */; };
 		2DCEC937253EC7F4008EDD15 /* SBBColorNameInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */; };
-		7C13C4942543211E0087E8BD /* UIDeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C13C4932543211E0087E8BD /* UIDeviceExtension.swift */; };
 		7C1F20A824E51298006FF30B /* NavigationBarWithSBBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */; };
 		7C1F20AA24E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */; };
 		7C2747C4246D6DF200A9FFCE /* TypographyCustomFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */; };
@@ -154,7 +153,6 @@
 		2DCEC9012539E34A008EDD15 /* TypographyUIKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyUIKitView.swift; sourceTree = "<group>"; };
 		2DCEC917253D83B7008EDD15 /* SBBColorName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorName.swift; sourceTree = "<group>"; };
 		2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorNameInternal.swift; sourceTree = "<group>"; };
-		7C13C4932543211E0087E8BD /* UIDeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtension.swift; sourceTree = "<group>"; };
 		7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIcon.swift; sourceTree = "<group>"; };
 		7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIconDemo.swift; sourceTree = "<group>"; };
 		7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyCustomFontView.swift; sourceTree = "<group>"; };
@@ -495,7 +493,6 @@
 				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
 				7CA3107024D99E12007E500B /* SizeCategories.swift */,
-				7C13C4932543211E0087E8BD /* UIDeviceExtension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -753,7 +750,6 @@
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
 				A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
-				7C13C4942543211E0087E8BD /* UIDeviceExtension.swift in Sources */,
 				7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
