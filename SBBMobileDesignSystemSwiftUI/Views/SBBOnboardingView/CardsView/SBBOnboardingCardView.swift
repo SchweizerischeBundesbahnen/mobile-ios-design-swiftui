@@ -95,7 +95,7 @@ public struct SBBOnboardingCardView: View {
     }
     
     private func getImageHeight(contentViewHeight: CGFloat) -> CGFloat {
-        let imageHeight = contentViewHeight - scrollViewIntrinsicHeight - (UIDevice.current.hasNotch ? 22 : 0)  // iPhone X family has a lip of size 22
+        let imageHeight = contentViewHeight - scrollViewIntrinsicHeight /*- (UIDevice.current.hasNotch ? 22 : 0) */ // iPhone X family has a lip of size 22
         if imageHeight < 200 {
             return 200
         }
