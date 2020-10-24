@@ -12,6 +12,8 @@ public struct SBBOnboardingCardView: View {
     private let content: AnyView?
     let actionOnCardDisappear: (() -> ())?
     
+    @State var scrollViewIntrinsicHeight: CGFloat = 0
+
     private var isCustomCard: Bool {
         return image == nil && title == nil && text == nil && content != nil
     }
@@ -42,50 +44,62 @@ public struct SBBOnboardingCardView: View {
                 if self.isCustomCard {
                     self.content
                 } else {
-                    ZStack(alignment: .top) {
+                    VStack(spacing: 0) {
                         if self.image != nil {
                             self.image!
                                 .resizable()
-                                .aspectRatio(contentMode: .fit)
+                                .aspectRatio(contentMode: .fill)
                                 .accessibility(hidden: true)
-                                .frame(maxHeight: geometry.size.height, alignment: .top)
+                                .frame(height: getImageHeight(contentViewHeight: geometry.size.height))
+                                .clipped()
                         }
-                        VStack(spacing: 0) {
+                        HStack(spacing: 0) {
                             Spacer()
-                                .frame(minHeight: 200, maxHeight: .infinity)
-                            HStack(spacing: 0) {
-                                Spacer()
-                                VStack(spacing: 16) {
-                                    if self.title != nil {
-                                        self.title
-                                            .sbbFont(.titleDefault)
-                                            .multilineTextAlignment(.center)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                            .accessibility(addTraits: .isHeader)
-                                    }
-                                    if self.text != nil {
-                                        self.text
-                                            .sbbFont(.body)
-                                            .multilineTextAlignment(.center)
-                                            .fixedSize(horizontal: false, vertical: true)
-                                    }
-                                    if self.content != nil {
-                                        self.content
-                                    }
+                            VStack(spacing: 16) {
+                                if self.title != nil {
+                                    self.title
+                                        .sbbFont(.titleDefault)
+                                        .multilineTextAlignment(.center)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .accessibility(addTraits: .isHeader)
                                 }
-                                Spacer()
+                                if self.text != nil {
+                                    self.text
+                                        .sbbFont(.body)
+                                        .multilineTextAlignment(.center)
+                                        .fixedSize(horizontal: false, vertical: true)
+                                }
+                                if self.content != nil {
+                                    self.content
+                                }
                             }
-                                .padding(16)
-                                .foregroundColor(.sbbColor(.textBlack))
-                                .background(Color.sbbColor(.viewBackground))
+                            Spacer()
                         }
+                        .padding(16)
+                        .foregroundColor(.sbbColor(.textBlack))
+                        .background(Color.sbbColor(.viewBackground))
+                        .overlay(
+                            GeometryReader { scrollViewIntrinsicGeometry in
+                                Color.clear.onAppear {
+                                    self.scrollViewIntrinsicHeight = scrollViewIntrinsicGeometry.size.height
+                                }
+                            }
+                        )
                     }
-                        .frame(minHeight: geometry.size.height)
+                    .frame(minHeight: geometry.size.height)
                 }
             }
-                .background(Color.sbbColor(.viewBackground))
-                .cornerRadius(16)
+            .background(Color.sbbColor(.viewBackground))
+            .cornerRadius(16)
         }
+    }
+    
+    private func getImageHeight(contentViewHeight: CGFloat) -> CGFloat {
+        let imageHeight = contentViewHeight - scrollViewIntrinsicHeight
+        if imageHeight < 200 {
+            return 200
+        }
+        return imageHeight
     }
 }
 
