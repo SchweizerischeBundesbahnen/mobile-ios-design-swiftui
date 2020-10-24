@@ -15,23 +15,25 @@ public struct SBBOnboardingTitleView: View {
     }
     
     public var body: some View {
-        HStack {
+        VStack(spacing: 0) {
             Spacer()
-            VStack(spacing: 36) {
+            HStack(spacing: 0) {
                 Spacer()
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .accessibility(hidden: true)
-                title
-                    .minimumScaleFactor(0.1)
+                VStack(spacing: 40) {
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .accessibility(hidden: true)
+                    title
+                        .fixedSize(horizontal: false, vertical: true)
+                }
                 Spacer()
             }
+                .font(.sbbLight(size: 30))
+                .multilineTextAlignment(.center)
+                .foregroundColor(.sbbColor(.white))
             Spacer()
         }
-            .font(.sbbLight(size: 30))
-            .multilineTextAlignment(.center)
-            .foregroundColor(.sbbColor(.white))
     }
 }
 

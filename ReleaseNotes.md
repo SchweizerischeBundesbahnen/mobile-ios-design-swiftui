@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.24 - 23 October 2020
+
+### Improvements
+* Improved layout of SBBOnboardingView
+
 ## V0.1.23 - 21 October 2020
 
 ### Improvements
