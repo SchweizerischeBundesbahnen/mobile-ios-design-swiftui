@@ -7,6 +7,7 @@
 
 ### Improvements
 * Improved layout of SBBOnboardingTitleView
+* SBBBubbleView is treated as a header in VoiceOver
 
 ## V0.1.24 - 23 October 2020
 
