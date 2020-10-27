@@ -9,31 +9,50 @@ public struct SBBOnboardingTitleView: View {
     private let image: Image
     private let title: Text
     
+    @State var scrollViewIntrinsicHeight: CGFloat = 0
+    
     public init(image: Image, title: Text) {
         self.image = image
         self.title = title
     }
     
     public var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            HStack(spacing: 0) {
-                Spacer()
-                VStack(spacing: 40) {
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .accessibility(hidden: true)
-                    title
-                        .font(.sbbLight(size: 30))
-                        .minimumScaleFactor(0.1)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.sbbColor(.white))
+        GeometryReader { geometry in
+            ScrollView(showsIndicators: false) {
+                HStack(spacing: 0) {
+                    Spacer()
+                    VStack(spacing: 40) {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .accessibility(hidden: true)
+                            .frame(height: getImageHeight(contentViewHeight: geometry.size.height))
+                        title
+                            .font(.sbbLight(size: 30))
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.sbbColor(.white))
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .frame(minHeight: geometry.size.height)
+                .overlay(
+                    GeometryReader { scrollViewIntrinsicGeometry in
+                        Color.clear.onAppear {
+                            self.scrollViewIntrinsicHeight = scrollViewIntrinsicGeometry.size.height
+                        }
+                    }
+                )
             }
-            Spacer()
         }
+    }
+    
+    private func getImageHeight(contentViewHeight: CGFloat) -> CGFloat {
+        let imageHeight = contentViewHeight - scrollViewIntrinsicHeight
+        if imageHeight < 200 {
+            return 200
+        }
+        return imageHeight
     }
 }
 
