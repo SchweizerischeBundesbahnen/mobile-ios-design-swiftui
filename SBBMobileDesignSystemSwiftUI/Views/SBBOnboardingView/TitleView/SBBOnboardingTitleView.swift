@@ -32,23 +32,23 @@ public struct SBBOnboardingTitleView: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.sbbColor(.white))
+                            .overlay(
+                                GeometryReader { scrollViewIntrinsicGeometry in
+                                    Color.clear.onAppear {
+                                        self.scrollViewIntrinsicHeight = scrollViewIntrinsicGeometry.size.height
+                                    }
+                                }
+                            )
                     }
                     Spacer()
                 }
                 .frame(minHeight: geometry.size.height)
-                .overlay(
-                    GeometryReader { scrollViewIntrinsicGeometry in
-                        Color.clear.onAppear {
-                            self.scrollViewIntrinsicHeight = scrollViewIntrinsicGeometry.size.height
-                        }
-                    }
-                )
             }
         }
     }
     
     private func getImageHeight(contentViewHeight: CGFloat) -> CGFloat {
-        let imageHeight = contentViewHeight - scrollViewIntrinsicHeight
+        let imageHeight = contentViewHeight - scrollViewIntrinsicHeight - 40
         if imageHeight < 200 {
             return 200
         }
