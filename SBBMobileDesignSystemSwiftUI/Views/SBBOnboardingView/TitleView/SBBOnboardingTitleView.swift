@@ -25,13 +25,13 @@ public struct SBBOnboardingTitleView: View {
                         .aspectRatio(contentMode: .fit)
                         .accessibility(hidden: true)
                     title
-                        .fixedSize(horizontal: false, vertical: true)
+                        .font(.sbbLight(size: 30))
+                        .minimumScaleFactor(0.1)
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.sbbColor(.white))
                 }
                 Spacer()
             }
-                .font(.sbbLight(size: 30))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.sbbColor(.white))
             Spacer()
         }
     }
