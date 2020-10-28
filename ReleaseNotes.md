@@ -1,5 +1,14 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.25 - 27 October 2020
+
+### Bugfixes
+* Font scaling with dynamic content sizes is now correct on iOS 14
+
+### Improvements
+* Improved layout of SBBOnboardingTitleView
+* SBBBubbleView is treated as a header in VoiceOver
+
 ## V0.1.24 - 23 October 2020
 
 ### Improvements

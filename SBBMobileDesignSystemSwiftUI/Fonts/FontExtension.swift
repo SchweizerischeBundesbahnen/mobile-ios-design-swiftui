@@ -50,27 +50,60 @@ public extension Font {
     }
     
     static func sbbBold(size: CGFloat) -> Font {
-        Font.custom("SBBWeb-Bold", size: UIFontMetrics.default.scaledValue(for: size))
+        if #available(iOS 14.0, *) {
+            return Font.custom("SBBWeb-Bold", size: size, relativeTo: .body)
+        } else {
+            return Font.custom("SBBWeb-Bold", size: UIFontMetrics.default.scaledValue(for: size))
+        }
     }
     static func sbbBoldCondensed(size: CGFloat) -> Font {
-        Font.custom("SBBWebCondensed-Bold", size: UIFontMetrics.default.scaledValue(for: size))
+        if #available(iOS 14.0, *) {
+            return Font.custom("SBBWebCondensed-Bold", size: size, relativeTo: .body)
+        } else {
+            return Font.custom("SBBWebCondensed-Bold", size: UIFontMetrics.default.scaledValue(for: size))
+        }
+
     }
     static func sbbHeavyCondensed(size: CGFloat) -> Font {
-        Font.custom("SBBWebCondensed-Heavy", size: UIFontMetrics.default.scaledValue(for: size))
+        if #available(iOS 14.0, *) {
+            return Font.custom("SBBWebCondensed-Heavy", size: size, relativeTo: .body)
+        } else {
+            return Font.custom("SBBWebCondensed-Heavy", size: UIFontMetrics.default.scaledValue(for: size))
+        }
     }
     static func sbbItalic(size: CGFloat) -> Font {
-        Font.custom("SBBWeb-Italic", size: UIFontMetrics.default.scaledValue(for: size))
+        if #available(iOS 14.0, *) {
+            return Font.custom("SBBWeb-Italic", size: size, relativeTo: .body)
+        } else {
+            return Font.custom("SBBWeb-Italic", size: UIFontMetrics.default.scaledValue(for: size))
+        }
     }
     static func sbbLight(size: CGFloat) -> Font {
-        Font.custom("SBBWeb-Light", size: UIFontMetrics.default.scaledValue(for: size))
+        if #available(iOS 14.0, *) {
+            return Font.custom("SBBWeb-Light", size: size, relativeTo: .body)
+        } else {
+            return Font.custom("SBBWeb-Light", size: UIFontMetrics.default.scaledValue(for: size))
+        }
     }
     static func sbbRoman(size: CGFloat) -> Font {
-        Font.custom("SBBWeb-Roman", size: UIFontMetrics.default.scaledValue(for: size))
+        if #available(iOS 14.0, *) {
+            return Font.custom("SBBWeb-Roman", size: size, relativeTo: .body)
+        } else {
+            return Font.custom("SBBWeb-Roman", size: UIFontMetrics.default.scaledValue(for: size))
+        }
     }
     static func sbbThin(size: CGFloat) -> Font {
-        Font.custom("SBBWeb-Thin", size: UIFontMetrics.default.scaledValue(for: size))
+        if #available(iOS 14.0, *) {
+            return Font.custom("SBBWeb-Thin", size: size, relativeTo: .body)
+        } else {
+            return Font.custom("SBBWeb-Thin", size: UIFontMetrics.default.scaledValue(for: size))
+        }
     }
     static func sbbUltralight(size: CGFloat) -> Font {
-        Font.custom("SBBWeb-UltraLight", size: UIFontMetrics.default.scaledValue(for: size))
+        if #available(iOS 14.0, *) {
+            return Font.custom("SBBWeb-UltraLight", size: size, relativeTo: .body)
+        } else {
+            return Font.custom("SBBWeb-UltraLight", size: UIFontMetrics.default.scaledValue(for: size))
+        }
     }
 }

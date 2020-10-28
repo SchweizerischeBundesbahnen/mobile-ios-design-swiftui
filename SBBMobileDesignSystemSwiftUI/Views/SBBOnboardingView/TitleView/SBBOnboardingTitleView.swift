@@ -9,31 +9,52 @@ public struct SBBOnboardingTitleView: View {
     private let image: Image
     private let title: Text
     
+    @State var scrollViewIntrinsicHeight: CGFloat = 0
+    
     public init(image: Image, title: Text) {
         self.image = image
         self.title = title
     }
     
     public var body: some View {
-        VStack(spacing: 0) {
-            Spacer()
-            HStack(spacing: 0) {
-                Spacer()
-                VStack(spacing: 40) {
-                    image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .accessibility(hidden: true)
-                    title
-                        .fixedSize(horizontal: false, vertical: true)
+        GeometryReader { geometry in
+            ScrollView(showsIndicators: false) {
+                HStack(spacing: 0) {
+                    Spacer()
+                    VStack(spacing: 40) {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .accessibility(hidden: true)
+                            .frame(height: getImageHeight(contentViewHeight: geometry.size.height))
+                        title
+                            .font(.sbbLight(size: 30))
+                            .fixedSize(horizontal: false, vertical: true)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.sbbColor(.white))
+                            .overlay(
+                                GeometryReader { scrollViewIntrinsicGeometry in
+                                    Color.clear.onAppear {
+                                        self.scrollViewIntrinsicHeight = scrollViewIntrinsicGeometry.size.height
+                                    }
+                                }
+                            )
+                            .accessibility(addTraits: .isHeader)
+                            .accessibility(identifier: "onboardingTitleViewText")
+                    }
+                    Spacer()
                 }
-                Spacer()
+                .frame(minHeight: geometry.size.height)
             }
-                .font(.sbbLight(size: 30))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.sbbColor(.white))
-            Spacer()
         }
+    }
+    
+    private func getImageHeight(contentViewHeight: CGFloat) -> CGFloat {
+        let imageHeight = contentViewHeight - scrollViewIntrinsicHeight - 40
+        if imageHeight < 200 {
+            return 200
+        }
+        return imageHeight
     }
 }
 
