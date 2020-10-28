@@ -130,6 +130,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                         }
                     }
                         .accessibilityElement(children: .combine)
+                        .accessibility(addTraits: .isHeader)
                         .accessibility(identifier: "bubbleView")
                         .accessibility(hint: ((self.expandableContent == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
                         
