@@ -20,8 +20,6 @@ struct OnboardingTitleWrapperView: View {
                     .accessibility(hidden: true)
             }
             sbbOnboardingTitleView
-                .accessibility(addTraits: .isHeader)
-                .accessibility(identifier: "onboardingTitleViewText")
             if viewModel.state == .startView {
                 Button(action: {
                     self.viewModel.state = .cardsView

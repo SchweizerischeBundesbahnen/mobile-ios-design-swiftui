@@ -39,6 +39,8 @@ public struct SBBOnboardingTitleView: View {
                                     }
                                 }
                             )
+                            .accessibility(addTraits: .isHeader)
+                            .accessibility(identifier: "onboardingTitleViewText")
                     }
                     Spacer()
                 }
