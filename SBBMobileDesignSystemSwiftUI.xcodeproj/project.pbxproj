@@ -37,6 +37,7 @@
 		7C28872224BF2B3800EDBD27 /* FakeOnboardingViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28872124BF2B3800EDBD27 /* FakeOnboardingViewModels.swift */; };
 		7C2B7E7123D9F8940012CF62 /* ColorsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2B7E7023D9F8940012CF62 /* ColorsView.swift */; };
 		7C43038723FD72610033865F /* SegmentedPickerViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C43038623FD72610033865F /* SegmentedPickerViewDemo.swift */; };
+		7C47590D2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */; };
 		7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */; };
 		7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C624894247E2ACB00F54C9D /* SBBListItem.swift */; };
 		7C624898247E315800F54C9D /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C624897247E315800F54C9D /* ImageExtension.swift */; };
@@ -168,6 +169,7 @@
 		7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ReleaseNotes.md; sourceTree = "<group>"; };
 		7C43038623FD72610033865F /* SegmentedPickerViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerViewDemo.swift; sourceTree = "<group>"; };
 		7C43038823FD86110033865F /* SBBSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSegmentedPicker.swift; sourceTree = "<group>"; };
+		7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholderCustomColorStyle.swift; sourceTree = "<group>"; };
 		7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleViewDemo.swift; sourceTree = "<group>"; };
 		7C624894247E2ACB00F54C9D /* SBBListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBListItem.swift; sourceTree = "<group>"; };
 		7C624897247E315800F54C9D /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
@@ -368,6 +370,7 @@
 				7C624897247E315800F54C9D /* ImageExtension.swift */,
 				7C28871724BF1FB400EDBD27 /* CornerRadius.swift */,
 				7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */,
+				7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -739,6 +742,7 @@
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
 				7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */,
+				7C47590D2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift in Sources */,
 				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
 				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
 				7C28871624BF055900EDBD27 /* SBBPaginationView.swift in Sources */,
@@ -988,7 +992,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.25;
+				MARKETING_VERSION = 0.1.26;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1016,7 +1020,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.25;
+				MARKETING_VERSION = 0.1.26;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1041,7 +1045,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.25;
+				MARKETING_VERSION = 0.1.26;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
@@ -1066,7 +1070,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.25;
+				MARKETING_VERSION = 0.1.26;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";
