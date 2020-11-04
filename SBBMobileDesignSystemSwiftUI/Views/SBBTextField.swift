@@ -47,6 +47,7 @@ public struct SBBTextField: View {
                             }
                         }
                     })
+                        .modifier(TextFieldPlaceholderCustomColorStyle(showPlaceHolder: text.isEmpty, placeholder: label!))
                         .sbbFont(.body)
                         .foregroundColor(isEnabled ? .sbbColor(.textBlack) : .sbbColor(.textMetal))
                         .accessibility(label: text.isEmpty ? Text("") : Text(label!))
