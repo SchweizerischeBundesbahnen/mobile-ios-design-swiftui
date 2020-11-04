@@ -15,20 +15,24 @@ struct ModalViewDemo: View {
     @State var backButtonCounter = 0
     
     var body: some View {
-        VStack(spacing: 16) {
-            SBBFormGroup(title: "Configure ModalView") {
-                SBBCheckBox(isOn: self.$showBackButton, label: "Show back button")
-                HStack {
-                    Text("Title alignment")
-                        .sbbFont(.body)
-                    SBBSegmentedPicker(selection: self.$titleAlignment, tags: [SBBModalViewTitleAlignment.leading, SBBModalViewTitleAlignment.center]) {
-                        Text("leading")
-                        Text("center")
+        VStack(spacing: 0) {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 16) {
+                    SBBFormGroup(title: "Configure ModalView") {
+                        SBBCheckBox(isOn: self.$showBackButton, label: "Show back button")
+                        HStack {
+                            Text("Title alignment")
+                                .sbbFont(.body)
+                            SBBSegmentedPicker(selection: self.$titleAlignment, tags: [SBBModalViewTitleAlignment.leading, SBBModalViewTitleAlignment.center]) {
+                                Text("leading")
+                                Text("center")
+                            }
+                        }
+                            .padding(16)
                     }
+                    Spacer()
                 }
-                    .padding(16)
             }
-            Spacer()
             Button(action: {
                 self.showingModalView = true
             }) {

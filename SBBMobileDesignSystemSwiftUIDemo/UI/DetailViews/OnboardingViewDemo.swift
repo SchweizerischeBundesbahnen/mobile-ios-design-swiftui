@@ -42,18 +42,22 @@ struct OnboardingViewDemo: View {
     var body: some View {
         Group {
             if onboardingState == .hidden {
-                VStack(spacing: 16) {
-                    SBBFormGroup(title: "Number of Cards") {
-                        Stepper("\(self.viewModel.numberOfCards)", value: self.$viewModel.numberOfCards, in: 1...10)
-                            .sbbFont(.body)
-                        .padding(16)
+                VStack(spacing: 0) {
+                    ScrollView(showsIndicators: false) {
+                        VStack(spacing: 16) {
+                            SBBFormGroup(title: "Number of Cards") {
+                                Stepper("\(self.viewModel.numberOfCards)", value: self.$viewModel.numberOfCards, in: 1...10)
+                                    .sbbFont(.body)
+                                .padding(16)
+                            }
+                            SBBFormGroup(title: "Customize Content") {
+                                SBBCheckBox(isOn: self.$viewModel.withCustomButton, label: "Card with additional custom content")
+                                SBBCheckBox(isOn: self.$viewModel.withCustomAction, label: "Card with custom action")
+                                SBBCheckBox(isOn: self.$viewModel.withCustomCard, label: "Custom Card")
+                            }
+                            Spacer()
+                        }
                     }
-                    SBBFormGroup(title: "Customize Content") {
-                        SBBCheckBox(isOn: self.$viewModel.withCustomButton, label: "Card with additional custom content")
-                        SBBCheckBox(isOn: self.$viewModel.withCustomAction, label: "Card with custom action")
-                        SBBCheckBox(isOn: self.$viewModel.withCustomCard, label: "Custom Card")
-                    }
-                    Spacer()
                     Button(action: {
                         self.currentOnboardingCardIndex = 0
                         self.onboardingState = .startView
