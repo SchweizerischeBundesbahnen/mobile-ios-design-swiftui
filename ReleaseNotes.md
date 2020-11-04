@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.26 - 04 November 2020
+
+### Improvements
+* SBBTextField placeholder text has now the correct color
+
 ## V0.1.25 - 27 October 2020
 
 ### Bugfixes
