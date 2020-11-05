@@ -51,7 +51,6 @@ public struct SBBOnboardingCardView: View {
                                 .aspectRatio(contentMode: .fill)
                                 .accessibility(hidden: true)
                                 .frame(height: getImageHeight(contentViewHeight: geometry.size.height))
-                                .clipped()
                         }
                         HStack(spacing: 0) {
                             Spacer()
@@ -87,6 +86,7 @@ public struct SBBOnboardingCardView: View {
                         )
                     }
                     .frame(minHeight: geometry.size.height)
+                    .clipped()
                 }
             }
             .background(Color.sbbColor(.viewBackground))
@@ -96,8 +96,8 @@ public struct SBBOnboardingCardView: View {
     
     private func getImageHeight(contentViewHeight: CGFloat) -> CGFloat {
         let imageHeight = contentViewHeight - scrollViewIntrinsicHeight
-        if imageHeight < 200 {
-            return 200
+        if imageHeight < 180 {
+            return 180
         }
         return imageHeight
     }
