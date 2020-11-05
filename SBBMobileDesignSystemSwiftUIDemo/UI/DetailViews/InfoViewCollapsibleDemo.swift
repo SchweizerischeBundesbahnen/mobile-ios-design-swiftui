@@ -25,15 +25,17 @@ struct InfoViewCollapsibleDemo: View {
                 Button(action: {
                     self.expanded1.toggle()
                 }) {
-                    Text("toggle expanded state from Parentview")
+                    Text("Toggle expanded state")
                 }
+                    .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                 SBBDivider()
                 SBBInfoViewCollapsible(title: title, titleAccessibility: titleAccessibility, detail: detail, detailAccessibility: detailAccessibility, expanded: $expanded2)
                 Button(action: {
                     self.expanded2.toggle()
                 }) {
-                    Text("toggle expanded state from Parentview")
+                    Text("Toggle expanded state")
                 }
+                    .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                 Spacer()
             }
             .padding(16)

@@ -13,7 +13,7 @@ struct SegmentedPickerViewDemo: View {
     @State private var selectedSegment2: PickerOptions = .departures
     
     var body: some View {
-        Group {
+        ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 Text("Simple Integer Picker")
                     .sbbFont(.header)

@@ -1,5 +1,12 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.1.27 - 04 November 2020
+
+### Improvements
+* Demo App redesign
+* Demo App works better with Accessibility large font sizes
+* SBBOnboardingCardView now displays Image nicely (without border) even while scaling
+
 ## V0.1.26 - 04 November 2020
 
 ### Improvements

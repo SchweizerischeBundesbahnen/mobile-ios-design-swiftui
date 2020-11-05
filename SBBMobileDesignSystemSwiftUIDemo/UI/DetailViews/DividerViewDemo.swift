@@ -12,13 +12,15 @@ struct DividerViewDemo: View {
     let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     
     var body: some View {
-        VStack {
-            Text(self.text)
-                .sbbFont(.body)
-            SBBDivider()
-            Text(self.text)
-                .sbbFont(.body)
-            Spacer()
+        ScrollView(showsIndicators: false) {
+            VStack {
+                Text(self.text)
+                    .sbbFont(.body)
+                SBBDivider()
+                Text(self.text)
+                    .sbbFont(.body)
+                Spacer()
+            }
         }
             .padding(16)
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
