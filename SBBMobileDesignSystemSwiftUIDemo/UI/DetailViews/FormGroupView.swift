@@ -13,31 +13,33 @@ struct FormGroupView: View {
     @State private var isOn = true
     
     var body: some View {
-        ScrollView {
-            VStack(spacing: 24) {
-                SBBFormGroup(title: "Title:") {
-                    SBBTextField(text: self.$emptyText, label: "Placeholder")
-                    SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
-                    SBBTextField(text: self.$text, label: "Placeholder")
-                    SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+        Group {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 24) {
+                    SBBFormGroup(title: "Title:") {
+                        SBBTextField(text: self.$emptyText, label: "Placeholder")
+                        SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+                        SBBTextField(text: self.$text, label: "Placeholder")
+                        SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+                    }
+                    Text("No title:")
+                    SBBFormGroup {
+                        SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+                        SBBTextField(text: self.$emptyText, label: "Placeholder")
+                        SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+                        SBBTextField(text: self.$text, label: "Placeholder")
+                    }
+                    SBBFormGroup(title: "One row:") {
+                        SBBTextArea(text: self.$text)
+                            .frame(height: 100)
+                    }
+                    Spacer()
                 }
-                Text("No title:")
-                SBBFormGroup {
-                    SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
-                    SBBTextField(text: self.$emptyText, label: "Placeholder")
-                    SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
-                    SBBTextField(text: self.$text, label: "Placeholder")
-                }
-                SBBFormGroup(title: "One row:") {
-                    SBBTextArea(text: self.$text)
-                        .frame(height: 100)
-                }
-                Spacer()
+                    .padding(16)
             }
-            .padding(16)
-            .navigationBarTitle("FormGroup")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
-            .colorScheme(colorScheme)
+                .navigationBarTitle("FormGroup")
+                .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+                .colorScheme(colorScheme)
         }
     }
 }

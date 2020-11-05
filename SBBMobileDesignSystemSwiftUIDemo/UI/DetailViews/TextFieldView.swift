@@ -8,23 +8,33 @@ import SBBMobileDesignSystemSwiftUI
 struct TextFieldView: View {
     
     @Binding var colorScheme: ColorScheme
-    @State private var text1 = ""
-    @State private var text2 = "My nice Text"
-    @State private var text3 = ""
-    @State private var text4 = "My nice Text"
+    @State private var text = "I like trains"
     @State private var disabled = false
     
     var body: some View {
-        VStack(spacing: 8) {
-            Text("Without placeholder:")
-            SBBTextField(text: $text1).disabled(disabled)
-            SBBTextField(text: $text2).disabled(disabled)
-            Text("With placeholder:")
-            SBBTextField(text: $text3, label: "Placeholder").disabled(disabled)
-            SBBTextField(text: $text4, label: "Placeholder").disabled(disabled)
-            SBBCheckBox(isOn: $disabled, label: "Disabled", showTextFieldLine: false)
-            Spacer()
+        ScrollView(showsIndicators: false) {
+            VStack(spacing: 16) {
+                SBBFormGroup(title: "With placeholder") {
+                    SBBTextField(text: $text, label: "Placeholder")
+                        .disabled(disabled)
+                }
+                SBBFormGroup(title: "Without placeholder") {
+                    SBBTextField(text: $text)
+                        .disabled(disabled)
+                }
+                Text("Content is: \(text)")
+                Button("Set default text") {
+                    self.text = "I like trains"
+                }
+                    .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                Button("Clear text") {
+                    self.text = ""
+                }
+                    .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                SBBCheckBox(isOn: $disabled, label: "Disabled", showTextFieldLine: false)
+            }
         }
+        .padding(16)
         .navigationBarTitle("TextField")
         .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
