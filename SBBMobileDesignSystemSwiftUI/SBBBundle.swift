@@ -1,8 +1,4 @@
 //
-//  SBBFontsBundle.swift
-//  MobileDesignSystemSDK
-//
-//  Created by Terence Alberti on 05.11.20.
 //  Copyright © 2020 SBB. All rights reserved.
 //
 
