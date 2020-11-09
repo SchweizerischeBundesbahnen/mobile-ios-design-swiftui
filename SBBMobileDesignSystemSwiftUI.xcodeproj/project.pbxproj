@@ -58,14 +58,6 @@
 		7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C43038823FD86110033865F /* SBBSegmentedPicker.swift */; };
 		7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE98523DECD9B001ADBE8 /* Helper.swift */; };
 		7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE98823DED65C001ADBE8 /* SBBFont.swift */; };
-		7CAFE99223DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98A23DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf */; };
-		7CAFE99323DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98B23DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf */; };
-		7CAFE99423DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98C23DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf */; };
-		7CAFE99523DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98D23DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf */; };
-		7CAFE99623DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98E23DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf */; };
-		7CAFE99723DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE98F23DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf */; };
-		7CAFE99823DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE99023DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf */; };
-		7CAFE99923DED6DD001ADBE8 /* sbbweb-light-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7CAFE99123DED6DD001ADBE8 /* sbbweb-light-reduce.ttf */; };
 		7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99A23DED934001ADBE8 /* TypographyView.swift */; };
 		7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */; };
 		7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */; };
@@ -85,6 +77,15 @@
 		7CEF769324DA905600AFD5EB /* IconDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CEF769224DA905600AFD5EB /* IconDemo.swift */; };
 		7CF57A6F24C1E02E00631837 /* PaginationViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF57A6E24C1E02E00631837 /* PaginationViewDemo.swift */; };
 		7CF57A7124C1E2AC00631837 /* ModalViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF57A7024C1E2AC00631837 /* ModalViewDemo.swift */; };
+		92B4A0B625592572005F4F06 /* sbbweb-light-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0AE25592572005F4F06 /* sbbweb-light-reduce.ttf */; };
+		92B4A0B725592572005F4F06 /* sbbweb-thin-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0AF25592572005F4F06 /* sbbweb-thin-reduce.ttf */; };
+		92B4A0B825592572005F4F06 /* sbbweb-ultralight-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B025592572005F4F06 /* sbbweb-ultralight-reduce.ttf */; };
+		92B4A0B925592572005F4F06 /* sbbweb-bold-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B125592572005F4F06 /* sbbweb-bold-reduce.ttf */; };
+		92B4A0BA25592572005F4F06 /* sbbweb-roman-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B225592572005F4F06 /* sbbweb-roman-reduce.ttf */; };
+		92B4A0BB25592572005F4F06 /* sbbweb-italic-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B325592572005F4F06 /* sbbweb-italic-reduce.ttf */; };
+		92B4A0BC25592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B425592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf */; };
+		92B4A0BD25592572005F4F06 /* sbbweb-condensed-heavy-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B525592572005F4F06 /* sbbweb-condensed-heavy-reduce.ttf */; };
+		92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B4A0C025592694005F4F06 /* SBBBundle.swift */; };
 		A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706C155243715060029BD8D /* SBBCheckBox.swift */; };
 		A737348A2436135B00E34716 /* SBBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73734892436135B00E34716 /* SBBTextField.swift */; };
 		A737348C2436141200E34716 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737348B2436141200E34716 /* TextFieldView.swift */; };
@@ -189,14 +190,6 @@
 		7CA464E02445F58B00118D7B /* InfoViewCollapsibleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewCollapsibleDemo.swift; sourceTree = "<group>"; };
 		7CAFE98523DECD9B001ADBE8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		7CAFE98823DED65C001ADBE8 /* SBBFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFont.swift; sourceTree = "<group>"; };
-		7CAFE98A23DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-ultralight-reduce.ttf"; sourceTree = "<group>"; };
-		7CAFE98B23DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-condensed-bold-reduce.ttf"; sourceTree = "<group>"; };
-		7CAFE98C23DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-bold-reduce.ttf"; sourceTree = "<group>"; };
-		7CAFE98D23DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-thin-reduce.ttf"; sourceTree = "<group>"; };
-		7CAFE98E23DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-roman-reduce.ttf"; sourceTree = "<group>"; };
-		7CAFE98F23DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-condensed-heavy-reduce.ttf"; sourceTree = "<group>"; };
-		7CAFE99023DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-italic-reduce.ttf"; sourceTree = "<group>"; };
-		7CAFE99123DED6DD001ADBE8 /* sbbweb-light-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "sbbweb-light-reduce.ttf"; sourceTree = "<group>"; };
 		7CAFE99A23DED934001ADBE8 /* TypographyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyView.swift; sourceTree = "<group>"; };
 		7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFontLoader.swift; sourceTree = "<group>"; };
 		7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAppearance.swift; sourceTree = "<group>"; };
@@ -222,6 +215,15 @@
 		7CEF769224DA905600AFD5EB /* IconDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconDemo.swift; sourceTree = "<group>"; };
 		7CF57A6E24C1E02E00631837 /* PaginationViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaginationViewDemo.swift; sourceTree = "<group>"; };
 		7CF57A7024C1E2AC00631837 /* ModalViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalViewDemo.swift; sourceTree = "<group>"; };
+		92B4A0AE25592572005F4F06 /* sbbweb-light-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-light-reduce.ttf"; path = "Files/sbbweb-light-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0AF25592572005F4F06 /* sbbweb-thin-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-thin-reduce.ttf"; path = "Files/sbbweb-thin-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0B025592572005F4F06 /* sbbweb-ultralight-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-ultralight-reduce.ttf"; path = "Files/sbbweb-ultralight-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0B125592572005F4F06 /* sbbweb-bold-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-bold-reduce.ttf"; path = "Files/sbbweb-bold-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0B225592572005F4F06 /* sbbweb-roman-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-roman-reduce.ttf"; path = "Files/sbbweb-roman-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0B325592572005F4F06 /* sbbweb-italic-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-italic-reduce.ttf"; path = "Files/sbbweb-italic-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0B425592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-condensed-bold-reduce.ttf"; path = "Files/sbbweb-condensed-bold-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0B525592572005F4F06 /* sbbweb-condensed-heavy-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-condensed-heavy-reduce.ttf"; path = "Files/sbbweb-condensed-heavy-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0C025592694005F4F06 /* SBBBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBBundle.swift; sourceTree = "<group>"; };
 		A706C155243715060029BD8D /* SBBCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBCheckBox.swift; sourceTree = "<group>"; };
 		A73734892436135B00E34716 /* SBBTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextField.swift; sourceTree = "<group>"; };
 		A737348B2436141200E34716 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				7CAFE98423DEC816001ADBE8 /* Helper */,
 				2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */,
 				2D804E5B23D9D0DF00CC9C0C /* Info.plist */,
+				92B4A0C025592694005F4F06 /* SBBBundle.swift */,
 				7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */,
 			);
 			path = SBBMobileDesignSystemSwiftUI;
@@ -503,18 +506,18 @@
 		7CAFE98723DECFE1001ADBE8 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				92B4A0B125592572005F4F06 /* sbbweb-bold-reduce.ttf */,
+				92B4A0B425592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf */,
+				92B4A0B525592572005F4F06 /* sbbweb-condensed-heavy-reduce.ttf */,
+				92B4A0B325592572005F4F06 /* sbbweb-italic-reduce.ttf */,
+				92B4A0AE25592572005F4F06 /* sbbweb-light-reduce.ttf */,
+				92B4A0B225592572005F4F06 /* sbbweb-roman-reduce.ttf */,
+				92B4A0AF25592572005F4F06 /* sbbweb-thin-reduce.ttf */,
+				92B4A0B025592572005F4F06 /* sbbweb-ultralight-reduce.ttf */,
 				7C71655D246D6155009C3FB1 /* FontExtension.swift */,
 				2DCEC8F52539DA42008EDD15 /* UIFontExtension.swift */,
 				7CAFE98823DED65C001ADBE8 /* SBBFont.swift */,
 				7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */,
-				7CAFE98C23DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf */,
-				7CAFE98B23DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf */,
-				7CAFE98F23DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf */,
-				7CAFE99023DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf */,
-				7CAFE99123DED6DD001ADBE8 /* sbbweb-light-reduce.ttf */,
-				7CAFE98E23DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf */,
-				7CAFE98D23DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf */,
-				7CAFE98A23DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -672,17 +675,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CAFE99323DED6DD001ADBE8 /* sbbweb-condensed-bold-reduce.ttf in Resources */,
+				92B4A0BC25592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf in Resources */,
 				7C9C46DF24CB1AED00C22E97 /* Preview Assets.xcassets in Resources */,
-				7CAFE99823DED6DD001ADBE8 /* sbbweb-italic-reduce.ttf in Resources */,
-				7CAFE99523DED6DD001ADBE8 /* sbbweb-thin-reduce.ttf in Resources */,
+				92B4A0B925592572005F4F06 /* sbbweb-bold-reduce.ttf in Resources */,
+				92B4A0B725592572005F4F06 /* sbbweb-thin-reduce.ttf in Resources */,
 				2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */,
-				7CAFE99923DED6DD001ADBE8 /* sbbweb-light-reduce.ttf in Resources */,
-				7CAFE99723DED6DD001ADBE8 /* sbbweb-condensed-heavy-reduce.ttf in Resources */,
-				7CAFE99423DED6DD001ADBE8 /* sbbweb-bold-reduce.ttf in Resources */,
-				7CAFE99223DED6DD001ADBE8 /* sbbweb-ultralight-reduce.ttf in Resources */,
-				7CAFE99623DED6DD001ADBE8 /* sbbweb-roman-reduce.ttf in Resources */,
+				92B4A0B825592572005F4F06 /* sbbweb-ultralight-reduce.ttf in Resources */,
+				92B4A0BB25592572005F4F06 /* sbbweb-italic-reduce.ttf in Resources */,
+				92B4A0B625592572005F4F06 /* sbbweb-light-reduce.ttf in Resources */,
 				7CDFFD8123E9C3C000250717 /* Localizable.strings in Resources */,
+				92B4A0BA25592572005F4F06 /* sbbweb-roman-reduce.ttf in Resources */,
+				92B4A0BD25592572005F4F06 /* sbbweb-condensed-heavy-reduce.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,6 +722,7 @@
 				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
 				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
+				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
@@ -992,7 +996,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.27;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1020,7 +1024,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.27;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1045,7 +1049,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.27;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
@@ -1070,7 +1074,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.27;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";

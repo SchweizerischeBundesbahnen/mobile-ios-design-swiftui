@@ -31,17 +31,17 @@ public class SBBAppearance {
     private class func setupSBBNavigationBar() {
         let newAppearance = UINavigationBarAppearance()
         newAppearance.configureWithOpaqueBackground()
-        newAppearance.backgroundColor = UIColor(named: "Red", in: Bundle.init(for: SBBAppearance.self), compatibleWith: nil)
+        newAppearance.backgroundColor = UIColor(named: "Red", in: SBBBundle.getBundle(), compatibleWith: nil)
         newAppearance.shadowColor = .clear
-        newAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "textWhite", in: Bundle.init(for: SBBAppearance.self), compatibleWith: nil)!,
+        newAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)!,
                                              NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 22)!]
         UINavigationBar.appearance().standardAppearance = newAppearance
-        UINavigationBar.appearance().tintColor = UIColor(named: "textWhite", in: Bundle.init(for: SBBAppearance.self), compatibleWith: nil)
+        UINavigationBar.appearance().tintColor = UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)
     }
     
     @available(iOS, obsoleted: 14)
     private class func setupSBBToggle() {
-        UISwitch.appearance().onTintColor = UIColor(named: "Red", in: Bundle.init(for: SBBAppearance.self), compatibleWith: nil)
+        UISwitch.appearance().onTintColor = UIColor(named: "Red", in: SBBBundle.getBundle(), compatibleWith: nil)
     }
 }
 
