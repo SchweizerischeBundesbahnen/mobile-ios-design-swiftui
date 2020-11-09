@@ -26,7 +26,7 @@ let package = Package(
             name: "SBBMobileDesignSystemSwiftUI",
             dependencies: [],
             path: "./SBBMobileDesignSystemSwiftUI",
-            exclude: ["Info.plist"],
+            exclude: ["Info.plist", "SBBBundle.swift"],
             resources: [
                 .process("Fonts/Files")
             ])

@@ -85,6 +85,7 @@
 		92B4A0BB25592572005F4F06 /* sbbweb-italic-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B325592572005F4F06 /* sbbweb-italic-reduce.ttf */; };
 		92B4A0BC25592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B425592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf */; };
 		92B4A0BD25592572005F4F06 /* sbbweb-condensed-heavy-reduce.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 92B4A0B525592572005F4F06 /* sbbweb-condensed-heavy-reduce.ttf */; };
+		92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B4A0C025592694005F4F06 /* SBBBundle.swift */; };
 		A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A706C155243715060029BD8D /* SBBCheckBox.swift */; };
 		A737348A2436135B00E34716 /* SBBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73734892436135B00E34716 /* SBBTextField.swift */; };
 		A737348C2436141200E34716 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737348B2436141200E34716 /* TextFieldView.swift */; };
@@ -222,6 +223,7 @@
 		92B4A0B325592572005F4F06 /* sbbweb-italic-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-italic-reduce.ttf"; path = "Files/sbbweb-italic-reduce.ttf"; sourceTree = "<group>"; };
 		92B4A0B425592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-condensed-bold-reduce.ttf"; path = "Files/sbbweb-condensed-bold-reduce.ttf"; sourceTree = "<group>"; };
 		92B4A0B525592572005F4F06 /* sbbweb-condensed-heavy-reduce.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "sbbweb-condensed-heavy-reduce.ttf"; path = "Files/sbbweb-condensed-heavy-reduce.ttf"; sourceTree = "<group>"; };
+		92B4A0C025592694005F4F06 /* SBBBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBBundle.swift; sourceTree = "<group>"; };
 		A706C155243715060029BD8D /* SBBCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBCheckBox.swift; sourceTree = "<group>"; };
 		A73734892436135B00E34716 /* SBBTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextField.swift; sourceTree = "<group>"; };
 		A737348B2436141200E34716 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				7CAFE98423DEC816001ADBE8 /* Helper */,
 				2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */,
 				2D804E5B23D9D0DF00CC9C0C /* Info.plist */,
+				92B4A0C025592694005F4F06 /* SBBBundle.swift */,
 				7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */,
 			);
 			path = SBBMobileDesignSystemSwiftUI;
@@ -719,6 +722,7 @@
 				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
 				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
+				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,

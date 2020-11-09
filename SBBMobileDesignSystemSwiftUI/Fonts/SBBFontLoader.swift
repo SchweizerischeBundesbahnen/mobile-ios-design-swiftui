@@ -9,23 +9,11 @@ class SBBFontLoader {
     // this lib is imported with cocoapods: then we load the Fonts from the Framework Bundle
     // this lis is imported manually: then we load the Fonts from the Main Bundle
     internal class func loadFonts() {
-        var success = false
-        let frameworkBundle = Bundle(for: SBBFontLoader.self)
-        let mainBundle = Bundle.main
-        
-        if (mainBundle.bundlePath == frameworkBundle.bundlePath) {
-            // The Fonts are in the Main Bundle
-            success = registerFonts(withBundle: Bundle.main)
+    
+        if let bundle = SBBBundle.getBundle(),
+           registerFonts(withBundle: bundle) {
+           return // everything worked
         } else {
-            // The Fonts are in the Framework Bundle
-            if let bundlePath = frameworkBundle.resourcePath {
-                if let resourceBundle = Bundle(path: bundlePath) {
-                    success = registerFonts(withBundle: resourceBundle)
-                }
-            }
-        }
-        
-        if !success {
             print("Not all fonts has been registered correctly")
         }
     }
