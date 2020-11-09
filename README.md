@@ -25,6 +25,16 @@ Run this command on the terminal:
 pod install
 ```
 
+## Add the library to your project with Swift package manager
+
+Add in Xcode this package:
+```
+For HTTPS: https://code.sbb.ch/scm/kd_esta_mobile/esta-mobile-ios-design-swiftui.git
+For SSH: ssh://git@codessh.sbb.ch:7999/kd_esta_mobile/esta-mobile-ios-design-swiftui.git
+```
+
+
+
 ## Initialize the Library in your app
 
 Call the method setupSBBApperance() in the AppDelegate.
