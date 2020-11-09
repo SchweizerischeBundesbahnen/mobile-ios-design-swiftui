@@ -19,6 +19,6 @@
   	"tag": "0.1.27"
   }, 
   "source_files": "SBBMobileDesignSystemSwiftUI/**/*.{swift}",
-  "exclude_files": "SBBMobileDesignSystemSwiftUI/SBBBundleSPM.swift"
+  "exclude_files": "SBBMobileDesignSystemSwiftUI/SBBBundleSPM.swift",
   "resources": ["SBBMobileDesignSystemSwiftUI/**/**/**/*.{ttf}","SBBMobileDesignSystemSwiftUI/**/*.xcassets","SBBMobileDesignSystemSwiftUI/**/*.strings"]
 }
