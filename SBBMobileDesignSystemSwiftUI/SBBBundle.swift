@@ -10,7 +10,7 @@ internal struct SBBBundle {
     // this lib is imported with cocoapods: then we load the Fonts and Assets from the Framework Bundle
     // this lib is imported manually: then we load the Fonts and Assets from the Main Bundle
     // this lib is imported with swift package manager: then we load from Package Bundle (from file SBBFontsBundleSPM.swift)
-    internal static func getBundle() -> Bundle? {
+    internal static func getBundle() -> Bundle {
         let frameworkBundle = Bundle(for: SBBAppearance.self)
         let mainBundle = Bundle.main
         
@@ -25,7 +25,7 @@ internal struct SBBBundle {
                 }
             }
         }
-        return nil  // error
+        fatalError("Error while getting the Bundle")
     }
     
 }

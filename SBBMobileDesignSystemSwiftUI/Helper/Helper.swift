@@ -8,7 +8,7 @@ class Helper {
     
     static var bundle: Bundle {
         get {
-            SBBBundle.getBundle()!
+            SBBBundle.getBundle()
         }
     }
 }
