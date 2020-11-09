@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.2.0 - 09 November 2020
+
+### Improvements
+* Support for Swift package manager
+
 ## V0.1.27 - 04 November 2020
 
 ### Improvements
