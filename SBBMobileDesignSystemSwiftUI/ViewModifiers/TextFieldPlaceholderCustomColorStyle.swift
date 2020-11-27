@@ -15,6 +15,7 @@ struct TextFieldPlaceholderCustomColorStyle: ViewModifier {
                 Text(placeholder)
                     .sbbFont(.body)
                     .foregroundColor(.sbbColor(.placeholder))
+                    .accessibility(hidden: true)
             }
             content
         }
