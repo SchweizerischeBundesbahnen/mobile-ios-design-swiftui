@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.2.1 - 27 November 2020
+
+### Bugfix
+* Fix a voiceover bug with SBBTextField placeholder
+
 ## V0.2.0 - 09 November 2020
 
 ### Improvements
