@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.2.2 - 11 December 2020
+
+### Features
+* .navigationBarWithSBBIcon() view modifier can now also display a banner (e.g. to highlight the app version like "TEST" or "DEV")
+
 ## V0.2.1 - 27 November 2020
 
 ### Bugfix
