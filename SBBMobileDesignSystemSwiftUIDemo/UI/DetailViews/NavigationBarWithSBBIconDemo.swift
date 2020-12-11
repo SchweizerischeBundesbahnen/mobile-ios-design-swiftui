@@ -10,24 +10,33 @@ struct NavigationBarWithSBBIconDemo: View {
     @Binding var colorScheme: ColorScheme
     @State private var counter = 0
     @State private var disabled = true
+    @State private var showBanner = false
     
     var body: some View {
-        VStack(alignment: .center, spacing: 8) {
+        VStack(alignment: .center, spacing: 16) {
+            SBBFormGroup(title: "Navigation Bar Banner") {
+                Toggle(isOn: $showBanner) {
+                    Text("Show Banner")
+                }
+                    .toggleStyle(SBBSwitchStyle())
+                    .padding(.vertical, 8)
+                    .padding(.horizontal, 16)
+            }
             SBBFormGroup(title: "Number of Clicks") {
                 HStack {
                     Text("SBB Icon Button touched \(self.counter)x")
-                        .sbbFont(.body)
                     Spacer()
                 }
                 .padding(16)
             }
             Spacer()
         }
+        .sbbFont(.body)
         .padding(16)
         .navigationBarTitle("NavBar Icon")
         .navigationBarWithSBBIcon(onTouchAction: {
             self.counter += 1
-        })
+        }, bannerText: showBanner ? "TEST" : nil)
         .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }

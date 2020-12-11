@@ -73,6 +73,7 @@ If you want the SBB Icon as a right NavigationBarItem (recommended) you will nee
             .navigationBarWithSBBIcon(onTouchAction: {  // Display SBB Icon as a right NavigationBarItem with custom action
                 // your action here
             })
+            .navigationBarWithSBBIcon(bannerText: "DEV")    // Display a banner above the SBB Icon (e.g. to highlight the environment). You can also customize banner colors.
     }
 ```
 
