@@ -33,6 +33,7 @@ public extension View {
                         }
                     }
                         .frame(width: 60, height: 44)
+                        .accessibility(hidden: true)
                 )
             )
     }
