@@ -21,6 +21,7 @@ pipeline {
         
         // Xcode
         REQUIRED_XCODE_VERSION = "~> 12.0"
+	
 
         // SBBCocoaPods (podspec)
         POD_REPO_NAME = "sbb-scm-kd_cp-sbbcocoapods"
