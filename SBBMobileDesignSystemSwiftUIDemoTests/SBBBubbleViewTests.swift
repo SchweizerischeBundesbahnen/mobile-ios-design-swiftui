@@ -112,20 +112,14 @@ class SBBBubbleViewTests: XCTestCase {
     
     func testBubbleViewFixedContentLight() {
         let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), fixedContent: {
-            SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {
-                Text("Wagen")
-                Text("Perlschnur")
-            })
+            Text("Wagen")
         })
         assertSnapshot(matching: view.colorScheme(.light).toVC(), as: .image)
     }
     
     func testBubbleViewFixedContentDark() {
         let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), fixedContent: {
-            SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {
-                Text("Wagen")
-                Text("Perlschnur")
-            })
+            Text("Wagen")
         })
         assertSnapshot(matching: view.colorScheme(.dark).toVC(), as: .image)
     }
