@@ -46,6 +46,9 @@ struct ContentView: View {
                         NavigationLink(destination: CheckBoxView(colorScheme: self.$colorScheme)) {
                             SBBListItem(label: Text("CheckBox"))
                         }
+                        NavigationLink(destination: RadioButtonView(colorScheme: self.$colorScheme).environmentObject(RadioButtonViewModel())) {
+                            SBBListItem(label: Text("RadioButton"))
+                        }
                         NavigationLink(destination: DividerViewDemo(colorScheme: self.$colorScheme)) {
                             SBBListItem(label: Text("Divider"))
                         }
