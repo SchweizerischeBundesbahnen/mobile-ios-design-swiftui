@@ -1,5 +1,13 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.2.3 - 06 January 2021
+
+### Features
+* .rightSwipeButton(...) and .leftSwipeButton(...) view modifiers for SBBListItem now allow swippable action buttons.
+
+### Improvements
+* SBBCheckBox is now completely grayed out when disabled
+
 ## V0.2.2 - 11 December 2020
 
 ### Features

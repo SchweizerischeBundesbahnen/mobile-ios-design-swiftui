@@ -74,6 +74,7 @@ public struct SBBCheckBox<Content>: View where Content: View {
                     .padding(.leading, 16)
             }
         }
+            .foregroundColor(isEnabled ? Color.sbbColor(.textBlack) : Color.sbbColor(.metal))
             .background(Color.clear)
             .onTapGesture {
                 self.isOn.toggle()

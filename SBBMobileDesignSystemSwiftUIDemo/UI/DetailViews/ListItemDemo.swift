@@ -9,35 +9,30 @@ struct ListItemDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
-    let label = Text("Label")
     let image = Image(sbbName: "station", size: .small)
-
     let footnote = Text("This is a footnote.")
+    
+    @State var swipeButtonCounter = 0
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
-                SBBFormGroup(title: "Label") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label) })
-                }
-                SBBFormGroup(title: "Label (info type)") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, type: .info) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, type: .info) })
-                }
-                SBBFormGroup(title: "Label and Image") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, image: self.image) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, image: self.image) })
-                }
-                SBBFormGroup(title: "Label and Footnote") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, footnote: self.footnote) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: self.label, footnote: self.footnote) })
-                }
-                SBBFormGroup(title: "Label, Image and Footnote") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: {                     SBBListItem(label: self.label, image: self.image, footnote: self.footnote)
- })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: {                     SBBListItem(label: self.label, image: self.image, footnote: self.footnote)
- })
+                SBBFormGroup(title: "ListItem variations") {
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label")) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label (info type)"), type: .info) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and image"), image: self.image) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and Footnote"), footnote: self.footnote) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label, Image and Footnote"), image: self.image, footnote: self.footnote)})
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label with swipe actions (count: \(self.swipeButtonCounter))"))
+                        .rightSwipeButton(label: Text("+"), action: {
+                            self.swipeButtonCounter += 1
+                            
+                        })
+                        .leftSwipeButton(label: Text("-"), action: {
+                            self.swipeButtonCounter -= 1
+                            
+                        })
+                    })
                 }
             }
             .padding(16)

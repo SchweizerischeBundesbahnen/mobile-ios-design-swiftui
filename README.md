@@ -340,6 +340,16 @@ SBBListItem is usually used inside a SBBFormGroup and in combination with Naviga
         }
     }
 ```
+To display swipe action buttons, use the designated view modifiers`.
+```    
+    SBBListItem(label: Text("Label"))
+        .rightSwipeButton(label: Text("Right Action"), action: {
+            // your code here
+        })
+        .leftSwipeButton(label: Text("Left Action"), action: {
+            // your code here
+        })
+```
 
 ## SBBPaginationView
 
