@@ -9,6 +9,12 @@
 
 ### Improvements
 * SBBCheckBox is now completely grayed out when disabled
+* SBBTextField can display an optional icon
+* SBBTextField can display an optional error
+* SBBTextField delete text button when editing
+
+### Bugfix
+* Correct dark mode color for disabled state in SBBTextField and SBBTextArea
 
 ## V0.2.2 - 11 December 2020
 

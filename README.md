@@ -291,7 +291,7 @@ SBBRadioButton can be used when the user needs to select one of multiple option.
 
 ## SBBTextField
 
-SBBTextField is a SBB-styled SwiftUI TextField with floating label.
+SBBTextField is a SBB-styled SwiftUI TextField with floating label. It optionally features a placeholder label and an icon.
 
 ```
     @State private var text = ""
@@ -300,6 +300,7 @@ SBBTextField is a SBB-styled SwiftUI TextField with floating label.
         VStack {
             SBBTextField(text: $text)
             SBBTextField(text: $text, label: "Placeholder")
+            SBBTextField(text: $text, icon: Image(sbbName: "route-circle-start", size: .small))
         }
     }
 ```

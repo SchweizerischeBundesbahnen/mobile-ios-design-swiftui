@@ -41,7 +41,7 @@ struct ContentView: View {
                             NavigationLink(destination: TextAreaView(colorScheme: self.$colorScheme)) {
                                 SBBListItem(label: Text("TextArea"))
                             }
-                            NavigationLink(destination: TextFieldView(colorScheme: self.$colorScheme)) {
+                            NavigationLink(destination: TextFieldView(colorScheme: self.$colorScheme).environmentObject(TextFieldViewModel())) {
                                 SBBListItem(label: Text("TextField"))
                             }
                             NavigationLink(destination: CheckBoxView(colorScheme: self.$colorScheme)) {

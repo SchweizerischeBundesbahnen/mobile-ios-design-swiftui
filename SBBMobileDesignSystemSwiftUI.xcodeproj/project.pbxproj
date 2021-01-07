@@ -26,6 +26,7 @@
 		2DCEC937253EC7F4008EDD15 /* SBBColorNameInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */; };
 		7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */; };
 		7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */; };
+		7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */; };
 		7C1F20A824E51298006FF30B /* NavigationBarWithSBBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */; };
 		7C1F20AA24E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */; };
 		7C2747C4246D6DF200A9FFCE /* TypographyCustomFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */; };
@@ -169,6 +170,7 @@
 		2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorNameInternal.swift; sourceTree = "<group>"; };
 		7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderExtension.swift; sourceTree = "<group>"; };
 		7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemo.swift; sourceTree = "<group>"; };
+		7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIcon.swift; sourceTree = "<group>"; };
 		7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIconDemo.swift; sourceTree = "<group>"; };
 		7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyCustomFontView.swift; sourceTree = "<group>"; };
@@ -490,6 +492,7 @@
 			isa = PBXGroup;
 			children = (
 				7C595E6325A605F20015B0FC /* RadioButtonViewModel.swift */,
+				7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -833,6 +836,7 @@
 				7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */,
 				A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */,
 				2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */,
+				7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */,
 				7C62489E247E48A400F54C9D /* ListItemDetailDemo.swift in Sources */,
 				2D804E7C23D9D16000CC9C0C /* ContentView.swift in Sources */,
 				7CF57A6F24C1E02E00631837 /* PaginationViewDemo.swift in Sources */,
