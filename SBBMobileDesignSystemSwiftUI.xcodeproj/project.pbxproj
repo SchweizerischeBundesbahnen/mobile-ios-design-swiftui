@@ -24,6 +24,8 @@
 		2DCEC9022539E34A008EDD15 /* TypographyUIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC9012539E34A008EDD15 /* TypographyUIKitView.swift */; };
 		2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC917253D83B7008EDD15 /* SBBColorName.swift */; };
 		2DCEC937253EC7F4008EDD15 /* SBBColorNameInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */; };
+		7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */; };
+		7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */; };
 		7C1F20A824E51298006FF30B /* NavigationBarWithSBBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */; };
 		7C1F20AA24E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */; };
 		7C2747C4246D6DF200A9FFCE /* TypographyCustomFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */; };
@@ -165,6 +167,8 @@
 		2DCEC9012539E34A008EDD15 /* TypographyUIKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyUIKitView.swift; sourceTree = "<group>"; };
 		2DCEC917253D83B7008EDD15 /* SBBColorName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorName.swift; sourceTree = "<group>"; };
 		2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorNameInternal.swift; sourceTree = "<group>"; };
+		7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderExtension.swift; sourceTree = "<group>"; };
+		7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemo.swift; sourceTree = "<group>"; };
 		7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIcon.swift; sourceTree = "<group>"; };
 		7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIconDemo.swift; sourceTree = "<group>"; };
 		7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyCustomFontView.swift; sourceTree = "<group>"; };
@@ -402,6 +406,7 @@
 				7C28871724BF1FB400EDBD27 /* CornerRadius.swift */,
 				7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */,
 				7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */,
+				7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				7C2B7E7023D9F8940012CF62 /* ColorsView.swift */,
+				7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */,
 				7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */,
 				7C43038623FD72610033865F /* SegmentedPickerViewDemo.swift */,
 				7C64548A2403F690005997AB /* DividerViewDemo.swift */,
@@ -781,6 +787,7 @@
 				7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */,
 				A74FEA1825138CCC00C4D1A4 /* SBBSwitchStyle.swift in Sources */,
 				7CA464DF2445F31100118D7B /* SBBInfoViewCollapsible.swift in Sources */,
+				7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */,
 				7C28872024BF2B2800EDBD27 /* FakeSBBOnboardingCardViews.swift in Sources */,
 				7C28871224BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift in Sources */,
 				2DCEC937253EC7F4008EDD15 /* SBBColorNameInternal.swift in Sources */,
@@ -823,6 +830,7 @@
 				2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */,
 				2DCEC8FE2539E2E9008EDD15 /* TypographyViewController.swift in Sources */,
 				7CF57A7124C1E2AC00631837 /* ModalViewDemo.swift in Sources */,
+				7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */,
 				A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */,
 				2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */,
 				7C62489E247E48A400F54C9D /* ListItemDetailDemo.swift in Sources */,

@@ -512,6 +512,16 @@ CornerRadius is a View Extension which allows to add a corner radius to specific
         .cornerRadius(16, corners: .bottomRight)
 ```
 
+## Slider
+
+To apply sbb styling to the normal SwiftUI Slider, apply the .sbbStyle() ViewModifier.
+
+```    
+    Slider(value: $value, in: 0.0...100.0, step: 1.0)
+        .sbbStyle() // without images
+        .sbbStyle(imageLeft: Image(sbbName: "walk-slow", size: .small), imageRight: Image(sbbName: "walk-fast", size: .small))  // with images on the left and right side of the slider
+```
+
 ## ResizeToContentSizeCategory
 
 ResizeToContentSizeCategory is an Image Extension which allows to the image to dynamically resize according to the current ContentSizeCategory.
