@@ -7,7 +7,7 @@ import SwiftUI
 // Once SwiftUI allows us to modify the placeholder text color, this ViewModifier can be removed
 struct TextFieldPlaceholderCustomColorStyle: ViewModifier {
     var showPlaceHolder: Bool
-    var placeholder: LocalizedStringKey
+    var placeholder: String
 
     public func body(content: Content) -> some View {
         ZStack(alignment: .leading) {

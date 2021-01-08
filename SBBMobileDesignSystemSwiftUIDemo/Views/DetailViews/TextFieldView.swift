@@ -10,16 +10,25 @@ struct TextFieldView: View {
     @Binding var colorScheme: ColorScheme
     @State private var text = "I like trains"
     @State private var disabled = false
+    @EnvironmentObject var model: TextFieldViewModel
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 SBBFormGroup(title: "With placeholder") {
-                    SBBTextField(text: $text, label: "Placeholder")
+                    SBBTextField(text: $text, label: "Placeholder", error: model.error)
                         .disabled(disabled)
                 }
                 SBBFormGroup(title: "Without placeholder") {
-                    SBBTextField(text: $text)
+                    SBBTextField(text: $text, error: model.error)
+                        .disabled(disabled)
+                }
+                SBBFormGroup(title: "With placeholder & icon") {
+                    SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbName: "route-circle-start", size: .small))
+                        .disabled(disabled)
+                }
+                SBBFormGroup(title: "Without placeholder, with icon") {
+                    SBBTextField(text: $text, error: model.error, icon: Image(sbbName: "route-circle-start", size: .small))
                         .disabled(disabled)
                 }
                 Text("Content is: \(text)")
@@ -32,6 +41,7 @@ struct TextFieldView: View {
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                 SBBCheckBox(isOn: $disabled, label: "Disabled", showTextFieldLine: false)
+                SBBCheckBox(isOn: $model.showError, label: "Show Error", showTextFieldLine: false)
             }
         }
         .padding(16)
@@ -47,5 +57,6 @@ struct TextFieldView_Previews: PreviewProvider {
             TextFieldView(colorScheme: .constant(.light))
             TextFieldView(colorScheme: .constant(.dark))
         }
+        .environmentObject(TextFieldViewModel())
     }
 }

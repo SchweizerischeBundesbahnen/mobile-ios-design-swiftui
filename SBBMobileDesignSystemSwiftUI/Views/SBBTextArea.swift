@@ -95,7 +95,7 @@ public struct SBBTextArea: View {
             if context.environment.isEnabled {
                 uiView.textColor = UIColor(named: "textBlack", in: Helper.bundle, compatibleWith: nil)
             } else {
-                uiView.textColor = UIColor(named: "textMetal", in: Helper.bundle, compatibleWith: nil)
+                uiView.textColor = UIColor(named: "Metal", in: Helper.bundle, compatibleWith: nil)
             }
         }
         

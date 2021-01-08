@@ -1,17 +1,17 @@
 //
-// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
 import SwiftUI
 
-public extension SBBCheckBox where Content == EmptyView {
+public extension SBBRadioButton where Content == EmptyView {
     init(isOn: Binding<Bool>, image: Image? = nil, label: String, showTextFieldLine: Bool = true) {
         self._isOn = isOn
-        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: isOn, image: image, label: label, showTextFieldLine: showTextFieldLine)
+        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, image: image, label: label, showTextFieldLine: showTextFieldLine)
     }
 }
 
-public struct SBBCheckBox<Content>: View where Content: View {
+public struct SBBRadioButton<Content>: View where Content: View {
     
     @Environment(\.isEnabled) private var isEnabled
     @Binding private var isOn: Bool
@@ -20,7 +20,7 @@ public struct SBBCheckBox<Content>: View where Content: View {
     
     public init(isOn: Binding<Bool>, showTextFieldLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
         self._isOn = isOn
-        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: isOn, showTextFieldLine: showTextFieldLine, content: content)
+        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, showTextFieldLine: showTextFieldLine, content: content)
     }
     
     public var body: some View {
@@ -28,20 +28,20 @@ public struct SBBCheckBox<Content>: View where Content: View {
     }
 }
 
-struct SBBCheckBox_Previews: PreviewProvider {
+struct SBBRadioButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBCheckBox(isOn: .constant(true), label: "Label")
+            SBBRadioButton(isOn: .constant(true), label: "Label")
                 .previewDisplayName("Light, text only")
-            SBBCheckBox(isOn: .constant(true), label: "Label")
+            SBBRadioButton(isOn: .constant(true), label: "Label")
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark, text only")
-            SBBCheckBox(isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
+            SBBRadioButton(isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
                 .previewDisplayName("Light, with image")
-            SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
+            SBBRadioButton(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
                 .disabled(true)
                 .previewDisplayName("Light, disabled")
-            SBBCheckBox(isOn: .constant(true)) {
+            SBBRadioButton(isOn: .constant(true)) {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln.")
                         .sbbFont(.body)
