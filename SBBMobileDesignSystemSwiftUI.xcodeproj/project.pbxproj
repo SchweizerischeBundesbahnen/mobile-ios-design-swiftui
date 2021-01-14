@@ -75,6 +75,8 @@
 		7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */; };
 		7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441724BDE47A0078E68F /* OnboardingCardsWrapperView.swift */; };
 		7CBA441A24BDEB5B0078E68F /* SBBOnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */; };
+		7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */; };
+		7CC3FAD425AEDBEB00D227D4 /* LoadingIndicatorDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */; };
 		7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68C24C16B86002289EE /* SBBModalView.swift */; };
 		7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */; };
 		7CDBA69124C18DA1002289EE /* SBBButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */; };
@@ -221,6 +223,8 @@
 		7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTitleWrapperView.swift; sourceTree = "<group>"; };
 		7CBA441724BDE47A0078E68F /* OnboardingCardsWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardsWrapperView.swift; sourceTree = "<group>"; };
 		7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingCardView.swift; sourceTree = "<group>"; };
+		7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBLoadingIndicator.swift; sourceTree = "<group>"; };
+		7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorDemo.swift; sourceTree = "<group>"; };
 		7CDBA68C24C16B86002289EE /* SBBModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalView.swift; sourceTree = "<group>"; };
 		7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconButtonStyle.swift; sourceTree = "<group>"; };
 		7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBButtonSize.swift; sourceTree = "<group>"; };
@@ -484,6 +488,7 @@
 				7CE5D76524C9D43700282976 /* OnboardingViewDemo.swift */,
 				7CEF769224DA905600AFD5EB /* IconDemo.swift */,
 				7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */,
+				7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
 				7CDBA68C24C16B86002289EE /* SBBModalView.swift */,
 				7CBA440E24BDA63E0078E68F /* SBBOnboardingView */,
+				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -812,6 +818,7 @@
 				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
 				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
 				7C28871624BF055900EDBD27 /* SBBPaginationView.swift in Sources */,
+				7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
 				7C28871824BF1FB400EDBD27 /* CornerRadius.swift in Sources */,
@@ -837,6 +844,7 @@
 				A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */,
 				2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */,
 				7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */,
+				7CC3FAD425AEDBEB00D227D4 /* LoadingIndicatorDemo.swift in Sources */,
 				7C62489E247E48A400F54C9D /* ListItemDetailDemo.swift in Sources */,
 				2D804E7C23D9D16000CC9C0C /* ContentView.swift in Sources */,
 				7CF57A6F24C1E02E00631837 /* PaginationViewDemo.swift in Sources */,

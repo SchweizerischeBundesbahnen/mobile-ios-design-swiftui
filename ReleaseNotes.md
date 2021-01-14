@@ -6,6 +6,7 @@
 * .rightSwipeButton(...) and .leftSwipeButton(...) view modifiers for SBBListItem now allow swippable action buttons.
 * SBBRadioButton
 * .sbbStyle(...) view modifier for Slider
+* SBBLoadingIndicator
 
 ### Improvements
 * SBBCheckBox is now completely grayed out when disabled

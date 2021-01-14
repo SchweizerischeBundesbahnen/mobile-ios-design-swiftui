@@ -70,6 +70,9 @@ struct ContentView: View {
                             NavigationLink(destination: SliderDemo(colorScheme: self.$colorScheme)) {
                                 SBBListItem(label: Text("Slider"))
                             }
+                            NavigationLink(destination: LoadingIndicatorDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("LoadingIndicator"))
+                            }
                         }
                     }
                     SBBFormGroup(title: "Modules") {

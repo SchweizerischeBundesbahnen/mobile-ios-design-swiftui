@@ -385,6 +385,15 @@ SBBPaginationView is used in a pagination context to give the user a quick overv
     }
 ```
 
+## SBBLoadingIndicator
+
+SBBLoadingIndicator is used to display a loading state. It has two different sizes and 3 different styles (colours).
+
+```    
+    SBBLoadingIndicator()   // default size is .normal, default style is .red
+    SBBLoadingIndicator(size: .small, style: .grey)
+```
+
 ## SBBOnboardingView
 
 SBBOnboardingView is used to present basic app functionality to your users on the first  app launch. It consists of a StartView, multiple CardViews and an EndView. You can specify StartView and EndView content using StartViewModel and EndViewModel. You can pass up to 6 Views which will be displayed as cards. In a normal setting, you will use SBBOnboardingCardView for the cards, however you can use any custom view you wish if desired.
