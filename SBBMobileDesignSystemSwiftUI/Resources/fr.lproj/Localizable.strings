@@ -26,3 +26,6 @@
 
 // SBBTextField
 "Delete input" = "Effacer les données entrées";
+
+// SBBLoadingIndicator
+"Loading." = "En cours de chargement.";
