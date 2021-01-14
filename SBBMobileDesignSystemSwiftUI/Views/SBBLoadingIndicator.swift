@@ -102,6 +102,7 @@ public struct SBBLoadingIndicator: View {
         }
             .frame(width: width, height: height, alignment: .leading)
             .padding(8)
+        .accessibility(label: Text("Loading.".localized))
     }
 }
 

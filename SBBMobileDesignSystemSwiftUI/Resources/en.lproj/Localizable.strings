@@ -26,3 +26,6 @@
 
 // SBBTextField
 "Delete input" = "Delete input";
+
+// SBBLoadingIndicator
+"Loading." = "Loading.";
