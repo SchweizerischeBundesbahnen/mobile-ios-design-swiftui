@@ -1,6 +1,6 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.2.3 - 07 January 2021
+## V0.2.3 - 14 January 2021
 
 ### Features
 * .rightSwipeButton(...) and .leftSwipeButton(...) view modifiers for SBBListItem now allow swippable action buttons.
