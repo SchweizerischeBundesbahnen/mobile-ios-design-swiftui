@@ -34,32 +34,45 @@ struct ContentView: View {
                         }
                     }
                     SBBFormGroup(title: "Elements") {
-                        NavigationLink(destination: ButtonDemo(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("Button"))
+                        Group {
+                            NavigationLink(destination: ButtonDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("Button"))
+                            }
+                            NavigationLink(destination: TextAreaView(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("TextArea"))
+                            }
+                            NavigationLink(destination: TextFieldView(colorScheme: self.$colorScheme).environmentObject(TextFieldViewModel())) {
+                                SBBListItem(label: Text("TextField"))
+                            }
+                            NavigationLink(destination: CheckBoxView(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("CheckBox"))
+                            }
+                            NavigationLink(destination: RadioButtonView(colorScheme: self.$colorScheme).environmentObject(RadioButtonViewModel())) {
+                                SBBListItem(label: Text("RadioButton"))
+                            }
+                            NavigationLink(destination: DividerViewDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("Divider"))
+                            }
+                            NavigationLink(destination: ListItemDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("ListItem"))
+                            }
+                            NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("Toggle"))
+                            }
+                            NavigationLink(destination: PaginationViewDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("Pagination"))
+                            }
+                            NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("SegmentedPicker"))
+                            }
                         }
-                        NavigationLink(destination: TextAreaView(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("TextArea"))
-                        }
-                        NavigationLink(destination: TextFieldView(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("TextField"))
-                        }
-                        NavigationLink(destination: CheckBoxView(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("CheckBox"))
-                        }
-                        NavigationLink(destination: DividerViewDemo(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("Divider"))
-                        }
-                        NavigationLink(destination: ListItemDemo(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("ListItem"))
-                        }
-                        NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("Toggle"))
-                        }
-                        NavigationLink(destination: PaginationViewDemo(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("Pagination"))
-                        }
-                        NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("SegmentedPicker"))
+                        Group {
+                            NavigationLink(destination: SliderDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("Slider"))
+                            }
+                            NavigationLink(destination: LoadingIndicatorDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("LoadingIndicator"))
+                            }
                         }
                     }
                     SBBFormGroup(title: "Modules") {

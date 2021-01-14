@@ -268,10 +268,30 @@ SBBCheckBox is a SBB-styled SwiftUI Toggle. You can use it by passing Text and o
         }
     }
 ```
+## SBBRadioButton
+
+SBBRadioButton can be used when the user needs to select one of multiple options. You can use it by passing Text and optionally Image as init parameters. Alternatively you can also pass your custom View(s) as content. By default, SBBRadioButton shows a separator line at its bottom since it will mostly be used inside SBBFormGroup. However you can also optionally hide the separator line.
+
+```
+    @State private var isOn = true  // typically you will want one boolean per SBBRadioButton
+    @State private var disabled = true
+    
+    var body: some View {
+        VStack {
+            SBBRadioButton(isOn: $isOn, label: Text("Label"))
+            SBBRadioButton(isOn: $isOn, image: Image("your image"), label: Text("Label"))  // with additional image
+                .disabled(disabled)
+                SBBRadioButton(isOn: $isOn) {                                                  // with custom content
+                // Your custom content
+            }
+            SBBRadioButton(isOn: $isOn, label: Text("Label"), showTextFieldLine: false)    // hiding the separator line
+        }
+    }
+```
 
 ## SBBTextField
 
-SBBTextField is a SBB-styled SwiftUI TextField with floating label.
+SBBTextField is a SBB-styled SwiftUI TextField with floating label. It optionally features a placeholder label and an icon.
 
 ```
     @State private var text = ""
@@ -280,6 +300,7 @@ SBBTextField is a SBB-styled SwiftUI TextField with floating label.
         VStack {
             SBBTextField(text: $text)
             SBBTextField(text: $text, label: "Placeholder")
+            SBBTextField(text: $text, icon: Image(sbbName: "route-circle-start", size: .small))
         }
     }
 ```
@@ -340,6 +361,16 @@ SBBListItem is usually used inside a SBBFormGroup and in combination with Naviga
         }
     }
 ```
+To display swipe action buttons, use the designated view modifiers`.
+```    
+    SBBListItem(label: Text("Label"))
+        .rightSwipeButton(label: Text("Right Action"), action: {
+            // your code here
+        })
+        .leftSwipeButton(label: Text("Left Action"), action: {
+            // your code here
+        })
+```
 
 ## SBBPaginationView
 
@@ -352,6 +383,15 @@ SBBPaginationView is used in a pagination context to give the user a quick overv
     var body: some View {
         SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: pages.count)
     }
+```
+
+## SBBLoadingIndicator
+
+SBBLoadingIndicator is used to display a loading state. It has two different sizes and 3 different styles (colours).
+
+```    
+    SBBLoadingIndicator()   // default size is .normal, default style is .red
+    SBBLoadingIndicator(size: .small, style: .grey)
 ```
 
 ## SBBOnboardingView
@@ -480,6 +520,16 @@ CornerRadius is a View Extension which allows to add a corner radius to specific
 ```    
     YourView()
         .cornerRadius(16, corners: .bottomRight)
+```
+
+## Slider
+
+To apply sbb styling to the normal SwiftUI Slider, apply the .sbbStyle() ViewModifier.
+
+```    
+    Slider(value: $value, in: 0.0...100.0, step: 1.0)
+        .sbbStyle() // without images
+        .sbbStyle(imageLeft: Image(sbbName: "walk-slow", size: .small), imageRight: Image(sbbName: "walk-fast", size: .small))  // with images on the left and right side of the slider
 ```
 
 ## ResizeToContentSizeCategory
