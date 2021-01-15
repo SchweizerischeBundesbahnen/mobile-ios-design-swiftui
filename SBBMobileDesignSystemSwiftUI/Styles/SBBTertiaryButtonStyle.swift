@@ -7,18 +7,26 @@ import SwiftUI
 public struct SBBTertiaryButtonStyle: ButtonStyle {
     
     private let size: SBBButtonSize
+    private var horizontalPadding: CGFloat = 16
         
     public init(size: SBBButtonSize = .large) {
         self.size = size
     }
     
+    // MDS internal initializer, can be used for custom views (e.g. SBBChip)
+    init(size: SBBButtonSize = .large, horizontalPadding: CGFloat) {
+        self.size = size
+        self.horizontalPadding = horizontalPadding
+    }
+    
     public func makeBody(configuration: Self.Configuration) -> some View {
-        SBBTertiaryButton(size: size, configuration: configuration)
+        SBBTertiaryButton(size: size, horizontalPadding: horizontalPadding, configuration: configuration)
     }
     
     private struct SBBTertiaryButton: View {
         
         let size: SBBButtonSize
+        let horizontalPadding: CGFloat
         let configuration: ButtonStyle.Configuration
         @Environment(\.isEnabled) private var isEnabled: Bool
         
@@ -29,10 +37,9 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .sbbFont(.body)
-                .padding(.horizontal, 8)
                 .foregroundColor(getForegroundColor(enabled: isEnabled))
                 .frame(height: height)
-                .padding(.horizontal, 16)
+                .padding(.horizontal, horizontalPadding)
                 .background(getBackgroundColor(isPressed: configuration.isPressed))
                 .cornerRadius(height / 2)
                 .background(

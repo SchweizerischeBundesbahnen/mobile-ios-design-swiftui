@@ -29,3 +29,9 @@
 
 // SBBLoadingIndicator
 "Loading." = "En cours de chargement.";
+
+// SBBChip
+"list filter" = "filtre de liste";
+"active" = "actif";
+"not active" = "inactif";
+"entries" = "entrées";

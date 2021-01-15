@@ -73,6 +73,9 @@ struct ContentView: View {
                             NavigationLink(destination: LoadingIndicatorDemo(colorScheme: self.$colorScheme)) {
                                 SBBListItem(label: Text("LoadingIndicator"))
                             }
+                            NavigationLink(destination: ChipDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("Chip"))
+                            }
                         }
                     }
                     SBBFormGroup(title: "Modules") {

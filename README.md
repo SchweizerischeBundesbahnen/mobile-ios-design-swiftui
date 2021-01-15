@@ -394,6 +394,20 @@ SBBLoadingIndicator is used to display a loading state. It has two different siz
     SBBLoadingIndicator(size: .small, style: .grey)
 ```
 
+## SBBChip
+
+SBBChip is used to provide quick filters to a list. It has a selected/not selected state and displays the number of items the filter applies to if not selected.
+
+```    
+    @State var filterIsActive: Bool = false
+
+    var body: some View {
+        SBBChip(label: Text("Trains only"), isSelected: $filterIsActive, numberOfItems: 2)
+            .disabled(true) // optionally: disable user interaction
+    }
+    
+```
+
 ## SBBOnboardingView
 
 SBBOnboardingView is used to present basic app functionality to your users on the first  app launch. It consists of a StartView, multiple CardViews and an EndView. You can specify StartView and EndView content using StartViewModel and EndViewModel. You can pass up to 6 Views which will be displayed as cards. In a normal setting, you will use SBBOnboardingCardView for the cards, however you can use any custom view you wish if desired.
