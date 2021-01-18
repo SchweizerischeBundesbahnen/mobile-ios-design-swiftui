@@ -94,6 +94,9 @@ struct ContentView: View {
                         NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme)) {
                             SBBListItem(label: Text("ModalView"))
                         }
+                        NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, model: DialogueViewModel())) {
+                            SBBListItem(label: Text("Dialogue"))
+                        }
                     }
                     SBBFormGroup(title: "PageTypes") {
                         NavigationLink(destination: OnboardingViewDemo(colorScheme: self.$colorScheme)) {
