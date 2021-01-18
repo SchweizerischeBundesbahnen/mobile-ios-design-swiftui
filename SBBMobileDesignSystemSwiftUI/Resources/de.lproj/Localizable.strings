@@ -29,3 +29,9 @@
 
 // SBBLoadingIndicator
 "Loading." = "Wird geladen.";
+
+// SBBChip
+"list filter" = "Listenfilter";
+"active" = "aktiv";
+"not active" = "nicht aktiv";
+"entries" = "Einträge";

@@ -1,5 +1,14 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.2.4 - 15 January 2021
+
+### Features
+* SBBChip
+
+### Improvements
+* Padding of SBBSTertiaryButtonStyle is updated according to Sketch updates
+* Disabled state colors of SBBSTertiaryButtonStyle is updated according to Sketch updates
+
 ## V0.2.3 - 14 January 2021
 
 ### Features
