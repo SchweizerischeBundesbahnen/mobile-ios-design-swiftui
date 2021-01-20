@@ -22,6 +22,18 @@ struct DialogueDemo: View {
                     SBBRadioButton(isOn: $model.inline, label: "Inline", showTextFieldLine: false)
                     SBBRadioButton(isOn: $model.list, label: "List", showTextFieldLine: false)
                 }
+                Toggle(isOn: $model.showImage) {
+                    Text("Show image:")
+                        .sbbFont(.body)
+                }
+                    .toggleStyle(SBBSwitchStyle())
+                    .padding(.horizontal, 16)
+                if model.showImage {
+                    SBBFormGroup {
+                        SBBRadioButton(isOn: $model.happy, label: "Man happy", showTextFieldLine: false)
+                        SBBRadioButton(isOn: $model.sad, label: "Man sad", showTextFieldLine: false)
+                    }
+                }
                 SBBFormGroup(title: "Content:") {
                     SBBRadioButton(isOn: $model.customActions, label: "Custom Actions", showTextFieldLine: false)
                     SBBRadioButton(isOn: $model.retryAction, label: "Retry Action", showTextFieldLine: false)
@@ -61,7 +73,7 @@ struct DialogueDemo: View {
                     if model.inline {
                         Spacer()
                     }
-                    SBBDialogue(title: title, label: label, errorCode: errorCode, style: model.inline ? .inline : .fullscreen) {
+                    SBBDialogue(title: title, label: label, errorCode: errorCode, style: model.inline ? .inline : .fullscreen, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
                         if model.customActions {
                         Button(action: { model.showDialogue = false }) {
                             Text("Button 3")

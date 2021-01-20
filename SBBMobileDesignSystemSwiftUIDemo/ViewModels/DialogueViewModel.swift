@@ -49,4 +49,22 @@ class DialogueViewModel: ObservableObject {
             }
         }
     }
+    
+    // SBBDialogue Image type
+    @Published var showImage = true
+    @Published var happy = true {
+        didSet {
+            if happy {
+                sad = false
+            }
+        }
+    }
+    @Published var sad = false {
+        didSet {
+            if sad {
+                happy = false
+            }
+        }
+    }
+    
 }
