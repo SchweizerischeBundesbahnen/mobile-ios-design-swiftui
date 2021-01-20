@@ -16,77 +16,79 @@ struct DialogueDemo: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            VStack(alignment: .leading, spacing: 16) {
-                SBBFormGroup(title: "Style:") {
-                    SBBRadioButton(isOn: $model.fullscreen, label: "Fullscreen", showTextFieldLine: false)
-                    SBBRadioButton(isOn: $model.inline, label: "Inline", showTextFieldLine: false)
-                    SBBRadioButton(isOn: $model.list, label: "List", showTextFieldLine: false)
-                }
-                Toggle(isOn: $model.showImage) {
-                    Text("Show image:")
-                        .sbbFont(.body)
-                }
-                    .toggleStyle(SBBSwitchStyle())
-                    .padding(.horizontal, 16)
-                if model.showImage {
-                    SBBFormGroup {
-                        SBBRadioButton(isOn: $model.happy, label: "Man happy", showTextFieldLine: false)
-                        SBBRadioButton(isOn: $model.sad, label: "Man sad", showTextFieldLine: false)
-                    }
-                }
-                SBBFormGroup(title: "Content:") {
-                    SBBRadioButton(isOn: $model.customActions, label: "Custom Actions", showTextFieldLine: false)
-                    SBBRadioButton(isOn: $model.retryAction, label: "Retry Action", showTextFieldLine: false)
-                }
-                if model.showDialogue && model.list {
-                    SBBDialogue(title: title, label: label, errorCode: errorCode, style: .list) {
-                        if model.customActions {
-                        Button(action: { model.showDialogue = false }) {
-                            Text("Button 3")
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 16) {
+                    VStack(alignment: .leading, spacing: 16) {
+                        SBBFormGroup(title: "Style:") {
+                            SBBRadioButton(isOn: $model.fullscreen, label: "Fullscreen", showTextFieldLine: false)
+                            SBBRadioButton(isOn: $model.inline, label: "Inline", showTextFieldLine: false)
+                            SBBRadioButton(isOn: $model.list, label: "List", showTextFieldLine: false)
                         }
-                            .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { model.showDialogue = false }) {
-                            Text("Button 2")
+                        Toggle(isOn: $model.showImage) {
+                            Text("Show image:")
+                                .sbbFont(.body)
                         }
-                            .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { model.showDialogue = false }) {
-                            Text("Button 1")
-                        }
-                            .buttonStyle(SBBPrimaryButtonStyle())
-                        } else {    // model.retryAction
-                            Button(action: { model.showDialogue = false }) {
-                                Image(sbbName: "arrows-circle", size: .small)
+                            .toggleStyle(SBBSwitchStyle())
+                            .padding(.horizontal, 16)
+                        if model.showImage {
+                            SBBFormGroup {
+                                SBBRadioButton(isOn: $model.happy, label: "Man happy", showTextFieldLine: false)
+                                SBBRadioButton(isOn: $model.sad, label: "Man sad", showTextFieldLine: false)
                             }
-                                .buttonStyle(SBBIconButtonStyle())
+                        }
+                        SBBFormGroup(title: "Content:") {
+                            SBBRadioButton(isOn: $model.customActions, label: "Custom Actions", showTextFieldLine: false)
+                            SBBRadioButton(isOn: $model.retryAction, label: "Retry Action", showTextFieldLine: false)
+                        }
+                        if !model.showDialogue {
+                            Button(action: { model.showDialogue = true }) {
+                                Text("Show Dialogue")
+                            }
+                                .buttonStyle(SBBPrimaryButtonStyle())
+                        }
+                    }
+                        .padding(16)
+                    if model.showDialogue && !model.fullscreen {
+                        SBBDialogue(title: title, label: label, errorCode: errorCode, style: model.inline ? .inline : .list, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
+                            if model.customActions {
+                            Button(action: { model.showDialogue = false }) {
+                                Text("Button 3")
+                            }
+                                .buttonStyle(SBBSecondaryButtonStyle())
+                            Button(action: { model.showDialogue = false }) {
+                                Text("Button 2")
+                            }
+                                .buttonStyle(SBBSecondaryButtonStyle())
+                            Button(action: { model.showDialogue = false }) {
+                                Text("Button 1")
+                            }
+                                .buttonStyle(SBBPrimaryButtonStyle())
+                            } else {    // model.retryAction
+                                Button(action: { model.showDialogue = false }) {
+                                    Image(sbbName: "arrows-circle", size: .small)
+                                }
+                                    .buttonStyle(SBBIconButtonStyle())
+                            }
                         }
                     }
                 }
-                Spacer()
-                Button(action: { model.showDialogue = true }) {
-                    Text("Show Dialogue")
-                }
-                    .buttonStyle(SBBPrimaryButtonStyle())
             }
-                .padding(16)
-            if model.showDialogue && !model.list {
+            if model.showDialogue && model.fullscreen {
                 VStack {
-                    if model.inline {
-                        Spacer()
-                    }
-                    SBBDialogue(title: title, label: label, errorCode: errorCode, style: model.inline ? .inline : .fullscreen, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
+                    SBBDialogue(title: title, label: label, errorCode: errorCode, style: .fullscreen, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
                         if model.customActions {
-                        Button(action: { model.showDialogue = false }) {
-                            Text("Button 3")
-                        }
-                            .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { model.showDialogue = false }) {
-                            Text("Button 2")
-                        }
-                            .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { model.showDialogue = false }) {
-                            Text("Button 1")
-                        }
-                            .buttonStyle(SBBPrimaryButtonStyle())
+                            Button(action: { model.showDialogue = false }) {
+                                Text("Button 3")
+                            }
+                                .buttonStyle(SBBSecondaryButtonStyle())
+                            Button(action: { model.showDialogue = false }) {
+                                Text("Button 2")
+                            }
+                                .buttonStyle(SBBSecondaryButtonStyle())
+                            Button(action: { model.showDialogue = false }) {
+                                Text("Button 1")
+                            }
+                                .buttonStyle(SBBPrimaryButtonStyle())
                         } else {    // model.retryAction
                             Button(action: { model.showDialogue = false }) {
                                 Image(sbbName: "arrows-circle", size: .small)
