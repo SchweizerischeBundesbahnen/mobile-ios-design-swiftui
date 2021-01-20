@@ -83,6 +83,7 @@ public struct SBBDialogue<Content>: View where Content: View {
                         }
                     , alignment: .bottom)
                     .offset(y: 16)
+                    .accessibility(hidden: true)
             }
             HStack {
                 Spacer()
@@ -91,6 +92,7 @@ public struct SBBDialogue<Content>: View where Content: View {
                     .sbbFont(.titleModul)
                     .foregroundColor(Color.sbbColor(.textBlack))
                     .fixedSize(horizontal: false, vertical: true)
+                    .accessibility(addTraits: .isHeader)
                 label
                     .sbbFont(.legend)
                     .foregroundColor(Color.sbbColor(.textMetal))
@@ -114,6 +116,7 @@ public struct SBBDialogue<Content>: View where Content: View {
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topRight)
         }
         .background(style.backgroundColor)
+        .accessibility(addTraits: (style == .fullscreen) ? [.isModal] : []) // as of today, isModal doesn't seem to be working as intended with SwiftUI 
     }
 }
 

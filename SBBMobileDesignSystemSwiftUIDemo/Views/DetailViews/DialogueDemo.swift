@@ -74,27 +74,25 @@ struct DialogueDemo: View {
                 }
             }
             if model.showDialogue && model.fullscreen {
-                VStack {
-                    SBBDialogue(title: title, label: label, errorCode: errorCode, style: .fullscreen, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
-                        if model.customActions {
-                            Button(action: { model.showDialogue = false }) {
-                                Text("Button 3")
-                            }
-                                .buttonStyle(SBBSecondaryButtonStyle())
-                            Button(action: { model.showDialogue = false }) {
-                                Text("Button 2")
-                            }
-                                .buttonStyle(SBBSecondaryButtonStyle())
-                            Button(action: { model.showDialogue = false }) {
-                                Text("Button 1")
-                            }
-                                .buttonStyle(SBBPrimaryButtonStyle())
-                        } else {    // model.retryAction
-                            Button(action: { model.showDialogue = false }) {
-                                Image(sbbName: "arrows-circle", size: .small)
-                            }
-                                .buttonStyle(SBBIconButtonStyle())
+                SBBDialogue(title: title, label: label, errorCode: errorCode, style: .fullscreen, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
+                    if model.customActions {
+                        Button(action: { model.showDialogue = false }) {
+                            Text("Button 3")
                         }
+                            .buttonStyle(SBBSecondaryButtonStyle())
+                        Button(action: { model.showDialogue = false }) {
+                            Text("Button 2")
+                        }
+                            .buttonStyle(SBBSecondaryButtonStyle())
+                        Button(action: { model.showDialogue = false }) {
+                            Text("Button 1")
+                        }
+                            .buttonStyle(SBBPrimaryButtonStyle())
+                    } else {    // model.retryAction
+                        Button(action: { model.showDialogue = false }) {
+                            Image(sbbName: "arrows-circle", size: .small)
+                        }
+                            .buttonStyle(SBBIconButtonStyle())
                     }
                 }
             }
