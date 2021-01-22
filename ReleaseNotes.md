@@ -5,6 +5,7 @@
 ### Features
 * SBBChip
 * SBBDialogue
+* SBBToast
 
 ### Improvements
 * Padding of SBBSTertiaryButtonStyle is updated according to Sketch updates

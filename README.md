@@ -532,6 +532,52 @@ SBBDialogue is used to interact with the user to either prompt a reaction from h
     }
 ```
 
+# SBBToast
+
+SBBToast provides simple feedback about an operation in a small popup. SBBToasts automatically disappear after a timeout. To use SBBToast, you need to create a SBBToastService which then can be used inside of your ViewModels or  Views to trigger toast messages. You also need to add the SBBToastContainerView as an overlay to your MainView (you can also add it as an overlay to a specific view, if toasts will only be shown from this specific view).
+
+1. Inside SceneDelegate: Create a SBBToastService and add it as EnvironmentObject to the MainView:
+```    
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        ...
+        
+        let toastService = SBBToastService()
+        
+        // Create the SwiftUI view that provides the window contents.
+        var contentView = AnyView(MainView()
+            .environmentObject(toastService)
+            
+        ...
+    }
+```
+
+2. Inside your MainView (root view): add SBBToastContainerView as an overlay:
+```    
+    var body: some View {
+        NavigationView {
+            Group {
+                ...
+            }
+                .overlay(
+                    SBBToastContainerView()
+                )
+        }
+    }
+```
+
+3. Use showToast() to trigger a toast notification from your current view or from a ViewModel:
+```    
+    @EnvironmentObject var toastService: SBBToastService
+
+    var body: some View {
+        Button(action: {
+            toastService.showToast(SBBToast(label: Text("Hello Toast")))
+        }) {
+            Text("Show Toast")
+        }
+    }
+```
+
 ## SBBButtonStyle
 
 SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small) buttons. 

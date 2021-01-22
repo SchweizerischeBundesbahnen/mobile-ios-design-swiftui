@@ -97,6 +97,9 @@ struct ContentView: View {
                         NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, model: DialogueViewModel())) {
                             SBBListItem(label: Text("Dialogue"))
                         }
+                        NavigationLink(destination: ToastDemo(colorScheme: self.$colorScheme).environmentObject(SBBToastService())) {
+                            SBBListItem(label: Text("Toast"))
+                        }
                     }
                     SBBFormGroup(title: "PageTypes") {
                         NavigationLink(destination: OnboardingViewDemo(colorScheme: self.$colorScheme)) {
