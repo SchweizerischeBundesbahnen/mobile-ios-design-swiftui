@@ -35,3 +35,6 @@
 "active" = "actif";
 "not active" = "inactif";
 "entries" = "entrées";
+
+// SBBProcessFlow
+"Step %lld out of %lld" = "Pas %lld sur un total de %lld pas.";

@@ -16,6 +16,7 @@ public struct ToastView: View {
     public var body: some View {
         viewModel.label
             .sbbFont(.legend)
+            .foregroundColor(Color.sbbColor(.white))
             .padding(.horizontal, 20)
             .padding(.vertical, 10)
             .background((colorScheme == .light) ? Color.black.opacity(0.5): Color.white.opacity(0.3))

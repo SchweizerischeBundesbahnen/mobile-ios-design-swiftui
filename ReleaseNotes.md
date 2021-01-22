@@ -6,6 +6,7 @@
 * SBBChip
 * SBBDialogue
 * SBBToast
+* SBBProcessFlow
 
 ### Improvements
 * Padding of SBBSTertiaryButtonStyle is updated according to Sketch updates

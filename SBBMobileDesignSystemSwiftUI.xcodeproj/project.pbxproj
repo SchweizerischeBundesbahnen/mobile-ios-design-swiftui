@@ -41,6 +41,9 @@
 		7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DFE3B25B5BF7900030342 /* SBBDialogue.swift */; };
 		7C2DFE4625B5DC5300030342 /* DialogueDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DFE4525B5DC5300030342 /* DialogueDemo.swift */; };
 		7C2DFE4A25B5E2DD00030342 /* DialogueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2DFE4925B5E2DD00030342 /* DialogueViewModel.swift */; };
+		7C3AF99825BAA845007BBF21 /* SBBProcessFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AF99725BAA845007BBF21 /* SBBProcessFlow.swift */; };
+		7C3AF99C25BAB2E9007BBF21 /* ProcessFlowDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AF99B25BAB2E9007BBF21 /* ProcessFlowDemo.swift */; };
+		7C3AFA0225BAFCE7007BBF21 /* ProcessFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C3AFA0125BAFCE7007BBF21 /* ProcessFlowViewModel.swift */; };
 		7C43038723FD72610033865F /* SegmentedPickerViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C43038623FD72610033865F /* SegmentedPickerViewDemo.swift */; };
 		7C47590D2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */; };
 		7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C50F16023E44A7200ABBA2C /* BubbleViewDemo.swift */; };
@@ -199,6 +202,9 @@
 		7C2DFE3B25B5BF7900030342 /* SBBDialogue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBDialogue.swift; sourceTree = "<group>"; };
 		7C2DFE4525B5DC5300030342 /* DialogueDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueDemo.swift; sourceTree = "<group>"; };
 		7C2DFE4925B5E2DD00030342 /* DialogueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogueViewModel.swift; sourceTree = "<group>"; };
+		7C3AF99725BAA845007BBF21 /* SBBProcessFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBProcessFlow.swift; sourceTree = "<group>"; };
+		7C3AF99B25BAB2E9007BBF21 /* ProcessFlowDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessFlowDemo.swift; sourceTree = "<group>"; };
+		7C3AFA0125BAFCE7007BBF21 /* ProcessFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessFlowViewModel.swift; sourceTree = "<group>"; };
 		7C43038623FD72610033865F /* SegmentedPickerViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedPickerViewDemo.swift; sourceTree = "<group>"; };
 		7C43038823FD86110033865F /* SBBSegmentedPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSegmentedPicker.swift; sourceTree = "<group>"; };
 		7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldPlaceholderCustomColorStyle.swift; sourceTree = "<group>"; };
@@ -512,6 +518,7 @@
 				7CE7BD5325B17CCB000ADF6B /* ChipDemo.swift */,
 				7C2DFE4525B5DC5300030342 /* DialogueDemo.swift */,
 				7CE19B1925B957EA00FEFC1E /* ToastDemo.swift */,
+				7C3AF99B25BAB2E9007BBF21 /* ProcessFlowDemo.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -522,6 +529,7 @@
 				7C595E6325A605F20015B0FC /* RadioButtonViewModel.swift */,
 				7C2DFE4925B5E2DD00030342 /* DialogueViewModel.swift */,
 				7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */,
+				7C3AFA0125BAFCE7007BBF21 /* ProcessFlowViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -549,6 +557,7 @@
 				7CBA440E24BDA63E0078E68F /* SBBOnboardingView */,
 				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
 				7CE7BD4F25B16A84000ADF6B /* SBBChip.swift */,
+				7C3AF99725BAA845007BBF21 /* SBBProcessFlow.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -834,6 +843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C6454892403F50A005997AB /* SBBDivider.swift in Sources */,
+				7C3AF99825BAA845007BBF21 /* SBBProcessFlow.swift in Sources */,
 				A7AC50D5249A45A000065C71 /* SBBSecondaryButtonStyle.swift in Sources */,
 				7CA3107124D99E12007E500B /* SizeCategories.swift in Sources */,
 				7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */,
@@ -898,6 +908,7 @@
 			files = (
 				7C2B7E7123D9F8940012CF62 /* ColorsView.swift in Sources */,
 				7C62489A247E3DA100F54C9D /* ListItemDemo.swift in Sources */,
+				7C3AF99C25BAB2E9007BBF21 /* ProcessFlowDemo.swift in Sources */,
 				2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */,
 				2DCEC8FE2539E2E9008EDD15 /* TypographyViewController.swift in Sources */,
 				7CF57A7124C1E2AC00631837 /* ModalViewDemo.swift in Sources */,
@@ -932,6 +943,7 @@
 				7C1F20AA24E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift in Sources */,
 				7CE5D76624C9D43700282976 /* OnboardingViewDemo.swift in Sources */,
 				7C2DFE4625B5DC5300030342 /* DialogueDemo.swift in Sources */,
+				7C3AFA0225BAFCE7007BBF21 /* ProcessFlowViewModel.swift in Sources */,
 				A7DE206B243C60FE00557F4D /* ButtonDemo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
