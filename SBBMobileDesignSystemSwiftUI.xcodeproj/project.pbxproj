@@ -57,6 +57,7 @@
 		7C71655C246D23CA009C3FB1 /* TypographySBBFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C71655B246D23CA009C3FB1 /* TypographySBBFontView.swift */; };
 		7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C71655D246D6155009C3FB1 /* FontExtension.swift */; };
 		7C716561246D6575009C3FB1 /* TypographyFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C716560246D6575009C3FB1 /* TypographyFontView.swift */; };
+		7C7FB27225BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7FB27125BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift */; };
 		7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C46D624CB034000C22E97 /* SBBInfoView.swift */; };
 		7C9C46D924CB046200C22E97 /* InfoViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9C46D824CB046200C22E97 /* InfoViewDemo.swift */; };
 		7C9C46DF24CB1AED00C22E97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9C46DE24CB1AED00C22E97 /* Preview Assets.xcassets */; };
@@ -208,6 +209,7 @@
 		7C71655B246D23CA009C3FB1 /* TypographySBBFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographySBBFontView.swift; sourceTree = "<group>"; };
 		7C71655D246D6155009C3FB1 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		7C716560246D6575009C3FB1 /* TypographyFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyFontView.swift; sourceTree = "<group>"; };
+		7C7FB27125BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconTextButtonStyle.swift; sourceTree = "<group>"; };
 		7C9C46D624CB034000C22E97 /* SBBInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBInfoView.swift; sourceTree = "<group>"; };
 		7C9C46D824CB046200C22E97 /* InfoViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewDemo.swift; sourceTree = "<group>"; };
 		7C9C46DE24CB1AED00C22E97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -610,6 +612,7 @@
 				A7AC50D4249A45A000065C71 /* SBBSecondaryButtonStyle.swift */,
 				7C28871124BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift */,
 				7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */,
+				7C7FB27125BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift */,
 				7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */,
 				A74FEA1725138CCC00C4D1A4 /* SBBSwitchStyle.swift */,
 			);
@@ -831,6 +834,7 @@
 				7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */,
 				7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */,
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
+				7C7FB27225BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift in Sources */,
 				A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */,
 				7CE7BD5025B16A84000ADF6B /* SBBChip.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,

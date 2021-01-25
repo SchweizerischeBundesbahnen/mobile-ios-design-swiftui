@@ -504,7 +504,7 @@ SBBModalView is used to display a View above another View, typically using .shee
 
 ## SBBButtonStyle
 
-SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small) buttons. 
+SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small, normal & negative, border & no border) / iconText buttons. 
 
 ```    
     var body: some View {
@@ -520,6 +520,14 @@ SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large
                 .resizable  // resizable needs to be set if your Image is not 24x24 (same for .large & .small)
         }
             .buttonStyle(SBBIconButtonStyle(size: .small))   // .large is default
+            
+        Button(action: myAction) {
+            VStack(alignment: .center, spacing: 4, content: {   // alignment and spacing need to be set exactly like this
+                Image(sbbName: "station", size: .large)
+                Text("Station")
+            })
+        }
+            .buttonStyle(SBBIconTextButtonStyle())
     }
 ```
 
