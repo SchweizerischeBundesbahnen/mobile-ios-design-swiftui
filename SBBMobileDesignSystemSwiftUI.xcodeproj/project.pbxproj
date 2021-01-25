@@ -537,7 +537,7 @@
 		7C6665F423DB5DED002549F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7CAF977B25B87646002260AE /* ViewModels */,
+				7CE19B1D25B98D7700FEFC1E /* SBBToast */,
 				7C28871524BF055900EDBD27 /* SBBPaginationView.swift */,
 				7C2DFE3B25B5BF7900030342 /* SBBDialogue.swift */,
 				7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */,
@@ -583,15 +583,6 @@
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
-		};
-		7CAF977B25B87646002260AE /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				7CE19B1D25B98D7700FEFC1E /* SBBToast */,
-			);
-			name = ViewModels;
-			path = SBBMobileDesignSystemSwiftUI/ViewModels;
-			sourceTree = SOURCE_ROOT;
 		};
 		7CAFE98423DEC816001ADBE8 /* Helper */ = {
 			isa = PBXGroup;
@@ -645,20 +636,20 @@
 		7CE19B1D25B98D7700FEFC1E /* SBBToast */ = {
 			isa = PBXGroup;
 			children = (
-				7CE19B2225B98E4600FEFC1E /* VieModels */,
+				7CE19B2225B98E4600FEFC1E /* ViewModels */,
 				7CAF977725B875B3002260AE /* SBBToastContainerView.swift */,
 				7CAF978225B87DCE002260AE /* ToastView.swift */,
 			);
 			path = SBBToast;
 			sourceTree = "<group>";
 		};
-		7CE19B2225B98E4600FEFC1E /* VieModels */ = {
+		7CE19B2225B98E4600FEFC1E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				7CAF977C25B87653002260AE /* SBBToastService.swift */,
 				7CE19B1E25B98D8300FEFC1E /* SBBToast.swift */,
 			);
-			path = VieModels;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		A7DE2067243C5A5A00557F4D /* Styles */ = {
