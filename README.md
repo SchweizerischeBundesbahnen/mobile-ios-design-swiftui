@@ -227,7 +227,7 @@ You can use the SBBInfoView it like so:
 
 ## SBBSegmentedPicker
 
-SBBSegmentedPicker is the SBB-Implementation of the standard SwiftUI Picker with SegmentedPickerStyle. You need to set its current selection and all its unique tags (of type Hashable).
+SBBSegmentedPicker is the SBB-Implementation of the standard SwiftUI Picker with SegmentedPickerStyle. You need to set its current selection and all its unique tags (of type Hashable). Optionally you can set it's style to .red, if you plan to use it as a NavigationBar extension.
 
 You can use the SBBSegmentedPicker like so:
 ```

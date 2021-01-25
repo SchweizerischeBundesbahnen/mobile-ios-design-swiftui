@@ -7,10 +7,13 @@
 * SBBDialogue
 * SBBToast
 * SBBProcessFlow
+* SBBIconTextButtonStyle
 
 ### Improvements
 * Padding of SBBSTertiaryButtonStyle is updated according to Sketch updates
 * Disabled state colors of SBBSTertiaryButtonStyle is updated according to Sketch updates
+* SBBIconButtonStyle now has optional border & negative style option (if displayed on colored background, e.g. NavigationBar)
+* SBBSegmentedPicker now also features .red style (e.g. to be used below NavigationBar)
 
 ## V0.2.3 - 14 January 2021
 
