@@ -19,7 +19,7 @@ struct PaginationViewDemo: View {
             SBBDivider()
             HStack {
                 Button(action: {
-                    self.currentPageIndex = (self.currentPageIndex + self.numberOfPages - 1) % 4
+                    self.currentPageIndex = (self.currentPageIndex + self.numberOfPages - 1) % numberOfPages
                 }) {
                     Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()
@@ -27,7 +27,7 @@ struct PaginationViewDemo: View {
                 }
                     .buttonStyle(SBBIconButtonStyle(size: .small))
                 Button(action: {
-                    self.currentPageIndex = (self.currentPageIndex + 1) % 4
+                    self.currentPageIndex = (self.currentPageIndex + 1) % numberOfPages
                 }) {
                     Image(sbbName: "chevron-small-right", size: .small)
                         .resizable()

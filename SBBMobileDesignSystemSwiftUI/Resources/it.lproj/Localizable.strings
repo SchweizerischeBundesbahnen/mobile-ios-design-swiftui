@@ -35,3 +35,6 @@
 "active" = "attivo";
 "not active" = "inattivo";
 "entries" = "voci";
+
+// SBBProcessFlow
+"Step %lld out of %lld" = "Passo %lld di %lld";
