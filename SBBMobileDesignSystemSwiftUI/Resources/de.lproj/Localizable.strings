@@ -35,3 +35,6 @@
 "active" = "aktiv";
 "not active" = "nicht aktiv";
 "entries" = "Einträge";
+
+// SBBProcessFlow
+"Step %lld out of %lld" = "Schritt %lld von total %lld Schritten.";

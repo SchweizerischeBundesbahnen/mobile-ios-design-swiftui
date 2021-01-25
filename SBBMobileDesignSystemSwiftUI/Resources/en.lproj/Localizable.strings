@@ -35,3 +35,6 @@
 "active" = "active";
 "not active" = "not active";
 "entries" = "entries";
+
+// SBBProcessFlow
+"Step %lld out of %lld" = "Step %lld out of %lld.";

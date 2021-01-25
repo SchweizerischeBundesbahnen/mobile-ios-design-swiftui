@@ -502,6 +502,94 @@ SBBModalView is used to display a View above another View, typically using .shee
     }
 ```
 
+## SBBDialogue
+
+SBBDialogue is used to interact with the user to either prompt a reaction from his side (e.g. choose an action) or to inform him about an error. It has 3 different presentation-style options: fullscreen (modally), inline or list.
+
+```    
+    // error case with retry-button
+    SBBDialogue(title: Text("title"), label: Text("label"), errorCode: Text("404"), style: .fullscreen, imageStyle: .sad) {
+        Button(action: { retry() }) {
+            Image(sbbName: "arrows-circle", size: .small)
+        }
+            .buttonStyle(SBBIconButtonStyle())
+    }
+    
+    // choose an action
+    SBBDialogue(title: Text("title"), label: Text("label"), style: .fullscreen) {
+        Button(action: { option2Action() }) {
+            Text("Option 2")
+        }
+            .buttonStyle(SBBSecondaryButtonStyle())
+        Button(action: { option1Action() }) {
+            Text("Option 1")
+        }
+            .buttonStyle(SBBSecondaryButtonStyle())
+        Button(action: { primaryAction() }) {
+            Text("Primary action")
+        }
+            .buttonStyle(SBBPrimaryButtonStyle())
+    }
+```
+
+## SBBToast
+
+SBBToast provides simple feedback about an operation in a small popup. SBBToasts automatically disappear after a timeout. To use SBBToast, you need to create a SBBToastService which then can be used inside of your ViewModels or  Views to trigger toast messages. You also need to add the SBBToastContainerView as an overlay to your MainView (you can also add it as an overlay to a specific view, if toasts will only be shown from this specific view).
+
+1. Inside SceneDelegate: Create a SBBToastService and add it as EnvironmentObject to the MainView:
+```    
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        ...
+        
+        let toastService = SBBToastService()
+        
+        // Create the SwiftUI view that provides the window contents.
+        var contentView = AnyView(MainView()
+            .environmentObject(toastService)
+            
+        ...
+    }
+```
+
+2. Inside your MainView (root view): add SBBToastContainerView as an overlay:
+```    
+    var body: some View {
+        NavigationView {
+            Group {
+                ...
+            }
+                .overlay(
+                    SBBToastContainerView()
+                )
+        }
+    }
+```
+
+3. Use showToast() to trigger a toast notification from your current view or from a ViewModel:
+```    
+    @EnvironmentObject var toastService: SBBToastService
+
+    var body: some View {
+        Button(action: {
+            toastService.showToast(SBBToast(label: Text("Hello Toast")))
+        }) {
+            Text("Show Toast")
+        }
+    }
+```
+
+## SBBProcessFlow
+
+SBBProcessFlow is used to display the current process state (e.g. in a checkout process). Images are used to describe the single steps (typically in size .small, however you can use any size since the images will get resized if needed). You can add as many steps/images as you like, but need to make sure, there's enough space (width) for them to be displayed correctly.
+
+```    
+@State var currentStepIndex = 0
+
+var body: some View {
+    SBBProcessFlow(currentStepIndex: $currentStepIndex, images: [Image(sbbName: "image-1", size: .small), Image(sbbName: "image-2", size: .small)])
+}
+```
+
 ## SBBButtonStyle
 
 SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small, normal & negative, border & no border) / iconText buttons. 
