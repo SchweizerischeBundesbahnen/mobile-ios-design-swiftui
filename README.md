@@ -483,7 +483,7 @@ SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView.
 
 ## SBBModalView
 
-SBBModalView is used to display a View above another View, typically using .sheet. If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter.
+SBBModalView is used to display a View above another View, typically using .sheet() or modal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .modal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter.
 
 ```    
     @State var showingModalView = false
@@ -494,11 +494,16 @@ SBBModalView is used to display a View above another View, typically using .shee
         }) {
             Text("Click Me")
         }
-            .sheet(isPresented: $showingModalView, content: {
-                SBBModalView(title: Text("Your title"), isPresented: self.$showingModalView) {
+            .sheet(isPresented: $showingModalView) {    // to be used for .full style
+                SBBModalView(title: Text("Your title"), style: .full, isPresented: self.$showingModalView) {
                     YourContentView()
                 }
-            })
+            }
+            .modal(isPresented: $showingModalView) {    // to be used for .popup or .sheet style
+                SBBModalView(title: Text("Your title"), style: .popup, isPresented: self.$showingModalView) {
+                    YourContentView()
+                }
+            }
     }
 ```
 
@@ -650,6 +655,26 @@ ResizeToContentSizeCategory is an Image Extension which allows to the image to d
     Image("Your Image")
         .resizeToContentSizeCategory(originalHeight: 36)
 ```
+
+## Modal
+
+Modal is a View Extension which allows you to present a View modally (over the entire existing view). It is typically used in combination with SBBModalView.
+
+```    
+    @State var showingModalView = false
+
+    var body: some View {
+        Button(action: {
+            self.showingModalView = true
+        }) {
+            Text("Click Me")
+        }
+            .modal(isPresented: $showingModalView) {    
+                SBBModalView(...)
+            }
+    }
+```
+
 
 ## Authors
 

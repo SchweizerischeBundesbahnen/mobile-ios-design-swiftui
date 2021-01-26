@@ -87,6 +87,7 @@
 		7CBA441A24BDEB5B0078E68F /* SBBOnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */; };
 		7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */; };
 		7CC3FAD425AEDBEB00D227D4 /* LoadingIndicatorDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */; };
+		7CDAC62E25C050D500B73E1A /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAC62D25C050D500B73E1A /* Modal.swift */; };
 		7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68C24C16B86002289EE /* SBBModalView.swift */; };
 		7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */; };
 		7CDBA69124C18DA1002289EE /* SBBButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */; };
@@ -249,6 +250,7 @@
 		7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingCardView.swift; sourceTree = "<group>"; };
 		7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBLoadingIndicator.swift; sourceTree = "<group>"; };
 		7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorDemo.swift; sourceTree = "<group>"; };
+		7CDAC62D25C050D500B73E1A /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		7CDBA68C24C16B86002289EE /* SBBModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalView.swift; sourceTree = "<group>"; };
 		7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconButtonStyle.swift; sourceTree = "<group>"; };
 		7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBButtonSize.swift; sourceTree = "<group>"; };
@@ -441,6 +443,7 @@
 				7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */,
 				7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */,
 				7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */,
+				7CDAC62D25C050D500B73E1A /* Modal.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -867,6 +870,7 @@
 				7CE19B1F25B98D8300FEFC1E /* SBBToast.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
+				7CDAC62E25C050D500B73E1A /* Modal.swift in Sources */,
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
