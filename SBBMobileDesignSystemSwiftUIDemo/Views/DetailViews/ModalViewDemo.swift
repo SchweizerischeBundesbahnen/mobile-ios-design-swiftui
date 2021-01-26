@@ -8,7 +8,9 @@ import SBBMobileDesignSystemSwiftUI
 struct ModalViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
-    @State var showingModalView = false
+    @State var showingModalFullView = false
+    @State var showingModalPopupView = false
+    @State var showingModalSheetView = false
     @State var showBackButton = false
     @State var titleAlignment: SBBModalViewTitleAlignment = .center
     
@@ -34,13 +36,25 @@ struct ModalViewDemo: View {
                 }
             }
             Button(action: {
-                self.showingModalView = true
+                self.showingModalPopupView = true
             }) {
-                Text("Show ModalView")
+                Text("Show Popup ModalView")
+            }
+                .buttonStyle(SBBSecondaryButtonStyle())
+            Button(action: {
+                self.showingModalSheetView = true
+            }) {
+                Text("Show Sheet ModalView")
+            }
+                .buttonStyle(SBBSecondaryButtonStyle())
+            Button(action: {
+                self.showingModalFullView = true
+            }) {
+                Text("Show Sheet ModalView")
             }
                 .buttonStyle(SBBPrimaryButtonStyle())
-                .sheet(isPresented: $showingModalView, content: {
-                    SBBModalView(title: Text("Your title"), titleAlignment: self.titleAlignment, isPresented: self.$showingModalView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+            .sheet(isPresented: $showingModalFullView, content: {
+                SBBModalView(title: Text("Your title"), style: .full, titleAlignment: self.titleAlignment, isPresented: self.$showingModalFullView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
                         self.backButtonCounter += 1
                     }) {
                         VStack(spacing: 16) {
@@ -65,6 +79,48 @@ struct ModalViewDemo: View {
             .navigationBarTitle("ModalView")
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
+            .overlay(
+                Group {
+                    if showingModalPopupView {
+                        SBBModalView(title: Text("Your title"), titleAlignment: self.titleAlignment, isPresented: self.$showingModalPopupView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                            self.backButtonCounter += 1
+                        }) {
+                            VStack(spacing: 16) {
+                                Text("Your custom content")
+                                if self.showBackButton {
+                                    Text("Back Button touched \(self.backButtonCounter) times")
+                                }
+                                Button(action: {
+                                    self.showBackButton.toggle()
+                                }) {
+                                    Text(self.showBackButton ? "Hide Back Button" : "Show Back Button")
+                                }
+                                .buttonStyle(SBBPrimaryButtonStyle())
+                            }
+                                .padding(.horizontal, 16)
+                        }
+                    }
+                    if showingModalSheetView {
+                        SBBModalView(title: Text("Your title"), style: .sheet, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                            self.backButtonCounter += 1
+                        }) {
+                            VStack(spacing: 16) {
+                                Text("Your custom content")
+                                if self.showBackButton {
+                                    Text("Back Button touched \(self.backButtonCounter) times")
+                                }
+                                Button(action: {
+                                    self.showBackButton.toggle()
+                                }) {
+                                    Text(self.showBackButton ? "Hide Back Button" : "Show Back Button")
+                                }
+                                .buttonStyle(SBBPrimaryButtonStyle())
+                            }
+                                .padding(16)
+                        }
+                    }
+                }
+            )
     }
 }
 
