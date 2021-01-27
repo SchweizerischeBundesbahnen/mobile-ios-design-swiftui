@@ -38,3 +38,9 @@
 
 // SBBProcessFlow
 "Step %lld out of %lld" = "Pas %lld sur un total de %lld pas.";
+
+// SBBProfile
+"You're logged in as:" = "Vous êtes connecté à votre compte:";
+"You're not logged in." = "Vous n'êtes pas connecté.";
+"Login" = "Login";
+"Logout" = "Logout";

@@ -76,6 +76,9 @@ struct ContentView: View {
                             NavigationLink(destination: ChipDemo(colorScheme: self.$colorScheme)) {
                                 SBBListItem(label: Text("Chip"))
                             }
+                            NavigationLink(destination: ProfileDemo(viewModel: ProfileViewModel(), colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("Profile"))
+                            }
                         }
                     }
                     SBBFormGroup(title: "Modules") {

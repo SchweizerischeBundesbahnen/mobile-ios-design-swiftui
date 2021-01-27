@@ -9,6 +9,7 @@
 * SBBProcessFlow
 * SBBIconTextButtonStyle
 * .modal ViewModifier to be used for SBBModalView (.sheet and .popup style)
+* SBBProfile
 
 ### Improvements
 * Padding of SBBSTertiaryButtonStyle is updated according to Sketch updates

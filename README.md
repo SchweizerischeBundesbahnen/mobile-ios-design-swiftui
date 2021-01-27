@@ -408,6 +408,45 @@ SBBChip is used to provide quick filters to a list. It has a selected/not select
     
 ```
 
+## SBBProfile
+
+SBBProfile is used to display the current login/logout status of the user and to give him the opportunity to login/logout.
+
+```    
+    // example ViewModel
+    class ProfileViewModel: ObservableObject {
+        
+        var name: Text? = Text("Karin Burgmeister")
+        var eMail: Text? = Text("karin.burgmeister@sbb.ch")
+        
+        @Published var isLoggedIn = true
+        
+        func login() {
+            // perform login
+            name = Text("Karin Burgmeister")
+            eMail = Text("karin.burgmeister@sbb.ch")
+            isLoggedIn = true
+        }
+        
+        func logout() {
+            // perform logout
+            name = nil
+            eMail = nil
+            isLoggedIn = false
+        }
+    }
+
+
+    struct YourView: View {
+        @ObservedObject var viewModel: ProfileViewModel
+        
+        public var body: some View {
+            SBBProfile(userName: viewModel.name, userEmail: viewModel.eMail, isLoggedIn: $viewModel.isLoggedIn, loginAction:  {viewModel.login()}, logoutAction: {viewModel.logout()})
+        }
+    }
+    
+```
+
 ## SBBOnboardingView
 
 SBBOnboardingView is used to present basic app functionality to your users on the first  app launch. It consists of a StartView, multiple CardViews and an EndView. You can specify StartView and EndView content using StartViewModel and EndViewModel. You can pass up to 6 Views which will be displayed as cards. In a normal setting, you will use SBBOnboardingCardView for the cards, however you can use any custom view you wish if desired.
