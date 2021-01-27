@@ -81,7 +81,7 @@ struct ModalViewDemo: View {
                 }
             }
             .modal(isPresented: self.$showingModalPopupView) {
-                SBBModalView(title: Text("Your title"), titleAlignment: self.titleAlignment, isPresented: self.$showingModalPopupView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                SBBModalView(title: Text("Your title"), style: .popup, titleAlignment: self.titleAlignment, isPresented: self.$showingModalPopupView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
                     self.backButtonCounter += 1
                 }) {
                     VStack(spacing: 16) {

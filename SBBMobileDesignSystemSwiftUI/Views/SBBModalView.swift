@@ -25,7 +25,7 @@ public struct SBBModalView<Content>: View where Content: View {
     private let actionOnBackButtonTouched: (() -> ())?
     private let content: Content
 
-    public init(title: Text, style: Style = .popup, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
+    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.style = style
         self.titleAlignment = titleAlignment
@@ -88,20 +88,20 @@ struct SBBModalView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Group {
-                SBBModalView(title: Text("Modal View"), isPresented: .constant(true)) {
+                SBBModalView(title: Text("Modal View"), style: .popup, isPresented: .constant(true)) {
                     Text("Custom content")
                 }
                     .previewDisplayName("Popup, light, leading alignment")
-                SBBModalView(title: Text("Modal View"), isPresented: .constant(true)) {
+                SBBModalView(title: Text("Modal View"), style: .popup, isPresented: .constant(true)) {
                     Text("Custom content")
                 }
                     .previewDisplayName("Popup, dark, leading alignment")
                     .environment(\.colorScheme, .dark)
-                SBBModalView(title: Text("Modal View"), titleAlignment: .center, isPresented: .constant(true)) {
+                SBBModalView(title: Text("Modal View"), style: .popup, titleAlignment: .center, isPresented: .constant(true)) {
                     Text("Custom content")
                 }
                     .previewDisplayName("Popup, light, center alignment")
-                SBBModalView(title: Text("Modal View"), titleAlignment: .center, isPresented: .constant(true), showBackButton: .constant(true)) {
+                SBBModalView(title: Text("Modal View"), style: .popup, titleAlignment: .center, isPresented: .constant(true), showBackButton: .constant(true)) {
                     Text("Custom content")
                 }
                     .previewDisplayName("Popup, light, Back Button")
