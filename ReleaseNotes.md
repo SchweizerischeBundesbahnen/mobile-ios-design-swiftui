@@ -1,6 +1,6 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.2.4 - 20 January 2021
+## V0.2.4 - 27 January 2021
 
 ### Features
 * SBBChip

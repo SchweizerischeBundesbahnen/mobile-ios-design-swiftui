@@ -33,15 +33,6 @@ public struct SBBDialogue<Content>: View where Content: View {
                 return Color.sbbColor(.background)
             }
         }
-        
-        var backgroundColor: Color {
-            switch self {
-            case .fullscreen:
-                return Color.sbbColor(.black).opacity(0.3)
-            case .inline, .list:
-                return Color.clear
-            }
-        }
     }
     
     @Environment(\.colorScheme) var colorScheme
@@ -115,8 +106,6 @@ public struct SBBDialogue<Content>: View where Content: View {
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topLeft)
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topRight)
         }
-        .background(style.backgroundColor)
-        .accessibility(addTraits: (style == .fullscreen) ? [.isModal] : []) // as of today, isModal doesn't seem to be working as intended with SwiftUI 
     }
 }
 

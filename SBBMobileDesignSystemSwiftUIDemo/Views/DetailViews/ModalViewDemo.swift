@@ -61,7 +61,6 @@ struct ModalViewDemo: View {
             .padding(16)
             .navigationBarTitle("ModalView")
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
-            .colorScheme(colorScheme)
             .modal(isPresented: self.$showingModalSheetView) {
                 SBBModalView(title: Text("Your title"), style: .sheet, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
                     self.backButtonCounter += 1
@@ -120,10 +119,12 @@ struct ModalViewDemo: View {
                         }
                             .padding(16)
                     }
+                        .colorScheme(colorScheme)
                 })
             .modal(isPresented: self.$showingModalCustomView) {
                 Text("Your custom content here")
             }
+            .colorScheme(colorScheme)
     }
 }
 

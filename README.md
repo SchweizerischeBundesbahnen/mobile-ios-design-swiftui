@@ -509,31 +509,44 @@ SBBModalView is used to display a View above another View, typically using .shee
 
 ## SBBDialogue
 
-SBBDialogue is used to interact with the user to either prompt a reaction from his side (e.g. choose an action) or to inform him about an error. It has 3 different presentation-style options: fullscreen (modally), inline or list.
+SBBDialogue is used to interact with the user to either prompt a reaction from his side (e.g. choose an action) or to inform him about an error. It has 3 different presentation-style options: fullscreen (by using the .modal() ViewModifier), inline or list.
 
 ```    
-    // error case with retry-button
-    SBBDialogue(title: Text("title"), label: Text("label"), errorCode: Text("404"), style: .fullscreen, imageStyle: .sad) {
-        Button(action: { retry() }) {
-            Image(sbbName: "arrows-circle", size: .small)
-        }
-            .buttonStyle(SBBIconButtonStyle())
-    }
+    @State var showingDialogue = false
     
-    // choose an action
-    SBBDialogue(title: Text("title"), label: Text("label"), style: .fullscreen) {
-        Button(action: { option2Action() }) {
-            Text("Option 2")
+    var body: some View {
+        VStack {
+            Button(action: {
+                self.showingDialogue = true
+            }) {
+                Text("Click Me")
+            }
+            
+            // error case with retry-button
+            SBBDialogue(title: Text("title"), label: Text("label"), errorCode: Text("404"), style: .fullscreen, imageStyle: .sad) {
+                Button(action: { retry() }) {
+                    Image(sbbName: "arrows-circle", size: .small)
+                }
+                    .buttonStyle(SBBIconButtonStyle())
+            }
         }
-            .buttonStyle(SBBSecondaryButtonStyle())
-        Button(action: { option1Action() }) {
-            Text("Option 1")
-        }
-            .buttonStyle(SBBSecondaryButtonStyle())
-        Button(action: { primaryAction() }) {
-            Text("Primary action")
-        }
-            .buttonStyle(SBBPrimaryButtonStyle())
+            .modal(isPresented: $showingModalView) {    // to be used for .fullscreen style
+                // choose an action
+                SBBDialogue(title: Text("title"), label: Text("label"), style: .fullscreen) {
+                    Button(action: { option2Action() }) {
+                        Text("Option 2")
+                    }
+                        .buttonStyle(SBBSecondaryButtonStyle())
+                    Button(action: { option1Action() }) {
+                        Text("Option 1")
+                    }
+                        .buttonStyle(SBBSecondaryButtonStyle())
+                    Button(action: { primaryAction() }) {
+                        Text("Primary action")
+                    }
+                        .buttonStyle(SBBPrimaryButtonStyle())
+                }
+            }
     }
 ```
 
