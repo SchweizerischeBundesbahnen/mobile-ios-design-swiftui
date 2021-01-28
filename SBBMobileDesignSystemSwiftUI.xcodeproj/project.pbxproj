@@ -80,9 +80,7 @@
 		7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */; };
 		7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */; };
 		7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */; };
-		7CB2CEA625C14B2A00756D9B /* SBBProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2CEA525C14B2A00756D9B /* SBBProfile.swift */; };
-		7CB2CEAA25C156C300756D9B /* ProfileDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2CEA925C156C300756D9B /* ProfileDemo.swift */; };
-		7CB2CEAE25C1575100756D9B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2CEAD25C1575100756D9B /* ProfileViewModel.swift */; };
+		7CB2CEB225C19AD600756D9B /* SBBMapMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB2CEB125C19AD600756D9B /* SBBMapMarker.swift */; };
 		7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441124BDAD3C0078E68F /* SBBOnboardingView.swift */; };
 		7CBA441424BDB11E0078E68F /* SBBOnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */; };
 		7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */; };
@@ -90,6 +88,7 @@
 		7CBA441A24BDEB5B0078E68F /* SBBOnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */; };
 		7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */; };
 		7CC3FAD425AEDBEB00D227D4 /* LoadingIndicatorDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */; };
+		7CCAECF325C293E5000E958A /* MapMarkerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAECF225C293E5000E958A /* MapMarkerDemo.swift */; };
 		7CDAC62E25C050D500B73E1A /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAC62D25C050D500B73E1A /* Modal.swift */; };
 		7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68C24C16B86002289EE /* SBBModalView.swift */; };
 		7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */; };
@@ -246,9 +245,7 @@
 		7CAFE99C23DEE432001ADBE8 /* SBBFontLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFontLoader.swift; sourceTree = "<group>"; };
 		7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAppearance.swift; sourceTree = "<group>"; };
 		7CAFE9A023DF2C62001ADBE8 /* SBBBubbleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBBubbleView.swift; sourceTree = "<group>"; };
-		7CB2CEA525C14B2A00756D9B /* SBBProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBProfile.swift; sourceTree = "<group>"; };
-		7CB2CEA925C156C300756D9B /* ProfileDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDemo.swift; sourceTree = "<group>"; };
-		7CB2CEAD25C1575100756D9B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		7CB2CEB125C19AD600756D9B /* SBBMapMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMapMarker.swift; sourceTree = "<group>"; };
 		7CBA441124BDAD3C0078E68F /* SBBOnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingView.swift; sourceTree = "<group>"; };
 		7CBA441324BDB11E0078E68F /* SBBOnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingState.swift; sourceTree = "<group>"; };
 		7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTitleWrapperView.swift; sourceTree = "<group>"; };
@@ -256,6 +253,7 @@
 		7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingCardView.swift; sourceTree = "<group>"; };
 		7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBLoadingIndicator.swift; sourceTree = "<group>"; };
 		7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorDemo.swift; sourceTree = "<group>"; };
+		7CCAECF225C293E5000E958A /* MapMarkerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerDemo.swift; sourceTree = "<group>"; };
 		7CDAC62D25C050D500B73E1A /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		7CDBA68C24C16B86002289EE /* SBBModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalView.swift; sourceTree = "<group>"; };
 		7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconButtonStyle.swift; sourceTree = "<group>"; };
@@ -530,7 +528,7 @@
 				7C2DFE4525B5DC5300030342 /* DialogueDemo.swift */,
 				7CE19B1925B957EA00FEFC1E /* ToastDemo.swift */,
 				7C3AF99B25BAB2E9007BBF21 /* ProcessFlowDemo.swift */,
-				7CB2CEA925C156C300756D9B /* ProfileDemo.swift */,
+				7CCAECF225C293E5000E958A /* MapMarkerDemo.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -542,7 +540,6 @@
 				7C2DFE4925B5E2DD00030342 /* DialogueViewModel.swift */,
 				7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */,
 				7C3AFA0125BAFCE7007BBF21 /* ProcessFlowViewModel.swift */,
-				7CB2CEAD25C1575100756D9B /* ProfileViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -571,7 +568,7 @@
 				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
 				7CE7BD4F25B16A84000ADF6B /* SBBChip.swift */,
 				7C3AF99725BAA845007BBF21 /* SBBProcessFlow.swift */,
-				7CB2CEA525C14B2A00756D9B /* SBBProfile.swift */,
+				7CB2CEB125C19AD600756D9B /* SBBMapMarker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -855,7 +852,6 @@
 				7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */,
 				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
-				7CB2CEA625C14B2A00756D9B /* SBBProfile.swift in Sources */,
 				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
 				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
@@ -891,6 +887,7 @@
 				7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */,
 				7CAF977825B875B3002260AE /* SBBToastContainerView.swift in Sources */,
 				7CAF977D25B87653002260AE /* SBBToastService.swift in Sources */,
+				7CB2CEB225C19AD600756D9B /* SBBMapMarker.swift in Sources */,
 				7CAF978325B87DCE002260AE /* ToastView.swift in Sources */,
 				7C47590D2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift in Sources */,
 				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
@@ -923,9 +920,9 @@
 				7CF57A7124C1E2AC00631837 /* ModalViewDemo.swift in Sources */,
 				7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */,
 				A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */,
+				7CCAECF325C293E5000E958A /* MapMarkerDemo.swift in Sources */,
 				2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */,
 				7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */,
-				7CB2CEAA25C156C300756D9B /* ProfileDemo.swift in Sources */,
 				7CC3FAD425AEDBEB00D227D4 /* LoadingIndicatorDemo.swift in Sources */,
 				7C62489E247E48A400F54C9D /* ListItemDetailDemo.swift in Sources */,
 				2D804E7C23D9D16000CC9C0C /* ContentView.swift in Sources */,
@@ -938,7 +935,6 @@
 				A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */,
 				A75AAE2024373C0C0054B54A /* CheckBoxView.swift in Sources */,
 				7C2DFE4A25B5E2DD00030342 /* DialogueViewModel.swift in Sources */,
-				7CB2CEAE25C1575100756D9B /* ProfileViewModel.swift in Sources */,
 				7C595E6425A605F20015B0FC /* RadioButtonViewModel.swift in Sources */,
 				7C6248A3247E60FC00F54C9D /* ToggleDemo.swift in Sources */,
 				A737348C2436141200E34716 /* TextFieldView.swift in Sources */,

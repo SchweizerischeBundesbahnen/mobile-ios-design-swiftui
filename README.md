@@ -408,43 +408,12 @@ SBBChip is used to provide quick filters to a list. It has a selected/not select
     
 ```
 
-## SBBProfile
+## SBBMarker
 
-SBBProfile is used to display the current login/logout status of the user and to give him the opportunity to login/logout.
+SBBMarker can be used to display content on a map. There are 3 available map marker styles: .red, .blue and .black. Use .blue style for pictograms.
 
 ```    
-    // example ViewModel
-    class ProfileViewModel: ObservableObject {
-        
-        var name: Text? = Text("Karin Burgmeister")
-        var eMail: Text? = Text("karin.burgmeister@sbb.ch")
-        
-        @Published var isLoggedIn = true
-        
-        func login() {
-            // perform login
-            name = Text("Karin Burgmeister")
-            eMail = Text("karin.burgmeister@sbb.ch")
-            isLoggedIn = true
-        }
-        
-        func logout() {
-            // perform logout
-            name = nil
-            eMail = nil
-            isLoggedIn = false
-        }
-    }
-
-
-    struct YourView: View {
-        @ObservedObject var viewModel: ProfileViewModel
-        
-        public var body: some View {
-            SBBProfile(userName: viewModel.name, userEmail: viewModel.eMail, isLoggedIn: $viewModel.isLoggedIn, loginAction:  {viewModel.login()}, logoutAction: {viewModel.logout()})
-        }
-    }
-    
+    SBBMapMarker(icon: Image(sbbName: "Zug_r"), style: .blue)
 ```
 
 ## SBBOnboardingView

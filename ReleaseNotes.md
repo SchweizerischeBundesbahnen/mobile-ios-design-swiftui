@@ -1,6 +1,6 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.2.4 - 27 January 2021
+## V0.2.4 - 28 January 2021
 
 ### Features
 * SBBChip
@@ -9,7 +9,7 @@
 * SBBProcessFlow
 * SBBIconTextButtonStyle
 * .modal ViewModifier to be used for SBBModalView (.sheet and .popup style)
-* SBBProfile
+* SBBMarker
 
 ### Improvements
 * Padding of SBBSTertiaryButtonStyle is updated according to Sketch updates
