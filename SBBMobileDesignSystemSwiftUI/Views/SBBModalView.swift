@@ -78,6 +78,12 @@ public struct SBBModalView<Content>: View where Content: View {
                 .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
                 .cornerRadius(style != .full ? 16 : 0, corners: [.topLeft, .topRight])
                 .cornerRadius(style == .popup ? 16 : 0, corners: [.bottomLeft, .bottomRight])
+                .background(    // we need to reapply background color for styles, where not all edges are rounded (.cornerRadius clips the view)
+                    (style == .popup ? Color.clear : Color.sbbColor(.background))
+                        .offset(y: 16)
+                        .clipped()
+                        .edgesIgnoringSafeArea(.bottom)
+                )
                 .padding(.horizontal, style == .popup ? 16 : 0)
         }
             .background(Color.clear)

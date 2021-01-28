@@ -20,7 +20,7 @@ struct MapMarkerDemo: View {
             }
                 .padding(16)
         }
-            .navigationBarTitle("Profile")
+            .navigationBarTitle("Map Marker")
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
