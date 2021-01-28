@@ -609,10 +609,10 @@ SBBToast provides simple feedback about an operation in a small popup. SBBToasts
 SBBProcessFlow is used to display the current process state (e.g. in a checkout process). Images are used to describe the single steps (typically in size .small, however you can use any size since the images will get resized if needed). You can add as many steps/images as you like, but need to make sure, there's enough space (width) for them to be displayed correctly.
 
 ```    
-@State var currentStepIndex = 0
+var currentStepIndex = 0
 
 var body: some View {
-    SBBProcessFlow(currentStepIndex: $currentStepIndex, images: [Image(sbbName: "image-1", size: .small), Image(sbbName: "image-2", size: .small)])
+    SBBProcessFlow(currentStepIndex: currentStepIndex, images: [Image(sbbName: "image-1", size: .small), Image(sbbName: "image-2", size: .small)])
 }
 ```
 

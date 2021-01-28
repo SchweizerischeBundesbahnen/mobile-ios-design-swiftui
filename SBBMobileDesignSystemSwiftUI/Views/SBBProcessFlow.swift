@@ -6,7 +6,7 @@ import SwiftUI
 
 public struct SBBProcessFlow: View {
     
-    @Binding private var currentStepIndex: Int
+    private var currentStepIndex: Int
     private let images: [Image]
     private var height: CGFloat {
         return UIFontMetrics.default.scaledValue(for: 32)
@@ -20,8 +20,8 @@ public struct SBBProcessFlow: View {
     
     @Environment(\.colorScheme) private var colorScheme
     
-    public init(currentStepIndex: Binding<Int>, images: [Image]) {
-        self._currentStepIndex = currentStepIndex
+    public init(currentStepIndex: Int, images: [Image]) {
+        self.currentStepIndex = currentStepIndex
         self.images = images
     }
     
@@ -59,9 +59,9 @@ struct SBBProcessFlow_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            SBBProcessFlow(currentStepIndex: .constant(1), images: images)
+            SBBProcessFlow(currentStepIndex: 1, images: images)
                 .previewDisplayName("light")
-            SBBProcessFlow(currentStepIndex: .constant(2), images: images)
+            SBBProcessFlow(currentStepIndex: 2, images: images)
                 .previewDisplayName("dark")
                 .environment(\.colorScheme, .dark)
         }
