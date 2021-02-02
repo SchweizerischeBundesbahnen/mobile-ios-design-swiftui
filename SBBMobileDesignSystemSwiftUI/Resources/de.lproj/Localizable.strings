@@ -38,3 +38,9 @@
 
 // SBBProcessFlow
 "Step %lld out of %lld" = "Schritt %lld von total %lld Schritten.";
+
+// SBBProfile
+"You're logged in as:" = "Sie sind eingeloggt als:";
+"You're not logged in." = "Sie sind nicht eingeloggt.";
+"Login" = "Login";
+"Logout" = "Logout";

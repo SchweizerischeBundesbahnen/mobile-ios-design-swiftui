@@ -13,7 +13,7 @@ struct ProcessFlowDemo: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
-                SBBProcessFlow(currentStepIndex: $viewModel.currentStepIndex, images: Array(viewModel.images[0..<viewModel.numberOfSteps]))
+                SBBProcessFlow(currentStepIndex: viewModel.currentStepIndex, images: Array(viewModel.images[0..<viewModel.numberOfSteps]))
                 SBBFormGroup(title: "Customize Content") {
                     HStack {
                         Text("Current Step: \(viewModel.currentStepIndex)")

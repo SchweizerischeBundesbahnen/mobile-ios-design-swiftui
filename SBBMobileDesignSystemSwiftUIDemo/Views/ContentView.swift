@@ -76,6 +76,9 @@ struct ContentView: View {
                             NavigationLink(destination: ChipDemo(colorScheme: self.$colorScheme)) {
                                 SBBListItem(label: Text("Chip"))
                             }
+                            NavigationLink(destination: MapMarkerDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("MapMarker"))
+                            }
                         }
                     }
                     SBBFormGroup(title: "Modules") {

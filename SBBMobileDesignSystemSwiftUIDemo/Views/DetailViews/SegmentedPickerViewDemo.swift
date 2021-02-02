@@ -13,29 +13,43 @@ struct SegmentedPickerViewDemo: View {
     @State private var selectedSegment2: PickerOptions = .departures
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 16) {
-                Text("Simple Integer Picker")
-                    .sbbFont(.header)
-                SBBSegmentedPicker(selection: self.$selectedSegment1, tags: [0, 1, 2]) {
-                    Text("Opt 1")
-                    Text("Opt 2")
-                    Text("Opt 3")
-                }
-                Text("Selected Segment: \(selectedSegment1)")
-                    .sbbFont(.body)
-                SBBDivider()
-                Text("Enum Picker")
-                    .sbbFont(.header)
-                SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
-                    Text("Departures")
-                    Text("Platform")
-                }
-                Text("Selected Segment: .\(selectedSegment2.rawValue)")
-                    .sbbFont(.body)
-                Spacer()
+        VStack(spacing: 0) {
+            SBBSegmentedPicker(selection: self.$selectedSegment1, tags: [0, 1, 2], style: .red) {
+                Text("Opt 1")
+                Text("Opt 2")
+                Text("Opt 3")
             }
                 .padding(16)
+                .background(Color.sbbColor(.red))
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 16) {
+                    
+                    Text("Simple Integer Picker")
+                        .sbbFont(.header)
+                    SBBSegmentedPicker(selection: self.$selectedSegment1, tags: [0, 1, 2]) {
+                        Text("Opt 1")
+                        Text("Opt 2")
+                        Text("Opt 3")
+                    }
+                    Text("Selected Segment: \(selectedSegment1)")
+                        .sbbFont(.body)
+                    SBBDivider()
+                    Text("Enum Picker")
+                        .sbbFont(.header)
+                    SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
+                        Text("Departures")
+                        Text("Platform")
+                    }
+                    SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
+                        Image(sbbName: "timetable", size: .small)
+                        Image(sbbName: "platform-display", size: .small)
+                    }
+                    Text("Selected Segment: .\(selectedSegment2.rawValue)")
+                        .sbbFont(.body)
+                    Spacer()
+                }
+                    .padding(16)
+            }
         }
             .navigationBarTitle("SegmentedPicker")
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))

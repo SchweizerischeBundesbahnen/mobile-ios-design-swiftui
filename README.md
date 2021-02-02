@@ -227,7 +227,7 @@ You can use the SBBInfoView it like so:
 
 ## SBBSegmentedPicker
 
-SBBSegmentedPicker is the SBB-Implementation of the standard SwiftUI Picker with SegmentedPickerStyle. You need to set its current selection and all its unique tags (of type Hashable).
+SBBSegmentedPicker is the SBB-Implementation of the standard SwiftUI Picker with SegmentedPickerStyle. You need to set its current selection and all its unique tags (of type Hashable). Optionally you can set it's style to .red, if you plan to use it as a NavigationBar extension.
 
 You can use the SBBSegmentedPicker like so:
 ```
@@ -408,6 +408,14 @@ SBBChip is used to provide quick filters to a list. It has a selected/not select
     
 ```
 
+## SBBMarker
+
+SBBMarker can be used to display content on a map. There are 3 available map marker styles: .red, .blue and .black. Use .blue style for pictograms.
+
+```    
+    SBBMapMarker(icon: Image(sbbName: "Zug_r"), style: .blue)
+```
+
 ## SBBOnboardingView
 
 SBBOnboardingView is used to present basic app functionality to your users on the first  app launch. It consists of a StartView, multiple CardViews and an EndView. You can specify StartView and EndView content using StartViewModel and EndViewModel. You can pass up to 6 Views which will be displayed as cards. In a normal setting, you will use SBBOnboardingCardView for the cards, however you can use any custom view you wish if desired.
@@ -483,7 +491,7 @@ SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView.
 
 ## SBBModalView
 
-SBBModalView is used to display a View above another View, typically using .sheet. If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter.
+SBBModalView is used to display a View above another View, typically using .sheet() or modal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .modal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter.
 
 ```    
     @State var showingModalView = false
@@ -494,41 +502,59 @@ SBBModalView is used to display a View above another View, typically using .shee
         }) {
             Text("Click Me")
         }
-            .sheet(isPresented: $showingModalView, content: {
-                SBBModalView(title: Text("Your title"), isPresented: self.$showingModalView) {
+            .sheet(isPresented: $showingModalView) {    // to be used for .full style
+                SBBModalView(title: Text("Your title"), style: .full, isPresented: self.$showingModalView) {
                     YourContentView()
                 }
-            })
+            }
+            .modal(isPresented: $showingModalView) {    // to be used for .popup or .sheet style
+                SBBModalView(title: Text("Your title"), style: .popup, isPresented: self.$showingModalView) {
+                    YourContentView()
+                }
+            }
     }
 ```
 
 ## SBBDialogue
 
-SBBDialogue is used to interact with the user to either prompt a reaction from his side (e.g. choose an action) or to inform him about an error. It has 3 different presentation-style options: fullscreen (modally), inline or list.
+SBBDialogue is used to interact with the user to either prompt a reaction from his side (e.g. choose an action) or to inform him about an error. It has 3 different presentation-style options: fullscreen (by using the .modal() ViewModifier), inline or list.
 
 ```    
-    // error case with retry-button
-    SBBDialogue(title: Text("title"), label: Text("label"), errorCode: Text("404"), style: .fullscreen, imageStyle: .sad) {
-        Button(action: { retry() }) {
-            Image(sbbName: "arrows-circle", size: .small)
-        }
-            .buttonStyle(SBBIconButtonStyle())
-    }
+    @State var showingDialogue = false
     
-    // choose an action
-    SBBDialogue(title: Text("title"), label: Text("label"), style: .fullscreen) {
-        Button(action: { option2Action() }) {
-            Text("Option 2")
+    var body: some View {
+        VStack {
+            Button(action: {
+                self.showingDialogue = true
+            }) {
+                Text("Click Me")
+            }
+            
+            // error case with retry-button
+            SBBDialogue(title: Text("title"), label: Text("label"), errorCode: Text("404"), style: .fullscreen, imageStyle: .sad) {
+                Button(action: { retry() }) {
+                    Image(sbbName: "arrows-circle", size: .small)
+                }
+                    .buttonStyle(SBBIconButtonStyle())
+            }
         }
-            .buttonStyle(SBBSecondaryButtonStyle())
-        Button(action: { option1Action() }) {
-            Text("Option 1")
-        }
-            .buttonStyle(SBBSecondaryButtonStyle())
-        Button(action: { primaryAction() }) {
-            Text("Primary action")
-        }
-            .buttonStyle(SBBPrimaryButtonStyle())
+            .modal(isPresented: $showingModalView) {    // to be used for .fullscreen style
+                // choose an action
+                SBBDialogue(title: Text("title"), label: Text("label"), style: .fullscreen) {
+                    Button(action: { option2Action() }) {
+                        Text("Option 2")
+                    }
+                        .buttonStyle(SBBSecondaryButtonStyle())
+                    Button(action: { option1Action() }) {
+                        Text("Option 1")
+                    }
+                        .buttonStyle(SBBSecondaryButtonStyle())
+                    Button(action: { primaryAction() }) {
+                        Text("Primary action")
+                    }
+                        .buttonStyle(SBBPrimaryButtonStyle())
+                }
+            }
     }
 ```
 
@@ -583,16 +609,16 @@ SBBToast provides simple feedback about an operation in a small popup. SBBToasts
 SBBProcessFlow is used to display the current process state (e.g. in a checkout process). Images are used to describe the single steps (typically in size .small, however you can use any size since the images will get resized if needed). You can add as many steps/images as you like, but need to make sure, there's enough space (width) for them to be displayed correctly.
 
 ```    
-@State var currentStepIndex = 0
+var currentStepIndex = 0
 
 var body: some View {
-    SBBProcessFlow(currentStepIndex: $currentStepIndex, images: [Image(sbbName: "image-1", size: .small), Image(sbbName: "image-2", size: .small)])
+    SBBProcessFlow(currentStepIndex: currentStepIndex, images: [Image(sbbName: "image-1", size: .small), Image(sbbName: "image-2", size: .small)])
 }
 ```
 
 ## SBBButtonStyle
 
-SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small) buttons. 
+SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small, normal & negative, border & no border) / iconText buttons. 
 
 ```    
     var body: some View {
@@ -608,6 +634,14 @@ SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large
                 .resizable  // resizable needs to be set if your Image is not 24x24 (same for .large & .small)
         }
             .buttonStyle(SBBIconButtonStyle(size: .small))   // .large is default
+            
+        Button(action: myAction) {
+            VStack(alignment: .center, spacing: 4, content: {   // alignment and spacing need to be set exactly like this
+                Image(sbbName: "station", size: .large)
+                Text("Station")
+            })
+        }
+            .buttonStyle(SBBIconTextButtonStyle())
     }
 ```
 
@@ -642,6 +676,26 @@ ResizeToContentSizeCategory is an Image Extension which allows to the image to d
     Image("Your Image")
         .resizeToContentSizeCategory(originalHeight: 36)
 ```
+
+## Modal
+
+Modal is a View Extension which allows you to present a View modally (over the entire existing view). It is typically used in combination with SBBModalView.
+
+```    
+    @State var showingModalView = false
+
+    var body: some View {
+        Button(action: {
+            self.showingModalView = true
+        }) {
+            Text("Click Me")
+        }
+            .modal(isPresented: $showingModalView) {    
+                SBBModalView(...)
+            }
+    }
+```
+
 
 ## Authors
 

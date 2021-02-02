@@ -38,3 +38,9 @@
 
 // SBBProcessFlow
 "Step %lld out of %lld" = "Step %lld out of %lld.";
+
+// SBBProfile
+"You're logged in as:" = "You're logged in as:";
+"You're not logged in." = "You're not logged in.";
+"Login" = "Login";
+"Logout" = "Logout";
