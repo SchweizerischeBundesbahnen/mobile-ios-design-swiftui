@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.2.5 - 02 February 2021
+
+### Features
+* Fixed background for .fullscreen SBBDialogue and devices with bottom safe area
+
 ## V0.2.4 - 28 January 2021
 
 ### Features
