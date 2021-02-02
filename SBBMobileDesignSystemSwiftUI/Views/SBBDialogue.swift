@@ -105,6 +105,12 @@ public struct SBBDialogue<Content>: View where Content: View {
                 .background(style.contentBackgroundColor)
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topLeft)
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topRight)
+                .background(    // we need to reapply background color for styles, where not all edges are rounded (.cornerRadius clips the view)
+                    (style == .fullscreen ? style.contentBackgroundColor : Color.clear)
+                        .offset(y: 16)
+                        .clipped()
+                        .edgesIgnoringSafeArea(.bottom)
+                )
         }
     }
 }
