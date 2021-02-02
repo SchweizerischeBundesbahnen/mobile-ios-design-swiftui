@@ -29,3 +29,18 @@
 
 // SBBLoadingIndicator
 "Loading." = "Caricamento.";
+
+// SBBChip
+"list filter" = "filtro dell'elenco";
+"active" = "attivo";
+"not active" = "inattivo";
+"entries" = "voci";
+
+// SBBProcessFlow
+"Step %lld out of %lld" = "Passo %lld di %lld";
+
+// SBBProfile
+"You're logged in as:" = "Hai effettuato l'accesso come:";
+"You're not logged in." = "Non hai effettuato l'accesso.";
+"Login" = "Login";
+"Logout" = "Logout";

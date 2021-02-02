@@ -29,3 +29,18 @@
 
 // SBBLoadingIndicator
 "Loading." = "Loading.";
+
+// SBBChip
+"list filter" = "list filter";
+"active" = "active";
+"not active" = "not active";
+"entries" = "entries";
+
+// SBBProcessFlow
+"Step %lld out of %lld" = "Step %lld out of %lld.";
+
+// SBBProfile
+"You're logged in as:" = "You're logged in as:";
+"You're not logged in." = "You're not logged in.";
+"Login" = "Login";
+"Logout" = "Logout";

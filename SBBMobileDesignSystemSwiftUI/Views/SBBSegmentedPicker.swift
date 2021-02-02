@@ -5,20 +5,54 @@
 import SwiftUI
 
 public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, Selection: Hashable {
+    
+    public enum Style {
+        case normal
+        case red
+        
+        var currentSegmentBackgroundColor: Color {
+            switch self {
+            case .normal:
+                return Color.sbbColor(.tabViewBackground)
+            case .red:
+                return Color.sbbColor(.red)
+            }
+        }
+        
+        var foregroundColor: Color {
+            switch self {
+            case .normal:
+                return Color.sbbColor(.textBlack)
+            case .red:
+                return Color.sbbColor(.white)
+            }
+        }
+        
+        var backgroundColor: Color {
+            switch self {
+            case .normal:
+                return Color.sbbColorInternal(.segmentedPickerBackground)
+            case .red:
+                return Color(red: 211 / 255, green: 0, blue: 0, opacity: 1)   // #D30000
+            }
+        }
+    }
      
     @Binding private var selection: Selection
     private let tags: [Selection]
     private let segments: [Segment]
+    private let style: Style
     private var selectionIndex: Int {
         return tags.firstIndex(of: selection) ?? 0
     }
     
     @Environment(\.colorScheme) var colorScheme
      
-    public init(selection: Binding<Selection>, tags: [Selection], @ArrayBuilder<Segment> content: () -> [Segment]) {
+    public init(selection: Binding<Selection>, tags: [Selection], style: Style = .normal, @ArrayBuilder<Segment> content: () -> [Segment]) {
         self._selection = selection
         self.tags = tags
         self.segments = content()
+        self.style = style
     }
     
     public var body: some View {
@@ -26,14 +60,14 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
             ZStack(alignment: .leading) {
                 // Highlighter for current segment
                 Rectangle()
-                    .fill(Color.sbbColor(.tabViewBackground))
+                    .fill(style.currentSegmentBackgroundColor)
                     .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
                     .cornerRadius(20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.sbbColor(.smoke), lineWidth: self.colorScheme == .dark ? 1 : 0)   // only draw border for dark mode
+                            .stroke(Color.sbbColor(.smoke), lineWidth: self.colorScheme == .dark && style == .normal ? 1 : 0)   // only draw border for dark mode with normal style
                     )
-                    .shadow(color: Color.black.opacity(0.1), radius: 5)
+                    .shadow(color: Color.black.opacity(0.2), radius: 5)
                     .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selectionIndex))
                     .animation(.default)
 
@@ -52,7 +86,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                             }
                         }
                             .sbbFont(.body)
-                            .foregroundColor(Color.sbbColor(.textBlack))
+                            .foregroundColor(style.foregroundColor)
                             .padding(.horizontal, 16)
                             .frame(width: self.segmentWidth(parentWidth: geometry.size.width), height: 40)
                             .accessibility(hint: Text("\(index + 1) \("of".localized) \(self.segments.count)"))
@@ -68,7 +102,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
         }
             .padding(2)
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
-            .background(Color.sbbColorInternal(.segmentedPickerBackground))
+            .background(style.backgroundColor)
             .cornerRadius(22)
     }
     
@@ -96,6 +130,17 @@ struct SBBSegmentedPicker_Previews: PreviewProvider {
                 Text("Tab2")
             }
                 .previewDisplayName("Dark")
+                .environment(\.colorScheme, .dark)
+            SBBSegmentedPicker(selection: .constant(1), tags: [0, 1], style: .red) {
+                Text("Tab1")
+                Text("Tab2")
+            }
+                .previewDisplayName("Red, Light")
+            SBBSegmentedPicker(selection: .constant(1), tags: [0, 1], style: .red) {
+                Text("Tab1")
+                Text("Tab2")
+            }
+                .previewDisplayName("Red, Dark")
                 .environment(\.colorScheme, .dark)
         }
             .previewLayout(.sizeThatFits)

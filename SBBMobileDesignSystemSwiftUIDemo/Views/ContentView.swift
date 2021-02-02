@@ -73,6 +73,12 @@ struct ContentView: View {
                             NavigationLink(destination: LoadingIndicatorDemo(colorScheme: self.$colorScheme)) {
                                 SBBListItem(label: Text("LoadingIndicator"))
                             }
+                            NavigationLink(destination: ChipDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("Chip"))
+                            }
+                            NavigationLink(destination: MapMarkerDemo(colorScheme: self.$colorScheme)) {
+                                SBBListItem(label: Text("MapMarker"))
+                            }
                         }
                     }
                     SBBFormGroup(title: "Modules") {
@@ -90,6 +96,15 @@ struct ContentView: View {
                         }
                         NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme)) {
                             SBBListItem(label: Text("ModalView"))
+                        }
+                        NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, model: DialogueViewModel())) {
+                            SBBListItem(label: Text("Dialogue"))
+                        }
+                        NavigationLink(destination: ToastDemo(colorScheme: self.$colorScheme).environmentObject(SBBToastService())) {
+                            SBBListItem(label: Text("Toast"))
+                        }
+                        NavigationLink(destination: ProcessFlowDemo(viewModel: ProcessFlowViewModel(), colorScheme: self.$colorScheme)) {
+                            SBBListItem(label: Text("ProcessFlow"))
                         }
                     }
                     SBBFormGroup(title: "PageTypes") {
