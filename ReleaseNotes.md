@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.2.6 - 03 February 2021
+
+### Improvements
+* SBBOnboardingCardView has correct view alignment (title is aligned below image of flexible size)
+
 ## V0.2.5 - 02 February 2021
 
 ### Features

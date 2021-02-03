@@ -9,7 +9,10 @@ public struct SBBOnboardingTitleView: View {
     private let image: Image
     private let title: Text
     
-    @State var scrollViewIntrinsicHeight: CGFloat = 0
+    private let paddingBetweenImageAndTitle: CGFloat = 36
+    private let imageMinHeight: CGFloat = 200
+    
+    @State var titleHeight: CGFloat = 0
     
     public init(image: Image, title: Text) {
         self.image = image
@@ -21,40 +24,39 @@ public struct SBBOnboardingTitleView: View {
             ScrollView(showsIndicators: false) {
                 HStack(spacing: 0) {
                     Spacer()
-                    VStack(spacing: 40) {
+                    VStack(spacing: 0) {
+                        Spacer()
                         image
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
                             .accessibility(hidden: true)
-                            .frame(height: getImageHeight(contentViewHeight: geometry.size.height))
+                            .aspectRatio(contentMode: .fit)
                         title
+                            .padding(.top, paddingBetweenImageAndTitle)
                             .font(.sbbLight(size: 30))
                             .fixedSize(horizontal: false, vertical: true)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.sbbColor(.white))
-                            .overlay(
-                                GeometryReader { scrollViewIntrinsicGeometry in
-                                    Color.clear.onAppear {
-                                        self.scrollViewIntrinsicHeight = scrollViewIntrinsicGeometry.size.height
-                                    }
-                                }
-                            )
+                            .modifier(SizePreferenceKeyUpdater())
+                            .onPreferenceChange(SizePreferenceKey.self) {
+                                self.titleHeight = $0.height
+                            }
                             .accessibility(addTraits: .isHeader)
                             .accessibility(identifier: "onboardingTitleViewText")
+                        Spacer()
                     }
                     Spacer()
                 }
-                .frame(minHeight: geometry.size.height)
+                    .frame(height: getContentHeight(containingViewHeight: geometry.size.height))
             }
         }
     }
     
-    private func getImageHeight(contentViewHeight: CGFloat) -> CGFloat {
-        let imageHeight = contentViewHeight - scrollViewIntrinsicHeight - 40
-        if imageHeight < 200 {
-            return 200
+    private func getContentHeight(containingViewHeight: CGFloat) -> CGFloat {
+        if titleHeight + imageMinHeight + paddingBetweenImageAndTitle > containingViewHeight {  // Content is bigger than ScrollView, image height corresponds to imageMinHeight
+            return titleHeight + imageMinHeight + paddingBetweenImageAndTitle
+        } else {    // Content is smaller than ScrollView, image can take all the available space
+            return containingViewHeight
         }
-        return imageHeight
     }
 }
 
