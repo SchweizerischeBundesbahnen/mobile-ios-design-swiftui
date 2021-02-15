@@ -7,6 +7,8 @@ import SBBMobileDesignSystemSwiftUI
 
 struct DialogueDemo: View {
     
+    @State var showDialogue = false
+
     @Binding var colorScheme: ColorScheme
     @ObservedObject var model: DialogueViewModel
     
@@ -39,31 +41,31 @@ struct DialogueDemo: View {
                         SBBRadioButton(isOn: $model.customActions, label: "Custom Actions", showTextFieldLine: false)
                         SBBRadioButton(isOn: $model.retryAction, label: "Retry Action", showTextFieldLine: false)
                     }
-                    if !model.showDialogue {
-                        Button(action: { model.showDialogue = true }) {
+                    if !showDialogue {
+                        Button(action: { showDialogue = true }) {
                             Text("Show Dialogue")
                         }
                             .buttonStyle(SBBPrimaryButtonStyle())
                     }
                 }
                     .padding(16)
-                if model.showDialogue && !model.fullscreen {
+                if showDialogue && !model.fullscreen {
                     SBBDialogue(title: title, label: label, errorCode: errorCode, style: model.inline ? .inline : .list, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
                         if model.customActions {
-                        Button(action: { model.showDialogue = false }) {
+                        Button(action: { showDialogue = false }) {
                             Text("Button 3")
                         }
                             .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { model.showDialogue = false }) {
+                        Button(action: { showDialogue = false }) {
                             Text("Button 2")
                         }
                             .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { model.showDialogue = false }) {
+                        Button(action: { showDialogue = false }) {
                             Text("Button 1")
                         }
                             .buttonStyle(SBBPrimaryButtonStyle())
                         } else {    // model.retryAction
-                            Button(action: { model.showDialogue = false }) {
+                            Button(action: { showDialogue = false }) {
                                 Image(sbbName: "arrows-circle", size: .small)
                             }
                                 .buttonStyle(SBBIconButtonStyle())
@@ -72,29 +74,30 @@ struct DialogueDemo: View {
                 }
             }
         }
-            .modal(isPresented: model.fullscreen ? $model.showDialogue : .constant(false)) {
+            .sbbModal(isPresented: model.fullscreen ? $showDialogue : .constant(false)) {
                 SBBDialogue(title: title, label: label, errorCode: errorCode, style: .fullscreen, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
                     if model.customActions {
-                        Button(action: { model.showDialogue = false }) {
+                        Button(action: { showDialogue = false }) {
                             Text("Button 3")
                         }
                             .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { model.showDialogue = false }) {
+                        Button(action: { showDialogue = false }) {
                             Text("Button 2")
                         }
                             .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { model.showDialogue = false }) {
+                        Button(action: { showDialogue = false }) {
                             Text("Button 1")
                         }
                             .buttonStyle(SBBPrimaryButtonStyle())
                     } else {    // model.retryAction
-                        Button(action: { model.showDialogue = false }) {
+                        Button(action: { showDialogue = false }) {
                             Image(sbbName: "arrows-circle", size: .small)
                         }
                             .buttonStyle(SBBIconButtonStyle())
                     }
                 }
             }
+            .sbbModalContainer()
             .navigationBarTitle("Dialogue")
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)

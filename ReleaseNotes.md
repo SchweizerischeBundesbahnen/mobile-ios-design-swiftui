@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.2.7 - 16 February 2021
+
+### Improvements
+* ModalViews can now be shown from any (child) view which does not cover the entire screen.
+
 ## V0.2.6 - 03 February 2021
 
 ### Improvements
