@@ -33,9 +33,7 @@ struct ToastDemo: View {
         }
             .navigationBarTitle("Toast")
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
-            .overlay(
-                SBBToastContainerView()
-            )
+            .sbbToastContainer()
             .colorScheme(colorScheme)
             
     }

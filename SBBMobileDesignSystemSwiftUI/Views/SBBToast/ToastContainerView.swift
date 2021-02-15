@@ -4,7 +4,7 @@
 
 import SwiftUI
 
-public struct SBBToastContainerView: View {
+public struct ToastContainerView: View {
     
     @EnvironmentObject private var toastService: SBBToastService
     @Environment(\.colorScheme) private var colorScheme
@@ -33,15 +33,15 @@ public struct SBBToastContainerView: View {
     }
 }
 
-struct SBBToast_Previews: PreviewProvider {
+struct ToastContainerView_Previews: PreviewProvider {
     
     static var sbbToastViewModel = SBBToastService(toasts: [SBBToast(label: Text("Hello Toast")), SBBToast(label: Text("Hello Toast\nThis Toast has multiple lines, in fact it might be longer than 2 IC2000 compositions linked together."))])
     
     static var previews: some View {
         Group {
-            SBBToastContainerView()
+            ToastContainerView()
                 .previewDisplayName("light")
-            SBBToastContainerView()
+            ToastContainerView()
                 .previewDisplayName("dark")
                 .environment(\.colorScheme, .dark)
         }

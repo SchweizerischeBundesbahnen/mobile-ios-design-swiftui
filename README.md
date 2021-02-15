@@ -602,16 +602,14 @@ SBBToast provides simple feedback about an operation in a small popup. SBBToasts
     }
 ```
 
-2. Inside your MainView (root view): add SBBToastContainerView as an overlay:
+2. Inside your MainView (root view): apply the sbbToastContainer() ViewModifier:
 ```    
     var body: some View {
         NavigationView {
             Group {
                 ...
             }
-                .overlay(
-                    SBBToastContainerView()
-                )
+                .sbbToastContainer()
         }
     }
 ```

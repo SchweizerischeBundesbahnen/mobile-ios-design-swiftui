@@ -4,6 +4,7 @@
 
 ### Improvements
 * ModalViews can now be shown from any (child) view which does not cover the entire screen.
+* Simplified usage of SBBToast
 
 ## V0.2.6 - 03 February 2021
 
