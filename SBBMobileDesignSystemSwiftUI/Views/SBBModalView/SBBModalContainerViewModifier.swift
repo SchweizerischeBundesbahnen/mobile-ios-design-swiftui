@@ -20,7 +20,9 @@ struct ModalViewContainer: ViewModifier {
         content
             .overlay((viewModel.isPresented ? Color.black.opacity(0.5) : Color.clear).edgesIgnoringSafeArea(.all))
             .onTapGesture {
-                viewModel.closeModal()
+                if viewModel.isPresented {
+                    viewModel.closeModal()
+                }
             }
             .accessibilityElement(children: viewModel.isPresented ? .combine : .contain)
             .accessibility(hidden: viewModel.isPresented)

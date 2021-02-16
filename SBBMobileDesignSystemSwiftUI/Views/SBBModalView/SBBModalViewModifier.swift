@@ -12,7 +12,7 @@ public extension View {
 
 struct ModalView<PresentingView: View, ModalViewContent: View>: View {
     
-    @EnvironmentObject var partialSheetManager: SBBModalViewModel
+    @EnvironmentObject var modalViewModel: SBBModalViewModel
     
     @Binding var isPresented: Bool
     let content: () -> ModalViewContent
@@ -28,12 +28,12 @@ struct ModalView<PresentingView: View, ModalViewContent: View>: View {
     }
     
     func updateContent() {
-        partialSheetManager.updateModal(isPresented: isPresented, content: content, onDismiss: {
+        modalViewModel.updateModal(isPresented: isPresented, content: content, onDismiss: {
             self.isPresented = false
         })
     }
     
-    // hack around .onChange not being available in iOS13
+    // workaround: .onChange is not available in iOS13
     class Model {
         private var savedValue: Bool?
         func update(value: Bool) -> Bool {
