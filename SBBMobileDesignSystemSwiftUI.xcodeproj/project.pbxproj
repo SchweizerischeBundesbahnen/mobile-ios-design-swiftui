@@ -27,6 +27,10 @@
 		7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */; };
 		7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */; };
 		7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */; };
+		7C106D1925DA803700B89ECD /* SBBModalViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D1825DA803700B89ECD /* SBBModalViewModifier.swift */; };
+		7C106D1D25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D1C25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift */; };
+		7C106D2325DA815700B89ECD /* SBBModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D2225DA815700B89ECD /* SBBModalViewModel.swift */; };
+		7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D2D25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift */; };
 		7C1F20A824E51298006FF30B /* NavigationBarWithSBBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */; };
 		7C1F20AA24E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */; };
 		7C2747C4246D6DF200A9FFCE /* TypographyCustomFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */; };
@@ -73,7 +77,7 @@
 		7CAC69FA25CAE73F003CF54E /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */; };
 		7CAC69FF25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC69FE25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift */; };
 		7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C43038823FD86110033865F /* SBBSegmentedPicker.swift */; };
-		7CAF977825B875B3002260AE /* SBBToastContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF977725B875B3002260AE /* SBBToastContainerView.swift */; };
+		7CAF977825B875B3002260AE /* ToastContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF977725B875B3002260AE /* ToastContainerView.swift */; };
 		7CAF977D25B87653002260AE /* SBBToastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF977C25B87653002260AE /* SBBToastService.swift */; };
 		7CAF978325B87DCE002260AE /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF978225B87DCE002260AE /* ToastView.swift */; };
 		7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAFE98523DECD9B001ADBE8 /* Helper.swift */; };
@@ -91,7 +95,6 @@
 		7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */; };
 		7CC3FAD425AEDBEB00D227D4 /* LoadingIndicatorDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */; };
 		7CCAECF325C293E5000E958A /* MapMarkerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CCAECF225C293E5000E958A /* MapMarkerDemo.swift */; };
-		7CDAC62E25C050D500B73E1A /* Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAC62D25C050D500B73E1A /* Modal.swift */; };
 		7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68C24C16B86002289EE /* SBBModalView.swift */; };
 		7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */; };
 		7CDBA69124C18DA1002289EE /* SBBButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */; };
@@ -192,6 +195,10 @@
 		7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderExtension.swift; sourceTree = "<group>"; };
 		7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemo.swift; sourceTree = "<group>"; };
 		7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
+		7C106D1825DA803700B89ECD /* SBBModalViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalViewModifier.swift; sourceTree = "<group>"; };
+		7C106D1C25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalContainerViewModifier.swift; sourceTree = "<group>"; };
+		7C106D2225DA815700B89ECD /* SBBModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalViewModel.swift; sourceTree = "<group>"; };
+		7C106D2D25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBToastContainerViewModifier.swift; sourceTree = "<group>"; };
 		7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIcon.swift; sourceTree = "<group>"; };
 		7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIconDemo.swift; sourceTree = "<group>"; };
 		7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyCustomFontView.swift; sourceTree = "<group>"; };
@@ -240,7 +247,7 @@
 		7CA464E02445F58B00118D7B /* InfoViewCollapsibleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewCollapsibleDemo.swift; sourceTree = "<group>"; };
 		7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
 		7CAC69FE25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreferenceKeyUpdater.swift; sourceTree = "<group>"; };
-		7CAF977725B875B3002260AE /* SBBToastContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBToastContainerView.swift; sourceTree = "<group>"; };
+		7CAF977725B875B3002260AE /* ToastContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainerView.swift; sourceTree = "<group>"; };
 		7CAF977C25B87653002260AE /* SBBToastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBToastService.swift; sourceTree = "<group>"; };
 		7CAF978225B87DCE002260AE /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		7CAFE98523DECD9B001ADBE8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -258,7 +265,6 @@
 		7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBLoadingIndicator.swift; sourceTree = "<group>"; };
 		7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorDemo.swift; sourceTree = "<group>"; };
 		7CCAECF225C293E5000E958A /* MapMarkerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerDemo.swift; sourceTree = "<group>"; };
-		7CDAC62D25C050D500B73E1A /* Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modal.swift; sourceTree = "<group>"; };
 		7CDBA68C24C16B86002289EE /* SBBModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalView.swift; sourceTree = "<group>"; };
 		7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconButtonStyle.swift; sourceTree = "<group>"; };
 		7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBButtonSize.swift; sourceTree = "<group>"; };
@@ -442,6 +448,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		7C106D1525DA7FD700B89ECD /* SBBModalView */ = {
+			isa = PBXGroup;
+			children = (
+				7CDBA68C24C16B86002289EE /* SBBModalView.swift */,
+				7C106D1825DA803700B89ECD /* SBBModalViewModifier.swift */,
+				7C106D1C25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift */,
+				7C106D2225DA815700B89ECD /* SBBModalViewModel.swift */,
+			);
+			path = SBBModalView;
+			sourceTree = "<group>";
+		};
 		7C1F20A624E51243006FF30B /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,7 +468,6 @@
 				7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */,
 				7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */,
 				7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */,
-				7CDAC62D25C050D500B73E1A /* Modal.swift */,
 				7CAC69FD25CAE775003CF54E /* Internal */,
 			);
 			path = ViewModifiers;
@@ -568,7 +584,7 @@
 				7CA464DE2445F31100118D7B /* SBBInfoViewCollapsible.swift */,
 				7C9C46D624CB034000C22E97 /* SBBInfoView.swift */,
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
-				7CDBA68C24C16B86002289EE /* SBBModalView.swift */,
+				7C106D1525DA7FD700B89ECD /* SBBModalView */,
 				7CBA440E24BDA63E0078E68F /* SBBOnboardingView */,
 				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
 				7CE7BD4F25B16A84000ADF6B /* SBBChip.swift */,
@@ -662,7 +678,8 @@
 			isa = PBXGroup;
 			children = (
 				7CE19B2225B98E4600FEFC1E /* ViewModels */,
-				7CAF977725B875B3002260AE /* SBBToastContainerView.swift */,
+				7CAF977725B875B3002260AE /* ToastContainerView.swift */,
+				7C106D2D25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift */,
 				7CAF978225B87DCE002260AE /* ToastView.swift */,
 			);
 			path = SBBToast;
@@ -861,6 +878,7 @@
 			files = (
 				7C6454892403F50A005997AB /* SBBDivider.swift in Sources */,
 				7C3AF99825BAA845007BBF21 /* SBBProcessFlow.swift in Sources */,
+				7C106D2325DA815700B89ECD /* SBBModalViewModel.swift in Sources */,
 				A7AC50D5249A45A000065C71 /* SBBSecondaryButtonStyle.swift in Sources */,
 				7CA3107124D99E12007E500B /* SizeCategories.swift in Sources */,
 				7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */,
@@ -889,17 +907,18 @@
 				2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */,
 				7CE19B1F25B98D8300FEFC1E /* SBBToast.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
+				7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
-				7CDAC62E25C050D500B73E1A /* Modal.swift in Sources */,
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
+				7C106D1D25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
 				7C595E5725A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
 				7C595E4D25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift in Sources */,
 				7C595E4125A597010015B0FC /* SBBListItemExtension.swift in Sources */,
 				7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */,
-				7CAF977825B875B3002260AE /* SBBToastContainerView.swift in Sources */,
+				7CAF977825B875B3002260AE /* ToastContainerView.swift in Sources */,
 				7CAF977D25B87653002260AE /* SBBToastService.swift in Sources */,
 				7CB2CEB225C19AD600756D9B /* SBBMapMarker.swift in Sources */,
 				7CAF978325B87DCE002260AE /* ToastView.swift in Sources */,
@@ -907,6 +926,7 @@
 				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
 				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
 				7C28871624BF055900EDBD27 /* SBBPaginationView.swift in Sources */,
+				7C106D1925DA803700B89ECD /* SBBModalViewModifier.swift in Sources */,
 				7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
 				7CAC69FA25CAE73F003CF54E /* SizePreferenceKey.swift in Sources */,
@@ -1174,7 +1194,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.6;
+				MARKETING_VERSION = 0.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1202,7 +1222,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.6;
+				MARKETING_VERSION = 0.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1227,7 +1247,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.6;
+				MARKETING_VERSION = 0.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
@@ -1252,7 +1272,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.6;
+				MARKETING_VERSION = 0.2.7;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";

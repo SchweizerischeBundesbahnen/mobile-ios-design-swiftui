@@ -5,9 +5,7 @@
 import SwiftUI
 
 class DialogueViewModel: ObservableObject {
-    
-    @Published var showDialogue = false
-    
+        
     // SBBDialogue style
     @Published var fullscreen = true {
         didSet {

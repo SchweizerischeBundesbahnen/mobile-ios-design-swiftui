@@ -38,92 +38,93 @@ struct ModalViewDemo: View {
                     Text("Show Popup ModalView")
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
+                    .sbbModal(isPresented: self.$showingModalPopupView) {
+                        SBBModalView(title: Text("Your title"), style: .popup, titleAlignment: self.titleAlignment, isPresented: self.$showingModalPopupView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                            self.backButtonCounter += 1
+                        }) {
+                            VStack(spacing: 16) {
+                                Text("Your custom content")
+                                if self.showBackButton {
+                                    Text("Back Button touched \(self.backButtonCounter) times")
+                                }
+                                Button(action: {
+                                    self.showBackButton.toggle()
+                                }) {
+                                    Text(self.showBackButton ? "Hide Back Button" : "Show Back Button")
+                                }
+                                .buttonStyle(SBBPrimaryButtonStyle())
+                            }
+                                .padding(.horizontal, 16)
+                        }
+                    }
                 Button(action: {
                     self.showingModalSheetView = true
                 }) {
                     Text("Show Sheet ModalView")
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
+                    .sbbModal(isPresented: self.$showingModalSheetView) {
+                        SBBModalView(title: Text("Your title"), style: .sheet, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                            self.backButtonCounter += 1
+                        }) {
+                            VStack(spacing: 16) {
+                                Text("Your custom content")
+                                if self.showBackButton {
+                                    Text("Back Button touched \(self.backButtonCounter) times")
+                                }
+                                Button(action: {
+                                    self.showBackButton.toggle()
+                                }) {
+                                    Text(self.showBackButton ? "Hide Back Button" : "Show Back Button")
+                                }
+                                .buttonStyle(SBBPrimaryButtonStyle())
+                            }
+                                .padding(16)
+                        }
+                    }
                 Button(action: {
                     self.showingModalFullView = true
                 }) {
                     Text("Show Full ModalView")
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
+                    .sheet(isPresented: $showingModalFullView, content: {
+                        SBBModalView(title: Text("Your title"), style: .full, titleAlignment: self.titleAlignment, isPresented: self.$showingModalFullView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                                self.backButtonCounter += 1
+                            }) {
+                                VStack(spacing: 16) {
+                                    Spacer()
+                                    Text("Your custom content")
+                                    if self.showBackButton {
+                                        Text("Back Button touched \(self.backButtonCounter) times")
+                                    }
+                                    Spacer()
+                                    Button(action: {
+                                        self.showBackButton.toggle()
+                                    }) {
+                                        Text(self.showBackButton ? "Hide Back Button" : "Show Back Button")
+                                    }
+                                    .buttonStyle(SBBPrimaryButtonStyle())
+                                }
+                                    .padding(16)
+                            }
+                                .colorScheme(colorScheme)
+                        })
                 Button(action: {
                     self.showingModalCustomView = true
                 }) {
                     Text("Show Custom ModalView")
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
+                    .sbbModal(isPresented: self.$showingModalCustomView) {
+                        Text("Your custom content here")
+                    }
             }
         }
             .padding(16)
             .navigationBarTitle("ModalView")
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
-            .modal(isPresented: self.$showingModalSheetView) {
-                SBBModalView(title: Text("Your title"), style: .sheet, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
-                    self.backButtonCounter += 1
-                }) {
-                    VStack(spacing: 16) {
-                        Text("Your custom content")
-                        if self.showBackButton {
-                            Text("Back Button touched \(self.backButtonCounter) times")
-                        }
-                        Button(action: {
-                            self.showBackButton.toggle()
-                        }) {
-                            Text(self.showBackButton ? "Hide Back Button" : "Show Back Button")
-                        }
-                        .buttonStyle(SBBPrimaryButtonStyle())
-                    }
-                        .padding(16)
-                }
-            }
-            .modal(isPresented: self.$showingModalPopupView) {
-                SBBModalView(title: Text("Your title"), style: .popup, titleAlignment: self.titleAlignment, isPresented: self.$showingModalPopupView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
-                    self.backButtonCounter += 1
-                }) {
-                    VStack(spacing: 16) {
-                        Text("Your custom content")
-                        if self.showBackButton {
-                            Text("Back Button touched \(self.backButtonCounter) times")
-                        }
-                        Button(action: {
-                            self.showBackButton.toggle()
-                        }) {
-                            Text(self.showBackButton ? "Hide Back Button" : "Show Back Button")
-                        }
-                        .buttonStyle(SBBPrimaryButtonStyle())
-                    }
-                        .padding(.horizontal, 16)
-                }
-            }
-            .sheet(isPresented: $showingModalFullView, content: {
-                SBBModalView(title: Text("Your title"), style: .full, titleAlignment: self.titleAlignment, isPresented: self.$showingModalFullView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
-                        self.backButtonCounter += 1
-                    }) {
-                        VStack(spacing: 16) {
-                            Spacer()
-                            Text("Your custom content")
-                            if self.showBackButton {
-                                Text("Back Button touched \(self.backButtonCounter) times")
-                            }
-                            Spacer()
-                            Button(action: {
-                                self.showBackButton.toggle()
-                            }) {
-                                Text(self.showBackButton ? "Hide Back Button" : "Show Back Button")
-                            }
-                            .buttonStyle(SBBPrimaryButtonStyle())
-                        }
-                            .padding(16)
-                    }
-                        .colorScheme(colorScheme)
-                })
-            .modal(isPresented: self.$showingModalCustomView) {
-                Text("Your custom content here")
-            }
+            .sbbModalContainer()
             .colorScheme(colorScheme)
     }
 }
