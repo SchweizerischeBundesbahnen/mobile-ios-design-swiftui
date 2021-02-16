@@ -4,14 +4,12 @@
 
 import SwiftUI
 
-public struct ToastContainerView: View {
+struct ToastContainerView: View {
     
     @EnvironmentObject private var toastService: SBBToastService
     @Environment(\.colorScheme) private var colorScheme
-    
-    public init() {}
-    
-    public var body: some View {
+        
+    var body: some View {
         VStack(spacing: 8) {
             Spacer()
             ForEach(toastService.toasts) { toast in

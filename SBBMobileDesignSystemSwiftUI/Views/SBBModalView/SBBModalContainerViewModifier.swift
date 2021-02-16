@@ -6,8 +6,7 @@ import SwiftUI
 
 public extension View {
     func sbbModalContainer() -> some View {
-            self
-                .modifier(ModalViewContainer())
+            self.modifier(ModalViewContainer())
     }
 }
 
