@@ -12,6 +12,7 @@ import SBBMobileDesignSystemSwiftUI
 struct ContentView: View {
     
     @State var colorScheme: ColorScheme = .light
+    @EnvironmentObject var modalViewModel: SBBModalViewModel
     
     var body: some View {
         NavigationView {
@@ -94,10 +95,10 @@ struct ContentView: View {
                         NavigationLink(destination: FormGroupView(colorScheme: self.$colorScheme)) {
                             SBBListItem(label: Text("FormGroup"))
                         }
-                        NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme)) {
+                        NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme).environmentObject(modalViewModel)) {
                             SBBListItem(label: Text("ModalView"))
                         }
-                        NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, model: DialogueViewModel())) {
+                        NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, model: DialogueViewModel()).environmentObject(modalViewModel)) {
                             SBBListItem(label: Text("Dialogue"))
                         }
                         NavigationLink(destination: ToastDemo(colorScheme: self.$colorScheme).environmentObject(SBBToastService())) {

@@ -487,12 +487,37 @@ SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView.
         // Your custom View here
     }
 ```
-
-
 ## SBBModalView
+SBBModalView is used to display a View above another View, typically using .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter. To use SBBModalView, you need to create a SBBModalViewModel which nees to be added as EnvironmentObject in your SceneDelegate (and to new Views pushed using NavigationLink). You also need to add the .sbbModalContainer() ViewModifier to your upmost ContentView (you can also add it as an overlay to a specific view, if modals will only be shown from this specific view and the view covers the entire screen).
 
-SBBModalView is used to display a View above another View, typically using .sheet() or modal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .modal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter.
+1. Inside SceneDelegate: Create a SBBModalViewModel and add it as EnvironmentObject to the MainView:
+```    
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        ...
+        
+        let modalViewModel = SBBModalViewModel()
+        
+        // Create the SwiftUI view that provides the window contents.
+        var contentView = AnyView(MainView()
+            .environmentObject(modalViewModel)
+            
+        ...
+    }
+```
 
+2. Inside your MainView (root view): apply the .sbbModalContainer() ViewModifier:
+```    
+    var body: some View {
+        NavigationView {
+            Group {
+                ...
+            }
+                .sbbModalContainer()
+        }
+    }
+```
+
+3. Use .sbbModal() to show a custom ModalView or a SBBModalView:
 ```    
     @State var showingModalView = false
     
@@ -507,7 +532,7 @@ SBBModalView is used to display a View above another View, typically using .shee
                     YourContentView()
                 }
             }
-            .modal(isPresented: $showingModalView) {    // to be used for .popup or .sheet style
+            .sbbModal(isPresented: $showingModalView) {    // to be used for .popup or .sheet style
                 SBBModalView(title: Text("Your title"), style: .popup, isPresented: self.$showingModalView) {
                     YourContentView()
                 }
@@ -538,7 +563,7 @@ SBBDialogue is used to interact with the user to either prompt a reaction from h
                     .buttonStyle(SBBIconButtonStyle())
             }
         }
-            .modal(isPresented: $showingModalView) {    // to be used for .fullscreen style
+            .sbbModal(isPresented: $showingModalView) {    // to be used for .fullscreen style, check the SBBModalView documentation on how to use the .sbbModal ViewModifier
                 // choose an action
                 SBBDialogue(title: Text("title"), label: Text("label"), style: .fullscreen) {
                     Button(action: { option2Action() }) {
@@ -577,16 +602,14 @@ SBBToast provides simple feedback about an operation in a small popup. SBBToasts
     }
 ```
 
-2. Inside your MainView (root view): add SBBToastContainerView as an overlay:
+2. Inside your MainView (root view): apply the sbbToastContainer() ViewModifier:
 ```    
     var body: some View {
         NavigationView {
             Group {
                 ...
             }
-                .overlay(
-                    SBBToastContainerView()
-                )
+                .sbbToastContainer()
         }
     }
 ```
@@ -675,25 +698,6 @@ ResizeToContentSizeCategory is an Image Extension which allows to the image to d
 ```    
     Image("Your Image")
         .resizeToContentSizeCategory(originalHeight: 36)
-```
-
-## Modal
-
-Modal is a View Extension which allows you to present a View modally (over the entire existing view). It is typically used in combination with SBBModalView.
-
-```    
-    @State var showingModalView = false
-
-    var body: some View {
-        Button(action: {
-            self.showingModalView = true
-        }) {
-            Text("Click Me")
-        }
-            .modal(isPresented: $showingModalView) {    
-                SBBModalView(...)
-            }
-    }
 ```
 
 
