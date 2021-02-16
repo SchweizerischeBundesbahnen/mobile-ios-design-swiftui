@@ -700,25 +700,6 @@ ResizeToContentSizeCategory is an Image Extension which allows to the image to d
         .resizeToContentSizeCategory(originalHeight: 36)
 ```
 
-## Modal
-
-Modal is a View Extension which allows you to present a View modally (over the entire existing view). It is typically used in combination with SBBModalView.
-
-```    
-    @State var showingModalView = false
-
-    var body: some View {
-        Button(action: {
-            self.showingModalView = true
-        }) {
-            Text("Click Me")
-        }
-            .modal(isPresented: $showingModalView) {    
-                SBBModalView(...)
-            }
-    }
-```
-
 
 ## Authors
 
