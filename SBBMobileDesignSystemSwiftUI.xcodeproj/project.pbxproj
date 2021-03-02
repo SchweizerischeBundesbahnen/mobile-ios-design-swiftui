@@ -1194,7 +1194,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.7;
+				MARKETING_VERSION = 0.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1222,7 +1222,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.7;
+				MARKETING_VERSION = 0.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1247,7 +1247,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.7;
+				MARKETING_VERSION = 0.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
@@ -1272,7 +1272,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.7;
+				MARKETING_VERSION = 0.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";
