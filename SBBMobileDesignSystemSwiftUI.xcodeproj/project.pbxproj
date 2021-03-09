@@ -31,7 +31,10 @@
 		7C106D1D25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D1C25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift */; };
 		7C106D2325DA815700B89ECD /* SBBModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D2225DA815700B89ECD /* SBBModalViewModel.swift */; };
 		7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D2D25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift */; };
-		7C1F20A824E51298006FF30B /* NavigationBarWithSBBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */; };
+		7C1A845825F781C5008B66D3 /* BannerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A845725F781C5008B66D3 /* BannerDemo.swift */; };
+		7C1A845C25F7834C008B66D3 /* BannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A845B25F7834C008B66D3 /* BannerViewModel.swift */; };
+		7C1A846225F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A846125F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift */; };
+		7C1F20A824E51298006FF30B /* SBBEnvironmentBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A724E51298006FF30B /* SBBEnvironmentBanner.swift */; };
 		7C1F20AA24E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */; };
 		7C2747C4246D6DF200A9FFCE /* TypographyCustomFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */; };
 		7C28871224BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C28871124BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift */; };
@@ -199,7 +202,10 @@
 		7C106D1C25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalContainerViewModifier.swift; sourceTree = "<group>"; };
 		7C106D2225DA815700B89ECD /* SBBModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalViewModel.swift; sourceTree = "<group>"; };
 		7C106D2D25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBToastContainerViewModifier.swift; sourceTree = "<group>"; };
-		7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIcon.swift; sourceTree = "<group>"; };
+		7C1A845725F781C5008B66D3 /* BannerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerDemo.swift; sourceTree = "<group>"; };
+		7C1A845B25F7834C008B66D3 /* BannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewModel.swift; sourceTree = "<group>"; };
+		7C1A846125F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBNavigationBarSBBIcon.swift; sourceTree = "<group>"; };
+		7C1F20A724E51298006FF30B /* SBBEnvironmentBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBEnvironmentBanner.swift; sourceTree = "<group>"; };
 		7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWithSBBIconDemo.swift; sourceTree = "<group>"; };
 		7C2747C3246D6DF200A9FFCE /* TypographyCustomFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyCustomFontView.swift; sourceTree = "<group>"; };
 		7C28871124BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTertiaryButtonStyle.swift; sourceTree = "<group>"; };
@@ -465,7 +471,7 @@
 				7C624897247E315800F54C9D /* ImageExtension.swift */,
 				7C595E4025A597010015B0FC /* SBBListItemExtension.swift */,
 				7C28871724BF1FB400EDBD27 /* CornerRadius.swift */,
-				7C1F20A724E51298006FF30B /* NavigationBarWithSBBIcon.swift */,
+				7C1F20A724E51298006FF30B /* SBBEnvironmentBanner.swift */,
 				7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */,
 				7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */,
 				7CAC69FD25CAE775003CF54E /* Internal */,
@@ -544,6 +550,7 @@
 				7CE5D76524C9D43700282976 /* OnboardingViewDemo.swift */,
 				7CEF769224DA905600AFD5EB /* IconDemo.swift */,
 				7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */,
+				7C1A845725F781C5008B66D3 /* BannerDemo.swift */,
 				7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */,
 				7CE7BD5325B17CCB000ADF6B /* ChipDemo.swift */,
 				7C2DFE4525B5DC5300030342 /* DialogueDemo.swift */,
@@ -561,6 +568,7 @@
 				7C2DFE4925B5E2DD00030342 /* DialogueViewModel.swift */,
 				7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */,
 				7C3AFA0125BAFCE7007BBF21 /* ProcessFlowViewModel.swift */,
+				7C1A845B25F7834C008B66D3 /* BannerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -590,6 +598,7 @@
 				7CE7BD4F25B16A84000ADF6B /* SBBChip.swift */,
 				7C3AF99725BAA845007BBF21 /* SBBProcessFlow.swift */,
 				7CB2CEB125C19AD600756D9B /* SBBMapMarker.swift */,
+				7C1A846125F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -891,7 +900,7 @@
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
 				7C28872224BF2B3800EDBD27 /* FakeOnboardingViewModels.swift in Sources */,
-				7C1F20A824E51298006FF30B /* NavigationBarWithSBBIcon.swift in Sources */,
+				7C1F20A824E51298006FF30B /* SBBEnvironmentBanner.swift in Sources */,
 				7CE5D76824C9D8B300282976 /* SBBOnboardingTitleView.swift in Sources */,
 				7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */,
 				A74FEA1825138CCC00C4D1A4 /* SBBSwitchStyle.swift in Sources */,
@@ -906,6 +915,7 @@
 				7C624898247E315800F54C9D /* ImageExtension.swift in Sources */,
 				2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */,
 				7CE19B1F25B98D8300FEFC1E /* SBBToast.swift in Sources */,
+				7C1A846225F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
@@ -953,6 +963,7 @@
 				7C3AF99C25BAB2E9007BBF21 /* ProcessFlowDemo.swift in Sources */,
 				2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */,
 				2DCEC8FE2539E2E9008EDD15 /* TypographyViewController.swift in Sources */,
+				7C1A845825F781C5008B66D3 /* BannerDemo.swift in Sources */,
 				7CF57A7124C1E2AC00631837 /* ModalViewDemo.swift in Sources */,
 				7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */,
 				A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */,
@@ -985,6 +996,7 @@
 				7CE19B1A25B957EA00FEFC1E /* ToastDemo.swift in Sources */,
 				7C1F20AA24E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift in Sources */,
 				7CE5D76624C9D43700282976 /* OnboardingViewDemo.swift in Sources */,
+				7C1A845C25F7834C008B66D3 /* BannerViewModel.swift in Sources */,
 				7C2DFE4625B5DC5300030342 /* DialogueDemo.swift in Sources */,
 				7C3AFA0225BAFCE7007BBF21 /* ProcessFlowViewModel.swift in Sources */,
 				A7DE206B243C60FE00557F4D /* ButtonDemo.swift in Sources */,
@@ -1194,7 +1206,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.8;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1222,7 +1234,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.8;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1247,7 +1259,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.8;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
@@ -1272,7 +1284,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.8;
+				MARKETING_VERSION = 0.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";

@@ -1,5 +1,11 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.3.0 - 09 March 2021
+
+### Improvements
+* Breaking change: Use of SwiftUI standard .navigationBarItems() ViewModifier instead of .navigationBarWithSBBIcon(). Reason: Ability to add a leading NavBar Item.
+* .sbbEnvironmentBanner instead of parameter in .navigationBarItems().
+
 ## V0.2.8 - 02 March 2021
 
 ### Features
