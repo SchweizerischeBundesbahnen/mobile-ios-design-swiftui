@@ -13,6 +13,7 @@ struct ContentView: View {
     
     @State var colorScheme: ColorScheme = .light
     @EnvironmentObject var modalViewModel: SBBModalViewModel
+    @EnvironmentObject var bannerViewModel: BannerViewModel
     
     var body: some View {
         NavigationView {
@@ -117,6 +118,9 @@ struct ContentView: View {
                         NavigationLink(destination: NavigationBarWithSBBIconDemo(colorScheme: self.$colorScheme)) {
                             SBBListItem(label: Text("NavigationBar with SBB Icon"))
                         }
+                        NavigationLink(destination: BannerDemo(colorScheme: self.$colorScheme).environmentObject(bannerViewModel)) {
+                            SBBListItem(label: Text("Banner"))
+                        }
                     }
                 }
                     .padding(16)
@@ -124,9 +128,10 @@ struct ContentView: View {
                 .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
                 .colorScheme(colorScheme)
                 .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
-                .navigationBarWithSBBIcon()
+                .navigationBarItems(trailing: SBBNavigationBarSBBIcon())
         }
             .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
+            .sbbEnvironmentBanner(bannerViewModel.none ? nil : ( bannerViewModel.dev ? .dev : ( bannerViewModel.test ? .test : .int)))
     }
 }
 
@@ -138,5 +143,7 @@ struct ContentView_Previews: PreviewProvider {
             ContentView(colorScheme: .dark)
                 .previewDisplayName("Dark")
         }
+            .environmentObject(BannerViewModel())
+            .environmentObject(SBBModalViewModel())
     }
 }

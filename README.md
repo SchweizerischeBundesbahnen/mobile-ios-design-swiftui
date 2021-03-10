@@ -61,7 +61,7 @@ In the next chapters you can see a quick resume of how to use the existing UI el
 ## NavigationBar
 
 Initializing the Library in your app will setup all NavigationBars (& StatusBars) in the SBB style.
-If you want the SBB Icon as a right NavigationBarItem (recommended) you will need to add the .navigationBarWithSBBIcon ViewModifier.
+If you want the SBB Icon as a trailing NavigationBarItem (recommended) you will need to add a SBBNavigationBarSBBIcon using the standard SwiftUI .navigationBarItems(trailing:) ViewModifier.
 
 ```
     NavigationView {
@@ -69,12 +69,24 @@ If you want the SBB Icon as a right NavigationBarItem (recommended) you will nee
             ContentView()
         }
             .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)    // SBB Design only supports .inline for the time being
-            .navigationBarWithSBBIcon()     // Display SBB Icon as a right NavigationBarItem
-            .navigationBarWithSBBIcon(onTouchAction: {  // Display SBB Icon as a right NavigationBarItem with custom action
+            .navigationBarItems(trailing: SBBNavigationBarSBBIcon())     // Display SBB Icon as a trailing NavigationBarItem
+            .navigationBarItems(trailing: SBBNavigationBarSBBIcon(onTouchAction: { // Display SBB Icon as a trailing NavigationBarItem with custom action
                 // your action here
-            })
+            }))
             .navigationBarWithSBBIcon(bannerText: "DEV")    // Display a banner above the SBB Icon (e.g. to highlight the environment). You can also customize banner colors.
     }
+```
+
+## SBBEnvironmentBanner
+
+The .sbbEnvironmentBanner ViewModifier can be used to display a banner over the NavigationBar to highlight the current environment (none (= prod), dev, test, int). You can also style your own Banner.
+
+```
+    NavigationView {
+        // Your content
+    }
+        .sbbEnvironmentBanner(.dev) // default banner styles
+        .sbbEnvironmentBanner(Text("Custom"), textColor: Color.sbbColor(.black), backgroundColor: Color.sbbColor(.lemon))   // create your own banner style
 ```
 
 ## Colors
@@ -641,7 +653,7 @@ var body: some View {
 
 ## SBBButtonStyle
 
-SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small, normal & negative, border & no border) / iconText buttons. 
+SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small, normal & negative (to be used on colored backgrounds, e.g. NavBar), border & no border) / iconText buttons. 
 
 ```    
     var body: some View {
