@@ -25,21 +25,6 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
     private let content: Content?
     private let showTextFieldLine: Bool
     
-    private var icon: Image {
-        let iconPrefix = type.iconPrefix
-        
-        switch (isOn, isEnabled) {
-        case (true, true):
-            return Image("\(iconPrefix)_Checked", bundle: Helper.bundle)
-        case (true, false):
-            return Image("\(iconPrefix)_Checked_disabled", bundle: Helper.bundle)
-        case (false, true):
-            return Image("\(iconPrefix)_Unchecked", bundle: Helper.bundle)
-        case (false, false):
-            return Image("\(iconPrefix)_Unchecked_disabled", bundle: Helper.bundle)
-        }
-    }
-    
     init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showTextFieldLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
         self.type = type
         self._isOn = isOn
@@ -52,8 +37,13 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             HStack(alignment: .top, spacing: 8) {
-                icon
-                    .accessibility(hidden: true)
+                if isOn {
+                    Image("\(type.iconPrefix)_Checked\(isEnabled ? "" : "_disabled")", bundle: Helper.bundle)
+                        .accessibility(hidden: true)
+                } else {
+                    Image("\(type.iconPrefix)_Unchecked\(isEnabled ? "" : "_disabled")", bundle: Helper.bundle)
+                        .accessibility(hidden: true)
+                }
                 if image != nil {
                     image!
                         .resizeToContentSizeCategory(originalHeight: 24)
@@ -82,7 +72,9 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
             .foregroundColor(isEnabled ? Color.sbbColor(.textBlack) : Color.sbbColor(.metal))
             .background(Color.clear)
             .onTapGesture {
-                self.isOn.toggle()
+                withAnimation {
+                    self.isOn.toggle()
+                }
             }
             .accessibilityElement(children: .combine)
             .accessibility(addTraits: .isButton)
