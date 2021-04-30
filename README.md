@@ -276,7 +276,7 @@ SBBCheckBox is a SBB-styled SwiftUI Toggle. You can use it by passing Text and o
             SBBCheckBox(isOn: $isOn) {                                                  // with custom content
                 // Your custom content
             }
-            SBBCheckBox(isOn: $isOn, label: Text("Label"), showTextFieldLine: false)    // hiding the separator line
+            SBBCheckBox(isOn: $isOn, label: Text("Label"), showBottomLine: false)    // hiding the separator line
         }
     }
 ```
@@ -296,14 +296,14 @@ SBBRadioButton can be used when the user needs to select one of multiple options
                 SBBRadioButton(isOn: $isOn) {                                                  // with custom content
                 // Your custom content
             }
-            SBBRadioButton(isOn: $isOn, label: Text("Label"), showTextFieldLine: false)    // hiding the separator line
+            SBBRadioButton(isOn: $isOn, label: Text("Label"), showBottomLine: false)    // hiding the separator line
         }
     }
 ```
 
 ## SBBTextField
 
-SBBTextField is a SBB-styled SwiftUI TextField with floating label. It optionally features a placeholder label and an icon.
+SBBTextField is a SBB-styled SwiftUI TextField with floating label. It optionally features a placeholder label and an icon. By default, SBBTextField shows a separator line at its bottom since it will mostly be used inside SBBFormGroup. However you can also optionally hide the separator line.
 
 ```
     @State private var text = ""
@@ -313,13 +313,14 @@ SBBTextField is a SBB-styled SwiftUI TextField with floating label. It optionall
             SBBTextField(text: $text)
             SBBTextField(text: $text, label: "Placeholder")
             SBBTextField(text: $text, icon: Image(sbbName: "route-circle-start", size: .small))
+            SBBTextField(text: $text, showBottomLine: false)    // hiding the separator line
         }
     }
 ```
 
 ## SBBTextArea
 
-SBBTextArea is a SwiftUI equivalent of UITextView with SBB style.
+SBBTextArea is a SwiftUI equivalent of UITextView with SBB style. By default, SBBTextArea shows a separator line at its bottom since it will mostly be used inside SBBFormGroup. However you can also optionally hide the separator line.
 
 ```
     @State private var text = ""
@@ -327,7 +328,7 @@ SBBTextArea is a SwiftUI equivalent of UITextView with SBB style.
     var body: some View {
         VStack {
             SBBTextArea(text: $text)
-            SBBTextArea(text: $text, label: "Placeholder")
+            SBBTextArea(text: $text, showBottomLine: false)    // hiding the separator line
         }
     }
 ```

@@ -5,9 +5,9 @@
 import SwiftUI
 
 public extension SBBRadioButton where Content == EmptyView {
-    init(isOn: Binding<Bool>, image: Image? = nil, label: String, showTextFieldLine: Bool = true) {
+    init(isOn: Binding<Bool>, image: Image? = nil, label: String, showBottomLine: Bool = true) {
         self._isOn = isOn
-        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, image: image, label: label, showTextFieldLine: showTextFieldLine)
+        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, image: image, label: label, showBottomLine: showBottomLine)
     }
 }
 
@@ -18,9 +18,9 @@ public struct SBBRadioButton<Content>: View where Content: View {
     
     private var checkboxAndRadioButtonContainer: CheckBoxAndRadioButtonContainer<Content>
     
-    public init(isOn: Binding<Bool>, showTextFieldLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
+    public init(isOn: Binding<Bool>, showBottomLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
         self._isOn = isOn
-        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, showTextFieldLine: showTextFieldLine, content: content)
+        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, showBottomLine: showBottomLine, content: content)
     }
     
     public var body: some View {

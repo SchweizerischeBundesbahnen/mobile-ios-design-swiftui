@@ -5,12 +5,12 @@
 import SwiftUI
 
 extension CheckBoxAndRadioButtonContainer where Content == EmptyView {
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, image: Image? = nil, label: String, showTextFieldLine: Bool = true) {
+    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, image: Image? = nil, label: String, showBottomLine: Bool = true) {
         self.type = type
         self._isOn = isOn
         self.image = image
         self.label = LocalizedStringKey(label)
-        self.showTextFieldLine = showTextFieldLine
+        self.showBottomLine = showBottomLine
         self.content = nil
     }
 }
@@ -23,14 +23,14 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
     private var image: Image?
     private var label: LocalizedStringKey?
     private let content: Content?
-    private let showTextFieldLine: Bool
+    private let showBottomLine: Bool
     
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showTextFieldLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
+    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showBottomLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
         self.type = type
         self._isOn = isOn
         self.image = nil
         self.label = nil
-        self.showTextFieldLine = showTextFieldLine
+        self.showBottomLine = showBottomLine
         self.content = content()
     }
     
@@ -62,7 +62,7 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
             }
                 .padding(.vertical, 12)
                 .padding(.horizontal, 16)
-            if showTextFieldLine {
+            if showBottomLine {
                 Rectangle()
                     .fill(Color.sbbColorInternal(.textfieldLineInactive))
                     .frame(height: 1)
