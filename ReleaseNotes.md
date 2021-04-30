@@ -1,5 +1,13 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.3.1 - 30 April 2021
+
+### Improvements
+* SBBCheckbox and SBBRadioButton are now animated.
+
+### Bugfix
+* SBBBanner has correct color for dev and int environments.
+
 ## V0.3.0 - 09 March 2021
 
 ### Improvements
