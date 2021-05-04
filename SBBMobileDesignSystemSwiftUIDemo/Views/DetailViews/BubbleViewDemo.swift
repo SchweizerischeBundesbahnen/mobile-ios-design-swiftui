@@ -12,6 +12,7 @@ struct BubbleViewDemo: View {
     @State var expanded2 = true
     @State var segmentedPickerSelection1 = 0
     @State var segmentedPickerSelection2 = 0
+    @State var bubbleViewHeight: CGFloat = 0
     
     var image = Image(sbbName: "train", size: .medium)
     var title = Text("IC6 nach Basel")
@@ -25,8 +26,7 @@ struct BubbleViewDemo: View {
     var detail2Accessibility = Text("circa +2 Minuten Verspätung.")
     
     var body: some View {
-        VStack(spacing: 0) {
-            SBBBubbleView(image: image, title: title)
+        ZStack(alignment: .top) {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
                     SBBDivider()
@@ -73,8 +73,16 @@ struct BubbleViewDemo: View {
                     }
                         .buttonStyle(SBBTertiaryButtonStyle())
                 }
-                    .padding(.top, 16)
+                    .padding(.top, 16 + bubbleViewHeight)
             }
+            SBBBubbleView(image: image, title: title)
+                .overlay(
+                    GeometryReader { geometry in
+                        Color.clear.onAppear {
+                            self.bubbleViewHeight = geometry.size.height
+                        }
+                    }
+                )
         }
             .navigationBarTitle("BubbleView")
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))

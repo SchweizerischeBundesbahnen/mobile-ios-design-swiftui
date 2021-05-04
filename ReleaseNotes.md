@@ -5,6 +5,7 @@
 ### Improvements
 * SBBCheckbox and SBBRadioButton are now animated.
 * SBBCheckbox, SBBRadioButton, SBBTextField and SBBTextArea now display a separator bottom line by default since they are mostl used in a SBBFormGroup.
+* Demo of SBBBubbleView: ScrollView now floats nicely under the BubbleView on scroll. Complemented README on how to use SBBBubbleView with a ScrollView. 
 
 ### Bugfix
 * SBBBanner has correct color for dev and int environments.

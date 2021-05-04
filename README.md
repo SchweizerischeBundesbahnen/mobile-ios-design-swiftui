@@ -208,6 +208,30 @@ If you want your BubbleView to have non collabsible custom content, you can use 
     }
 ```
 
+If the view under your BubbleView is a ScrollView, you need to make sure that the View will scroll nicely under your BubbleView. To do so, use a ZStack and padding-top on the first element inside the ScrollView:
+```    
+    @State var bubbleViewHeight: CGFloat = 0
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 16) {
+                    // your ScrollView content here
+                }
+                    .padding(.top, 16 + bubbleViewHeight)
+            }
+            SBBBubbleView(image: Image("sample"), title: Text("Your title"))    
+                .overlay(
+                    GeometryReader { geometry in
+                        Color.clear.onAppear {
+                            self.bubbleViewHeight = geometry.size.height
+                        }
+                    }
+                )
+        }
+    }
+```
+
 ## SBBInfoView
 
 SBBInfoView is an expandable view with an image and a text. It is usually displayed as the upmost View to provide some information about the current screen.
