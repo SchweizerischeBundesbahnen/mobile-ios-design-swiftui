@@ -36,7 +36,7 @@ public struct SBBTextArea: View {
     
     public var body: some View {
         SBBTextAreaImpl(text: $text, isEditing: $isEditing, label: label)
-            .background(bottomLineColor.frame(height: 1), alignment: .bottom)
+            .background(bottomLineColor.frame(height: 1).padding(.horizontal, 17.5), alignment: .bottom)
             .accessibilityElement(children: .ignore)
             .accessibility(label: localizedLabel != nil ? Text(localizedLabel!) : Text(text))
             .accessibility(value: localizedLabel != nil ? Text(text) : Text(""))

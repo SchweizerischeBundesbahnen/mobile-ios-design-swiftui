@@ -9,6 +9,7 @@
 
 ### Bugfix
 * SBBBanner has correct color for dev and int environments.
+* Correct padding for bottom line in active SBBTextArea.
 
 ## V0.3.0 - 09 March 2021
 
