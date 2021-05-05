@@ -41,9 +41,9 @@ public enum SBBEnvironmentBanner {
 
     var textColor: Color {
         switch self {
-        case .test:
+        case .dev:
             return Color.sbbColor(.black)
-        case .dev, .int:
+        case .test, .int:
             return Color.sbbColor(.white)
         }
     }
@@ -51,9 +51,9 @@ public enum SBBEnvironmentBanner {
     var backgroundColor: Color {
         switch self {
         case .test:
-            return Color.sbbColor(.lemon)
-        case .dev:
             return Color.sbbColor(.night)
+        case .dev:
+            return Color.sbbColor(.lemon)
         case .int:
             return Color.sbbColor(.black)
         }

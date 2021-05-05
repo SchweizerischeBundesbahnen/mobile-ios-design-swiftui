@@ -20,17 +20,17 @@ struct FormGroupView: View {
                         SBBTextField(text: self.$emptyText, label: "Placeholder")
                         SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
                         SBBTextField(text: self.$text, label: "Placeholder")
-                        SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
+                        SBBCheckBox(isOn: self.$isOn, label: "CheckBox", showBottomLine: false)
                     }
                     Text("No title:")
                     SBBFormGroup {
                         SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
                         SBBTextField(text: self.$emptyText, label: "Placeholder")
                         SBBCheckBox(isOn: self.$isOn, label: "CheckBox")
-                        SBBTextField(text: self.$text, label: "Placeholder")
+                        SBBTextField(text: self.$text, label: "Placeholder", showBottomLine: false)
                     }
                     SBBFormGroup(title: "One row:") {
-                        SBBTextArea(text: self.$text)
+                        SBBTextArea(text: self.$text, label: "Placeholder", showBottomLine: false)
                             .frame(height: 100)
                     }
                     Spacer()

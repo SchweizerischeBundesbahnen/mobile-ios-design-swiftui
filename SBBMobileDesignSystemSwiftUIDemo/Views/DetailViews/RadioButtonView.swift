@@ -21,11 +21,11 @@ struct RadioButtonView: View {
                 }
                     .toggleStyle(SBBSwitchStyle())
                 VStack(alignment: .leading, spacing: 0) {
-                    SBBRadioButton(isOn: $model.isOn1, label: "Normal RadioButton", showTextFieldLine: false)
+                    SBBRadioButton(isOn: $model.isOn1, label: "Normal RadioButton", showBottomLine: false)
                         .disabled(isDisabled)
-                    SBBRadioButton(isOn: $model.isOn2, image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon", showTextFieldLine: false)
+                    SBBRadioButton(isOn: $model.isOn2, image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon", showBottomLine: false)
                         .disabled(isDisabled)
-                    SBBRadioButton(isOn: $model.isOn3, showTextFieldLine: false) {
+                    SBBRadioButton(isOn: $model.isOn3, showBottomLine: false) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Custom RadioButton")
                                 .sbbFont(.body)

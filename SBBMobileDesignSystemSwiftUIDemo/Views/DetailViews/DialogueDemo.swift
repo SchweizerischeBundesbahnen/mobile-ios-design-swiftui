@@ -21,9 +21,9 @@ struct DialogueDemo: View {
             VStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 16) {
                     SBBFormGroup(title: "Style:") {
-                        SBBRadioButton(isOn: $model.fullscreen, label: "Fullscreen", showTextFieldLine: false)
-                        SBBRadioButton(isOn: $model.inline, label: "Inline", showTextFieldLine: false)
-                        SBBRadioButton(isOn: $model.list, label: "List", showTextFieldLine: false)
+                        SBBRadioButton(isOn: $model.fullscreen, label: "Fullscreen")
+                        SBBRadioButton(isOn: $model.inline, label: "Inline")
+                        SBBRadioButton(isOn: $model.list, label: "List", showBottomLine: false)
                     }
                     Toggle(isOn: $model.showImage) {
                         Text("Show image:")
@@ -33,13 +33,13 @@ struct DialogueDemo: View {
                         .padding(.horizontal, 16)
                     if model.showImage {
                         SBBFormGroup {
-                            SBBRadioButton(isOn: $model.happy, label: "Man happy", showTextFieldLine: false)
-                            SBBRadioButton(isOn: $model.sad, label: "Man sad", showTextFieldLine: false)
+                            SBBRadioButton(isOn: $model.happy, label: "Man happy")
+                            SBBRadioButton(isOn: $model.sad, label: "Man sad", showBottomLine: false)
                         }
                     }
                     SBBFormGroup(title: "Content:") {
-                        SBBRadioButton(isOn: $model.customActions, label: "Custom Actions", showTextFieldLine: false)
-                        SBBRadioButton(isOn: $model.retryAction, label: "Retry Action", showTextFieldLine: false)
+                        SBBRadioButton(isOn: $model.customActions, label: "Custom Actions")
+                        SBBRadioButton(isOn: $model.retryAction, label: "Retry Action", showBottomLine: false)
                     }
                     if !showDialogue {
                         Button(action: { showDialogue = true }) {
