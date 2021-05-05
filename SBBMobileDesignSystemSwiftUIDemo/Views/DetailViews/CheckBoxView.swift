@@ -21,11 +21,11 @@ struct CheckBoxView: View {
                 }
                     .toggleStyle(SBBSwitchStyle())
                 VStack(alignment: .leading, spacing: 0) {
-                    SBBCheckBox(isOn: $isOn, label: "Normal Checkbox", showTextFieldLine: false)
+                    SBBCheckBox(isOn: $isOn, label: "Normal Checkbox", showBottomLine: false)
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: "Checkbox with Icon", showTextFieldLine: false)
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: "Checkbox with Icon", showBottomLine: false)
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, showTextFieldLine: false) {
+                    SBBCheckBox(isOn: $isOn, showBottomLine: false) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Custom Checkbox")
                                 .sbbFont(.body)

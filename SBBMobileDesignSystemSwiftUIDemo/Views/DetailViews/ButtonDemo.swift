@@ -71,7 +71,7 @@ struct ButtonDemo: View {
                         .disabled(disabled)
                 }
                 Text("Counter: \(counter)").padding()
-                SBBCheckBox(isOn: $disabled, label: "Disabled", showTextFieldLine: false)
+                SBBCheckBox(isOn: $disabled, label: "Disabled", showBottomLine: false)
                 Spacer()
             }
             .padding(16)

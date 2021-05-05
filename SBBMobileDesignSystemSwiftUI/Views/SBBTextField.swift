@@ -12,8 +12,9 @@ public struct SBBTextField: View {
     let label: String?
     let error: String?
     let icon: Image?
+    let showBottomLine: Bool
     
-    public init(text: Binding<String>, label: String? = nil, error: String? = nil, icon: Image? = nil) {
+    public init(text: Binding<String>, label: String? = nil, error: String? = nil, icon: Image? = nil, showBottomLine: Bool = true) {
         self._text = text
         if let label = label {
             self.label = NSLocalizedString(label, comment: "")
@@ -26,17 +27,20 @@ public struct SBBTextField: View {
             self.error = nil
         }
         self.icon = icon
+        self.showBottomLine = showBottomLine
     }
     
     private var bottomLineColor: Color {
         if error != nil {
             return .sbbColor(.red)
         }
-        switch (isEnabled, isEditing) {
-        case (true, true):
+        switch (isEnabled, isEditing, showBottomLine) {
+        case (true, true, _):
             return .sbbColor(.textBlack)
-        default:
+        case (_, _, true):
             return .sbbColorInternal(.textfieldLineInactive)
+        default:
+            return Color.clear
         }
     }
     

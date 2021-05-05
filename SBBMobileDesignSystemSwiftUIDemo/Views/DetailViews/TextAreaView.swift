@@ -11,17 +11,18 @@ struct TextAreaView: View {
     @State private var text = "I like trains"
     @State private var emptyText = ""
     @State private var disabled = false
+    @State private var showBottomLine = false
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 SBBFormGroup(title: "With placeholder") {
-                    SBBTextArea(text: $text, label: "Placeholder")
+                    SBBTextArea(text: $text, label: "Placeholder", showBottomLine: showBottomLine)
                         .frame(height: 100)
                         .disabled(disabled)
                 }
                 SBBFormGroup(title: "Without placeholder") {
-                    SBBTextArea(text: $text)
+                    SBBTextArea(text: $text, showBottomLine: showBottomLine)
                         .frame(height: 100)
                         .disabled(disabled)
                 }
@@ -34,10 +35,11 @@ struct TextAreaView: View {
                     self.text = ""
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
-                SBBCheckBox(isOn: $disabled, label: "Disabled", showTextFieldLine: false)
+                SBBCheckBox(isOn: $disabled, label: "Disabled", showBottomLine: false)
+                SBBCheckBox(isOn: $showBottomLine, label: "Show bottom line", showBottomLine: false)
             }
+            .padding(16)
         }
-        .padding(16)
         .navigationBarTitle("TextArea")
         .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)

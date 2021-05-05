@@ -10,8 +10,9 @@ public struct SBBTextArea: View {
     @State private var isEditing = false
     private var label: String?
     private var localizedLabel: LocalizedStringKey?
+    private let showBottomLine: Bool
     
-    public init(text: Binding<String>, label: String? = nil) {
+    public init(text: Binding<String>, label: String? = nil, showBottomLine: Bool = true) {
         self._text = text
         self.label = label
         if let label = label {
@@ -19,11 +20,23 @@ public struct SBBTextArea: View {
         } else {
             self.localizedLabel = nil
         }
+        self.showBottomLine = showBottomLine
+    }
+    
+    private var bottomLineColor: Color {
+        switch (isEditing, showBottomLine) {
+        case (true, _):
+            return .sbbColor(.textBlack)
+        case (_, true):
+            return .sbbColorInternal(.textfieldLineInactive)
+        default:
+            return Color.clear
+        }
     }
     
     public var body: some View {
         SBBTextAreaImpl(text: $text, isEditing: $isEditing, label: label)
-            .background((isEditing ? Color.sbbColor(.textBlack) : Color.sbbColorInternal(.textfieldLineInactive)).frame(height: 1), alignment: .bottom)
+            .background(bottomLineColor.frame(height: 1).padding(.horizontal, 17.5), alignment: .bottom)
             .accessibilityElement(children: .ignore)
             .accessibility(label: localizedLabel != nil ? Text(localizedLabel!) : Text(text))
             .accessibility(value: localizedLabel != nil ? Text(text) : Text(""))

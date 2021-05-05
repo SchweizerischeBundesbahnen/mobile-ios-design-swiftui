@@ -5,12 +5,12 @@
 import SwiftUI
 
 extension CheckBoxAndRadioButtonContainer where Content == EmptyView {
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, image: Image? = nil, label: String, showTextFieldLine: Bool = true) {
+    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, image: Image? = nil, label: String, showBottomLine: Bool = true) {
         self.type = type
         self._isOn = isOn
         self.image = image
         self.label = LocalizedStringKey(label)
-        self.showTextFieldLine = showTextFieldLine
+        self.showBottomLine = showBottomLine
         self.content = nil
     }
 }
@@ -23,37 +23,27 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
     private var image: Image?
     private var label: LocalizedStringKey?
     private let content: Content?
-    private let showTextFieldLine: Bool
+    private let showBottomLine: Bool
     
-    private var icon: Image {
-        let iconPrefix = type.iconPrefix
-        
-        switch (isOn, isEnabled) {
-        case (true, true):
-            return Image("\(iconPrefix)_Checked", bundle: Helper.bundle)
-        case (true, false):
-            return Image("\(iconPrefix)_Checked_disabled", bundle: Helper.bundle)
-        case (false, true):
-            return Image("\(iconPrefix)_Unchecked", bundle: Helper.bundle)
-        case (false, false):
-            return Image("\(iconPrefix)_Unchecked_disabled", bundle: Helper.bundle)
-        }
-    }
-    
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showTextFieldLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
+    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showBottomLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
         self.type = type
         self._isOn = isOn
         self.image = nil
         self.label = nil
-        self.showTextFieldLine = showTextFieldLine
+        self.showBottomLine = showBottomLine
         self.content = content()
     }
     
     var body: some View {
         ZStack(alignment: .bottom) {
             HStack(alignment: .top, spacing: 8) {
-                icon
-                    .accessibility(hidden: true)
+                if isOn {
+                    Image("\(type.iconPrefix)_Checked\(isEnabled ? "" : "_disabled")", bundle: Helper.bundle)
+                        .accessibility(hidden: true)
+                } else {
+                    Image("\(type.iconPrefix)_Unchecked\(isEnabled ? "" : "_disabled")", bundle: Helper.bundle)
+                        .accessibility(hidden: true)
+                }
                 if image != nil {
                     image!
                         .resizeToContentSizeCategory(originalHeight: 24)
@@ -72,7 +62,7 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
             }
                 .padding(.vertical, 12)
                 .padding(.horizontal, 16)
-            if showTextFieldLine {
+            if showBottomLine {
                 Rectangle()
                     .fill(Color.sbbColorInternal(.textfieldLineInactive))
                     .frame(height: 1)
@@ -82,7 +72,9 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
             .foregroundColor(isEnabled ? Color.sbbColor(.textBlack) : Color.sbbColor(.metal))
             .background(Color.clear)
             .onTapGesture {
-                self.isOn.toggle()
+                withAnimation {
+                    self.isOn.toggle()
+                }
             }
             .accessibilityElement(children: .combine)
             .accessibility(addTraits: .isButton)

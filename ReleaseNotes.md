@@ -1,5 +1,16 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.3.1 - 30 April 2021
+
+### Improvements
+* SBBCheckbox and SBBRadioButton are now animated.
+* SBBCheckbox, SBBRadioButton, SBBTextField and SBBTextArea now display a separator bottom line by default since they are mostl used in a SBBFormGroup.
+* Demo of SBBBubbleView: ScrollView now floats nicely under the BubbleView on scroll. Complemented README on how to use SBBBubbleView with a ScrollView. 
+
+### Bugfix
+* SBBBanner has correct color for dev and int environments.
+* Correct padding for bottom line in active SBBTextArea.
+
 ## V0.3.0 - 09 March 2021
 
 ### Improvements
