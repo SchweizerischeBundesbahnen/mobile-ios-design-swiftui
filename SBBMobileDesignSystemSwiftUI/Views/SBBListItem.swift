@@ -57,10 +57,10 @@ public struct SBBListItem: View {
     public var body: some View {
         ZStack(alignment: .leading) {
             HStack {
-                if leftSwipeButton != nil {
+                if let leftSwipeButton = leftSwipeButton {
                     VStack(alignment: .center) {
                         Spacer()
-                        leftSwipeButton!
+                        leftSwipeButton
                             .sbbFont(.copy)
                         Spacer()
                     }
@@ -69,10 +69,10 @@ public struct SBBListItem: View {
                         .background(Color.sbbColor(.metal))
                 }
                 Spacer()
-                if rightSwipeButton != nil {
+                if let rightSwipeButton = rightSwipeButton {
                     VStack(alignment: .center) {
                         Spacer()
-                        rightSwipeButton!
+                        rightSwipeButton
                             .sbbFont(.copy)
                         Spacer()
                     }
@@ -84,8 +84,8 @@ public struct SBBListItem: View {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        if image != nil && !SizeCategories.accessibility.contains(sizeCategory) {
-                            image!
+                        if !SizeCategories.accessibility.contains(sizeCategory), let image = image {
+                            image
                                 .resizeToContentSizeCategory(originalHeight: 24)
                                 .accessibility(hidden: true)
                         }
@@ -94,12 +94,12 @@ public struct SBBListItem: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: labelAccessibility ?? label)
                     }
-                    if footnote != nil {
-                        footnote!
+                    if let footnote = footnote {
+                        footnote
                             .fixedSize(horizontal: false, vertical: true)
                             .sbbFont(.legend)
                             .foregroundColor(.sbbColor(.textMetal))
-                            .accessibility(label: footnoteAccessibility ?? footnote!)
+                            .accessibility(label: footnoteAccessibility ?? footnote)
                     }
                 }
                 Spacer()

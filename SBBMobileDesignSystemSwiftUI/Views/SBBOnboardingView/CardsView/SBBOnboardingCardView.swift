@@ -45,8 +45,8 @@ public struct SBBOnboardingCardView: View {
                     self.content
                 } else {
                     VStack(spacing: 0) {
-                        if self.image != nil {
-                            self.image!
+                        if let image = image {
+                            image
                                 .resizable()
                                 .aspectRatio(contentMode: .fill)
                                 .accessibility(hidden: true)
@@ -55,21 +55,21 @@ public struct SBBOnboardingCardView: View {
                         HStack(spacing: 0) {
                             Spacer()
                             VStack(spacing: 16) {
-                                if self.title != nil {
-                                    self.title
+                                if let title = title {
+                                    title
                                         .sbbFont(.titleDefault)
                                         .multilineTextAlignment(.center)
                                         .fixedSize(horizontal: false, vertical: true)
                                         .accessibility(addTraits: .isHeader)
                                 }
-                                if self.text != nil {
-                                    self.text
+                                if let text = text {
+                                    text
                                         .sbbFont(.body)
                                         .multilineTextAlignment(.center)
                                         .fixedSize(horizontal: false, vertical: true)
                                 }
-                                if self.content != nil {
-                                    self.content
+                                if let content = content {
+                                    content
                                 }
                             }
                             Spacer()

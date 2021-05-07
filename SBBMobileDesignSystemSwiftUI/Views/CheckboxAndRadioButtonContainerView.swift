@@ -44,19 +44,19 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
                     Image("\(type.iconPrefix)_Unchecked\(isEnabled ? "" : "_disabled")", bundle: Helper.bundle)
                         .accessibility(hidden: true)
                 }
-                if image != nil {
-                    image!
+                if let image = image {
+                    image
                         .resizeToContentSizeCategory(originalHeight: 24)
                         .accessibility(hidden: true)
                 }
-                if label != nil {
-                    Text(label!)
+                if let label = label {
+                    Text(label)
                         .sbbFont(.body)
                         .padding(.top, 2)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                if content != nil {
-                    content!
+                if let content = content {
+                    content
                 }
                 Spacer()
             }

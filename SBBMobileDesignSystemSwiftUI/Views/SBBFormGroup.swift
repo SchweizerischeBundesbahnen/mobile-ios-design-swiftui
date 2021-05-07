@@ -20,9 +20,9 @@ public struct SBBFormGroup<Content>: View where Content: View {
     
     public var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            if title != nil {
+            if let title = title {
                 HStack(alignment: .top, spacing: 0) {
-                    Text(title!)
+                    Text(title)
                         .sbbFont(.body)
                         .padding([.bottom, .leading, .trailing], 16)
                         .accessibility(addTraits: .isHeader)
