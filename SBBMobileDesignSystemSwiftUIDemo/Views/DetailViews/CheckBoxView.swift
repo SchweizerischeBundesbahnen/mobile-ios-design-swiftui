@@ -42,7 +42,7 @@ struct CheckBoxView: View {
                         .disabled(isDisabled)
                     SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: "Checkbox with Icon and line")
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn) {
+                    SBBCheckBox(isOn: $isOn, showBottomLine: false) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Custom Checkbox with line")
                                 .sbbFont(.body)

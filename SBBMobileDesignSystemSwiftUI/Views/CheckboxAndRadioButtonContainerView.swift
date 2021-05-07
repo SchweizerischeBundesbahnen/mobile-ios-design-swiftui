@@ -25,7 +25,7 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
     private let content: Content?
     private let showBottomLine: Bool
     
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showBottomLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
+    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showBottomLine: Bool = true, @ViewBuilder content: @escaping () -> Content) {
         self.type = type
         self._isOn = isOn
         self.image = nil

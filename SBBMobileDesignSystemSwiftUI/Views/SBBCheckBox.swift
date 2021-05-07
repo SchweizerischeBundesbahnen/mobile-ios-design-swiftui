@@ -18,7 +18,7 @@ public struct SBBCheckBox<Content>: View where Content: View {
     
     private var checkboxAndRadioButtonContainer: CheckBoxAndRadioButtonContainer<Content>
     
-    public init(isOn: Binding<Bool>, showBottomLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
+    public init(isOn: Binding<Bool>, showBottomLine: Bool = true, @ViewBuilder content: @escaping () -> Content) {
         self._isOn = isOn
         self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: isOn, showBottomLine: showBottomLine, content: content)
     }
