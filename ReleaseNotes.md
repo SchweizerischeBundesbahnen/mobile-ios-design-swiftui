@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.3.2 - 07 May 2021
+
+### Improvements
+* Using new Swift 5.4 features: @ResultBuilder and optional casting in SwiftUI Views.
+
 ## V0.3.1 - 30 April 2021
 
 ### Improvements
