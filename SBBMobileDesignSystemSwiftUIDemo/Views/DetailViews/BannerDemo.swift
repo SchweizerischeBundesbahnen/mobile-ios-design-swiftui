@@ -20,6 +20,8 @@ struct BannerDemo: View {
                     .sbbEnvironmentBanner(.test)
                 SBBRadioButton(isOn: $model.int, label: "int")
                     .sbbEnvironmentBanner(.int)
+                SBBRadioButton(isOn: $model.poc, label: "poc", showBottomLine: false)
+                    .sbbEnvironmentBanner(.poc)
             }
             Spacer()
         }

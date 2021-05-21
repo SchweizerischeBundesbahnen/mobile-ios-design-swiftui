@@ -17,12 +17,21 @@ struct ModalViewContainer: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .overlay((viewModel.isPresented ? Color.black.opacity(0.5) : Color.clear).edgesIgnoringSafeArea(.all))
-            .onTapGesture {
-                if viewModel.isPresented {
-                    viewModel.closeModal()
+            .overlay(
+                Group {
+                    if viewModel.isPresented {
+                        Color.black.opacity(0.5)
+                            .onTapGesture {
+                                if viewModel.isPresented {
+                                    viewModel.closeModal()
+                                }
+                            }
+                    } else {
+                        Color.clear
+                    }
                 }
-            }
+                    .edgesIgnoringSafeArea(.all)
+            )
             .accessibilityElement(children: viewModel.isPresented ? .combine : .contain)
             .accessibility(hidden: viewModel.isPresented)
             .overlay(

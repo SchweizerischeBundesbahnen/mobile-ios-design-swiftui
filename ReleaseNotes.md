@@ -1,11 +1,17 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
-## V0.3.2 - 07 May 2021
+## V0.3.2 - 21 May 2021
+
+### Features
+* SBBBanner now also supports "poc" environment.
 
 ### Improvements
 * Using new Swift 5.4 features: @ResultBuilder and optional casting in SwiftUI Views.
 * Increased hit area for .leftSwipeButton and .rightSwipeButton ViewModifiers for SBBListItem.
 * SBBListItem now shows a separator line on the bottom as default.
+
+### Bugfix
+* .sbbModalContainer() ViewModifier does not block TouchEvents for underlying UIKit Views anymore.
 
 ## V0.3.1 - 30 April 2021
 
