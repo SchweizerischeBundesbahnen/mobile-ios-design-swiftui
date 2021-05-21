@@ -17,9 +17,12 @@ public struct SBBListItem: View {
     private let footnote: Text?
     private let footnoteAccessibility: Text?
     private let imageRight: Image
+    private let showBottomLine: Bool
     
-    var leftSwipeButton: Button<Text>?
-    var rightSwipeButton: Button<Text>?
+    var leftSwipeButtonText: Text?
+    var leftSwipeButtonAction: (() -> ())?
+    var rightSwipeButtonText: Text?
+    var rightSwipeButtonAction: (() -> ())?
     
     @State var horizontalDragOffset = CGFloat.zero
     @State var horizontalFixedOffset = CGFloat.zero
@@ -32,11 +35,11 @@ public struct SBBListItem: View {
                 self.horizontalDragOffset = gesture.translation.width
             }
             .onEnded { _ in
-                if self.horizontalDragOffset > 81 / 2 && (self.leftSwipeButton != nil || self.horizontalFixedOffset < 0) {
+                if self.horizontalDragOffset > 81 / 2 && (self.leftSwipeButtonText != nil || self.horizontalFixedOffset < 0) {
                     if self.horizontalFixedOffset <= 0 {
                         self.horizontalFixedOffset += 81
                     }
-                } else if self.horizontalDragOffset < -81 / 2 && (self.rightSwipeButton != nil || self.horizontalFixedOffset > 0) {
+                } else if self.horizontalDragOffset < -81 / 2 && (self.rightSwipeButtonText != nil || self.horizontalFixedOffset > 0) {
                     if self.horizontalFixedOffset >= 0 {
                         self.horizontalFixedOffset -= 81
                     }
@@ -45,38 +48,53 @@ public struct SBBListItem: View {
             }
     }
     
-    public init(label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal) {
+    public init(label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal, showBottomLine: Bool = true) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.image = image
         self.footnote = footnote
         self.footnoteAccessibility = footnoteAccessibility
         self.imageRight = Image(sbbName: (type == .normal ? "chevron-small-right" : "circle-information-small"), size: .small)
+        self.showBottomLine = showBottomLine
     }
     
     public var body: some View {
-        ZStack(alignment: .leading) {
+        ZStack(alignment: .bottomLeading) {
             HStack {
-                if leftSwipeButton != nil {
+                if let leftSwipeButtonText = leftSwipeButtonText {
                     VStack(alignment: .center) {
-                        Spacer()
-                        leftSwipeButton!
-                            .sbbFont(.copy)
-                        Spacer()
+                        Button(action: {
+                            leftSwipeButtonAction?()
+                        }) {
+                            VStack {
+                                Spacer()
+                                leftSwipeButtonText
+                                    .sbbFont(.copy)
+                                Spacer()
+                            }
+                                .padding(.horizontal, 16)
+                        }
                     }
-                        .frame(width: self.horizontalDragOffset + self.horizontalFixedOffset)
-                        .foregroundColor(Color.sbbColor(.white))
-                        .background(Color.sbbColor(.metal))
+                    .frame(width: max(self.horizontalDragOffset + self.horizontalFixedOffset, 0))
+                    .foregroundColor(Color.sbbColor(.white))
+                    .background(Color.sbbColor(.metal))
                 }
                 Spacer()
-                if rightSwipeButton != nil {
+                if let rightSwipeButtonText = rightSwipeButtonText {
                     VStack(alignment: .center) {
-                        Spacer()
-                        rightSwipeButton!
-                            .sbbFont(.copy)
-                        Spacer()
+                        Button(action: {
+                            rightSwipeButtonAction?()
+                        }) {
+                            VStack {
+                                Spacer()
+                                rightSwipeButtonText
+                                    .sbbFont(.copy)
+                                Spacer()
+                            }
+                                .padding(.horizontal, 16)
+                        }
                     }
-                        .frame(width: -(self.horizontalDragOffset + self.horizontalFixedOffset))
+                        .frame(width: max(-(self.horizontalDragOffset + self.horizontalFixedOffset), 0))
                         .foregroundColor(Color.sbbColor(.white))
                         .background(Color.sbbColor(.red))
                 }
@@ -84,8 +102,8 @@ public struct SBBListItem: View {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        if image != nil && !SizeCategories.accessibility.contains(sizeCategory) {
-                            image!
+                        if !SizeCategories.accessibility.contains(sizeCategory), let image = image {
+                            image
                                 .resizeToContentSizeCategory(originalHeight: 24)
                                 .accessibility(hidden: true)
                         }
@@ -94,12 +112,12 @@ public struct SBBListItem: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: labelAccessibility ?? label)
                     }
-                    if footnote != nil {
-                        footnote!
+                    if let footnote = footnote {
+                        footnote
                             .fixedSize(horizontal: false, vertical: true)
                             .sbbFont(.legend)
                             .foregroundColor(.sbbColor(.textMetal))
-                            .accessibility(label: footnoteAccessibility ?? footnote!)
+                            .accessibility(label: footnoteAccessibility ?? footnote)
                     }
                 }
                 Spacer()
@@ -115,13 +133,18 @@ public struct SBBListItem: View {
                 .background(Color.sbbColor(.viewBackground))
                 .accessibilityElement(children: .combine)
                 .offset(x: self.horizontalDragOffset + self.horizontalFixedOffset)
+            if showBottomLine {
+                Rectangle()
+                    .fill(Color.sbbColorInternal(.textfieldLineInactive))
+                    .frame(height: 1)
+            }
         }
             .gesture(dragGesture, including: tapGestureMask)
     }
     
     // this disables the dragGesture if none of the swipe buttons is set (otherwise it interferes with the ScrollView, see: https://developer.apple.com/forums/thread/122083)
     private var tapGestureMask: GestureMask {
-            return (leftSwipeButton != nil || rightSwipeButton != nil) ? .all : .subviews
+            return (leftSwipeButtonText != nil || rightSwipeButtonText != nil) ? .all : .subviews
         }
 }
 

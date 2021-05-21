@@ -8,11 +8,8 @@ public extension SBBListItem {
     func rightSwipeButton(label: Text, action: @escaping () -> Void) -> SBBListItem {
         var view = self
         
-        view.rightSwipeButton = Button(action: {
-            action()
-        }) {
-            label
-        }
+        view.rightSwipeButtonAction = action
+        view.rightSwipeButtonText = label
         
         return view
     }
@@ -20,11 +17,8 @@ public extension SBBListItem {
     func leftSwipeButton(label: Text, action: @escaping () -> Void) -> SBBListItem {
         var view = self
         
-        view.leftSwipeButton = Button(action: {
-            action()
-        }) {
-            label
-        }
+        view.leftSwipeButtonAction = action
+        view.leftSwipeButtonText = label
         
         return view
     }

@@ -58,8 +58,8 @@ public struct SBBDialogue<Content>: View where Content: View {
             if style == .fullscreen {
                 Spacer()
             }
-            if style != .list && imageStyle != nil {
-                imageStyle!.image
+            if style != .list, let imageStyle = imageStyle {
+                imageStyle.image
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .overlay(
@@ -92,8 +92,8 @@ public struct SBBDialogue<Content>: View where Content: View {
                     content
                 }
                     .padding(.vertical, 8)
-                if errorCode != nil {
-                    errorCode!
+                if let errorCode = errorCode {
+                    errorCode
                         .sbbFont(.legendSmall)
                         .foregroundColor(Color.sbbColor(.textMetal))
                         .fixedSize(horizontal: false, vertical: true)

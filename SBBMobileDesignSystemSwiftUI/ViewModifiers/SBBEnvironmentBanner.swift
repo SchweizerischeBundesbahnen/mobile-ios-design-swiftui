@@ -9,8 +9,8 @@ public extension View {
     func sbbEnvironmentBanner(_ banner: SBBEnvironmentBanner?) -> some View {
         return ZStack(alignment: .topTrailing) {
             self
-            if banner != nil {
-                EnvironmentBannerView(text: banner!.text, textColor: banner!.textColor, backgroundColor: banner!.backgroundColor)
+            if let banner = banner {
+                EnvironmentBannerView(text: banner.text, textColor: banner.textColor, backgroundColor: banner.backgroundColor)
             }
         }
     }
@@ -27,6 +27,7 @@ public enum SBBEnvironmentBanner {
     case test
     case dev
     case int
+    case poc
     
     var text: Text {
         switch self {
@@ -36,6 +37,8 @@ public enum SBBEnvironmentBanner {
             return Text("dev")
         case .int:
             return Text("int")
+        case .poc:
+            return Text("poc")
         }
     }
 
@@ -43,7 +46,7 @@ public enum SBBEnvironmentBanner {
         switch self {
         case .dev:
             return Color.sbbColor(.black)
-        case .test, .int:
+        case .test, .int, .poc:
             return Color.sbbColor(.white)
         }
     }
@@ -56,6 +59,8 @@ public enum SBBEnvironmentBanner {
             return Color.sbbColor(.lemon)
         case .int:
             return Color.sbbColor(.black)
+        case .poc:
+            return Color.sbbColor(.violet)
         }
     }
 }

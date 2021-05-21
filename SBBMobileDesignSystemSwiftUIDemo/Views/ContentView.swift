@@ -32,7 +32,7 @@ struct ContentView: View {
                             SBBListItem(label: Text("Typography"))
                         }
                         NavigationLink(destination: IconDemo(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("Icons"))
+                            SBBListItem(label: Text("Icons"), showBottomLine: false)
                         }
                     }
                     SBBFormGroup(title: "Elements") {
@@ -79,7 +79,7 @@ struct ContentView: View {
                                 SBBListItem(label: Text("Chip"))
                             }
                             NavigationLink(destination: MapMarkerDemo(colorScheme: self.$colorScheme)) {
-                                SBBListItem(label: Text("MapMarker"))
+                                SBBListItem(label: Text("MapMarker"), showBottomLine: false)
                             }
                         }
                     }
@@ -106,12 +106,12 @@ struct ContentView: View {
                             SBBListItem(label: Text("Toast"))
                         }
                         NavigationLink(destination: ProcessFlowDemo(viewModel: ProcessFlowViewModel(), colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("ProcessFlow"))
+                            SBBListItem(label: Text("ProcessFlow"), showBottomLine: false)
                         }
                     }
                     SBBFormGroup(title: "PageTypes") {
                         NavigationLink(destination: OnboardingViewDemo(colorScheme: self.$colorScheme)) {
-                            SBBListItem(label: Text("OnboardingView"))
+                            SBBListItem(label: Text("OnboardingView"), showBottomLine: false)
                         }
                     }
                     SBBFormGroup(title: "ViewModifiers") {
@@ -119,7 +119,7 @@ struct ContentView: View {
                             SBBListItem(label: Text("NavigationBar with SBB Icon"))
                         }
                         NavigationLink(destination: BannerDemo(colorScheme: self.$colorScheme).environmentObject(bannerViewModel)) {
-                            SBBListItem(label: Text("Banner"))
+                            SBBListItem(label: Text("Banner"), showBottomLine: false)
                         }
                     }
                 }
@@ -131,7 +131,8 @@ struct ContentView: View {
                 .navigationBarItems(trailing: SBBNavigationBarSBBIcon())
         }
             .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
-            .sbbEnvironmentBanner(bannerViewModel.none ? nil : ( bannerViewModel.dev ? .dev : ( bannerViewModel.test ? .test : .int)))
+            .sbbEnvironmentBanner(bannerViewModel.none ? nil : ( bannerViewModel.dev ? .dev : ( bannerViewModel.test ? .test : ( bannerViewModel.int ? .int : .poc))))
+            .sbbModalContainer()
     }
 }
 

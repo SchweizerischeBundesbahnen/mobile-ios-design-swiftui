@@ -25,7 +25,7 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
     private let content: Content?
     private let showBottomLine: Bool
     
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showBottomLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
+    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showBottomLine: Bool = true, @ViewBuilder content: @escaping () -> Content) {
         self.type = type
         self._isOn = isOn
         self.image = nil
@@ -44,19 +44,19 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
                     Image("\(type.iconPrefix)_Unchecked\(isEnabled ? "" : "_disabled")", bundle: Helper.bundle)
                         .accessibility(hidden: true)
                 }
-                if image != nil {
-                    image!
+                if let image = image {
+                    image
                         .resizeToContentSizeCategory(originalHeight: 24)
                         .accessibility(hidden: true)
                 }
-                if label != nil {
-                    Text(label!)
+                if let label = label {
+                    Text(label)
                         .sbbFont(.body)
                         .padding(.top, 2)
                         .fixedSize(horizontal: false, vertical: true)
                 }
-                if content != nil {
-                    content!
+                if let content = content {
+                    content
                 }
                 Spacer()
             }

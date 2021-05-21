@@ -11,6 +11,7 @@ class BannerViewModel: ObservableObject {
                 dev = false
                 test = false
                 int = false
+                poc = false
             }
         }
     }
@@ -20,6 +21,7 @@ class BannerViewModel: ObservableObject {
                 none = false
                 test = false
                 int = false
+                poc = false
             }
         }
     }
@@ -29,6 +31,7 @@ class BannerViewModel: ObservableObject {
                 none = false
                 dev = false
                 int = false
+                poc = false
             }
         }
     }
@@ -38,6 +41,17 @@ class BannerViewModel: ObservableObject {
                 none = false
                 dev = false
                 test = false
+                poc = false
+            }
+        }
+    }
+    @Published var poc = false {
+        didSet {
+            if poc {
+                none = false
+                dev = false
+                test = false
+                int = false
             }
         }
     }
