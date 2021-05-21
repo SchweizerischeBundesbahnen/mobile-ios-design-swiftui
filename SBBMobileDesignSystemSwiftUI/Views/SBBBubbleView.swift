@@ -95,11 +95,11 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                                         .sbbFont(.titleDefault)
                                         .fixedSize(horizontal: false, vertical: true)
                                         .accessibility(label: self.titleAccessibility ?? self.title)
-                                    if (self.subtitle != nil) {
-                                        subtitle!
+                                    if let subtitle = subtitle {
+                                        subtitle
                                             .sbbFont(.body)
                                             .fixedSize(horizontal: false, vertical: true)
-                                            .accessibility(label: self.subtitleAccessibility ?? self.subtitle!)
+                                            .accessibility(label: self.subtitleAccessibility ?? subtitle)
                                     }
                                 }
                                 Spacer()
@@ -115,7 +115,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                                 }
                             }
                         }
-                        if (expandableContent != nil) && self.expanded {
+                        if expanded, let expandableContent = expandableContent {
                             HStack(spacing: 0) {
                                 if !SizeCategories.accessibility.contains(sizeCategory) {
                                     Spacer(minLength: 44)
@@ -134,7 +134,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                         .accessibility(identifier: "bubbleView")
                         .accessibility(hint: ((self.expandableContent == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
                         
-                    if fixedContent != nil {
+                    if let fixedContent = fixedContent {
                         fixedContent
                             .padding(.top, 4)
                     }

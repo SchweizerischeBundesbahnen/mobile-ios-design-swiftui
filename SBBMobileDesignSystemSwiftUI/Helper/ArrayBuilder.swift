@@ -4,7 +4,7 @@
 
 import Foundation
 
-@_functionBuilder
+@resultBuilder
 public class ArrayBuilder<Element> {
     
     public static func buildBlock(_ elements: Element...) -> [Element] {

@@ -380,7 +380,7 @@ SBBFormGroup is a SBB-styled section of a form. It takes from 1 to 10 elements w
 
 ## SBBListItem
 
-SBBListItem is usually used inside a SBBFormGroup and in combination with NavigationLink. You need to set its label. Optional parameters are its labelAccessibility, image, footnote, footnoteAccessibility and its type (SBBListItemType which is by default .normal).
+SBBListItem is usually used inside a SBBFormGroup and in combination with NavigationLink. You need to set its label. Optional parameters are its labelAccessibility, image, footnote, footnoteAccessibility and its type (SBBListItemType which is by default .normal). By default, SBBListItem shows a separator line at its bottom since it will mostly be used inside SBBFormGroup. However you can also optionally hide the separator line.
 
 ```    
     var body: some View {
