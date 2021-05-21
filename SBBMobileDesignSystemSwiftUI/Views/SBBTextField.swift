@@ -46,8 +46,8 @@ public struct SBBTextField: View {
     
     public var body: some View {
         HStack(alignment: .top, spacing: 8) {
-            if icon != nil {
-                icon!
+            if let icon = icon {
+                icon
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24.0, height: 24.0)
@@ -56,25 +56,24 @@ public struct SBBTextField: View {
             }
             VStack(alignment: .leading, spacing: 0) {
                 Group {
-                    if label != nil {
+                    if let label = label {
                         VStack(alignment: .leading, spacing: 4) {
                             if !text.isEmpty {
-                                Text(label!)
+                                Text(label)
                                     .font(.sbbLight(size: 10))
                                     .foregroundColor(.sbbColor(.placeholder))
                                     .opacity(text.isEmpty ? 0.0 : 1.0)
                                     .accessibility(hidden: true)
                             }
-                            TextField(label!, text: $text, onEditingChanged: { editing in
+                            TextField(label, text: $text, onEditingChanged: { editing in
                                 DispatchQueue.main.async {
                                     withAnimation {
                                         self.isEditing = editing
                                     }
                                 }
                             })
-                                .modifier(TextFieldPlaceholderCustomColorStyle(showPlaceHolder: text.isEmpty, placeholder: label!))
+                                .modifier(TextFieldPlaceholderCustomColorStyle(showPlaceHolder: text.isEmpty, placeholder: label))
                                 .sbbFont(.body)
-                                //.accessibility(label: text.isEmpty ? Text("") : Text(label!))
                                 .accessibility(label: Text(accessibilityText))
                         }
                     } else {
@@ -101,8 +100,8 @@ public struct SBBTextField: View {
                             }
                         }
                     , alignment: .trailing)
-                if error != nil {
-                    Text(error!)
+                if let error = error {
+                    Text(error)
                         .font(.sbbLight(size: 10))
                         .foregroundColor(.sbbColor(.red))
                         .padding(.bottom, 8)

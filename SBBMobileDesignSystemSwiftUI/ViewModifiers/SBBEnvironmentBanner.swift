@@ -9,8 +9,8 @@ public extension View {
     func sbbEnvironmentBanner(_ banner: SBBEnvironmentBanner?) -> some View {
         return ZStack(alignment: .topTrailing) {
             self
-            if banner != nil {
-                EnvironmentBannerView(text: banner!.text, textColor: banner!.textColor, backgroundColor: banner!.backgroundColor)
+            if let banner = banner {
+                EnvironmentBannerView(text: banner.text, textColor: banner.textColor, backgroundColor: banner.backgroundColor)
             }
         }
     }

@@ -39,6 +39,8 @@ public struct SBBTextArea: View {
             .background(bottomLineColor.frame(height: 1).padding(.horizontal, 17.5), alignment: .bottom)
             .accessibilityElement(children: .ignore)
             .accessibility(label: localizedLabel != nil ? Text(localizedLabel!) : Text(text))
+            .accessibility(label: localizedLabel != nil ? Text(localizedLabel!) : Text(text))
+
             .accessibility(value: localizedLabel != nil ? Text(text) : Text(""))
     }
     
