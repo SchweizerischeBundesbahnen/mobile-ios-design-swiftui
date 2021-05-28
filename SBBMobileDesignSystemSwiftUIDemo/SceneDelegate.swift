@@ -22,11 +22,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let modalViewModel = SBBModalViewModel()
         let bannerViewModel = BannerViewModel()
+        let onboardingViewModel = OnboardingViewModel()
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
             .environmentObject(modalViewModel)
             .environmentObject(bannerViewModel)
+            .environmentObject(onboardingViewModel)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
