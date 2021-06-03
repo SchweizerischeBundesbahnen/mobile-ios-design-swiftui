@@ -1,4 +1,4 @@
-# ESTA Design library for iOS & SwiftUI
+# ESTA library: Design System Mobile for iOS & SwiftUI
 
 This is a library that contains the visual design for the SBB iOS/SwiftUI Apps.
 
@@ -50,9 +50,12 @@ Call the method setupSBBApperance() in the AppDelegate.
 
 ## Documentation
 
-https://digital.sbb.ch/de/mobile contains a documentation of the SBB Design.
+Markup : * Markup :  [SBB Design System Mobile documentation](https://digital.sbb.ch/de/design-system-mobile-new "Design System Mobile documentation") (new version since 2021) 
+Markup : * Markup :  [AppBakery libraries](https://sbb.sharepoint.com/sites/app-bakery/SitePages/Mobile-Libraries.aspx "AppBakery liraries")
+Markup : * Markup :  [Sketch](https://www.sketch.com/s/53b0a518-8d44-42a7-a712-bc211dbb7d78 "Sketch library")
+Markup : * Markup :  [Figma](https://www.figma.com/file/56woOj0p1qEOrZiTzi4mJ7/SBB-Mobile-Library-%28draft%29 "Figma library")
 
-https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/ contains the following documentation:
+Markup :  [https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/](https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/ "https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/") contains the following documentation:
 Framework API is generated in /docs on every build if Jazzy is installed.
 Sample app SBBMobileDesignSystemSwiftUIDemo is included in Xcode project
 
@@ -68,7 +71,7 @@ If you want the SBB Icon as a trailing NavigationBarItem (recommended) you will 
         Group {
             ContentView()
         }
-            .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)    // SBB Design only supports .inline for the time being
+            .navigationBarTitle("SBB DSM SwiftUI", displayMode: .inline)    // SBB Design only supports .inline for the time being
             .navigationBarItems(trailing: SBBNavigationBarSBBIcon())     // Display SBB Icon as a trailing NavigationBarItem
             .navigationBarItems(trailing: SBBNavigationBarSBBIcon(onTouchAction: { // Display SBB Icon as a trailing NavigationBarItem with custom action
                 // your action here

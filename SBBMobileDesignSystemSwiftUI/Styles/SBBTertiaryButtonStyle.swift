@@ -13,7 +13,7 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
         self.size = size
     }
     
-    // MDS internal initializer, can be used for custom views (e.g. SBBChip)
+    // DSM internal initializer, can be used for custom views (e.g. SBBChip)
     init(size: SBBButtonSize = .large, horizontalPadding: CGFloat) {
         self.size = size
         self.horizontalPadding = horizontalPadding

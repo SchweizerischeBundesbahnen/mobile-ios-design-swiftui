@@ -6,7 +6,7 @@ import Foundation
 
 internal enum SBBColorNameInternal: String {
     
-    // Private semantic Colors (only to be used for MDS Elements)
+    // Private semantic Colors (only to be used for DSM Elements)
     case buttonTertiaryDisabledForeground = "buttonTertiaryDisabledForeground"
     case buttonTertiaryDisabledBorder = "buttonTertiaryDisabledBorder"
     case buttonTertiaryBackground = "buttonTertiaryBackground"

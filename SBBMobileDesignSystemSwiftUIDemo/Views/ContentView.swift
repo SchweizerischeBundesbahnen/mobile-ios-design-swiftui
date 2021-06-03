@@ -22,7 +22,7 @@ struct ContentView: View {
                 NavigationView {
                     ScrollView(.vertical, showsIndicators: false) {
                         VStack(spacing: 16) {
-                            SBBInfoView(image: Image(sbbName: "smartphone", size: .medium), text: Text("This demo app showcases all features of the Mobile Design System (MDS) SwiftUI Library."))
+                            SBBInfoView(image: Image(sbbName: "smartphone", size: .medium), text: Text("This demo app showcases all features of the Design System Mobile (DSM) SwiftUI Library."))
                             SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
                                 Text("light")
                                 Text("dark")
@@ -130,7 +130,7 @@ struct ContentView: View {
                     }
                         .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
                         .colorScheme(colorScheme)
-                        .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)
+                        .navigationBarTitle("SBB DSM SwiftUI", displayMode: .inline)
                         .navigationBarItems(trailing: SBBNavigationBarSBBIcon())
                 }
                     .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad

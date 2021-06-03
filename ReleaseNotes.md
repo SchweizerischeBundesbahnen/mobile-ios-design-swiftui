@@ -166,7 +166,7 @@
 ## V0.1.18 - 1 September 2020
 
 ### Features
-* UX Pictos library is embedded in MDS SwiftUI
+* UX Pictos library is embedded in DSM SwiftUI
 
 ## V0.1.17 - 28 August 2020
 
