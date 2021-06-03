@@ -53,21 +53,23 @@ struct ColorsView: View {
         ]
     
     var body: some View {
-        Group {
-            List {
-                Section(header: Text("Colors")) {
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 16) {
+                SBBFormGroup(title: "Colors") {
                     ForEach(colors, id: \.name) { element in
-                        ColorRow(element: element)
+                        ColorRow(element: element, showBottomLine: element != colors.last!)
                     }
                 }
-                Section(header: Text("Semantic Colors")) {
+                SBBFormGroup(title: "Semantic Colors") {
                     ForEach(semanticColors, id: \.name) { element in
-                        ColorRow(element: element)
+                        ColorRow(element: element, showBottomLine: element != semanticColors.last!)
                     }
                 }
             }
+                .padding(16)
         }
             .navigationBarTitle("Colors")
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
             .colorScheme(colorScheme)
     }
 }
@@ -76,30 +78,39 @@ struct ColorRow: View {
     
     typealias ColorAndName = (color: Color, name: String)
     let element: ColorAndName
-    
+    let showBottomLine: Bool
+
     var body: some View {
-        GeometryReader { metrics in
+        ZStack(alignment: .bottomLeading) {
             HStack {
                 ZStack(alignment: .bottomTrailing) {
                     Rectangle()
-                        .frame(width: 100, height: metrics.size.height, alignment: .leading)
                         .foregroundColor(self.element.color)
                         .colorScheme(.light)
                     Text(".light")
-                        .font(.footnote)
+                        .sbbFont(.legendSmall)
                 }
+                    .frame(width: 100, height: 24)
                 ZStack(alignment: .bottomTrailing) {
                     Rectangle()
-                        .frame(width: 100, height: metrics.size.height, alignment: .leading)
                         .foregroundColor(self.element.color)
                         .colorScheme(.dark)
                     Text(".dark")
-                        .font(.footnote)
+                        .sbbFont(.legendSmall)
                 }
+                    .frame(width: 100, height: 24)
                 Spacer()
                 Text(self.element.name)
+                    .sbbFont(.body)
+            }
+                .padding(.vertical, 10)
+                .padding(.horizontal, 16)
+            if showBottomLine {
+                SBBDivider()
             }
         }
+            .foregroundColor(.sbbColor(.textBlack))
+            .background(Color.sbbColor(.viewBackground))
     }
 }
 

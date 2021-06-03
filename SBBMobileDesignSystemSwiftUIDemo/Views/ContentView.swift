@@ -125,6 +125,26 @@ struct ContentView: View {
                                     SBBListItem(label: Text("Banner"), showBottomLine: false)
                                 }
                             }
+                            SBBFormGroup(title: "Additional Information") {
+                                Button(action: {
+                                    guard let url = URL(string: "https://digital.sbb.ch/de/design-system-mobile-new"),
+                                        UIApplication.shared.canOpenURL(url) else {
+                                        return
+                                    }
+                                    UIApplication.shared.open(url)
+                                }) {
+                                    SBBListItem(label: Text("Official Documentation"), image: Image(sbbName: "circle-information", size: .small))
+                                }
+                                Button(action: {
+                                    guard let url = URL(string: "https://sbb.sharepoint.com/sites/app-bakery/SitePages/Mobile-Libraries.aspx"),
+                                        UIApplication.shared.canOpenURL(url) else {
+                                        return
+                                    }
+                                    UIApplication.shared.open(url)
+                                }) {
+                                    SBBListItem(label: Text("Mobile Libraries"), image: Image(sbbName: "smartphone", size: .small))
+                                }
+                            }
                         }
                             .padding(16)
                     }
