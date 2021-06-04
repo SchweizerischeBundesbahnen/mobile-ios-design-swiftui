@@ -1,5 +1,12 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.3.3 - 03 June 2021
+
+### Improvements
+* Demo App now showcases an Onboarding
+* Demo App: Improved ColorsView, documentation links on MainView, renaming to DMS
+* ReadMe: Added documentation links
+
 ## V0.3.2 - 21 May 2021
 
 ### Features
@@ -161,7 +168,7 @@
 ## V0.1.18 - 1 September 2020
 
 ### Features
-* UX Pictos library is embedded in MDS SwiftUI
+* UX Pictos library is embedded in DSM SwiftUI
 
 ## V0.1.17 - 28 August 2020
 
