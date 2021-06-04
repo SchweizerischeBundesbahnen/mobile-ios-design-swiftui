@@ -4,7 +4,18 @@
 
 import SwiftUI
 
-// initializer without detail
+/**
+ Returns a SBBBubbleView.
+ 
+ - Parameters:
+    - image: The Image to display on the top leading edge (typically a SBB Icon).
+    - title: The Text to display as title.
+    - titleAccessibility: The optional alternative text for the title's VoiceOver.
+    - subtitle: The Text to display as subtitle.
+    - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
+    - expanded: Sets the collapsed/expanded state of the BubbleView.
+    - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+ */
 public extension SBBBubbleView where ExpandableContent == EmptyView, FixedContent == EmptyView {
     init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true) {
         self.image = image
@@ -19,6 +30,19 @@ public extension SBBBubbleView where ExpandableContent == EmptyView, FixedConten
     }
 }
 
+/**
+ Returns a SBBBubbleView with collapsible content.
+ 
+ - Parameters:
+    - image: The Image to display on the top leading edge (typically a SBB Icon).
+    - title: The Text to display as title.
+    - titleAccessibility: The optional alternative text for the title's VoiceOver.
+    - subtitle: The Text to display as subtitle.
+    - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
+    - expanded: Sets the collapsed/expanded state of the BubbleView.
+    - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+    - expandableContent: The custom View which can be collapsed.
+ */
 public extension SBBBubbleView where FixedContent == EmptyView {
     init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent) {
         self.image = image
@@ -33,6 +57,19 @@ public extension SBBBubbleView where FixedContent == EmptyView {
     }
 }
 
+/**
+ Returns a SBBBubbleView with custom content below the subtitle.
+ 
+ - Parameters:
+    - image: The Image to display on the top leading edge (typically a SBB Icon).
+    - title: The Text to display as title.
+    - titleAccessibility: The optional alternative text for the title's VoiceOver.
+    - subtitle: The Text to display as subtitle.
+    - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
+    - expanded: Sets the collapsed/expanded state of the BubbleView.
+    - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+    - fixedContent: The custom View shown below the subtitle.
+ */
 public extension SBBBubbleView where ExpandableContent == EmptyView {
     init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
         self.image = image
@@ -47,6 +84,7 @@ public extension SBBBubbleView where ExpandableContent == EmptyView {
     }
 }
 
+/// A  View that is mainly used right underneath the Navigationbar. It displays an Image and a Title and optionally a subtitle and collapsible content.
 public struct SBBBubbleView<ExpandableContent, FixedContent>: View where ExpandableContent: View, FixedContent: View {
     
     private let image: Image
@@ -61,6 +99,20 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
     
     @Environment(\.sizeCategory) var sizeCategory
     
+    /**
+     Returns a SBBBubbleView with collapsible content and custom content below the subtitle.
+     
+     - Parameters:
+        - image: The Image to display on the top leading edge (typically a SBB Icon).
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - subtitle: The Text to display as subtitle.
+        - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
+        - expanded: Sets the collapsed/expanded state of the BubbleView.
+        - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - expandableContent: The custom View which can be collapsed.
+        - fixedContent: The custom View shown below the subtitle.
+     */
     public init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
         self.image = image
         self.title = title

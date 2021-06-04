@@ -76,7 +76,7 @@ If you want the SBB Icon as a trailing NavigationBarItem (recommended) you will 
             .navigationBarItems(trailing: SBBNavigationBarSBBIcon(onTouchAction: { // Display SBB Icon as a trailing NavigationBarItem with custom action
                 // your action here
             }))
-            .navigationBarWithSBBIcon(bannerText: "DEV")    // Display a banner above the SBB Icon (e.g. to highlight the environment). You can also customize banner colors.
+            .sbbEnvironmentBanner(.dev) // Display a banner above the SBB Icon (e.g. to highlight the environment).
     }
 ```
 

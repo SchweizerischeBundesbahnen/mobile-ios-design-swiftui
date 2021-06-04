@@ -4,6 +4,15 @@
 
 import SwiftUI
 
+/**
+ Returns a SBBCheckBox with a label and an optional Image.
+ 
+ - Parameters:
+    - isOn: Sets the selected/unselected state of theSBBCheckBox.
+    - image: An optional Image to be shown on the left side of the label.
+    - label: The label to be shown on the right side of the checkbox Image.
+    - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+ */
 public extension SBBCheckBox where Content == EmptyView {
     init(isOn: Binding<Bool>, image: Image? = nil, label: String, showBottomLine: Bool = true) {
         self._isOn = isOn
@@ -11,6 +20,7 @@ public extension SBBCheckBox where Content == EmptyView {
     }
 }
 
+/// A  View that is used to offer a yes/no selection for one or multiple unrelated options.
 public struct SBBCheckBox<Content>: View where Content: View {
     
     @Environment(\.isEnabled) private var isEnabled
@@ -18,6 +28,14 @@ public struct SBBCheckBox<Content>: View where Content: View {
     
     private var checkboxAndRadioButtonContainer: CheckBoxAndRadioButtonContainer<Content>
     
+    /**
+     Returns a SBBCheckBox with custom content.
+     
+     - Parameters:
+        - isOn: Sets the selected/unselected state of theSBBCheckBox.
+        - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+        - content: A custom View to be shown on the right side of the checkbox Image.
+     */
     public init(isOn: Binding<Bool>, showBottomLine: Bool = true, @ViewBuilder content: @escaping () -> Content) {
         self._isOn = isOn
         self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: isOn, showBottomLine: showBottomLine, content: content)

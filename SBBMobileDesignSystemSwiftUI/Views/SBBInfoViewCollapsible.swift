@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// A  View that is used to display a collapsible text.
 public struct SBBInfoViewCollapsible: View {
     
     private let title: Text
@@ -12,6 +13,15 @@ public struct SBBInfoViewCollapsible: View {
     private let detailAccessibility: Text?
     @Binding private var expanded: Bool
     
+    /**
+     Returns a SBBInfoViewCollapsible displaying collapsible Text.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - text: The collapsible detail Text to display.
+        - expanded: Sets the collapsed/expanded state of the SBBInfoViewCollapsible.
+     */
     public init(title: Text, titleAccessibility: Text? = nil, detail: Text, detailAccessibility: Text? = nil, expanded: Binding<Bool>) {
         self.title = title
         self.titleAccessibility = titleAccessibility

@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// A  View that is used to display a prominent information.
 public struct SBBInfoView: View {
     
     let image: Image
@@ -11,6 +12,14 @@ public struct SBBInfoView: View {
     
     @Environment(\.sizeCategory) var sizeCategory
     
+    
+    /**
+     Returns a SBBInfoView displaying prominent information.
+     
+     - Parameters:
+        - image: The Image to display on the leading edge (typically a SBB Icon).
+        - text: The Text to display.
+     */
     public init(image: Image, text: Text) {
         self.image = image
         self.text = text

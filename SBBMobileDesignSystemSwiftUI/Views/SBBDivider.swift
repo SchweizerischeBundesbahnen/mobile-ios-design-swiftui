@@ -4,8 +4,14 @@
 
 import SwiftUI
 
+/// A  SBB Divider to visually seaparate different content.
 public struct SBBDivider: View {
     
+    /**
+     Initializes a new SBBDivider.
+     
+     - Returns: A SBBDivider.
+     */
     public init() {}
     
     public var body: some View {

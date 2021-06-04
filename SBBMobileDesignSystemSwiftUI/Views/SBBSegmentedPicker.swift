@@ -4,10 +4,14 @@
 
 import SwiftUI
 
+/// A  View that is used to offer a selection between multiple options (typically used for switching between tabs).
 public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, Selection: Hashable {
     
+    /// SBbSegmentedPicker Style.
     public enum Style {
+        /// Normal SBBSegmentedPicker Style (white/gray colors)
         case normal
+        /// Normal SBBSegmentedPicker Style (red colors, to be used right underneath the Navigationbar)
         case red
         
         var currentSegmentBackgroundColor: Color {
@@ -48,6 +52,15 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
     
     @Environment(\.colorScheme) var colorScheme
      
+    /**
+     Returns a SBBSegmentedPicker offering an possibility to switch between multiple options.
+     
+     - Parameters:
+        - selection: The currently selected segment state.
+        - tags: An Array containing all selected segment options. Must have the same number of elements as content.
+        - style: The color style of the SBBSegmentedPicker.
+        - content: An Array of custom Views of the same type (typically [Text] or [Image]). Must have the same number of elements as tags.
+     */
     public init(selection: Binding<Selection>, tags: [Selection], style: Style = .normal, @ArrayBuilder<Segment> content: () -> [Segment]) {
         self._selection = selection
         self.tags = tags

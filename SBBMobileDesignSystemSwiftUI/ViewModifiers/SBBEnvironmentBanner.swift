@@ -6,6 +6,12 @@ import SwiftUI
 
 public extension View {
     
+    /**
+     Displays a environment banner on the top trailing edge of a View to highlight the current app environment.
+     
+     - Parameters:
+        - banner: The optional SBBEnvironmentBanner to display.
+     */
     func sbbEnvironmentBanner(_ banner: SBBEnvironmentBanner?) -> some View {
         return ZStack(alignment: .topTrailing) {
             self
@@ -15,6 +21,14 @@ public extension View {
         }
     }
     
+    /**
+     Displays a custom environment banner on the top trailing edge of a View to highlight the current app environment.
+     
+     - Parameters:
+        - text: The Text displayed in the banner.
+        - textColor: The foreground Color of the Text displayed in the banner.
+        - backgroundColor: The background Color of the banner.
+     */
     func sbbEnvironmentBanner(_ text: Text, textColor: Color = Color.sbbColor(.black), backgroundColor: Color = Color.sbbColor(.lemon)) -> some View {
         return ZStack(alignment: .topTrailing) {
             self
@@ -23,10 +37,15 @@ public extension View {
     }
 }
 
+/// SBBEnvironmentBanner styles.
 public enum SBBEnvironmentBanner {
+    /// Style for Test environments
     case test
+    /// Style for Development environments
     case dev
+    /// Style for Integration environments
     case int
+    /// Style for ProofOfConcept environments
     case poc
     
     var text: Text {
