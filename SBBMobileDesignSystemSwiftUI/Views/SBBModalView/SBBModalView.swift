@@ -4,6 +4,14 @@
 
 import SwiftUI
 
+/// SBBModalView TitleAlignment.
+public enum SBBModalViewTitleAlignment {
+    /// SBBModalView title alignment on the leading edge edge of the View.
+    case leading
+    /// SBBModalView title alignment horizontally centered inside View.
+    case center
+}
+
 /// A  View that is displayed modally above another View, typically using the .sheet() or sbbModal() ViewModifiers.
 public struct SBBModalView<Content>: View where Content: View {
     
@@ -16,18 +24,10 @@ public struct SBBModalView<Content>: View where Content: View {
         /// Full SBBModalView Style (to be used with the .sheet() ViewModifier)
         case full
     }
-    
-    /// SBBModalView TitleAlignment.
-    public enum TitleAlignment {
-        /// SBBModalView title alignment on the leading edge edge of the View.
-        case leading
-        /// SBBModalView title alignment horizontally centered inside View.
-        case center
-    }
 
     private let title: Text
     private let style: Style
-    private let titleAlignment: TitleAlignment
+    private let titleAlignment: SBBModalViewTitleAlignment
     @Binding private var isPresented: Bool
     @Binding private var showBackButton: Bool
     private let actionOnBackButtonTouched: (() -> ())?
@@ -43,7 +43,7 @@ public struct SBBModalView<Content>: View where Content: View {
         - actionOnBackButtonTouched: An optional action to be performed open touch events on the back button.
         - content: A custom VIew to be shown underneath the title.
      */
-    public init(title: Text, style: Style = .full, titleAlignment: TitleAlignment = .leading, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
+    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.style = style
         self.titleAlignment = titleAlignment
