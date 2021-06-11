@@ -4,28 +4,46 @@
 
 import SwiftUI
 
-public enum SBBModalViewTitleAlignment {
-    case leading
-    case center
-}
-
+/// A  View that is displayed modally above another View, typically using the .sheet() or sbbModal() ViewModifiers.
 public struct SBBModalView<Content>: View where Content: View {
     
+    /// SBBModalView Style.
     public enum Style {
+        /// Popup SBBModalView Style (to be used with the .sbbModal() ViewModifier)
         case popup
+        /// Sheet SBBModalView Style (to be used with the .sbbModal() ViewModifier)
         case sheet
+        /// Full SBBModalView Style (to be used with the .sheet() ViewModifier)
         case full
+    }
+    
+    /// SBBModalView TitleAlignment.
+    public enum TitleAlignment {
+        /// SBBModalView title alignment on the leading edge edge of the View.
+        case leading
+        /// SBBModalView title alignment horizontally centered inside View.
+        case center
     }
 
     private let title: Text
     private let style: Style
-    private let titleAlignment: SBBModalViewTitleAlignment
+    private let titleAlignment: TitleAlignment
     @Binding private var isPresented: Bool
     @Binding private var showBackButton: Bool
     private let actionOnBackButtonTouched: (() -> ())?
     private let content: Content
 
-    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
+    /**
+     Returns a SBBModalView displaying a title, custom content and an optional close button at the top-trailing edge.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - style: The style of the SBBModalView depending on how it is presented.
+        - showBackButton: An optional flag, controlling if a back button should be displayed at the top-trailing edge. Allowing navigation inside a SBBModalView.
+        - actionOnBackButtonTouched: An optional action to be performed open touch events on the back button.
+        - content: A custom VIew to be shown underneath the title.
+     */
+    public init(title: Text, style: Style = .full, titleAlignment: TitleAlignment = .leading, isPresented: Binding<Bool>, showBackButton: Binding<Bool> = .constant(false), actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.style = style
         self.titleAlignment = titleAlignment

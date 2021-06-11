@@ -4,8 +4,10 @@
 
 import SwiftUI
 
+/// A ButtonStyle for secondary buttons (red outline and text color).
 public struct SBBSecondaryButtonStyle: ButtonStyle {
         
+    /// Returns a Button in SBB secondary button style (red outline and text color).
     public init() {}
     
     public func makeBody(configuration: Self.Configuration) -> some View {

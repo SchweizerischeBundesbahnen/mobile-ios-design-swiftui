@@ -4,11 +4,18 @@
 
 import SwiftUI
 
+/// A ButtonStyle for tertiary buttons (white outline and text color).
 public struct SBBTertiaryButtonStyle: ButtonStyle {
     
     private let size: SBBButtonSize
     private var horizontalPadding: CGFloat = 16
-        
+       
+    /**
+     Returns a Button in SBB tertiary button style (white outline and text color) in the specified size.
+     
+     - Parameters:
+        - size: The size of the button.
+     */
     public init(size: SBBButtonSize = .large) {
         self.size = size
     }

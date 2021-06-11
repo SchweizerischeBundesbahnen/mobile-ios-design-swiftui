@@ -5,6 +5,7 @@
 import Combine
 import SwiftUI
 
+/// A ViewModel that needs to be injected as EnvironmentObject if you want to use the .sbbModal() ViewModifier.
 public class SBBModalViewModel: ObservableObject {
 
     @Published var isPresented: Bool = false {
@@ -20,6 +21,9 @@ public class SBBModalViewModel: ObservableObject {
     @Published private(set) var content: AnyView
     private(set) var onDismiss: (() -> Void)?
     
+    /**
+     Returns a SBBViewModel allowing usage of the .sbbModal() ViewModifier.
+     */
     public init() {
         content = AnyView(EmptyView())
     }

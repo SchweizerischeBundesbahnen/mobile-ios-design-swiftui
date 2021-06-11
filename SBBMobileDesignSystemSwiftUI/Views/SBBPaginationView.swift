@@ -4,11 +4,19 @@
 
 import SwiftUI
 
+/// A  View that indicates that there are multiple elements or pages, through which the user can navigate. Also highlights the currently selected element or page.
 public struct SBBPaginationView: View {
     
     @Binding private var currentPageIndex: Int
     private var numberOfPages: Int
     
+    /**
+     Returns a SBBPaginationView with a dot for every page.
+     
+     - Parameters:
+        - currentPageIndex: Sets the current page's index state.
+        - numberOfPages: The total number of pages.
+     */
     public init(currentPageIndex: Binding<Int>, numberOfPages: Int) {
         self._currentPageIndex = currentPageIndex
         self.numberOfPages = numberOfPages

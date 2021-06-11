@@ -4,12 +4,16 @@
 
 import SwiftUI
 
-public enum SBBListItemType: Equatable {
-    case normal
-    case info
-}
-
+/// A  View that is used to display a single item of a list. Usually used inside a SBBFormGroup and in combination with NavigationLink.
 public struct SBBListItem: View {
+    
+    /// SBBListItem Type.
+    public enum SBBListItemType: Equatable {
+        /// Normal SBBListItem Style (chevron icon)
+        case normal
+        /// Info SBBListItem Style (information icon)
+        case info
+    }
     
     private let label: Text
     private let labelAccessibility: Text?
@@ -48,6 +52,18 @@ public struct SBBListItem: View {
             }
     }
     
+    /**
+     Returns a SBBListItem with a label, an optional Image and an optional footnote.
+     
+     - Parameters:
+        - label: Sets the main label.
+        - labelAccessibility: The optional alternative text for the label's VoiceOver.
+        - image: An optional Image to be shown on the leading edge of the SBBTextField.
+        - footnote: An optional label displayed underneath the main label.
+        - footnoteAccessibility: The optional alternative text for the footnote's VoiceOver.
+        - type: The type of the trailing edge's image.
+        - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     */
     public init(label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal, showBottomLine: Bool = true) {
         self.label = label
         self.labelAccessibility = labelAccessibility

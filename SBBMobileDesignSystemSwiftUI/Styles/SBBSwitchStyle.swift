@@ -4,8 +4,12 @@
 
 import SwiftUI
 
+/// A ToggleStyle in SBB style (red background)
 public struct SBBSwitchStyle: ToggleStyle {
     
+    /**
+     Returns a Toggle in SBB switch style (red background).
+     */
     public init() {}
     
     public func makeBody(configuration: Self.Configuration) -> some View {

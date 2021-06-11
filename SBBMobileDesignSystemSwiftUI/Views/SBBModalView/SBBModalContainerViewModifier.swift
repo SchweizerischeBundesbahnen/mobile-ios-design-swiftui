@@ -5,6 +5,12 @@
 import SwiftUI
 
 public extension View {
+    
+    /**
+     Allows modal views to be presented above the entire screen by using .sbbModalView modifier from anywhere in your view hierarchy. Needs to be applied to the main/root View.
+     
+     - Returns: A View containing the passed View with added presentable content above it.
+     */
     func sbbModalContainer() -> some View {
             self.modifier(ModalViewContainer())
     }

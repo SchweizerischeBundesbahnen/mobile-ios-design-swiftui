@@ -13,7 +13,6 @@ import SwiftUI
     - titleAccessibility: The optional alternative text for the title's VoiceOver.
     - subtitle: The Text to display as subtitle.
     - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
-    - expanded: Sets the collapsed/expanded state of the BubbleView.
     - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
  */
 public extension SBBBubbleView where ExpandableContent == EmptyView, FixedContent == EmptyView {

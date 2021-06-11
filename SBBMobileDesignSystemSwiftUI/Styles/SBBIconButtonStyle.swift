@@ -4,17 +4,29 @@
 
 import SwiftUI
 
+/// A ButtonStyle for buttons with an icon instead of text (white outline and text color).
 public struct SBBIconButtonStyle: ButtonStyle {
     
+    /// SBBIconButton style.
     public enum Style {
+        /// Normal SBBIconButton style (background with fixed color)
         case normal
-        case negative   // to be used on colored backgrounds (e.g. NavigationBar)
+        /// Negative SBBIconButton style (transparent background, to be used on colored backgrounds (e.g. NavigationBar))
+        case negative
     }
     
     private let size: SBBButtonSize
     private let style: Style
     private let showBorder: Bool
         
+    /**
+     Returns a Button in SBB icon button style (white outline and text color) in the specified size and style.
+     
+     - Parameters:
+        - size: The size of the button.
+        - style: The style of the button.
+        - showBorder: Flag showing or hiding a border around the button.
+     */
     public init(size: SBBButtonSize = .large, style: Style = .normal, showBorder: Bool = true) {
         self.size = size
         self.style = style

@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// A  View that is used for SBBOnboardingView and is swipped through during the onboarding process.
 public struct SBBOnboardingCardView: View {
     
     private let image: Image?
@@ -18,6 +19,15 @@ public struct SBBOnboardingCardView: View {
         return image == nil && title == nil && text == nil && content != nil
     }
     
+    /**
+     Returns a SBBOnboardingCardView with an optional action performed upon disappear of the view (when the user swipes it away). The CardView is vertically scrollable allowing it to fit large contents.
+     
+     - Parameters:
+        - image: An optional image displayed at the top edge of the CardView. Will automatically shrink with increasing text length but remain a minimal height (using .fill as contentMode, so that it fills the entire view).
+        - title: An optional (multiline) title to be displayed underneath the image and above the text.
+        - text: An optional (multiline) text to be displayed underneath the title.
+        - actionOnCardDisappear: An optional code block being executed upon disappear of the view (when the user swipes it away). Typically used to request app permissions from the user.
+     */
     public init(image: Image? = nil, title: Text? = nil, text: Text? = nil, actionOnCardDisappear: (() -> ())? = nil) {
         self.image = image
         self.title = title
@@ -28,6 +38,16 @@ public struct SBBOnboardingCardView: View {
         UIScrollView.appearance().bounces = false
     }
     
+    /**
+     Returns a SBBOnboardingCardView with customizable content and an optional action performed upon disappear of the view (when the user swipes it away). The CardView is vertically scrollable allowing it to fit large contents.
+     
+     - Parameters:
+        - image: An optional image displayed at the top edge of the CardView. Will automatically shrink with increasing text length but remain a minimal height (using .fill as contentMode, so that it fills the entire view).
+        - title: An optional (multiline) title to be displayed underneath the image and above the text.
+        - text: An optional (multiline) text to be displayed underneath the title.
+        - actionOnCardDisappear: An optional code block being executed upon disappear of the view (when the user swipes it away). Typically used to request app permissions from the user.
+        - content: Optional custom View content being shown underneath all other elements (or as single content if image, title and text are not set).
+     */
     public init<Content: View>(image: Image? = nil, title: Text? = nil, text: Text? = nil, actionOnCardDisappear: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.image = image
         self.title = title

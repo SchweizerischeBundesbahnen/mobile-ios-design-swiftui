@@ -448,9 +448,9 @@ SBBChip is used to provide quick filters to a list. It has a selected/not select
     
 ```
 
-## SBBMarker
+## SBBMapMarker
 
-SBBMarker can be used to display content on a map. There are 3 available map marker styles: .red, .blue and .black. Use .blue style for pictograms.
+SBBMapMarker can be used to display content on a map. There are 3 available styles: .red, .blue and .black. Use .blue style for pictograms.
 
 ```    
     SBBMapMarker(icon: Image(sbbName: "Zug_r"), style: .blue)
@@ -528,7 +528,7 @@ SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView.
     }
 ```
 ## SBBModalView
-SBBModalView is used to display a View above another View, typically using .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter. To use SBBModalView, you need to create a SBBModalViewModel which nees to be added as EnvironmentObject in your SceneDelegate (and to new Views pushed using NavigationLink). You also need to add the .sbbModalContainer() ViewModifier to your upmost ContentView (you can also add it as an overlay to a specific view, if modals will only be shown from this specific view and the view covers the entire screen).
+SBBModalView is used to display a View above another View, typically using the .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter. To use SBBModalView, you need to create a SBBModalViewModel which nees to be added as EnvironmentObject in your SceneDelegate (and to new Views pushed using NavigationLink). You also need to add the .sbbModalContainer() ViewModifier to your upmost ContentView (you can also add it as an overlay to a specific view, if modals will only be shown from this specific view and the view covers the entire screen).
 
 1. Inside SceneDelegate: Create a SBBModalViewModel and add it as EnvironmentObject to the MainView:
 ```    

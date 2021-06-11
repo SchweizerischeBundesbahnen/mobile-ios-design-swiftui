@@ -7,7 +7,7 @@ import SwiftUI
 /// A  View that is used to offer a selection between multiple options (typically used for switching between tabs).
 public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, Selection: Hashable {
     
-    /// SBbSegmentedPicker Style.
+    /// SBBSegmentedPicker Style.
     public enum Style {
         /// Normal SBBSegmentedPicker Style (white/gray colors)
         case normal

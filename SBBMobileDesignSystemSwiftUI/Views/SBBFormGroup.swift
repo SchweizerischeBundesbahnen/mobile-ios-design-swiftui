@@ -4,11 +4,19 @@
 
 import SwiftUI
 
+/// A View that is used to group corresponding SBBListItems or form elements (e.g. SBBTextField or SBBCheckBox). Elements are stacked vertically.
 public struct SBBFormGroup<Content>: View where Content: View {
     
     private let title: LocalizedStringKey?
     private let content: () -> Content
     
+    /**
+     Returns a SBBFormGroup used to group corresponding list or form elements.
+     
+     - Parameters:
+        - title: The optional Text to display as title on top of the vertically stacked elements.
+        - content: The custom Views to be stacked vertically.
+     */
     public init(title: String? = nil, @ViewBuilder content: @escaping () -> Content) {
         if let title = title {
             self.title = LocalizedStringKey(title)

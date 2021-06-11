@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// A  View that allows user to quickly filter content (e.g. a list).
 public struct SBBChip: View {
     
     @Binding private var isSelected: Bool
@@ -25,6 +26,14 @@ public struct SBBChip: View {
         }
     }
 
+    /**
+     Returns a SBBChip with a label and a number showing the number of corresponding items.
+     
+     - Parameters:
+        - label: The label to be shown on the leading edge (typically describing the associated content which it is supposed to filter).
+        - isSelected: The state value, indicating whether the chip is currently selected.
+        - numberOfItems: The number of corresponding items (i.e. the number of items that can be filtered).
+     */
     public init(label: Text, isSelected: Binding<Bool>, numberOfItems: Int) {
         self.label = label
         self._isSelected = isSelected
