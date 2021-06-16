@@ -52,7 +52,7 @@ struct SegmentedPickerViewDemo: View {
             }
         }
             .navigationBarTitle("SegmentedPicker")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }

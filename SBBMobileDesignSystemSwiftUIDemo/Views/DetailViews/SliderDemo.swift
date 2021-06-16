@@ -22,7 +22,7 @@ public struct SliderDemo: View {
             .padding(16)
         }
             .navigationBarTitle("SBBSlider")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }

@@ -1,5 +1,13 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.0 - 16 June 2021
+
+### Features
+* sbbStyle() View Modifier that applies basic view styling.
+
+### Improvements
+* Support for landscape mode / larger content sizes.
+
 ## V0.3.3 - 04 June 2021
 
 ### Improvements

@@ -85,7 +85,7 @@ struct BubbleViewDemo: View {
                 )
         }
             .navigationBarTitle("BubbleView")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }

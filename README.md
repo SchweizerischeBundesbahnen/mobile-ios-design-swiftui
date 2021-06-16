@@ -61,6 +61,15 @@ Sample app SBBMobileDesignSystemSwiftUIDemo is included in Xcode project
 
 In the next chapters you can see a quick resume of how to use the existing UI elements.
 
+## SBBStyle
+
+Applies SBB styling to any View. You typically apply the sbbStyle() View modifier to the umpost View in the hierarchy. It applies a specific background color, ignores bottom and horizontal Safe Areas (for landscape mode), adds a SBBNavigationBarSBBIcon as trailing Navigation Bar Item and sets a default Font.
+
+```    
+    YourView()
+        .sbbStyle()
+```
+
 ## NavigationBar
 
 Initializing the Library in your app will setup all NavigationBars (& StatusBars) in the SBB style.

@@ -142,16 +142,16 @@ struct ContentView: View {
                                     }
                                     UIApplication.shared.open(url)
                                 }) {
-                                    SBBListItem(label: Text("Mobile Libraries"), image: Image(sbbName: "smartphone", size: .small))
+                                    SBBListItem(label: Text("Mobile Libraries"), image: Image(sbbName: "smartphone", size: .small), showBottomLine: false)
                                 }
                             }
                         }
                             .padding(16)
                     }
-                        .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
-                        .colorScheme(colorScheme)
                         .navigationBarTitle("SBB DSM SwiftUI", displayMode: .inline)
-                        .navigationBarItems(trailing: SBBNavigationBarSBBIcon())
+                        .sbbStyle()
+                        .colorScheme(colorScheme)
+
                 }
                     .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
                     .sbbEnvironmentBanner(bannerViewModel.none ? nil : ( bannerViewModel.dev ? .dev : ( bannerViewModel.test ? .test : ( bannerViewModel.int ? .int : .poc))))

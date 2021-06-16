@@ -32,7 +32,7 @@ struct ToastDemo: View {
                 .padding(16)
         }
             .navigationBarTitle("Toast")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .sbbToastContainer()
             .colorScheme(colorScheme)
             

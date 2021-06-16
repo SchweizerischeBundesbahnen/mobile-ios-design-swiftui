@@ -99,7 +99,7 @@ struct DialogueDemo: View {
             }
             .sbbModalContainer()
             .navigationBarTitle("Dialogue")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }
