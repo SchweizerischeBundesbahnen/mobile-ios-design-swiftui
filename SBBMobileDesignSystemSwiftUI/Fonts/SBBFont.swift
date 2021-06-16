@@ -9,6 +9,13 @@ import SwiftUI
 // Custom font dynamic sizing does not seem to work inside the PreviewProvider atm (SwiftUI bug?)
 
 public extension View {
+    
+    /**
+     Returns a SBB Font.
+     
+     - Parameters:
+        - sbbFont: The SBBFont type to be returned.
+     */
     func sbbFont(_ sbbFont: SBBFont) -> some View {
         return self.modifier(ScaledFont(sbbFont: sbbFont))  // workaround
         //return self.font(sbbFont.font).lineSpacing(sbbFont.lineSpacing)   // Leads to Segmentation Fault: 11 (if archiving XCode project using SwiftUI DSM over CocoaPods), see https://stackoverflow.com/questions/60865057/xcode-11-4-archiving-project-segmentation-fault-11
@@ -23,17 +30,27 @@ struct ScaledFont: ViewModifier {
     }
 }
 
-
+/// SBBFont types.
 public enum SBBFont {
+    /// SBBFont type for headers.
     case header
+    /// SBBFont type for headlines.
     case headline
+    /// SBBFont type for default titles.
     case titleDefault
+    /// SBBFont type for title modules.
     case titleModul
+    /// SBBFont type for subtitles.
     case subtitle
+    /// SBBFont type for copy styles.
     case copy
+    /// SBBFont type for body.
     case body
+    /// SBBFont type for legends.
     case legend
+    /// SBBFont type for legends (small style).
     case legendSmall
+    /// SBBFont type for table headers.
     case tableHeader
     
     var font: Font {

@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// A  View that is used for entering text (multiple lines).
 public struct SBBTextArea: View {
     
     @Binding private var text: String
@@ -12,6 +13,14 @@ public struct SBBTextArea: View {
     private var localizedLabel: LocalizedStringKey?
     private let showBottomLine: Bool
     
+    /**
+     Returns a SBBTextField with a label and an optional Image.
+     
+     - Parameters:
+        - text: Sets the user-modifiable text state.
+        - label: An optional label displayed instead of the text (if the text is empty) or above the text (if not empty).
+        - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     */
     public init(text: Binding<String>, label: String? = nil, showBottomLine: Bool = true) {
         self._text = text
         self.label = label

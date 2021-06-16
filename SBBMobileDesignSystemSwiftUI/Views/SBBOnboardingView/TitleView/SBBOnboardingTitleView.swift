@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// A  View that is used for SBBOnboardingView as starting and ending View of the onboarding process.
 public struct SBBOnboardingTitleView: View {
     
     private let image: Image
@@ -14,6 +15,13 @@ public struct SBBOnboardingTitleView: View {
     
     @State var titleHeight: CGFloat = 0
     
+    /**
+     Returns a SBBOnboardingTitleView displaying a title and an image.
+     
+     - Parameters:
+        - image: An  image displayed centered vertically in the remaining space above the title.
+        - title: A (multiline) title to be displayed on the bottom edge of the View
+     */
     public init(image: Image, title: Text) {
         self.image = image
         self.title = title

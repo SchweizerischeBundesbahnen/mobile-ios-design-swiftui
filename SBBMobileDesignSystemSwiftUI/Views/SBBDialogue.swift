@@ -4,10 +4,14 @@
 
 import SwiftUI
 
+/// A  View that can be used to inform users about an event (e.g. an error) or to show them a selection of options
 public struct SBBDialogue<Content>: View where Content: View {
     
+    /// SBBDialogue Style.
     public enum ImageStyle {
+        /// Happy SBBDialogue Style, presenting a happy image above the title.
         case happy
+        /// Sad SBBDialogue Style, presenting a sad image above the title.
         case sad
         
         var image: Image {
@@ -20,9 +24,13 @@ public struct SBBDialogue<Content>: View where Content: View {
         }
     }
     
+    /// SBBDialogue Style.
     public enum Style {
+        /// Fullscreen SBBModalView Style (to be used with the .sbbModal() ViewModifier). The SBBModalView is displayed above the entire screen (pinned to the bottom edge).
         case fullscreen
+        /// Inline SBBModalView Style (to be used inline as the (vertically) last element of the View).
         case inline
+        /// List SBBModalView Style (to be used wherever desired, e.g. in a list).
         case list
         
         var contentBackgroundColor: Color {
@@ -44,6 +52,17 @@ public struct SBBDialogue<Content>: View where Content: View {
     private let style: Style
     private let imageStyle: ImageStyle?
 
+    /**
+     Returns a SBBDialogue displaying a title, a label, an optional errorCode and custom content.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - label: The Text to display as a description below the title.
+        - errorCode: An optional error code to be displayed at the bottom edge of the view (typically a http request error code).
+        - style: The style of the SBBDialogue depending on how it is presented.
+        - imageStyle: An optional imageStyle presenting a happy/sad image above the title.
+        - content: A custom VIew to be shown underneath the title and label.
+     */
     public init(title: Text, label: Text, errorCode: Text? = nil, style: Style = .fullscreen, imageStyle: ImageStyle? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.content = content()
         self.title = title

@@ -5,10 +5,14 @@
 import SwiftUI
 
 // TODO: add anti-aliasing once SwiftUI supports it
+/// A  View that is used to display a loading state.
 public struct SBBLoadingIndicator: View {
     
+    /// SBBLoadingIndicator Size.
     public enum Size {
+        /// Normal SBBLoadingIndicator Size.
         case normal
+        /// Small SBBLoadingIndicator Size.
         case small
         
         var size: CGSize {
@@ -21,9 +25,13 @@ public struct SBBLoadingIndicator: View {
         }
     }
     
+    /// SBBLoadingIndicator Style.
     public enum Style {
+        /// Red SBBLoadingIndicator on a background depending on the current ColorScheme.
         case red
+        /// Grey SBBLoadingIndicator on a background depending on the current ColorScheme.
         case grey
+        /// White SBBLoadingIndicator on a red background.
         case white
         
         func color(for colorScheme: ColorScheme) -> Color {
@@ -60,6 +68,13 @@ public struct SBBLoadingIndicator: View {
     private var rotationInDegrees = 60.0
     private var innerWidth: CGFloat // the width of the entire "train" is wider than it's containing view, since it's rotated to the back around the leading y-axis
     
+    /**
+     Returns a SBBLoadingIndicator with the given size and style.
+     
+     - Parameters:
+        - size: Sets the size of the SBBLoadingIndicator.
+        - style: Sets the colof of the SBBLoadingIndicator.
+     */
     public init(size: Size = .normal, style: Style = .red) {
         self.style = style
         self.width = size.size.width

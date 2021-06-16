@@ -5,6 +5,16 @@
 import SwiftUI
 
 public extension View {
+    
+    /**
+     Shows a custom View (typically SBBModalView) above the entire screen. You also need to create a SBBModalViewModel injected as an EnvironmentObject and add the .sbbBodalContainer() ViewModifier on your main/root View.
+     
+     - Parameters:
+        - isPresented: The state controlling whether the custom View passed as content is currently presented or hidden.
+        - content: The custom content to be shown when presented (typically a SBBModalView).
+     
+     - Returns: A View containing the passed View with added presentable content above it.
+     */
     func sbbModal<Content: View>(isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
         ModalView(isPresented: isPresented, content: content, presentingView: self)
     }

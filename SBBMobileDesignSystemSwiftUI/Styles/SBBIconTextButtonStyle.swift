@@ -4,8 +4,12 @@
 
 import SwiftUI
 
+/// A ButtonStyle for buttons with custom content (e.g. text and icon).
 public struct SBBIconTextButtonStyle: ButtonStyle {
     
+    /**
+     Returns a Button in SBB icon and text button style.
+     */
     public init() {}
     
     public func makeBody(configuration: Self.Configuration) -> some View {

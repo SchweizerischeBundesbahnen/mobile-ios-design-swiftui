@@ -4,10 +4,19 @@
 
 import SwiftUI
 
+/// A  SBB-Icon to be used as trailing NavigationBarItem with an optional onTouchAction.
 public struct SBBNavigationBarSBBIcon: View {
     
     private let onTouchAction: (() -> ())?
     
+    /**
+     Initializes a new SBBNavigationBarSBBIcon.
+     
+     - Parameters:
+        - onTouchAction: The optional action to execute on touch events on the SBBIcon.
+     
+     - Returns: A SBBNavigationBarSBBIcon.
+     */
     public init(onTouchAction: (() -> ())? = nil) {
         self.onTouchAction = onTouchAction
     }

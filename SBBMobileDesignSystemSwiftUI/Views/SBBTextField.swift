@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// A  View that is used for entering text (single line).
 public struct SBBTextField: View {
     
     @Environment(\.isEnabled) private var isEnabled
@@ -14,6 +15,16 @@ public struct SBBTextField: View {
     let icon: Image?
     let showBottomLine: Bool
     
+    /**
+     Returns a SBBTextField with a label and an optional Image.
+     
+     - Parameters:
+        - text: Sets the user-modifiable text state.
+        - label: An optional label displayed instead of the text (if the text is empty) or above the text (if not empty).
+        - error: An optional label used to display errors with user input. Displayed below the text in red color and adding a red separator line below the entire SBBTextField.
+        - icon: An optional Image to be shown on the leading edge of the SBBTextField.
+        - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     */
     public init(text: Binding<String>, label: String? = nil, error: String? = nil, icon: Image? = nil, showBottomLine: Bool = true) {
         self._text = text
         if let label = label {
