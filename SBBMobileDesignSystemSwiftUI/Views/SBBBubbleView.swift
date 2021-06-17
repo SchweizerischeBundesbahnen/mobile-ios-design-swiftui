@@ -97,7 +97,6 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
     private let fixedContent: FixedContent?
     
     @Environment(\.sizeCategory) var sizeCategory
-    // TODO - UX discussion about Size Classes vs. orientation https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     /**
