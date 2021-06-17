@@ -68,6 +68,7 @@ Applies SBB styling to any View. You typically apply the sbbStyle() View modifie
 ```    
     YourView()
         .sbbStyle()
+        .sbbStyle(edgesIgnoringSafeArea: .horizontal)   // if using a TabView ([.bottom, .horizontal] is the default value)
 ```
 
 ## NavigationBar
