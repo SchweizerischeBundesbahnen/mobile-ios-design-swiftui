@@ -97,6 +97,8 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
     private let fixedContent: FixedContent?
     
     @Environment(\.sizeCategory) var sizeCategory
+    // TODO - UX discussion about Size Classes vs. orientation https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/adaptivity-and-layout/
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     /**
      Returns a SBBBubbleView with collapsible content and custom content below the subtitle.
@@ -144,6 +146,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                                 VStack(alignment: .leading, spacing: 8) {
                                     title
                                         .sbbFont(.titleDefault)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                         .fixedSize(horizontal: false, vertical: true)
                                         .accessibility(label: self.titleAccessibility ?? self.title)
                                     if let subtitle = subtitle {
@@ -152,6 +155,13 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                                             .fixedSize(horizontal: false, vertical: true)
                                             .accessibility(label: self.subtitleAccessibility ?? subtitle)
                                     }
+                                    if horizontalSizeClass == .regular, expanded, let expandableContent = expandableContent {
+                                        expandableContent
+                                            .sbbFont(.body)
+                                    }
+                                }
+                                if horizontalSizeClass == .regular, let fixedContent = fixedContent {
+                                    fixedContent
                                 }
                                 Spacer()
                                 if (expandableContent != nil) {
@@ -166,18 +176,14 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                                 }
                             }
                         }
-                        if expanded, let expandableContent = expandableContent {
-                            HStack(spacing: 0) {
-                                if !SizeCategories.accessibility.contains(sizeCategory) {
-                                    Spacer(minLength: 44)
-                                }
-                                VStack(alignment: .leading, spacing: 0) {
-                                    SBBDivider()
-                                    expandableContent
-                                        .sbbFont(.body)
-                                        .padding(.top, 8)
-                                }
+                        if horizontalSizeClass == .compact, expanded, let expandableContent = expandableContent {
+                            VStack(alignment: .leading, spacing: 0) {
+                                SBBDivider()
+                                expandableContent
+                                    .sbbFont(.body)
+                                    .padding(.top, 8)
                             }
+                                .padding(.leading, SizeCategories.accessibility.contains(sizeCategory) ? 0 : 44)
                         }
                     }
                         .accessibilityElement(children: .combine)
@@ -185,12 +191,14 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                         .accessibility(identifier: "bubbleView")
                         .accessibility(hint: ((self.expandableContent == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))
                         
-                    if let fixedContent = fixedContent {
+                    if horizontalSizeClass == .compact, let fixedContent = fixedContent {
                         fixedContent
                             .padding(.top, 4)
                     }
                 }
-                    .padding(16)
+                    .padding(.leading, 16)
+                    .padding(.trailing, horizontalSizeClass == .compact ? 16 : (expandableContent != nil) ? 16 : 0)
+                    .padding(.vertical, horizontalSizeClass == .compact ? 16 : 8)
                     .background(Color.sbbColor(.tabViewBackground))
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
@@ -209,55 +217,48 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
 struct SBBBubbleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"))
-                .previewDisplayName("Title only")
-            SBBBubbleView(image: Image(sbbName: "station", size: .medium), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."))
-                .previewDisplayName("Subtitle")
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
-                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-            })
-                .previewDisplayName("Detail")
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), extendNavigationBarBackground: false, expandableContent: {
-                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-            })
-                .previewDisplayName("Detail, no NavigationBar background extension")
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
-                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-            })
-                .previewDisplayName("Detail dark")
-                .environment(\.colorScheme, .dark)
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
-                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-            })
-                .previewDisplayName("Accessibility Text Size (no icon)")
-                .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
-                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-                Text("ca. +12'")
-                    .foregroundColor(.sbbColor(.red))
-                    .font(.sbbTitleDefault)
-            })
-                .previewDisplayName("Detail - multiple views")
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true), expandableContent: {
-                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-            })
-                .previewDisplayName("Long title")
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), fixedContent: {
-                SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {
-                    Text("Wagen")
-                    Text("Perlschnur")
-                })
-            })
-                .previewDisplayName("Fixed Content")
-            SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
-                Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
-            }, fixedContent: {
-                SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {
-                    Text("Wagen")
-                    Text("Perlschnur")
-                })
-            })
-                .previewDisplayName("Expandable & Fixed Content")
+            ForEach([UserInterfaceSizeClass.compact, UserInterfaceSizeClass.regular], id: \.self) { horizontalSizeClass in
+                Group {
+                    SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"))
+                        .previewDisplayName("Title only")
+                    SBBBubbleView(image: Image(sbbName: "station", size: .medium), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."), extendNavigationBarBackground: false)
+                        .previewDisplayName("Subtitle, no extended NavigationBar background")
+                    SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
+                        Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+                    })
+                        .previewDisplayName("Detail dark")
+                        .environment(\.colorScheme, .dark)
+                    SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
+                        Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+                    })
+                        .previewDisplayName("Accessibility Text Size (no icon)")
+                        .environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
+                    SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true), expandableContent: {
+                        Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+                        Text("ca. +12'")
+                            .foregroundColor(.sbbColor(.red))
+                            .font(.sbbTitleDefault)
+                    })
+                        .previewDisplayName("Long title, multiple views")
+                    SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), fixedContent: {
+                        SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {
+                            Text("Wagen")
+                            Text("Perlschnur")
+                        })
+                    })
+                        .previewDisplayName("Fixed Content")
+                    SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
+                        Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+                    }, fixedContent: {
+                        SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {
+                            Text("Wagen")
+                            Text("Perlschnur")
+                        })
+                    })
+                        .previewDisplayName("Expandable & Fixed Content")
+                }
+                    .environment(\.horizontalSizeClass, horizontalSizeClass)
+            }
         }
             .previewLayout(.sizeThatFits)
     }
