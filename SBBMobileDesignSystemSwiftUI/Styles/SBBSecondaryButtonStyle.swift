@@ -18,14 +18,15 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
         
         let configuration: ButtonStyle.Configuration
         @Environment(\.isEnabled) private var isEnabled: Bool
-        
+        @Environment(\.horizontalSizeClass) var horizontalSizeClass
+
         var body: some View {
             configuration.label
                 .sbbFont(.body)
                 .padding(.horizontal, 8)
                 .foregroundColor(getColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .frame(height: 44)
-                .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
                 .contentShape(RoundedRectangle(cornerRadius: 23))
                 .background(
                     RoundedRectangle(cornerRadius: 23)
