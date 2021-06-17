@@ -7,6 +7,7 @@
 
 ### Improvements
 * Support for landscape mode / larger content sizes.
+* Demo App: Quick selection for contentSizeCategory.
 
 ## V0.3.3 - 04 June 2021
 
