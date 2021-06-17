@@ -13,8 +13,15 @@ public extension View {
         return self
             .background(Color.sbbColor(.background))
             .foregroundColor(.sbbColor(.textBlack))
-            .edgesIgnoringSafeArea([.bottom, .horizontal])
+            .edgesIgnoringSafeAreaSBBStyle()
             .navigationBarItems(trailing: SBBNavigationBarSBBIcon())
             .sbbFont(.body)
+    }
+}
+
+extension View {
+    func edgesIgnoringSafeAreaSBBStyle() -> some View {
+        return self
+            .edgesIgnoringSafeArea([.bottom, .horizontal])
     }
 }
