@@ -14,7 +14,7 @@ public extension View {
      */
     func sbbStyle(edgesIgnoringSafeArea: Edge.Set = [.bottom, .horizontal]) -> some View {
         return self
-            .background(Color.sbbColor(.background))
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea([.bottom, .horizontal]))
             .foregroundColor(.sbbColor(.textBlack))
             .edgesIgnoringSafeAreaSBBStyle(edgesIgnoringSafeArea: edgesIgnoringSafeArea)
             .navigationBarItems(trailing: SBBNavigationBarSBBIcon())
