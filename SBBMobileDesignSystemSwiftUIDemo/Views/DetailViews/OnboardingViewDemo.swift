@@ -146,6 +146,7 @@ struct FakeSBBOnboardingCardViewCustomButton: View {
                         Spacer()
                     }
                 }
+                    .sbbStyle()
             })
     }
 }
