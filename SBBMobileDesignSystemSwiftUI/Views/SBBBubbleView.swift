@@ -131,6 +131,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                 Rectangle()
                     .fill(Color.sbbColor(.red))
                     .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
+                    .edgesIgnoringSafeArea(.horizontal)
             }
             HStack {
                 VStack(alignment: .leading, spacing: 12) {

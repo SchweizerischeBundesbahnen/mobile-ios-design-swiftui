@@ -30,9 +30,9 @@ struct OnboardingCardsWrapperView: View {
                         }
                             .padding(.top, geometry.safeAreaInsets.top)
                             .padding(16)
-                            .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.top))
-                            .cornerRadius(16)
                             .edgesIgnoringSafeArea(.top)
+                            .clipped()
+                            .background(Color.sbbColor(.red).cornerRadius(16).edgesIgnoringSafeArea([.top, .horizontal]))
                     }
                 }
             }

@@ -114,6 +114,7 @@ struct ModalViewDemo: View {
                             }
                                 .colorScheme(colorScheme)
                                 .environment(\.sizeCategory, contentSizeCategory)
+                                .sbbStyle()
                         })
                 Button(action: {
                     self.showingModalCustomView = true
@@ -127,8 +128,8 @@ struct ModalViewDemo: View {
                             .colorScheme(colorScheme)
                     }
             }
-        }
             .padding(16)
+        }
             .navigationBarTitle("ModalView")
             .sbbStyle()
             .colorScheme(colorScheme)

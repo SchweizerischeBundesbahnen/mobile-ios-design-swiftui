@@ -35,22 +35,22 @@ struct ContentView: View {
                                 Text("aXXXL")
                             }
                             SBBFormGroup(title: "Basics") {
-                                NavigationLink(destination: ColorsView(colorScheme: self.$colorScheme)                        .environment(\.sizeCategory, contentSizeCategory)) {
+                                NavigationLink(destination: ColorsView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Colors"))
                                 }
-                                NavigationLink(destination: TypographyView(colorScheme: self.$colorScheme)                        .environment(\.sizeCategory, contentSizeCategory)) {
+                                NavigationLink(destination: TypographyView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Typography"))
                                 }
-                                NavigationLink(destination: IconDemo(colorScheme: self.$colorScheme)                        .environment(\.sizeCategory, contentSizeCategory)) {
+                                NavigationLink(destination: IconDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Icons"), showBottomLine: false)
                                 }
                             }
                             SBBFormGroup(title: "Elements") {
                                 Group {
-                                    NavigationLink(destination: ButtonDemo(colorScheme: self.$colorScheme)                        .environment(\.sizeCategory, contentSizeCategory)) {
+                                    NavigationLink(destination: ButtonDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                         SBBListItem(label: Text("Button"))
                                     }
-                                    NavigationLink(destination: TextAreaView(colorScheme: self.$colorScheme)                        .environment(\.sizeCategory, contentSizeCategory)) {
+                                    NavigationLink(destination: TextAreaView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                         SBBListItem(label: Text("TextArea"))
                                     }
                                     NavigationLink(destination: TextFieldView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory).environmentObject(TextFieldViewModel())) {

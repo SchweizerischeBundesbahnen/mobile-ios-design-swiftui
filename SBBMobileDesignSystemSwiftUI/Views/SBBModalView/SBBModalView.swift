@@ -104,7 +104,7 @@ public struct SBBModalView<Content>: View where Content: View {
                 )
                 .padding(.horizontal, style == .popup ? 16 : 0)
         }
-            .edgesIgnoringSafeAreaSBBStyle()
+            .edgesIgnoringSafeArea(.bottom)
             .background(Color.clear)
     }
 }

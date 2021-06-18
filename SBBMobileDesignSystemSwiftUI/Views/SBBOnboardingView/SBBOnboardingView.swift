@@ -53,7 +53,6 @@ public struct SBBOnboardingView: View {
                 OnboardingCardsWrapperView(viewModel: viewModel)
             }
         }
-            .edgesIgnoringSafeAreaSBBStyle()
             .navigationBarTitle("Hidden Title")   // Navigation Bar Title needs to be set for ignoring Safe Area Edges
             .navigationBarHidden(true)
     }
