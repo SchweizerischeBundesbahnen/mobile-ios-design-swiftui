@@ -130,7 +130,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
             if extendNavigationBarBackground {
                 Rectangle()
                     .fill(Color.sbbColor(.red))
-                    .frame(idealWidth: .infinity, minHeight: 35, maxHeight: 35)
+                    .frame(idealWidth: .infinity, minHeight: horizontalSizeClass == .compact ? 35 : 16, maxHeight: horizontalSizeClass == .compact ? 35 : 16)
                     .edgesIgnoringSafeArea(.horizontal)
             }
             HStack {
