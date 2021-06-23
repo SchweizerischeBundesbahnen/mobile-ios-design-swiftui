@@ -21,13 +21,12 @@ struct NavigationBarWithSBBIconDemo: View {
             }
             Spacer()
         }
-        .sbbFont(.body)
         .padding(16)
+        .sbbStyle()
         .navigationBarTitle("NavBar Icon")
         .navigationBarItems(trailing: SBBNavigationBarSBBIcon(onTouchAction: {
             self.counter += 1
         }))
-        .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
 }

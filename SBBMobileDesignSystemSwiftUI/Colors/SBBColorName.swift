@@ -4,6 +4,7 @@
 
 import Foundation
 
+/// SBBColor names.
 public enum SBBColorName: String {
     // Colors
     case red = "Red"
@@ -37,17 +38,29 @@ public enum SBBColorName: String {
     case charcoal = "Charcoal"
     
     // Semantic Colors
+    /// ColorScheme specific color for black Text.
     case textBlack = "textBlack"
+    /// ColorScheme specific color for gray Text.
     case textMetal = "textMetal"
+    /// ColorScheme specific color for red Text.
     case textRed = "textRed"
+    /// ColorScheme specific color for white Text.
     case textWhite = "textWhite"
+    /// ColorScheme specific color for entire screen backgrounds.
     case background = "background"
+    /// ColorScheme specific color for the background of buttons.
     case buttonBackground = "buttonBackground"
+    /// ColorScheme specific color for the background of buttons in disabled state.
     case disabledButtonBackground = "disabledButtonBackground"
+    /// ColorScheme specific color for the background of Views displayed above the entire screen's background.
     case viewBackground = "viewBackground"
+    /// ColorScheme specific color for dividers.
     case divider = "divider"
+    /// ColorScheme specific color for borders.
     case border = "border"
+    /// ColorScheme specific color for the background of TabViews.
     case tabViewBackground = "tabViewBackground"
+    /// ColorScheme specific color for placeholders.
     case placeholder = "placeholder"
     
 }

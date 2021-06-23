@@ -13,6 +13,9 @@ import UIKit
 /// This class must be used to initialize the SDK in the App start (in the method didFinishLaunchingWithOptions of the AppDelegate)
 public class SBBAppearance {
     
+    /**
+     This method must be called to initialize SBBMobileDesignSystem in the App. It loads SBB specific fonts and sets up the Navigation Bar in SBB style (only DisplayMode .inline is supported). Typically it is called in didFinishLaunchingWithOptionsu of the AppDelegate.
+     */
     public class func setupSBBAppearance() {
         setupSBBFonts()
         setupSBBNavigationBar()

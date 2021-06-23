@@ -4,8 +4,10 @@
 
 import SwiftUI
 
+/// A ButtonStyle for primary buttons (red background). Only one primary button per screen is allowed.
 public struct SBBPrimaryButtonStyle: ButtonStyle {
         
+    /// Returns a Button in SBB primary button style (red background).
     public init() {}
     
     public func makeBody(configuration: Self.Configuration) -> some View {
@@ -16,6 +18,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
         
         let configuration: ButtonStyle.Configuration
         @Environment(\.isEnabled) private var isEnabled: Bool
+        @Environment(\.horizontalSizeClass) var horizontalSizeClass
         
         var body: some View {
             configuration.label
@@ -23,7 +26,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
                 .padding(.horizontal, 8)
                 .foregroundColor(isEnabled ? .sbbColor(.textWhite) : .sbbColor(.textMetal))
                 .frame(height: 46)
-                .frame(minWidth: 0, maxWidth: .infinity)
+                .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(23)
                 .minimumScaleFactor(0.1)

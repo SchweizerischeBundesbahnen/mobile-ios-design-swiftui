@@ -36,8 +36,8 @@ struct OnboardingViewDemo: View {
     
     @ObservedObject private var viewModel = OnboardingViewDemoModel()
 
-    private let startView = SBBOnboardingTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen bei SBB MDS"))
-    private let endView = SBBOnboardingTitleView(image: Image("Onboarding_Gang"), title: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB MDS"))
+    private let startView = SBBOnboardingTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen bei SBB DSM"))
+    private let endView = SBBOnboardingTitleView(image: Image("Onboarding_Gang"), title: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM"))
 
     var body: some View {
         Group {
@@ -53,7 +53,7 @@ struct OnboardingViewDemo: View {
                             SBBFormGroup(title: "Customize Content") {
                                 SBBCheckBox(isOn: self.$viewModel.withCustomButton, label: "Card with additional custom content")
                                 SBBCheckBox(isOn: self.$viewModel.withCustomAction, label: "Card with custom action")
-                                SBBCheckBox(isOn: self.$viewModel.withCustomCard, label: "Custom Card")
+                                SBBCheckBox(isOn: self.$viewModel.withCustomCard, label: "Custom Card", showBottomLine: false)
                             }
                             Spacer()
                         }
@@ -68,7 +68,7 @@ struct OnboardingViewDemo: View {
                 }
                     .padding(16)
                     .navigationBarTitle("Onboarding")
-                    .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+                    .sbbStyle()
             } else {
                 SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: startView, endView: endView, content: createCardViews)
                     .alert(isPresented: $showingAlert) {
@@ -146,6 +146,7 @@ struct FakeSBBOnboardingCardViewCustomButton: View {
                         Spacer()
                     }
                 }
+                    .sbbStyle()
             })
     }
 }

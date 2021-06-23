@@ -1,4 +1,4 @@
-# ESTA Design library for iOS & SwiftUI
+# ESTA library: Design System Mobile for iOS & SwiftUI
 
 This is a library that contains the visual design for the SBB iOS/SwiftUI Apps.
 
@@ -50,13 +50,25 @@ Call the method setupSBBApperance() in the AppDelegate.
 
 ## Documentation
 
-https://digital.sbb.ch/de/mobile contains a documentation of the SBB Design.
+Markup : * Markup :  [SBB Design System Mobile documentation](https://digital.sbb.ch/de/design-system-mobile-new "Design System Mobile documentation") (new version since 2021) 
+Markup : * Markup :  [AppBakery libraries](https://sbb.sharepoint.com/sites/app-bakery/SitePages/Mobile-Libraries.aspx "AppBakery liraries")
+Markup : * Markup :  [Sketch](https://www.sketch.com/s/53b0a518-8d44-42a7-a712-bc211dbb7d78 "Sketch library")
+Markup : * Markup :  [Figma](https://www.figma.com/file/56woOj0p1qEOrZiTzi4mJ7/SBB-Mobile-Library-%28draft%29 "Figma library")
 
-https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/ contains the following documentation:
+Markup :  [https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/](https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/ "https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/") contains the following documentation:
 Framework API is generated in /docs on every build if Jazzy is installed.
 Sample app SBBMobileDesignSystemSwiftUIDemo is included in Xcode project
 
 In the next chapters you can see a quick resume of how to use the existing UI elements.
+
+## SBBStyle
+
+Applies SBB styling to any View. You typically apply the sbbStyle() View modifier to the umpost View in the hierarchy. It applies a specific background color, adds a SBBNavigationBarSBBIcon as trailing Navigation Bar Item and sets a default Font.
+
+```    
+    YourView()
+        .sbbStyle()
+```
 
 ## NavigationBar
 
@@ -68,12 +80,12 @@ If you want the SBB Icon as a trailing NavigationBarItem (recommended) you will 
         Group {
             ContentView()
         }
-            .navigationBarTitle("SBB MDS SwiftUI", displayMode: .inline)    // SBB Design only supports .inline for the time being
+            .navigationBarTitle("SBB DSM SwiftUI", displayMode: .inline)    // SBB Design only supports .inline for the time being
             .navigationBarItems(trailing: SBBNavigationBarSBBIcon())     // Display SBB Icon as a trailing NavigationBarItem
             .navigationBarItems(trailing: SBBNavigationBarSBBIcon(onTouchAction: { // Display SBB Icon as a trailing NavigationBarItem with custom action
                 // your action here
             }))
-            .navigationBarWithSBBIcon(bannerText: "DEV")    // Display a banner above the SBB Icon (e.g. to highlight the environment). You can also customize banner colors.
+            .sbbEnvironmentBanner(.dev) // Display a banner above the SBB Icon (e.g. to highlight the environment).
     }
 ```
 
@@ -445,9 +457,9 @@ SBBChip is used to provide quick filters to a list. It has a selected/not select
     
 ```
 
-## SBBMarker
+## SBBMapMarker
 
-SBBMarker can be used to display content on a map. There are 3 available map marker styles: .red, .blue and .black. Use .blue style for pictograms.
+SBBMapMarker can be used to display content on a map. There are 3 available styles: .red, .blue and .black. Use .blue style for pictograms.
 
 ```    
     SBBMapMarker(icon: Image(sbbName: "Zug_r"), style: .blue)
@@ -525,7 +537,7 @@ SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView.
     }
 ```
 ## SBBModalView
-SBBModalView is used to display a View above another View, typically using .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter. To use SBBModalView, you need to create a SBBModalViewModel which nees to be added as EnvironmentObject in your SceneDelegate (and to new Views pushed using NavigationLink). You also need to add the .sbbModalContainer() ViewModifier to your upmost ContentView (you can also add it as an overlay to a specific view, if modals will only be shown from this specific view and the view covers the entire screen).
+SBBModalView is used to display a View above another View, typically using the .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter. To use SBBModalView, you need to create a SBBModalViewModel which nees to be added as EnvironmentObject in your SceneDelegate (and to new Views pushed using NavigationLink). You also need to add the .sbbModalContainer() ViewModifier to your upmost ContentView (you can also add it as an overlay to a specific view, if modals will only be shown from this specific view and the view covers the entire screen).
 
 1. Inside SceneDelegate: Create a SBBModalViewModel and add it as EnvironmentObject to the MainView:
 ```    

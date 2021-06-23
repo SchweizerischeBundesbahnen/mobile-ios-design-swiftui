@@ -40,7 +40,7 @@ struct TypographyView: View {
         }
             .navigationBarTitle("Typography")
             .padding()
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
             
     }

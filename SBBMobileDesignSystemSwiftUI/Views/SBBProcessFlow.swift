@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// A  View that allows visual separation of a multi-step processes or forms. Highlights, the current step.
 public struct SBBProcessFlow: View {
     
     private var currentStepIndex: Int
@@ -20,6 +21,13 @@ public struct SBBProcessFlow: View {
     
     @Environment(\.colorScheme) private var colorScheme
     
+    /**
+     Returns a SBBProcessFlow displaying a flow of multiple steps by using icons. Highlights, the current step. You can add as many steps/images as you like, but need to make sure, there's enough space (width) for them to be displayed correctly.
+     
+     - Parameters:
+        - currentStepIndex: The index of the current step's state. First step corresponds to "0".
+        - images: Array of images containing a single image for every step (typically in size .small, images in other sizes will get resized if needed).
+     */
     public init(currentStepIndex: Int, images: [Image]) {
         self.currentStepIndex = currentStepIndex
         self.images = images

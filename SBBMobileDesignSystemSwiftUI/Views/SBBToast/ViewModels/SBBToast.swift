@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+/// SBBToast will show a View displaying a status information at the bottom of the screen and automatically hiding it after a given duration. A new SBBToast can be presented by using SBBToastService.
 public class SBBToast: Identifiable, ObservableObject {
     
     public let id = UUID()
@@ -13,6 +14,15 @@ public class SBBToast: Identifiable, ObservableObject {
     
     @Published var isPresented = false
     
+    
+    /**
+     Returns a SBBToast to be presented by using SBBToastService.
+     
+     - Parameters:
+        - label: The Text to display in the toast.
+        - easeInOutAnimationDuration: The duration of the ease-in and ease-out animation performed upon presenting/hiding a toast.
+        - presentedDuration: The duration during which the toast is presented on screen
+     */
     public init(label: Text, easeInOutAnimationDuration: Double = 1, presentedDuration: Double = 2) {
         self.label = label
         self.easeInOutAnimationDuration = easeInOutAnimationDuration

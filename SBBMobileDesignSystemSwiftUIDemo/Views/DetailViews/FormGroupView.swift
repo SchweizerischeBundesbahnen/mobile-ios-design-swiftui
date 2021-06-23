@@ -38,7 +38,7 @@ struct FormGroupView: View {
                     .padding(16)
             }
                 .navigationBarTitle("FormGroup")
-                .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+                .sbbStyle()
                 .colorScheme(colorScheme)
         }
     }

@@ -4,7 +4,17 @@
 
 import SwiftUI
 
-public extension SBBListItem {    
+public extension SBBListItem {
+    
+    /**
+     Adds a right-swipe Button to a SBBListItem. The right-swipe button will always have a red background and should be used for destructive actions only.
+     
+     - Parameters:
+        - label: The Text to be displayed in the button.
+        - action: The code block to execute when the user touches the button.
+     
+     - Returns: A SBBListItem with the added right-swipe button.
+     */
     func rightSwipeButton(label: Text, action: @escaping () -> Void) -> SBBListItem {
         var view = self
         
@@ -14,6 +24,15 @@ public extension SBBListItem {
         return view
     }
     
+    /**
+     Adds a left-swipe Button to a SBBListItem. The left-swipe button will always have a gray background and can be used for any actions.
+     
+     - Parameters:
+        - label: The Text to be displayed in the button.
+        - action: The code block to execute when the user touches the button.
+     
+     - Returns: A SBBListItem with the added left-swipe button.
+     */
     func leftSwipeButton(label: Text, action: @escaping () -> Void) -> SBBListItem {
         var view = self
         

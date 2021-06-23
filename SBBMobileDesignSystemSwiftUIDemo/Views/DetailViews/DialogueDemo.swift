@@ -10,6 +10,7 @@ struct DialogueDemo: View {
     @State var showDialogue = false
 
     @Binding var colorScheme: ColorScheme
+    @Binding var contentSizeCategory: ContentSizeCategory
     @ObservedObject var model: DialogueViewModel
     
     private let title = Text("Title")
@@ -96,10 +97,12 @@ struct DialogueDemo: View {
                             .buttonStyle(SBBIconButtonStyle())
                     }
                 }
+                    .colorScheme(colorScheme)
+                    .environment(\.sizeCategory, contentSizeCategory)
             }
             .sbbModalContainer()
             .navigationBarTitle("Dialogue")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }
@@ -109,7 +112,7 @@ struct DialogueDemo_Previews: PreviewProvider {
     private static var model = DialogueViewModel()
     
     static var previews: some View {
-        DialogueDemo(colorScheme: .constant(.light), model: model)
-        DialogueDemo(colorScheme: .constant(.dark), model: model)
+        DialogueDemo(colorScheme: .constant(.light), contentSizeCategory: .constant(.medium), model: model)
+        DialogueDemo(colorScheme: .constant(.dark), contentSizeCategory: .constant(.medium), model: model)
     }
 }

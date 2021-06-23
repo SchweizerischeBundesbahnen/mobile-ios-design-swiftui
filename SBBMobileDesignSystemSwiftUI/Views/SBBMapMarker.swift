@@ -4,11 +4,16 @@
 
 import SwiftUI
 
+/// A  View that is used to highlight content on a map.
 public struct SBBMapMarker: View {
-    
+   
+    /// SBBMapMarker Style (background color, foreground color is always white).
     public enum Style {
+        /// Red background for the SBBMapMarker.
         case red
+        /// Blue background for the SBBMapMarker (mandatory when using SBB pictograms as icon).
         case blue
+        /// Black background for the SBBMapMarker.
         case black
         
         var backgroundImage: Image {
@@ -26,6 +31,13 @@ public struct SBBMapMarker: View {
     private let icon: Image
     private let style: Style
     
+    /**
+     Returns a SBBMapMarker with an icon.
+     
+     - Parameters:
+        - icon: The Image to be shown on the SBBMapMarker.
+        - style: The background color style of the SBBMapMarker. Needs to be blue when using SBB pictograms as icon.
+     */
     public init(icon: Image, style: Style = .red) {
         self.icon = icon
         self.style = style

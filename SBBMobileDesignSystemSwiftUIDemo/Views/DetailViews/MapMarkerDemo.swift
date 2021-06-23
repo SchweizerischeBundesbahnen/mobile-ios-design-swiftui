@@ -21,7 +21,7 @@ struct MapMarkerDemo: View {
                 .padding(16)
         }
             .navigationBarTitle("Map Marker")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }

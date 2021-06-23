@@ -20,7 +20,7 @@ struct InfoViewCollapsibleDemo: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack {
+            VStack(spacing: 16) {
                 SBBInfoViewCollapsible(title: title, detail: detail, expanded: $expanded1)
                 Button(action: {
                     self.expanded1.toggle()
@@ -41,7 +41,7 @@ struct InfoViewCollapsibleDemo: View {
             .padding(16)
         }
             .navigationBarTitle("InfoViewCollapsible")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }
