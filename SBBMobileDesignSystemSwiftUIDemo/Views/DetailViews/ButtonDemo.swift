@@ -77,6 +77,7 @@ struct ButtonDemo: View {
             .padding(16)
         }
         .navigationBarTitle("Buttons")
+        .sbbStyle()
         .navigationBarItems(trailing:
             Button(action: increment) {
                 Image(sbbName: "station", size: .small)
@@ -84,7 +85,6 @@ struct ButtonDemo: View {
                 .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
                 .disabled(disabled)
         )
-        .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
         .colorScheme(colorScheme)
     }
     

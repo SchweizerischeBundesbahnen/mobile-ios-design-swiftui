@@ -25,11 +25,9 @@ struct BannerDemo: View {
             }
             Spacer()
         }
-        .sbbFont(.body)
         .padding(16)
         .navigationBarTitle("Banner")
-        .navigationBarItems(trailing: SBBNavigationBarSBBIcon())
-        .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+        .sbbStyle()
         .colorScheme(colorScheme)
     }
 }

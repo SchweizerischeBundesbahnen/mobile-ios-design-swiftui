@@ -23,7 +23,7 @@ struct DividerViewDemo: View {
             }
         }
             .padding(16)
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }

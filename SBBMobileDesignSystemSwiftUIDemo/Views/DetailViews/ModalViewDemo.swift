@@ -8,6 +8,7 @@ import SBBMobileDesignSystemSwiftUI
 struct ModalViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
+    @Binding var contentSizeCategory: ContentSizeCategory
     @State var showingModalFullView = false
     @State var showingModalPopupView = false
     @State var showingModalSheetView = false
@@ -55,7 +56,8 @@ struct ModalViewDemo: View {
                                 .buttonStyle(SBBPrimaryButtonStyle())
                             }
                                 .padding(.horizontal, 16)
-                        }
+                        }                                .colorScheme(colorScheme)
+                            .environment(\.sizeCategory, contentSizeCategory)
                     }
                 Button(action: {
                     self.showingModalSheetView = true
@@ -81,6 +83,8 @@ struct ModalViewDemo: View {
                             }
                                 .padding(16)
                         }
+                            .colorScheme(colorScheme)
+                            .environment(\.sizeCategory, contentSizeCategory)
                     }
                 Button(action: {
                     self.showingModalFullView = true
@@ -109,6 +113,8 @@ struct ModalViewDemo: View {
                                     .padding(16)
                             }
                                 .colorScheme(colorScheme)
+                                .environment(\.sizeCategory, contentSizeCategory)
+                                .sbbStyle()
                         })
                 Button(action: {
                     self.showingModalCustomView = true
@@ -118,12 +124,14 @@ struct ModalViewDemo: View {
                     .buttonStyle(SBBSecondaryButtonStyle())
                     .sbbModal(isPresented: self.$showingModalCustomView) {
                         Text("Your custom content here")
+                            .environment(\.sizeCategory, contentSizeCategory)
+                            .colorScheme(colorScheme)
                     }
             }
-        }
             .padding(16)
+        }
             .navigationBarTitle("ModalView")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }
@@ -131,8 +139,8 @@ struct ModalViewDemo: View {
 struct ModalViewDemo_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ModalViewDemo(colorScheme: .constant(.light))
-            ModalViewDemo(colorScheme: .constant(.dark))
+            ModalViewDemo(colorScheme: .constant(.light), contentSizeCategory: .constant(.medium))
+            ModalViewDemo(colorScheme: .constant(.dark), contentSizeCategory: .constant(.medium))
         }
     }
 }

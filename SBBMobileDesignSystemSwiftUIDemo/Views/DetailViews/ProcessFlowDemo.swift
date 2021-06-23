@@ -47,7 +47,7 @@ struct ProcessFlowDemo: View {
                 .padding(16)
         }
             .navigationBarTitle("ProcessFlow")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
             
     }

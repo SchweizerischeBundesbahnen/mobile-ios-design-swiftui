@@ -31,8 +31,9 @@ struct ToastDemo: View {
             }
                 .padding(16)
         }
+            .frame(maxWidth: .infinity)
             .navigationBarTitle("Toast")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .sbbToastContainer()
             .colorScheme(colorScheme)
             

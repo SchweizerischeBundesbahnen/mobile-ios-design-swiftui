@@ -131,6 +131,7 @@ public struct SBBDialogue<Content>: View where Content: View {
                         .edgesIgnoringSafeArea(.bottom)
                 )
         }
+            .edgesIgnoringSafeArea(.bottom)
     }
 }
 

@@ -69,7 +69,7 @@ struct ColorsView: View {
                 .padding(16)
         }
             .navigationBarTitle("Colors")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }
@@ -109,7 +109,6 @@ struct ColorRow: View {
                 SBBDivider()
             }
         }
-            .foregroundColor(.sbbColor(.textBlack))
             .background(Color.sbbColor(.viewBackground))
     }
 }

@@ -22,7 +22,7 @@ struct InfoViewDemo: View {
         }
             .padding(16)
             .navigationBarTitle("InfoView")
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+            .sbbStyle()
             .colorScheme(colorScheme)
     }
 }

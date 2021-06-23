@@ -39,7 +39,7 @@ struct ChipDemo: View {
                 .padding(16)
         }
         .navigationBarTitle("Chip")
-        .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.bottom))
+        .sbbStyle()
         .colorScheme(colorScheme)
     }
 }
