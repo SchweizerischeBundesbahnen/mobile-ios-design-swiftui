@@ -690,7 +690,7 @@ var body: some View {
 
 ## SBBButtonStyle
 
-SwiftUI ButtonStyle implementations of SBB primary / secondary / tertiary (large & small) / icon (large & small, normal & negative (to be used on colored backgrounds, e.g. NavBar), border & no border) / iconText buttons. 
+SwiftUI ButtonStyle implementations of SBB primary / primary floating / secondary / tertiary (large & small) / icon (large & small, normal & negative (to be used on colored backgrounds, e.g. NavBar), border & no border) / iconText buttons. 
 
 ```    
     var body: some View {
