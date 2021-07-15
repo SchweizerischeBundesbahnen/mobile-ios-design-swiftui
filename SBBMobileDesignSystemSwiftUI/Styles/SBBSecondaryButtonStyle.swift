@@ -32,6 +32,7 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
                     RoundedRectangle(cornerRadius: 23)
                         .stroke(getColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
                 )
+                .lineLimit(1)
                 .minimumScaleFactor(0.1)
         }
         

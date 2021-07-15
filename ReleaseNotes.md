@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.2 - 15 July 2021
+
+### Improvements
+* Linelimit of 1 for SBBSegmentedPicker and SBBButtons.
+
 ## V0.4.1 - 15 July 2021
 
 ### Features
