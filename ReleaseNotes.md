@@ -1,5 +1,13 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.1 - 15 July 2021
+
+### Features
+* SBBPrimaryButtonStyle now also supports floating buttons not stretching the entire view (using sizeToFit: true as init parameter).
+
+### Improvements
+* New Styling for ListItem Footnote
+
 ## V0.4.0 - 16 June 2021
 
 ### Features
