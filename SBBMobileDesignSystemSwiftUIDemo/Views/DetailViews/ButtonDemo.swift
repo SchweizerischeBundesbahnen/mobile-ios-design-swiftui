@@ -12,69 +12,77 @@ struct ButtonDemo: View {
     @State private var disabled = false
     
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(alignment: .center, spacing: 8) {
-                Group {
-                    Button(action: increment) {
-                        Text("My Primary Button")
+        ZStack(alignment: .bottomTrailing) {
+            ScrollView(showsIndicators: false) {
+                VStack(alignment: .center, spacing: 8) {
+                    Group {
+                        Button(action: increment) {
+                            Text("My Primary Button")
+                        }
+                            .buttonStyle(SBBPrimaryButtonStyle())
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            Text("My Secondary Button")
+                        }
+                            .buttonStyle(SBBSecondaryButtonStyle())
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            Text("My Tertiary Large Button")
+                        }
+                            .buttonStyle(SBBTertiaryButtonStyle())
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            Text("My Tertiary Small Button")
+                        }
+                        .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            Image(sbbName: "station", size: .small)
+                        }
+                            .buttonStyle(SBBIconButtonStyle())
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            Image(sbbName: "station", size: .small)
+                        }
+                            .buttonStyle(SBBIconButtonStyle(size: .small))
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            Image(sbbName: "station", size: .small)
+                        }
+                            .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
+                            .disabled(disabled)
+                            .background(Color.sbbColor(.red))
+                        Button(action: increment) {
+                            Image(sbbName: "station", size: .small)
+                        }
+                            .buttonStyle(SBBIconButtonStyle(showBorder: false))
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            Image(sbbName: "station", size: .small)
+                        }
+                            .buttonStyle(SBBIconButtonStyle(size: .small, showBorder: false))
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            VStack(alignment: .center, spacing: 4, content: {
+                                Image(sbbName: "station", size: .large)
+                                Text("Station")
+                            })
+                        }
+                            .buttonStyle(SBBIconTextButtonStyle())
+                            .disabled(disabled)
                     }
-                        .buttonStyle(SBBPrimaryButtonStyle())
-                        .disabled(disabled)
-                    Button(action: increment) {
-                        Text("My Secondary Button")
-                    }
-                        .buttonStyle(SBBSecondaryButtonStyle())
-                        .disabled(disabled)
-                    Button(action: increment) {
-                        Text("My Tertiary Large Button")
-                    }
-                        .buttonStyle(SBBTertiaryButtonStyle())
-                        .disabled(disabled)
-                    Button(action: increment) {
-                        Text("My Tertiary Small Button")
-                    }
-                    .buttonStyle(SBBTertiaryButtonStyle(size: .small))
-                        .disabled(disabled)
-                    Button(action: increment) {
-                        Image(sbbName: "station", size: .small)
-                    }
-                        .buttonStyle(SBBIconButtonStyle())
-                        .disabled(disabled)
-                    Button(action: increment) {
-                        Image(sbbName: "station", size: .small)
-                    }
-                        .buttonStyle(SBBIconButtonStyle(size: .small))
-                        .disabled(disabled)
-                    Button(action: increment) {
-                        Image(sbbName: "station", size: .small)
-                    }
-                        .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
-                        .disabled(disabled)
-                        .background(Color.sbbColor(.red))
-                    Button(action: increment) {
-                        Image(sbbName: "station", size: .small)
-                    }
-                        .buttonStyle(SBBIconButtonStyle(showBorder: false))
-                        .disabled(disabled)
-                    Button(action: increment) {
-                        Image(sbbName: "station", size: .small)
-                    }
-                        .buttonStyle(SBBIconButtonStyle(size: .small, showBorder: false))
-                        .disabled(disabled)
-                    Button(action: increment) {
-                        VStack(alignment: .center, spacing: 4, content: {
-                            Image(sbbName: "station", size: .large)
-                            Text("Station")
-                        })
-                    }
-                        .buttonStyle(SBBIconTextButtonStyle())
-                        .disabled(disabled)
+                    Text("Counter: \(counter)").padding()
+                    SBBCheckBox(isOn: $disabled, label: "Disabled", showBottomLine: false)
+                    Spacer()
                 }
-                Text("Counter: \(counter)").padding()
-                SBBCheckBox(isOn: $disabled, label: "Disabled", showBottomLine: false)
-                Spacer()
+                .padding(16)
             }
-            .padding(16)
+            Button(action: increment) {
+                Text("My Primary Floating Button")
+            }
+                .buttonStyle(SBBPrimaryFloatingButtonStyle())
+                .padding(16)
+                .disabled(disabled)
         }
         .navigationBarTitle("Buttons")
         .sbbStyle()
