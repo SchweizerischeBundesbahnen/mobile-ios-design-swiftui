@@ -131,8 +131,8 @@ public struct SBBListItem: View {
                     if let footnote = footnote {
                         footnote
                             .fixedSize(horizontal: false, vertical: true)
-                            .sbbFont(.legend)
-                            .foregroundColor(.sbbColor(.textMetal))
+                            .sbbFont(.legendSmall)
+                            .foregroundColor(.sbbColor(.placeholder))
                             .accessibility(label: footnoteAccessibility ?? footnote)
                     }
                 }

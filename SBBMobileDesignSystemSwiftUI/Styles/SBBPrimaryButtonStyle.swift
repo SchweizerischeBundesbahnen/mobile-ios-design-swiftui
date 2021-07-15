@@ -7,29 +7,52 @@ import SwiftUI
 /// A ButtonStyle for primary buttons (red background). Only one primary button per screen is allowed.
 public struct SBBPrimaryButtonStyle: ButtonStyle {
         
-    /// Returns a Button in SBB primary button style (red background).
-    public init() {}
+    private let sizeToFit: Bool
+    
+    /**
+     Returns a Button in SBB primary button style (red background).
+     
+     - Parameters:
+        - sizeToFit: If the button's width should only fit it's content or expand to the entire available width. You would typically set sizeToFit to true when using a floating primary button in a ZStack at the .bottomLeading edge of your view.
+     */
+    public init(sizeToFit: Bool = false) {
+        self.sizeToFit = sizeToFit
+    }
     
     public func makeBody(configuration: Self.Configuration) -> some View {
-        SBBPrimaryButton(configuration: configuration)
+        SBBPrimaryButton(configuration: configuration, sizeToFit: sizeToFit)
     }
     
     private struct SBBPrimaryButton: View {
         
         let configuration: ButtonStyle.Configuration
+        let sizeToFit: Bool
         @Environment(\.isEnabled) private var isEnabled: Bool
         @Environment(\.horizontalSizeClass) var horizontalSizeClass
         
+        @ViewBuilder
         var body: some View {
-            configuration.label
-                .sbbFont(.body)
-                .padding(.horizontal, 8)
-                .foregroundColor(isEnabled ? .sbbColor(.textWhite) : .sbbColor(.textMetal))
-                .frame(height: 46)
-                .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
-                .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
-                .cornerRadius(23)
-                .minimumScaleFactor(0.1)
+            if sizeToFit {
+                configuration.label
+                    .sbbFont(.body)
+                    .padding(.horizontal, 24)
+                    .foregroundColor(isEnabled ? .sbbColor(.textWhite) : .sbbColor(.textMetal))
+                    .frame(height: 46)
+                    .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
+                    .cornerRadius(23)
+                    .minimumScaleFactor(0.1)
+            } else {
+                configuration.label
+                    .sbbFont(.body)
+                    .padding(.horizontal, 8)
+                    .foregroundColor(isEnabled ? .sbbColor(.textWhite) : .sbbColor(.textMetal))
+                    .frame(height: 46)
+                    .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
+                    .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
+                    .cornerRadius(23)
+                    .minimumScaleFactor(0.1)
+            }
+            
         }
         
         private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
