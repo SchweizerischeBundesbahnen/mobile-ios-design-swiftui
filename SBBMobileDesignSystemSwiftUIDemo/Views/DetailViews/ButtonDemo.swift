@@ -80,7 +80,7 @@ struct ButtonDemo: View {
             Button(action: increment) {
                 Text("My Primary Floating Button")
             }
-                .buttonStyle(SBBPrimaryFloatingButtonStyle())
+                .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: true))
                 .padding(16)
                 .disabled(disabled)
         }

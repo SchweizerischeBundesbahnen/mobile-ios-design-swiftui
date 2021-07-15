@@ -3,7 +3,7 @@
 ## V0.4.1 - 15 July 2021
 
 ### Features
-* New SBBPrimaryFloatingButtonStyle
+* SBBPrimaryButtonStyle now also supports floating buttons not stretching the entire view (using sizeToFit: true as init parameter).
 
 ### Improvements
 * New Styling for ListItem Footnote
