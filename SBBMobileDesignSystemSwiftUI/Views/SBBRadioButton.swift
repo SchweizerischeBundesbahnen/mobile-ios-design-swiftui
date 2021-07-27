@@ -36,7 +36,7 @@ public struct SBBRadioButton<Content>: View where Content: View {
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
         - content: A custom View to be shown on the right side of the radioButton Image.
      */
-    public init(isOn: Binding<Bool>, showBottomLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
+    public init(isOn: Binding<Bool>, showBottomLine: Bool = true, @ViewBuilder content: @escaping () -> Content) {
         self._isOn = isOn
         self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, showBottomLine: showBottomLine, content: content)
     }
