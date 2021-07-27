@@ -42,7 +42,7 @@ struct RadioButtonView: View {
                         .disabled(isDisabled)
                     SBBRadioButton(isOn: $model.isOn2, image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon and line")
                         .disabled(isDisabled)
-                    SBBRadioButton(isOn: $model.isOn3) {
+                    SBBRadioButton(isOn: $model.isOn3, showBottomLine: false) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Custom RadioButton")
                                 .sbbFont(.body)
