@@ -21,13 +21,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         let modalViewModel = SBBModalViewModel()
-        let bannerViewModel = BannerViewModel()
         let onboardingViewModel = OnboardingViewModel()
         
         // Create the SwiftUI view that provides the window contents.
         let contentView = ContentView()
             .environmentObject(modalViewModel)
-            .environmentObject(bannerViewModel)
             .environmentObject(onboardingViewModel)
 
         // Use a UIHostingController as window root view controller.

@@ -7,11 +7,14 @@ import SBBMobileDesignSystemSwiftUI
 
 struct DialogueDemo: View {
     
-    @State var showDialogue = false
-
     @Binding var colorScheme: ColorScheme
     @Binding var contentSizeCategory: ContentSizeCategory
-    @ObservedObject var model: DialogueViewModel
+
+    @State var showDialogue = false
+    @State var showImage = true
+    @State var style = SBBDialogue<EmptyView>.Style.inline
+    @State var imageStyle = SBBDialogue<EmptyView>.ImageStyle.happy
+    @State var actionType = 0 // 0: customActions, 1: retryAction
     
     private let title = Text("Title")
     private let label = Text("Multiline Text")
@@ -21,26 +24,28 @@ struct DialogueDemo: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 16) {
-                    SBBFormGroup(title: "Style:") {
-                        SBBRadioButton(isOn: $model.fullscreen, label: "Fullscreen")
-                        SBBRadioButton(isOn: $model.inline, label: "Inline")
-                        SBBRadioButton(isOn: $model.list, label: "List", showBottomLine: false)
+                    SBBRadioButtonGroup(title: "Style", selection: $style, tags: SBBDialogue<EmptyView>.Style.allCases) {
+                        SBBRadioButton(label: "Fullscreen")
+                        SBBRadioButton(label: "Inline")
+                        SBBRadioButton(label: "List", showBottomLine: false)
                     }
-                    Toggle(isOn: $model.showImage) {
+                    Toggle(isOn: $showImage) {
                         Text("Show image:")
                             .sbbFont(.body)
                     }
                         .toggleStyle(SBBSwitchStyle())
                         .padding(.horizontal, 16)
-                    if model.showImage {
-                        SBBFormGroup {
-                            SBBRadioButton(isOn: $model.happy, label: "Man happy")
-                            SBBRadioButton(isOn: $model.sad, label: "Man sad", showBottomLine: false)
+                    if showImage {
+                        SBBRadioButtonGroup(selection: $imageStyle, tags: SBBDialogue<EmptyView>.ImageStyle.allCases) {
+                            SBBRadioButton(label: "Man happy")
+                            SBBRadioButton(label: "Man sad", showBottomLine: false)
                         }
                     }
-                    SBBFormGroup(title: "Content:") {
-                        SBBRadioButton(isOn: $model.customActions, label: "Custom Actions")
-                        SBBRadioButton(isOn: $model.retryAction, label: "Retry Action", showBottomLine: false)
+                    
+                    
+                    SBBRadioButtonGroup(title: "Content", selection: $actionType, tags: [0, 1]) {
+                        SBBRadioButton(label: "Custom Actions")
+                        SBBRadioButton(label: "Retry Action", showBottomLine: false)
                     }
                     if !showDialogue {
                         Button(action: { showDialogue = true }) {
@@ -50,22 +55,22 @@ struct DialogueDemo: View {
                     }
                 }
                     .padding(16)
-                if showDialogue && !model.fullscreen {
-                    SBBDialogue(title: title, label: label, errorCode: errorCode, style: model.inline ? .inline : .list, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
-                        if model.customActions {
-                        Button(action: { showDialogue = false }) {
-                            Text("Button 3")
-                        }
-                            .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { showDialogue = false }) {
-                            Text("Button 2")
-                        }
-                            .buttonStyle(SBBSecondaryButtonStyle())
-                        Button(action: { showDialogue = false }) {
-                            Text("Button 1")
-                        }
-                            .buttonStyle(SBBPrimaryButtonStyle())
-                        } else {    // model.retryAction
+                if showDialogue && !(style == .fullscreen) {
+                    SBBDialogue(title: title, label: label, errorCode: errorCode, style: style == .inline ? .inline : style == .fullscreen ? .fullscreen : .list, imageStyle: showImage ? (imageStyle == .happy ? .happy : .sad) : nil) {
+                        if actionType == 0 {    // customActions
+                            Button(action: { showDialogue = false }) {
+                                Text("Button 3")
+                            }
+                                .buttonStyle(SBBSecondaryButtonStyle())
+                            Button(action: { showDialogue = false }) {
+                                Text("Button 2")
+                            }
+                                .buttonStyle(SBBSecondaryButtonStyle())
+                            Button(action: { showDialogue = false }) {
+                                Text("Button 1")
+                            }
+                                .buttonStyle(SBBPrimaryButtonStyle())
+                        } else {    // retryAction
                             Button(action: { showDialogue = false }) {
                                 Image(sbbName: "arrows-circle", size: .small)
                             }
@@ -75,9 +80,9 @@ struct DialogueDemo: View {
                 }
             }
         }
-            .sbbModal(isPresented: model.fullscreen ? $showDialogue : .constant(false)) {
-                SBBDialogue(title: title, label: label, errorCode: errorCode, style: .fullscreen, imageStyle: model.showImage ? (model.happy ? .happy : .sad) : nil) {
-                    if model.customActions {
+            .sbbModal(isPresented: style == .fullscreen ? $showDialogue : .constant(false)) {
+                SBBDialogue(title: title, label: label, errorCode: errorCode, style: .fullscreen, imageStyle: showImage ? (imageStyle == .happy ? .happy : .sad) : nil) {
+                    if actionType == 0 {    // customActions
                         Button(action: { showDialogue = false }) {
                             Text("Button 3")
                         }
@@ -108,11 +113,9 @@ struct DialogueDemo: View {
 }
 
 struct DialogueDemo_Previews: PreviewProvider {
-    
-    private static var model = DialogueViewModel()
-    
+        
     static var previews: some View {
-        DialogueDemo(colorScheme: .constant(.light), contentSizeCategory: .constant(.medium), model: model)
-        DialogueDemo(colorScheme: .constant(.dark), contentSizeCategory: .constant(.medium), model: model)
+        DialogueDemo(colorScheme: .constant(.light), contentSizeCategory: .constant(.medium))
+        DialogueDemo(colorScheme: .constant(.dark), contentSizeCategory: .constant(.medium))
     }
 }
