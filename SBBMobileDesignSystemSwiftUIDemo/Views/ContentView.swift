@@ -13,8 +13,8 @@ struct ContentView: View {
     
     @State var colorScheme: ColorScheme = .light
     @State var contentSizeCategory: ContentSizeCategory = .medium
+    @State var selectedBanner: SBBEnvironmentBanner = .none
     @EnvironmentObject var modalViewModel: SBBModalViewModel
-    @EnvironmentObject var bannerViewModel: BannerViewModel
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     
     var body: some View {
@@ -59,7 +59,7 @@ struct ContentView: View {
                                     NavigationLink(destination: CheckBoxView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                         SBBListItem(label: Text("CheckBox"))
                                     }
-                                    NavigationLink(destination: RadioButtonView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory).environmentObject(RadioButtonViewModel())) {
+                                    NavigationLink(destination: RadioButtonView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                         SBBListItem(label: Text("RadioButton"))
                                     }
                                     NavigationLink(destination: DividerViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
@@ -109,7 +109,7 @@ struct ContentView: View {
                                 NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory).environmentObject(modalViewModel)) {
                                     SBBListItem(label: Text("ModalView"))
                                 }
-                                NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory, model: DialogueViewModel()).environment(\.sizeCategory, contentSizeCategory).environmentObject(modalViewModel)) {
+                                NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory).environmentObject(modalViewModel)) {
                                     SBBListItem(label: Text("Dialogue"))
                                 }
                                 NavigationLink(destination: ToastDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory).environmentObject(SBBToastService())) {
@@ -128,7 +128,7 @@ struct ContentView: View {
                                 NavigationLink(destination: NavigationBarWithSBBIconDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("NavigationBar with SBB Icon"))
                                 }
-                                NavigationLink(destination: BannerDemo(colorScheme: self.$colorScheme).environmentObject(bannerViewModel).environment(\.sizeCategory, contentSizeCategory)) {
+                                NavigationLink(destination: BannerDemo(colorScheme: self.$colorScheme, selectedBanner: $selectedBanner).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Banner"), showBottomLine: false)
                                 }
                             }
@@ -161,7 +161,7 @@ struct ContentView: View {
                         .environment(\.sizeCategory, contentSizeCategory)
                 }
                     .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
-                    .sbbEnvironmentBanner(bannerViewModel.none ? nil : ( bannerViewModel.dev ? .dev : ( bannerViewModel.test ? .test : ( bannerViewModel.int ? .int : .poc))))
+                    .sbbEnvironmentBanner(selectedBanner)
                     .sbbModalContainer()
             } else {
                 OnboardingView()
@@ -181,7 +181,6 @@ struct ContentView_Previews: PreviewProvider {
             ContentView(colorScheme: .dark)
                 .previewDisplayName("Dark")
         }
-            .environmentObject(BannerViewModel())
             .environmentObject(SBBModalViewModel())
             .environmentObject(OnboardingViewModel(onboardingState: .hidden))
     }

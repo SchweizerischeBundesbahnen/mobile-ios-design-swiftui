@@ -8,7 +8,7 @@ import SwiftUI
 public struct SBBDialogue<Content>: View where Content: View {
     
     /// SBBDialogue Style.
-    public enum ImageStyle {
+    public enum ImageStyle: CaseIterable {
         /// Happy SBBDialogue Style, presenting a happy image above the title.
         case happy
         /// Sad SBBDialogue Style, presenting a sad image above the title.
@@ -25,7 +25,7 @@ public struct SBBDialogue<Content>: View where Content: View {
     }
     
     /// SBBDialogue Style.
-    public enum Style {
+    public enum Style: CaseIterable {
         /// Fullscreen SBBModalView Style (to be used with the .sbbModal() ViewModifier). The SBBModalView is displayed above the entire screen (pinned to the bottom edge).
         case fullscreen
         /// Inline SBBModalView Style (to be used inline as the (vertically) last element of the View).

@@ -316,23 +316,59 @@ SBBCheckBox is a SBB-styled SwiftUI Toggle. You can use it by passing Text and o
         }
     }
 ```
-## SBBRadioButton
 
-SBBRadioButton can be used when the user needs to select one of multiple options. You can use it by passing Text and optionally Image as init parameters. Alternatively you can also pass your custom View(s) as content. By default, SBBRadioButton shows a separator line at its bottom since it will mostly be used inside SBBFormGroup. However you can also optionally hide the separator line.
+## SBBRadioButtonGroup
+
+SBBRadioButtonGroup can be used when the user needs to select one of multiple options. The number of tags must be the same number as the number of SBBRadioButtons.
 
 ```
-    @State private var isOn = true  // typically you will want one boolean per SBBRadioButton
-    @State private var disabled = true
+    enum TrainCompany: CaseIterable {
+        case SBB
+        case SNCF
+    }
+    
+    @State private var selectedTrainCompany: TrainCompany = .SBB
+    
+    var body: some View {
+        SBBRadioButtonGroup(title: "Your title", selection: $selectedTrainCompany, tags: TrainCompany.allCases) {
+            SBBRadioButton(label: "SBB")
+            SBBRadioButton(image: Image(sbbName: "train", size: .small), label: "SNCF")
+        }
+    }
+```
+
+## SBBRadioButton
+
+SBBRadioButton is typically used inside a SBBRadioButtonGroup. However, you can also create your own view with SBBRadioButtons. You can use it by passing Text and optionally Image as init parameters. Alternatively you can also pass your custom View(s) as content. By default, SBBRadioButton shows a separator line at its bottom. However you can also optionally hide the separator line. Use the .isSelected(Bool) ViewModifier to set its selected state.
+
+```
+    @State private var radioButton1IsSelected = true
+    @State private var radioButton2IsSelected = false
     
     var body: some View {
         VStack {
-            SBBRadioButton(isOn: $isOn, label: Text("Label"))
-            SBBRadioButton(isOn: $isOn, image: Image("your image"), label: Text("Label"))  // with additional image
-                .disabled(disabled)
-                SBBRadioButton(isOn: $isOn) {                                                  // with custom content
+            SBBRadioButton(label: Text("Label"))
+                .isSelected(radioButton1IsSelected)
+                .highPriorityGesture(
+                    TapGesture().onEnded {
+                        withAnimation {
+                            radioButton1IsSelected = true
+                            radioButton2IsSelected = false
+                        }
+                    }
+                )
+            SBBRadioButton() {
                 // Your custom content
             }
-            SBBRadioButton(isOn: $isOn, label: Text("Label"), showBottomLine: false)    // hiding the separator line
+                .isSelected(radioButton2IsSelected)
+                .highPriorityGesture(
+                    TapGesture().onEnded {
+                        withAnimation {
+                            radioButton1IsSelected = false
+                            radioButton2IsSelected = true
+                        }
+                    }
+                )
         }
     }
 ```
