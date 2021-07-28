@@ -7,10 +7,22 @@ import SBBMobileDesignSystemSwiftUI
 
 struct RadioButtonView: View {
     
+    enum TrainCompany: CaseIterable {
+        case SBB
+        case SNCF
+    }
+    
     @Binding var colorScheme: ColorScheme
-    @EnvironmentObject var model: RadioButtonViewModel
-    @State private var isOff = false
+    
     @State private var isDisabled = false
+    
+    // Single SBBRadioButton
+    @State private var radioButton1IsSelected = true
+    @State private var radioButton2IsSelected = false
+    
+    // SBBRadioButtonGroup
+    @State private var selectedRadioButton = 0
+    @State private var selectedCustomRadioButton: TrainCompany = .SBB
     
     var body: some View {
         ScrollView(showsIndicators: false) {
@@ -21,11 +33,36 @@ struct RadioButtonView: View {
                 }
                     .toggleStyle(SBBSwitchStyle())
                 VStack(alignment: .leading, spacing: 0) {
-                    SBBRadioButton(isOn: $model.isOn1, label: "Normal RadioButton", showBottomLine: false)
-                        .disabled(isDisabled)
-                    SBBRadioButton(isOn: $model.isOn2, image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon", showBottomLine: false)
-                        .disabled(isDisabled)
-                    SBBRadioButton(isOn: $model.isOn3, showBottomLine: false) {
+                    SBBRadioButton(label: "Normal RadioButton", showBottomLine: false)
+                        .isSelected(radioButton1IsSelected)
+                        .highPriorityGesture(
+                            TapGesture().onEnded {
+                                withAnimation {
+                                    radioButton1IsSelected = true
+                                    radioButton2IsSelected = false
+                                }
+                            }
+                        )
+                    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon", showBottomLine: false)
+                        .isSelected(radioButton2IsSelected)
+                        .highPriorityGesture(
+                            TapGesture().onEnded {
+                                withAnimation {
+                                    radioButton1IsSelected = false
+                                    radioButton2IsSelected = true
+                                }
+                            }
+                        )
+                }
+                    .disabled(isDisabled)
+                SBBRadioButtonGroup(title: "SBBRadioButtonGroup", selection: $selectedRadioButton, tags: [0, 1, 2]) {
+                    SBBRadioButton(label: "Normal RadioButton with line")
+                    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon and line")
+                    SBBRadioButton(label: "RadioButton without line", showBottomLine: false)
+                }
+                    .disabled(isDisabled)
+                SBBRadioButtonGroup(title: "With custom SBBRadioButtons", selection: $selectedCustomRadioButton, tags: TrainCompany.allCases) {
+                    SBBRadioButton() {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Custom RadioButton")
                                 .sbbFont(.body)
@@ -35,25 +72,18 @@ struct RadioButtonView: View {
                                 .sbbFont((.legend))
                         }
                     }
-                        .disabled(isDisabled)
-                }
-                SBBFormGroup(title: "RadioButton in FormGroup") {
-                    SBBRadioButton(isOn: $model.isOn1, label: "Normal RadioButton with line")
-                        .disabled(isDisabled)
-                    SBBRadioButton(isOn: $model.isOn2, image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon and line")
-                        .disabled(isDisabled)
-                    SBBRadioButton(isOn: $model.isOn3) {
+                    SBBRadioButton(showBottomLine: false) {
                         VStack(alignment: .leading, spacing: 8) {
                             Text("Custom RadioButton")
                                 .sbbFont(.body)
-                            Text("Favourite train: ICN")
+                            Text("Favourite train: TGV")
                                 .sbbFont(.legend)
-                            Text("Best train company: SBB")
+                            Text("Best train company: SNCF")
                                 .sbbFont((.legend))
                         }
                     }
-                        .disabled(isDisabled)
                 }
+                    .disabled(isDisabled)
                 Spacer()
             }
                 .padding(16)
@@ -70,6 +100,5 @@ struct RadioButtonView_Previews: PreviewProvider {
             RadioButtonView(colorScheme: .constant(.light))
             RadioButtonView(colorScheme: .constant(.dark))
         }
-            .environmentObject(RadioButtonViewModel())
     }
 }

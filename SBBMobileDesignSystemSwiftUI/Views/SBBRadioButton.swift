@@ -4,19 +4,21 @@
 
 import SwiftUI
 
-/**
- Returns a SBBRadioButton with a label and an optional Image.
- 
- - Parameters:
-    - isOn: Sets the selected/unselected state of theSBBCheckBox.
-    - image: An optional Image to be shown on the left SBBRadioButton of the label.
-    - label: The label to be shown on the right side of the radioButton Image.
-    - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
- */
 public extension SBBRadioButton where Content == EmptyView {
-    init(isOn: Binding<Bool>, image: Image? = nil, label: String, showBottomLine: Bool = true) {
-        self._isOn = isOn
-        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, image: image, label: label, showBottomLine: showBottomLine)
+    
+    /**
+     Returns a SBBRadioButton with a label and an optional Image. SBBRadioButton is typically used inside a SBBRadioButtonGroup, which handles all events on it's own. If you want to use it outside of a SBBRadioButtonGroup you need to set it's selected state and handle touch events. To set its selected state use the isSelected(_ isSelected: Bool) ViewModifier. To handle touch events, use the .highPriorityGesture() ViewModifier.
+     
+     - Parameters:
+        - image: An optional Image to be shown on the left SBBRadioButton of the label.
+        - label: The label to be shown on the right side of the radioButton Image.
+        - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     */
+    init(image: Image? = nil, label: String, showBottomLine: Bool = true) {
+        self.image = image
+        self.label = label
+        self.showBottomLine = showBottomLine
+        self.content = nil
     }
 }
 
@@ -24,42 +26,50 @@ public extension SBBRadioButton where Content == EmptyView {
 public struct SBBRadioButton<Content>: View where Content: View {
     
     @Environment(\.isEnabled) private var isEnabled
-    @Binding private var isOn: Bool
+    @Environment(\.isSelected) private var isOn
     
-    private var checkboxAndRadioButtonContainer: CheckBoxAndRadioButtonContainer<Content>
+    private var image: Image?
+    private var label: String?
+    private var showBottomLine: Bool
+    private var content: (() -> Content)?
     
     /**
-     Returns a SBBRadioButton with custom content.
+     Returns a SBBRadioButton with custom content. SBBRadioButton is typically used inside a SBBRadioButtonGroup, which handles all events on it's own. If you want to use it outside of a SBBRadioButtonGroup you need to set it's selected state and handle touch events. To set its selected state use the isSelected(_ isSelected: Bool) ViewModifier. To handle touch events, use the .highPriorityGesture() ViewModifier.
      
      - Parameters:
-        - isOn: Sets the selected/unselected state of SBBRadioButton.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
         - content: A custom View to be shown on the right side of the radioButton Image.
      */
-    public init(isOn: Binding<Bool>, showBottomLine: Bool = false, @ViewBuilder content: @escaping () -> Content) {
-        self._isOn = isOn
-        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: isOn, showBottomLine: showBottomLine, content: content)
+    public init(showBottomLine: Bool = true, @ViewBuilder content: @escaping () -> Content) {
+        self.image = nil
+        self.label = nil
+        self.showBottomLine = showBottomLine
+        self.content = content
     }
     
     public var body: some View {
-        checkboxAndRadioButtonContainer
+        if let content = content {
+            CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(isOn), showBottomLine: showBottomLine, content: content)
+        } else if let label = label {
+            CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(isOn), image: image, label: label, showBottomLine: showBottomLine)
+        }
     }
 }
 
 struct SBBRadioButton_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBRadioButton(isOn: .constant(true), label: "Label")
+            SBBRadioButton(label: "Label")
                 .previewDisplayName("Light, text only")
-            SBBRadioButton(isOn: .constant(true), label: "Label")
+            SBBRadioButton(label: "Label")
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark, text only")
-            SBBRadioButton(isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
+            SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
                 .previewDisplayName("Light, with image")
-            SBBRadioButton(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
+            SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
                 .disabled(true)
                 .previewDisplayName("Light, disabled")
-            SBBRadioButton(isOn: .constant(true)) {
+            SBBRadioButton() {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln.")
                         .sbbFont(.body)

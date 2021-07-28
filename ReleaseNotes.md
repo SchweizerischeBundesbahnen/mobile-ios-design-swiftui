@@ -1,5 +1,16 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.3 - 28 July 2021
+
+### Features
+* Added SBBRadioButtonGroup (and modified SBBRadioButton)
+
+### Improvements
+* SBBCheckBox and SBBRadioButton is now tappable on it's entire width
+
+### Bugfix
+* Bottomline for SBBRadioButton is now displayed by default.
+
 ## V0.4.2 - 15 July 2021
 
 ### Improvements

@@ -12,10 +12,10 @@ public extension View {
      - Parameters:
         - banner: The optional SBBEnvironmentBanner to display.
      */
-    func sbbEnvironmentBanner(_ banner: SBBEnvironmentBanner?) -> some View {
+    func sbbEnvironmentBanner(_ banner: SBBEnvironmentBanner) -> some View {
         return ZStack(alignment: .topTrailing) {
             self
-            if let banner = banner {
+            if banner != .none {
                 EnvironmentBannerView(text: banner.text, textColor: banner.textColor, backgroundColor: banner.backgroundColor)
             }
         }
@@ -38,7 +38,9 @@ public extension View {
 }
 
 /// SBBEnvironmentBanner styles.
-public enum SBBEnvironmentBanner {
+public enum SBBEnvironmentBanner: CaseIterable {
+    /// Style for Prod environments (no banner)
+    case none
     /// Style for Test environments
     case test
     /// Style for Development environments
@@ -50,6 +52,8 @@ public enum SBBEnvironmentBanner {
     
     var text: Text {
         switch self {
+        case .none:
+            return Text("")
         case .test:
             return Text("test")
         case .dev:
@@ -63,6 +67,8 @@ public enum SBBEnvironmentBanner {
 
     var textColor: Color {
         switch self {
+        case .none:
+            return Color.clear
         case .dev:
             return Color.sbbColor(.black)
         case .test, .int, .poc:
@@ -72,6 +78,8 @@ public enum SBBEnvironmentBanner {
     
     var backgroundColor: Color {
         switch self {
+        case .none:
+            return Color.clear
         case .test:
             return Color.sbbColor(.night)
         case .dev:

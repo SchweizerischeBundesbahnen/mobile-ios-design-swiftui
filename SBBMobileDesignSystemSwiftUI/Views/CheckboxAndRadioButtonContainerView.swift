@@ -71,6 +71,7 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
         }
             .foregroundColor(isEnabled ? Color.sbbColor(.textBlack) : Color.sbbColor(.metal))
             .background(Color.clear)
+            .contentShape(Rectangle())  // make the entire SBBRadioButon tappable (Spacers are ignored by default)
             .onTapGesture {
                 withAnimation {
                     self.isOn.toggle()
@@ -79,9 +80,6 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
             .accessibilityElement(children: .combine)
             .accessibility(addTraits: .isButton)
             .accessibility(value: isOn ? Text("\("ON".localized)") : Text("\("OFF".localized)"))
-            .accessibilityAction {
-                self.isOn.toggle()
-            }
     }
 }
 
