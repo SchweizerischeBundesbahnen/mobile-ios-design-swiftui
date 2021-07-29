@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.4 - 29 July 2021
+
+### Improvements
+* New SBB Icons were added
+
 ## V0.4.3 - 28 July 2021
 
 ### Features
