@@ -550,7 +550,7 @@ This also possible with a shortand init when having just one `SBBOnboardingCardV
 
 ### SBBOnboardingTitleView
 
-SBBOnboardingTitleView is used for the start and end view of SBBOnboardingView. You can specify an image and a text to display.
+SBBOnboardingTitleView is used for the start and end view of SBBOnboardingView. You can specify an image, a title and an optional subtitle to display.
 
 ```   
     SBBOnboardingTitleView(image: Image("Your Image"), title: Text("Willkommen bei Ihrer SBB App"))
