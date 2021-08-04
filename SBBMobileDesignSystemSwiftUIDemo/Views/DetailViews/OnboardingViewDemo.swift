@@ -36,8 +36,8 @@ struct OnboardingViewDemo: View {
     
     @ObservedObject private var viewModel = OnboardingViewDemoModel()
 
-    private let startView = SBBOnboardingTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen bei SBB DSM"))
-    private let endView = SBBOnboardingTitleView(image: Image("Onboarding_Gang"), title: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM"))
+    private let startView = SBBOnboardingTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"))
+    private let endView = SBBOnboardingTitleView(image: Image("Onboarding_Gang"), title: Text("Gute Fahrt"), subtitle: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM"))
 
     var body: some View {
         Group {

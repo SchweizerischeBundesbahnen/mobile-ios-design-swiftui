@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.5 - 04 August 2021
+
+### Improvements
+* SBBOnboardingTitleView now features an optional subtitle
+
 ## V0.4.4 - 29 July 2021
 
 ### Improvements
