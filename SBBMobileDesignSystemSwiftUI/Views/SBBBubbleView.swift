@@ -160,6 +160,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                                             .sbbFont(.body)
                                     }
                                 }
+                                    .accessibilityElement(children: .combine)
                                 if horizontalSizeClass == .regular, let fixedContent = fixedContent {
                                     fixedContent
                                 }
@@ -186,7 +187,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                                 .padding(.leading, SizeCategories.accessibility.contains(sizeCategory) ? 0 : 44)
                         }
                     }
-                        .accessibilityElement(children: .combine)
+                    .accessibilityElement(children: horizontalSizeClass == .compact ? .combine : .contain)
                         .accessibility(addTraits: .isHeader)
                         .accessibility(identifier: "bubbleView")
                         .accessibility(hint: ((self.expandableContent == nil) ? Text("") : self.expanded ? Text("collapse".localized) : Text("expand".localized)))

@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.6 - 05 August 2021
+
+### Bugfix
+* SBBBubbleView: VoiceOver fix for SBBBubbleView in .regular SizeClass with fixed content (is now read separately)
+
 ## V0.4.5 - 04 August 2021
 
 ### Improvements
