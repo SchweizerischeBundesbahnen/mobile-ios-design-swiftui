@@ -9,14 +9,47 @@ struct OnboardingView: View {
     
     @EnvironmentObject var viewModel: OnboardingViewModel
     
-    private let startView = SBBOnboardingTitleView(image: Image("Onboarding_Gang"), title: Text("Willkommen bei der Design System Mobile Library Demo App"))
-    private let endView = SBBOnboardingTitleView(image: Image("Onboarding_Gang"), title: Text("Wir wünschen Ihnen viel Spass beim Erkunden aller Design System Mobile Elemente"))
+    private let startView = SBBOnboardingTitleView(image: Image("Onboarding_Start"), title: Text("Welcome to the Design System Mobile Demo App"))
+    private let endView = SBBOnboardingTitleView(image: Image("Onboarding_Start"), title: Text("We hope you enjoy exploring the Mobile Design System elements."))
 
     var body: some View {
         SBBOnboardingView(state: $viewModel.onboardingState, currentCardIndex: $viewModel.currentOnboardingCardIndex, startView: startView, endView: endView) {
-            SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Design System Mobile"), text: Text("Dank dem Design System Mobile sind alle SBB Apps auf den ersten Blick als solche erkennbar und einfach benutzbar."))
-            SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("SwiftUI Library"), text: Text("Dank Mobile Libraries für iOS und Android, können Entwickler Benutzeroberflächen für neue Apps rasch und nach SBB Standards erstellen."))
-            SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Verwendung der Library"), text: Text("Hinter der Library stecken die DSRVs AppBakery und UX. Wir entwickeln diese weiter und warten sie. Nimm jetzt Kontakt mit uns auf!"))
+            SBBOnboardingCardView(image: Image("Onboarding_Card1"), title: Text("Design System Mobile"), text: Text("With Design System Mobile, all SBB apps are recognisable as such at first glance.")) {
+                Button(action: {
+                    guard let url = URL(string: "https://digital.sbb.ch/en/mobile"),
+                        UIApplication.shared.canOpenURL(url) else {
+                        return
+                    }
+                    UIApplication.shared.open(url)
+                }) {
+                    Text("UX Documentation")
+                }
+                    .buttonStyle(SBBSecondaryButtonStyle())
+            }
+            SBBOnboardingCardView(image: Image("Onboarding_Card2"), title: Text("iOS and Android Libraries"), text: Text("Libraries for iOS and Android allow developers to quickly create user interfaces according to SBB standards.")) {
+                Button(action: {
+                    guard let url = URL(string: "https://code.sbb.ch/projects/KD_ESTA_MOBILE/repos/esta-mobile-ios-design-swiftui/browse"),
+                        UIApplication.shared.canOpenURL(url) else {
+                        return
+                    }
+                    UIApplication.shared.open(url)
+                }) {
+                    Text("Bitbucket")
+                }
+                    .buttonStyle(SBBSecondaryButtonStyle())
+            }
+            SBBOnboardingCardView(image: Image("Onboarding_Card3"), title: Text("Using the Libraries"), text: Text("The libraries are developed and maintained by the DSRVs AppBakery and UX. Please get in touch with us now.")) {
+                Button(action: {
+                    guard let url = URL(string: "https://sbb.sharepoint.com/sites/app-bakery/SitePages/Kontakt.aspx"),
+                        UIApplication.shared.canOpenURL(url) else {
+                        return
+                    }
+                    UIApplication.shared.open(url)
+                }) {
+                    Text("Contact us")
+                }
+                    .buttonStyle(SBBSecondaryButtonStyle())
+            }
         }
     }
 }
