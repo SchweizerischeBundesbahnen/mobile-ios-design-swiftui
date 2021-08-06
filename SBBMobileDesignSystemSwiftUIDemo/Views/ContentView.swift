@@ -140,7 +140,7 @@ struct ContentView: View {
                                     }
                                     UIApplication.shared.open(url)
                                 }) {
-                                    SBBListItem(label: Text("Official Documentation"), image: Image(sbbName: "circle-information", size: .small))
+                                    SBBListItem(label: Text("Official Documentation"), image: Image(sbbName: "document-text", size: .small))
                                 }
                                 Button(action: {
                                     guard let url = URL(string: "https://sbb.sharepoint.com/sites/app-bakery/SitePages/Mobile-Libraries.aspx"),
@@ -149,7 +149,13 @@ struct ContentView: View {
                                     }
                                     UIApplication.shared.open(url)
                                 }) {
-                                    SBBListItem(label: Text("Mobile Libraries"), image: Image(sbbName: "smartphone", size: .small), showBottomLine: false)
+                                    SBBListItem(label: Text("Mobile Libraries"), image: Image(sbbName: "smartphone", size: .small))
+                                }
+                                Button(action: {
+                                    onboardingViewModel.currentOnboardingCardIndex = 0
+                                    onboardingViewModel.onboardingState = .startView
+                                }) {
+                                    SBBListItem(label: Text("Show Onboarding"), image: Image(sbbName: "circle-information", size: .small), showBottomLine: false)
                                 }
                             }
                         }
