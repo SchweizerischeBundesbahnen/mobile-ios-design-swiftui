@@ -19,9 +19,12 @@ pipeline {
         BIN_REPO_ID = "designsystem.ios"
         BIN_GROUP_ID = "ch/sbb/designsystem-swiftui"
         
+        // MDM Distribution
+        MOBILEIRON_CREDENTIALS = credentials('userpass_mobileiron')
+        
         // Xcode
         REQUIRED_XCODE_VERSION = "~> 12.0"
-	TEST_DEVICES = 'iPhone 8'
+        TEST_DEVICES = 'iPhone 8'
 	
 
         // SBBCocoaPods (podspec)
@@ -45,33 +48,46 @@ pipeline {
             }
             steps {
                 parallel(
-                    'SBBMobileDesignSystemSwiftUI': {
+                    'SBB DSM': {
                         node('ios') {
                             checkout scm
                             fastlane lane:'xcframework_ios_build', scheme:'SBBMobileDesignSystemSwiftUI', repo_artifact_id:'mobiledesignsystemswiftui-ios', stash_to:'mobiledesignsystemswiftui-ios'
                         }
                     },
-                    'SBBMobileDesignSystemSwiftUIDemo': {
+                    'SBB DSM Demo App (Cargo AppStore)': {
                         node('ios') {
                             checkout scm
-                            fastlane lane:'appstore_build', scheme:'SBBMobileDesignSystemSwiftUIDemo', app_identifier:'ch.sbb.SBBMobileDesignSystemSwiftUIDemo', repo_artifact_id:'mobiledesignsystemswiftuidemo-ios', team_profile:'sbb_cargo_appstore', stash_to:'mobiledesignsystemswiftuidemo-ios'
+                            fastlane lane:'appstore_build', scheme:'SBB DSM Demo App (Enterprise AppStore)', app_identifier:'ch.sbb.SBBMobileDesignSystemSwiftUIDemo', repo_artifact_id:'mobiledesignsystemswiftuidemo-ios-cargoappstore', team_profile:'sbb_cargo_appstore', stash_to:'mobiledesignsystemswiftuidemo-ios-cargoappstore'
+                        }
+                    },
+                    'SBB DSM Demo App (Enterprise AppStore)': {
+                        node('ios') {
+                            checkout scm
+                            fastlane lane:'enterprise_build', scheme:'SBB DSM Demo App (Enterprise AppStore)', app_identifier:'ch.sbb.DesignSystemMobileDemo', repo_artifact_id:'mobiledesignsystemswiftuidemo-ios-enterpriseappstore', team_profile:'sbb_enterprise', stash_to:'mobiledesignsystemswiftuidemo-ios-enterpriseappstore'
                         }
                     }
                 )
             }
         }
-        stage('TestFlight') {
+        stage('Store Upload') {
             when {
                 branch 'master'
             }
             steps {
                 parallel(
-                    'SBBMobileDesignSystemSwiftUI': {
+                    'SBB DSM Demo App (Testflight - Cargo AppStore)': {
 						node('ios') {
 							checkout scm
-							fastlane unstash_from:'mobiledesignsystemswiftuidemo-ios', lane:'upload_testflight', team_profile:'sbb_cargo_appstore'
+							fastlane unstash_from:'mobiledesignsystemswiftuidemo-ios-cargoappstore', lane:'upload_testflight', team_profile:'sbb_cargo_appstore'
 						}
                     })
+                    // TODO - MobileIron Upload, once ready
+                    /*'SBB DSM Demo App (MobileIron - Enterprise AppStore)': {
+                        node('ios') {
+                            checkout scm
+                            fastlane lane:'upload_mobileiron', unstash_from:'mobiledesignsystemswiftuidemo-ios-enterpriseappstore', cleanPreviousVersions:'false'
+                        }
+                    }*/
             }
         }
         stage('Release Tag') {

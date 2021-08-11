@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scheme
+   LastUpgradeVersion = "1200"
+   version = "1.3">
+   <BuildAction
+      parallelizeBuildables = "YES"
+      buildImplicitDependencies = "YES">
+      <BuildActionEntries>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D804E7423D9D16000CC9C0C"
+               BuildableName = "SBBMobileDesignSystemSwiftUIDemo.app"
+               BlueprintName = "SBBMobileDesignSystemSwiftUIDemo"
+               ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+      </BuildActionEntries>
+   </BuildAction>
+   <TestAction
+      buildConfiguration = "Debug-EnterpriseStore"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      shouldUseLaunchSchemeArgsEnv = "YES">
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D804E8923D9D16300CC9C0C"
+               BuildableName = "SBBMobileDesignSystemSwiftUIDemoTests.xctest"
+               BlueprintName = "SBBMobileDesignSystemSwiftUIDemoTests"
+               ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2D804E9423D9D16300CC9C0C"
+               BuildableName = "SBBMobileDesignSystemSwiftUIDemoUITests.xctest"
+               BlueprintName = "SBBMobileDesignSystemSwiftUIDemoUITests"
+               ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
+   </TestAction>
+   <LaunchAction
+      buildConfiguration = "Debug-EnterpriseStore"
+      selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      launchStyle = "0"
+      useCustomWorkingDirectory = "NO"
+      ignoresPersistentStateOnLaunch = "NO"
+      debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
+      allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2D804E7423D9D16000CC9C0C"
+            BuildableName = "SBBMobileDesignSystemSwiftUIDemo.app"
+            BlueprintName = "SBBMobileDesignSystemSwiftUIDemo"
+            ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </LaunchAction>
+   <ProfileAction
+      buildConfiguration = "Release-EnterpriseStore"
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      savedToolIdentifier = ""
+      useCustomWorkingDirectory = "NO"
+      debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2D804E7423D9D16000CC9C0C"
+            BuildableName = "SBBMobileDesignSystemSwiftUIDemo.app"
+            BlueprintName = "SBBMobileDesignSystemSwiftUIDemo"
+            ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
+   </ProfileAction>
+   <AnalyzeAction
+      buildConfiguration = "Debug-EnterpriseStore">
+   </AnalyzeAction>
+   <ArchiveAction
+      buildConfiguration = "Release-EnterpriseStore"
+      revealArchiveInOrganizer = "YES">
+   </ArchiveAction>
+</Scheme>
