@@ -80,13 +80,14 @@ pipeline {
 							checkout scm
 							fastlane unstash_from:'mobiledesignsystemswiftuidemo-ios-cargoappstore', lane:'upload_testflight', team_profile:'sbb_cargo_appstore'
 						}
-                    }),
+                    },
                     'SBB DSM Demo App (MobileIron - Enterprise AppStore)': {
                         node('ios') {
                             checkout scm
                             fastlane lane:'upload_mobileiron', unstash_from:'mobiledesignsystemswiftuidemo-ios-enterpriseappstore', cleanPreviousVersions:'false'
                         }
                     }
+                )
             }
         }
         stage('Release Tag') {
