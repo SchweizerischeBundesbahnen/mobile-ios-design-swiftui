@@ -51,7 +51,7 @@ pipeline {
                     'SBB DSM': {
                         node('ios') {
                             checkout scm
-                            fastlane lane:'xcframework_ios_build', scheme:'SBBMobileDesignSystemSwiftUI', repo_artifact_id:'mobiledesignsystemswiftui-ios', stash_to:'mobiledesignsystemswiftui-ios'
+                            fastlane lane:'xcframework_ios_build', scheme:'SBBMobileDesignSystemSwiftUI', repo_artifact_id:'mobiledesignsystemswiftui-ios', stash_to:'mobiledesignsystemswiftui-ios', configuration:'Release-CargoStore'
                         }
                     },
                     'SBB DSM Demo App (Cargo AppStore)': {
