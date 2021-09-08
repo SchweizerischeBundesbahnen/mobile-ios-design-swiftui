@@ -66,7 +66,8 @@ struct OnboardingViewDemo: View {
                     }
                         .buttonStyle(SBBPrimaryButtonStyle())
                 }
-                    .padding(16)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 16)
                     .navigationBarTitle("Onboarding")
                     .sbbStyle()
             } else {

@@ -55,7 +55,7 @@ struct ModalViewDemo: View {
                                 }
                                 .buttonStyle(SBBPrimaryButtonStyle())
                             }
-                                .padding(.horizontal, 16)
+                                .padding(.horizontal, 8)
                         }                                .colorScheme(colorScheme)
                             .environment(\.sizeCategory, contentSizeCategory)
                     }
@@ -81,7 +81,8 @@ struct ModalViewDemo: View {
                                 }
                                 .buttonStyle(SBBPrimaryButtonStyle())
                             }
-                                .padding(16)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 16)
                         }
                             .colorScheme(colorScheme)
                             .environment(\.sizeCategory, contentSizeCategory)
@@ -110,7 +111,8 @@ struct ModalViewDemo: View {
                                     }
                                     .buttonStyle(SBBPrimaryButtonStyle())
                                 }
-                                    .padding(16)
+                                    .padding(.horizontal, 8)
+                                    .padding(.vertical, 16)
                             }
                                 .colorScheme(colorScheme)
                                 .environment(\.sizeCategory, contentSizeCategory)
@@ -128,7 +130,8 @@ struct ModalViewDemo: View {
                             .colorScheme(colorScheme)
                     }
             }
-            .padding(16)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 16)
         }
             .navigationBarTitle("ModalView")
             .sbbStyle()

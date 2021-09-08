@@ -38,7 +38,8 @@ struct InfoViewCollapsibleDemo: View {
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                 Spacer()
             }
-            .padding(16)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 16)
         }
             .navigationBarTitle("InfoViewCollapsible")
             .sbbStyle()

@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.8 - 08 September 2021
+
+### Improvements
+* Redesign: 8pt horizontal padding (instead of 16pt as of until now)
+
 ## V0.4.7 - 06 August 2021
 
 ### Improvements

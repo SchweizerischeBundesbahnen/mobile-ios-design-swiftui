@@ -19,7 +19,7 @@ struct SegmentedPickerViewDemo: View {
                 Text("Opt 2")
                 Text("Opt 3")
             }
-                .padding(16)
+                .padding(8)
                 .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.horizontal))
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
@@ -48,7 +48,8 @@ struct SegmentedPickerViewDemo: View {
                         .sbbFont(.body)
                     Spacer()
                 }
-                    .padding(16)
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 16)
             }
         }
             .navigationBarTitle("SegmentedPicker")

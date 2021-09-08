@@ -159,7 +159,8 @@ struct ContentView: View {
                                 }
                             }
                         }
-                            .padding(16)
+                            .padding(.horizontal, 8)
+                            .padding(.vertical, 16)
                     }
                         .navigationBarTitle("SBB DSM SwiftUI", displayMode: .inline)
                         .sbbStyle()

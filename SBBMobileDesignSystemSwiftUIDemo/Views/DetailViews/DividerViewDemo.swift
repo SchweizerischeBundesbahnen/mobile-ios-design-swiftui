@@ -22,7 +22,8 @@ struct DividerViewDemo: View {
                 Spacer()
             }
         }
-            .padding(16)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 16)
             .sbbStyle()
             .colorScheme(colorScheme)
     }

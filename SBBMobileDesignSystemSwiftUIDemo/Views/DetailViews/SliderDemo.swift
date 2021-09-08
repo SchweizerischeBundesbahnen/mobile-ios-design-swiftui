@@ -19,7 +19,8 @@ public struct SliderDemo: View {
                 Text("Selected value: \(Int(sliderValue))%")
                     .sbbFont(.body)
             }
-            .padding(16)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 16)
         }
             .navigationBarTitle("SBBSlider")
             .sbbStyle()

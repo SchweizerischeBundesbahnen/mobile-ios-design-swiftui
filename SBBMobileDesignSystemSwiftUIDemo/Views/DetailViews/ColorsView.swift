@@ -66,7 +66,8 @@ struct ColorsView: View {
                     }
                 }
             }
-                .padding(16)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 16)
         }
             .navigationBarTitle("Colors")
             .sbbStyle()

@@ -86,7 +86,8 @@ struct RadioButtonView: View {
                     .disabled(isDisabled)
                 Spacer()
             }
-                .padding(16)
+                .padding(.horizontal, 8)
+                .padding(.vertical, 16)
         }
         .navigationBarTitle("RadioButton")
         .sbbStyle()

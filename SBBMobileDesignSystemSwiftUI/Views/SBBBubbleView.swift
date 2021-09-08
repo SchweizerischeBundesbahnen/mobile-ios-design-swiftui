@@ -210,7 +210,7 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                         }
                     }
             }
-                .padding(.horizontal, 16)
+                .padding(.horizontal, 8)
         }
     }
 }
