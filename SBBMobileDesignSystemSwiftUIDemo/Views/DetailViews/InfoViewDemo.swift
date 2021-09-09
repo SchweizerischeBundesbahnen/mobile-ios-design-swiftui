@@ -20,8 +20,7 @@ struct InfoViewDemo: View {
 , text: text)
             Spacer()
         }
-            .padding(.horizontal, 8)
-            .padding(.vertical, 16)
+            .sbbScreenPadding()
             .navigationBarTitle("InfoView")
             .sbbStyle()
             .colorScheme(colorScheme)

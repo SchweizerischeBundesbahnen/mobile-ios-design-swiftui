@@ -97,8 +97,7 @@ struct IconDemo: View {
                 }
                 Spacer()
             }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 16)
+                .sbbScreenPadding()
         }
             .navigationBarTitle("Icons")
             .sbbStyle()

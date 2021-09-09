@@ -75,15 +75,13 @@ struct ButtonDemo: View {
                     SBBCheckBox(isOn: $disabled, label: "Disabled", showBottomLine: false)
                     Spacer()
                 }
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 16)
+                    .sbbScreenPadding()
             }
             Button(action: increment) {
                 Text("My Primary Floating Button")
             }
                 .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: true))
-                .padding(.horizontal, 8)
-                .padding(.vertical, 16)
+                .sbbScreenPadding()
                 .disabled(disabled)
         }
         .navigationBarTitle("Buttons")

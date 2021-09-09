@@ -38,8 +38,7 @@ struct TextAreaView: View {
                 SBBCheckBox(isOn: $disabled, label: "Disabled", showBottomLine: false)
                 SBBCheckBox(isOn: $showBottomLine, label: "Show bottom line", showBottomLine: false)
             }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 16)
+                .sbbScreenPadding()
         }
         .navigationBarTitle("TextArea")
         .sbbStyle()

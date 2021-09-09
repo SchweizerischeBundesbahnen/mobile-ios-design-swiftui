@@ -2,8 +2,11 @@
 
 ## V0.4.8 - 08 September 2021
 
+### features
+* New ViewModifier sbbScreenPadding() which applies SBB specific padding to a Screen
+
 ### Improvements
-* Redesign: 8pt horizontal padding (instead of 16pt as of until now)
+* Update Demo App with the new padding
 
 ## V0.4.7 - 06 August 2021
 

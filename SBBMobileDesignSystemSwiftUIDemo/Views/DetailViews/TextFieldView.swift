@@ -45,8 +45,7 @@ struct TextFieldView: View {
                 SBBCheckBox(isOn: $showBottomLine, label: "Show bottom line", showBottomLine: false)
                 SBBCheckBox(isOn: $model.showError, label: "Show Error", showBottomLine: false)
             }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 16)
+                .sbbScreenPadding()
         }
         .navigationBarTitle("TextField")
         .sbbStyle()

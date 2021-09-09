@@ -15,11 +15,11 @@ class SBBDividerTests: XCTestCase {
     
     func testDividerLight() {
         let view = SBBDivider()
-        assertSnapshot(matching: view.colorScheme(.light).toVC(), as: .image)
+        assertSnapshot(matching: view.colorScheme(.light).toVC(), as: .image, record: false)
     }
 
     func testDividerDark() {
         let view = SBBDivider()
-        assertSnapshot(matching: view.colorScheme(.dark).toVC(), as: .image)
+        assertSnapshot(matching: view.colorScheme(.dark).toVC(), as: .image, record: false)
     }
 }

@@ -89,8 +89,7 @@ public struct SBBModalView<Content>: View where Content: View {
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                 }
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 16)
+                    .sbbScreenPadding()
                 content
                     .padding(.bottom, style == .popup ? 16 : 0)
             }

@@ -48,8 +48,7 @@ struct SegmentedPickerViewDemo: View {
                         .sbbFont(.body)
                     Spacer()
                 }
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 16)
+                    .sbbScreenPadding()
             }
         }
             .navigationBarTitle("SegmentedPicker")

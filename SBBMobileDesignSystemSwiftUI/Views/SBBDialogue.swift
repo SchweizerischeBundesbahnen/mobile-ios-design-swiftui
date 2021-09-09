@@ -116,8 +116,7 @@ public struct SBBDialogue<Content>: View where Content: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
-                .padding(.horizontal, 8)
-                .padding(.vertical, 16)
+                .sbbScreenPadding()
                 .background(style.contentBackgroundColor)
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topLeft)
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topRight)
