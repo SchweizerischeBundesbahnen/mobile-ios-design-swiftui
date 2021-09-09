@@ -35,7 +35,7 @@ struct PaginationViewDemo: View {
                     .buttonStyle(SBBIconButtonStyle(size: .small))
             }
         }
-            .padding(16)
+            .sbbScreenPadding()
             .navigationBarTitle("Pagination")
             .sbbStyle()
             .colorScheme(colorScheme)

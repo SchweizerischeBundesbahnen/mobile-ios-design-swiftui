@@ -44,7 +44,7 @@ struct ProcessFlowDemo: View {
                     .padding(16)
                 }
             }
-                .padding(16)
+                .sbbScreenPadding()
         }
             .navigationBarTitle("ProcessFlow")
             .sbbStyle()

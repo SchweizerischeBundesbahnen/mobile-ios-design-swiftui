@@ -35,7 +35,7 @@ struct ListItemDemo: View {
                     })
                 }
             }
-            .padding(16)
+                .sbbScreenPadding()
         }
             .navigationBarTitle("ListItem")
             .sbbStyle()

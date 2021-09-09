@@ -29,7 +29,7 @@ struct ToastDemo: View {
                 }
                     .buttonStyle(SBBPrimaryButtonStyle())
             }
-                .padding(16)
+                .sbbScreenPadding()
         }
             .frame(maxWidth: .infinity)
             .navigationBarTitle("Toast")

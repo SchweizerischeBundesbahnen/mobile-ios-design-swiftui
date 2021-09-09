@@ -54,7 +54,7 @@ struct DialogueDemo: View {
                             .buttonStyle(SBBPrimaryButtonStyle())
                     }
                 }
-                    .padding(16)
+                    .sbbScreenPadding()
                 if showDialogue && !(style == .fullscreen) {
                     SBBDialogue(title: title, label: label, errorCode: errorCode, style: style == .inline ? .inline : style == .fullscreen ? .fullscreen : .list, imageStyle: showImage ? (imageStyle == .happy ? .happy : .sad) : nil) {
                         if actionType == 0 {    // customActions

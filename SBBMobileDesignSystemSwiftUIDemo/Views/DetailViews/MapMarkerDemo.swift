@@ -18,7 +18,7 @@ struct MapMarkerDemo: View {
                     SBBMapMarker(icon: Image(sbbName: "station", size: .small), style: .black)
                 }
             }
-                .padding(16)
+                .sbbScreenPadding()
         }
             .navigationBarTitle("Map Marker")
             .sbbStyle()

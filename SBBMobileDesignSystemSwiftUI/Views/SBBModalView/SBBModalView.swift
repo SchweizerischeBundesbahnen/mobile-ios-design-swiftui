@@ -89,7 +89,7 @@ public struct SBBModalView<Content>: View where Content: View {
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                 }
-                    .padding(16)
+                    .sbbScreenPadding()
                 content
                     .padding(.bottom, style == .popup ? 16 : 0)
             }
@@ -102,7 +102,7 @@ public struct SBBModalView<Content>: View where Content: View {
                         .clipped()
                         .edgesIgnoringSafeArea(.bottom)
                 )
-                .padding(.horizontal, style == .popup ? 16 : 0)
+                .padding(.horizontal, style == .popup ? 8 : 0)
         }
             .edgesIgnoringSafeArea(.bottom)
             .background(Color.clear)

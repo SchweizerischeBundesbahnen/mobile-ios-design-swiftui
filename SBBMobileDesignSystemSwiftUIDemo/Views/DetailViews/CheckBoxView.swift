@@ -56,7 +56,7 @@ struct CheckBoxView: View {
                 }
                 Spacer()
             }
-                .padding(16)
+                .sbbScreenPadding()
         }
         .navigationBarTitle("CheckBox")
         .sbbStyle()
