@@ -14,7 +14,7 @@ struct OnboardingCardsWrapperView: View {
             ZStack(alignment: .topLeading) {
                 Rectangle() // Fill the upper cornerRadius edges with red color, so that the View appears to only have cornerRadius at the bottom
                     .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.top))
-                    .frame(height: 16)
+                    .frame(height: 8)
                 if viewModel.currentCardView != nil {
                     GeometryReader { geometry in
                         ZStack {
@@ -29,9 +29,8 @@ struct OnboardingCardsWrapperView: View {
                             }
                         }
                             .padding(.top, geometry.safeAreaInsets.top)
-                            .padding(16)
+                            .padding(8)
                             .edgesIgnoringSafeArea(.top)
-                            .clipped()
                             .background(Color.sbbColor(.red).cornerRadius(16).edgesIgnoringSafeArea([.top, .horizontal]))
                     }
                 }
@@ -69,7 +68,7 @@ struct OnboardingCardsWrapperView: View {
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                     .accessibility(identifier: "onboardingAbortTourButton")
             }
-                .padding(.horizontal, 16)
+                .padding(.horizontal, 8)
                 .padding(.vertical, 24)
         }
             .foregroundColor(.sbbColor(.textBlack))

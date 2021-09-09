@@ -1,5 +1,13 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.8 - 08 September 2021
+
+### features
+* New ViewModifier sbbScreenPadding() which applies SBB specific padding to a Screen
+
+### Improvements
+* Update Demo App with the new padding
+
 ## V0.4.7 - 06 August 2021
 
 ### Improvements

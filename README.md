@@ -70,6 +70,15 @@ Applies SBB styling to any View. You typically apply the sbbStyle() View modifie
         .sbbStyle()
 ```
 
+## SBBScreenPadding
+
+Applies SBB specific padding to a Screen (horizontal: 8, vertical: 16). You typically apply this ViewModifier to Views that cover the entire screen.
+
+```    
+    YourView()
+        .sbbScreenPadding()
+```
+
 ## NavigationBar
 
 Initializing the Library in your app will setup all NavigationBars (& StatusBars) in the SBB style.

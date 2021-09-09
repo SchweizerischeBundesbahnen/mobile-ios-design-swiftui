@@ -95,8 +95,6 @@ public struct SBBDialogue<Content>: View where Content: View {
                     .offset(y: 16)
                     .accessibility(hidden: true)
             }
-            HStack {
-                Spacer()
             VStack(alignment: .center, spacing: 16) {
                 title
                     .sbbFont(.titleModul)
@@ -118,9 +116,7 @@ public struct SBBDialogue<Content>: View where Content: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
-                Spacer()
-            }
-                .padding(16)
+                .sbbScreenPadding()
                 .background(style.contentBackgroundColor)
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topLeft)
                 .cornerRadius((style == .fullscreen) ? 16 : 0, corners: .topRight)

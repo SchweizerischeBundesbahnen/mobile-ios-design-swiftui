@@ -41,7 +41,7 @@ struct ToggleDemo: View {
                 .sbbFont(.body)
             Spacer()
         }
-            .padding(16)
+            .sbbScreenPadding()
             .navigationBarTitle("Toggle")
             .sbbStyle()
             .colorScheme(colorScheme)

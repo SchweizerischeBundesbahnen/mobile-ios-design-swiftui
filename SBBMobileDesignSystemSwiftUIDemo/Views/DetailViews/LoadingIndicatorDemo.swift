@@ -57,7 +57,7 @@ struct LoadingIndicatorDemo: View {
                         .background(Color.sbbColor(.red))
                 }
             }
-                .padding(16)
+                .sbbScreenPadding()
         }
         .navigationBarTitle("LoadingIndicator")
         .sbbStyle()

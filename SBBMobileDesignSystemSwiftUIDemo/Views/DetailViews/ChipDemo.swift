@@ -36,7 +36,7 @@ struct ChipDemo: View {
                     }
                 }
             }
-                .padding(16)
+                .sbbScreenPadding()
         }
         .navigationBarTitle("Chip")
         .sbbStyle()

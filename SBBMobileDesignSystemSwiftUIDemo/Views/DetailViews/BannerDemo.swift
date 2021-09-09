@@ -26,7 +26,7 @@ struct BannerDemo: View {
             }
             Spacer()
         }
-        .padding(16)
+        .sbbScreenPadding()
         .navigationBarTitle("Banner")
         .sbbStyle()
         .colorScheme(colorScheme)

@@ -35,7 +35,7 @@ struct FormGroupView: View {
                     }
                     Spacer()
                 }
-                    .padding(16)
+                    .sbbScreenPadding()
             }
                 .navigationBarTitle("FormGroup")
                 .sbbStyle()

@@ -18,7 +18,7 @@ struct ListItemDetailDemo: View {
             }
             Spacer()
         }
-            .padding(16)
+            .sbbScreenPadding()
             .navigationBarTitle("Detail View")
             .sbbStyle()
             .colorScheme(colorScheme)

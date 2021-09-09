@@ -21,7 +21,7 @@ struct NavigationBarWithSBBIconDemo: View {
             }
             Spacer()
         }
-        .padding(16)
+        .sbbScreenPadding()
         .sbbStyle()
         .navigationBarTitle("NavBar Icon")
         .navigationBarItems(trailing: SBBNavigationBarSBBIcon(onTouchAction: {
