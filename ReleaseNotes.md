@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.9 - 06 October 2021
+
+### Improvements
+* Reduced top-offset (8pt) for OnboardingCards hidden behind current card.
+
 ## V0.4.8 - 08 September 2021
 
 ### features

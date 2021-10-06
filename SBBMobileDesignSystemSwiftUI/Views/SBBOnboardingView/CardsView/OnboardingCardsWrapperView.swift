@@ -130,7 +130,7 @@ struct OnboardingCardsWrapperView: View {
     
     private func yOffsetForCard(at index: Int) -> CGFloat {
         if index > self.viewModel.currentCardIndex {
-            return -CGFloat(index - self.viewModel.currentCardIndex) * 12
+            return -CGFloat(index - self.viewModel.currentCardIndex) * 8
         }
         
         return 0
