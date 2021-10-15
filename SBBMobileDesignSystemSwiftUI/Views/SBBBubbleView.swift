@@ -302,6 +302,7 @@ struct SBBBubbleView_Previews: PreviewProvider {
                         Text("ca. +12'")
                             .foregroundColor(.sbbColor(.red))
                             .font(.sbbTitleDefault)
+                            .padding(.top, 6)
                     }, fixedContent: {
                         SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {
                             Text("Wagen")
