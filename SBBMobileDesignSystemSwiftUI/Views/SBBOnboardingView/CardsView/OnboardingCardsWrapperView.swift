@@ -20,7 +20,7 @@ struct OnboardingCardsWrapperView: View {
                         ZStack {
                             ForEach((0..<self.viewModel.cardViews.count).reversed(), id: \.self) { index in
                                 self.viewModel.cardViews[index]
-                                    .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width))
+                                    .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width, safeAreaInsets: geometry.safeAreaInsets))
                                     .offset(y: self.yOffsetForCard(at: index))
                                     .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)
                                     .opacity(self.opacityForCard(at: index))
@@ -28,9 +28,9 @@ struct OnboardingCardsWrapperView: View {
                                     .accessibility(hidden: self.accessibilityHiddenForCard(at: index))
                             }
                         }
-                            .padding(.top, geometry.safeAreaInsets.top)
-                            .padding(8)
                             .edgesIgnoringSafeArea(.top)
+                            .padding([.horizontal, .bottom], 8)
+                            .padding(.top, 16)
                             .background(Color.sbbColor(.red).cornerRadius(16).edgesIgnoringSafeArea([.top, .horizontal]))
                     }
                 }
@@ -118,11 +118,11 @@ struct OnboardingCardsWrapperView: View {
         UIAccessibility.post(notification: .screenChanged, argument: nil)   // reset voiceover focus (to the current card)
     }
     
-    private func xOffsetForCard(at index: Int, cardWidth: CGFloat) -> CGFloat {
+    private func xOffsetForCard(at index: Int, cardWidth: CGFloat, safeAreaInsets: EdgeInsets) -> CGFloat {
         let dragOffset = self.showDragOffsetForCard(at: index) ? self.dragOffset.width : 0
         
         if index < self.viewModel.currentCardIndex {
-            return CGFloat(index - self.viewModel.currentCardIndex) * cardWidth + dragOffset
+            return CGFloat(index - self.viewModel.currentCardIndex) * cardWidth + dragOffset - safeAreaInsets.leading
         }
         
         return 0 + dragOffset
@@ -146,7 +146,7 @@ struct OnboardingCardsWrapperView: View {
     
     private func opacityForCard(at index: Int) -> Double {
         if index > self.viewModel.currentCardIndex {
-            return 1 - (Double(index - self.viewModel.currentCardIndex) * 0.2)
+            return 1 - (Double(index - self.viewModel.currentCardIndex) * (1/3))
         }
         
         return 1
