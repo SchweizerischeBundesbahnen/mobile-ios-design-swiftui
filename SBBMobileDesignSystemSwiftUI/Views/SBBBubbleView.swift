@@ -4,18 +4,18 @@
 
 import SwiftUI
 
-/**
- Returns a SBBBubbleView.
- 
- - Parameters:
-    - image: The Image to display on the top leading edge (typically a SBB Icon).
-    - title: The Text to display as title.
-    - titleAccessibility: The optional alternative text for the title's VoiceOver.
-    - subtitle: The Text to display as subtitle.
-    - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
-    - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
- */
-public extension SBBBubbleView where ExpandableContent == EmptyView, FixedContent == EmptyView {
+public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleContent == EmptyView, FixedContent == EmptyView {
+    /**
+     Returns a SBBBubbleView.
+     
+     - Parameters:
+        - image: The Image to display on the top leading edge (typically a SBB Icon).
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - subtitle: The Text to display as subtitle.
+        - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
+        - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+     */
     init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true) {
         self.image = image
         self.title = title
@@ -25,82 +25,14 @@ public extension SBBBubbleView where ExpandableContent == EmptyView, FixedConten
         self._expanded = .constant(false)
         self.extendNavigationBarBackground = extendNavigationBarBackground
         self.expandableContent = nil
+        self.subtitleContent = nil
         self.fixedContent = nil
     }
 }
 
-/**
- Returns a SBBBubbleView with collapsible content.
- 
- - Parameters:
-    - image: The Image to display on the top leading edge (typically a SBB Icon).
-    - title: The Text to display as title.
-    - titleAccessibility: The optional alternative text for the title's VoiceOver.
-    - subtitle: The Text to display as subtitle.
-    - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
-    - expanded: Sets the collapsed/expanded state of the BubbleView.
-    - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
-    - expandableContent: The custom View which can be collapsed.
- */
-public extension SBBBubbleView where FixedContent == EmptyView {
-    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent) {
-        self.image = image
-        self.title = title
-        self.titleAccessibility = titleAccessibility
-        self.subtitle = subtitle
-        self.subtitleAccessibility = subtitleAccessibility
-        self._expanded = expanded
-        self.extendNavigationBarBackground = extendNavigationBarBackground
-        self.expandableContent = expandableContent()
-        self.fixedContent = nil
-    }
-}
-
-/**
- Returns a SBBBubbleView with custom content below the subtitle.
- 
- - Parameters:
-    - image: The Image to display on the top leading edge (typically a SBB Icon).
-    - title: The Text to display as title.
-    - titleAccessibility: The optional alternative text for the title's VoiceOver.
-    - subtitle: The Text to display as subtitle.
-    - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
-    - expanded: Sets the collapsed/expanded state of the BubbleView.
-    - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
-    - fixedContent: The custom View shown below the subtitle.
- */
-public extension SBBBubbleView where ExpandableContent == EmptyView {
-    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
-        self.image = image
-        self.title = title
-        self.titleAccessibility = titleAccessibility
-        self.subtitle = subtitle
-        self.subtitleAccessibility = subtitleAccessibility
-        self._expanded = .constant(false)
-        self.extendNavigationBarBackground = extendNavigationBarBackground
-        self.expandableContent = nil
-        self.fixedContent = fixedContent()
-    }
-}
-
-/// A  View that is mainly used right underneath the Navigationbar. It displays an Image and a Title and optionally a subtitle and collapsible content.
-public struct SBBBubbleView<ExpandableContent, FixedContent>: View where ExpandableContent: View, FixedContent: View {
-    
-    private let image: Image
-    private let title: Text
-    private let titleAccessibility: Text?
-    private let subtitle: Text?
-    private let subtitleAccessibility: Text?
-    @Binding private var expanded: Bool
-    private let extendNavigationBarBackground: Bool
-    private let expandableContent: ExpandableContent?
-    private let fixedContent: FixedContent?
-    
-    @Environment(\.sizeCategory) var sizeCategory
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    
+public extension SBBBubbleView where FixedContent == EmptyView, SubtitleContent == EmptyView {
     /**
-     Returns a SBBBubbleView with collapsible content and custom content below the subtitle.
+     Returns a SBBBubbleView with expandable custom content.
      
      - Parameters:
         - image: The Image to display on the top leading edge (typically a SBB Icon).
@@ -111,9 +43,8 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
         - expanded: Sets the collapsed/expanded state of the BubbleView.
         - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - expandableContent: The custom View which can be collapsed.
-        - fixedContent: The custom View shown below the subtitle.
      */
-    public init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
+    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent) {
         self.image = image
         self.title = title
         self.titleAccessibility = titleAccessibility
@@ -122,8 +53,111 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
         self._expanded = expanded
         self.extendNavigationBarBackground = extendNavigationBarBackground
         self.expandableContent = expandableContent()
+        self.subtitleContent = nil
+        self.fixedContent = nil
+    }
+}
+
+public extension SBBBubbleView where ExpandableContent == EmptyView {
+    /**
+     Returns a SBBBubbleView with custom content below the  icon and subtitle.
+     
+     - Parameters:
+        - image: The Image to display on the top leading edge (typically a SBB Icon).
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - subtitleContent: The custom View shown below the subtitle
+        - fixedContent: The custom View shown below the icon and subtitle.
+     */
+    init(image: Image, title: Text, titleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder subtitleContent: @escaping () -> SubtitleContent, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
+        self.image = image
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = nil
+        self.subtitleAccessibility = nil
+        self._expanded = .constant(false)
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+        self.expandableContent = nil
+        self.subtitleContent = subtitleContent()
         self.fixedContent = fixedContent()
     }
+}
+
+public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleContent == EmptyView {
+    /**
+     Returns a SBBBubbleView with custom content below the  icon and subtitle.
+     
+     - Parameters:
+        - image: The Image to display on the top leading edge (typically a SBB Icon).
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - subtitle: The Text to display as subtitle.
+        - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
+        - expanded: Sets the collapsed/expanded state of the BubbleView.
+        - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - fixedContent: The custom View shown below the icon and subtitle.
+     */
+    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
+        self.image = image
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = subtitle
+        self.subtitleAccessibility = subtitleAccessibility
+        self._expanded = .constant(false)
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+        self.expandableContent = nil
+        self.subtitleContent = nil
+        self.fixedContent = fixedContent()
+    }
+}
+
+public extension SBBBubbleView where SubtitleContent == EmptyView {
+    /**
+     Returns a SBBBubbleView with collapsible content and custom content below the icon and subtitle.
+     
+     - Parameters:
+        - image: The Image to display on the top leading edge (typically a SBB Icon).
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - subtitle: The Text to display as subtitle.
+        - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
+        - expanded: Sets the collapsed/expanded state of the BubbleView.
+        - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - expandableContent: The custom View which can be collapsed.
+        - fixedContent: The custom View shown below the icon and subtitle.
+     */
+    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
+        self.image = image
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = subtitle
+        self.subtitleAccessibility = subtitleAccessibility
+        self._expanded = expanded
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+        self.expandableContent = expandableContent()
+        self.subtitleContent = nil
+        self.fixedContent = fixedContent()
+    }
+}
+
+
+/// A  View that is mainly used right underneath the Navigationbar. It displays an Image and a Title and optionally a subtitle and collapsible content.
+public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: View where ExpandableContent: View, SubtitleContent: View, FixedContent: View {
+    
+    private let image: Image
+    private let title: Text
+    private let titleAccessibility: Text?
+    private let subtitle: Text?
+    private let subtitleAccessibility: Text?
+    @Binding private var expanded: Bool
+    private let extendNavigationBarBackground: Bool
+    private let expandableContent: ExpandableContent?
+    private let subtitleContent: SubtitleContent?
+    private let fixedContent: FixedContent?
+    
+    @Environment(\.sizeCategory) var sizeCategory
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
     public var body: some View {
         ZStack(alignment: .top) {
@@ -137,43 +171,49 @@ public struct SBBBubbleView<ExpandableContent, FixedContent>: View where Expanda
                 VStack(alignment: .leading, spacing: 12) {
                     VStack(alignment: .leading, spacing: 8) {
                         VStack(alignment: .leading, spacing: 0) {
-                            HStack(alignment: .center) {
+                            HStack(alignment: .top) {
                                 if !SizeCategories.accessibility.contains(sizeCategory) {
                                     image
                                         .frame(width: 36, height: 36, alignment: .center)
                                         .accessibility(hidden: true)
                                 }
-                                VStack(alignment: .leading, spacing: 8) {
-                                    title
-                                        .sbbFont(.titleDefault)
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .accessibility(label: self.titleAccessibility ?? self.title)
-                                    if let subtitle = subtitle {
-                                        subtitle
-                                            .sbbFont(.body)
+                                HStack(alignment: .center) {
+                                    VStack(alignment: .leading, spacing: 0) {
+                                        title
+                                            .sbbFont(.titleDefault)
+                                            .frame(maxWidth: .infinity, minHeight: 36, alignment: .leading)
                                             .fixedSize(horizontal: false, vertical: true)
-                                            .accessibility(label: self.subtitleAccessibility ?? subtitle)
+                                            .accessibility(label: self.titleAccessibility ?? self.title)
+                                        if let subtitle = subtitle {
+                                            subtitle
+                                                .sbbFont(.body)
+                                                .fixedSize(horizontal: false, vertical: true)
+                                                .accessibility(label: self.subtitleAccessibility ?? subtitle)
+                                        }
+                                        if let subtitleContent = subtitleContent {
+                                            subtitleContent
+                                                .sbbFont(.body)
+                                        }
+                                        if horizontalSizeClass == .regular, expanded, let expandableContent = expandableContent {
+                                            expandableContent
+                                                .sbbFont(.body)
+                                        }
                                     }
-                                    if horizontalSizeClass == .regular, expanded, let expandableContent = expandableContent {
-                                        expandableContent
-                                            .sbbFont(.body)
+                                        .accessibilityElement(children: .combine)
+                                    if horizontalSizeClass == .regular, let fixedContent = fixedContent {
+                                        fixedContent
                                     }
-                                }
-                                    .accessibilityElement(children: .combine)
-                                if horizontalSizeClass == .regular, let fixedContent = fixedContent {
-                                    fixedContent
-                                }
-                                Spacer()
-                                if (expandableContent != nil) {
-                                    Group {
-                                        Image(sbbName: "chevron-small-up", size: .small)
-                                            .rotationEffect(.degrees(self.expanded ? 0 : 180))
+                                    Spacer()
+                                    if (expandableContent != nil) {
+                                        Group {
+                                            Image(sbbName: "chevron-small-up", size: .small)
+                                                .rotationEffect(.degrees(self.expanded ? 0 : 180))
+                                        }
+                                            .accessibility(hidden: true)
+                                            .frame(width: 32, height: 32)
+                                            .clipShape(Circle())
+                                            .overlay(Circle().stroke(Color.sbbColor(.border)))
                                     }
-                                        .accessibility(hidden: true)
-                                        .frame(width: 32, height: 32)
-                                        .clipShape(Circle())
-                                        .overlay(Circle().stroke(Color.sbbColor(.border)))
                                 }
                             }
                         }
@@ -257,6 +297,19 @@ struct SBBBubbleView_Previews: PreviewProvider {
                         })
                     })
                         .previewDisplayName("Expandable & Fixed Content")
+                    SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), subtitleContent: {
+                        Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+                        Text("ca. +12'")
+                            .foregroundColor(.sbbColor(.red))
+                            .font(.sbbTitleDefault)
+                            .padding(.top, 6)
+                    }, fixedContent: {
+                        SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {
+                            Text("Wagen")
+                            Text("Perlschnur")
+                        })
+                    })
+                        .previewDisplayName("Subtitle Content & Fixed Content")
                 }
                     .environment(\.horizontalSizeClass, horizontalSizeClass)
             }

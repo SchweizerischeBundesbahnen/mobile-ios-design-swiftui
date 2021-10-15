@@ -1,5 +1,11 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.4.10 - 14 October 2021
+
+### Improvements
+* SBBBubbleView can now optionally display custom content instead of a subtitle.
+* SBBOnboardingView now has improved handling of non-active cards with safe areas.
+
 ## V0.4.9 - 06 October 2021
 
 ### Improvements
