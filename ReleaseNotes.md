@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.5.0 - 20 October 2021
+
+### Improvements
+* Background Color of SBBModalView and SBBDialogue in fullscreen mode is now distinct from normal background color.
+
 ## V0.4.10 - 14 October 2021
 
 ### Improvements

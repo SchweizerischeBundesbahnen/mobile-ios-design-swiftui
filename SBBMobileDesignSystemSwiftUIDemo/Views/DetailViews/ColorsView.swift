@@ -29,6 +29,7 @@ struct ColorsView: View {
             (.sbbColor(.granite), "granite"),
             (.sbbColor(.anthracite), "anthracite"),
             (.sbbColor(.iron), "iron"),
+            (.sbbColor(.midnight), "midnight"),
             (.sbbColor(.black), "black"),
             (.sbbColor(.blue), "blue"),
             (.sbbColor(.sky), "sky"),

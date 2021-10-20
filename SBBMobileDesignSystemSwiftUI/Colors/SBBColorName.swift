@@ -36,6 +36,7 @@ public enum SBBColorName: String {
     case green = "Green"
     case shadow = "Shadow"
     case charcoal = "Charcoal"
+    case midnight = "Midnight"
     
     // Semantic Colors
     /// ColorScheme specific color for black Text.
