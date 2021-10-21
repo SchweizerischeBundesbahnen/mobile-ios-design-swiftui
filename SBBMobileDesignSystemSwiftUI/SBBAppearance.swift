@@ -19,12 +19,6 @@ public class SBBAppearance {
     public class func setupSBBAppearance() {
         setupSBBFonts()
         setupSBBNavigationBar()
-        
-        if #available(iOS 14, *) {
-            // use SwitchToggleStyle introduced with iOS 14.0
-        } else {
-            setupSBBToggle()
-        }
     }
     
     private class func setupSBBFonts() {
@@ -40,11 +34,6 @@ public class SBBAppearance {
                                              NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 22)!]
         UINavigationBar.appearance().standardAppearance = newAppearance
         UINavigationBar.appearance().tintColor = UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)
-    }
-    
-    @available(iOS, obsoleted: 14)
-    private class func setupSBBToggle() {
-        UISwitch.appearance().onTintColor = UIColor(named: "Red", in: SBBBundle.getBundle(), compatibleWith: nil)
     }
 }
 

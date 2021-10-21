@@ -12,7 +12,7 @@
     "Schweizerische Bundesbahnen SBB": "mobile@sbb.ch"
   },
   "platforms": {
-    "ios": "13.0"
+    "ios": "14.0"
   },
   "source": {
   	"git": "ssh://git@code.sbb.ch:7999/kd_esta_mobile/esta-mobile-ios-design-swiftui.git",

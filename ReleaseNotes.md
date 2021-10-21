@@ -4,6 +4,7 @@
 
 ### Improvements
 * Background Color of SBBModalView and SBBDialogue in fullscreen mode is now distinct from normal background color.
+* Removed iOS 13 support (now requires iOS 14 or above) and simplified code.
 
 ## V0.4.10 - 14 October 2021
 

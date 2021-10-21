@@ -2,6 +2,9 @@
 
 This is a library that contains the visual design for the SBB iOS/SwiftUI Apps.
 
+## Minimum supported iOS Version
+* iOS 14.0
+
 ## Add the library to your project with Cocoapods
 
 Run this command on the terminal:
