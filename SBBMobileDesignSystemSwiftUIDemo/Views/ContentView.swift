@@ -14,7 +14,6 @@ struct ContentView: View {
     @State var colorScheme: ColorScheme = .light
     @State var contentSizeCategory: ContentSizeCategory = .medium
     @State var selectedBanner: SBBEnvironmentBanner = .none
-    @EnvironmentObject var modalViewModel: SBBModalViewModel
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     
     var body: some View {
@@ -106,10 +105,10 @@ struct ContentView: View {
                                 NavigationLink(destination: FormGroupView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("FormGroup"))
                                 }
-                                NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory).environmentObject(modalViewModel)) {
+                                NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("ModalView"))
                                 }
-                                NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory).environmentObject(modalViewModel)) {
+                                NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Dialogue"))
                                 }
                                 NavigationLink(destination: ToastDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory).environmentObject(SBBToastService())) {
@@ -168,7 +167,6 @@ struct ContentView: View {
                 }
                     .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
                     .sbbEnvironmentBanner(selectedBanner)
-                    .sbbModalContainer()
             } else {
                 OnboardingView()
             }
@@ -187,7 +185,6 @@ struct ContentView_Previews: PreviewProvider {
             ContentView(colorScheme: .dark)
                 .previewDisplayName("Dark")
         }
-            .environmentObject(SBBModalViewModel())
             .environmentObject(OnboardingViewModel(onboardingState: .hidden))
     }
 }

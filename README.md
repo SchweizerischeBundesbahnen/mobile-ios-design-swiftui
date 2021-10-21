@@ -584,37 +584,11 @@ SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView.
         // Your custom View here
     }
 ```
+
 ## SBBModalView
-SBBModalView is used to display a View above another View, typically using the .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter. To use SBBModalView, you need to create a SBBModalViewModel which nees to be added as EnvironmentObject in your SceneDelegate (and to new Views pushed using NavigationLink). You also need to add the .sbbModalContainer() ViewModifier to your upmost ContentView (you can also add it as an overlay to a specific view, if modals will only be shown from this specific view and the view covers the entire screen).
+SBBModalView is used to display a View above another View, typically using the .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter.
 
-1. Inside SceneDelegate: Create a SBBModalViewModel and add it as EnvironmentObject to the MainView:
-```    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        ...
-        
-        let modalViewModel = SBBModalViewModel()
-        
-        // Create the SwiftUI view that provides the window contents.
-        var contentView = AnyView(MainView()
-            .environmentObject(modalViewModel)
-            
-        ...
-    }
-```
 
-2. Inside your MainView (root view): apply the .sbbModalContainer() ViewModifier:
-```    
-    var body: some View {
-        NavigationView {
-            Group {
-                ...
-            }
-                .sbbModalContainer()
-        }
-    }
-```
-
-3. Use .sbbModal() to show a custom ModalView or a SBBModalView:
 ```    
     @State var showingModalView = false
     

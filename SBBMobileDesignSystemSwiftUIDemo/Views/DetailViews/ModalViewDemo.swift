@@ -36,7 +36,7 @@ struct ModalViewDemo: View {
                 Button(action: {
                     self.showingModalPopupView = true
                 }) {
-                    Text("Show Popup ModalView")
+                    Text("Show Popup ModalView \(showingModalPopupView.description)")
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
                     .sbbModal(isPresented: self.$showingModalPopupView) {

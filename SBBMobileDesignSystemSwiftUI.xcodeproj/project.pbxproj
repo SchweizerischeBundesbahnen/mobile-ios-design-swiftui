@@ -28,8 +28,6 @@
 		7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */; };
 		7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */; };
 		7C106D1925DA803700B89ECD /* SBBModalViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D1825DA803700B89ECD /* SBBModalViewModifier.swift */; };
-		7C106D1D25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D1C25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift */; };
-		7C106D2325DA815700B89ECD /* SBBModalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D2225DA815700B89ECD /* SBBModalViewModel.swift */; };
 		7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C106D2D25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift */; };
 		7C1A845825F781C5008B66D3 /* BannerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A845725F781C5008B66D3 /* BannerDemo.swift */; };
 		7C1A846225F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A846125F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift */; };
@@ -202,8 +200,6 @@
 		7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemo.swift; sourceTree = "<group>"; };
 		7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
 		7C106D1825DA803700B89ECD /* SBBModalViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalViewModifier.swift; sourceTree = "<group>"; };
-		7C106D1C25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalContainerViewModifier.swift; sourceTree = "<group>"; };
-		7C106D2225DA815700B89ECD /* SBBModalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalViewModel.swift; sourceTree = "<group>"; };
 		7C106D2D25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBToastContainerViewModifier.swift; sourceTree = "<group>"; };
 		7C1A845725F781C5008B66D3 /* BannerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerDemo.swift; sourceTree = "<group>"; };
 		7C1A846125F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBNavigationBarSBBIcon.swift; sourceTree = "<group>"; };
@@ -465,8 +461,6 @@
 			children = (
 				7CDBA68C24C16B86002289EE /* SBBModalView.swift */,
 				7C106D1825DA803700B89ECD /* SBBModalViewModifier.swift */,
-				7C106D1C25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift */,
-				7C106D2225DA815700B89ECD /* SBBModalViewModel.swift */,
 			);
 			path = SBBModalView;
 			sourceTree = "<group>";
@@ -896,7 +890,6 @@
 			files = (
 				7C6454892403F50A005997AB /* SBBDivider.swift in Sources */,
 				7C3AF99825BAA845007BBF21 /* SBBProcessFlow.swift in Sources */,
-				7C106D2325DA815700B89ECD /* SBBModalViewModel.swift in Sources */,
 				A7AC50D5249A45A000065C71 /* SBBSecondaryButtonStyle.swift in Sources */,
 				7CA3107124D99E12007E500B /* SizeCategories.swift in Sources */,
 				7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */,
@@ -931,7 +924,6 @@
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
-				7C106D1D25DA80ED00B89ECD /* SBBModalContainerViewModifier.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
 				7C595E5725A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
