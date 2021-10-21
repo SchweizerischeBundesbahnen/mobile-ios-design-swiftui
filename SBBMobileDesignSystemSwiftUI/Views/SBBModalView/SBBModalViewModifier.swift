@@ -46,7 +46,7 @@ fileprivate struct ModalViewContainer<PresentingView: View, ModalViewContent: Vi
         presentingView
             .fullScreenCover(isPresented: $isPresented) {
                 ZStack {
-                    Color.black.opacity(0.5).edgesIgnoringSafeArea(.all)
+                    Color.sbbColor(.iron).opacity(0.8).edgesIgnoringSafeArea(.all)
                         .onTapGesture {
                             isPresented = false
                         }
