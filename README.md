@@ -525,15 +525,14 @@ SBBOnboardingView is used to present basic app functionality to your users on th
     @State private var currentOnboardingCardIndex: Int = 0
 
     var body: some View {
-        Group {
-            if onboardingViewModel.state == .hidden {
-                // your ContentView here (NavigationView goes also here, if you want to use it)
-            } else {
-            SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startViewModel: startViewModel, endViewModel: endViewModel) {
-                    // add SBBOnboardingCardViews here
-                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 1"), text: Text("Text Card 1"))
-                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 2"), text: Text("Text Card 2"))
-                }
+        ZStack {
+            // your ContentView here (NavigationView goes also here, if you want to use it)
+            if onboardingViewModel.state != .hidden {
+                SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startViewModel: startViewModel, endViewModel: endViewModel) {
+                        // add SBBOnboardingCardViews here
+                        SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 1"), text: Text("Text Card 1"))
+                        SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 2"), text: Text("Text Card 2"))
+                    }
             }
         }
     }

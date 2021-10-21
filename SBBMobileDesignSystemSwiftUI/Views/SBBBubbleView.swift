@@ -172,7 +172,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                     VStack(alignment: .leading, spacing: 8) {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(alignment: .top) {
-                                if !SizeCategories.accessibility.contains(sizeCategory) {
+                                if !sizeCategory.isAccessibilityCategory {
                                     image
                                         .frame(width: 36, height: 36, alignment: .center)
                                         .accessibility(hidden: true)
@@ -224,7 +224,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                                     .sbbFont(.body)
                                     .padding(.top, 8)
                             }
-                                .padding(.leading, SizeCategories.accessibility.contains(sizeCategory) ? 0 : 44)
+                                .padding(.leading, sizeCategory.isAccessibilityCategory ? 0 : 44)
                         }
                     }
                     .accessibilityElement(children: horizontalSizeClass == .compact ? .combine : .contain)

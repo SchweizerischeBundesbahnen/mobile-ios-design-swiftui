@@ -73,7 +73,6 @@
 		7C9C46DF24CB1AED00C22E97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9C46DE24CB1AED00C22E97 /* Preview Assets.xcassets */; };
 		7CA055582660C3A000513F00 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA055572660C3A000513F00 /* OnboardingView.swift */; };
 		7CA0555A2660C43B00513F00 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA055592660C43B00513F00 /* OnboardingViewModel.swift */; };
-		7CA3107124D99E12007E500B /* SizeCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA3107024D99E12007E500B /* SizeCategories.swift */; };
 		7CA464DF2445F31100118D7B /* SBBInfoViewCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA464DE2445F31100118D7B /* SBBInfoViewCollapsible.swift */; };
 		7CA464E12445F58B00118D7B /* InfoViewCollapsibleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA464E02445F58B00118D7B /* InfoViewCollapsibleDemo.swift */; };
 		7CA5551B267A1473006A6F00 /* SBBStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5551A267A1473006A6F00 /* SBBStyle.swift */; };
@@ -248,7 +247,6 @@
 		7C9C46DE24CB1AED00C22E97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7CA055572660C3A000513F00 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7CA055592660C43B00513F00 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		7CA3107024D99E12007E500B /* SizeCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeCategories.swift; sourceTree = "<group>"; };
 		7CA464DE2445F31100118D7B /* SBBInfoViewCollapsible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBInfoViewCollapsible.swift; sourceTree = "<group>"; };
 		7CA464E02445F58B00118D7B /* InfoViewCollapsibleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewCollapsibleDemo.swift; sourceTree = "<group>"; };
 		7CA5551A267A1473006A6F00 /* SBBStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStyle.swift; sourceTree = "<group>"; };
@@ -640,7 +638,6 @@
 			children = (
 				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
-				7CA3107024D99E12007E500B /* SizeCategories.swift */,
 				7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */,
 			);
 			path = Helper;
@@ -891,7 +888,6 @@
 				7C6454892403F50A005997AB /* SBBDivider.swift in Sources */,
 				7C3AF99825BAA845007BBF21 /* SBBProcessFlow.swift in Sources */,
 				A7AC50D5249A45A000065C71 /* SBBSecondaryButtonStyle.swift in Sources */,
-				7CA3107124D99E12007E500B /* SizeCategories.swift in Sources */,
 				7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */,
 				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
@@ -1121,7 +1117,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1180,7 +1176,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1304,7 +1300,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1325,7 +1321,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1392,7 +1388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1436,7 +1432,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1525,7 +1521,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1569,7 +1565,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SBBMobileDesignSystemSwiftUIDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
