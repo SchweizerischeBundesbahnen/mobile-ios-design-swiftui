@@ -22,12 +22,8 @@ public struct SBBSwitchStyle: ToggleStyle {
         @Environment(\.isEnabled) private var isEnabled: Bool
         
         var body: some View {
-            if #available(iOS 14.0, *) {
-                Toggle<ToggleStyleConfiguration.Label>(isOn: configuration.$isOn, label: { configuration.label })
-                    .toggleStyle(SwitchToggleStyle(tint: .sbbColor(.red)))
-            } else {
-                Toggle<ToggleStyleConfiguration.Label>(isOn: configuration.$isOn, label: { configuration.label })
-            }
+            Toggle<ToggleStyleConfiguration.Label>(isOn: configuration.$isOn, label: { configuration.label })
+                .toggleStyle(SwitchToggleStyle(tint: .sbbColor(.red)))
         }
     }
 }

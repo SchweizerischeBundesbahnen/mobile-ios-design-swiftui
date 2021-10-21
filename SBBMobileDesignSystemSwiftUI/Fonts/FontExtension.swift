@@ -66,11 +66,7 @@ public extension Font {
         - size: The size of the Font.
      */
     static func sbbBold(size: CGFloat) -> Font {
-        if #available(iOS 14.0, *) {
-            return Font.custom("SBBWeb-Bold", size: size, relativeTo: .body)
-        } else {
-            return Font.custom("SBBWeb-Bold", size: UIFontMetrics.default.scaledValue(for: size))
-        }
+        return Font.custom("SBBWeb-Bold", size: size, relativeTo: .body)
     }
     
     /**
@@ -80,12 +76,7 @@ public extension Font {
         - size: The size of the Font.
      */
     static func sbbBoldCondensed(size: CGFloat) -> Font {
-        if #available(iOS 14.0, *) {
-            return Font.custom("SBBWebCondensed-Bold", size: size, relativeTo: .body)
-        } else {
-            return Font.custom("SBBWebCondensed-Bold", size: UIFontMetrics.default.scaledValue(for: size))
-        }
-
+        return Font.custom("SBBWebCondensed-Bold", size: size, relativeTo: .body)
     }
     
     /**
@@ -95,11 +86,7 @@ public extension Font {
         - size: The size of the Font.
      */
     static func sbbHeavyCondensed(size: CGFloat) -> Font {
-        if #available(iOS 14.0, *) {
-            return Font.custom("SBBWebCondensed-Heavy", size: size, relativeTo: .body)
-        } else {
-            return Font.custom("SBBWebCondensed-Heavy", size: UIFontMetrics.default.scaledValue(for: size))
-        }
+        return Font.custom("SBBWebCondensed-Heavy", size: size, relativeTo: .body)
     }
     
     /**
@@ -109,11 +96,7 @@ public extension Font {
         - size: The size of the Font.
      */
     static func sbbItalic(size: CGFloat) -> Font {
-        if #available(iOS 14.0, *) {
-            return Font.custom("SBBWeb-Italic", size: size, relativeTo: .body)
-        } else {
-            return Font.custom("SBBWeb-Italic", size: UIFontMetrics.default.scaledValue(for: size))
-        }
+        return Font.custom("SBBWeb-Italic", size: size, relativeTo: .body)
     }
     
     /**
@@ -123,11 +106,7 @@ public extension Font {
         - size: The size of the Font.
      */
     static func sbbLight(size: CGFloat) -> Font {
-        if #available(iOS 14.0, *) {
-            return Font.custom("SBBWeb-Light", size: size, relativeTo: .body)
-        } else {
-            return Font.custom("SBBWeb-Light", size: UIFontMetrics.default.scaledValue(for: size))
-        }
+        return Font.custom("SBBWeb-Light", size: size, relativeTo: .body)
     }
     
     /**
@@ -137,11 +116,7 @@ public extension Font {
         - size: The size of the Font.
      */
     static func sbbRoman(size: CGFloat) -> Font {
-        if #available(iOS 14.0, *) {
-            return Font.custom("SBBWeb-Roman", size: size, relativeTo: .body)
-        } else {
-            return Font.custom("SBBWeb-Roman", size: UIFontMetrics.default.scaledValue(for: size))
-        }
+        return Font.custom("SBBWeb-Roman", size: size, relativeTo: .body)
     }
     
     /**
@@ -151,11 +126,7 @@ public extension Font {
         - size: The size of the Font.
      */
     static func sbbThin(size: CGFloat) -> Font {
-        if #available(iOS 14.0, *) {
-            return Font.custom("SBBWeb-Thin", size: size, relativeTo: .body)
-        } else {
-            return Font.custom("SBBWeb-Thin", size: UIFontMetrics.default.scaledValue(for: size))
-        }
+        return Font.custom("SBBWeb-Thin", size: size, relativeTo: .body)
     }
     
     /**
@@ -165,10 +136,6 @@ public extension Font {
         - size: The size of the Font.
      */
     static func sbbUltralight(size: CGFloat) -> Font {
-        if #available(iOS 14.0, *) {
-            return Font.custom("SBBWeb-UltraLight", size: size, relativeTo: .body)
-        } else {
-            return Font.custom("SBBWeb-UltraLight", size: UIFontMetrics.default.scaledValue(for: size))
-        }
+        return Font.custom("SBBWeb-UltraLight", size: size, relativeTo: .body)
     }
 }
