@@ -46,6 +46,7 @@ Call the method setupSBBApperance() in the AppDelegate.
         // Override point for customization after application launch.
         
         SBBAppearance.setupSBBAppearance()
+        SBBAppearance.setupSBBAppearance(theme: SBBTheme(primaryColor: .blue, secondaryColor: .darkBlue))    // using your own color theme
         
         return true
     }

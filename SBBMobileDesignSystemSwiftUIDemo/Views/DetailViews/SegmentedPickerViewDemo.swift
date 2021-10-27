@@ -14,13 +14,13 @@ struct SegmentedPickerViewDemo: View {
     
     var body: some View {
         VStack(spacing: 0) {
-            SBBSegmentedPicker(selection: self.$selectedSegment1, tags: [0, 1, 2], style: .red) {
+            SBBSegmentedPicker(selection: self.$selectedSegment1, tags: [0, 1, 2], style: .primaryColor) {
                 Text("Opt 1")
                 Text("Opt 2")
                 Text("Opt 3")
             }
                 .padding(8)
-                .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.horizontal))
+                .background(Color.sbbColor(.primary).edgesIgnoringSafeArea(.horizontal))
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
                     

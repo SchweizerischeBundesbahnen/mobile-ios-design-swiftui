@@ -1,9 +1,5 @@
 //
-//  ContentView.swift
-//  SBBMobileDesignSystemSwiftUIDemo
-//
-//  Created by Georgios Antoniadis on 23.01.20.
-//  Copyright © 2020 SBB. All rights reserved.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
 import SwiftUI

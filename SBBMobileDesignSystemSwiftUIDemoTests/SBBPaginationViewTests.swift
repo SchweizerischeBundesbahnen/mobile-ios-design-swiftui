@@ -1,9 +1,5 @@
 //
-//  SBBPaginationViewTests.swift
-//  SBBMobileDesignSystemSwiftUIDemoTests
-//
-//  Created by Terence Alberti on 23.12.20.
-//  Copyright © 2020 SBB. All rights reserved.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
 import XCTest

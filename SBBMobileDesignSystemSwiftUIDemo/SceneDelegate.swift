@@ -1,9 +1,5 @@
 //
-//  SceneDelegate.swift
-//  SBBMobileDesignSystemSwiftUIDemo
-//
-//  Created by Georgios Antoniadis on 23.01.20.
-//  Copyright © 2020 SBB. All rights reserved.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
 import UIKit
@@ -13,7 +9,6 @@ import SBBMobileDesignSystemSwiftUI
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.

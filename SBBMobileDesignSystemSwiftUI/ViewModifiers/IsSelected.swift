@@ -35,7 +35,7 @@ extension EnvironmentValues {
     
     
     var isSelected: Bool {
-        get { self[SelectedKey] }
-        set { self[SelectedKey] = newValue }
+        get { self[SelectedKey.self] }
+        set { self[SelectedKey.self] = newValue }
     }
 }

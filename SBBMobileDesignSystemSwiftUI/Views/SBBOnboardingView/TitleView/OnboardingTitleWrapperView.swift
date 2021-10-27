@@ -46,7 +46,7 @@ struct OnboardingTitleWrapperView: View {
                 .accessibility(identifier: "onboardingTitleViewEndTourButton")
         }
             .sbbScreenPadding()
-            .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.all))
+            .background(Color.sbbColor(.primary).edgesIgnoringSafeArea(.all))
     }
 }
 

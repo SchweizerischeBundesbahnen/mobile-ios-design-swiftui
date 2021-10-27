@@ -112,7 +112,7 @@ public struct SBBListItem: View {
                     }
                         .frame(width: max(-(self.horizontalDragOffset + self.horizontalFixedOffset), 0))
                         .foregroundColor(Color.sbbColor(.white))
-                        .background(Color.sbbColor(.red))
+                        .background(Color.sbbColor(.primary))
                 }
             }
             HStack {
