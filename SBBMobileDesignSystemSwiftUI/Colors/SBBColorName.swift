@@ -6,6 +6,11 @@ import Foundation
 
 /// SBBColor names.
 public enum SBBColorName: String {
+    
+    // User set colors
+    case primary = "Primary"
+    case secondary = "Secondary"
+    
     // Colors
     case red = "Red"
     case red125 = "Red125"

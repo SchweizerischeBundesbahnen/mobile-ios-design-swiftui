@@ -12,7 +12,7 @@ struct LoadingIndicatorDemo: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 16) {
-                SBBFormGroup(title: "size: .normal, style: .red") {
+                SBBFormGroup(title: "size: .normal, style: .primary") {
                     HStack {
                         Spacer()
                         SBBLoadingIndicator()
@@ -29,12 +29,12 @@ struct LoadingIndicatorDemo: View {
                 SBBFormGroup(title: "size: .normal, style: .white") {
                     HStack {
                         Spacer()
-                        SBBLoadingIndicator(style: .white)
+                        SBBLoadingIndicator(style: .primaryBackground)
                         Spacer()
                     }
-                        .background(Color.sbbColor(.red))
+                        .background(Color.sbbColor(.primary))
                 }
-                SBBFormGroup(title: "size: .small, style: .red") {
+                SBBFormGroup(title: "size: .small, style: .primary") {
                     HStack {
                         Spacer()
                         SBBLoadingIndicator(size: .small)
@@ -51,10 +51,10 @@ struct LoadingIndicatorDemo: View {
                 SBBFormGroup(title: "size: .small, style: .white") {
                     HStack {
                         Spacer()
-                        SBBLoadingIndicator(size: .small, style: .white)
+                        SBBLoadingIndicator(size: .small, style: .primaryBackground)
                         Spacer()
                     }
-                        .background(Color.sbbColor(.red))
+                        .background(Color.sbbColor(.primary))
                 }
             }
                 .sbbScreenPadding()

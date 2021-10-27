@@ -40,9 +40,9 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
             if !enabled {
                 return .sbbColor(.metal)
             } else if isPressed {
-                return .sbbColor(.red125)
+                return .sbbColor(.secondary)
             } else {
-                return .sbbColor(.red)
+                return .sbbColor(.primary)
             }
         }
     }

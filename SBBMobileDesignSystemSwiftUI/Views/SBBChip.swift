@@ -16,7 +16,7 @@ public struct SBBChip: View {
     private var backgroundColor: Color {
         switch (isSelected, colorScheme) {
         case (false, _):
-            return Color.sbbColor(.red)
+            return Color.sbbColor(.primary)
         case (true, .light):
             return Color.sbbColor(.milk)
         case (true, .dark):

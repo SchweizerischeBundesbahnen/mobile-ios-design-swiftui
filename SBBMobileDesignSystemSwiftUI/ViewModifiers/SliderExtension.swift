@@ -34,6 +34,6 @@ public extension Slider {
 struct SBBSlider: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .accentColor(Color.sbbColor(.red))
+            .accentColor(Color.sbbColor(.primary))
     }
 }

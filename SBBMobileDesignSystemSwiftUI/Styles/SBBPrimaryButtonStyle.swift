@@ -61,9 +61,9 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
             if !enabled {
                 return .sbbColor(.disabledButtonBackground)
             } else if isPressed {
-                return .sbbColor(.red150)
+                return .sbbColor(.secondary)
             } else {
-                return .sbbColor(.red)
+                return .sbbColor(.primary)
             }
         }
     }

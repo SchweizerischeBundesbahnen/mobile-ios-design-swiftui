@@ -14,7 +14,7 @@ struct TypographyCustomFontView: View {
     var body: some View {
         VStack {
             Slider(value: $fontSize, in: 4...50, step: 1)
-                .accentColor(.sbbColor(.red))
+                .accentColor(.sbbColor(.primary))
             Text("Custom Font Size: \(Int(fontSize))")
                 .font(.sbbBody)
             SBBDivider()

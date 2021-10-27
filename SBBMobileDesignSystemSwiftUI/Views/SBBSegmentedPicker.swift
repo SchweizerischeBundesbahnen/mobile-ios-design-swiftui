@@ -11,15 +11,15 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
     public enum Style {
         /// Normal SBBSegmentedPicker Style (white/gray colors)
         case normal
-        /// Normal SBBSegmentedPicker Style (red colors, to be used right underneath the Navigationbar)
-        case red
+        /// SBBSegmentedPicker Style wiht the custom set primary color
+        case primaryColor
         
         var currentSegmentBackgroundColor: Color {
             switch self {
             case .normal:
                 return Color.sbbColor(.tabViewBackground)
-            case .red:
-                return Color.sbbColor(.red)
+            case .primaryColor:
+                return Color.sbbColor(.primary)
             }
         }
         
@@ -27,7 +27,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
             switch self {
             case .normal:
                 return Color.sbbColor(.textBlack)
-            case .red:
+            case .primaryColor:
                 return Color.sbbColor(.white)
             }
         }
@@ -36,8 +36,17 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
             switch self {
             case .normal:
                 return Color.sbbColorInternal(.segmentedPickerBackground)
-            case .red:
-                return Color(red: 211 / 255, green: 0, blue: 0, opacity: 1)   // #D30000
+            case .primaryColor:
+                return Color.sbbColor(.primary)
+            }
+        }
+        
+        var backgroundSaturation: Double {
+            switch self {
+            case .normal:
+                return 1
+            case .primaryColor:
+                return 0.8
             }
         }
     }
@@ -116,7 +125,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
         }
             .padding(2)
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
-            .background(style.backgroundColor)
+            .background(style.backgroundColor.saturation(style.backgroundSaturation))
             .cornerRadius(22)
     }
     
@@ -145,16 +154,16 @@ struct SBBSegmentedPicker_Previews: PreviewProvider {
             }
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
-            SBBSegmentedPicker(selection: .constant(1), tags: [0, 1], style: .red) {
+            SBBSegmentedPicker(selection: .constant(1), tags: [0, 1], style: .primaryColor) {
                 Text("Tab1")
                 Text("Tab2")
             }
-                .previewDisplayName("Red, Light")
-            SBBSegmentedPicker(selection: .constant(1), tags: [0, 1], style: .red) {
+                .previewDisplayName("Primary, Light")
+            SBBSegmentedPicker(selection: .constant(1), tags: [0, 1], style: .primaryColor) {
                 Text("Tab1")
                 Text("Tab2")
             }
-                .previewDisplayName("Red, Dark")
+                .previewDisplayName("Primary, Dark")
                 .environment(\.colorScheme, .dark)
         }
             .previewLayout(.sizeThatFits)

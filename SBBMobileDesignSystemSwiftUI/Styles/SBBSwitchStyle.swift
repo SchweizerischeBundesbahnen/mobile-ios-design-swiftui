@@ -23,7 +23,7 @@ public struct SBBSwitchStyle: ToggleStyle {
         
         var body: some View {
             Toggle<ToggleStyleConfiguration.Label>(isOn: configuration.$isOn, label: { configuration.label })
-                .toggleStyle(SwitchToggleStyle(tint: .sbbColor(.red)))
+                .toggleStyle(SwitchToggleStyle(tint: .sbbColor(.primary)))
         }
     }
 }

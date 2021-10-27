@@ -27,24 +27,24 @@ public struct SBBLoadingIndicator: View {
     
     /// SBBLoadingIndicator Style.
     public enum Style {
-        /// Red SBBLoadingIndicator on a background depending on the current ColorScheme.
-        case red
+        /// SBBLoadingIndicator in primary color (red by default) on a background depending on the current ColorScheme.
+        case primary
         /// Grey SBBLoadingIndicator on a background depending on the current ColorScheme.
         case grey
-        /// White SBBLoadingIndicator on a red background.
-        case white
+        /// White SBBLoadingIndicator on a  background of the primary color (red by default).
+        case primaryBackground
         
         func color(for colorScheme: ColorScheme) -> Color {
             switch (self, colorScheme) {
-            case (.red, _):
-                return Color.sbbColor(.red).opacity(1.0)
+            case (.primary, _):
+                return Color.sbbColor(.primary).opacity(1.0)
             case (.grey, .light):
                 return Color.sbbColor(.iron).opacity(0.5)
             case (.grey, .dark):
                 return Color.sbbColor(.white).opacity(0.7)
             case (.grey, _):    // should never happen, silences a warning
                 return Color.sbbColor(.iron).opacity(0.5)
-            case (.white, _):
+            case (.primaryBackground, _):
                 return Color.sbbColor(.white).opacity(0.7)
             }
         }
@@ -75,7 +75,7 @@ public struct SBBLoadingIndicator: View {
         - size: Sets the size of the SBBLoadingIndicator.
         - style: Sets the colof of the SBBLoadingIndicator.
      */
-    public init(size: Size = .normal, style: Style = .red) {
+    public init(size: Size = .normal, style: Style = .primary) {
         self.style = style
         self.width = size.size.width
         self.height = size.size.height
@@ -135,9 +135,9 @@ struct SBBLoadingIndicator_Previews: PreviewProvider {
                     .previewDisplayName("normal, grey, light")
                 SBBLoadingIndicator(style: .grey)
                     .previewDisplayName("normal, grey, dark")
-                SBBLoadingIndicator(style: .white)
+                SBBLoadingIndicator(style: .primaryBackground)
                     .previewDisplayName("normal, white, light")
-                SBBLoadingIndicator(style: .white)
+                SBBLoadingIndicator(style: .primaryBackground)
                     .previewDisplayName("normal, white, dark")
                     .environment(\.colorScheme, .dark)
             }
@@ -151,9 +151,9 @@ struct SBBLoadingIndicator_Previews: PreviewProvider {
                     .previewDisplayName("small, grey, light")
                 SBBLoadingIndicator(size: .small, style: .grey)
                     .previewDisplayName("small, grey, dark")
-                SBBLoadingIndicator(size: .small, style: .white)
+                SBBLoadingIndicator(size: .small, style: .primaryBackground)
                     .previewDisplayName("small, white, light")
-                SBBLoadingIndicator(size: .small, style: .white)
+                SBBLoadingIndicator(size: .small, style: .primaryBackground)
                     .previewDisplayName("small, white, dark")
                     .environment(\.colorScheme, .dark)
             }
