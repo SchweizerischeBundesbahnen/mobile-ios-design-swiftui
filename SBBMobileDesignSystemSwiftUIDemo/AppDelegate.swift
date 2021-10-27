@@ -1,9 +1,5 @@
 //
-//  AppDelegate.swift
-//  SBBMobileDesignSystemSwiftUIDemo
-//
-//  Created by Georgios Antoniadis on 23.01.20.
-//  Copyright © 2020 SBB. All rights reserved.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
 import UIKit
@@ -11,8 +7,6 @@ import SBBMobileDesignSystemSwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

@@ -112,13 +112,13 @@ public struct SBBListItem: View {
                     }
                         .frame(width: max(-(self.horizontalDragOffset + self.horizontalFixedOffset), 0))
                         .foregroundColor(Color.sbbColor(.white))
-                        .background(Color.sbbColor(.red))
+                        .background(Color.sbbColor(.primary))
                 }
             }
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        if !SizeCategories.accessibility.contains(sizeCategory), let image = image {
+                        if !sizeCategory.isAccessibilityCategory, let image = image {
                             image
                                 .resizeToContentSizeCategory(originalHeight: 24)
                                 .accessibility(hidden: true)

@@ -39,7 +39,7 @@ public struct SBBProcessFlow: View {
                 images[i]
                     .resizeToContentSizeCategory(originalHeight: 24)
                     .padding(4)
-                    .foregroundColor((i <= currentStepIndex) ? Color.sbbColor(.red) : Color.clear)
+                    .foregroundColor((i <= currentStepIndex) ? Color.sbbColor(.primary) : Color.clear)
                     .background(backgroundColor)
                     .cornerRadius(height / 2)
                     .background(

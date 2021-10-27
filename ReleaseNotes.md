@@ -1,5 +1,19 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.5.0 - 21 October 2021
+
+### Features
+* You can now set your own (color) theme
+
+### Improvements
+* Background Color of SBBModalView and SBBDialogue in fullscreen mode is now distinct from normal background color.
+* Removed iOS 13 support (now requires iOS 14 or above) and simplified code.
+* Simplified usage of SBBModalView (no need to inject a SBBModalViewModel and use a .sbbModalContainer ViewModifier anymore).
+
+### Bugfix
+* NavigationBar background color fix for iOS 15 when installing directly over XCode.
+* Double SBB Icon in NavigationBar when setting new trailing Icon is now fixed.
+
 ## V0.4.10 - 14 October 2021
 
 ### Improvements

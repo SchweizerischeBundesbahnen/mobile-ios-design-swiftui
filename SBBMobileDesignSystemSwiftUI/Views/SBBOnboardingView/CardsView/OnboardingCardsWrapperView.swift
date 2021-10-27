@@ -13,7 +13,7 @@ struct OnboardingCardsWrapperView: View {
         VStack(spacing: 0) {
             ZStack(alignment: .topLeading) {
                 Rectangle() // Fill the upper cornerRadius edges with red color, so that the View appears to only have cornerRadius at the bottom
-                    .background(Color.sbbColor(.red).edgesIgnoringSafeArea(.top))
+                    .background(Color.sbbColor(.primary).edgesIgnoringSafeArea(.top))
                     .frame(height: 8)
                 if viewModel.currentCardView != nil {
                     GeometryReader { geometry in
@@ -31,7 +31,7 @@ struct OnboardingCardsWrapperView: View {
                             .edgesIgnoringSafeArea(.top)
                             .padding([.horizontal, .bottom], 8)
                             .padding(.top, 16)
-                            .background(Color.sbbColor(.red).cornerRadius(16).edgesIgnoringSafeArea([.top, .horizontal]))
+                            .background(Color.sbbColor(.primary).cornerRadius(16).edgesIgnoringSafeArea([.top, .horizontal]))
                     }
                 }
             }

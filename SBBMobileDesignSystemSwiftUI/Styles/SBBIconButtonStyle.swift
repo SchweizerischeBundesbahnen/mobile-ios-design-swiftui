@@ -182,7 +182,7 @@ struct SSBBIconButtonStyle_Previews: PreviewProvider {
                     .previewDisplayName("Small, negative, disabled")
             }
                 .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
-                .background(Color.sbbColor(.red))
+                .background(Color.sbbColor(.primary))
             Group {
                 Button(action: {}) {
                     Image(sbbName: "chevron-small-right", size: .small)

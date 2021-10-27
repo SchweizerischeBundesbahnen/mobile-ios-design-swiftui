@@ -163,7 +163,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
         ZStack(alignment: .top) {
             if extendNavigationBarBackground {
                 Rectangle()
-                    .fill(Color.sbbColor(.red))
+                    .fill(Color.sbbColor(.primary))
                     .frame(idealWidth: .infinity, minHeight: horizontalSizeClass == .compact ? 35 : 16, maxHeight: horizontalSizeClass == .compact ? 35 : 16)
                     .edgesIgnoringSafeArea(.horizontal)
             }
@@ -172,7 +172,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                     VStack(alignment: .leading, spacing: 8) {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(alignment: .top) {
-                                if !SizeCategories.accessibility.contains(sizeCategory) {
+                                if !sizeCategory.isAccessibilityCategory {
                                     image
                                         .frame(width: 36, height: 36, alignment: .center)
                                         .accessibility(hidden: true)
@@ -224,7 +224,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                                     .sbbFont(.body)
                                     .padding(.top, 8)
                             }
-                                .padding(.leading, SizeCategories.accessibility.contains(sizeCategory) ? 0 : 44)
+                                .padding(.leading, sizeCategory.isAccessibilityCategory ? 0 : 44)
                         }
                     }
                     .accessibilityElement(children: horizontalSizeClass == .compact ? .combine : .contain)
@@ -277,7 +277,7 @@ struct SBBBubbleView_Previews: PreviewProvider {
                     SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true), expandableContent: {
                         Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                         Text("ca. +12'")
-                            .foregroundColor(.sbbColor(.red))
+                            .foregroundColor(.sbbColor(.primary))
                             .font(.sbbTitleDefault)
                     })
                         .previewDisplayName("Long title, multiple views")
@@ -300,7 +300,7 @@ struct SBBBubbleView_Previews: PreviewProvider {
                     SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), subtitleContent: {
                         Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                         Text("ca. +12'")
-                            .foregroundColor(.sbbColor(.red))
+                            .foregroundColor(.sbbColor(.primary))
                             .font(.sbbTitleDefault)
                             .padding(.top, 6)
                     }, fixedContent: {

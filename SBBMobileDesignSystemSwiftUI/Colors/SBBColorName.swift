@@ -6,6 +6,11 @@ import Foundation
 
 /// SBBColor names.
 public enum SBBColorName: String {
+    
+    // User set colors
+    case primary = "Primary"
+    case secondary = "Secondary"
+    
     // Colors
     case red = "Red"
     case red125 = "Red125"
@@ -36,6 +41,7 @@ public enum SBBColorName: String {
     case green = "Green"
     case shadow = "Shadow"
     case charcoal = "Charcoal"
+    case midnight = "Midnight"
     
     // Semantic Colors
     /// ColorScheme specific color for black Text.

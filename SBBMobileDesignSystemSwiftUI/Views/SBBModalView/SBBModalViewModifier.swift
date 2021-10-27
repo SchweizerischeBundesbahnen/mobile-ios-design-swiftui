@@ -16,41 +16,43 @@ public extension View {
      - Returns: A View containing the passed View with added presentable content above it.
      */
     func sbbModal<Content: View>(isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
-        ModalView(isPresented: isPresented, content: content, presentingView: self)
+        ModalViewContainer(isPresented: isPresented, content: content, presentingView: self)
     }
 }
 
-struct ModalView<PresentingView: View, ModalViewContent: View>: View {
-    
-    @EnvironmentObject var modalViewModel: SBBModalViewModel
-    
+fileprivate struct ModalViewContainer<PresentingView: View, ModalViewContent: View>: View {
+        
     @Binding var isPresented: Bool
     let content: () -> ModalViewContent
     let presentingView: PresentingView
     
-    @State var model = Model()
+    // Removes the background added when using .fullScreenCover() and appear animation, inspiration by https://stackoverflow.com/questions/64301041/swiftui-translucent-background-for-fullscreencover
+    // Can be removed, once .fullScreenCover allows to select the appropriate appear/disappear animation
+    struct BackgroundTransparentView: UIViewRepresentable {
+        func makeUIView(context: Context) -> UIView {
+            let view = UIView()
+            DispatchQueue.main.async {
+                view.superview?.superview?.backgroundColor = .clear
+                view.superview?.superview?.layer.removeAllAnimations()
+            }
+            return view
+        }
+
+        func updateUIView(_ uiView: UIView, context: Context) {}
+    }
+
 
     var body: some View {
-        if model.update(value: isPresented) {
-            DispatchQueue.main.async(execute: updateContent)
-        }
-        return presentingView
-    }
-    
-    func updateContent() {
-        modalViewModel.updateModal(isPresented: isPresented, content: content, onDismiss: {
-            self.isPresented = false
-        })
-    }
-    
-    // workaround: .onChange is not available in iOS13
-    class Model {
-        private var savedValue: Bool?
-        func update(value: Bool) -> Bool {
-            guard value != savedValue else { return false }
-            savedValue = value
-            return true
-        }
+        presentingView
+            .fullScreenCover(isPresented: $isPresented) {
+                ZStack {
+                    Color.sbbColor(.iron).opacity(0.8).edgesIgnoringSafeArea(.all)
+                        .onTapGesture {
+                            isPresented = false
+                        }
+                    content()
+                }
+                .background(BackgroundTransparentView())
+            }
     }
 }
-

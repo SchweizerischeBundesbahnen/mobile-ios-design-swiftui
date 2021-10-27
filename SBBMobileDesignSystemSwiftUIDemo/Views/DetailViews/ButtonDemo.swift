@@ -51,7 +51,7 @@ struct ButtonDemo: View {
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
                             .disabled(disabled)
-                            .background(Color.sbbColor(.red))
+                            .background(Color.sbbColor(.primary))
                         Button(action: increment) {
                             Image(sbbName: "station", size: .small)
                         }

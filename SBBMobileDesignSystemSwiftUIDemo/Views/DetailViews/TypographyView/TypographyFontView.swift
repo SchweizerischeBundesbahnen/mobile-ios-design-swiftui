@@ -17,7 +17,7 @@ struct TypographyFontView: View {
                     .frame(minWidth: 0, maxWidth: .infinity)
                     .font(.sbbHeader)
                     .foregroundColor(.sbbColor(.textWhite))
-                    .background(Color.sbbColor(.red))
+                    .background(Color.sbbColor(.primary))
                     .padding(self.padding)
             }
             Group {
