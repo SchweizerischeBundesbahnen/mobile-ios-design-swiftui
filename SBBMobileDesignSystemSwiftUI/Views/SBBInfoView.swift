@@ -27,7 +27,7 @@ public struct SBBInfoView: View {
     
     public var body: some View {
         HStack(alignment: .top, spacing: 16) {
-            if !SizeCategories.accessibility.contains(sizeCategory) {
+            if !sizeCategory.isAccessibilityCategory {
                 image
                     .resizeToContentSizeCategory(originalHeight: 36)
                     .accessibility(hidden: true)

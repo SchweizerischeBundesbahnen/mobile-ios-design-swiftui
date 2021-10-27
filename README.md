@@ -2,6 +2,9 @@
 
 This is a library that contains the visual design for the SBB iOS/SwiftUI Apps.
 
+## Minimum supported iOS Version
+* iOS 14.0
+
 ## Add the library to your project with Cocoapods
 
 Run this command on the terminal:
@@ -522,15 +525,14 @@ SBBOnboardingView is used to present basic app functionality to your users on th
     @State private var currentOnboardingCardIndex: Int = 0
 
     var body: some View {
-        Group {
-            if onboardingViewModel.state == .hidden {
-                // your ContentView here (NavigationView goes also here, if you want to use it)
-            } else {
-            SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startViewModel: startViewModel, endViewModel: endViewModel) {
-                    // add SBBOnboardingCardViews here
-                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 1"), text: Text("Text Card 1"))
-                    SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 2"), text: Text("Text Card 2"))
-                }
+        ZStack {
+            // your ContentView here (NavigationView goes also here, if you want to use it)
+            if onboardingViewModel.state != .hidden {
+                SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startViewModel: startViewModel, endViewModel: endViewModel) {
+                        // add SBBOnboardingCardViews here
+                        SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 1"), text: Text("Text Card 1"))
+                        SBBOnboardingCardView(image: Image("Your Image"), title: Text("Card 2"), text: Text("Text Card 2"))
+                    }
             }
         }
     }
@@ -581,37 +583,11 @@ SBBOnboardingCardView is usually passed in the ViewBuilder of SBBOnboardingView.
         // Your custom View here
     }
 ```
+
 ## SBBModalView
-SBBModalView is used to display a View above another View, typically using the .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter. To use SBBModalView, you need to create a SBBModalViewModel which nees to be added as EnvironmentObject in your SceneDelegate (and to new Views pushed using NavigationLink). You also need to add the .sbbModalContainer() ViewModifier to your upmost ContentView (you can also add it as an overlay to a specific view, if modals will only be shown from this specific view and the view covers the entire screen).
+SBBModalView is used to display a View above another View, typically using the .sheet() or sbbModal() ViewModifier. There are three different styles available: .full (to be used inside .sheet() ViewModifier), .popup and .sheet (to be used inside .sbbModal() ViewModifier). If you want a back button in your ModalView header, set the showBackButton parameter to true and pass an action for the actionOnBackButtonTouched parameter.
 
-1. Inside SceneDelegate: Create a SBBModalViewModel and add it as EnvironmentObject to the MainView:
-```    
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        ...
-        
-        let modalViewModel = SBBModalViewModel()
-        
-        // Create the SwiftUI view that provides the window contents.
-        var contentView = AnyView(MainView()
-            .environmentObject(modalViewModel)
-            
-        ...
-    }
-```
 
-2. Inside your MainView (root view): apply the .sbbModalContainer() ViewModifier:
-```    
-    var body: some View {
-        NavigationView {
-            Group {
-                ...
-            }
-                .sbbModalContainer()
-        }
-    }
-```
-
-3. Use .sbbModal() to show a custom ModalView or a SBBModalView:
 ```    
     @State var showingModalView = false
     

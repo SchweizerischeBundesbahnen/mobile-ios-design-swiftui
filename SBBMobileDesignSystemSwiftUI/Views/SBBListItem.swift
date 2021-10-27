@@ -118,7 +118,7 @@ public struct SBBListItem: View {
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        if !SizeCategories.accessibility.contains(sizeCategory), let image = image {
+                        if !sizeCategory.isAccessibilityCategory, let image = image {
                             image
                                 .resizeToContentSizeCategory(originalHeight: 24)
                                 .accessibility(hidden: true)

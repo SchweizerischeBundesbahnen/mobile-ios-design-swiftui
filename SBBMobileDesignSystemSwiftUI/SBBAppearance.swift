@@ -19,12 +19,6 @@ public class SBBAppearance {
     public class func setupSBBAppearance() {
         setupSBBFonts()
         setupSBBNavigationBar()
-        
-        if #available(iOS 14, *) {
-            // use SwitchToggleStyle introduced with iOS 14.0
-        } else {
-            setupSBBToggle()
-        }
     }
     
     private class func setupSBBFonts() {
@@ -32,19 +26,17 @@ public class SBBAppearance {
     }
     
     private class func setupSBBNavigationBar() {
-        let newAppearance = UINavigationBarAppearance()
-        newAppearance.configureWithOpaqueBackground()
-        newAppearance.backgroundColor = UIColor(named: "Red", in: SBBBundle.getBundle(), compatibleWith: nil)
-        newAppearance.shadowColor = .clear
-        newAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)!,
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = UIColor(named: "Red", in: SBBBundle.getBundle(), compatibleWith: nil)
+        appearance.shadowColor = .clear
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)!,
                                              NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 22)!]
-        UINavigationBar.appearance().standardAppearance = newAppearance
+        UINavigationBar.appearance().standardAppearance = appearance
+        if #available(iOS 15, *) {
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        }
         UINavigationBar.appearance().tintColor = UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)
-    }
-    
-    @available(iOS, obsoleted: 14)
-    private class func setupSBBToggle() {
-        UISwitch.appearance().onTintColor = UIColor(named: "Red", in: SBBBundle.getBundle(), compatibleWith: nil)
     }
 }
 

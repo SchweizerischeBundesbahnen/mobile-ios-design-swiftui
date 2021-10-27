@@ -105,7 +105,6 @@ struct DialogueDemo: View {
                     .colorScheme(colorScheme)
                     .environment(\.sizeCategory, contentSizeCategory)
             }
-            .sbbModalContainer()
             .navigationBarTitle("Dialogue")
             .sbbStyle()
             .colorScheme(colorScheme)
