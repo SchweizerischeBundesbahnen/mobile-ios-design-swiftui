@@ -40,7 +40,7 @@ struct ModalViewDemo: View {
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
                     .sbbModal(isPresented: self.$showingModalPopupView) {
-                        SBBModalView(title: Text("Your title"), style: .popup, titleAlignment: self.titleAlignment, isPresented: self.$showingModalPopupView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                        SBBModalView(title: Text("Your title"), style: .popup, titleAlignment: self.titleAlignment, isPresented: self.$showingModalPopupView, showBackButton: self.showBackButton, actionOnBackButtonTouched: {
                             self.backButtonCounter += 1
                         }) {
                             VStack(spacing: 16) {
@@ -66,7 +66,7 @@ struct ModalViewDemo: View {
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
                     .sbbModal(isPresented: self.$showingModalSheetView) {
-                        SBBModalView(title: Text("Your title"), style: .sheet, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                        SBBModalView(title: Text("Your title"), style: .sheet, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.showBackButton, actionOnBackButtonTouched: {
                             self.backButtonCounter += 1
                         }) {
                             VStack(spacing: 16) {
@@ -93,7 +93,7 @@ struct ModalViewDemo: View {
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
                     .sheet(isPresented: $showingModalFullView, content: {
-                        SBBModalView(title: Text("Your title"), style: .full, titleAlignment: self.titleAlignment, isPresented: self.$showingModalFullView, showBackButton: self.$showBackButton, actionOnBackButtonTouched: {
+                        SBBModalView(title: Text("Your title"), style: .full, titleAlignment: self.titleAlignment, isPresented: self.$showingModalFullView, showBackButton: self.showBackButton, actionOnBackButtonTouched: {
                                 self.backButtonCounter += 1
                             }) {
                                 VStack(spacing: 16) {
