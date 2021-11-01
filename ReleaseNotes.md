@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.5.1 - 01 November 2021
+
+### Improvements
+* showBackButton in SBBModalView is not a Binding anymore
+
 ## V0.5.0 - 21 October 2021
 
 ### Features
