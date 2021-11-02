@@ -68,5 +68,6 @@ public enum SBBColorName: String {
     case tabViewBackground = "tabViewBackground"
     /// ColorScheme specific color for placeholders.
     case placeholder = "placeholder"
-    
+    /// ColorScheme specific color for the background of ModalViews.
+    case modalBackground = "modalBackground"
 }
