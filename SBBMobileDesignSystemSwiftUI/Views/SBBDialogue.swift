@@ -36,7 +36,7 @@ public struct SBBDialogue<Content>: View where Content: View {
         var contentBackgroundColor: Color {
             switch self {
             case .fullscreen:
-                return Color.sbbColorInternal(.modalBackground)
+                return Color.sbbColor(.modalBackground)
             case .inline, .list:
                 return Color.sbbColor(.background)
             }
