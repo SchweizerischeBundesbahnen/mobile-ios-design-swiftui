@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.5.2 - 02 November 2021
+
+### Improvements
+* SBBColor .modalBackground is not public
+
 ## V0.5.1 - 01 November 2021
 
 ### Improvements

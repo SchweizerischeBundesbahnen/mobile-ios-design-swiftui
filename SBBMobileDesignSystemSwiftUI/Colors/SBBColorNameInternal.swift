@@ -15,5 +15,4 @@ internal enum SBBColorNameInternal: String {
     case segmentedPickerSelectedSegmentBackground = "segmentedPickerSelectedSegmentBackground"
     case textfieldLineInactive = "textfieldLineInactive"
     case paginationInactive = "paginationInactive"
-    case modalBackground = "modalBackground"
 }
