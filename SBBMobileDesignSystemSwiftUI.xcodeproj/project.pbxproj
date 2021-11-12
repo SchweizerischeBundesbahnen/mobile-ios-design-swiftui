@@ -94,6 +94,7 @@
 		7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */; };
 		7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441724BDE47A0078E68F /* OnboardingCardsWrapperView.swift */; };
 		7CBA441A24BDEB5B0078E68F /* SBBOnboardingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */; };
+		7CBEAD19273E76510063E011 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CBEAD18273E76510063E011 /* Theme.swift */; };
 		7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */; };
 		7CC3FAD425AEDBEB00D227D4 /* LoadingIndicatorDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */; };
 		7CC5F4BA26B03D230028161D /* SBBRadioButtonGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC5F4B926B03D230028161D /* SBBRadioButtonGroup.swift */; };
@@ -267,6 +268,7 @@
 		7CBA441524BDB4250078E68F /* OnboardingTitleWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTitleWrapperView.swift; sourceTree = "<group>"; };
 		7CBA441724BDE47A0078E68F /* OnboardingCardsWrapperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCardsWrapperView.swift; sourceTree = "<group>"; };
 		7CBA441924BDEB5B0078E68F /* SBBOnboardingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingCardView.swift; sourceTree = "<group>"; };
+		7CBEAD18273E76510063E011 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBLoadingIndicator.swift; sourceTree = "<group>"; };
 		7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorDemo.swift; sourceTree = "<group>"; };
 		7CC5F4B926B03D230028161D /* SBBRadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBRadioButtonGroup.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				2D804E7923D9D16000CC9C0C /* SceneDelegate.swift */,
 				7C2B7E6E23D9F8700012CF62 /* Views */,
 				7C595E6225A605E40015B0FC /* ViewModels */,
+				7CBEAD17273E761C0063E011 /* Helper */,
 				2D804E7D23D9D16300CC9C0C /* Assets.xcassets */,
 				2D804E8223D9D16300CC9C0C /* LaunchScreen.storyboard */,
 				2D804E8523D9D16300CC9C0C /* Info.plist */,
@@ -672,6 +675,14 @@
 				7C28871C24BF2AED00EDBD27 /* Fakes */,
 			);
 			path = SBBOnboardingView;
+			sourceTree = "<group>";
+		};
+		7CBEAD17273E761C0063E011 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				7CBEAD18273E76510063E011 /* Theme.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		7CDFFD8723E9C74100250717 /* Resources */ = {
@@ -963,6 +974,7 @@
 				7C62489A247E3DA100F54C9D /* ListItemDemo.swift in Sources */,
 				7C3AF99C25BAB2E9007BBF21 /* ProcessFlowDemo.swift in Sources */,
 				2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */,
+				7CBEAD19273E76510063E011 /* Theme.swift in Sources */,
 				2DCEC8FE2539E2E9008EDD15 /* TypographyViewController.swift in Sources */,
 				7C1A845825F781C5008B66D3 /* BannerDemo.swift in Sources */,
 				7CF57A7124C1E2AC00631837 /* ModalViewDemo.swift in Sources */,
@@ -1206,7 +1218,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.3;
+				MARKETING_VERSION = 0.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1234,7 +1246,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.3;
+				MARKETING_VERSION = 0.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1259,7 +1271,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.3;
+				MARKETING_VERSION = 0.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI (Dev)";
@@ -1284,7 +1296,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.3;
+				MARKETING_VERSION = 0.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBMobileDesignSystemSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB MobileDesignSystem SwiftUI";
@@ -1416,7 +1428,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.3;
+				MARKETING_VERSION = 0.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB DSM Demo (Dev)";
@@ -1464,7 +1476,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.3;
+				MARKETING_VERSION = 0.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -1549,7 +1561,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.3;
+				MARKETING_VERSION = 0.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "SBB DSM Demo (InHouse)";
@@ -1597,7 +1609,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5.3;
+				MARKETING_VERSION = 0.5.4;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.personenverkehr.SBBMobileDesignSystemSwiftUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

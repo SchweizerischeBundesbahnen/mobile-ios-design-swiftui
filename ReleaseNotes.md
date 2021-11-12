@@ -1,5 +1,10 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.5.2 - 12 November 2021
+
+### Improvements
+* Demo App can now switch color theme while running
+
 ## V0.5.2 - 02 November 2021
 
 ### Improvements
