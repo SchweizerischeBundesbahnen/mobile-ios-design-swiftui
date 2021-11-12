@@ -9,7 +9,12 @@ struct ContentView: View {
     
     @State var colorScheme: ColorScheme = .light
     @State var contentSizeCategory: ContentSizeCategory = .medium
+    @State var theme: Theme = .sbbDefault
     @State var selectedBanner: SBBEnvironmentBanner = .none
+    @State private var navigationViewID = UUID()    // can be used to reload the View
+    #if targetEnvironment(simulator)
+    @State private var navigationViewContentID = UUID() // can be used to reload the View
+    #endif
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     
     var body: some View {
@@ -18,9 +23,24 @@ struct ContentView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 16) {
                         SBBInfoView(image: Image(sbbName: "smartphone", size: .medium), text: Text("This demo app showcases all features of the Design System Mobile (DSM) SwiftUI Library."))
+                        SBBSegmentedPicker(selection: $theme, tags: Theme.allCases) {
+                            Text("Red")
+                                .foregroundColor(Theme.sbbDefault.sbbTheme.primaryColor)
+                            Text("Blue")
+                                .foregroundColor(Theme.night.sbbTheme.primaryColor)
+                        }
+                            .onChange(of: theme) { newTheme in
+                                SBBAppearance.setupSBBAppearance(theme: newTheme.sbbTheme)
+                                self.navigationViewID = UUID() // trigger a reload of the NavigationView
+                                #if targetEnvironment(simulator)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                        self.navigationViewContentID = UUID() // SwiftUI bug: .navigationBarTitleDisplayMode(.inline) is ignored when only reloading the NavigationView, so we also need to reload it's content in a 2nd step.
+                                    }
+                                #endif
+                            }
                         SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
-                            Text("light")
-                            Text("dark")
+                            Text("Light")
+                            Text("Dark")
                         }
                         SBBSegmentedPicker(selection: $contentSizeCategory, tags: [.extraSmall, .medium, .extraExtraExtraLarge, .accessibilityExtraExtraExtraLarge]) {
                             Text("XS")
@@ -155,11 +175,16 @@ struct ContentView: View {
                     }
                         .sbbScreenPadding()
                 }
-                    .navigationBarTitle("SBB DSM SwiftUI", displayMode: .inline)
+                    #if targetEnvironment(simulator)
+                    .id(navigationViewContentID)
+                    #endif
+                    .navigationBarTitle("SBB DSM SwiftUI")
+                    .navigationBarTitleDisplayMode(.inline)
                     .sbbStyle()
                     .colorScheme(colorScheme)
                     .environment(\.sizeCategory, contentSizeCategory)
             }
+                .id(navigationViewID)
                 .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
                 .sbbEnvironmentBanner(selectedBanner)
             if onboardingViewModel.onboardingState != .hidden {

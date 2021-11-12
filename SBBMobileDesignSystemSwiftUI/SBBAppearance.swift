@@ -22,7 +22,7 @@ public class SBBAppearance {
     public class func setupSBBAppearance(theme: SBBTheme = SBBTheme()) {
         setupColors(theme: theme)
         setupSBBFonts()
-        setupSBBNavigationBar()
+        setupSBBNavigationBar(color: theme.primaryColor)
     }
     
     private class func setupColors(theme: SBBTheme) {
@@ -34,10 +34,10 @@ public class SBBAppearance {
         SBBFontLoader.loadFonts()
     }
     
-    private class func setupSBBNavigationBar() {
+    private class func setupSBBNavigationBar(color: Color) {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(Color.sbbPrimary)
+        appearance.backgroundColor = UIColor(color)
         appearance.shadowColor = .clear
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)!,
                                              NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 22)!]
