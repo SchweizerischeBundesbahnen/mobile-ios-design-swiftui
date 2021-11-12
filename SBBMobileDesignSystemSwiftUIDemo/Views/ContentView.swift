@@ -12,7 +12,9 @@ struct ContentView: View {
     @State var theme: Theme = .sbbDefault
     @State var selectedBanner: SBBEnvironmentBanner = .none
     @State private var navigationViewID = UUID()    // can be used to reload the View
+    #if targetEnvironment(simulator)
     @State private var navigationViewContentID = UUID() // can be used to reload the View
+    #endif
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     
     var body: some View {
@@ -30,9 +32,11 @@ struct ContentView: View {
                             .onChange(of: theme) { newTheme in
                                 SBBAppearance.setupSBBAppearance(theme: newTheme.sbbTheme)
                                 self.navigationViewID = UUID() // trigger a reload of the NavigationView
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                    self.navigationViewContentID = UUID() // SwiftUI bug: .navigationBarTitleDisplayMode(.inline) is ignored when only reloading the NavigationView, so we also need to reload it's content in a 2nd step.
-                                }
+                                #if targetEnvironment(simulator)
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                        self.navigationViewContentID = UUID() // SwiftUI bug: .navigationBarTitleDisplayMode(.inline) is ignored when only reloading the NavigationView, so we also need to reload it's content in a 2nd step.
+                                    }
+                                #endif
                             }
                         SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
                             Text("Light")
@@ -171,7 +175,9 @@ struct ContentView: View {
                     }
                         .sbbScreenPadding()
                 }
+                    #if targetEnvironment(simulator)
                     .id(navigationViewContentID)
+                    #endif
                     .navigationBarTitle("SBB DSM SwiftUI")
                     .navigationBarTitleDisplayMode(.inline)
                     .sbbStyle()
