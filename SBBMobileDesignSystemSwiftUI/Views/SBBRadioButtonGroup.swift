@@ -55,13 +55,13 @@ struct SBBRadioButtonGroup_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SBBRadioButtonGroup(selection: .constant(0), tags: [0, 1]) {
-                SBBRadioButton(label: "Option 1")
-                SBBRadioButton(label: "Option 2", showBottomLine: false)
+                SBBRadioButton(text: Text("Option 1"))
+                SBBRadioButton(text: Text("Option 2"), showBottomLine: false)
             }
                 .previewDisplayName("Light")
             SBBRadioButtonGroup(selection: .constant(0), tags: [0, 1]) {
-                SBBRadioButton(label: "Option 1")
-                SBBRadioButton(label: "Option 2", showBottomLine: false)
+                SBBRadioButton(text: Text("Option 1"))
+                SBBRadioButton(text: Text("Option 2"), showBottomLine: false)
             }
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark")

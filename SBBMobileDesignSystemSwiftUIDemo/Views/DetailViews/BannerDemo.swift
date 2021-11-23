@@ -13,15 +13,15 @@ struct BannerDemo: View {
     var body: some View {
         VStack(alignment: .center, spacing: 16) {
             SBBRadioButtonGroup(title: "Banner type", selection: $selectedBanner, tags: SBBEnvironmentBanner.allCases) {
-                SBBRadioButton(label: "None")
+                SBBRadioButton(text: Text("None"))
                     .sbbEnvironmentBanner(.none)
-                SBBRadioButton(label: "test")
+                SBBRadioButton(text: Text("test"))
                     .sbbEnvironmentBanner(.test)
-                SBBRadioButton(label: "dev")
+                SBBRadioButton(text: Text("dev"))
                     .sbbEnvironmentBanner(.dev)
-                SBBRadioButton(label: "int")
+                SBBRadioButton(text: Text("int"))
                     .sbbEnvironmentBanner(.int)
-                SBBRadioButton(label: "poc", showBottomLine: false)
+                SBBRadioButton(text: Text("poc"), showBottomLine: false)
                     .sbbEnvironmentBanner(.poc)
             }
             Spacer()

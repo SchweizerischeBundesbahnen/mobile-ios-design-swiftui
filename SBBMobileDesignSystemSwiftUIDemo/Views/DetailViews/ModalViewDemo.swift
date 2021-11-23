@@ -22,7 +22,7 @@ struct ModalViewDemo: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 SBBFormGroup(title: "Configure ModalView") {
-                    SBBCheckBox(isOn: self.$showBackButton, label: "Show back button")
+                    SBBCheckBox(isOn: self.$showBackButton, text: Text("Show back button"))
                     HStack {
                         Text("Title alignment")
                             .sbbFont(.body)

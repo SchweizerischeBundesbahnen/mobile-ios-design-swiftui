@@ -4,27 +4,29 @@
 
 import SwiftUI
 
-extension CheckBoxAndRadioButtonContainer where Content == EmptyView {
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, image: Image? = nil, label: String, showBottomLine: Bool = true) {
-        self.type = type
-        self._isOn = isOn
-        self.image = image
-        self.label = LocalizedStringKey(label)
-        self.showBottomLine = showBottomLine
-        self.content = nil
-    }
-}
-
-struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
+struct CheckBoxAndRadioButtonContainer: View {
     
     private let type: CheckBoxAndRadioButtonContainerType
     @Environment(\.isEnabled) private var isEnabled
     @Environment(\.colorScheme) var colorScheme
     @Binding private var isOn: Bool
     private var image: Image?
-    private var label: LocalizedStringKey?
-    private let content: Content?
+    private var text: Text
+    private var subText: Text?
     private let showBottomLine: Bool
+    
+    private var foregroundColor: Color {
+        switch (isEnabled, colorScheme) {
+        case (true, _):
+            return .sbbColor(.textBlack)
+        case (false, .light):
+            return .sbbColor(.metal)
+        case (false, .dark):
+            return .sbbColor(.smoke)
+        default:
+            return .sbbColor(.textBlack)
+        }
+    }
     
     private var checkmarkColor: Color {
         switch (isOn, isEnabled) {
@@ -52,13 +54,13 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
         }
     }
     
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showBottomLine: Bool = true, @ViewBuilder content: @escaping () -> Content) {
+    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true) {
         self.type = type
         self._isOn = isOn
-        self.image = nil
-        self.label = nil
+        self.image = image
+        self.text = text
+        self.subText = subText
         self.showBottomLine = showBottomLine
-        self.content = content()
     }
     
     var body: some View {
@@ -84,21 +86,26 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
                                 .frame(width: 8, height: 8)
                         )
                 }
-                if let image = image {
-                    image
-                        .resizeToContentSizeCategory(originalHeight: 24)
-                        .accessibility(hidden: true)
+                VStack(alignment: .leading, spacing: 4) {
+                    HStack(alignment: .top, spacing: 8) {
+                        if let image = image {
+                            image
+                                .resizeToContentSizeCategory(originalHeight: 24)
+                                .accessibility(hidden: true)
+                        }
+                        text
+                            .sbbFont(.body)
+                            .padding(.top, 2)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Spacer()
+                    }
+                    if let subText = subText {
+                        subText
+                            .sbbFont(.legendSmall)
+                            .foregroundColor(.sbbColor(.placeholder))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
                 }
-                if let label = label {
-                    Text(label)
-                        .sbbFont(.body)
-                        .padding(.top, 2)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                if let content = content {
-                    content
-                }
-                Spacer()
             }
                 .padding(.vertical, 12)
                 .padding(.horizontal, 16)
@@ -109,7 +116,7 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
                     .padding(.leading, 16)
             }
         }
-            .foregroundColor(isEnabled ? Color.sbbColor(.textBlack) : Color.sbbColor(.textMetal))
+            .foregroundColor(foregroundColor)
             .background(Color.clear)
             .contentShape(Rectangle())  // make the entire SBBRadioButon tappable (Spacers are ignored by default)
             .onTapGesture {
@@ -127,45 +134,32 @@ struct CheckBoxAndRadioButtonContainer_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             Group {
-                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(true), label: "Label")
+                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(true), text: Text("text"))
                     .previewDisplayName("Light, text only")
-                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(true), label: "Label")
+                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(true), text: Text("text"))
                     .environment(\.colorScheme, .dark)
                     .previewDisplayName("Dark, text only")
-                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
+                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), text: Text("text"))
                     .previewDisplayName("Light, with image")
-                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
+                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), text: Text("text"))
                     .disabled(true)
                     .previewDisplayName("Light, disabled")
-                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(true)) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln.")
-                            .sbbFont(.body)
-                        Text("Modell: iPhone 11 Pro\niOS Version: 14.0")
-                            .sbbFont((.legend))
-                    }
-                }
+                CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: .constant(true), text: Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln."), subText: Text("Modell: iPhone 11 Pro\niOS Version: 14.0"))
                     .previewDisplayName("Light, custom content")
             }
             Group {
-                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(true), label: "Label")
+                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(true), text: Text("text"))
                     .previewDisplayName("Light, text only")
-                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(true), label: "Label")
+                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(true), text: Text("text"))
                     .environment(\.colorScheme, .dark)
                     .previewDisplayName("Dark, text only")
-                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
+                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), text: Text("text"))
                     .previewDisplayName("Light, with image")
-                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), label: "Label")
+                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), text: Text("text"))
                     .disabled(true)
                     .previewDisplayName("Light, disabled")
-                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(true)) {
-                    VStack(alignment: .leading, spacing: 8) {
-                        Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln.")
-                            .sbbFont(.body)
-                        Text("Modell: iPhone 11 Pro\niOS Version: 14.0")
-                            .sbbFont((.legend))
-                    }
-                }
+                CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(true), text: Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln."), subText: Text("Modell: iPhone 11 Pro\niOS Version: 14.0"))
+
                     .previewDisplayName("Light, custom content")
             }
         }
