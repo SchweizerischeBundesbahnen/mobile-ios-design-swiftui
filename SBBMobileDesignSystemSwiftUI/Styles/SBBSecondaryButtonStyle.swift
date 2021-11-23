@@ -19,30 +19,42 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
         let configuration: ButtonStyle.Configuration
         @Environment(\.isEnabled) private var isEnabled: Bool
         @Environment(\.horizontalSizeClass) var horizontalSizeClass
+        @Environment(\.colorScheme) var colorScheme
 
         var body: some View {
             configuration.label
                 .sbbFont(.body)
                 .padding(.horizontal, 8)
-                .foregroundColor(getColor(enabled: isEnabled, isPressed: configuration.isPressed))
+                .foregroundColor(getForegroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .frame(height: 44)
                 .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
-                .contentShape(RoundedRectangle(cornerRadius: 23))
+                .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
+                .cornerRadius(44 / 2)
                 .background(
                     RoundedRectangle(cornerRadius: 23)
-                        .stroke(getColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
+                        .stroke(getForegroundColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
                 )
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
         }
         
-        private func getColor(enabled: Bool, isPressed: Bool) -> Color {
+        private func getForegroundColor(enabled: Bool, isPressed: Bool) -> Color {
             if !enabled {
-                return .sbbColor(.metal)
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
             } else if isPressed {
-                return .sbbColor(.secondary)
+                return (colorScheme == .light) ? .sbbColor(.secondary) : .sbbColor(.white)
             } else {
-                return .sbbColor(.primary)
+                return (colorScheme == .light) ? .sbbColor(.primary) : .sbbColor(.white)
+            }
+        }
+        
+        private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
+            if !enabled {
+                return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.black)
+            } else if isPressed {
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.charcoal)
+            } else {
+                return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.iron)
             }
         }
     }

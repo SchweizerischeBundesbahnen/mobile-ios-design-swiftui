@@ -17,48 +17,66 @@ struct ButtonDemo: View {
                 VStack(alignment: .center, spacing: 8) {
                     Group {
                         Button(action: increment) {
-                            Text("My Primary Button")
+                            Text("Primary Button")
                         }
                             .buttonStyle(SBBPrimaryButtonStyle())
                             .disabled(disabled)
                         Button(action: increment) {
-                            Text("My Secondary Button")
+                            Text("Secondary Button")
                         }
                             .buttonStyle(SBBSecondaryButtonStyle())
                             .disabled(disabled)
                         Button(action: increment) {
-                            Text("My Tertiary Large Button")
+                            Text("Tertiary Large Button")
                         }
                             .buttonStyle(SBBTertiaryButtonStyle())
                             .disabled(disabled)
                         Button(action: increment) {
-                            Text("My Tertiary Small Button")
+                            Text("Tertiary Small Button")
                         }
                         .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                             .disabled(disabled)
                         Button(action: increment) {
-                            Image(sbbName: "station", size: .small)
+                            HStack {
+                                Image(sbbName: "dog", size: .small)
+                                Text("Tertiary Large Button w. Icon")
+                            }
+                        }
+                            .buttonStyle(SBBTertiaryButtonStyle())
+                            .disabled(disabled)
+                        Button(action: increment) {
+                            HStack {
+                                Image(sbbName: "dog", size: .small)
+                                Text("Tertiary Small Button w. Icon")
+                            }
+                        }
+                            .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                            .disabled(disabled)
+                    }
+                    Group {
+                        Button(action: increment) {
+                            Image(sbbName: "dog", size: .small)
                         }
                             .buttonStyle(SBBIconButtonStyle())
                             .disabled(disabled)
                         Button(action: increment) {
-                            Image(sbbName: "station", size: .small)
+                            Image(sbbName: "dog", size: .small)
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small))
                             .disabled(disabled)
                         Button(action: increment) {
-                            Image(sbbName: "station", size: .small)
+                            Image(sbbName: "dog", size: .small)
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
                             .disabled(disabled)
                             .background(Color.sbbColor(.primary))
                         Button(action: increment) {
-                            Image(sbbName: "station", size: .small)
+                            Image(sbbName: "dog", size: .small)
                         }
                             .buttonStyle(SBBIconButtonStyle(showBorder: false))
                             .disabled(disabled)
                         Button(action: increment) {
-                            Image(sbbName: "station", size: .small)
+                            Image(sbbName: "dog", size: .small)
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small, showBorder: false))
                             .disabled(disabled)
@@ -88,7 +106,7 @@ struct ButtonDemo: View {
         .sbbStyle()
         .navigationBarItems(trailing:
             Button(action: increment) {
-                Image(sbbName: "station", size: .small)
+                Image(sbbName: "dog", size: .small)
             }
                 .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
                 .disabled(disabled)

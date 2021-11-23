@@ -36,6 +36,7 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
         let horizontalPadding: CGFloat
         let configuration: ButtonStyle.Configuration
         @Environment(\.isEnabled) private var isEnabled: Bool
+        @Environment(\.colorScheme) var colorScheme
         
         var height: CGFloat {
             return (size == .large) ? 44 : 32
@@ -47,11 +48,11 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
                 .foregroundColor(getForegroundColor(enabled: isEnabled))
                 .frame(height: height)
                 .padding(.horizontal, horizontalPadding)
-                .background(getBackgroundColor(isPressed: configuration.isPressed))
+                .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(height / 2)
                 .background(
                     RoundedRectangle(cornerRadius: height / 2)
-                        .stroke(getBorderColor(enabled: isEnabled), lineWidth: 1)
+                        .stroke(getForegroundColor(enabled: isEnabled), lineWidth: 1)
                 )
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
@@ -59,25 +60,19 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
         
         private func getForegroundColor(enabled: Bool) -> Color {
             if !enabled {
-                return .sbbColorInternal(.buttonTertiaryDisabledForeground)
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
             } else {
                 return .sbbColor(.textBlack)
             }
         }
         
-        private func getBorderColor(enabled: Bool) -> Color {
+        private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
             if !enabled {
-                return .sbbColorInternal(.buttonTertiaryDisabledBorder)
+                return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.black)
+            } else  if isPressed {
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.black)
             } else {
-                return .sbbColor(.smoke)
-            }
-        }
-        
-        private func getBackgroundColor(isPressed: Bool) -> Color {
-            if isPressed {
-                return .sbbColorInternal(.buttonTertiaryPressedBackground)
-            } else {
-                return .sbbColorInternal(.buttonTertiaryBackground)
+                return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.charcoal)
             }
         }
     }

@@ -29,6 +29,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
         let sizeToFit: Bool
         @Environment(\.isEnabled) private var isEnabled: Bool
         @Environment(\.horizontalSizeClass) var horizontalSizeClass
+        @Environment(\.colorScheme) var colorScheme
         
         @ViewBuilder
         var body: some View {
@@ -36,7 +37,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
                 configuration.label
                     .sbbFont(.body)
                     .padding(.horizontal, 24)
-                    .foregroundColor(isEnabled ? .sbbColor(.textWhite) : .sbbColor(.textMetal))
+                    .foregroundColor(.sbbColor(.textWhite))
                     .frame(height: 46)
                     .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                     .cornerRadius(23)
@@ -46,7 +47,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
                 configuration.label
                     .sbbFont(.body)
                     .padding(.horizontal, 8)
-                    .foregroundColor(isEnabled ? .sbbColor(.textWhite) : .sbbColor(.textMetal))
+                    .foregroundColor(.sbbColor(.textWhite))
                     .frame(height: 46)
                     .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
                     .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
@@ -59,7 +60,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
         
         private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
             if !enabled {
-                return .sbbColor(.disabledButtonBackground)
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.iron)
             } else if isPressed {
                 return .sbbColor(.secondary)
             } else {
