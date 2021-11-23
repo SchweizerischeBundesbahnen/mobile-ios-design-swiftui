@@ -19,11 +19,38 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
     
     private let type: CheckBoxAndRadioButtonContainerType
     @Environment(\.isEnabled) private var isEnabled
+    @Environment(\.colorScheme) var colorScheme
     @Binding private var isOn: Bool
     private var image: Image?
     private var label: LocalizedStringKey?
     private let content: Content?
     private let showBottomLine: Bool
+    
+    private var checkmarkColor: Color {
+        switch (isOn, isEnabled) {
+        case (false, _):
+            return .clear
+        case (true, true):
+            return .sbbColor(.primary)
+        case (true, false):
+            return  (colorScheme == .light) ? Color.sbbColor(.metal) : Color.sbbColor(.smoke)
+        }
+    }
+    
+    private var checkboxBorderColor: Color {
+        switch (isEnabled, colorScheme) {
+        case (true, .light):
+            return .sbbColor(.metal)
+        case (true, .dark):
+            return .sbbColor(.smoke)
+        case (false, .light):
+            return .sbbColor(.cloud)
+        case (false, .dark):
+            return .sbbColor(.iron)
+        default:
+            return .sbbColor(.metal)
+        }
+    }
     
     init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, showBottomLine: Bool = true, @ViewBuilder content: @escaping () -> Content) {
         self.type = type
@@ -37,12 +64,25 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             HStack(alignment: .top, spacing: 8) {
-                if isOn {
-                    Image("\(type.iconPrefix)_Checked\(isEnabled ? "" : "_disabled")", bundle: Helper.bundle)
-                        .accessibility(hidden: true)
-                } else {
-                    Image("\(type.iconPrefix)_Unchecked\(isEnabled ? "" : "_disabled")", bundle: Helper.bundle)
-                        .accessibility(hidden: true)
+                if type == .checkbox {
+                    RoundedRectangle(cornerRadius: 6)
+                        .strokeBorder(checkboxBorderColor, lineWidth: 1)
+                        .background(RoundedRectangle(cornerRadius: 6).fill((colorScheme == .light) ? Color.sbbColor(.white) : .clear))
+                        .frame(width: 20, height: 20)
+                        .overlay(
+                            Image("checkbox_selected", bundle: Helper.bundle)
+                                .foregroundColor(checkmarkColor)
+                        )
+                } else if type == .radioButton {
+                    Circle()
+                        .strokeBorder(checkboxBorderColor, lineWidth: 1)
+                        .background(Circle().fill((colorScheme == .light) ? Color.sbbColor(.white) : .clear))
+                        .frame(width: 20, height: 20)
+                        .overlay(
+                            Circle()
+                                .fill(checkmarkColor)
+                                .frame(width: 8, height: 8)
+                        )
                 }
                 if let image = image {
                     image
@@ -69,7 +109,7 @@ struct CheckBoxAndRadioButtonContainer<Content>: View where Content: View {
                     .padding(.leading, 16)
             }
         }
-            .foregroundColor(isEnabled ? Color.sbbColor(.textBlack) : Color.sbbColor(.metal))
+            .foregroundColor(isEnabled ? Color.sbbColor(.textBlack) : Color.sbbColor(.textMetal))
             .background(Color.clear)
             .contentShape(Rectangle())  // make the entire SBBRadioButon tappable (Spacers are ignored by default)
             .onTapGesture {

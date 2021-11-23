@@ -3,7 +3,8 @@
 ## V0.6.0 - 23 November 2021
 
 ### Improvements
-* ...
+* Updated all elements according to newest Figma version. 
+* SBBRadioButton and SBBCheckbox now reflect theming (color) changes.
 
 ## V0.5.2 - 12 November 2021
 
