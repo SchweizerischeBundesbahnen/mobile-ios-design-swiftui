@@ -8,6 +8,7 @@
 * Breaking change: Renaming of init parameters of SBBRadioButton and SBBCheckbox according to newest Figma version. 
 * Breaking change: SBBRadioButton and SBBCheckbox now feature an optional subtitle instead of customizable content.
 * Breaking change: Renaming of SBBInfoViewCollapsible to SBBAccordion.
+* Breaking change: Renaming of SBBModalViewStyle from .sheet to .bottom.
 
 ## V0.5.2 - 12 November 2021
 

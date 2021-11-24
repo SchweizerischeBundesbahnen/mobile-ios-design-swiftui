@@ -62,11 +62,11 @@ struct ModalViewDemo: View {
                 Button(action: {
                     self.showingModalSheetView = true
                 }) {
-                    Text("Show Sheet ModalView")
+                    Text("Show Bottom ModalView")
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
                     .sbbModal(isPresented: self.$showingModalSheetView) {
-                        SBBModalView(title: Text("Your title"), style: .sheet, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.showBackButton, actionOnBackButtonTouched: {
+                        SBBModalView(title: Text("Your title"), style: .bottom, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.showBackButton, actionOnBackButtonTouched: {
                             self.backButtonCounter += 1
                         }) {
                             VStack(spacing: 16) {
