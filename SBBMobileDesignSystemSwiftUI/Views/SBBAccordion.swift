@@ -5,7 +5,7 @@
 import SwiftUI
 
 /// A  View that is used to display a collapsible text.
-public struct SBBInfoViewCollapsible: View {
+public struct SBBAccordion: View {
     
     private let title: Text
     private let titleAccessibility: Text?
@@ -14,13 +14,13 @@ public struct SBBInfoViewCollapsible: View {
     @Binding private var expanded: Bool
     
     /**
-     Returns a SBBInfoViewCollapsible displaying collapsible Text.
+     Returns a SBBAccordion displaying collapsible Text.
      
      - Parameters:
         - title: The Text to display as title.
         - titleAccessibility: The optional alternative text for the title's VoiceOver.
         - text: The collapsible detail Text to display.
-        - expanded: Sets the collapsed/expanded state of the SBBInfoViewCollapsible.
+        - expanded: Sets the collapsed/expanded state of the SBBAccordion.
      */
     public init(title: Text, titleAccessibility: Text? = nil, detail: Text, detailAccessibility: Text? = nil, expanded: Binding<Bool>) {
         self.title = title
@@ -73,14 +73,14 @@ public struct SBBInfoViewCollapsible: View {
     }
 }
 
-struct SBBInfoViewCollapsible_Previews: PreviewProvider {
+struct SBBAccordion_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBInfoViewCollapsible(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(false))
+            SBBAccordion(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(false))
                 .previewDisplayName("Detail collapsed")
-            SBBInfoViewCollapsible(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(true))
+            SBBAccordion(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(true))
                 .previewDisplayName("Detail expanded")
-            SBBInfoViewCollapsible(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(true))
+            SBBAccordion(title: Text("Hinweis"), detail: Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein."), expanded: .constant(true))
                 .previewDisplayName("Detail expanded, dark")
                 .environment(\.colorScheme, .dark)
         }

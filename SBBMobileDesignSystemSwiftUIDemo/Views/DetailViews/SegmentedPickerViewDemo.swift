@@ -44,6 +44,16 @@ struct SegmentedPickerViewDemo: View {
                         Image(sbbName: "timetable", size: .small)
                         Image(sbbName: "platform-display", size: .small)
                     }
+                    SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
+                        HStack {
+                            Image(sbbName: "timetable", size: .small)
+                            Text("Departures")
+                        }
+                        HStack {
+                            Image(sbbName: "platform-display", size: .small)
+                            Text("Platform")
+                        }
+                    }
                     Text("Selected Segment: .\(selectedSegment2.rawValue)")
                         .sbbFont(.body)
                     Spacer()

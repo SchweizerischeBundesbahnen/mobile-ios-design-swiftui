@@ -73,8 +73,8 @@
 		7C9C46DF24CB1AED00C22E97 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C9C46DE24CB1AED00C22E97 /* Preview Assets.xcassets */; };
 		7CA055582660C3A000513F00 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA055572660C3A000513F00 /* OnboardingView.swift */; };
 		7CA0555A2660C43B00513F00 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA055592660C43B00513F00 /* OnboardingViewModel.swift */; };
-		7CA464DF2445F31100118D7B /* SBBInfoViewCollapsible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA464DE2445F31100118D7B /* SBBInfoViewCollapsible.swift */; };
-		7CA464E12445F58B00118D7B /* InfoViewCollapsibleDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA464E02445F58B00118D7B /* InfoViewCollapsibleDemo.swift */; };
+		7CA464DF2445F31100118D7B /* SBBAccordion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA464DE2445F31100118D7B /* SBBAccordion.swift */; };
+		7CA464E12445F58B00118D7B /* AccordionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA464E02445F58B00118D7B /* AccordionDemo.swift */; };
 		7CA5551B267A1473006A6F00 /* SBBStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5551A267A1473006A6F00 /* SBBStyle.swift */; };
 		7CAC69FA25CAE73F003CF54E /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */; };
 		7CAC69FF25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC69FE25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift */; };
@@ -248,8 +248,8 @@
 		7C9C46DE24CB1AED00C22E97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7CA055572660C3A000513F00 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7CA055592660C43B00513F00 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		7CA464DE2445F31100118D7B /* SBBInfoViewCollapsible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBInfoViewCollapsible.swift; sourceTree = "<group>"; };
-		7CA464E02445F58B00118D7B /* InfoViewCollapsibleDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewCollapsibleDemo.swift; sourceTree = "<group>"; };
+		7CA464DE2445F31100118D7B /* SBBAccordion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAccordion.swift; sourceTree = "<group>"; };
+		7CA464E02445F58B00118D7B /* AccordionDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionDemo.swift; sourceTree = "<group>"; };
 		7CA5551A267A1473006A6F00 /* SBBStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStyle.swift; sourceTree = "<group>"; };
 		7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
 		7CAC69FE25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreferenceKeyUpdater.swift; sourceTree = "<group>"; };
@@ -543,7 +543,7 @@
 				7C595E5A25A5FDD20015B0FC /* RadioButtonView.swift */,
 				A7F54687243B5BED0068B542 /* FormGroupView.swift */,
 				A7DE206A243C60FE00557F4D /* ButtonDemo.swift */,
-				7CA464E02445F58B00118D7B /* InfoViewCollapsibleDemo.swift */,
+				7CA464E02445F58B00118D7B /* AccordionDemo.swift */,
 				7C9C46D824CB046200C22E97 /* InfoViewDemo.swift */,
 				7C624899247E3DA100F54C9D /* ListItemDemo.swift */,
 				7C62489D247E48A400F54C9D /* ListItemDetailDemo.swift */,
@@ -592,7 +592,7 @@
 				7C43038823FD86110033865F /* SBBSegmentedPicker.swift */,
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
-				7CA464DE2445F31100118D7B /* SBBInfoViewCollapsible.swift */,
+				7CA464DE2445F31100118D7B /* SBBAccordion.swift */,
 				7C9C46D624CB034000C22E97 /* SBBInfoView.swift */,
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
 				7C106D1525DA7FD700B89ECD /* SBBModalView */,
@@ -914,7 +914,7 @@
 				7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */,
 				A74FEA1825138CCC00C4D1A4 /* SBBSwitchStyle.swift in Sources */,
 				7C89AE6226B154720087872E /* IsSelected.swift in Sources */,
-				7CA464DF2445F31100118D7B /* SBBInfoViewCollapsible.swift in Sources */,
+				7CA464DF2445F31100118D7B /* SBBAccordion.swift in Sources */,
 				7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */,
 				7C28872024BF2B2800EDBD27 /* FakeSBBOnboardingCardViews.swift in Sources */,
 				7C28871224BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift in Sources */,
@@ -1002,7 +1002,7 @@
 				7C71655C246D23CA009C3FB1 /* TypographySBBFontView.swift in Sources */,
 				7CEF769324DA905600AFD5EB /* IconDemo.swift in Sources */,
 				7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */,
-				7CA464E12445F58B00118D7B /* InfoViewCollapsibleDemo.swift in Sources */,
+				7CA464E12445F58B00118D7B /* AccordionDemo.swift in Sources */,
 				7C716561246D6575009C3FB1 /* TypographyFontView.swift in Sources */,
 				7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */,
 				7C64548B2403F690005997AB /* DividerViewDemo.swift in Sources */,
