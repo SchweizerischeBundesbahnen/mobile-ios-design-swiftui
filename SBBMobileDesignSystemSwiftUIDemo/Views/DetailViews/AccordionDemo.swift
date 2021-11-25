@@ -9,29 +9,17 @@ struct AccordionDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
-    @State var expanded1 = true
-    @State var expanded2 = false
+    @State var expanded = true
     
     var title = Text("Hinweis")
-    var detail = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein.")
-    
-    var titleAccessibility = Text("Hinweis")
-    var detailAccessibility = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein.")
+    var text = Text("In und um den Bahnhof Biel / Bienne wird viel gebaut. Das kann Auswirkungen auf Ihre Reise haben. Beachten Sie deshalb den Onlinefahrplan und die aktuellen Anzeigen am Bahnhof, um über geänderte Gleise und Fahrpläne informiert zu sein.")
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
-                SBBAccordion(title: title, detail: detail, expanded: $expanded1)
+                SBBAccordion(title: title, text: text, expanded: $expanded)
                 Button(action: {
-                    self.expanded1.toggle()
-                }) {
-                    Text("Toggle expanded state")
-                }
-                    .buttonStyle(SBBTertiaryButtonStyle(size: .small))
-                SBBDivider()
-                SBBAccordion(title: title, titleAccessibility: titleAccessibility, detail: detail, detailAccessibility: detailAccessibility, expanded: $expanded2)
-                Button(action: {
-                    self.expanded2.toggle()
+                    self.expanded.toggle()
                 }) {
                     Text("Toggle expanded state")
                 }

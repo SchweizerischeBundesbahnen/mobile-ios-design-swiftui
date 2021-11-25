@@ -22,16 +22,16 @@ struct TypographyView: View {
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 16) {
                     if fontView == 1 {
-                        SBBAccordion(title: Text("ReadMe   -   .font"), detail: Text("Using the .font() View Modifier, you can select all available SBB Fonts. However this does not apply SBB specific LineSpacing. If you want SBB specific LineSpacing, use the .sbbFont() View Modifier instead."), expanded: $infoViewExpanded)
+                        SBBAccordion(title: Text("ReadMe   -   .font"), text: Text("Using the .font() View Modifier, you can select all available SBB Fonts. However this does not apply SBB specific LineSpacing. If you want SBB specific LineSpacing, use the .sbbFont() View Modifier instead."), expanded: $infoViewExpanded)
                         TypographyFontView()
                     } else if fontView == 2 {
-                        SBBAccordion(title: Text("ReadMe   -   .sbbFont"), detail: Text("Using the .sbbFont() View Modifier, you can select all available SBB Fonts. SBB specific LineSpacing is also applied."), expanded: $infoViewExpanded)
+                        SBBAccordion(title: Text("ReadMe   -   .sbbFont"), text: Text("Using the .sbbFont() View Modifier, you can select all available SBB Fonts. SBB specific LineSpacing is also applied."), expanded: $infoViewExpanded)
                         TypographySBBFontView()
                     } else if fontView == 3 {
-                        SBBAccordion(title: Text("ReadMe   -   Custom Font"), detail: Text("Using the .font(.sbbFont(size: 10)) you can create your own Font based on the available SBB Font Styles by specifying a size of your choice"), expanded: $infoViewExpanded)
+                        SBBAccordion(title: Text("ReadMe   -   Custom Font"), text: Text("Using the .font(.sbbFont(size: 10)) you can create your own Font based on the available SBB Font Styles by specifying a size of your choice"), expanded: $infoViewExpanded)
                         TypographyCustomFontView()
                     } else if fontView == 4 {
-                        SBBAccordion(title: Text("ReadMe   -   UIKit"), detail: Text("In case you use UIKit Views with UIViewRepresentable or UIViewControllerRepresentable, you can use the SBB Font Styles on UIFont. Line spacing is not applied."), expanded: $infoViewExpanded)
+                        SBBAccordion(title: Text("ReadMe   -   UIKit"), text: Text("In case you use UIKit Views with UIViewRepresentable or UIViewControllerRepresentable, you can use the SBB Font Styles on UIFont. Line spacing is not applied."), expanded: $infoViewExpanded)
                         TypographyUIKitView(isDarkMode: colorScheme == .dark)
                             .frame(minWidth: 0, idealWidth: 100, maxWidth: .infinity, minHeight: 1300, idealHeight: 1300, maxHeight: .infinity, alignment: .center)
                     }

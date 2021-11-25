@@ -87,7 +87,7 @@ struct ButtonDemo: View {
                             })
                         }
                             .buttonStyle(SBBIconTextButtonStyle())
-                            .disabled(disabled)
+                            .disabled(disabled) 
                     }
                     Text("Counter: \(counter)").padding()
                     SBBCheckBox(isOn: $disabled, text: Text("Disabled"), showBottomLine: false)
