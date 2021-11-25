@@ -5,7 +5,7 @@
 import SwiftUI
 import SBBMobileDesignSystemSwiftUI
 
-struct InfoViewCollapsibleDemo: View {
+struct AccordionDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
@@ -21,7 +21,7 @@ struct InfoViewCollapsibleDemo: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
-                SBBInfoViewCollapsible(title: title, detail: detail, expanded: $expanded1)
+                SBBAccordion(title: title, detail: detail, expanded: $expanded1)
                 Button(action: {
                     self.expanded1.toggle()
                 }) {
@@ -29,7 +29,7 @@ struct InfoViewCollapsibleDemo: View {
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                 SBBDivider()
-                SBBInfoViewCollapsible(title: title, titleAccessibility: titleAccessibility, detail: detail, detailAccessibility: detailAccessibility, expanded: $expanded2)
+                SBBAccordion(title: title, titleAccessibility: titleAccessibility, detail: detail, detailAccessibility: detailAccessibility, expanded: $expanded2)
                 Button(action: {
                     self.expanded2.toggle()
                 }) {
@@ -40,21 +40,21 @@ struct InfoViewCollapsibleDemo: View {
             }
                 .sbbScreenPadding()
         }
-            .navigationBarTitle("InfoViewCollapsible")
+            .navigationBarTitle("Accordion")
             .sbbStyle()
             .colorScheme(colorScheme)
     }
 }
 
-struct InfoViewCollapsibleDemo_Previews: PreviewProvider {
+struct AccordionDemo_Previews: PreviewProvider {
     @State static var lightScheme: ColorScheme = .light
     @State static var darkScheme: ColorScheme = .dark
     
     static var previews: some View {
         Group {
-            InfoViewCollapsibleDemo(colorScheme: $lightScheme)
+            AccordionDemo(colorScheme: $lightScheme)
                 .previewDisplayName("Light")
-            InfoViewCollapsibleDemo(colorScheme: $darkScheme)
+            AccordionDemo(colorScheme: $darkScheme)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }

@@ -114,8 +114,8 @@ struct ContentView: View {
                             NavigationLink(destination: InfoViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                 SBBListItem(label: Text("InfoView"))
                             }
-                            NavigationLink(destination: InfoViewCollapsibleDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("InfoViewCollapsible"))
+                            NavigationLink(destination: AccordionDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                SBBListItem(label: Text("Accordion"))
                             }
                             NavigationLink(destination: FormGroupView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                 SBBListItem(label: Text("FormGroup"))

@@ -22,7 +22,7 @@ struct ModalViewDemo: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 SBBFormGroup(title: "Configure ModalView") {
-                    SBBCheckBox(isOn: self.$showBackButton, label: "Show back button")
+                    SBBCheckBox(isOn: self.$showBackButton, text: Text("Show back button"))
                     HStack {
                         Text("Title alignment")
                             .sbbFont(.body)
@@ -62,11 +62,11 @@ struct ModalViewDemo: View {
                 Button(action: {
                     self.showingModalSheetView = true
                 }) {
-                    Text("Show Sheet ModalView")
+                    Text("Show Bottom ModalView")
                 }
                     .buttonStyle(SBBSecondaryButtonStyle())
                     .sbbModal(isPresented: self.$showingModalSheetView) {
-                        SBBModalView(title: Text("Your title"), style: .sheet, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.showBackButton, actionOnBackButtonTouched: {
+                        SBBModalView(title: Text("Your title"), style: .bottom, titleAlignment: self.titleAlignment, isPresented: self.$showingModalSheetView, showBackButton: self.showBackButton, actionOnBackButtonTouched: {
                             self.backButtonCounter += 1
                         }) {
                             VStack(spacing: 16) {

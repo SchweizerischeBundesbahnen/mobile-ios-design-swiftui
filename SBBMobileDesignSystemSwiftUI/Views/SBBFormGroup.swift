@@ -57,13 +57,13 @@ struct SBBFormGroup_Previews: PreviewProvider {
             SBBFormGroup(title: "Title") {
                 Text("Text").sbbFont(.body).padding(16)
                 SBBTextField(text: .constant("Value"), label: "title")
-                SBBCheckBox(isOn: .constant(true), label: "Placeholder")
+                SBBCheckBox(isOn: .constant(true), text: Text("Placeholder"))
             }
             .previewDisplayName("Light")
             SBBFormGroup(title: "Title") {
                 Text("Text").sbbFont(.body).padding(16)
                 SBBTextField(text: .constant("Value"), label: "title")
-                SBBCheckBox(isOn: .constant(true), label: "Placeholder")
+                SBBCheckBox(isOn: .constant(true), text: Text("Placeholder"))
             }
             .previewDisplayName("Dark")
             .environment(\.colorScheme, .dark)

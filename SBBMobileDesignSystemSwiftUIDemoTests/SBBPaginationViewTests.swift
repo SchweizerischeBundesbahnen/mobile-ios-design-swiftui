@@ -14,11 +14,11 @@ class SBBPaginationViewTests: XCTestCase {
 
     func testPaginationViewLight() {
         let view = SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: 3)
-        assertSnapshot(matching: view.colorScheme(.light).toVC(), as: .image, record: false)
+        assertSnapshot(matching: view.colorScheme(.light).toVC(), as: .image, record: recordNewReferenceSnapshots)
     }
     
     func testPaginationViewDark() {
         let view = SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: 3)
-        assertSnapshot(matching: view.colorScheme(.dark).toVC(), as: .image, record: false)
+        assertSnapshot(matching: view.colorScheme(.dark).toVC(), as: .image, record: recordNewReferenceSnapshots)
     }
 }

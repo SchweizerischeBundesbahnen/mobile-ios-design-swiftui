@@ -35,8 +35,8 @@ struct TextAreaView: View {
                     self.text = ""
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
-                SBBCheckBox(isOn: $disabled, label: "Disabled", showBottomLine: false)
-                SBBCheckBox(isOn: $showBottomLine, label: "Show bottom line", showBottomLine: false)
+                SBBCheckBox(isOn: $disabled, text: Text("Disabled"), showBottomLine: false)
+                SBBCheckBox(isOn: $showBottomLine, text: Text("Show bottom line"), showBottomLine: false)
             }
                 .sbbScreenPadding()
         }
