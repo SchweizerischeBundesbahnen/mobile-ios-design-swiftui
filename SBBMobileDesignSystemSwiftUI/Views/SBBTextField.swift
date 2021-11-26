@@ -4,7 +4,20 @@
 
 import SwiftUI
 
-/// A  View that is used for entering text (single line).
+/**
+ A  View that is used for entering text (single line).
+ 
+ ## Overview
+ You create a SBBTextField  by providing a binding to inputText, a static placeholder label, an optional error and an optional icon:
+ ```swift
+ @State var input = "I like trains"
+
+ var body: some View {
+    SBBTextField(text: $input, label: "Placeholder", error: "Error", icon: Image(sbbName: "route-circle-start", size: .small))
+ }
+ ```
+ ![SBBTextField](SBBTextField)
+ */
 public struct SBBTextField: View {
     
     @Environment(\.isEnabled) private var isEnabled

@@ -16,7 +16,7 @@ class SBBIconButtonStyleTests: XCTestCase {
     func testIconButton() {
         let view = button.buttonStyle(SBBIconButtonStyle())
         for colorScheme in ColorScheme.allCases {
-            view.frame(minWidth: 200).recordDocumentationSnapshot(name: "SBBIconButtonStyle", colorScheme: colorScheme)
+            view.recordDocumentationSnapshot(name: "SBBIconButtonStyle", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
         }
     }
@@ -31,7 +31,7 @@ class SBBIconButtonStyleTests: XCTestCase {
     func testIconButtonSmall() {
         let view = button.buttonStyle(SBBIconButtonStyle(size: .small))
         for colorScheme in ColorScheme.allCases {
-            view.frame(minWidth: 200).recordDocumentationSnapshot(name: "SBBIconButtonStyleSmall", colorScheme: colorScheme)
+            view.recordDocumentationSnapshot(name: "SBBIconButtonStyleSmall", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
         }
     }

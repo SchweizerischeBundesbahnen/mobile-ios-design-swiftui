@@ -16,7 +16,7 @@ class SBBTertiaryButtonStyleTests: XCTestCase {
     func testTertiaryButton() {
         let view = button.buttonStyle(SBBTertiaryButtonStyle())
         for colorScheme in ColorScheme.allCases {
-            view.frame(minWidth: 200).recordDocumentationSnapshot(name: "SBBTertiaryButtonStyle", colorScheme: colorScheme)
+            view.recordDocumentationSnapshot(name: "SBBTertiaryButtonStyle", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
         }
     }

@@ -25,7 +25,15 @@ extension View {
     
     // records a .png image file of a View and saves it to the Documentation/Resources folder inside the SBBMobileDesignSystemSwiftUI target to be then used in markdown code documentation
     func recordDocumentationSnapshot(name: String, colorScheme: ColorScheme) {
-        let controller = self.colorScheme(colorScheme).toVC()
+        let containingView = Group {
+            self
+                .padding()
+        }
+            .border(Color.sbbColor(.metal))
+            .background(Color.sbbColor(.background))
+            .edgesIgnoringSafeArea(.all)
+
+        let controller = containingView.colorScheme(colorScheme).toVC()
         let view = controller.view
 
         let targetSize = controller.view.intrinsicContentSize

@@ -4,7 +4,20 @@
 
 import SwiftUI
 
-/// A  View that is used to display a collapsible text.
+/**
+ A  View that is used to display a collapsible text.
+ 
+ ## Overview
+ You create a SBBAccordion  by providing a expanded state binding, a title and a collapsible text:
+ ```swift
+ @State var expanded = false
+
+ var body: some View {
+    SBBAccordion(title: Text("Your title"), text: Text("Your long text"), expanded: $expanded)
+ }
+ ```
+ ![SBBAccordion](SBBAccordion)
+ */
 public struct SBBAccordion: View {
     
     private let title: Text

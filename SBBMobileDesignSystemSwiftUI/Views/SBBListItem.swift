@@ -4,7 +4,22 @@
 
 import SwiftUI
 
-/// A  View that is used to display a single item of a list. Usually used inside a SBBFormGroup and in combination with NavigationLink.
+/**
+ A  View that is used to display a single item of a list. Usually used inside a ``SBBFormGroup`` and in combination with NavigationLink.
+ 
+ ## Overview
+ You create a SBBListItem by providing a label. You can optionally also provide an image and a footnote:
+ ```swift
+ var body: some View {
+     SBBFormGroup(title: "Title") {
+         NavigationLink(destination: ChildView(), label: {
+            SBBListItem(label: Text("Label"), image: Image(sbbName: "station", size: .small), footnote: Text("Footnote"))
+         })
+    }
+ }
+ ```
+ ![SBBListItem](SBBListItem)
+ */
 public struct SBBListItem: View {
     
     /// SBBListItem Type.

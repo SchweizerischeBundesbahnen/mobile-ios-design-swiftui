@@ -4,7 +4,24 @@
 
 import SwiftUI
 
-/// A ButtonStyle for buttons with custom content (e.g. text and icon).
+/**
+ A ButtonStyle for buttons with custom content (e.g. text and icon).
+ 
+ ## Overview
+ You create a normal Button and apply the .buttonStyle() ViewModifier:
+ ```swift
+ var body: some View {
+     Button(action: {}) {
+         VStack(alignment: .center, spacing: 4, content: {
+             Image(sbbName: "station", size: .large)
+             Text("Station")
+         })
+     }
+         .buttonStyle(SBBIconTextButtonStyle())
+ }
+ ```
+ ![SBBIconTextButtonStyle](SBBIconTextButtonStyle)
+ */
 public struct SBBIconTextButtonStyle: ButtonStyle {
     
     /**

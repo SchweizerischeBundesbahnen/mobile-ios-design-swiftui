@@ -16,7 +16,7 @@ import SwiftUI
     SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"), subText: Text("SubText"))
  }
  ```
- ![SBBCheckBox.](SBBCheckBox)
+ ![SBBCheckBox](SBBCheckBox)
  */
 public struct SBBCheckBox: View {
     

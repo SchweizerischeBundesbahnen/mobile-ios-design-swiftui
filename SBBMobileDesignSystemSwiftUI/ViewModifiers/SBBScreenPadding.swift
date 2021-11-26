@@ -8,6 +8,15 @@ public extension View {
     
     /**
      Applies SBB specific padding to a Screen (horizontal: 8, vertical: 16). You typically apply this ViewModifier to Views that cover the entire screen.
+     
+     ## Overview
+     You apply the .sbbStyle() ViewModifier to your View typically covering the entire screen:
+     ```swift
+        YourView()
+            .sbbScreenPadding()
+     }
+     ```
+     
      - Parameters:
         - edges: The set of edges along which to pad this view.
      - Returns: A view with SBB specific padding on the specified edges.

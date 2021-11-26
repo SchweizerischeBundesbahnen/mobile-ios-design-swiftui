@@ -4,7 +4,23 @@
 
 import SwiftUI
 
-/// A  View that is used to offer a single selection out of multiple options.
+/**
+ A View that is used to offer a single selection out of multiple options.
+ 
+ ## Overview
+ You create a SBBRadioButton by providing a Text. You can optionally also provide an image and a subText:
+ ```swift
+ @State private var isSelected = false
+
+ var body: some View {
+    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"), subText: subText: Text("SubText"))
+        .isSelected(isSelected)
+ }
+ ```
+ You will usually want to group corresponding SBBRadioButtons inside a ``SBBRadioButtonGroup``. Otherwise you can use the .isSelected(Bool) ViewModifier to specify it's state.
+ 
+ ![SBBRadioButton](SBBRadioButton)
+ */
 public struct SBBRadioButton: View {
     
     @Environment(\.isEnabled) private var isEnabled

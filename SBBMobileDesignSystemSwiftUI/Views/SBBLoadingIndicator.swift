@@ -5,7 +5,18 @@
 import SwiftUI
 
 // TODO: add anti-aliasing once SwiftUI supports it
-/// A  View that is used to display a loading state.
+/**
+ A  View that is used to display a loading state.
+ 
+ ## Overview
+ You create a SBBLoadingIndicator by specifying its ``SBBLoadingIndicator/Size`` and its ``SBBLoadingIndicator/Style``:
+ ```swift
+ var body: some View {
+    SBBLoadingIndicator(size: .normal, style: .primary)
+ }
+ ```
+ ![SBBLoadingIndicator](SBBLoadingIndicator)
+ */
 public struct SBBLoadingIndicator: View {
     
     /// SBBLoadingIndicator Size.

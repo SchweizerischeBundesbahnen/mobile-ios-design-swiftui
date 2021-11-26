@@ -19,7 +19,7 @@ class SBBIconTextButtonStyleTests: XCTestCase {
     func testIconTextButton() {
         let view = button.buttonStyle(SBBIconTextButtonStyle())
         for colorScheme in ColorScheme.allCases {
-            view.frame(minWidth: 200).recordDocumentationSnapshot(name: "SBBIconTextButtonStyle", colorScheme: colorScheme)
+            view.recordDocumentationSnapshot(name: "SBBIconTextButtonStyle", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
         }
     }

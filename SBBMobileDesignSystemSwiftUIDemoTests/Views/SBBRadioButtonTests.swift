@@ -14,21 +14,21 @@ class SBBRadioButtonTests: XCTestCase {
     let subText = Text("SubLabel")
     
     func testRadioButtonTextOnly() {
-        let view = SBBRadioButton(text: text)
+        let view = SBBRadioButton(text: text).isSelected(true)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
         }
     }
     
     func testRadioButtonWithImage() {
-        let view = SBBRadioButton(image: image, text: text)
+        let view = SBBRadioButton(image: image, text: text).isSelected(true)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
         }
     }
     
     func testRadioButtonDisabled() {
-        let view = SBBRadioButton(text: text)
+        let view = SBBRadioButton(text: text).isSelected(true)
             .disabled(true)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
@@ -36,9 +36,9 @@ class SBBRadioButtonTests: XCTestCase {
     }
     
     func testRadioButtonSubText() {
-        let view = SBBRadioButton(image: image, text: text, subText: subText, showBottomLine: false)
+        let view = SBBRadioButton(image: image, text: text, subText: subText, showBottomLine: false).isSelected(true)
         for colorScheme in ColorScheme.allCases {
-            view.recordDocumentationSnapshot(name: "SBBRadioButton", colorScheme: colorScheme)
+            view.frame(width: 375).recordDocumentationSnapshot(name: "SBBRadioButton", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
         }
     }

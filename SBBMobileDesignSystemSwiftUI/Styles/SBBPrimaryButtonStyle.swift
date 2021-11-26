@@ -4,7 +4,21 @@
 
 import SwiftUI
 
-/// A ButtonStyle for primary buttons (red background). Only one primary button per screen is allowed.
+/**
+ A ButtonStyle for primary buttons (red background). Only one primary button per screen is allowed.
+ 
+ ## Overview
+ You create a normal Button and apply the .buttonStyle() ViewModifier:
+ ```swift
+ var body: some View {
+     Button(action: {}) {
+         Text("Primary Button")
+     }
+         .buttonStyle(SBBPrimaryButtonStyle())
+ }
+ ```
+ ![SBBPrimaryButtonStyle](SBBPrimaryButtonStyle)
+ */
 public struct SBBPrimaryButtonStyle: ButtonStyle {
         
     private let sizeToFit: Bool

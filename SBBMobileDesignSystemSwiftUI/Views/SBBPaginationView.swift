@@ -8,7 +8,7 @@ import SwiftUI
  A  View that indicates that there are multiple elements or pages, through which the user can navigate. Also highlights the currently selected element or page.
  
  ## Overview
- You create a SBBPaginationView by providing an currentPageIndex binding and the total number of pages:
+ You create a SBBPaginationView by providing a currentPageIndex binding and the total number of pages:
  ```swift
  @State var currentPageIndex: Int = 0
 
@@ -16,7 +16,7 @@ import SwiftUI
     SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: 3)
  }
  ```
- ![SBBPaginationView.](SBBPaginationView)
+ ![SBBPaginationView](SBBPaginationView)
  */
 public struct SBBPaginationView: View {
     

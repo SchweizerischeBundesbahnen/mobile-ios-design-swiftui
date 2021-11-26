@@ -34,7 +34,7 @@ class SBBCheckBoxTests: XCTestCase {
     func testCheckBoxSubText() {
         let view = SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"), subText: Text("SubText"), showBottomLine: false)
         for colorScheme in ColorScheme.allCases {
-            view.recordDocumentationSnapshot(name: "SBBCheckBox", colorScheme: colorScheme)
+            view.frame(width: 375).recordDocumentationSnapshot(name: "SBBCheckBox", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
         }
     }

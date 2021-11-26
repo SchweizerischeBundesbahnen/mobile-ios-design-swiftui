@@ -4,7 +4,27 @@
 
 import SwiftUI
 
-/// A  View that is used to inform users about app functionality and guide them through it (typically shown upon first app launch). SBBOnboardingView always shows a SBBOnboardingTitleView at the start and at the end of the onboarding process and a customizable number of SBBOnboardingCardViews inbetween.
+/**
+ A  View that is used to inform users about app functionality and guide them through it (typically shown upon first app launch). SBBOnboardingView always shows a ``SBBOnboardingTitleView`` at the start and at the end of the onboarding process and a customizable number of ``SBBOnboardingCardView``s inbetween.
+ 
+ ## Overview
+ You can create a SBBOnboardingView by specifying the ``SBBOnboardingState``, a binding to the current card index, a start and end ``SBBOnboardingTitleView`` as well as an Array of ``SBBOnboardingCardView``s. You typically use an own ViewModel for onboardingState handling and persistence. You typically use an if-else condition to alternatively display your main ContentView or the SBBOnboardingView depending on the onboardingState:
+ ```swift
+ // You typically use a ViewModel for onboardingState handling and persistence
+ @State var onboardingState: SBBOnboardingState = .startView
+ @State var currentOnboardingCardIndex: Int = 0
+ 
+ var body: some View {
+    if {
+        ContentView()
+    } else {
+        SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: SBBOnboardingTitleView(image: Image("ImageStart"), title: Text("Willkommen")), endView: SBBOnboardingTitleView(image: Image("ImageEnd"), title: Text("Los geht's")), content: [SBBOnboardingCardView(image: Image("ImageCard"), title: Text("Card with additional custom content"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."))])
+    }
+ }
+ ```
+ ![SBBOnboardingTitleView](SBBOnboardingTitleView)
+ ![SBBOnboardingCardView](SBBOnboardingCardView)
+ */
 public struct SBBOnboardingView: View {
     
     @ObservedObject private var viewModel: OnboardingViewModel
@@ -12,7 +32,7 @@ public struct SBBOnboardingView: View {
     private var endView: OnboardingTitleWrapperView
     
     /**
-     Returns a SBBOnboardingView with a starting and ending SBBOnboardingTitleView and a single SBBOnboardingCardView inbetween.
+     Returns a SBBOnboardingView with a starting and ending ``SBBOnboardingTitleView`` and a single ``SBBOnboardingCardView`` inbetween.
      
      - Parameters:
         - state: The current state of the onboarding process. This state typically needs to be persisted (e.g. in UserDefaults).
@@ -28,7 +48,7 @@ public struct SBBOnboardingView: View {
     }
     
     /**
-     Returns a SBBOnboardingView with a starting and ending SBBOnboardingTitleView and multiple SBBOnboardingCardViews inbetween.
+     Returns a SBBOnboardingView with a starting and ending ``SBBOnboardingTitleView`` and multiple ``SBBOnboardingCardView``s inbetween.
      
      - Parameters:
         - state: The current state of the onboarding process. This state typically needs to be persisted (e.g. in UserDefaults).

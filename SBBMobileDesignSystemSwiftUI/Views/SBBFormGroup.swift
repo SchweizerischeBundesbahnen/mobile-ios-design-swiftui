@@ -4,7 +4,21 @@
 
 import SwiftUI
 
-/// A View that is used to group corresponding SBBListItems or form elements (e.g. SBBTextField or SBBCheckBox). Elements are stacked vertically.
+/**
+ A View that is used to group corresponding ``SBBListItem``s or form elements (e.g. ``SBBTextField`` or ``SBBCheckBox``). Elements are stacked vertically.
+ 
+ ## Overview
+ You create a SBBFormGroup by providing a title as well as the Views to be stacked vertically inside the group:
+ ```swift
+ var body: some View {
+     SBBFormGroup(title: "Title:") {
+         SBBTextField(text: .constant("My Value"), label: "Placeholder")
+         SBBCheckBox(isOn: .constant(true), text: Text("CheckBox"), showBottomLine: false)
+     }
+ }
+ ```
+ ![SBBFormGroup](SBBFormGroup)
+ */
 public struct SBBFormGroup<Content>: View where Content: View {
     
     private let title: LocalizedStringKey?

@@ -14,7 +14,7 @@ import SwiftUI
     SBBDivider()
  }
  ```
- ![SBBDivider.](SBBDivider)
+ ![SBBDivider](SBBDivider)
  */
 public struct SBBDivider: View {
     

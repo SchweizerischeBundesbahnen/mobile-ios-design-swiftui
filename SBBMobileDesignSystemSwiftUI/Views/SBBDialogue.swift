@@ -4,7 +4,48 @@
 
 import SwiftUI
 
-/// A  View that can be used to inform users about an event (e.g. an error) or to show them a selection of options
+/**
+ A  View that can be used to inform users about an event (e.g. an error) or to show them a selection of options.
+ 
+ ## Overview
+ You create a SBBDialogue by providing a title, a label, an optional errorCode, the desired ``SBBDialogue/Style``, and your custom content:
+ ```swift
+ var body: some View {
+     SBBDialogue(title: title, label: label, errorCode: errorCode, style: .inline) {
+         Button(action: { }) {
+             Text("Custom Action 2")
+         }
+             .buttonStyle(SBBSecondaryButtonStyle())
+         Button(action: { }) {
+             Text("Custom Action 1")
+         }
+             .buttonStyle(SBBPrimaryButtonStyle())
+     }
+ }
+ ```
+ ![SBBDialogue](SBBDialogue)
+ 
+ You typically use a SBBDialogue with ``SBBDialogue/Style/inline`` or ``SBBDialogue/Style/list`` directly in your view. A SBBDialogue with ``SBBDialogue/Style/fullscreen`` is used together with the .sbbModal() ViewModifier:
+ ```swift
+ @State var showDialogue = false
+ 
+ var body: some View {
+     YourView()
+        .sbbModal(isPresented: $showDialogue) {
+             SBBDialogue(title: title, label: label, errorCode: errorCode, style: .fullscreen) {
+                 Button(action: { }) {
+                     Text("Custom Action 2")
+                 }
+                     .buttonStyle(SBBSecondaryButtonStyle())
+                 Button(action: { }) {
+                     Text("Custom Action 1")
+                 }
+                     .buttonStyle(SBBPrimaryButtonStyle())
+             }
+        }
+ }
+  ```
+ */
 public struct SBBDialogue<Content>: View where Content: View {
     
     /// SBBDialogue Style.

@@ -26,6 +26,7 @@ Note that this frameworks contains many ViewModifiers in form of View Extensions
 
 - ``SBBAccordion``
 - ``SBBBubbleView``
+- ``SBBCheckBox``
 - ``SBBChip``
 - ``SBBDialogue``
 - ``SBBDivider``
@@ -44,6 +45,7 @@ Note that this frameworks contains many ViewModifiers in form of View Extensions
 - ``SBBSegmentedPicker``
 - ``SBBTextArea``
 - ``SBBTextField``
+- ``SBBToast``
 
 ### ViewModifiers
 

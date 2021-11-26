@@ -4,7 +4,21 @@
 
 import SwiftUI
 
-/// A ButtonStyle for buttons with an icon instead of text (white outline and text color).
+/**
+ A ButtonStyle for buttons with an icon instead of text (white outline and text color).
+ 
+ ## Overview
+ SBBiconButtonStyle has two different ``SBBIconButtonStyle/Style``s and two different ``SBBButtonSize``s. You create a normal Button and apply the .buttonStyle() ViewModifier:
+ ```swift
+ var body: some View {
+     Button(action: {}) {
+         Image(sbbName: "dog", size: .small)
+     }
+         .buttonStyle(SBBIconButtonStyle())
+ }
+ ```
+ ![SBBIconButtonStyle](SBBIconButtonStyle)
+ */
 public struct SBBIconButtonStyle: ButtonStyle {
     
     /// SBBIconButton style.
