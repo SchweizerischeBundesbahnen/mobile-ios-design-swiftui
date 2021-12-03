@@ -441,6 +441,7 @@
 				2D804E5B23D9D0DF00CC9C0C /* Info.plist */,
 				7C3BA8D7274E4041005CEEA3 /* Documentation.docc */,
 				7CAFE99E23DEE515001ADBE8 /* SBBAppearance.swift */,
+				92B4A0C025592694005F4F06 /* SBBBundle.swift */,
 				7C6665F423DB5DED002549F1 /* Views */,
 				A7DE2067243C5A5A00557F4D /* Styles */,
 				2D804EAB23D9D1F000CC9C0C /* Colors */,
@@ -744,7 +745,6 @@
 		7CAFE98423DEC816001ADBE8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				92B4A0C025592694005F4F06 /* SBBBundle.swift */,
 				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
 				7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */,
