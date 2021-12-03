@@ -23,7 +23,7 @@ pipeline {
         MOBILEIRON_CREDENTIALS = credentials('userpass_mobileiron')
         
         // Xcode
-        REQUIRED_XCODE_VERSION = "~> 13.0"
+        REQUIRED_XCODE_VERSION = "~> 13.0.0"
         TEST_DEVICES = 'iPhone 13 Pro'
 	
 
