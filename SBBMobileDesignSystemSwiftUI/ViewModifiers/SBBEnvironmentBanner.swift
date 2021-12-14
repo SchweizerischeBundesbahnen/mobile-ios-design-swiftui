@@ -9,6 +9,21 @@ public extension View {
     /**
      Displays a environment banner on the top trailing edge of a View to highlight the current app environment.
      
+     ## Overview
+     You can add an Environment banner to any View by using the .sbbEnvironmentBanner() ViewModifier:
+     ```swift
+     var body: some View {
+         NavigationView {
+             YourView()
+                 .navigationBarTitleDisplayMode(.inline)
+                 .navigationBarTitle("Title")
+                 .sbbStyle
+         }
+            .sbbEnvironmentBanner(.dev)
+     }
+     ```
+     ![SBBEnvironmentBannerDev](SBBEnvironmentBannerDev)
+     
      - Parameters:
         - banner: The optional SBBEnvironmentBanner to display.
      */

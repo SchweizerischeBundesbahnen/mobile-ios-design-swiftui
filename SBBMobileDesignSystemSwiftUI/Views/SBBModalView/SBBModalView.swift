@@ -12,15 +12,61 @@ public enum SBBModalViewTitleAlignment {
     case center
 }
 
-/// A  View that is displayed modally above another View, typically using the .sheet() or sbbModal() ViewModifiers.
+/**
+ A  View that is displayed modally above another View, typically using the .sheet() or sbbModal() ViewModifiers.
+ 
+ ## Overview
+ You create a SBBModalView by providing a title, customizable content, a binding to the presented state and by specifying its ``SBBModalView/Style`` and ``SBBModalViewTitleAlignment``. For ``SBBModalView/Style/popup`` and ``SBBModalView/Style/bottom`` you will present the SBBModalView using the .sbbModal() ViewModifier:
+ ```swift
+ @State var isPresented = false
+ 
+ var body: some View {
+    YourView()
+        .sbbModal(isPresented: $isPresented) {
+             SBBModalView(title: Text("Your title"), style: .popup, titleAlignment: .center, isPresented: $isPresented) {
+                 VStack(spacing: 16) {
+                     Text("Your custom content")
+                     Button(action: {}) {
+                         Text("Custom Button")
+                     }
+                         .buttonStyle(SBBPrimaryButtonStyle())
+                 }
+                     .sbbScreenPadding(.horizontal)
+             }
+        }
+ }
+ ```
+ ![SBBModalView](SBBModalView)
+ 
+ For ``SBBModalView/Style/full`` you will present the SBBModalView using the .sheet() ViewModifier:
+ ```swift
+ @State var isPresented = false
+ 
+ var body: some View {
+    YourView()
+        .sheet(isPresented: $isPresented) {
+             SBBModalView(title: Text("Your title"), style: .full, titleAlignment: .center, isPresented: $isPresented) {
+                 VStack(spacing: 16) {
+                     Text("Your custom content")
+                     Button(action: {}) {
+                         Text("Custom Button")
+                     }
+                         .buttonStyle(SBBPrimaryButtonStyle())
+                 }
+                     .sbbScreenPadding(.horizontal)
+             }
+        }
+ }
+ ```
+ */
 public struct SBBModalView<Content>: View where Content: View {
     
     /// SBBModalView Style.
     public enum Style {
         /// Popup SBBModalView Style (to be used with the .sbbModal() ViewModifier)
         case popup
-        /// Sheet SBBModalView Style (to be used with the .sbbModal() ViewModifier)
-        case sheet
+        /// Dynamic bottom sheet SBBModalView Style (to be used with the .sbbModal() ViewModifier)
+        case bottom
         /// Full SBBModalView Style (to be used with the .sheet() ViewModifier)
         case full
     }
@@ -55,7 +101,7 @@ public struct SBBModalView<Content>: View where Content: View {
     
     public var body: some View {
         VStack(spacing: 0) {
-            if style == .sheet {
+            if style == .bottom {
                 Spacer()
             }
             VStack(spacing: 0) {
@@ -132,20 +178,20 @@ struct SBBModalView_Previews: PreviewProvider {
                     .previewDisplayName("Popup, light, Back Button")
             }
             Group {
-                SBBModalView(title: Text("Modal View"), style: .sheet, isPresented: .constant(true)) {
+                SBBModalView(title: Text("Modal View"), style: .bottom, isPresented: .constant(true)) {
                     Text("Custom content")
                 }
                     .previewDisplayName("Sheet, light, leading alignment")
-                SBBModalView(title: Text("Modal View"), style: .sheet, isPresented: .constant(true)) {
+                SBBModalView(title: Text("Modal View"), style: .bottom, isPresented: .constant(true)) {
                     Text("Custom content")
                 }
                     .previewDisplayName("Sheet, dark, leading alignment")
                     .environment(\.colorScheme, .dark)
-                SBBModalView(title: Text("Modal View"), style: .sheet, titleAlignment: .center, isPresented: .constant(true)) {
+                SBBModalView(title: Text("Modal View"), style: .bottom, titleAlignment: .center, isPresented: .constant(true)) {
                     Text("Custom content")
                 }
                     .previewDisplayName("Sheet, light, center alignment")
-                SBBModalView(title: Text("Modal View"), style: .sheet, titleAlignment: .center, isPresented: .constant(true), showBackButton: true) {
+                SBBModalView(title: Text("Modal View"), style: .bottom, titleAlignment: .center, isPresented: .constant(true), showBackButton: true) {
                     Text("Custom content")
                 }
                     .previewDisplayName("Sheet, light, Back Button")

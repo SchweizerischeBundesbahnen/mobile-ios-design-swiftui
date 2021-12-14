@@ -4,7 +4,18 @@
 
 import SwiftUI
 
-/// A  SBB Divider to visually seaparate different content.
+/**
+ A  View to visually seaparate different content.
+ 
+ ## Overview
+ You create a SBBDivider like so:
+ ```swift
+ var body: some View {
+    SBBDivider()
+ }
+ ```
+ ![SBBDivider](SBBDivider)
+ */
 public struct SBBDivider: View {
     
     /**

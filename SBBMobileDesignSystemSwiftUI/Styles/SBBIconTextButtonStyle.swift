@@ -4,7 +4,24 @@
 
 import SwiftUI
 
-/// A ButtonStyle for buttons with custom content (e.g. text and icon).
+/**
+ A ButtonStyle for buttons with custom content (e.g. text and icon).
+ 
+ ## Overview
+ You create a normal Button and apply the .buttonStyle() ViewModifier:
+ ```swift
+ var body: some View {
+     Button(action: {}) {
+         VStack(alignment: .center, spacing: 4, content: {
+             Image(sbbName: "station", size: .large)
+             Text("Station")
+         })
+     }
+         .buttonStyle(SBBIconTextButtonStyle())
+ }
+ ```
+ ![SBBIconTextButtonStyle](SBBIconTextButtonStyle)
+ */
 public struct SBBIconTextButtonStyle: ButtonStyle {
     
     /**
@@ -20,7 +37,8 @@ public struct SBBIconTextButtonStyle: ButtonStyle {
         
         let configuration: ButtonStyle.Configuration
         @Environment(\.isEnabled) private var isEnabled: Bool
-        
+        @Environment(\.colorScheme) var colorScheme
+
         var body: some View {
             configuration.label
                 .sbbFont(.legend)
@@ -28,23 +46,25 @@ public struct SBBIconTextButtonStyle: ButtonStyle {
                 .padding(.vertical, 16)
                 .padding(.horizontal, 8)
                 .frame(width: 96, height: 104)
-                .background(getBackgroundColor(isPressed: configuration.isPressed))
+                .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(16)
         }
         
         private func getForegroundColor(enabled: Bool) -> Color {
             if !enabled {
-                return .sbbColorInternal(.buttonTertiaryDisabledForeground)
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
             } else {
                 return .sbbColor(.textBlack)
             }
         }
         
-        private func getBackgroundColor(isPressed: Bool) -> Color {
-            if isPressed {
-                return .sbbColorInternal(.buttonTertiaryPressedBackground)
+        private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
+            if !enabled {
+                return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.black)
+            } else  if isPressed {
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.black)
             } else {
-                return .sbbColorInternal(.buttonTertiaryBackground)
+                return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.charcoal)
             }
         }
     }

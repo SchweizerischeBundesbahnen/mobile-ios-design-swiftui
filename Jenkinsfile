@@ -24,7 +24,7 @@ pipeline {
         
         // Xcode
         REQUIRED_XCODE_VERSION = "~> 13.0"
-        TEST_DEVICES = 'iPhone 8'
+        TEST_DEVICES = 'iPhone 13 Pro'
 	
 
         // SBBCocoaPods (podspec)

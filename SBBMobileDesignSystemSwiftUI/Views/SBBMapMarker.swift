@@ -4,7 +4,18 @@
 
 import SwiftUI
 
-/// A  View that is used to highlight content on a map.
+/**
+ A  View that is used to highlight content on a map.
+ 
+ ## Overview
+ You create a SBBMapMarker by providing an image and by specifying its ``SBBMapMarker/Style``:
+ ```swift
+ var body: some View {
+    SBBMapMarker(icon: Image(sbbName: "construction"), style: .red)
+ }
+ ```
+ ![SBBMapMarker](SBBMapMarker)
+ */
 public struct SBBMapMarker: View {
    
     /// SBBMapMarker Style (background color, foreground color is always white).

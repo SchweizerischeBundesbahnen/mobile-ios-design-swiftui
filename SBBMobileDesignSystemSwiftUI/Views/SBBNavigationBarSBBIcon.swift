@@ -4,7 +4,25 @@
 
 import SwiftUI
 
-/// A  SBB-Icon to be used as trailing NavigationBarItem with an optional onTouchAction.
+/**
+ A  SBB-Icon to be used as trailing NavigationBarItem with an optional onTouchAction.
+ 
+ ## Overview
+ You can add a SBBNavigationBarSBBIcon to the Navigation Bar by using the .navigationBarItems() ViewModifier:
+ ```swift
+ var body: some View {
+     NavigationView {
+         EmptyView()
+             .navigationBarTitleDisplayMode(.inline)
+             .navigationBarTitle("Title")
+             .navigationBarItems(trailing: SBBNavigationBarSBBIcon(onTouchAction { yourFunction() }))
+     }
+ }
+ ```
+ ![SBBNavigationBarWithSBBIcon](SBBNavigationBarWithSBBIcon)
+ 
+ Note that you only need to add a SBBNavigationBarSBBIcon if it should have a custom action. To simply display a SBB Icon as trailing NavigationBar Icon, simply use the .sbbStyle() ViewModifier together witn an .inline NavigationBar.
+ */
 public struct SBBNavigationBarSBBIcon: View {
     
     private let onTouchAction: (() -> ())?

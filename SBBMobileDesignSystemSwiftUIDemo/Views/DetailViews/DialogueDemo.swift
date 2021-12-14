@@ -25,9 +25,9 @@ struct DialogueDemo: View {
             VStack(spacing: 16) {
                 VStack(alignment: .leading, spacing: 16) {
                     SBBRadioButtonGroup(title: "Style", selection: $style, tags: SBBDialogue<EmptyView>.Style.allCases) {
-                        SBBRadioButton(label: "Fullscreen")
-                        SBBRadioButton(label: "Inline")
-                        SBBRadioButton(label: "List", showBottomLine: false)
+                        SBBRadioButton(text: Text("Fullscreen"))
+                        SBBRadioButton(text: Text("Inline"))
+                        SBBRadioButton(text: Text("List"), showBottomLine: false)
                     }
                     Toggle(isOn: $showImage) {
                         Text("Show image:")
@@ -37,15 +37,15 @@ struct DialogueDemo: View {
                         .padding(.horizontal, 16)
                     if showImage {
                         SBBRadioButtonGroup(selection: $imageStyle, tags: SBBDialogue<EmptyView>.ImageStyle.allCases) {
-                            SBBRadioButton(label: "Man happy")
-                            SBBRadioButton(label: "Man sad", showBottomLine: false)
+                            SBBRadioButton(text: Text("Man happy"))
+                            SBBRadioButton(text: Text("Man sad"), showBottomLine: false)
                         }
                     }
                     
                     
                     SBBRadioButtonGroup(title: "Content", selection: $actionType, tags: [0, 1]) {
-                        SBBRadioButton(label: "Custom Actions")
-                        SBBRadioButton(label: "Retry Action", showBottomLine: false)
+                        SBBRadioButton(text: Text("Custom Actions"))
+                        SBBRadioButton(text: Text("Retry Action"), showBottomLine: false)
                     }
                     if !showDialogue {
                         Button(action: { showDialogue = true }) {

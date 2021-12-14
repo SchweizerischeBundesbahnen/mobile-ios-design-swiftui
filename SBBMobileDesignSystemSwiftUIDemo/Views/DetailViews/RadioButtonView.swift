@@ -33,7 +33,7 @@ struct RadioButtonView: View {
                 }
                     .toggleStyle(SBBSwitchStyle())
                 VStack(alignment: .leading, spacing: 0) {
-                    SBBRadioButton(label: "Normal RadioButton", showBottomLine: false)
+                    SBBRadioButton(text: Text("Normal RadioButton"), showBottomLine: false)
                         .isSelected(radioButton1IsSelected)
                         .highPriorityGesture(
                             TapGesture().onEnded {
@@ -43,7 +43,7 @@ struct RadioButtonView: View {
                                 }
                             }
                         )
-                    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon", showBottomLine: false)
+                    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), text: Text("RadioButton with Icon"), showBottomLine: false)
                         .isSelected(radioButton2IsSelected)
                         .highPriorityGesture(
                             TapGesture().onEnded {
@@ -56,32 +56,14 @@ struct RadioButtonView: View {
                 }
                     .disabled(isDisabled)
                 SBBRadioButtonGroup(title: "SBBRadioButtonGroup", selection: $selectedRadioButton, tags: [0, 1, 2]) {
-                    SBBRadioButton(label: "Normal RadioButton with line")
-                    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), label: "RadioButton with Icon and line")
-                    SBBRadioButton(label: "RadioButton without line", showBottomLine: false)
+                    SBBRadioButton(text: Text("Normal RadioButton with line"))
+                    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), text: Text("RadioButton with Icon and line"))
+                    SBBRadioButton(text: Text("RadioButton without line"), showBottomLine: false)
                 }
                     .disabled(isDisabled)
                 SBBRadioButtonGroup(title: "With custom SBBRadioButtons", selection: $selectedCustomRadioButton, tags: TrainCompany.allCases) {
-                    SBBRadioButton() {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Custom RadioButton")
-                                .sbbFont(.body)
-                            Text("Favourite train: ICN")
-                                .sbbFont(.legend)
-                            Text("Best train company: SBB")
-                                .sbbFont((.legend))
-                        }
-                    }
-                    SBBRadioButton(showBottomLine: false) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Custom RadioButton")
-                                .sbbFont(.body)
-                            Text("Favourite train: TGV")
-                                .sbbFont(.legend)
-                            Text("Best train company: SNCF")
-                                .sbbFont((.legend))
-                        }
-                    }
+                    SBBRadioButton(text: Text("RadioButton with subText"), subText: Text("Favourite train: ICN\nBest train company: SBB"))
+                    SBBRadioButton(text: Text("RadioButton with subText"), subText: Text("Favourite train: TGV\nBest train company: SNCF"), showBottomLine: false) 
                 }
                     .disabled(isDisabled)
                 Spacer()

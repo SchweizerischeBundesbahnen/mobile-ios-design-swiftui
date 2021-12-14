@@ -4,7 +4,20 @@
 
 import SwiftUI
 
-/// A  View that is used for entering text (multiple lines).
+/**
+ A  View that is used for entering text (multiple lines).
+ 
+ ## Overview
+ You create a SBBTextArea  by providing a binding to inputText, and a static placeholder label:
+ ```swift
+ @State var input = "I like trains"
+
+ var body: some View {
+    SBBTextArea(text: $input, label: "Placeholder")
+ }
+ ```
+ ![SBBTextArea](SBBTextArea)
+ */
 public struct SBBTextArea: View {
     
     @Binding private var text: String
@@ -14,7 +27,7 @@ public struct SBBTextArea: View {
     private let showBottomLine: Bool
     
     /**
-     Returns a SBBTextField with a label and an optional Image.
+     Returns a SBBTextArea with a label and an optional Image.
      
      - Parameters:
         - text: Sets the user-modifiable text state.

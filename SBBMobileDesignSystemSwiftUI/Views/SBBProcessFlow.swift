@@ -5,6 +5,20 @@
 import SwiftUI
 
 /// A  View that allows visual separation of a multi-step processes or forms. Highlights, the current step.
+/**
+ A  View that allows visual separation of a multi-step processes or forms. Highlights, the current step.
+ 
+ ## Overview
+ You create a SBBProcessFlow  by providing a set of Images (one per step) and the current index:
+ ```swift
+ var currentIndex = 1
+
+ var body: some View {
+    SBBProcessFlow(currentStepIndex: currentIndex, images: [Image(sbbName: "face-worker", size: .small), Image(sbbName: "piggy-bank", size: .small), Image(sbbName: "heart", size: .small)])
+ }
+ ```
+ ![SBBProcessFlow](SBBProcessFlow)
+ */
 public struct SBBProcessFlow: View {
     
     private var currentStepIndex: Int

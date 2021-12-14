@@ -21,37 +21,19 @@ struct CheckBoxView: View {
                 }
                     .toggleStyle(SBBSwitchStyle())
                 VStack(alignment: .leading, spacing: 0) {
-                    SBBCheckBox(isOn: $isOn, label: "Normal Checkbox", showBottomLine: false)
+                    SBBCheckBox(isOn: $isOn, text: Text("Normal Checkbox"), showBottomLine: false)
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: "Checkbox with Icon", showBottomLine: false)
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), text: Text("Checkbox with Icon"), showBottomLine: false)
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, showBottomLine: false) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Custom Checkbox")
-                                .sbbFont(.body)
-                            Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln.")
-                                .sbbFont(.body)
-                            Text("Modell: iPhone 11 Pro\niOS Version: 14.0")
-                                .sbbFont((.legend))
-                        }
-                    }
+                    SBBCheckBox(isOn: $isOn, text: Text("Checkbox with subText"), subText: Text("Modell: iPhone 11 Pro\niOS Version: 14.0"), showBottomLine: false)
                         .disabled(isDisabled)
                 }
                 SBBFormGroup(title: "Checkbox in FormGroup") {
-                    SBBCheckBox(isOn: $isOn, label: "Normal Checkbox with line")
+                    SBBCheckBox(isOn: $isOn, text: Text("Normal Checkbox with line"))
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), label: "Checkbox with Icon and line")
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), text: Text("Checkbox with Icon and line"))
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, showBottomLine: false) {
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text("Custom Checkbox with line")
-                                .sbbFont(.body)
-                            Text("Ich möchte der SBB Informationen zum verwendeten Gerät übermitteln.")
-                                .sbbFont(.body)
-                            Text("Modell: iPhone 11 Pro\niOS Version: 14.0")
-                                .sbbFont((.legend))
-                        }
-                    }
+                    SBBCheckBox(isOn: $isOn, text: Text("Checkbox with subText"), subText: Text("Modell: iPhone 11 Pro\niOS Version: 14.0"), showBottomLine: false)
                         .disabled(isDisabled)
                 }
                 Spacer()

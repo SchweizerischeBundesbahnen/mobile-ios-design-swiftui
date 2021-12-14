@@ -4,7 +4,17 @@
 
 import SwiftUI
 
-/// A  View that is used for SBBOnboardingView and is swipped through during the onboarding process.
+/**
+ A  View that is used for ``SBBOnboardingView`` and is swipped through during the onboarding process.
+ 
+ ## Overview
+ You can create a SBBOnboardingCardView by specifying an image, title, text and/or custom content. You can also specify an action to be executed when the card disappears (e.g. asking the user for certain permissions):
+ ```swift
+ SBBOnboardingCardView(image: Image("Onboarding_Card1"), title: Text("Card with additional custom content"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."))
+ }
+ ```
+ ![SBBOnboardingCardView](SBBOnboardingCardView)
+ */
 public struct SBBOnboardingCardView: View {
     
     private let image: Image?

@@ -4,7 +4,21 @@
 
 import SwiftUI
 
-/// A ButtonStyle for buttons with an icon instead of text (white outline and text color).
+/**
+ A ButtonStyle for buttons with an icon instead of text (white outline and text color).
+ 
+ ## Overview
+ SBBiconButtonStyle has two different ``SBBIconButtonStyle/Style``s and two different ``SBBButtonSize``s. You create a normal Button and apply the .buttonStyle() ViewModifier:
+ ```swift
+ var body: some View {
+     Button(action: {}) {
+         Image(sbbName: "dog", size: .small)
+     }
+         .buttonStyle(SBBIconButtonStyle())
+ }
+ ```
+ ![SBBIconButtonStyle](SBBIconButtonStyle)
+ */
 public struct SBBIconButtonStyle: ButtonStyle {
     
     /// SBBIconButton style.
@@ -44,7 +58,8 @@ public struct SBBIconButtonStyle: ButtonStyle {
         let showBorder: Bool
         let configuration: ButtonStyle.Configuration
         @Environment(\.isEnabled) private var isEnabled: Bool
-        
+        @Environment(\.colorScheme) var colorScheme
+
         var padding: CGFloat {
             return (size == .large) ? 10 : 4
         }
@@ -58,13 +73,13 @@ public struct SBBIconButtonStyle: ButtonStyle {
                 .foregroundColor(getForegroundColor(enabled: isEnabled))
                 .padding(padding)
                 .frame(width: diameter, height: diameter)
-                .background(getBackgroundColor(isPressed: configuration.isPressed))
+                .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(showBorder ? diameter / 2 : 0)
                 .background(
                     Group {
                         if showBorder {
                             RoundedRectangle(cornerRadius: diameter / 2)
-                                .stroke(getBorderColor(enabled: isEnabled), lineWidth: 1)
+                                .stroke(getForegroundColor(enabled: isEnabled), lineWidth: 1)
                         }
                     }
                 )
@@ -74,7 +89,7 @@ public struct SBBIconButtonStyle: ButtonStyle {
             switch style {
             case .normal:
                 if !enabled {
-                    return .sbbColorInternal(.buttonTertiaryDisabledForeground)
+                    return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
                 } else {
                     return .sbbColor(.textBlack)
                 }
@@ -83,26 +98,15 @@ public struct SBBIconButtonStyle: ButtonStyle {
             }
         }
         
-        private func getBorderColor(enabled: Bool) -> Color {
+        private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
             switch style {
             case .normal:
                 if !enabled {
-                    return .sbbColorInternal(.buttonTertiaryDisabledBorder)
+                    return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.black)
+                } else  if isPressed {
+                    return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.black)
                 } else {
-                    return .sbbColor(.smoke)
-                }
-            case .negative:
-                return Color.sbbColor(.white).opacity(enabled ? 1 : 0.5)
-            }
-        }
-        
-        private func getBackgroundColor(isPressed: Bool) -> Color {
-            switch style {
-            case .normal:
-                if isPressed {
-                    return .sbbColorInternal(.buttonTertiaryPressedBackground)
-                } else {
-                    return .sbbColorInternal(.buttonTertiaryBackground)
+                    return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.charcoal)
                 }
             case .negative:
                 return Color.sbbColor(.black).opacity(isPressed ? 0.2 : 0)

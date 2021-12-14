@@ -11,7 +11,7 @@ public extension Color {
     static var sbbPrimary: Color = Color.sbbColor(.red)
     
     /// The secondary color set in SBBTheme which is used for pressed states/backgrounds of some UI elements (e.g. SBBPrimaryButton in pressed state).
-    static var sbbSecondary: Color = Color.sbbColor(.red150)
+    static var sbbSecondary: Color = Color.sbbColor(.red125)
     
     /**
      Returns a SBB Color.

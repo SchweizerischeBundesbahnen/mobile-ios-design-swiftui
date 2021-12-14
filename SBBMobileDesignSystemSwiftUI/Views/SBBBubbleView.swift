@@ -141,8 +141,25 @@ public extension SBBBubbleView where SubtitleContent == EmptyView {
     }
 }
 
+/**
+ A  View that is mainly used right underneath the Navigationbar. It displays an Image and a Title and optionally a subtitle and collapsible content.
+ 
+ ## Overview
+ You create a SBBBubbleView  by providing a expanded state binding, an image, a title and optional parameters such as: A subtitle or custom subtitle content, a custom expandable Content or fixed (non-expandable) custom Content. You can also specify wether you want to extend the red NavigationBar theme to flow under the upper part of the SBBBubbleView:
+ ```swift
+ @State var expanded = false
 
-/// A  View that is mainly used right underneath the Navigationbar. It displays an Image and a Title and optionally a subtitle and collapsible content.
+ var body: some View {
+     SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: $expanded, expandableContent: {
+         Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
+         Text("ca. +12'")
+             .foregroundColor(.sbbColor(.red))
+             .font(.sbbTitleDefault)
+     })
+ }
+ ```
+ ![SBBBubbleView](SBBBubbleView)
+ */
 public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: View where ExpandableContent: View, SubtitleContent: View, FixedContent: View {
     
     private let image: Image

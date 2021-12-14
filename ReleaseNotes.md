@@ -1,5 +1,20 @@
 # Release Notes SBBMobileDesignSystemSwiftUI für iOS & SwiftUI
 
+## V0.6.0 - 23 November 2021
+
+### Improvements
+* Updated all elements according to newest Figma version. 
+* SBBRadioButton and SBBCheckbox now reflect theming (color) changes.
+* Breaking change: Renaming of init parameters of SBBRadioButton and SBBCheckbox according to newest Figma version. 
+* Breaking change: SBBRadioButton and SBBCheckbox now feature an optional subtitle instead of customizable content.
+* Breaking change: Renaming of SBBInfoViewCollapsible to SBBAccordion.
+* Breaking change: Renaming of SBBModalViewStyle from .sheet to .bottom.
+
+## V0.5.2 - 12 November 2021
+
+### Improvements
+* Demo App can now switch color theme while running
+
 ## V0.5.2 - 02 November 2021
 
 ### Improvements

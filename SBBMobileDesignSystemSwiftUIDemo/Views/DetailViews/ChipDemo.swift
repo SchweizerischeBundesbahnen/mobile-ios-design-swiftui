@@ -22,7 +22,7 @@ struct ChipDemo: View {
                     Spacer()
                 }
                     .disabled(disabled)
-                SBBCheckBox(isOn: $disabled, label: "Disabled", showBottomLine: false)
+                SBBCheckBox(isOn: $disabled, text: Text("Disabled"), showBottomLine: false)
                 SBBFormGroup(title: "Demo Vehicle List") {
                     if !internationalFilter {
                         SBBListItem(label: Text("ICN"), image: Image(sbbName: "train-profile", size: .small), footnote: Text("National train"), type: .info)
