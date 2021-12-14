@@ -32,6 +32,17 @@ public extension Image {
     /**
      Returns a SBB Icon (FPL Icons and Pictograms) as Image.
      
+     ## Overview
+     You create an Image using the custom initializer:
+     ```swift
+     var body: some View {
+        Image(sbbName: "Zug_r")
+        Image(sbbName: "product-ir-40")
+     }
+     ```
+     ![ImageExtensionIconFPL](ImageExtensionIconFPL)
+     ![ImageExtensionIconPictogram](ImageExtensionIconPictogram)
+     
      - Parameters:
         - sbbName: The name of the FPL Icon or Pictogram.
      */
@@ -41,6 +52,16 @@ public extension Image {
     
     /**
      Returns a SBB Icon (KOM Icon) as Image.
+     
+     ## Overview
+     KOM Icons are available in different ``SBBIconSize``s and are rendered as template image (you can change their color). You create an Image using the custom initializer:
+     ```swift
+     var body: some View {
+        Image(sbbName: "station", size: .small)
+            .foregroundColor(Color.sbbColor(.textBlack))
+     }
+     ```
+     ![ImageExtensionIconKOM](ImageExtensionIconKOM)
      
      - Parameters:
         - sbbName: The name of the KOM Icon (without size appendix).

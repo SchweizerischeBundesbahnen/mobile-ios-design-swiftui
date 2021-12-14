@@ -4,7 +4,26 @@
 
 import SwiftUI
 
-/// A  View that is used to offer a single selection out of multiple options.
+/**
+ A View that is used to offer a single selection out of multiple options.
+ 
+ ## Overview
+ You create a SBBRadioButtonGroup by providing a selectedRadioButton binding, corresponding possible tags, a title as well as ``SBBRadioButton``s:
+ ```swift
+ @State private var selectedRadioButton = 0
+
+ var body: some View {
+     SBBRadioButtonGroup(title: "Title", selection: $selectedRadioButton, tags: [0, 1, 2]) {
+         SBBRadioButton(text: Text("Option 1"))
+         SBBRadioButton(text: Text("Option 2"))
+         SBBRadioButton(text: Text("Option 3"), showBottomLine: false)
+     }
+ }
+ ```
+ Note that the number of ``SBBRadioButton``s must match the number of tags.
+ 
+ ![SBBRadioButtonGroup](SBBRadioButtonGroup)
+ */
 public struct SBBRadioButtonGroup<RadioButtonContent, Selection>: View where RadioButtonContent: View, Selection: Hashable {
     
     private let title: String?

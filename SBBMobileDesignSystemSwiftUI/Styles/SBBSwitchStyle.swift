@@ -4,7 +4,22 @@
 
 import SwiftUI
 
-/// A ToggleStyle in SBB style (red background)
+/**
+ A ToggleStyle in SBB style (red background)
+ 
+ ## Overview
+ You create a normal Toggle and apply the .toggleStyle() ViewModifier:
+ ```swift
+ @State var isOn = true
+ var body: some View {
+     Toggle(isOn: $isOn) {
+         Text("Label")
+     }
+        .toggleStyle(SBBSwitchStyle())
+ }
+ ```
+ ![SBBSwitchStyle](SBBSwitchStyle)
+ */
 public struct SBBSwitchStyle: ToggleStyle {
     
     /**

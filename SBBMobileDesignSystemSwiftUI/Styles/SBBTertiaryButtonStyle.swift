@@ -4,7 +4,21 @@
 
 import SwiftUI
 
-/// A ButtonStyle for tertiary buttons (white outline and text color).
+/**
+ A ButtonStyle for tertiary buttons (white outline and text color).
+ 
+ ## Overview
+ SBBTertiaryButtonStyle has two different ``SBBButtonSize``s. You create a normal Button and apply the .buttonStyle() ViewModifier:
+ ```swift
+ var body: some View {
+     Button(action: {}) {
+        Text("Primary Button")
+     }
+         .buttonStyle(SBBTertiaryButtonStyle())
+ }
+ ```
+ ![SBBTertiaryButtonStyle](SBBTertiaryButtonStyle)
+ */
 public struct SBBTertiaryButtonStyle: ButtonStyle {
     
     private let size: SBBButtonSize

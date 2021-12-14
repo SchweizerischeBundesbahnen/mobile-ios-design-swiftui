@@ -4,7 +4,20 @@
 
 import SwiftUI
 
-/// A  View that allows user to quickly filter content (e.g. a list).
+/**
+ A  View that allows user to quickly filter content (e.g. a list).
+ 
+ ## Overview
+ You create a SBBChip by providing a label, a binding specifying wether the corresponding filter is acitve and the total number of items to be filtered:
+ ```swift
+ @State private var filterActive = false
+
+ var body: some View {
+    SBBChip(label: Text("Chip label"), isSelected: $filterActive, numberOfItems: 2)
+ }
+ ```
+ ![SBBChip](SBBChip)
+ */
 public struct SBBChip: View {
     
     @Binding private var isSelected: Bool

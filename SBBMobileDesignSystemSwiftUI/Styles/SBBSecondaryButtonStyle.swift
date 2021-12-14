@@ -4,7 +4,21 @@
 
 import SwiftUI
 
-/// A ButtonStyle for secondary buttons (red outline and text color).
+/**
+ A ButtonStyle for secondary buttons (red outline and text color).
+ 
+ ## Overview
+ You create a normal Button and apply the .buttonStyle() ViewModifier:
+ ```swift
+ var body: some View {
+     Button(action: {}) {
+         Text("Secondary Button")
+     }
+         .buttonStyle(SBBSecondaryButtonStyle())
+ }
+ ```
+ ![SBBSecondaryButtonStyle](SBBSecondaryButtonStyle)
+ */
 public struct SBBSecondaryButtonStyle: ButtonStyle {
         
     /// Returns a Button in SBB secondary button style (red outline and text color).

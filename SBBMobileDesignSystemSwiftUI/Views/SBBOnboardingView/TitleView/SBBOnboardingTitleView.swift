@@ -4,7 +4,17 @@
 
 import SwiftUI
 
-/// A  View that is used for SBBOnboardingView as starting and ending View of the onboarding process.
+/**
+ A  View that is used for ``SBBOnboardingView`` as starting or ending View of the onboarding process.
+ 
+ ## Overview
+ You can create a SBBOnboardingTitleView by specifying an image, title and optional subtitle:
+ ```swift
+ SBBOnboardingTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"))
+ }
+ ```
+ ![SBBOnboardingTitleView](SBBOnboardingTitleView)
+ */
 public struct SBBOnboardingTitleView: View {
     
     private let image: Image

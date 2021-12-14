@@ -4,7 +4,20 @@
 
 import SwiftUI
 
-/// A  View that is used to offer a yes/no selection for one or multiple unrelated options.
+/**
+ A  View that is used to offer a yes/no selection for one or multiple unrelated options.
+ 
+ ## Overview
+ You create a SBBCheckBox by providing an isOn binding and a Text. You can optionally also provide an image and a subText:
+ ```swift
+ @State private var isOn = false
+
+ var body: some View {
+    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"), subText: Text("SubText"))
+ }
+ ```
+ ![SBBCheckBox](SBBCheckBox)
+ */
 public struct SBBCheckBox: View {
     
     @Environment(\.isEnabled) private var isEnabled

@@ -4,7 +4,31 @@
 
 import SwiftUI
 
-/// A  View that is used to offer a selection between multiple options (typically used for switching between tabs).
+/**
+ A  View that is used to offer a selection between multiple options (typically used for switching between tabs).
+ 
+ ## Overview
+ You create a SBBSegmentedPicker by providing a selectedSegment binding, corresponding possible tags, as well as the differen Views to be displayed in every segment:
+ ```swift
+ @State private var selectedSegment = 0
+
+ var body: some View {
+     SBBSegmentedPicker(selection: $selectedSegment, tags: [0, 1]) {
+         HStack {
+             Image(sbbName: "timetable", size: .small)
+             Text("Departures")
+         }
+         HStack {
+             Image(sbbName: "platform-display", size: .small)
+             Text("Platform")
+         }
+     }
+ }
+ ```
+ Note that the number of Elements in the ViewBuilder must match the number of tags.
+ 
+ ![SBBSegmentedPicker](SBBSegmentedPicker)
+ */
 public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, Selection: Hashable {
     
     /// SBBSegmentedPicker Style.

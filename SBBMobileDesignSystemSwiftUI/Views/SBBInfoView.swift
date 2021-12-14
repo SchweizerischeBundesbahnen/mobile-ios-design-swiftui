@@ -4,7 +4,18 @@
 
 import SwiftUI
 
-/// A  View that is used to display a prominent information.
+/**
+ A  View that is used to display a prominent information.
+ 
+ ## Overview
+ You create a SBBInfoView  by providing an image and a text:
+ ```swift
+ var body: some View {
+    SBBInfoView(image: Image(sbbName: "station", size: .small), text: Text("Your text"))
+ }
+ ```
+ ![SBBInfoView](SBBInfoView)
+ */
 public struct SBBInfoView: View {
     
     let image: Image
