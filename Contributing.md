@@ -1,7 +1,7 @@
 # Guidance on how to contribute
 
 > All contributions to this project will be released under the MIT license. By submitting a pull request or filing a bug, issue, or feature request, you are agreeing to comply with this waiver of copyright interest.
-> Details can be found in our [LICENSE](LICENSE).
+> Details can be found in our [License](License.md).
 
 There are two primary ways to help:
  - Using the issue tracker, and
