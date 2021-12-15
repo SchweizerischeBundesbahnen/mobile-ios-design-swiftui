@@ -306,6 +306,7 @@
 		7C9C46D624CB034000C22E97 /* SBBInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBInfoView.swift; sourceTree = "<group>"; };
 		7C9C46D824CB046200C22E97 /* InfoViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewDemo.swift; sourceTree = "<group>"; };
 		7C9C46DE24CB1AED00C22E97 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7C9ED700276A31DC00702132 /* License.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = License.md; sourceTree = "<group>"; };
 		7CA055572660C3A000513F00 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		7CA055592660C43B00513F00 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		7CA464DE2445F31100118D7B /* SBBAccordion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAccordion.swift; sourceTree = "<group>"; };
@@ -331,6 +332,7 @@
 		7CBEAD18273E76510063E011 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBLoadingIndicator.swift; sourceTree = "<group>"; };
 		7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorDemo.swift; sourceTree = "<group>"; };
+		7CC4B00F276A19E700B3BC46 /* Contributing.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Contributing.md; sourceTree = "<group>"; };
 		7CC5F4B926B03D230028161D /* SBBRadioButtonGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBRadioButtonGroup.swift; sourceTree = "<group>"; };
 		7CCAECF225C293E5000E958A /* MapMarkerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkerDemo.swift; sourceTree = "<group>"; };
 		7CDBA68C24C16B86002289EE /* SBBModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalView.swift; sourceTree = "<group>"; };
@@ -415,6 +417,8 @@
 			children = (
 				A7DEBF272433A4F400CC330B /* SBBMobileDesignSystemSwiftUI.podspec.json */,
 				7C2B7E7223DAC4FD0012CF62 /* README.md */,
+				7C9ED700276A31DC00702132 /* License.md */,
+				7CC4B00F276A19E700B3BC46 /* Contributing.md */,
 				7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */,
 				2D804E7623D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */,
 				2D804E8D23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests */,
