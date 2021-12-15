@@ -2,7 +2,7 @@
 
 This framework contains SBB (Swiss Federal Railways) UI elements for iOS SwiftUI Apps. It allows an easy integration of SBB theming to your app (or a custom color theming of your choice). All elements are optimized for dynamic TextSizes, VoiceOver, light & dark mode as well as for different SizeClasses.
 
-![SBB Design System Mobile in use](/SBBMobileDesignSystemSwiftUI/Documentation.docc/Resources/SBBDSM_Devices.png)
+![SBB Design System Mobile in use](SBBMobileDesignSystemSwiftUI/Documentation.docc/Resources/SBBDSM_Devices.png)
 
 ## Minimum supported iOS Version
 * iOS 14.0
@@ -57,7 +57,7 @@ If you need help, you can reach out to us by e-mail: [mobile@sbb.ch](mailto:mobi
 ## Getting involved
 Generally speaking, we are welcoming contributions improving existing UI elements or fixing certain bugs. We will also consider contributions introducing new design elements, but might reject them, if they do not reflect our vision of SBB Design System.
 
-General instructions on _how_ to contribute can be found under [CONTRIBUTING](CONTRIBUTING.md).
+General instructions on _how_ to contribute can be found under [Contributing](Contributing.md).
 
 ## Authors
 
