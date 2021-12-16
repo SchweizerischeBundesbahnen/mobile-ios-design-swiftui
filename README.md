@@ -1,6 +1,6 @@
 # Framework: Design System Mobile for iOS & SwiftUI
 
-[![iOS](https://svgshare.com/i/ZjP.svg)](https://svgshare.com/i/ZjP.svg)
+[![Generic badge](https://img.shields.io/badge/platform-iOS%2014+-blue.svg)](https://www.apple.com/ios/ios-15/)
 [![Generic badge](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Generic badge](https://img.shields.io/badge/pod-compatible-brightgreen.svg)](https://TODO/)
 [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://spdx.org/licenses/GPL-3.0-or-later.html)
