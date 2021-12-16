@@ -16,7 +16,7 @@ License: CC0-1.0
 Files:
     SBBMobileDesignSystemSwiftUI/*.swift
 Copyright: 2021 SBB AG <mobile@sbb.ch>
-License: GPL-3.0-or-later
+License: MIT
 
 # Documentation of SBB DSM SwiftUI
 Files:

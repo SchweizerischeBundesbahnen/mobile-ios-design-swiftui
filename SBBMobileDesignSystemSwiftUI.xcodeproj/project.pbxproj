@@ -261,6 +261,8 @@
 		7C595E5225A5FBCE0015B0FC /* SBBRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBRadioButton.swift; sourceTree = "<group>"; };
 		7C595E5625A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxAndRadioButtonContainerType.swift; sourceTree = "<group>"; };
 		7C595E5A25A5FDD20015B0FC /* RadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButtonView.swift; sourceTree = "<group>"; };
+		7C5ECA55276B7D2D000D5985 /* CC0-1.0.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CC0-1.0.txt"; sourceTree = "<group>"; };
+		7C5ECA56276B7D2D000D5985 /* GFDL-1.3-or-later.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "GFDL-1.3-or-later.txt"; sourceTree = "<group>"; };
 		7C609465274F8F03001ABF67 /* SBBAccordionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAccordionTests.swift; sourceTree = "<group>"; };
 		7C609467274F8FC8001ABF67 /* SBBChipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBChipTests.swift; sourceTree = "<group>"; };
 		7C609469274F9088001ABF67 /* SBBDialogueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBDialogueTests.swift; sourceTree = "<group>"; };
@@ -301,7 +303,7 @@
 		7C71655D246D6155009C3FB1 /* FontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtension.swift; sourceTree = "<group>"; };
 		7C716560246D6575009C3FB1 /* TypographyFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyFontView.swift; sourceTree = "<group>"; };
 		7C7193C926E9DE7C00CD3EAF /* SBBScreenPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBScreenPadding.swift; sourceTree = "<group>"; };
-		7C77C2D3276B169200AC8157 /* GPL-3.0-or-later.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GPL-3.0-or-later.txt"; sourceTree = "<group>"; };
+		7C77C2D3276B169200AC8157 /* MIT.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MIT.txt; sourceTree = "<group>"; };
 		7C77C2D6276B233000AC8157 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		7C7FB27125BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconTextButtonStyle.swift; sourceTree = "<group>"; };
 		7C89AE6126B154720087872E /* IsSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsSelected.swift; sourceTree = "<group>"; };
@@ -735,7 +737,9 @@
 		7C77C2D2276B155300AC8157 /* LICENSES */ = {
 			isa = PBXGroup;
 			children = (
-				7C77C2D3276B169200AC8157 /* GPL-3.0-or-later.txt */,
+				7C77C2D3276B169200AC8157 /* MIT.txt */,
+				7C5ECA55276B7D2D000D5985 /* CC0-1.0.txt */,
+				7C5ECA56276B7D2D000D5985 /* GFDL-1.3-or-later.txt */,
 			);
 			path = LICENSES;
 			sourceTree = "<group>";
