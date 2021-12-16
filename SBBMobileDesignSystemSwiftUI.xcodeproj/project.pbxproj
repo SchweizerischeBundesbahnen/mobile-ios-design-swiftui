@@ -302,6 +302,7 @@
 		7C716560246D6575009C3FB1 /* TypographyFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyFontView.swift; sourceTree = "<group>"; };
 		7C7193C926E9DE7C00CD3EAF /* SBBScreenPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBScreenPadding.swift; sourceTree = "<group>"; };
 		7C77C2D3276B169200AC8157 /* GPL-3.0-or-later.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "GPL-3.0-or-later.txt"; sourceTree = "<group>"; };
+		7C77C2D5276B228300AC8157 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		7C7FB27125BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconTextButtonStyle.swift; sourceTree = "<group>"; };
 		7C89AE6126B154720087872E /* IsSelected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsSelected.swift; sourceTree = "<group>"; };
 		7C9C46D624CB034000C22E97 /* SBBInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBInfoView.swift; sourceTree = "<group>"; };
@@ -419,6 +420,7 @@
 				7C2B7E7223DAC4FD0012CF62 /* README.md */,
 				7CC4B00F276A19E700B3BC46 /* Contributing.md */,
 				7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */,
+				7C77C2D5276B228300AC8157 /* LICENSE.txt */,
 				7C77C2D2276B155300AC8157 /* LICENSES */,
 				2D804E7623D9D16000CC9C0C /* SBBMobileDesignSystemSwiftUIDemo */,
 				2D804E8D23D9D16300CC9C0C /* SBBMobileDesignSystemSwiftUIDemoTests */,
