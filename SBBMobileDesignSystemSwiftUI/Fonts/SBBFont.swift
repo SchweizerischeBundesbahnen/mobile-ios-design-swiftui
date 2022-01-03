@@ -5,9 +5,6 @@
 import Foundation
 import SwiftUI
 
-// Usage: .sbbFont(.sbb_legend)
-// Custom font dynamic sizing does not seem to work inside the PreviewProvider atm (SwiftUI bug?)
-
 public extension View {
     
     /**
@@ -18,7 +15,7 @@ public extension View {
      */
     func sbbFont(_ sbbFont: SBBFont) -> some View {
         return self.modifier(ScaledFont(sbbFont: sbbFont))  // workaround
-        //return self.font(sbbFont.font).lineSpacing(sbbFont.lineSpacing)   // Leads to Segmentation Fault: 11 (if archiving XCode project using SwiftUI DSM over CocoaPods), see https://stackoverflow.com/questions/60865057/xcode-11-4-archiving-project-segmentation-fault-11
+        //return self.font(sbbFont.font).lineSpacing(sbbFont.lineSpacing)   // Leads to Segmentation Fault: 11 (if archiving XCode project using SwiftUI DSM over CocoaPods)
     }
 }
 

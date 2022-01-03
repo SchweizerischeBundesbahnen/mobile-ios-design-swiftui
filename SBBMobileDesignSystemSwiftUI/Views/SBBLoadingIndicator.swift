@@ -4,7 +4,6 @@
 
 import SwiftUI
 
-// TODO: add anti-aliasing once SwiftUI supports it
 /**
  A  View that is used to display a loading state.
  

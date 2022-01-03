@@ -4,8 +4,6 @@
 
 import SwiftUI
 
-// Found in: https://stackoverflow.com/questions/56760335/round-specific-corners-swiftui
-
 public extension View {
     /**
      Clips this view to its bounding frame, with the specified corner radius in the specified corners.
@@ -17,7 +15,7 @@ public extension View {
      - Returns: A view that clips this view to its bounding frame with the specified corner radius in the specified corners.
      */
     func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
-        clipShape( RoundedCorner(radius: radius, corners: corners) )
+        clipShape(RoundedCorner(radius: radius, corners: corners))
     }
 }
 

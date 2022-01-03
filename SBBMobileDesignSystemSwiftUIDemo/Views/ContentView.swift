@@ -185,7 +185,7 @@ struct ContentView: View {
                     .environment(\.sizeCategory, contentSizeCategory)
             }
                 .id(navigationViewID)
-                .navigationViewStyle(StackNavigationViewStyle())    // https://stackoverflow.com/questions/57905499/swiftui-code-is-working-in-iphone-but-blank-screen-in-ipad
+                .navigationViewStyle(StackNavigationViewStyle())    // iPad SwiftUI SplitView issue workaround
                 .sbbEnvironmentBanner(selectedBanner)
             if onboardingViewModel.onboardingState != .hidden {
                 OnboardingView()
