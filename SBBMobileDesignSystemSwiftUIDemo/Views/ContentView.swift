@@ -59,10 +59,76 @@ struct ContentView: View {
                                 SBBListItem(label: Text("Icons"), showBottomLine: false)
                             }
                         }
-                        SBBFormGroup(title: "Elements") {
+                        SBBFormGroup(title: "Components") {
                             Group {
+                                NavigationLink(destination: AccordionDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Accordion"))
+                                }
+                                NavigationLink(destination: BannerDemo(colorScheme: self.$colorScheme, selectedBanner: $selectedBanner).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Banner"))
+                                }
+                                NavigationLink(destination: BubbleViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("BubbleView"))
+                                }
                                 NavigationLink(destination: ButtonDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Button"))
+                                }
+                                NavigationLink(destination: CheckBoxView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("CheckBox"))
+                                }
+                                NavigationLink(destination: ChipDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Chip"))
+                                }
+                            }
+                            Group {
+                                NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Dialogue"))
+                                }
+                                NavigationLink(destination: DividerViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Divider"))
+                                }
+                                NavigationLink(destination: FormGroupView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("FormGroup"))
+                                }
+                                NavigationLink(destination: InfoViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("InfoView"))
+                                }
+                                NavigationLink(destination: ListItemDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("ListItem"))
+                                }
+                                NavigationLink(destination: LoadingIndicatorDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("LoadingIndicator"))
+                                }
+                            }
+                            Group {
+                                NavigationLink(destination: MapMarkerDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("MapMarker"))
+                                }
+                                NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("ModalView"))
+                                }
+                                NavigationLink(destination: NavigationBarWithSBBIconDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("NavigationBar with SBB Icon"))
+                                }
+                                NavigationLink(destination: OnboardingViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("OnboardingView"))
+                                }
+                                NavigationLink(destination: PaginationViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Pagination"))
+                                }
+                                NavigationLink(destination: ProcessFlowDemo(viewModel: ProcessFlowViewModel(), colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("ProcessFlow"))
+                                }
+                            }
+                            Group {
+                                NavigationLink(destination: RadioButtonView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("RadioButton"))
+                                }
+                                NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("SegmentedPicker"))
+                                }
+                                NavigationLink(destination: SliderDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Slider"))
                                 }
                                 NavigationLink(destination: TextAreaView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("TextArea"))
@@ -70,80 +136,12 @@ struct ContentView: View {
                                 NavigationLink(destination: TextFieldView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory).environmentObject(TextFieldViewModel())) {
                                     SBBListItem(label: Text("TextField"))
                                 }
-                                NavigationLink(destination: CheckBoxView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("CheckBox"))
-                                }
-                                NavigationLink(destination: RadioButtonView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("RadioButton"))
-                                }
-                                NavigationLink(destination: DividerViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Divider"))
-                                }
-                                NavigationLink(destination: ListItemDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("ListItem"))
+                                NavigationLink(destination: ToastDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory).environmentObject(SBBToastService())) {
+                                    SBBListItem(label: Text("Toast"))
                                 }
                                 NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Toggle"))
+                                    SBBListItem(label: Text("Toggle"), showBottomLine: false)
                                 }
-                                NavigationLink(destination: PaginationViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Pagination"))
-                                }
-                                NavigationLink(destination: SegmentedPickerViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("SegmentedPicker"))
-                                }
-                            }
-                            Group {
-                                NavigationLink(destination: SliderDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Slider"))
-                                }
-                                NavigationLink(destination: LoadingIndicatorDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("LoadingIndicator"))
-                                }
-                                NavigationLink(destination: ChipDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Chip"))
-                                }
-                                NavigationLink(destination: MapMarkerDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("MapMarker"), showBottomLine: false)
-                                }
-                            }
-                        }
-                        SBBFormGroup(title: "Modules") {
-                            NavigationLink(destination: BubbleViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("BubbleView"))
-                            }
-                            NavigationLink(destination: InfoViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("InfoView"))
-                            }
-                            NavigationLink(destination: AccordionDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("Accordion"))
-                            }
-                            NavigationLink(destination: FormGroupView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("FormGroup"))
-                            }
-                            NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("ModalView"))
-                            }
-                            NavigationLink(destination: DialogueDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("Dialogue"))
-                            }
-                            NavigationLink(destination: ToastDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory).environmentObject(SBBToastService())) {
-                                SBBListItem(label: Text("Toast"))
-                            }
-                            NavigationLink(destination: ProcessFlowDemo(viewModel: ProcessFlowViewModel(), colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("ProcessFlow"), showBottomLine: false)
-                            }
-                        }
-                        SBBFormGroup(title: "PageTypes") {
-                            NavigationLink(destination: OnboardingViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("OnboardingView"), showBottomLine: false)
-                            }
-                        }
-                        SBBFormGroup(title: "ViewModifiers") {
-                            NavigationLink(destination: NavigationBarWithSBBIconDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("NavigationBar with SBB Icon"))
-                            }
-                            NavigationLink(destination: BannerDemo(colorScheme: self.$colorScheme, selectedBanner: $selectedBanner).environment(\.sizeCategory, contentSizeCategory)) {
-                                SBBListItem(label: Text("Banner"), showBottomLine: false)
                             }
                         }
                         SBBFormGroup(title: "Additional Information") {
