@@ -15,10 +15,16 @@ This framework contains SBB (Swiss Federal Railways) UI elements for iOS SwiftUI
 
 ## Add the library to your project with Swift package manager
 
-Add the following package to your XCode project:
+Add the following package to your XCode project.
+
+For HTTPS:
 ```
-For HTTPS: https://code.sbb.ch/scm/kd_esta_mobile/esta-mobile-ios-design-swiftui.git
-For SSH: ssh://git@codessh.sbb.ch:7999/kd_esta_mobile/esta-mobile-ios-design-swiftui.git
+https://github.com/SchweizerischeBundesbahnen/mobile-ios-design-swiftui.git
+```
+
+For SSH:
+```
+git@github.com:SchweizerischeBundesbahnen/mobile-ios-design-swiftui.git
 ```
 
 ## How to use

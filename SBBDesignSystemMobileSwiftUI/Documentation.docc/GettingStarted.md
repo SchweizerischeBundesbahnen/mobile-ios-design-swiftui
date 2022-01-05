@@ -19,12 +19,12 @@ Start by adding the SBBDesignSystemMobileSwiftUI package to your project using S
 
 For HTTPS:
 ```
-https://code.sbb.ch/scm/kd_esta_mobile/esta-mobile-ios-design-swiftui.git
+https://github.com/SchweizerischeBundesbahnen/mobile-ios-design-swiftui.git
 ```
 
 For SSH:
 ```
-ssh://git@codessh.sbb.ch:7999/kd_esta_mobile/esta-mobile-ios-design-swiftui.git
+git@github.com:SchweizerischeBundesbahnen/mobile-ios-design-swiftui.git
 ```
 
 ### Initialize the Library in your app
