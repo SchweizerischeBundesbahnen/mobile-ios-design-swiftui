@@ -5,7 +5,7 @@
 import XCTest
 import SnapshotTesting
 import SwiftUI
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 class SBBSwitchStyleTests: XCTestCase {
     

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D804E7423D9D16000CC9C0C"
-               BuildableName = "SBBMobileDesignSystemSwiftUIDemo.app"
-               BlueprintName = "SBBMobileDesignSystemSwiftUIDemo"
-               ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+               BuildableName = "SBBDesignSystemMobileSwiftUIDemo.app"
+               BlueprintName = "SBBDesignSystemMobileSwiftUIDemo"
+               ReferencedContainer = "container:SBBDesignSystemMobileSwiftUI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D804E8923D9D16300CC9C0C"
-               BuildableName = "SBBMobileDesignSystemSwiftUIDemoTests.xctest"
-               BlueprintName = "SBBMobileDesignSystemSwiftUIDemoTests"
-               ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+               BuildableName = "SBBDesignSystemMobileSwiftUIDemoTests.xctest"
+               BlueprintName = "SBBDesignSystemMobileSwiftUIDemoTests"
+               ReferencedContainer = "container:SBBDesignSystemMobileSwiftUI.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D804E7423D9D16000CC9C0C"
-            BuildableName = "SBBMobileDesignSystemSwiftUIDemo.app"
-            BlueprintName = "SBBMobileDesignSystemSwiftUIDemo"
-            ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+            BuildableName = "SBBDesignSystemMobileSwiftUIDemo.app"
+            BlueprintName = "SBBDesignSystemMobileSwiftUIDemo"
+            ReferencedContainer = "container:SBBDesignSystemMobileSwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D804E7423D9D16000CC9C0C"
-            BuildableName = "SBBMobileDesignSystemSwiftUIDemo.app"
-            BlueprintName = "SBBMobileDesignSystemSwiftUIDemo"
-            ReferencedContainer = "container:SBBMobileDesignSystemSwiftUI.xcodeproj">
+            BuildableName = "SBBDesignSystemMobileSwiftUIDemo.app"
+            BlueprintName = "SBBDesignSystemMobileSwiftUIDemo"
+            ReferencedContainer = "container:SBBDesignSystemMobileSwiftUI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

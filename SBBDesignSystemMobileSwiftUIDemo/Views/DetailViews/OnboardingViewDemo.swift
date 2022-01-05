@@ -3,7 +3,7 @@
 //
 
 import SwiftUI
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 class OnboardingViewDemoModel: ObservableObject {
     @Published var numberOfCards: Int = 3

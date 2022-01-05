@@ -5,7 +5,7 @@
 import XCTest
 import SnapshotTesting
 import SwiftUI
-@testable import SBBMobileDesignSystemSwiftUI
+@testable import SBBDesignSystemMobileSwiftUI
 
 class SBBToastTests: XCTestCase {
     

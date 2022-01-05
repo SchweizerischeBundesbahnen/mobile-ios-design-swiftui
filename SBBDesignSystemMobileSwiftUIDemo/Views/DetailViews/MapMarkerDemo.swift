@@ -3,7 +3,7 @@
 //
 
 import SwiftUI
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 struct MapMarkerDemo: View {
     @Binding var colorScheme: ColorScheme

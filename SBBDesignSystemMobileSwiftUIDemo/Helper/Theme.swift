@@ -3,7 +3,7 @@
 //
 
 import Foundation
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 enum Theme: CaseIterable {
     

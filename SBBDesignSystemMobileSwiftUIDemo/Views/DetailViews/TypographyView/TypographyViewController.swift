@@ -3,7 +3,7 @@
 //
 
 import UIKit
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 class TypographyViewController: UIViewController {
     

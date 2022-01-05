@@ -3,7 +3,7 @@
 //
 
 import UIKit
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

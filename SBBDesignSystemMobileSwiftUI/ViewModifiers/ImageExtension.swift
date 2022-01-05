@@ -18,7 +18,7 @@ public enum SBBIconSize: String {
 public extension Image {
     
     /**
-     Checks whether a SBB Icon asset exists in the SBBMobileDesignSystemSwiftUI library for the name.
+     Checks whether a SBB Icon asset exists in the SBBDesignSystemMobileSwiftUI library for the name.
      
      - Parameters:
         - sbbName: The name of the SBB Icon.

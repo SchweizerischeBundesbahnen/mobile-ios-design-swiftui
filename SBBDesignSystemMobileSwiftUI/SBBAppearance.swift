@@ -10,7 +10,7 @@ import SwiftUI
 public class SBBAppearance {
     
     /**
-     This method must be called to initialize SBBMobileDesignSystem in the App. It loads SBB specific fonts and sets up the Navigation Bar in SBB style (only DisplayMode .inline is supported). Typically it is called in didFinishLaunchingWithOptions of the AppDelegate.
+     This method must be called to initialize SBBDesignSystemMobile in the App. It loads SBB specific fonts and sets up the Navigation Bar in SBB style (only DisplayMode .inline is supported). Typically it is called in didFinishLaunchingWithOptions of the AppDelegate.
      
      - Parameters:
         - theme: Sets the ``SBBTheme`` (color) for all UI elements.

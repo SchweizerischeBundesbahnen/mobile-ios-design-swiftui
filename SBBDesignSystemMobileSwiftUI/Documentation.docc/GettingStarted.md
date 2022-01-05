@@ -15,7 +15,7 @@ After adding the SBB DSM SwiftUI framework in your app you need to follow the fo
 
 ### Add the library to your project
 
-Start by adding the SBBMobileDesignSystemSwiftUI package to your project using Swift Package Manager.
+Start by adding the SBBDesignSystemMobileSwiftUI package to your project using Swift Package Manager.
 
 For HTTPS:
 ```
@@ -32,7 +32,7 @@ ssh://git@codessh.sbb.ch:7999/kd_esta_mobile/esta-mobile-ios-design-swiftui.git
 Call the setupSBBApperance() in the AppDelegate:
 
 ```swift
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
@@ -52,7 +52,7 @@ SBBAppearance.setupSBBAppearance(theme: SBBTheme(primaryColor: .blue, secondaryC
 Applies SBB styling to your view. You typically apply the sbbStyle() View modifier to the upmost View in the hierarchy.
 
 ```swift
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 struct ContentView: View {
     var body: some View {

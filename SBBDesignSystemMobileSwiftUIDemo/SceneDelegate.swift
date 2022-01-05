@@ -4,7 +4,7 @@
 
 import UIKit
 import SwiftUI
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 

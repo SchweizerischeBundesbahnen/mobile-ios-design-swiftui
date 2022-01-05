@@ -23,7 +23,7 @@ extension XCTestCase {
 
 extension View {
     
-    // records a .png image file of a View and saves it to the Documentation/Resources folder inside the SBBMobileDesignSystemSwiftUI target to be then used in markdown code documentation
+    // records a .png image file of a View and saves it to the Documentation/Resources folder inside the SBBDesignSystemMobileSwiftUI target to be then used in markdown code documentation
     func recordDocumentationSnapshot(name: String, colorScheme: ColorScheme) {
         let containingView = Group {
             self
@@ -48,7 +48,7 @@ extension View {
         
         if let data = image.pngData() {
             let filename = (colorScheme == .light) ? name : "\(name)~dark"
-            let fileURL = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("SBBMobileDesignSystemSwiftUI").appendingPathComponent("Documentation.docc").appendingPathComponent("Resources").appendingPathComponent("\(filename).png")
+            let fileURL = URL(fileURLWithPath: #file).deletingLastPathComponent().deletingLastPathComponent().appendingPathComponent("SBBDesignSystemMobileSwiftUI").appendingPathComponent("Documentation.docc").appendingPathComponent("Resources").appendingPathComponent("\(filename).png")
             try? data.write(to: fileURL)
         }
     }

@@ -3,7 +3,7 @@
 //
 
 import SwiftUI
-import SBBMobileDesignSystemSwiftUI
+import SBBDesignSystemMobileSwiftUI
 
 struct ToastDemo: View {
     

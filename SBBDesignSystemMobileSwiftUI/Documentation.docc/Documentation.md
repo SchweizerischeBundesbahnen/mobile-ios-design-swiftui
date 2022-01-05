@@ -1,4 +1,4 @@
-# ``SBBMobileDesignSystemSwiftUI``
+# ``SBBDesignSystemMobileSwiftUI``
 
 Easily integrate SBB Look & Feel into your SwiftUI app.
 
