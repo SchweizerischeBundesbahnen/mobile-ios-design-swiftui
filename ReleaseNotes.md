@@ -1,5 +1,10 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## V1.0.0 - 05 January 2022
+
+### Features
+* SBB DSM is now publicly available in Github as OpenSource
+
 ## V0.6.0 - 23 November 2021
 
 ### Improvements
