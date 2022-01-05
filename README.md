@@ -13,7 +13,7 @@ This framework contains SBB (Swiss Federal Railways) UI elements for iOS SwiftUI
 
 * iOS 14.0
 
-## Add the library to your project with Swift package manager
+## Add the library to your project with Swift Package Manager
 
 Add the following package to your XCode project.
 
