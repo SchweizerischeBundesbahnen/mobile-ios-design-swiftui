@@ -1,0 +1,46 @@
+//
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
+//
+
+// SBBBubbleView
+"collapse" = "zusammenklappen";
+"expand" = "auseinanderklappen";
+
+// SBBSegmentedPicker
+"selected" = "Auswahl";
+"of" = "von";
+
+// SBBCheckBox
+"ON" = "Aktiviert";
+"OFF" = "Deaktiviert";
+
+// SBBOnboardingView
+"back" = "zurück";
+"forward" = "vorwärts";
+"abort tour" = "Rundgang abbrechen";
+"Start App tour" = "App Rundgang starten";
+"End App tour" = "App Rundgang beenden";
+
+// SBBModalView
+"close" = "schliessen";
+
+// SBBTextField
+"Delete input" = "Eingabe löschen";
+
+// SBBLoadingIndicator
+"Loading." = "Wird geladen.";
+
+// SBBChip
+"list filter" = "Listenfilter";
+"active" = "aktiv";
+"not active" = "nicht aktiv";
+"entries" = "Einträge";
+
+// SBBProcessFlow
+"Step %lld out of %lld" = "Schritt %lld von total %lld Schritten.";
+
+// SBBProfile
+"You're logged in as:" = "Sie sind eingeloggt als:";
+"You're not logged in." = "Sie sind nicht eingeloggt.";
+"Login" = "Login";
+"Logout" = "Logout";
