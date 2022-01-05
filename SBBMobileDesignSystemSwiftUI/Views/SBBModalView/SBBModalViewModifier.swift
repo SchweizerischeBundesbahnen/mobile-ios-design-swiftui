@@ -26,7 +26,7 @@ fileprivate struct ModalViewContainer<PresentingView: View, ModalViewContent: Vi
     let content: () -> ModalViewContent
     let presentingView: PresentingView
     
-    // Removes the background added when using .fullScreenCover() and appear animation, inspiration by https://stackoverflow.com/questions/64301041/swiftui-translucent-background-for-fullscreencover
+    // Removes the background added when using .fullScreenCover() and appear animation
     // Can be removed, once .fullScreenCover allows to select the appropriate appear/disappear animation
     struct BackgroundTransparentView: UIViewRepresentable {
         func makeUIView(context: Context) -> UIView {
