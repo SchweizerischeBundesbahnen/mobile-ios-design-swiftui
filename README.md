@@ -3,7 +3,7 @@
 [![Generic badge](https://img.shields.io/badge/platform-iOS%2014+-blue.svg)](https://www.apple.com/ios/ios-15/)
 [![Generic badge](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 [![Generic badge](https://img.shields.io/badge/pod-compatible-brightgreen.svg)](https://TODO/)
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://spdx.org/licenses/GPL-3.0-or-later.html)
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://spdx.org/licenses/MIT.html)
 
 This framework contains SBB (Swiss Federal Railways) UI elements for iOS SwiftUI Apps. It allows an easy integration of SBB theming to your app (or a custom color theming of your choice). All elements are optimized for dynamic TextSizes, VoiceOver, light & dark mode as well as for different SizeClasses.
 
@@ -62,4 +62,4 @@ General instructions on _how_ to contribute can be found under [Contributing](Co
 
 ## License
 
-Code released under the [GPL-3.0-or-later license](LICENSE).
+Code released under the [MIT](LICENSE).
