@@ -3,6 +3,12 @@ Upstream-Name: SBB
 Upstream-Contact: SBB AG <mobile@sbb.ch>
 Source: https://github.com/SchweizerischeBundesbahnen/ios-design-swiftui
 
+# SBB Font files
+Files:
+    SBBMobileDesignSystemSwiftUI/Fonts/*.ttf
+Copyright: 2021 SBB AG <mobile@sbb.ch>
+License: SBBFL-1.0.txt
+
 # Files below the threshold of originality (metadata, config and project-information)
 Files:
     SBBMobileDesignSystemSwiftUI/Fonts/*.ttf
