@@ -169,7 +169,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.sbbColorInternal(.tabViewBackground))
+        .background(Color.sbbColor(.background))
     }
     
     private func buildTags() -> [Selection] {
