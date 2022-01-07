@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
+		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
 		2D804E6823D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7723D9D16000CC9C0C /* AppDelegate.swift */; };
 		2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7923D9D16000CC9C0C /* SceneDelegate.swift */; };
@@ -205,6 +207,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
+		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
 		2D804E5723D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBBMobileDesignSystemSwiftUI.h; sourceTree = "<group>"; };
 		2D804E5B23D9D0DF00CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -627,6 +631,7 @@
 				7CE19B1925B957EA00FEFC1E /* ToastDemo.swift */,
 				7C6248A2247E60FC00F54C9D /* ToggleDemo.swift */,
 				7C71655F246D6492009C3FB1 /* TypographyView */,
+				00E17D6227883FD00077BD43 /* TabViewDemo.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
 				7CE19B1D25B98D7700FEFC1E /* SBBToast */,
+				00E17D60278830510077BD43 /* SBBTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1044,6 +1050,7 @@
 				2DCEC937253EC7F4008EDD15 /* SBBColorNameInternal.swift in Sources */,
 				7CDBA69124C18DA1002289EE /* SBBButtonSize.swift in Sources */,
 				7CBA441424BDB11E0078E68F /* SBBOnboardingState.swift in Sources */,
+				00E17D61278830510077BD43 /* SBBTabView.swift in Sources */,
 				7CBA441A24BDEB5B0078E68F /* SBBOnboardingCardView.swift in Sources */,
 				7C624898247E315800F54C9D /* ImageExtension.swift in Sources */,
 				2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */,
@@ -1106,6 +1113,7 @@
 				A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */,
 				7CCAECF325C293E5000E958A /* MapMarkerDemo.swift in Sources */,
 				2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */,
+				00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */,
 				7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */,
 				7CC3FAD425AEDBEB00D227D4 /* LoadingIndicatorDemo.swift in Sources */,
 				7C62489E247E48A400F54C9D /* ListItemDetailDemo.swift in Sources */,

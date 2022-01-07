@@ -142,6 +142,9 @@ struct ContentView: View {
                                 NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Toggle"), showBottomLine: false)
                                 }
+                                NavigationLink(destination: TabViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("TabBar"), showBottomLine: false)
+                                }
                             }
                         }
                         SBBFormGroup(title: "Additional Information") {
