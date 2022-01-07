@@ -1,5 +1,5 @@
 //
-// Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2022.
 //
 
 import SwiftUI
@@ -17,51 +17,50 @@ struct TabViewDemo: View {
                 Image(sbbName: "station", size:.small)
             }
             .sbbTag(0)
-            .sbbTabItem{
-                Image(sbbName: "station", size:.small)
-                Text("Bahnhof")
-            }
+            .sbbTabItem(
+                image: Image(sbbName: "station", size:.small),
+                label: Text("Bahnhof")
+            )
             
             VStack {
                 Text("Haltestelle")
                 Image(sbbName: "bus-stop", size:.small)
             }
             .sbbTag(1)
-            .sbbTabItem{
-                Image(sbbName: "bus-stop", size:.small)
-                Text("Haltestelle")
-            }
+            .sbbTabItem(
+                image: Image(sbbName: "bus-stop", size:.small),
+                label: Text("Haltestelle")
+            )
             
             VStack {
                 Text("Unterwegs")
                 Image(sbbName: "train", size:.small)
             }
             .sbbTag(2)
-            .sbbTabItem{
-                Image(sbbName: "train", size:.small)
-                Text("Unterwegs")
-            }
+            .sbbTabItem(
+                image: Image(sbbName: "train", size:.small),
+                label: Text("Unterwegs")
+            )
             
             VStack {
                 Text("Türknopf")
                 Image(sbbName: "fullscreen", size:.small)
             }
             .sbbTag(3)
-            .sbbTabItem{
-                Image(sbbName: "fullscreen", size:.small)
-                Text("Türknopf")
-            }
+            .sbbTabItem(
+                image: Image(sbbName: "fullscreen", size:.small),
+                label: Text("Türknopf")
+            )
             
             VStack {
                 Text("Einstellungen")
                 Image(sbbName: "gears", size:.small)
             }
             .sbbTag(4)
-            .sbbTabItem{
-                Image(sbbName: "gears", size:.small)
-                Text("Einstellungen")
-            }
-            
+            .sbbTabItem(
+                image: Image(sbbName: "gears", size:.small),
+                label: Text("Einstellungen")
+            )
         }
         .edgesIgnoringSafeArea(.all)
         .colorScheme(colorScheme)

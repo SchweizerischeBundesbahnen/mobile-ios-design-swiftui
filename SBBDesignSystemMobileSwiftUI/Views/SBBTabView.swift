@@ -57,28 +57,28 @@ struct TabBarShape: Shape {
 }
 
 public struct TabBarEntryView: View {
-    // The information needed for each tab: content, icon, title and label
+    // The information needed for each tab: content, image, label and tag
     var contentView: AnyView
-    var iconView: AnyView = AnyView(Image(sbbName: "cross", size: .small))
-    var titleView: AnyView = AnyView(Text("_"))
-    var label: Any?
+    var imageView: Image = Image(sbbName: "cross", size: .small)
+    var labelView: Text = Text("_")
+    var tag: Any?
     
-    public init(contentView: AnyView, iconView: AnyView, titleView: AnyView, label: Any) {
+    public init(contentView: AnyView, imageView: Image, labelView: Text, tag: Any) {
         self.contentView = contentView
-        self.iconView = iconView
-        self.titleView = titleView
-        self.label = label
+        self.imageView = imageView
+        self.labelView = labelView
+        self.tag = tag
     }
     
-    public init(contentView: AnyView, iconView: AnyView, titleView: AnyView) {
+    public init(contentView: AnyView, imageView: Image, labelView: Text) {
         self.contentView = contentView
-        self.iconView = iconView
-        self.titleView = titleView
+        self.imageView = imageView
+        self.labelView = labelView
     }
     
-    public init(contentView: AnyView, label: Any) {
+    public init(contentView: AnyView, tag: Any) {
         self.contentView = contentView
-        self.label = label
+        self.tag = tag
     }
     
     public init(contentView: AnyView) {
@@ -97,8 +97,8 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     private var selectionIndex: Int {
         for index in (0...self.contents.count) {
             // Some tab may not have a label
-            if let label = self.contents[index].label {
-                if (label as! Selection == selection) {
+            if let tag = self.contents[index].tag {
+                if (tag as! Selection == selection) {
                     return index
                 }
             }
@@ -110,7 +110,6 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     
     public init<Views>(selection: Binding<Selection>, @ViewBuilder content: () -> TupleView<Views>) {
         self._selection = selection
-        
         // Content must have at least 2 views to work (Tuple)
         self.contents = content().getTabViews
     }
@@ -118,7 +117,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     public var body: some View {
         GeometryReader { geometry in
             let segmentWidth = segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)
-            VStack {
+            VStack(spacing: 0) {
                 // Content of the tab
                 self.contents[self.selectionIndex].contentView
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
@@ -131,14 +130,14 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                     HStack(spacing: 0) {
                         ForEach(0..<self.contents.count) { index in
                             Button(action: {
-                                self.selection = self.contents[index].label as? Selection ?? self.selection
+                                self.selection = self.contents[index].tag as? Selection ?? self.selection
                             }) {
                                 if (index == self.selectionIndex) {
                                     Circle()
                                         .frame(width: segmentWidth * 0.65)
-                                        .overlay(self.contents[index].iconView.colorInvert())
+                                        .overlay(self.contents[index].imageView.colorInvert())
                                 } else {
-                                    self.contents[index].iconView
+                                    self.contents[index].imageView
                                 }
                             }
                         }
@@ -150,23 +149,20 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                     .frame(height: segmentWidth * 1.3, alignment: .top)
                     
                     // Current tab title
-                    VStack {
-                        self.contents[self.selectionIndex].titleView
-                            .sbbFont(.legend)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.1)
-                            .frame(width: segmentWidth, alignment: .center)
-                            .offset(x: segmentWidth * CGFloat(self.selectionIndex))
-                    }
-                    .foregroundColor(Color.sbbColor(.textBlack))
-                    .padding(.bottom, 15)
-                    .frame(width: geometry.size.width, alignment: .leading)
-                    .frame(height: segmentWidth * 1.3, alignment: .bottom)
+                    self.contents[self.selectionIndex].labelView
+                        .sbbFont(.legend)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.1)
+                        .foregroundColor(Color.sbbColor(.textBlack))
+                        .padding(.bottom, 15)
+                        .frame(width: segmentWidth, alignment: .center)
+                        .offset(x: segmentWidth * CGFloat(self.selectionIndex))
+                        .frame(width: geometry.size.width, alignment: .leading)
+                        .frame(height: segmentWidth * 1.3, alignment: .bottom)
                 }
                 .frame(height: segmentWidth * 1.3)
                 .foregroundColor(Color.sbbColor(.tabViewBackground))
             }
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.sbbColor(.background))
@@ -175,33 +171,30 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     private func buildTags() -> [Selection] {
         var temp = Array<Selection>()
         for index in (0...self.contents.count) {
-            temp.append(self.contents[index].label as! Selection)
+            temp.append(self.contents[index].tag as! Selection)
         }
         return temp
     }
 }
 
 extension View {
-    public func sbbTabItem<Views>(@ViewBuilder content: () -> TupleView<Views>) -> TabBarEntryView {
-        // Content must have at least 2 views to work (Tuple) - the additional views are ignored here
-        let views = content().getViews
-        
+    public func sbbTabItem(image: Image, label: Text) -> TabBarEntryView {
         if let content = getTabBarEntryContent(val: self) {
-            if let label = content.label {
-                return TabBarEntryView(contentView: AnyView(content.contentView), iconView: views[0], titleView: views[1], label: label)
+            if let tag = content.tag {
+                return TabBarEntryView(contentView: AnyView(content.contentView), imageView: image, labelView: label, tag: tag)
             }
-            return TabBarEntryView(contentView: AnyView(content.contentView), iconView: views[0], titleView: views[1])
+            return TabBarEntryView(contentView: AnyView(content.contentView), imageView: image, labelView: label)
         }
-        return TabBarEntryView(contentView: AnyView(self), iconView: views[0], titleView: views[1])
+        return TabBarEntryView(contentView: AnyView(self), imageView: image, labelView: label)
     }
     
     
     public func sbbTag<V>(_ tag: V) -> TabBarEntryView where V : Hashable {
         if let content = getTabBarEntryContent(val: self) {
-            return TabBarEntryView(contentView: content.contentView, iconView: content.iconView, titleView: content.titleView, label: tag)
+            return TabBarEntryView(contentView: content.contentView, imageView: content.imageView, labelView: content.labelView, tag: tag)
         }
         
-        return TabBarEntryView(contentView: AnyView(self), label: tag)
+        return TabBarEntryView(contentView: AnyView(self), tag: tag)
     }
 }
 
@@ -211,31 +204,24 @@ extension TupleView {
         makeArrayTabViews(from: value)
     }
     
-    var getViews: [AnyView] {
-        makeArray(from: value)
-    }
-    
     private struct GenericView {
         let body: Any
         
         var tabEntryView: TabBarEntryView? {
             if let content = getTabBarEntryContent(val: body) {
-                if let label = content.label {
-                    return TabBarEntryView(contentView: content.contentView, iconView: content.iconView, titleView: content.titleView, label: label)
+                if let tag = content.tag {
+                    return TabBarEntryView(contentView: content.contentView, imageView: content.imageView, labelView: content.labelView, tag: tag)
                 }
-                return TabBarEntryView(contentView: content.contentView, iconView: content.iconView, titleView: content.titleView)
+                return TabBarEntryView(contentView: content.contentView, imageView: content.imageView, labelView: content.labelView)
             }
             let bodyView = AnyView(_fromValue: body)
             return TabBarEntryView(contentView: bodyView!)
-        }
-        
-        var anyView: AnyView? {
-            return AnyView(_fromValue: body)
         }
     }
     
     private func makeArrayTabViews<Tuple>(from tuple: Tuple) -> [TabBarEntryView] {
         func convert(child: Mirror.Child) -> TabBarEntryView? {
+            // Get a child view and convert it to TabBarEntryView
             withUnsafeBytes(of: child.value) { ptr -> TabBarEntryView? in
                 let binded = ptr.bindMemory(to: GenericView.self)
                 
@@ -243,19 +229,6 @@ extension TupleView {
             }
         }
         
-        let tupleMirror = Mirror(reflecting: tuple)
-        return tupleMirror.children.compactMap(convert)
-    }
-    
-    private func makeArray<Tuple>(from tuple: Tuple) -> [AnyView] {
-        func convert(child: Mirror.Child) -> AnyView? {
-            // Get a child view and convert it to AnyView
-            withUnsafeBytes(of: child.value) { ptr -> AnyView? in
-                let binded = ptr.bindMemory(to: GenericView.self)
-                
-                return binded.first?.anyView
-            }
-        }
         let tupleMirror = Mirror(reflecting: tuple)
         return tupleMirror.children.compactMap(convert)
     }
@@ -277,7 +250,7 @@ private func getTabBarEntryContent<V>(val: V) -> TabBarEntryView? {
 struct SBBTabView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            let tab: Int = 1
+            let tab: Int = 0
             
             SBBTabView(selection: .constant(tab)) {
                 VStack {
@@ -285,162 +258,107 @@ struct SBBTabView_Previews: PreviewProvider {
                     Image(sbbName: "station", size:.small)
                 }
                 .sbbTag(0)
-                .sbbTabItem{
-                    Image(sbbName: "station", size:.small)
-                    Text("Bahnhof")
-                }
+                .sbbTabItem(
+                    image: Image(sbbName: "station", size:.small),
+                    label: Text("Bahnhof")
+                )
                 
                 VStack {
                     Text("Haltestelle")
                     Image(sbbName: "bus-stop", size:.small)
                 }
                 .sbbTag(1)
-                .sbbTabItem{
-                    Image(sbbName: "bus-stop", size:.small)
-                    Text("Haltestelle")
-                }
+                .sbbTabItem(
+                    image: Image(sbbName: "bus-stop", size:.small),
+                    label: Text("Haltestelle")
+                )
                 
                 VStack {
                     Text("Unterwegs")
                     Image(sbbName: "train", size:.small)
                 }
                 .sbbTag(2)
-                .sbbTabItem{
-                    Image(sbbName: "train", size:.small)
-                    Text("Unterwegs")
-                }
+                .sbbTabItem(
+                    image: Image(sbbName: "train", size:.small),
+                    label: Text("Unterwegs")
+                )
                 
                 VStack {
                     Text("Türknopf")
                     Image(sbbName: "fullscreen", size:.small)
                 }
                 .sbbTag(3)
-                .sbbTabItem{
-                    Image(sbbName: "fullscreen", size:.small)
-                    Text("Türknopf")
-                }
-                
-                VStack {
-                    Text("Einstellungen")
-                    Image(sbbName: "gears", size:.small)
-                }
-                .sbbTabItem{
-                    Image(sbbName: "gears", size:.small)
-                    Text("Einstellungen")
-                }
-                
-            }
-            .previewDisplayName("Light")
-            
-            SBBTabView(selection: .constant(tab)) {
-                VStack {
-                    Text("Bahnhof")
-                    Image(sbbName: "station", size:.small)
-                }
-                .sbbTag(0)
-                .sbbTabItem{
-                    Image(sbbName: "station", size:.small)
-                    Text("Bahnhof")
-                }
-                
-                VStack {
-                    Text("Haltestelle")
-                    Image(sbbName: "bus-stop", size:.small)
-                }
-                .sbbTag(1)
-                .sbbTabItem{
-                    Image(sbbName: "bus-stop", size:.small)
-                    Text("Haltestelle")
-                }
-                
-                VStack {
-                    Text("Unterwegs")
-                    Image(sbbName: "train", size:.small)
-                }
-                .sbbTag(2)
-                .sbbTabItem{
-                    Image(sbbName: "train", size:.small)
-                    Text("Unterwegs")
-                }
-                
-                VStack {
-                    Text("Türknopf")
-                    Image(sbbName: "fullscreen", size:.small)
-                }
-                .sbbTag(3)
-                .sbbTabItem{
-                    Image(sbbName: "fullscreen", size:.small)
-                    Text("Türknopf")
-                }
+                .sbbTabItem(
+                    image: Image(sbbName: "fullscreen", size:.small),
+                    label: Text("Türknopf")
+                )
                 
                 VStack {
                     Text("Einstellungen")
                     Image(sbbName: "gears", size:.small)
                 }
                 .sbbTag(4)
-                .sbbTabItem{
-                    Image(sbbName: "gears", size:.small)
-                    Text("Einstellungen")
+                .sbbTabItem(
+                    image: Image(sbbName: "gears", size:.small),
+                    label: Text("Einstellungen")
+                )
+            }
+            .previewDisplayName("Light")
+            
+            SBBTabView(selection: .constant(tab)) {
+                VStack {
+                    Text("Bahnhof")
+                    Image(sbbName: "station", size:.small)
                 }
+                .sbbTag(0)
+                .sbbTabItem(
+                    image: Image(sbbName: "station", size:.small),
+                    label: Text("Bahnhof")
+                )
                 
+                VStack {
+                    Text("Haltestelle")
+                    Image(sbbName: "bus-stop", size:.small)
+                }
+                .sbbTag(1)
+                .sbbTabItem(
+                    image: Image(sbbName: "bus-stop", size:.small),
+                    label: Text("Haltestelle")
+                )
+                
+                VStack {
+                    Text("Unterwegs")
+                    Image(sbbName: "train", size:.small)
+                }
+                .sbbTag(2)
+                .sbbTabItem(
+                    image: Image(sbbName: "train", size:.small),
+                    label: Text("Unterwegs")
+                )
+                
+                VStack {
+                    Text("Türknopf")
+                    Image(sbbName: "fullscreen", size:.small)
+                }
+                .sbbTag(3)
+                .sbbTabItem(
+                    image: Image(sbbName: "fullscreen", size:.small),
+                    label: Text("Türknopf")
+                )
+                
+                VStack {
+                    Text("Einstellungen")
+                    Image(sbbName: "gears", size:.small)
+                }
+                .sbbTag(4)
+                .sbbTabItem(
+                    image: Image(sbbName: "gears", size:.small),
+                    label: Text("Einstellungen")
+                )
             }
             .previewDisplayName("Dark")
             .environment(\.colorScheme, .dark)
-            
-            
-            TabView(selection: .constant(tab)) {
-                VStack {
-                    Text("Bahnhof")
-                    Image(sbbName: "station", size:.small)
-                }
-                .tag(0)
-                .tabItem{
-                    Image(sbbName: "station", size:.small)
-                    Text("Bahnhof")
-                }
-                
-                VStack {
-                    Text("Haltestelle")
-                    Image(sbbName: "bus-stop", size:.small)
-                }
-                .tag(1)
-                .tabItem{
-                    Image(sbbName: "bus-stop", size:.small)
-                    Text("Haltestelle")
-                }
-                
-                VStack {
-                    Text("Unterwegs")
-                    Image(sbbName: "train", size:.small)
-                }
-                .tag(2)
-                .tabItem{
-                    Image(sbbName: "train", size:.small)
-                    Text("Unterwegs")
-                }
-                
-                VStack {
-                    Text("Türknopf")
-                    Image(sbbName: "fullscreen", size:.small)
-                }
-                .tag(3)
-                .tabItem{
-                    Image(sbbName: "fullscreen", size:.small)
-                    Text("Türknopf")
-                }
-                
-                VStack {
-                    Text("Einstellungen")
-                    Image(sbbName: "gears", size:.small)
-                }
-                .tag(4)
-                .tabItem{
-                    Image(sbbName: "gears", size:.small)
-                    Text("Einstellungen")
-                }
-            }
-            .previewDisplayName("Light")
-        }.previewLayout(.sizeThatFits)
+        }
+        .previewLayout(.sizeThatFits)
     }
 }
-
