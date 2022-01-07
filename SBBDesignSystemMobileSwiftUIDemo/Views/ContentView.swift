@@ -140,7 +140,7 @@ struct ContentView: View {
                                     SBBListItem(label: Text("Toast"))
                                 }
                                 NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Toggle"), showBottomLine: false)
+                                    SBBListItem(label: Text("Toggle"))
                                 }
                                 NavigationLink(destination: TabViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("TabBar"), showBottomLine: false)
