@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
+		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
+		00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */; };
+		00FB819B278ED67F00F07D30 /* TabBarEntryViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */; };
 		2D804E6823D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7723D9D16000CC9C0C /* AppDelegate.swift */; };
 		2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7923D9D16000CC9C0C /* SceneDelegate.swift */; };
@@ -209,6 +212,9 @@
 /* Begin PBXFileReference section */
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
+		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
+		00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEntryView.swift; sourceTree = "<group>"; };
+		00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEntryViewModifier.swift; sourceTree = "<group>"; };
 		2D804E5723D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBBMobileDesignSystemSwiftUI.h; sourceTree = "<group>"; };
 		2D804E5B23D9D0DF00CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -418,6 +424,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00FB8193278ED4E300F07D30 /* SBBTabView */ = {
+			isa = PBXGroup;
+			children = (
+				00E17D60278830510077BD43 /* SBBTabView.swift */,
+				00FB8194278ED50600F07D30 /* TabBarShape.swift */,
+				00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */,
+				00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */,
+			);
+			path = SBBTabView;
+			sourceTree = "<group>";
+		};
 		2D804E4D23D9D0DF00CC9C0C = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +712,7 @@
 		7C6665F423DB5DED002549F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00FB8193278ED4E300F07D30 /* SBBTabView */,
 				7C595E5625A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift */,
 				7C595E4C25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift */,
 				7CA464DE2445F31100118D7B /* SBBAccordion.swift */,
@@ -719,7 +737,6 @@
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
 				7CE19B1D25B98D7700FEFC1E /* SBBToast */,
-				00E17D60278830510077BD43 /* SBBTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1063,6 +1080,7 @@
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
 				7C595E5725A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift in Sources */,
+				00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
 				7C595E4D25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift in Sources */,
 				7C595E4125A597010015B0FC /* SBBListItemExtension.swift in Sources */,
@@ -1070,6 +1088,7 @@
 				7CAF977825B875B3002260AE /* ToastContainerView.swift in Sources */,
 				7CAF977D25B87653002260AE /* SBBToastService.swift in Sources */,
 				7CB2CEB225C19AD600756D9B /* SBBMapMarker.swift in Sources */,
+				00FB819B278ED67F00F07D30 /* TabBarEntryViewModifier.swift in Sources */,
 				7CAF978325B87DCE002260AE /* ToastView.swift in Sources */,
 				7C47590D2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift in Sources */,
 				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
@@ -1094,6 +1113,7 @@
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
 				7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */,
 				7CAC69FF25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift in Sources */,
+				00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
