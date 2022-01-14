@@ -14,7 +14,9 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     private let circleSize: CGFloat
     private let barHeight: CGFloat
     private let bottomOffset: CGFloat
-    @State var textSize: CGSize = .zero
+    @State private var textSize: CGSize = .zero
+    @State private var transitionFactor: CGFloat = 1
+    @State private var currentTab: Int = -1
     private var selectionIndex: Int {
         for index in (0...self.contents.count) {
             // Some tab may not have a label
@@ -52,9 +54,21 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                     self.contents[self.selectionIndex].contentView
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     ZStack(alignment: .bottom) {
+                        // Circles behind the bar
+                        HStack(spacing: 0) {
+                            ForEach(0..<self.contents.count) { index in
+                                Circle()
+                                    .overlay(self.contents[index].imageView.colorInvert())
+                                    .frame(width: self.circleSize, height: self.circleSize)
+                                    .padding(.top, self.barHeight * 0.02)
+                                    .accessibility(label: Text((index == self.selectionIndex) ? "selected".localized : ""))
+                            }
+                            .frame(width: segmentWidth, height: barHeight, alignment: .top)
+                        }
+              
                         // Tab bar shape
-                        TabBarShape(selectedTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth)
-                            .shadow(color: Color.sbbColor(.smoke), radius: self.colorScheme == .light ? 10 : 0, x: 0, y: 0)
+                        TabBarShape(destTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, currentTab: self.currentTab, transitionFactor: self.transitionFactor)
+                            .foregroundColor(Color.sbbColor(.tabViewBackground))
                         
                         // Current tab title
                         self.contents[self.selectionIndex].labelView
@@ -67,43 +81,40 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
                             .foregroundColor(Color.sbbColor(.textBlack))
-                            .frame(width: geometry.size.width, alignment:.leading)
                             .padding(.top, self.circleSize * 1.2)
                             .offset(x: self.getOffset(selectionIndex: self.selectionIndex, textWidth: textSize.width, segmentWidth:segmentWidth))
                             .frame(width: geometry.size.width, alignment: .leading)
                             .frame(height: self.barHeight, alignment: .topLeading)
                         
-                        // Icons in a row
                         HStack(spacing: 0) {
                             ForEach(0..<self.contents.count) { index in
                                 Button(action: {
+                                    currentTab = self.selectionIndex
                                     self.selection = self.contents[index].tag as? Selection ?? self.selection
+                                    
+                                    if self.selectionIndex != currentTab {
+                                        self.transitionFactor = 0
+                                        withAnimation(Animation.easeIn(duration: 0.2)) {
+                                            transitionFactor = 1
+                                        }
+                                    }
                                 }) {
-                                    if (index == self.selectionIndex) {
-                                        Circle()
-                                            .frame(width: self.circleSize)
-                                            .overlay(self.contents[index].imageView.colorInvert())
-                                            .accessibility(label: Text((index == self.selectionIndex) ? "selected".localized : ""))
-                                    } else {
                                         self.contents[index].imageView
                                             .padding(10)
-                                    }
                                 }
                                 .accessibility(label: self.contents[index].labelView)
                                 .accessibility(removeTraits: .isButton)
                                 .accessibility(hint: Text(" \(index + 1) \("of".localized) \(self.contents.count)"))
                                 .accessibilityElement(children: .combine)
                             }
-                            .sbbFont(.body)
                             .foregroundColor(Color.sbbColor(.textBlack))
-                            .frame(width: segmentWidth, height: self.circleSize)
+                            .frame(width: segmentWidth, height: barHeight, alignment: .top)
                         }
-                        .padding(.top, self.barHeight * 0.02)
-                        .frame(height: self.barHeight, alignment: .topLeading)
+                        .clipShape(TabBarShape(destTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, currentTab: self.currentTab, transitionFactor: self.transitionFactor))
                     }
                     .frame(height: self.barHeight)
                     .offset(y: self.bottomOffset)
-                    .foregroundColor(Color.sbbColor(.tabViewBackground))
+                    
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .background(Color.sbbColor(.background))
@@ -189,7 +200,7 @@ extension TupleView {
 struct SBBTabView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            let tab: Int = 1
+            let tab: Int = 0
             
             SBBTabView(selection: .constant(tab)) {
                 ZStack {
@@ -219,7 +230,7 @@ struct SBBTabView_Previews: PreviewProvider {
             }
             .previewDisplayName("Light")
             
-            SBBTabView(selection: .constant(3)) {
+            SBBTabView(selection: .constant(1)) {
                 VStack {
                     Text("Bahnhof")
                     Image(sbbName: "station", size:.small)
