@@ -16,7 +16,10 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     private let bottomOffset: CGFloat
     @State private var textSize: CGSize = .zero
     @State private var transitionFactor: CGFloat = 1
+    @State private var transitionFactorPressed: CGFloat = 1
     @State private var currentTab: Int = -1
+    @State private var isPressed: Bool = false
+    @State private var tabBarHidden: Bool = false
     private var selectionIndex: Int {
         for index in (0...self.contents.count) {
             // Some tab may not have a label
@@ -30,16 +33,16 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         }
         return 0
     }
-
+    
     @Environment(\.colorScheme) var colorScheme
     
-    public init<Views>(selection: Binding<Selection>, circleSize: CGFloat = 45, @ViewBuilder content: () -> TupleView<Views>) {
+    public init<Views>(selection: Binding<Selection>, circleSize: CGFloat = 44, @ViewBuilder content: () -> TupleView<Views>) {
         self._selection = selection
         // Content must have at least 2 views to work (Tuple)
         self.contents = content().getTabViews
         self.circleSize = circleSize
         self.barHeight = circleSize * 3
-        self.bottomOffset = circleSize * 1.2
+        self.bottomOffset = circleSize * 3 - 100
     }
     
     private func segmentWidth(parentWidth: CGFloat, nbTabs: Int) -> CGFloat {
@@ -47,12 +50,15 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     }
     
     public var body: some View {
-            GeometryReader { geometry in
-                let segmentWidth = self.segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)
-                ZStack(alignment: .bottom) {
-                    // Content of the tab
-                    self.contents[self.selectionIndex].contentView
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        GeometryReader { geometry in
+            let segmentWidth = self.segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)
+            
+            ZStack(alignment: .bottom) {
+                // Content of the tab
+                self.contents[self.selectionIndex].contentView
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                
+                if !self.tabBarHidden {
                     ZStack(alignment: .bottom) {
                         // Circles behind the bar
                         HStack(spacing: 0) {
@@ -60,14 +66,14 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                                 Circle()
                                     .overlay(self.contents[index].imageView.colorInvert())
                                     .frame(width: self.circleSize, height: self.circleSize)
-                                    .padding(.top, self.barHeight * 0.02)
-                                    .accessibility(label: Text((index == self.selectionIndex) ? "selected".localized : ""))
+                                    .padding(.top, 5)
+                                    .accessibilityHidden(true)
                             }
                             .frame(width: segmentWidth, height: barHeight, alignment: .top)
                         }
-              
+                        
                         // Tab bar shape
-                        TabBarShape(destTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, currentTab: self.currentTab, transitionFactor: self.transitionFactor)
+                        TabBarShape(destTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, currentTab: self.currentTab, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
                             .foregroundColor(Color.sbbColor(.tabViewBackground))
                         
                         // Current tab title
@@ -75,14 +81,14 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                             .accessibility(hidden: true)
                             .background(ViewGeometry())
                             .onPreferenceChange(ViewSizeKey.self) {
-                                textSize = $0
+                                self.textSize = $0
                             }
                             .sbbFont(.body)
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
                             .foregroundColor(Color.sbbColor(.textBlack))
-                            .padding(.top, self.circleSize * 1.2)
-                            .offset(x: self.getOffset(selectionIndex: self.selectionIndex, textWidth: textSize.width, segmentWidth:segmentWidth))
+                            .padding(.top, 58)
+                            .offset(x: self.getOffset(selectionIndex: self.selectionIndex, textWidth: self.textSize.width, segmentWidth: segmentWidth))
                             .frame(width: geometry.size.width, alignment: .leading)
                             .frame(height: self.barHeight, alignment: .topLeading)
                         
@@ -92,34 +98,56 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                                     currentTab = self.selectionIndex
                                     self.selection = self.contents[index].tag as? Selection ?? self.selection
                                     
-                                    if self.selectionIndex != currentTab {
-                                        self.transitionFactor = 0
+                                    if self.selectionIndex != currentTab && !isPressed {
+                                        self.transitionFactor = 0.2
                                         withAnimation(Animation.easeIn(duration: 0.2)) {
-                                            transitionFactor = 1
+                                            self.transitionFactor = 1
                                         }
                                     }
                                 }) {
-                                        self.contents[index].imageView
-                                            .padding(10)
+                                    self.contents[index].imageView
+                                        .padding(20)
                                 }
-                                .accessibility(label: self.contents[index].labelView)
+                                .simultaneousGesture(
+                                    DragGesture(minimumDistance: 0)
+                                        .onChanged({ _ in
+                                            if !self.isPressed {
+                                                self.isPressed = true
+                                                self.currentTab = index
+                                                self.transitionFactorPressed = 0
+                                                withAnimation(Animation.easeIn(duration: 0.2)) {
+                                                    self.transitionFactorPressed = 1
+                                                }
+                                            }
+                                        })
+                                        .onEnded({ _ in
+                                            self.isPressed = false
+                                            
+                                        })
+                                )
+                                .accessibility(label: Text((index == self.selectionIndex) ? "\("selected".localized)." : ".") + self.contents[index].labelView + Text(". \("tab".localized)"))
                                 .accessibility(removeTraits: .isButton)
                                 .accessibility(hint: Text(" \(index + 1) \("of".localized) \(self.contents.count)"))
-                                .accessibilityElement(children: .combine)
                             }
                             .foregroundColor(Color.sbbColor(.textBlack))
                             .frame(width: segmentWidth, height: barHeight, alignment: .top)
                         }
-                        .clipShape(TabBarShape(destTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, currentTab: self.currentTab, transitionFactor: self.transitionFactor))
+                        .clipShape(TabBarShape(destTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, currentTab: self.currentTab, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed,  isPressed: self.isPressed))
                     }
                     .frame(height: self.barHeight)
                     .offset(y: self.bottomOffset)
-                    
                 }
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.sbbColor(.background))
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.sbbColor(.background))
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+                        self.tabBarHidden = true
+                    }
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                        self.tabBarHidden = false
+                    }
         }
+    }
     
     private func getOffset(selectionIndex: Int, textWidth: CGFloat, segmentWidth: CGFloat) -> CGFloat {
         let halfSegment = segmentWidth / 2
@@ -144,7 +172,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
 
 private struct ViewSizeKey: PreferenceKey {
     static var defaultValue: CGSize = .zero
-
+    
     static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
         value = nextValue()
     }

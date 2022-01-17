@@ -53,22 +53,29 @@ struct TabBarShape: Shape {
     private var segmentWidth: CGFloat
     private var destTab: Int
     private var transitionFactor: CGFloat
+    private var transitionFactorPressed: CGFloat
+    private var isPressed: Bool
     
-    var animatableData: Double {
-        get { transitionFactor }
-        set { transitionFactor = newValue }
-    }
+    var animatableData: AnimatablePair<Double, Double> {
+        get { AnimatablePair(self.transitionFactor, self.transitionFactorPressed) }
+            set {
+                self.transitionFactor = newValue.first
+                self.transitionFactorPressed = newValue.second
+            }
+        }
     
-    public init(destTab: Int, nbTabs: Int, circleSize: CGFloat, segmentWidth: CGFloat, currentTab: Int = -1, transitionFactor: CGFloat = 0.0) {
+    public init(destTab: Int, nbTabs: Int, circleSize: CGFloat, segmentWidth: CGFloat, currentTab: Int = -1, transitionFactor: CGFloat = 0.0, transitionFactorPressed: CGFloat = 0.0, isPressed: Bool = false) {
         self.destTab = destTab
         self.nbTabs = nbTabs
         self.circleSize = circleSize
         self.segmentWidth = segmentWidth
         self.currentTab = currentTab
         self.transitionFactor = transitionFactor
+        self.transitionFactorPressed = transitionFactorPressed
+        self.isPressed = isPressed
     }
     
-    func drawCircle(path: Path, coordinates: TabCircleCoordinates) -> Path {
+    private func drawCircle(path: Path, coordinates: TabCircleCoordinates) -> Path {
         var newPath = path
         newPath.addLine(to: coordinates.startLeftCurve)
         newPath.addQuadCurve(to: coordinates.endLeftCurve, control: coordinates.controlLeft)
@@ -80,9 +87,8 @@ struct TabBarShape: Shape {
     func drawNeighbours(path: Path, coordinatesLeft: TabCircleCoordinates, coordinatesRight: TabCircleCoordinates) -> Path {
         var newPath = path
         
-        let middlePoint: CGPoint = coordinatesRight.factor <= 0.5 ? CGPoint(x: coordinatesLeft.endMiddleCurve.x, y: coordinatesLeft.middleHeight) : CGPoint(x: coordinatesRight.endLeftCurve.x, y: coordinatesRight.middleHeight)
         let controlRight1: CGPoint = CGPoint(x: coordinatesLeft.endLeftCurve.x + coordinatesLeft.controlFactor, y: coordinatesLeft.middleCircle.y)
-        
+        let middlePoint: CGPoint = coordinatesRight.factor <= 0.5 ? CGPoint(x: coordinatesLeft.endMiddleCurve.x, y: coordinatesLeft.middleHeight) : CGPoint(x: coordinatesRight.endLeftCurve.x, y: coordinatesRight.middleHeight)
         let controlLeft1: CGPoint = coordinatesRight.factor <= 0.5 ? CGPoint(x: middlePoint.x - coordinatesLeft.controlFactor, y: coordinatesLeft.middleCircle.y) : CGPoint(x: middlePoint.x - coordinatesLeft.controlFactor + (coordinatesRight.factor * 10), y: coordinatesLeft.middleCircle.y)
         let controlRight2: CGPoint = coordinatesRight.factor <= 0.5 ? CGPoint(x: middlePoint.x + coordinatesRight.controlFactor - (coordinatesLeft.factor * 10), y: coordinatesRight.middleCircle.y):  CGPoint(x: middlePoint.x + coordinatesRight.controlFactor, y: coordinatesRight.middleCircle.y)
         
@@ -104,6 +110,49 @@ struct TabBarShape: Shape {
         return newPath
     }
     
+    private func drawPressed(path: Path, coordinates: TabCircleCoordinates, coordinatesPressed: TabCircleCoordinates, pressedLeft: Bool) -> Path {
+        var newPath = path
+                
+        if pressedLeft {
+            //  At the bottom
+            let middlePoint: CGPoint = CGPoint(x: coordinates.endMiddleCurve.x, y: coordinates.middleHeight)
+            let controlRight1: CGPoint = CGPoint(x: coordinates.endLeftCurve.x + coordinates.controlFactor, y: coordinates.middleCircle.y)
+            let controlLeft1: CGPoint = CGPoint(x: middlePoint.x - coordinates.controlFactor, y: coordinates.middleCircle.y)
+            let controlBump1: CGPoint = CGPoint(x: coordinates.endMiddleCurve.x, y: coordinatesPressed.middleCircle.y)
+            let controlBump2: CGPoint = CGPoint(x: coordinates.endMiddleCurve.x + coordinatesPressed.controlFactor, y: 0)
+            let controlDown1: CGPoint = CGPoint(x: coordinatesPressed.endMiddleCurve.x - coordinatesPressed.controlFactor, y: coordinatesPressed.middleCircle.y + 2)
+            
+            newPath.addLine(to: coordinates.startLeftCurve)
+            newPath.addQuadCurve(to: coordinates.endLeftCurve, control: coordinates.controlLeft)
+            newPath.addQuadCurve(to: coordinates.middleCircle, control: controlRight1)
+            newPath.addQuadCurve(to: middlePoint, control: controlLeft1)
+            newPath.addCurve(to: coordinatesPressed.middleCircle, control1: controlBump1, control2: controlBump2)
+            newPath.addQuadCurve(to: coordinatesPressed.endMiddleCurve, control: controlDown1)
+            newPath.addQuadCurve(to: coordinatesPressed.endRightCurve, control: coordinatesPressed.controlRight)
+            
+        } else {
+            // At the top
+            let controlBump1: CGPoint = CGPoint(x: coordinates.endLeftCurve.x - coordinates.controlFactor, y: 0)
+            let controlBump2: CGPoint = CGPoint(x: coordinates.endLeftCurve.x, y: coordinatesPressed.middleCircle.y)
+            let controlDown1: CGPoint = CGPoint(x: coordinatesPressed.endLeftCurve.x + coordinatesPressed.controlFactor, y: coordinatesPressed.middleCircle.y + 2)
+            
+            let middlePoint: CGPoint = CGPoint(x: coordinates.endLeftCurve.x, y: coordinates.middleHeight)
+            let controlRight1: CGPoint = CGPoint(x: middlePoint.x - coordinates.controlFactor, y: coordinates.middleCircle.y)
+            let controlLeft1: CGPoint = CGPoint(x: coordinates.endMiddleCurve.x + coordinates.controlFactor, y: coordinates.middleCircle.y)
+            
+            newPath.addLine(to: coordinatesPressed.startLeftCurve)
+            newPath.addQuadCurve(to: coordinatesPressed.endLeftCurve, control: coordinatesPressed.controlLeft)
+            newPath.addQuadCurve(to: coordinatesPressed.middleCircle, control: controlDown1)
+            newPath.addCurve(to: middlePoint, control1: controlBump1, control2: controlBump2)
+            
+            newPath.addQuadCurve(to: coordinates.middleCircle, control: controlRight1)
+            newPath.addQuadCurve(to: coordinates.endMiddleCurve, control: controlLeft1)
+            newPath.addQuadCurve(to: coordinates.endRightCurve, control: coordinates.controlRight)
+        }
+
+        return newPath
+    }
+    
     func path(in rect: CGRect) -> Path {
         var path = Path()
         let bottomLeftCorner = CGPoint(x: rect.minX, y: rect.maxY)
@@ -111,33 +160,45 @@ struct TabBarShape: Shape {
         let topRightCorner = CGPoint(x: rect.maxX, y: rect.minY)
         let bottomRightCorner = CGPoint(x: rect.maxX, y: rect.maxY)
         
-        let destCoordinates = TabCircleCoordinates(tab: destTab, factor: transitionFactor, circleSize: circleSize, circleWidth: segmentWidth)
-        let currentCoordinates = TabCircleCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), circleSize: circleSize, circleWidth: segmentWidth)
-        
-        
         // Start bottom left corner
         path.move(to: bottomLeftCorner)
         // Draw lines to start of the left curve
         path.addLine(to: topLeftCorner)
         
-        // No other tab selected, only draw current one
-        if currentTab == -1 || destTab == currentTab {
+        // No current tab, current is the same as dest or transition is complete: only draw the destination tab
+        if currentTab == -1 || destTab == currentTab || (transitionFactor == 1 && !isPressed) {
             let destCoordinates = TabCircleCoordinates(tab: destTab, factor: 1.0, circleSize: circleSize, circleWidth: segmentWidth)
-            path = drawCircle(path: path, coordinates: destCoordinates)
             
+            path = drawCircle(path: path, coordinates: destCoordinates)
+            // Transition has not started and current tab exists: only draw current tab
+        } else if currentTab != -1 && transitionFactor == 0 {
+            let currentCoordinates = TabCircleCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), circleSize: circleSize, circleWidth: segmentWidth)
+            path = drawCircle(path: path, coordinates: currentCoordinates)
             // Else draw the two tabs
         } else {
+            let destCoordinates = isPressed ? TabCircleCoordinates(tab: destTab, factor: 1.0, circleSize: circleSize, circleWidth: segmentWidth) : TabCircleCoordinates(tab: destTab, factor: transitionFactor, circleSize: circleSize, circleWidth: segmentWidth)
+            let currentCoordinates = isPressed ? TabCircleCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, circleSize: circleSize, circleWidth: segmentWidth) : TabCircleCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), circleSize: circleSize, circleWidth: segmentWidth)
+            
+            
             if destTab > currentTab {
                 if currentCoordinates.endRightCurve.x > destCoordinates.startLeftCurve.x {
-                    path = drawNeighbours(path: path, coordinatesLeft: currentCoordinates, coordinatesRight: destCoordinates)
+                    if isPressed {
+                        path = drawPressed(path: path, coordinates: destCoordinates, coordinatesPressed: currentCoordinates, pressedLeft: false)
+                    } else {
+                    
+                        path = drawNeighbours(path: path, coordinatesLeft: currentCoordinates, coordinatesRight: destCoordinates)
+                    }
                 } else {
                     path = drawCircle(path: path, coordinates: currentCoordinates)
                     path = drawCircle(path: path, coordinates: destCoordinates)
                 }
-                
             } else {
                 if currentCoordinates.startLeftCurve.x < destCoordinates.endRightCurve.x {
-                    path = drawNeighbours(path: path, coordinatesLeft: destCoordinates, coordinatesRight: currentCoordinates)
+                    if isPressed {
+                        path = drawPressed(path: path, coordinates: destCoordinates, coordinatesPressed: currentCoordinates, pressedLeft: true)
+                    } else {
+                        path = drawNeighbours(path: path, coordinatesLeft: destCoordinates, coordinatesRight: currentCoordinates)
+                    }
                 } else {
                     path = drawCircle(path: path, coordinates: destCoordinates)
                     path = drawCircle(path: path, coordinates: currentCoordinates)
