@@ -165,7 +165,6 @@ struct TabBarShape: Shape {
         var newPath = path
                 
         if pressedLeft {
-            //  At the bottom
             let middlePoint: CGPoint = CGPoint(x: coordinates.endMiddleRightCurve.x, y: coordinates.middleHeight)
             let controlRight1: CGPoint = CGPoint(x: coordinates.endLeftCurve.x + coordinates.circleControlScaled, y: coordinates.middleCircle.y)
             let controlLeft1: CGPoint = CGPoint(x: middlePoint.x - coordinates.circleControlScaled, y: coordinates.middleCircle.y)
