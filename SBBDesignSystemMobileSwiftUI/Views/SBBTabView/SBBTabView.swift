@@ -12,8 +12,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     @Binding private var selection: Selection
     private let contents: [TabBarEntryView]
     private let circleSize: CGFloat = 44
-    private var barHeight: CGFloat { return circleSize * 3 }
-    private var bottomOffset: CGFloat { return circleSize * 3 - 100 }
+    private var barHeight: CGFloat { return 100 }
     @State private var textSize: CGSize = .zero
     @State private var transitionFactor: CGFloat = 1.0
     @State private var transitionFactorPressed: CGFloat = 1.0
@@ -48,7 +47,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         GeometryReader { geometry in
             let segmentWidth = self.segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)
             
-            ZStack(alignment: .bottom) {
+            VStack(spacing: 0) {
                 // Content of the tab
                 self.contents[self.selectionIndex].contentView
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
@@ -66,6 +65,12 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                             }
                             .frame(width: segmentWidth, height: barHeight, alignment: .top)
                         }
+                        
+                        // Additional (to cover unsafe area at the bottom)
+                        Rectangle()
+                            .frame(height: self.barHeight)
+                            .offset(y: self.barHeight)
+                            .foregroundColor(Color.sbbColor(.tabViewBackground))
                         
                         // Tab bar shape
                         TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, circlePad: 6, heightDiff: 2, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
@@ -130,7 +135,6 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                         .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, circlePad: 6, heightDiff: 2, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed))
                     }
                     .frame(height: self.barHeight)
-                    .offset(y: self.bottomOffset)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -183,101 +187,76 @@ private struct ViewGeometry: View {
 }
 
 struct SBBTabView_Previews: PreviewProvider {
+    private static var tabBar = SBBTabView(selection: .constant(0)){
+        VStack {
+            Text("Bahnhof")
+            Image(sbbName: "station", size:.small)
+        }
+        .sbbTag(0)
+        .sbbTabItem(
+            image: Image(sbbName: "station", size:.small),
+            label: Text("Bahnhof")
+        )
+        
+        VStack {
+            Text("Haltestelle")
+            Image(sbbName: "bus-stop", size:.small)
+        }
+        .sbbTag(1)
+        .sbbTabItem(
+            image: Image(sbbName: "bus-stop", size:.small),
+            label: Text("Haltestelle")
+        )
+        
+        VStack {
+            Text("Unterwegs")
+            Image(sbbName: "train", size:.small)
+        }
+        .sbbTag(2)
+        .sbbTabItem(
+            image: Image(sbbName: "train", size:.small),
+            label: Text("Unterwegs")
+        )
+        
+        VStack {
+            Text("Türknopf")
+            Image(sbbName: "fullscreen", size:.small)
+        }
+        .sbbTag(3)
+        .sbbTabItem(
+            image: Image(sbbName: "fullscreen", size:.small),
+            label: Text("Finder")
+        )
+        
+        VStack {
+            Text("Lifte")
+            Image(sbbName: "Lift", size:.small)
+        }
+        .sbbTag(4)
+        .sbbTabItem(
+            image: Image(sbbName: "lift", size:.small),
+            label: Text("Lifte")
+        )
+        
+        VStack {
+            Text("Einstellungen")
+            Image(sbbName: "gears", size:.small)
+        }
+        .sbbTag(5)
+        .sbbTabItem(
+            image: Image(sbbName: "gears", size:.small),
+            label: Text("Einstellungen")
+        )
+    }
+    
     static var previews: some View {
         Group {
-            let tab: Int = 0
+            tabBar
+                .previewDisplayName("Light")
             
-            SBBTabView(selection: .constant(tab)) {
-                ZStack {
-                    Rectangle()
-                        .frame(width: .infinity, height: .infinity)
-                        .foregroundColor(.red)
-                    VStack {
-                        Text("Bahnhof")
-                        Image(sbbName: "station", size:.small)
-                    }
-                }
-                .sbbTag(0)
-                .sbbTabItem(
-                    image: Image(sbbName: "station", size:.small),
-                    label: Text("Bahnhof")
-                )
-                
-                VStack {
-                    Text("Haltestelle")
-                    Image(sbbName: "bus-stop", size:.small)
-                }
-                .sbbTag(1)
-                .sbbTabItem(
-                    image: Image(sbbName: "bus-stop", size:.small),
-                    label: Text("Haltestelle")
-                )
-            }
-            .previewDisplayName("Light")
-            
-            SBBTabView(selection: .constant(0)) {
-                VStack {
-                    Text("Bahnhof")
-                    Image(sbbName: "station", size:.small)
-                }
-                .sbbTag(0)
-                .sbbTabItem(
-                    image: Image(sbbName: "station", size:.small),
-                    label: Text("Bahnhof")
-                )
-                
-                VStack {
-                    Text("Haltestelle")
-                    Image(sbbName: "bus-stop", size:.small)
-                }
-                .sbbTag(1)
-                .sbbTabItem(
-                    image: Image(sbbName: "bus-stop", size:.small),
-                    label: Text("Haltestelle")
-                )
-                
-                VStack {
-                    Text("Unterwegs")
-                    Image(sbbName: "train", size:.small)
-                }
-                .sbbTag(2)
-                .sbbTabItem(
-                    image: Image(sbbName: "train", size:.small),
-                    label: Text("Unterwegs")
-                )
-                
-                VStack {
-                    Text("Türknopf")
-                    Image(sbbName: "fullscreen", size:.small)
-                }
-                .sbbTag(3)
-                .sbbTabItem(
-                    image: Image(sbbName: "fullscreen", size:.small),
-                    label: Text("Finder")
-                )
-                
-                VStack {
-                    Text("Lifte")
-                    Image(sbbName: "Lift", size:.small)
-                }
-                .sbbTag(4)
-                .sbbTabItem(
-                    image: Image(sbbName: "lift", size:.small),
-                    label: Text("Lifte")
-                )
-                
-                VStack {
-                    Text("Einstellungen")
-                    Image(sbbName: "gears", size:.small)
-                }
-                .sbbTag(5)
-                .sbbTabItem(
-                    image: Image(sbbName: "gears", size:.small),
-                    label: Text("Einstellungen")
-                )
-            }
-            .previewDisplayName("Dark")
-            .environment(\.colorScheme, .dark)
+            tabBar
+                .previewDisplayName("Dark")
+                .environment(\.colorScheme, .dark)
         }
         .previewLayout(.sizeThatFits)
     }
