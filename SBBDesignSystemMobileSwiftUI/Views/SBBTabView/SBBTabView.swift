@@ -11,9 +11,9 @@ import Foundation
 public struct SBBTabView<Selection>: View where Selection: Hashable {
     @Binding private var selection: Selection
     private let contents: [TabBarEntryView]
-    private let circleSize: CGFloat
-    private let barHeight: CGFloat
-    private let bottomOffset: CGFloat
+    private let circleSize: CGFloat = 44
+    private var barHeight: CGFloat { return circleSize * 3 }
+    private var bottomOffset: CGFloat { return circleSize * 3 - 100 }
     @State private var textSize: CGSize = .zero
     @State private var transitionFactor: CGFloat = 1.0
     @State private var transitionFactorPressed: CGFloat = 1.0
@@ -23,26 +23,21 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     private var selectionIndex: Int {
         for index in (0...self.contents.count) {
             // Some tab may not have a label
-            if let tag = self.contents[index].tag {
-                if let tagValue = tag as? Selection {
+            if let tag = self.contents[index].tag, let tagValue = tag as? Selection {
                     if tagValue == selection {
                         return index
                     }
                 }
             }
-        }
         return 0
     }
     
     @Environment(\.colorScheme) var colorScheme
     
-    public init<Views>(selection: Binding<Selection>, circleSize: CGFloat = 44, @ViewBuilder content: () -> TupleView<Views>) {
+    public init<Views>(selection: Binding<Selection>, @ViewBuilder content: () -> TupleView<Views>) {
         self._selection = selection
         // Content must have at least 2 views to work (Tuple)
         self.contents = content().getTabViews
-        self.circleSize = circleSize
-        self.barHeight = circleSize * 3
-        self.bottomOffset = circleSize * 3 - 100
     }
     
     private func segmentWidth(parentWidth: CGFloat, nbTabs: Int) -> CGFloat {
@@ -184,44 +179,6 @@ private struct ViewGeometry: View {
             Color.clear
                 .preference(key: ViewSizeKey.self, value: geometry.size)
         }
-    }
-}
-
-extension TupleView {
-    
-    var getTabViews: [TabBarEntryView] {
-        makeArrayTabViews(from: value)
-    }
-    
-    private struct GenericView {
-        let body: Any
-        
-        var tabEntryView: TabBarEntryView? {
-            if let content = getTabBarEntryContent(val: body) {
-                if let tag = content.tag {
-                    return TabBarEntryView(contentView: content.contentView, imageView: content.imageView, labelView: content.labelView, tag: tag)
-                }
-                return TabBarEntryView(contentView: content.contentView, imageView: content.imageView, labelView: content.labelView)
-            }
-            if let bodyView = AnyView(_fromValue: body) {
-                return TabBarEntryView(contentView: bodyView)
-            }
-            return TabBarEntryView()
-        }
-    }
-    
-    private func makeArrayTabViews<Tuple>(from tuple: Tuple) -> [TabBarEntryView] {
-        func convert(child: Mirror.Child) -> TabBarEntryView? {
-            // Get a child view and convert it to TabBarEntryView
-            withUnsafeBytes(of: child.value) { ptr -> TabBarEntryView? in
-                let binded = ptr.bindMemory(to: GenericView.self)
-                
-                return binded.first?.tabEntryView
-            }
-        }
-        
-        let tupleMirror = Mirror(reflecting: tuple)
-        return tupleMirror.children.compactMap(convert)
     }
 }
 
