@@ -15,8 +15,8 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     private let barHeight: CGFloat
     private let bottomOffset: CGFloat
     @State private var textSize: CGSize = .zero
-    @State private var transitionFactor: CGFloat = 1
-    @State private var transitionFactorPressed: CGFloat = 1
+    @State private var transitionFactor: CGFloat = 1.0
+    @State private var transitionFactorPressed: CGFloat = 1.0
     @State private var currentTab: Int = -1
     @State private var isPressed: Bool = false
     @State private var tabBarHidden: Bool = false
@@ -66,14 +66,14 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                                 Circle()
                                     .overlay(self.contents[index].imageView.colorInvert())
                                     .frame(width: self.circleSize, height: self.circleSize)
-                                    .padding(.top, 5)
+                                    .padding(.top, 8)
                                     .accessibilityHidden(true)
                             }
                             .frame(width: segmentWidth, height: barHeight, alignment: .top)
                         }
                         
                         // Tab bar shape
-                        TabBarShape(destTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, currentTab: self.currentTab, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
+                        TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, circlePad: 6, heightDiff: 2, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
                             .foregroundColor(Color.sbbColor(.tabViewBackground))
                         
                         // Current tab title
@@ -106,7 +106,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                                     }
                                 }) {
                                     self.contents[index].imageView
-                                        .padding(20)
+                                        .frame(width: 56, height: 58)
                                 }
                                 .simultaneousGesture(
                                     DragGesture(minimumDistance: 0)
@@ -132,7 +132,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                             .foregroundColor(Color.sbbColor(.textBlack))
                             .frame(width: segmentWidth, height: barHeight, alignment: .top)
                         }
-                        .clipShape(TabBarShape(destTab: self.selectionIndex, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, currentTab: self.currentTab, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed,  isPressed: self.isPressed))
+                        .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, circlePad: 6, heightDiff: 2, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed))
                     }
                     .frame(height: self.barHeight)
                     .offset(y: self.bottomOffset)
@@ -258,7 +258,7 @@ struct SBBTabView_Previews: PreviewProvider {
             }
             .previewDisplayName("Light")
             
-            SBBTabView(selection: .constant(1)) {
+            SBBTabView(selection: .constant(0)) {
                 VStack {
                     Text("Bahnhof")
                     Image(sbbName: "station", size:.small)
