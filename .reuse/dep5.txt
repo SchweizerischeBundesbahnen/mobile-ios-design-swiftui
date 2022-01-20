@@ -1,0 +1,33 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: SBB
+Upstream-Contact: SBB AG <mobile@sbb.ch>
+Source: https://github.com/SchweizerischeBundesbahnen/ios-design-swiftui
+
+# SBB Font files
+Files:
+    SBBMobileDesignSystemSwiftUI/Fonts/*.ttf
+Copyright: 2021 SBB AG <mobile@sbb.ch>
+License: SBBFL-1.0.txt
+
+# Files below the threshold of originality (metadata, config and project-information)
+Files:
+    SBBMobileDesignSystemSwiftUI/Documentation.docc/*
+    SBBMobileDesignSystemSwiftUI/Resources/Assets.xcassets/Images/*
+    Jenkinsfile
+Copyright: 2021 SBB AG <mobile@sbb.ch>
+License: CC0-1.0
+
+# Source code of SBB DSM SwiftUI
+Files:
+    SBBMobileDesignSystemSwiftUI/*.swift
+Copyright: 2021 SBB AG <mobile@sbb.ch>
+License: MIT
+
+# Documentation of SBB DSM SwiftUI
+Files:
+    docs/*
+    README.md
+    CONTRIBUTING.md
+    ReleaseNotes.md
+Copyright: 2021 SBB AG <mobile@sbb.ch>
+License: GFDL-1.3-or-later
