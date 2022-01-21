@@ -79,7 +79,7 @@ struct TabViewDemo: View {
                 SBBFormGroup(title: "Number of Tabs") {
                     Stepper(value: $nbTabs, in: 2...6, label: { Text("\(Int(nbTabs))") }, onEditingChanged: { _ in resetSelection() })
                         .sbbFont(.body)
-                        .padding(16)
+                        .padding(10)
                 }
             }
             .sbbScreenPadding()
@@ -147,6 +147,13 @@ struct TabViewDemo_Previews: PreviewProvider {
         Group {
             TabViewDemo(colorScheme: .constant(.light))
             TabViewDemo(colorScheme: .constant(.dark))
+            
+            if #available(iOS 15.0, *) {
+                TabViewDemo(colorScheme: .constant(.light))
+                    .previewInterfaceOrientation(.landscapeLeft)
+                TabViewDemo(colorScheme: .constant(.dark))
+                    .previewInterfaceOrientation(.landscapeLeft)
+            }
         }
     }
 }

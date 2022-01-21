@@ -6,7 +6,7 @@ import SwiftUI
 
 
 /**
- A View that is used to display a button
+ A View that is used to display a button.
  */
 public struct TabButtonView<Selection>: View where Selection: Hashable {
     
@@ -36,6 +36,21 @@ public struct TabButtonView<Selection>: View where Selection: Hashable {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
+    /**
+     Returns a TabButtonView displaying a button.
+     
+     - Parameters:
+        - selection: The currently selected tab.
+        - transitionFactor: The factor used to animate the transition between two tabs
+        - transitionFactorPressed: The factor to animate the pressed shape
+        - isPressed: Whether one pressed on a tab
+        - currentTab: The index of the currently displayed tab
+        - labelSizes: An array containing the size of the labels (for landscape mode)
+        - index: The index of the button
+        - content: An array of TabBarEntryView, specifying the content of each tab.
+        - tabBarParameters: The TabBarParameters used to create the tab bar.
+        - isTabBarFocused: Whether the tab bar is in focus of the VoiceOver
+     */
     public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, index: Int, contents: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters, isTabBarFocused: Bool) {
         self._selection = selection
         self._transitionFactor = transitionFactor
@@ -81,10 +96,12 @@ public struct TabButtonView<Selection>: View where Selection: Hashable {
                         .lineLimit(1)
                         .minimumScaleFactor(0.1)
                         .padding(.leading, self.selectionIndex == index ? 10 : 0)
+                        .padding(.trailing, 5)
                 }
                 .accessibility(hidden: true)
             }
         }
+            .foregroundColor(Color.sbbColor(.textBlack))
             .simultaneousGesture(
                 DragGesture(minimumDistance: 0)
                     .onChanged({ _ in
@@ -108,4 +125,33 @@ public struct TabButtonView<Selection>: View where Selection: Hashable {
     }
 }
 
+struct TabButtonView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        Group {
+            FakeTabButtons.fakeButton
+                .background(Color.sbbColor(.background))
+                .environment(\.horizontalSizeClass, .compact)
+                .environment(\.verticalSizeClass, .regular)
+                .previewDisplayName("Light portrait")
+            
+            FakeTabButtons.fakeButton
+                .background(Color.sbbColor(.background))
+                .environment(\.horizontalSizeClass, .compact)
+                .environment(\.verticalSizeClass, .regular)
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("Dark landscape")
+            
+            FakeTabButtons.fakeButton
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Light portrait")
+            
+            FakeTabButtons.fakeButton
+                .background(Color.sbbColor(.background))
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("Dark landscape")
+        }
+        .previewLayout(.sizeThatFits)
+    }
+}
 

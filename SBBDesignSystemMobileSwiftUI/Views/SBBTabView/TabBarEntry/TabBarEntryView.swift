@@ -25,6 +25,12 @@ public struct TabBarEntryView: View {
         self.labelView = labelView
     }
     
+    public init(imageView: Image, labelView: Text, tag: Any) {
+        self.imageView = imageView
+        self.labelView = labelView
+        self.tag = tag
+    }
+    
     public init(contentView: AnyView, tag: Any) {
         self.contentView = contentView
         self.tag = tag

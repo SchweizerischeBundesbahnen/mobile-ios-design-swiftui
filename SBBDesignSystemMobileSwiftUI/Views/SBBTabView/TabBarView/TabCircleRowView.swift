@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- A View that is used to display the circles icon behind the tab bar
+ A View that is used to display the circles icon behind the tab bar.
  */
 public struct TabCircleRowView: View {
     
@@ -15,8 +15,15 @@ public struct TabCircleRowView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
-    public init(contents: [TabBarEntryView], tabBarParameters: TabBarParameters) {
-        self.contents = contents
+    /**
+     Returns a TabCircleRowView displaying a row of circle.
+     
+     - Parameters:
+        - content: An array of TabBarEntryView, specifying the content of each tab.
+        - tabBarParameters: The TabBarParameters used to create the tab bar.
+     */
+    public init(content: [TabBarEntryView], tabBarParameters: TabBarParameters) {
+        self.contents = content
         self.tabBarParameters = tabBarParameters
     }
     
@@ -34,5 +41,30 @@ public struct TabCircleRowView: View {
             .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
             .accessibilityHidden(true)
         }
+    }
+}
+
+struct TabCircleRowView_Previews: PreviewProvider {
+    private static var circleRow = TabCircleRowView(content: [
+        FakeTabBarEntry.fakeTab1,
+        FakeTabBarEntry.fakeTab2
+    ], tabBarParameters: FakeTabBarParameters.fakeSpaced)
+    
+    static var previews: some View {
+        Group {
+            circleRow
+                .background(Color.sbbColor(.background))
+                .environment(\.horizontalSizeClass, .compact)
+                .environment(\.verticalSizeClass, .regular)
+                .previewDisplayName("Light")
+            
+            circleRow
+                .background(Color.sbbColor(.background))
+                .environment(\.horizontalSizeClass, .compact)
+                .environment(\.verticalSizeClass, .regular)
+                .previewDisplayName("Dark")
+                .environment(\.colorScheme, .dark)
+        }
+        .previewLayout(.sizeThatFits)
     }
 }

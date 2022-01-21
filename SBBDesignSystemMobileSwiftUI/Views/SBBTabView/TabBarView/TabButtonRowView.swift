@@ -6,7 +6,7 @@ import SwiftUI
 
 
 /**
- A View that is used to display the buttons in the tab bar for iOS 15.0
+ A View that is used to display the buttons in the tab bar for iOS 15.0. What's new: the first time the VoiceOver goes into the TabBar, it says 'tab bar'.
  */
 @available(iOS 15.0, *)
 public struct AccessibleTabButtonRowView<Selection>: View where Selection: Hashable {
@@ -37,7 +37,20 @@ public struct AccessibleTabButtonRowView<Selection>: View where Selection: Hasha
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
-    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, contents: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters) {
+    /**
+     Returns a AccessibleTabButtonRowView displaying a row of buttons.
+     
+     - Parameters:
+        - selection: The currently selected tab.
+        - transitionFactor: The factor used to animate the transition between two tabs
+        - transitionFactorPressed: The factor to animate the pressed shape
+        - isPressed: Whether one pressed on a tab
+        - currentTab: The index of the currently displayed tab
+        - labelSizes: An array containing the size of the labels (for landscape mode)
+        - content: An array of TabBarEntryView, specifying the content of each tab.
+        - tabBarParameters: The TabBarParameters used to create the tab bar.
+     */
+    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, contents: [TabBarEntryView], tabBarParameters: TabBarParameters) {
         self._selection = selection
         self._transitionFactor = transitionFactor
         self._transitionFactorPressed = transitionFactorPressed
@@ -56,14 +69,13 @@ public struct AccessibleTabButtonRowView<Selection>: View where Selection: Hasha
                     .accessibility(removeTraits: .isButton)
                     .accessibilityFocused($isTabBarFocused)
             }
-            .foregroundColor(Color.sbbColor(.textBlack))
             .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
         }
     }
 }
 
 /**
- A View that is used to display the buttons in the tab bar
+ A View that is used to display the buttons in the tab bar.
  */
 public struct TabButtonRowView<Selection>: View where Selection: Hashable {
     
@@ -91,6 +103,19 @@ public struct TabButtonRowView<Selection>: View where Selection: Hashable {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
+    /**
+     Returns a TabButtonRowView displaying the buttons in the tab bar.
+     
+     - Parameters:
+        - selection: The currently selected tab.
+        - transitionFactor: The factor used to animate the transition between two tabs
+        - transitionFactorPressed: The factor to animate the pressed shape
+        - isPressed: Whether one pressed on a tab
+        - currentTab: The index of the currently displayed tab
+        - labelSizes: An array containing the size of the labels (for landscape mode)
+        - content: An array of TabBarEntryView, specifying the content of each tab.
+        - tabBarParameters: The TabBarParameters used to create the tab bar.
+     */
     public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, contents: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters) {
         self._selection = selection
         self._transitionFactor = transitionFactor
@@ -108,8 +133,37 @@ public struct TabButtonRowView<Selection>: View where Selection: Hashable {
             ForEach(0..<self.contents.count) { index in
                 TabButtonView(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, index: index, contents: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: self.tabBarParameters, isTabBarFocused: true)
             }
-            .foregroundColor(Color.sbbColor(.textBlack))
             .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
         }
+    }
+}
+
+struct TabButtonRowView_Previews: PreviewProvider {
+    
+    static var previews: some View {
+        Group {
+            FakeTabButtons.fakeButtonRow
+                .background(Color.sbbColor(.background))
+                .environment(\.horizontalSizeClass, .compact)
+                .environment(\.verticalSizeClass, .regular)
+                .previewDisplayName("Light portrait")
+            
+            FakeTabButtons.fakeButtonRow
+                .background(Color.sbbColor(.background))
+                .environment(\.horizontalSizeClass, .compact)
+                .environment(\.verticalSizeClass, .regular)
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("Dark landscape")
+            
+            FakeTabButtons.fakeButtonRow
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Light portrait")
+            
+            FakeTabButtons.fakeButtonRow
+                .background(Color.sbbColor(.background))
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("Dark landscape")
+        }
+        .previewLayout(.sizeThatFits)
     }
 }

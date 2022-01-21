@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- A View that is used to display the label of the currently selected tab
+ A View that is used to display the label of the currently selected tab.
  */
 public struct TabLabelView: View {
     
@@ -15,30 +15,36 @@ public struct TabLabelView: View {
     private var selectionIndex: Int
     private var tabBarParameters: TabBarParameters
     
-    public init(textSize: Binding<CGSize>, contents: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters) {
+    /**
+     Returns a TabLabelView displaying the label of the currently selected tab.
+     
+     - Parameters:
+        - textSize: The size of the label to display.
+        - content: An array of TabBarEntryView, specifying the content of each tab.
+        -  selectionIndex: The index of the selected tab
+        - tabBarParameters: The TabBarParameters used to create the tab bar.
+     */
+    public init(textSize: Binding<CGSize>, content: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters) {
         self._textSize = textSize
-        self.contents = contents
+        self.contents = content
         self.selectionIndex = selectionIndex
         self.tabBarParameters = tabBarParameters
     }
     
     public var body: some View {
-        GeometryReader { geometry in
-            self.contents[self.selectionIndex].labelView
-                .background(ViewGeometry())
-                .onPreferenceChange(ViewSizeKey.self) {
-                    self.textSize = $0
-                }
-                .sbbFont(.body)
-                .lineLimit(1)
-                .minimumScaleFactor(0.1)
-                .foregroundColor(Color.sbbColor(.textBlack))
-                .padding(.top, self.tabBarParameters.buttonHeight)
-                .offset(x: self.getOffsetLabel(selectionIndex: self.selectionIndex, textWidth: self.textSize.width, segmentWidth: self.tabBarParameters.segmentWidth))
-                .frame(width: geometry.size.width, alignment: .leading)
-                .frame(height: self.tabBarParameters.barHeight, alignment: .topLeading)
-                .accessibility(hidden: true)
-        }
+        self.contents[self.selectionIndex].labelView
+            .background(ViewGeometry())
+            .onPreferenceChange(ViewSizeKey.self) {
+                self.textSize = $0
+            }
+            .sbbFont(.body)
+            .lineLimit(1)
+            .minimumScaleFactor(0.1)
+            .foregroundColor(Color.sbbColor(.textBlack))
+            .padding(.top, self.tabBarParameters.buttonHeight)
+            .offset(x: self.getOffsetLabel(selectionIndex: self.selectionIndex, textWidth: self.textSize.width, segmentWidth: self.tabBarParameters.segmentWidth))
+            .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight, alignment: .topLeading)
+            .accessibility(hidden: true)
     }
     
     private func getOffsetLabel(selectionIndex: Int, textWidth: CGFloat, segmentWidth: CGFloat) -> CGFloat {
@@ -59,5 +65,23 @@ public struct TabLabelView: View {
         } else {
             return offset
         }
+    }
+}
+
+struct TabLabelView_Previews: PreviewProvider {
+    private static var label = TabLabelView(textSize: .constant(CGSize.init(width: 20, height: 20)), content: [FakeTabBarEntry.fakeTab1, FakeTabBarEntry.fakeTab2], selectionIndex: 0, tabBarParameters: FakeTabBarParameters.fakeSpaced)
+    
+    static var previews: some View {
+        Group {
+            label
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Light")
+            
+            label
+                .background(Color.sbbColor(.background))
+                .environment(\.colorScheme, .dark)
+                .previewDisplayName("Dark")
+        }
+        .previewLayout(.sizeThatFits)
     }
 }

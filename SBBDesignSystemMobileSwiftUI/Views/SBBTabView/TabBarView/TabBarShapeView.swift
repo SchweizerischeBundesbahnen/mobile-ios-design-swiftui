@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- A View that is used to display the shape of the tab bar
+ A View that is used to display the shape of the tab bar.
  */
 struct TabBarShapeView: View {
     
@@ -19,6 +19,17 @@ struct TabBarShapeView: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
+    /**
+     Returns a TabBarShapeView displaying the shape of the tab bar.
+     
+     - Parameters:
+        - selectionIndex: The index of the selected tab
+        - currentTab: The index of the currently displayed tab
+        - tabBarParameters: The TabBarParameters used to create the tab bar.
+        - transitionFactor: The factor used to animate the transition between two tabs
+        - transitionFactorPressed: The factor to animate the pressed shape
+        - isPressed: Whether one pressed on a tab
+     */
     public init(selectionIndex: Int, currentTab: Int, tabBarParameters: TabBarParameters, transitionFactor: CGFloat, transitionFactorPressed: CGFloat, isPressed: Bool) {
         self.selectionIndex = selectionIndex
         self.currentTab = currentTab
@@ -32,15 +43,44 @@ struct TabBarShapeView: View {
     }
     
     public var body: some View {
-        Rectangle()
-            .frame(width: self.tabBarParameters.barWidth * 2, height: self.tabBarParameters.barHeight)
-            .offset(y: self.tabBarParameters.barHeight)
-            .foregroundColor(Color.sbbColor(.tabViewBackground))
-            .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
-            .accessibility(hidden: true)
-        tabBarShape
-            .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
-            .foregroundColor(Color.sbbColor(.tabViewBackground))
-            .accessibility(hidden: true)
+        ZStack {
+            tabBarShape
+                .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
+                .foregroundColor(Color.sbbColor(.tabViewBackground))
+                .accessibility(hidden: true)
+            Rectangle()
+                .frame(width: self.tabBarParameters.barWidth * 2, height: self.tabBarParameters.barHeight)
+                .offset(y: self.tabBarParameters.barHeight)
+                .foregroundColor(Color.sbbColor(.tabViewBackground))
+                .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
+                .accessibility(hidden: true)
+        }
+    }
+}
+
+struct TabBarShapeView_Previews: PreviewProvider {
+    
+    private static var allTabBarShape = [FakeTabBarShape.tabBarShape, FakeTabBarShape.tabBarShapePressed, FakeTabBarShape.tabBarShapePressedSpaced, FakeTabBarShape.tabBarShapeTransition, FakeTabBarShape.tabBarShapeTransitionSpaced]
+    
+    private static var allTabBarName = ["", "pressed", "transition"]
+    
+    static var previews: some View {
+        Group {
+            ForEach(0..<allTabBarShape.count) { index in
+                allTabBarShape[index]
+                    .background(Color.sbbColor(.background))
+                    .environment(\.horizontalSizeClass, .compact)
+                    .environment(\.verticalSizeClass, .regular)
+                    .previewDisplayName("Light \(allTabBarName[index % 3])")
+                
+                allTabBarShape[index]
+                    .background(Color.sbbColor(.background))
+                    .environment(\.horizontalSizeClass, .compact)
+                    .environment(\.verticalSizeClass, .regular)
+                    .previewDisplayName("Dark \(allTabBarName[index % 3])")
+                    .environment(\.colorScheme, .dark)
+            }
+        }
+        .previewLayout(.sizeThatFits)
     }
 }

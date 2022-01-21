@@ -7,6 +7,22 @@ import SwiftUI
 
 /**
  A View that is used to display the tab bar only.
+ 
+ ## Overview
+ You create a TabBarView by providing a selectedSegment binding and an array of TabBarEntryView for each tab. The image and label associated with each TabBarEntryView are retrieved to be displayed in the tab bar. A TabBarEntryView can be created from scratch or obtained through the View modifiers .sbbTag(tag: Hashable) and .sbbTabItems(image: Image, label: Text).
+ 
+ ```swift
+ @State private var selectedSegment = 0
+ 
+     var body: some View {
+         TabBarView(selection: $selectedSegment, contents: [
+            TabBarEntryView(imageView: Image(sbbName: "station", size: .small), labelView: Text("Station"), tag: 0),
+            VStack { ... }.sbbTag(2).sbbTabItem(image: Image(sbbName: "bus-stop", size: .small), label: Text("Stop"))
+         ])
+    }
+ }
+ ```
+ ![TabBarView](TabBarView)
  */
 public struct TabBarView<Selection>: View where Selection: Hashable {
     
@@ -37,10 +53,18 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
-    public init(selection: Binding<Selection>, contents: [TabBarEntryView]) {
+    /**
+     Returns a TabBarView displaying the tab bar.
+     
+     - Parameters:
+        - selection: The currently selected tab.
+        - content: An array of TabBarEntryView, specifying the content of each tab.
+     */
+    public init(selection: Binding<Selection>, content: [TabBarEntryView]) {
         self._selection = selection
-        self.contents = contents
+        self.contents = content
     }
+    
     
     public var body: some View {
         let isPortrait = self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
@@ -58,15 +82,19 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
             let tabBarParameters = TabBarParameters(circleRadius: circleSize / 2, circlePad: circlePad, topPad: topPad, segmentWidth: segmentWidth, segmentWidths: self.labelSizes, barHeight: barHeight, barWidth: geometry.size.width, buttonHeight: buttonHeight, buttonWidth: buttonWidth)
             
             ZStack(alignment: .bottom) {
-                TabCircleRowView(contents: self.contents, tabBarParameters: tabBarParameters)
+                // Circles behind the bar
+                TabCircleRowView(content: self.contents, tabBarParameters: tabBarParameters)
                 
+                // Tab bar shape
                 TabBarShapeView(selectionIndex: self.selectionIndex, currentTab: self.currentTab, tabBarParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
                 
                 if isPortrait {
-                    TabLabelView(textSize: self.$labelSize, contents: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: tabBarParameters)
+                    // Current tab label
+                    TabLabelView(textSize: self.$labelSize, content: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: tabBarParameters)
                 }
+                // Button in the tab bar
                 if #available(iOS 15.0, *) {
-                    AccessibleTabButtonRowView(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, contents: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: tabBarParameters)
+                    AccessibleTabButtonRowView(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, contents: self.contents, tabBarParameters: tabBarParameters)
                         .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: isPortrait))
                         .shadow(color: Color.sbbColor(.graphite), radius: self.colorScheme == .dark ? 0 : 10, x: 0, y: 0)
                 } else {
@@ -98,5 +126,39 @@ public struct ViewGeometry: View {
             Color.clear
                 .preference(key: ViewSizeKey.self, value: geometry.size)
         }
+    }
+}
+
+struct TabBarView_Previews: PreviewProvider {
+    private static var tabBar = TabBarView(selection: .constant(0), content: [
+        FakeTabBarEntry.fakeTab1,
+        FakeTabBarEntry.fakeTab2
+    ])
+    
+    static var previews: some View {
+        Group {
+            tabBar
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Light portrait")
+                .environment(\.horizontalSizeClass, .compact)
+                .environment(\.verticalSizeClass, .regular)
+            
+            tabBar
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Dark portrait")
+                .environment(\.colorScheme, .dark)
+                .environment(\.horizontalSizeClass, .compact)
+                .environment(\.verticalSizeClass, .regular)
+            
+            tabBar
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Light landscape")
+            
+            tabBar
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Dark landscape")
+                .environment(\.colorScheme, .dark)
+        }
+        .previewLayout(.sizeThatFits)
     }
 }
