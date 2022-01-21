@@ -138,6 +138,184 @@
 		7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68C24C16B86002289EE /* SBBModalView.swift */; };
 		7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */; };
 		7CDBA69124C18DA1002289EE /* SBBButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */; };
+		7CDF985E279AC5010004B152 /* testPictogramIcon.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E68279A9DB9005C47CB /* testPictogramIcon.2.png */; };
+		7CDF985F279AC5010004B152 /* testKOMIconMedium.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E66279A9DB9005C47CB /* testKOMIconMedium.2.png */; };
+		7CDF9860279AC5010004B152 /* testPictogramIcon.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E67279A9DB9005C47CB /* testPictogramIcon.1.png */; };
+		7CDF9861279AC5010004B152 /* testFPLIcon.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E6C279A9DB9005C47CB /* testFPLIcon.2.png */; };
+		7CDF9862279AC5010004B152 /* testKOMIconLarge.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E64279A9DB9005C47CB /* testKOMIconLarge.1.png */; };
+		7CDF9863279AC5010004B152 /* testKOMIconSmall.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E69279A9DB9005C47CB /* testKOMIconSmall.1.png */; };
+		7CDF9864279AC5010004B152 /* testKOMIconLarge.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E63279A9DB9005C47CB /* testKOMIconLarge.2.png */; };
+		7CDF9865279AC5010004B152 /* testFPLIcon.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E6A279A9DB9005C47CB /* testFPLIcon.1.png */; };
+		7CDF9866279AC5010004B152 /* testKOMIconSmall.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E6B279A9DB9005C47CB /* testKOMIconSmall.2.png */; };
+		7CDF9867279AC5010004B152 /* testKOMIconMedium.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E65279A9DB9005C47CB /* testKOMIconMedium.1.png */; };
+		7CDF9868279AC5060004B152 /* testIconTextButtonDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E6F279A9DB9005C47CB /* testIconTextButtonDisabled.1.png */; };
+		7CDF9869279AC5060004B152 /* testIconTextButton.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E70279A9DB9005C47CB /* testIconTextButton.1.png */; };
+		7CDF986A279AC5060004B152 /* testIconTextButtonDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E6E279A9DB9005C47CB /* testIconTextButtonDisabled.2.png */; };
+		7CDF986B279AC5060004B152 /* testIconTextButton.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E71279A9DB9005C47CB /* testIconTextButton.2.png */; };
+		7CDF986C279AC50B0004B152 /* testSliderExtension.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E73279A9DB9005C47CB /* testSliderExtension.1.png */; };
+		7CDF986D279AC50B0004B152 /* testSliderExtensionWithImages.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E75279A9DB9005C47CB /* testSliderExtensionWithImages.2.png */; };
+		7CDF986E279AC50B0004B152 /* testSliderExtensionWithImages.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E76279A9DB9005C47CB /* testSliderExtensionWithImages.1.png */; };
+		7CDF986F279AC50B0004B152 /* testSliderExtension.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E74279A9DB9005C47CB /* testSliderExtension.2.png */; };
+		7CDF9870279AC50E0004B152 /* testIconButton.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E78279A9DB9005C47CB /* testIconButton.2.png */; };
+		7CDF9871279AC50E0004B152 /* testIconButtonSmall.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E7C279A9DB9005C47CB /* testIconButtonSmall.1.png */; };
+		7CDF9872279AC50E0004B152 /* testIconButtonDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E7B279A9DB9005C47CB /* testIconButtonDisabled.2.png */; };
+		7CDF9873279AC50E0004B152 /* testIconButtonSmall.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E7D279A9DB9005C47CB /* testIconButtonSmall.2.png */; };
+		7CDF9874279AC50E0004B152 /* testIconButton.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E79279A9DB9005C47CB /* testIconButton.1.png */; };
+		7CDF9875279AC50E0004B152 /* testIconButtonDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E7A279A9DB9005C47CB /* testIconButtonDisabled.1.png */; };
+		7CDF9876279AC5130004B152 /* testTertiaryButtonSmall.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E83279A9DB9005C47CB /* testTertiaryButtonSmall.2.png */; };
+		7CDF9877279AC5130004B152 /* testTertiaryButtonDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E82279A9DB9005C47CB /* testTertiaryButtonDisabled.2.png */; };
+		7CDF9878279AC5130004B152 /* testTertiaryButton.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E7F279A9DB9005C47CB /* testTertiaryButton.2.png */; };
+		7CDF9879279AC5130004B152 /* testTertiaryButtonDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E81279A9DB9005C47CB /* testTertiaryButtonDisabled.1.png */; };
+		7CDF987A279AC5130004B152 /* testTertiaryButtonSmall.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E84279A9DB9005C47CB /* testTertiaryButtonSmall.1.png */; };
+		7CDF987B279AC5130004B152 /* testTertiaryButton.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E80279A9DB9005C47CB /* testTertiaryButton.1.png */; };
+		7CDF987C279AC5170004B152 /* testPrimaryButtonDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E8A279A9DB9005C47CB /* testPrimaryButtonDisabled.1.png */; };
+		7CDF987D279AC5170004B152 /* testSecondaryButtonDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E8C279A9DB9005C47CB /* testSecondaryButtonDisabled.1.png */; };
+		7CDF987E279AC5170004B152 /* testSecondaryButtonDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E8D279A9DB9005C47CB /* testSecondaryButtonDisabled.2.png */; };
+		7CDF987F279AC5170004B152 /* testPrimaryButton.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E89279A9DB9005C47CB /* testPrimaryButton.2.png */; };
+		7CDF9880279AC5170004B152 /* testSecondaryButton.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E86279A9DB9005C47CB /* testSecondaryButton.1.png */; };
+		7CDF9881279AC5170004B152 /* testPrimaryButton.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E88279A9DB9005C47CB /* testPrimaryButton.1.png */; };
+		7CDF9882279AC5170004B152 /* testPrimaryButtonDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E8B279A9DB9005C47CB /* testPrimaryButtonDisabled.2.png */; };
+		7CDF9883279AC5170004B152 /* testSecondaryButton.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E87279A9DB9005C47CB /* testSecondaryButton.2.png */; };
+		7CDF9884279AC51D0004B152 /* testNavigationBarWithSBBIcon.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E90279A9DB9005C47CB /* testNavigationBarWithSBBIcon.1.png */; };
+		7CDF9885279AC51D0004B152 /* testNavigationBarWithSBBIcon.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E8F279A9DB9005C47CB /* testNavigationBarWithSBBIcon.2.png */; };
+		7CDF9886279AC5220004B152 /* testPrimaryButton.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E93279A9DB9005C47CB /* testPrimaryButton.2.png */; };
+		7CDF9887279AC5220004B152 /* testPrimaryButton.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E92279A9DB9005C47CB /* testPrimaryButton.1.png */; };
+		7CDF9888279AC5220004B152 /* testPrimaryButtonDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E94279A9DB9005C47CB /* testPrimaryButtonDisabled.1.png */; };
+		7CDF9889279AC5220004B152 /* testPrimaryButtonDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E95279A9DB9005C47CB /* testPrimaryButtonDisabled.2.png */; };
+		7CDF988A279AC5260004B152 /* testSwitchStyleDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E98279A9DB9005C47CB /* testSwitchStyleDisabled.2.png */; };
+		7CDF988B279AC5260004B152 /* testSwitchStyle.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E99279A9DB9005C47CB /* testSwitchStyle.2.png */; };
+		7CDF988C279AC5260004B152 /* testSwitchStyle.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E9A279A9DB9005C47CB /* testSwitchStyle.1.png */; };
+		7CDF988D279AC5260004B152 /* testSwitchStyleDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E97279A9DB9005C47CB /* testSwitchStyleDisabled.1.png */; };
+		7CDF988E279AC52C0004B152 /* testEnvironmentBannerNone.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E9E279A9DB9005C47CB /* testEnvironmentBannerNone.1.png */; };
+		7CDF988F279AC52C0004B152 /* testEnvironmentBannerNone.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E9F279A9DB9005C47CB /* testEnvironmentBannerNone.2.png */; };
+		7CDF9890279AC52C0004B152 /* testEnvironmentBannerDev.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E9D279A9DB9005C47CB /* testEnvironmentBannerDev.2.png */; };
+		7CDF9891279AC52C0004B152 /* testEnvironmentBannerDev.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00E9C279A9DB9005C47CB /* testEnvironmentBannerDev.1.png */; };
+		7CDF9892279AC5350004B152 /* testMapMarkerBlack.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D54279A9DA1005C47CB /* testMapMarkerBlack.2.png */; };
+		7CDF9893279AC5350004B152 /* testMapMarkerBlack.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D55279A9DA1005C47CB /* testMapMarkerBlack.1.png */; };
+		7CDF9894279AC5350004B152 /* testMapMarkerBlue.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D51279A9DA1005C47CB /* testMapMarkerBlue.2.png */; };
+		7CDF9895279AC5350004B152 /* testMapMarkerBlue.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D50279A9DA1005C47CB /* testMapMarkerBlue.1.png */; };
+		7CDF9896279AC5350004B152 /* testMapMarkerPrimary.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D52279A9DA1005C47CB /* testMapMarkerPrimary.2.png */; };
+		7CDF9897279AC5350004B152 /* testMapMarkerPrimary.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D53279A9DA1005C47CB /* testMapMarkerPrimary.1.png */; };
+		7CDF9898279AC5390004B152 /* testNavigationBarWithSBBIcon.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D57279A9DA1005C47CB /* testNavigationBarWithSBBIcon.2.png */; };
+		7CDF9899279AC5390004B152 /* testNavigationBarWithSBBIcon.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D58279A9DA1005C47CB /* testNavigationBarWithSBBIcon.1.png */; };
+		7CDF989A279AC53C0004B152 /* testInfoView.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D5B279A9DA1005C47CB /* testInfoView.2.png */; };
+		7CDF989B279AC53C0004B152 /* testInfoView.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D5A279A9DA1005C47CB /* testInfoView.1.png */; };
+		7CDF989C279AC5400004B152 /* testChipUnselected.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D5E279A9DA1005C47CB /* testChipUnselected.1.png */; };
+		7CDF989D279AC5400004B152 /* testChipUnselected.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D5D279A9DA1005C47CB /* testChipUnselected.2.png */; };
+		7CDF989E279AC5400004B152 /* testChipSelected.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D60279A9DA1005C47CB /* testChipSelected.2.png */; };
+		7CDF989F279AC5400004B152 /* testChipSelected.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D5F279A9DA1005C47CB /* testChipSelected.1.png */; };
+		7CDF98A0279AC5440004B152 /* testSBBDialogueFullscreen.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D64279A9DA1005C47CB /* testSBBDialogueFullscreen.1.png */; };
+		7CDF98A1279AC5440004B152 /* testSBBDialogueFullscreen.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D65279A9DA1005C47CB /* testSBBDialogueFullscreen.2.png */; };
+		7CDF98A2279AC5440004B152 /* testSBBDialogueList.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D67279A9DA1005C47CB /* testSBBDialogueList.1.png */; };
+		7CDF98A3279AC5440004B152 /* testSBBDialogueInline.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D62279A9DA1005C47CB /* testSBBDialogueInline.1.png */; };
+		7CDF98A4279AC5440004B152 /* testSBBDialogueInline.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D63279A9DA1005C47CB /* testSBBDialogueInline.2.png */; };
+		7CDF98A5279AC5440004B152 /* testSBBDialogueList.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D66279A9DA1005C47CB /* testSBBDialogueList.2.png */; };
+		7CDF98A6279AC5480004B152 /* testAccordionExpanded.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D69279A9DA1005C47CB /* testAccordionExpanded.2.png */; };
+		7CDF98A7279AC5480004B152 /* testAccordionExpanded.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D6A279A9DA1005C47CB /* testAccordionExpanded.1.png */; };
+		7CDF98A8279AC5480004B152 /* testAccordionCollapsed.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D6C279A9DA1005C47CB /* testAccordionCollapsed.1.png */; };
+		7CDF98A9279AC5480004B152 /* testAccordionCollapsed.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D6B279A9DA1005C47CB /* testAccordionCollapsed.2.png */; };
+		7CDF98AA279AC54C0004B152 /* testPaginationView.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D6F279A9DA1005C47CB /* testPaginationView.1.png */; };
+		7CDF98AB279AC54C0004B152 /* testPaginationView.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D6E279A9DA1005C47CB /* testPaginationView.2.png */; };
+		7CDF98AC279AC5520004B152 /* testTextFieldPlaceHolderTextError.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D7D279A9DA1005C47CB /* testTextFieldPlaceHolderTextError.1.png */; };
+		7CDF98AD279AC5520004B152 /* testTextFieldPlaceHolderTextIconError.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D74279A9DA1005C47CB /* testTextFieldPlaceHolderTextIconError.1.png */; };
+		7CDF98AE279AC5520004B152 /* testTextFieldPlaceHolderTextDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D75279A9DA1005C47CB /* testTextFieldPlaceHolderTextDisabled.2.png */; };
+		7CDF98AF279AC5520004B152 /* testTextFieldNoPlaceHolderNoText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D7C279A9DA1005C47CB /* testTextFieldNoPlaceHolderNoText.1.png */; };
+		7CDF98B0279AC5520004B152 /* testTextFieldPlaceHolderTextIconError.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D78279A9DA1005C47CB /* testTextFieldPlaceHolderTextIconError.2.png */; };
+		7CDF98B1279AC5520004B152 /* testTextFieldPlaceHolderTextDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D71279A9DA1005C47CB /* testTextFieldPlaceHolderTextDisabled.1.png */; };
+		7CDF98B2279AC5520004B152 /* testTextFieldPlaceHolderTextError.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D7B279A9DA1005C47CB /* testTextFieldPlaceHolderTextError.2.png */; };
+		7CDF98B3279AC5520004B152 /* testTextFieldPlaceHolderTextIcon.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D77279A9DA1005C47CB /* testTextFieldPlaceHolderTextIcon.1.png */; };
+		7CDF98B4279AC5520004B152 /* testTextFieldPlaceHolderText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D80279A9DA1005C47CB /* testTextFieldPlaceHolderText.1.png */; };
+		7CDF98B5279AC5520004B152 /* testTextFieldPlaceholderNoText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D76279A9DA1005C47CB /* testTextFieldPlaceholderNoText.1.png */; };
+		7CDF98B6279AC5520004B152 /* testTextFieldNoPlaceHolderText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D7A279A9DA1005C47CB /* testTextFieldNoPlaceHolderText.1.png */; };
+		7CDF98B7279AC5520004B152 /* testTextFieldNoPlaceHolderText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D79279A9DA1005C47CB /* testTextFieldNoPlaceHolderText.2.png */; };
+		7CDF98B8279AC5520004B152 /* testTextFieldNoPlaceHolderNoText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D7E279A9DA1005C47CB /* testTextFieldNoPlaceHolderNoText.2.png */; };
+		7CDF98B9279AC5520004B152 /* testTextFieldPlaceHolderTextIcon.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D73279A9DA1005C47CB /* testTextFieldPlaceHolderTextIcon.2.png */; };
+		7CDF98BA279AC5520004B152 /* testTextFieldPlaceholderNoText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D72279A9DA1005C47CB /* testTextFieldPlaceholderNoText.2.png */; };
+		7CDF98BB279AC5520004B152 /* testTextFieldPlaceHolderText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D7F279A9DA1005C47CB /* testTextFieldPlaceHolderText.2.png */; };
+		7CDF98BC279AC5560004B152 /* testRadioButtonDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D89279A9DA1005C47CB /* testRadioButtonDisabled.2.png */; };
+		7CDF98BD279AC5560004B152 /* testRadioButtonSubText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D85279A9DA1005C47CB /* testRadioButtonSubText.2.png */; };
+		7CDF98BE279AC5560004B152 /* testRadioButtonWithImage.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D84279A9DA1005C47CB /* testRadioButtonWithImage.2.png */; };
+		7CDF98BF279AC5560004B152 /* testRadioButtonSubText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D83279A9DA1005C47CB /* testRadioButtonSubText.1.png */; };
+		7CDF98C0279AC5560004B152 /* testRadioButtonTextOnly.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D86279A9DA1005C47CB /* testRadioButtonTextOnly.1.png */; };
+		7CDF98C1279AC5560004B152 /* testRadioButtonDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D88279A9DA1005C47CB /* testRadioButtonDisabled.1.png */; };
+		7CDF98C2279AC5560004B152 /* testRadioButtonWithImage.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D82279A9DA1005C47CB /* testRadioButtonWithImage.1.png */; };
+		7CDF98C3279AC5560004B152 /* testRadioButtonTextOnly.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D87279A9DA1005C47CB /* testRadioButtonTextOnly.2.png */; };
+		7CDF98C4279AC55A0004B152 /* testRadioButtonGroup.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D8C279A9DA1005C47CB /* testRadioButtonGroup.2.png */; };
+		7CDF98C5279AC55A0004B152 /* testRadioButtonGroup.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D8B279A9DA1005C47CB /* testRadioButtonGroup.1.png */; };
+		7CDF98C6279AC55D0004B152 /* testDivider.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D8F279A9DA1005C47CB /* testDivider.1.png */; };
+		7CDF98C7279AC55D0004B152 /* testDivider.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D8E279A9DA1005C47CB /* testDivider.2.png */; };
+		7CDF98C8279AC5620004B152 /* testLoadingIndicatorNormalWhite.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D93279A9DA1005C47CB /* testLoadingIndicatorNormalWhite.1.png */; };
+		7CDF98C9279AC5620004B152 /* testLoadingIndicatorNormalGrey.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D97279A9DA1005C47CB /* testLoadingIndicatorNormalGrey.1.png */; };
+		7CDF98CA279AC5620004B152 /* testLoadingIndicatorNormalPrimary.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D92279A9DA1005C47CB /* testLoadingIndicatorNormalPrimary.1.png */; };
+		7CDF98CB279AC5620004B152 /* testLoadingIndicatorNormalWhite.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D94279A9DA1005C47CB /* testLoadingIndicatorNormalWhite.2.png */; };
+		7CDF98CC279AC5620004B152 /* testLoadingIndicatorNormalPrimary.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D91279A9DA1005C47CB /* testLoadingIndicatorNormalPrimary.2.png */; };
+		7CDF98CD279AC5620004B152 /* testLoadingIndicatorSmallPrimary.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D95279A9DA1005C47CB /* testLoadingIndicatorSmallPrimary.2.png */; };
+		7CDF98CE279AC5620004B152 /* testLoadingIndicatorNormalGrey.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D98279A9DA1005C47CB /* testLoadingIndicatorNormalGrey.2.png */; };
+		7CDF98CF279AC5620004B152 /* testLoadingIndicatorSmallPrimary.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D96279A9DA1005C47CB /* testLoadingIndicatorSmallPrimary.1.png */; };
+		7CDF98D0279AC5660004B152 /* testBubbleViewDetailNoBackground.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA4279A9DA1005C47CB /* testBubbleViewDetailNoBackground.2.png */; };
+		7CDF98D1279AC5660004B152 /* testBubbleViewDetailMultipleView.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA5279A9DA1005C47CB /* testBubbleViewDetailMultipleView.2.png */; };
+		7CDF98D2279AC5660004B152 /* testBubbleViewAccessbilityExtraExtraLarge.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DAA279A9DA1005C47CB /* testBubbleViewAccessbilityExtraExtraLarge.1.png */; };
+		7CDF98D3279AC5660004B152 /* testBubbleViewLongTitle.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DAB279A9DA1005C47CB /* testBubbleViewLongTitle.2.png */; };
+		7CDF98D4279AC5660004B152 /* testBubbleViewSubtitle.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA6279A9DA1005C47CB /* testBubbleViewSubtitle.2.png */; };
+		7CDF98D5279AC5660004B152 /* testBubbleViewAccessbilityExtraExtraLarge.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA7279A9DA1005C47CB /* testBubbleViewAccessbilityExtraExtraLarge.2.png */; };
+		7CDF98D6279AC5660004B152 /* testBubbleViewDetailMultipleView.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA2279A9DA1005C47CB /* testBubbleViewDetailMultipleView.1.png */; };
+		7CDF98D7279AC5660004B152 /* testBubbleViewDetail.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA0279A9DA1005C47CB /* testBubbleViewDetail.1.png */; };
+		7CDF98D8279AC5660004B152 /* testBubbleViewSubtitle.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA9279A9DA1005C47CB /* testBubbleViewSubtitle.1.png */; };
+		7CDF98D9279AC5660004B152 /* testBubbleViewExpandableFixedContent.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D9C279A9DA1005C47CB /* testBubbleViewExpandableFixedContent.1.png */; };
+		7CDF98DA279AC5660004B152 /* testBubbleViewFixedContent.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D9E279A9DA1005C47CB /* testBubbleViewFixedContent.1.png */; };
+		7CDF98DB279AC5660004B152 /* testBubbleViewTitleOnly.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D9D279A9DA1005C47CB /* testBubbleViewTitleOnly.2.png */; };
+		7CDF98DC279AC5660004B152 /* testBubbleViewFixedContent.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D9F279A9DA1005C47CB /* testBubbleViewFixedContent.2.png */; };
+		7CDF98DD279AC5660004B152 /* testBubbleViewDetailNoBackground.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA1279A9DA1005C47CB /* testBubbleViewDetailNoBackground.1.png */; };
+		7CDF98DE279AC5660004B152 /* testBubbleViewTitleOnly.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D9B279A9DA1005C47CB /* testBubbleViewTitleOnly.1.png */; };
+		7CDF98DF279AC5660004B152 /* testBubbleViewExpandableFixedContent.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00D9A279A9DA1005C47CB /* testBubbleViewExpandableFixedContent.2.png */; };
+		7CDF98E0279AC5660004B152 /* testBubbleViewDetail.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA3279A9DA1005C47CB /* testBubbleViewDetail.2.png */; };
+		7CDF98E1279AC5660004B152 /* testBubbleViewLongTitle.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DA8279A9DA1005C47CB /* testBubbleViewLongTitle.1.png */; };
+		7CDF98E2279AC5690004B152 /* testFormGroupWithTitle.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DAE279A9DA1005C47CB /* testFormGroupWithTitle.1.png */; };
+		7CDF98E3279AC5690004B152 /* testFormGroupWithTitle.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DAD279A9DA1005C47CB /* testFormGroupWithTitle.2.png */; };
+		7CDF98E4279AC56E0004B152 /* testTextAreaPlaceholderNoText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB1279A9DA1005C47CB /* testTextAreaPlaceholderNoText.2.png */; };
+		7CDF98E5279AC56E0004B152 /* testTextAreaNoPlaceHolderText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB2279A9DA1005C47CB /* testTextAreaNoPlaceHolderText.1.png */; };
+		7CDF98E6279AC56E0004B152 /* testTextAreaNoPlaceHolderNoText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB3279A9DA1005C47CB /* testTextAreaNoPlaceHolderNoText.2.png */; };
+		7CDF98E7279AC56E0004B152 /* testTextAreaNoPlaceHolderText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB5279A9DA1005C47CB /* testTextAreaNoPlaceHolderText.2.png */; };
+		7CDF98E8279AC56E0004B152 /* testTextAreaPlaceHolderText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB7279A9DA1005C47CB /* testTextAreaPlaceHolderText.1.png */; };
+		7CDF98E9279AC56E0004B152 /* testTextAreaPlaceholderNoText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB0279A9DA1005C47CB /* testTextAreaPlaceholderNoText.1.png */; };
+		7CDF98EA279AC56E0004B152 /* testTextAreaPlaceHolderText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB4279A9DA1005C47CB /* testTextAreaPlaceHolderText.2.png */; };
+		7CDF98EB279AC56E0004B152 /* testTextAreaNoPlaceHolderNoText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB6279A9DA1005C47CB /* testTextAreaNoPlaceHolderNoText.1.png */; };
+		7CDF98EC279AC56E0004B152 /* testTextAreaPlaceHolderTextDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB8279A9DA1005C47CB /* testTextAreaPlaceHolderTextDisabled.2.png */; };
+		7CDF98ED279AC56E0004B152 /* testTextAreaPlaceHolderTextDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DB9279A9DA1005C47CB /* testTextAreaPlaceHolderTextDisabled.1.png */; };
+		7CDF98EE279AC5720004B152 /* testProcessFlow.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DBB279A9DA1005C47CB /* testProcessFlow.1.png */; };
+		7CDF98EF279AC5720004B152 /* testProcessFlow.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DBC279A9DA1005C47CB /* testProcessFlow.2.png */; };
+		7CDF98F0279AC5760004B152 /* testSegmentedPickerPrimaryColor.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DBE279A9DA1005C47CB /* testSegmentedPickerPrimaryColor.2.png */; };
+		7CDF98F1279AC5760004B152 /* testSegmentedPickerPrimaryColor.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DBF279A9DA1005C47CB /* testSegmentedPickerPrimaryColor.1.png */; };
+		7CDF98F2279AC5760004B152 /* testSegmentedPickerIcon.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC2279A9DA1005C47CB /* testSegmentedPickerIcon.2.png */; };
+		7CDF98F3279AC5760004B152 /* testSegmentedPickerIcon.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC3279A9DA1005C47CB /* testSegmentedPickerIcon.1.png */; };
+		7CDF98F4279AC5760004B152 /* testSegmentedPickerIconAndText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC0279A9DA1005C47CB /* testSegmentedPickerIconAndText.1.png */; };
+		7CDF98F5279AC5760004B152 /* testSegmentedPickerIconAndText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC1279A9DA1005C47CB /* testSegmentedPickerIconAndText.2.png */; };
+		7CDF98F6279AC57B0004B152 /* testListItemInfoType.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DCE279A9DA1005C47CB /* testListItemInfoType.2.png */; };
+		7CDF98F7279AC57B0004B152 /* testListItemWithLabel.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC5279A9DA1005C47CB /* testListItemWithLabel.2.png */; };
+		7CDF98F8279AC57B0004B152 /* testListItemWithLabelImageFootnote.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DCA279A9DA1005C47CB /* testListItemWithLabelImageFootnote.1.png */; };
+		7CDF98F9279AC57B0004B152 /* testListItemInfoType.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DCD279A9DA1005C47CB /* testListItemInfoType.1.png */; };
+		7CDF98FA279AC57B0004B152 /* testListItemWithLabelFootnote.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC7279A9DA1005C47CB /* testListItemWithLabelFootnote.2.png */; };
+		7CDF98FB279AC57B0004B152 /* testListItemWithLabelImageFootnote.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DCC279A9DA1005C47CB /* testListItemWithLabelImageFootnote.2.png */; };
+		7CDF98FC279AC57B0004B152 /* testListItemWithLabelImage.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DCB279A9DA1005C47CB /* testListItemWithLabelImage.1.png */; };
+		7CDF98FD279AC57B0004B152 /* testListItemWithLabel.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC6279A9DA1005C47CB /* testListItemWithLabel.1.png */; };
+		7CDF98FE279AC57B0004B152 /* testListItemWithLabelFootnote.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC8279A9DA1005C47CB /* testListItemWithLabelFootnote.1.png */; };
+		7CDF98FF279AC57B0004B152 /* testListItemWithLabelImage.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DC9279A9DA1005C47CB /* testListItemWithLabelImage.2.png */; };
+		7CDF9900279AC57F0004B152 /* testModalViewPopup.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DD0279A9DA1005C47CB /* testModalViewPopup.2.png */; };
+		7CDF9901279AC57F0004B152 /* testModalViewPopup.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DD1279A9DA1005C47CB /* testModalViewPopup.1.png */; };
+		7CDF9902279AC5840004B152 /* testToast.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DD3279A9DA1005C47CB /* testToast.2.png */; };
+		7CDF9903279AC5840004B152 /* testToast.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DD4279A9DA1005C47CB /* testToast.1.png */; };
+		7CDF9904279AC58B0004B152 /* testOnboardingTitleView.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DD9279A9DA1005C47CB /* testOnboardingTitleView.1.png */; };
+		7CDF9905279AC58B0004B152 /* testOnboardingTitleView.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DD8279A9DA1005C47CB /* testOnboardingTitleView.2.png */; };
+		7CDF9906279AC58B0004B152 /* testOnboardingCardView.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DD7279A9DA1005C47CB /* testOnboardingCardView.1.png */; };
+		7CDF9907279AC58B0004B152 /* testOnboardingCardView.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DD6279A9DA1005C47CB /* testOnboardingCardView.2.png */; };
+		7CDF9908279AC5900004B152 /* testCheckBoxWithImage.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DDF279A9DA1005C47CB /* testCheckBoxWithImage.2.png */; };
+		7CDF9909279AC5900004B152 /* testCheckBoxTextOnly.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DE2279A9DA1005C47CB /* testCheckBoxTextOnly.1.png */; };
+		7CDF990A279AC5900004B152 /* testCheckBoxSubText.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DDB279A9DA1005C47CB /* testCheckBoxSubText.1.png */; };
+		7CDF990B279AC5900004B152 /* testCheckBoxWithImage.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DE0279A9DA1005C47CB /* testCheckBoxWithImage.1.png */; };
+		7CDF990C279AC5900004B152 /* testCheckBoxTextOnly.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DE1279A9DA1005C47CB /* testCheckBoxTextOnly.2.png */; };
+		7CDF990D279AC5900004B152 /* testCheckBoxDisabled.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DDC279A9DA1005C47CB /* testCheckBoxDisabled.2.png */; };
+		7CDF990E279AC5900004B152 /* testCheckBoxSubText.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DDD279A9DA1005C47CB /* testCheckBoxSubText.2.png */; };
+		7CDF990F279AC5900004B152 /* testCheckBoxDisabled.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7CA00DDE279A9DA1005C47CB /* testCheckBoxDisabled.1.png */; };
 		7CDFFD8123E9C3C000250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8323E9C3C000250717 /* Localizable.strings */; };
 		7CDFFD8A23E9C77300250717 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7CDFFD8C23E9C77300250717 /* Localizable.strings */; };
 		7CE19B1A25B957EA00FEFC1E /* ToastDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE19B1925B957EA00FEFC1E /* ToastDemo.swift */; };
@@ -1664,7 +1842,185 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CDF9868279AC5060004B152 /* testIconTextButtonDisabled.1.png in Resources */,
+				7CDF98A5279AC5440004B152 /* testSBBDialogueList.2.png in Resources */,
+				7CDF98CF279AC5620004B152 /* testLoadingIndicatorSmallPrimary.1.png in Resources */,
+				7CDF98CC279AC5620004B152 /* testLoadingIndicatorNormalPrimary.2.png in Resources */,
+				7CDF9884279AC51D0004B152 /* testNavigationBarWithSBBIcon.1.png in Resources */,
+				7CDF9894279AC5350004B152 /* testMapMarkerBlue.2.png in Resources */,
+				7CDF9877279AC5130004B152 /* testTertiaryButtonDisabled.2.png in Resources */,
+				7CDF98E9279AC56E0004B152 /* testTextAreaPlaceholderNoText.1.png in Resources */,
+				7CDF9897279AC5350004B152 /* testMapMarkerPrimary.1.png in Resources */,
+				7CDF988D279AC5260004B152 /* testSwitchStyleDisabled.1.png in Resources */,
+				7CDF9898279AC5390004B152 /* testNavigationBarWithSBBIcon.2.png in Resources */,
+				7CDF98D4279AC5660004B152 /* testBubbleViewSubtitle.2.png in Resources */,
+				7CDF98C5279AC55A0004B152 /* testRadioButtonGroup.1.png in Resources */,
+				7CDF98C2279AC5560004B152 /* testRadioButtonWithImage.1.png in Resources */,
+				7CDF9871279AC50E0004B152 /* testIconButtonSmall.1.png in Resources */,
+				7CDF9895279AC5350004B152 /* testMapMarkerBlue.1.png in Resources */,
+				7CDF989F279AC5400004B152 /* testChipSelected.1.png in Resources */,
+				7CDF98F0279AC5760004B152 /* testSegmentedPickerPrimaryColor.2.png in Resources */,
+				7CDF9879279AC5130004B152 /* testTertiaryButtonDisabled.1.png in Resources */,
+				7CDF9900279AC57F0004B152 /* testModalViewPopup.2.png in Resources */,
+				7CDF988A279AC5260004B152 /* testSwitchStyleDisabled.2.png in Resources */,
+				7CDF9888279AC5220004B152 /* testPrimaryButtonDisabled.1.png in Resources */,
+				7CDF98AE279AC5520004B152 /* testTextFieldPlaceHolderTextDisabled.2.png in Resources */,
+				7CDF98C7279AC55D0004B152 /* testDivider.2.png in Resources */,
+				7CDF9892279AC5350004B152 /* testMapMarkerBlack.2.png in Resources */,
+				7CDF98FC279AC57B0004B152 /* testListItemWithLabelImage.1.png in Resources */,
+				7CDF98B8279AC5520004B152 /* testTextFieldNoPlaceHolderNoText.2.png in Resources */,
+				7CDF98F1279AC5760004B152 /* testSegmentedPickerPrimaryColor.1.png in Resources */,
+				7CDF98E8279AC56E0004B152 /* testTextAreaPlaceHolderText.1.png in Resources */,
+				7CDF98B7279AC5520004B152 /* testTextFieldNoPlaceHolderText.2.png in Resources */,
+				7CDF98EC279AC56E0004B152 /* testTextAreaPlaceHolderTextDisabled.2.png in Resources */,
+				7CDF98B9279AC5520004B152 /* testTextFieldPlaceHolderTextIcon.2.png in Resources */,
+				7CDF98FB279AC57B0004B152 /* testListItemWithLabelImageFootnote.2.png in Resources */,
+				7CDF98FE279AC57B0004B152 /* testListItemWithLabelFootnote.1.png in Resources */,
+				7CDF98AF279AC5520004B152 /* testTextFieldNoPlaceHolderNoText.1.png in Resources */,
+				7CDF987B279AC5130004B152 /* testTertiaryButton.1.png in Resources */,
+				7CDF9886279AC5220004B152 /* testPrimaryButton.2.png in Resources */,
+				7CDF9869279AC5060004B152 /* testIconTextButton.1.png in Resources */,
+				7CDF989E279AC5400004B152 /* testChipSelected.2.png in Resources */,
+				7CDF9903279AC5840004B152 /* testToast.1.png in Resources */,
+				7CDF98B2279AC5520004B152 /* testTextFieldPlaceHolderTextError.2.png in Resources */,
+				7CDF9890279AC52C0004B152 /* testEnvironmentBannerDev.2.png in Resources */,
+				7CDF9889279AC5220004B152 /* testPrimaryButtonDisabled.2.png in Resources */,
+				7CDF989A279AC53C0004B152 /* testInfoView.2.png in Resources */,
+				7CDF98DA279AC5660004B152 /* testBubbleViewFixedContent.1.png in Resources */,
+				7CDF98F7279AC57B0004B152 /* testListItemWithLabel.2.png in Resources */,
+				7CDF98E3279AC5690004B152 /* testFormGroupWithTitle.2.png in Resources */,
+				7CDF98E6279AC56E0004B152 /* testTextAreaNoPlaceHolderNoText.2.png in Resources */,
+				7CDF9874279AC50E0004B152 /* testIconButton.1.png in Resources */,
+				7CDF98A1279AC5440004B152 /* testSBBDialogueFullscreen.2.png in Resources */,
+				7CDF98D7279AC5660004B152 /* testBubbleViewDetail.1.png in Resources */,
+				7CDF98D8279AC5660004B152 /* testBubbleViewSubtitle.1.png in Resources */,
+				7CDF9861279AC5010004B152 /* testFPLIcon.2.png in Resources */,
+				7CDF98A9279AC5480004B152 /* testAccordionCollapsed.2.png in Resources */,
+				7CDF98C9279AC5620004B152 /* testLoadingIndicatorNormalGrey.1.png in Resources */,
+				7CDF987E279AC5170004B152 /* testSecondaryButtonDisabled.2.png in Resources */,
+				7CDF9906279AC58B0004B152 /* testOnboardingCardView.1.png in Resources */,
+				7CDF98D3279AC5660004B152 /* testBubbleViewLongTitle.2.png in Resources */,
+				7CDF986E279AC50B0004B152 /* testSliderExtensionWithImages.1.png in Resources */,
+				7CDF988F279AC52C0004B152 /* testEnvironmentBannerNone.2.png in Resources */,
+				7CDF98C3279AC5560004B152 /* testRadioButtonTextOnly.2.png in Resources */,
+				7CDF989B279AC53C0004B152 /* testInfoView.1.png in Resources */,
+				7CDF98B4279AC5520004B152 /* testTextFieldPlaceHolderText.1.png in Resources */,
+				7CDF990D279AC5900004B152 /* testCheckBoxDisabled.2.png in Resources */,
+				7CDF98C6279AC55D0004B152 /* testDivider.1.png in Resources */,
+				7CDF988B279AC5260004B152 /* testSwitchStyle.2.png in Resources */,
+				7CDF987C279AC5170004B152 /* testPrimaryButtonDisabled.1.png in Resources */,
+				7CDF98BA279AC5520004B152 /* testTextFieldPlaceholderNoText.2.png in Resources */,
+				7CDF98F6279AC57B0004B152 /* testListItemInfoType.2.png in Resources */,
+				7CDF9896279AC5350004B152 /* testMapMarkerPrimary.2.png in Resources */,
+				7CDF9885279AC51D0004B152 /* testNavigationBarWithSBBIcon.2.png in Resources */,
+				7CDF986D279AC50B0004B152 /* testSliderExtensionWithImages.2.png in Resources */,
+				7CDF98C8279AC5620004B152 /* testLoadingIndicatorNormalWhite.1.png in Resources */,
+				7CDF98ED279AC56E0004B152 /* testTextAreaPlaceHolderTextDisabled.1.png in Resources */,
+				7CDF98A3279AC5440004B152 /* testSBBDialogueInline.1.png in Resources */,
+				7CDF9882279AC5170004B152 /* testPrimaryButtonDisabled.2.png in Resources */,
+				7CDF98E0279AC5660004B152 /* testBubbleViewDetail.2.png in Resources */,
+				7CDF98B3279AC5520004B152 /* testTextFieldPlaceHolderTextIcon.1.png in Resources */,
+				7CDF9902279AC5840004B152 /* testToast.2.png in Resources */,
+				7CDF98FD279AC57B0004B152 /* testListItemWithLabel.1.png in Resources */,
+				7CDF98D6279AC5660004B152 /* testBubbleViewDetailMultipleView.1.png in Resources */,
+				7CDF9881279AC5170004B152 /* testPrimaryButton.1.png in Resources */,
+				7CDF98BF279AC5560004B152 /* testRadioButtonSubText.1.png in Resources */,
+				7CDF98E4279AC56E0004B152 /* testTextAreaPlaceholderNoText.2.png in Resources */,
+				7CDF98FA279AC57B0004B152 /* testListItemWithLabelFootnote.2.png in Resources */,
+				7CDF990B279AC5900004B152 /* testCheckBoxWithImage.1.png in Resources */,
+				7CDF98C1279AC5560004B152 /* testRadioButtonDisabled.1.png in Resources */,
+				7CDF9891279AC52C0004B152 /* testEnvironmentBannerDev.1.png in Resources */,
+				7CDF98EF279AC5720004B152 /* testProcessFlow.2.png in Resources */,
+				7CDF990A279AC5900004B152 /* testCheckBoxSubText.1.png in Resources */,
+				7CDF990E279AC5900004B152 /* testCheckBoxSubText.2.png in Resources */,
+				7CDF9860279AC5010004B152 /* testPictogramIcon.1.png in Resources */,
+				7CDF98B5279AC5520004B152 /* testTextFieldPlaceholderNoText.1.png in Resources */,
+				7CDF98AD279AC5520004B152 /* testTextFieldPlaceHolderTextIconError.1.png in Resources */,
+				7CDF98D2279AC5660004B152 /* testBubbleViewAccessbilityExtraExtraLarge.1.png in Resources */,
+				7CDF987A279AC5130004B152 /* testTertiaryButtonSmall.1.png in Resources */,
+				7CDF98C0279AC5560004B152 /* testRadioButtonTextOnly.1.png in Resources */,
+				7CDF98F3279AC5760004B152 /* testSegmentedPickerIcon.1.png in Resources */,
+				7CDF98A2279AC5440004B152 /* testSBBDialogueList.1.png in Resources */,
+				7CDF98DE279AC5660004B152 /* testBubbleViewTitleOnly.1.png in Resources */,
+				7CDF98CB279AC5620004B152 /* testLoadingIndicatorNormalWhite.2.png in Resources */,
+				7CDF98DF279AC5660004B152 /* testBubbleViewExpandableFixedContent.2.png in Resources */,
+				7CDF98BE279AC5560004B152 /* testRadioButtonWithImage.2.png in Resources */,
+				7CDF98DC279AC5660004B152 /* testBubbleViewFixedContent.2.png in Resources */,
+				7CDF98A0279AC5440004B152 /* testSBBDialogueFullscreen.1.png in Resources */,
+				7CDF98EA279AC56E0004B152 /* testTextAreaPlaceHolderText.2.png in Resources */,
+				7CDF9887279AC5220004B152 /* testPrimaryButton.1.png in Resources */,
+				7CDF98EB279AC56E0004B152 /* testTextAreaNoPlaceHolderNoText.1.png in Resources */,
+				7CDF98C4279AC55A0004B152 /* testRadioButtonGroup.2.png in Resources */,
+				7CDF985F279AC5010004B152 /* testKOMIconMedium.2.png in Resources */,
+				7CDF9876279AC5130004B152 /* testTertiaryButtonSmall.2.png in Resources */,
+				7CDF9909279AC5900004B152 /* testCheckBoxTextOnly.1.png in Resources */,
+				7CDF98FF279AC57B0004B152 /* testListItemWithLabelImage.2.png in Resources */,
+				7CDF9863279AC5010004B152 /* testKOMIconSmall.1.png in Resources */,
+				7CDF9893279AC5350004B152 /* testMapMarkerBlack.1.png in Resources */,
+				7CDF98EE279AC5720004B152 /* testProcessFlow.1.png in Resources */,
+				7CDF98E1279AC5660004B152 /* testBubbleViewLongTitle.1.png in Resources */,
+				7CDF9904279AC58B0004B152 /* testOnboardingTitleView.1.png in Resources */,
+				7CDF9870279AC50E0004B152 /* testIconButton.2.png in Resources */,
+				7CDF9883279AC5170004B152 /* testSecondaryButton.2.png in Resources */,
+				7CDF9901279AC57F0004B152 /* testModalViewPopup.1.png in Resources */,
+				7CDF98BD279AC5560004B152 /* testRadioButtonSubText.2.png in Resources */,
+				7CDF98BB279AC5520004B152 /* testTextFieldPlaceHolderText.2.png in Resources */,
+				7CDF9907279AC58B0004B152 /* testOnboardingCardView.2.png in Resources */,
+				7CDF988E279AC52C0004B152 /* testEnvironmentBannerNone.1.png in Resources */,
+				7CDF98D9279AC5660004B152 /* testBubbleViewExpandableFixedContent.1.png in Resources */,
+				7CDF98CD279AC5620004B152 /* testLoadingIndicatorSmallPrimary.2.png in Resources */,
+				7CDF98D1279AC5660004B152 /* testBubbleViewDetailMultipleView.2.png in Resources */,
+				7CDF9872279AC50E0004B152 /* testIconButtonDisabled.2.png in Resources */,
+				7CDF98AC279AC5520004B152 /* testTextFieldPlaceHolderTextError.1.png in Resources */,
+				7CDF98A8279AC5480004B152 /* testAccordionCollapsed.1.png in Resources */,
+				7CDF98CE279AC5620004B152 /* testLoadingIndicatorNormalGrey.2.png in Resources */,
+				7CDF9875279AC50E0004B152 /* testIconButtonDisabled.1.png in Resources */,
+				7CDF9865279AC5010004B152 /* testFPLIcon.1.png in Resources */,
+				7CDF989D279AC5400004B152 /* testChipUnselected.2.png in Resources */,
+				7CDF987D279AC5170004B152 /* testSecondaryButtonDisabled.1.png in Resources */,
+				7CDF98A4279AC5440004B152 /* testSBBDialogueInline.2.png in Resources */,
+				7CDF98E2279AC5690004B152 /* testFormGroupWithTitle.1.png in Resources */,
+				7CDF986F279AC50B0004B152 /* testSliderExtension.2.png in Resources */,
+				7CDF98E7279AC56E0004B152 /* testTextAreaNoPlaceHolderText.2.png in Resources */,
+				7CDF98CA279AC5620004B152 /* testLoadingIndicatorNormalPrimary.1.png in Resources */,
+				7CDF990C279AC5900004B152 /* testCheckBoxTextOnly.2.png in Resources */,
+				7CDF98D5279AC5660004B152 /* testBubbleViewAccessbilityExtraExtraLarge.2.png in Resources */,
+				7CDF9880279AC5170004B152 /* testSecondaryButton.1.png in Resources */,
+				7CDF9873279AC50E0004B152 /* testIconButtonSmall.2.png in Resources */,
+				7CDF9864279AC5010004B152 /* testKOMIconLarge.2.png in Resources */,
+				7CDF98B1279AC5520004B152 /* testTextFieldPlaceHolderTextDisabled.1.png in Resources */,
+				7CDF986A279AC5060004B152 /* testIconTextButtonDisabled.2.png in Resources */,
+				7CDF98A6279AC5480004B152 /* testAccordionExpanded.2.png in Resources */,
+				7CDF98F5279AC5760004B152 /* testSegmentedPickerIconAndText.2.png in Resources */,
+				7CDF9866279AC5010004B152 /* testKOMIconSmall.2.png in Resources */,
+				7CDF98B6279AC5520004B152 /* testTextFieldNoPlaceHolderText.1.png in Resources */,
 				7C60947C274F9F56001ABF67 /* Assets.xcassets in Resources */,
+				7CDF98B0279AC5520004B152 /* testTextFieldPlaceHolderTextIconError.2.png in Resources */,
+				7CDF986C279AC50B0004B152 /* testSliderExtension.1.png in Resources */,
+				7CDF98BC279AC5560004B152 /* testRadioButtonDisabled.2.png in Resources */,
+				7CDF98DB279AC5660004B152 /* testBubbleViewTitleOnly.2.png in Resources */,
+				7CDF98AB279AC54C0004B152 /* testPaginationView.2.png in Resources */,
+				7CDF98F9279AC57B0004B152 /* testListItemInfoType.1.png in Resources */,
+				7CDF9878279AC5130004B152 /* testTertiaryButton.2.png in Resources */,
+				7CDF990F279AC5900004B152 /* testCheckBoxDisabled.1.png in Resources */,
+				7CDF988C279AC5260004B152 /* testSwitchStyle.1.png in Resources */,
+				7CDF9899279AC5390004B152 /* testNavigationBarWithSBBIcon.1.png in Resources */,
+				7CDF9905279AC58B0004B152 /* testOnboardingTitleView.2.png in Resources */,
+				7CDF989C279AC5400004B152 /* testChipUnselected.1.png in Resources */,
+				7CDF985E279AC5010004B152 /* testPictogramIcon.2.png in Resources */,
+				7CDF98DD279AC5660004B152 /* testBubbleViewDetailNoBackground.1.png in Resources */,
+				7CDF9862279AC5010004B152 /* testKOMIconLarge.1.png in Resources */,
+				7CDF98AA279AC54C0004B152 /* testPaginationView.1.png in Resources */,
+				7CDF9867279AC5010004B152 /* testKOMIconMedium.1.png in Resources */,
+				7CDF98F4279AC5760004B152 /* testSegmentedPickerIconAndText.1.png in Resources */,
+				7CDF98E5279AC56E0004B152 /* testTextAreaNoPlaceHolderText.1.png in Resources */,
+				7CDF98F8279AC57B0004B152 /* testListItemWithLabelImageFootnote.1.png in Resources */,
+				7CDF98D0279AC5660004B152 /* testBubbleViewDetailNoBackground.2.png in Resources */,
+				7CDF986B279AC5060004B152 /* testIconTextButton.2.png in Resources */,
+				7CDF9908279AC5900004B152 /* testCheckBoxWithImage.2.png in Resources */,
+				7CDF98A7279AC5480004B152 /* testAccordionExpanded.1.png in Resources */,
+				7CDF987F279AC5170004B152 /* testPrimaryButton.2.png in Resources */,
+				7CDF98F2279AC5760004B152 /* testSegmentedPickerIcon.2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
