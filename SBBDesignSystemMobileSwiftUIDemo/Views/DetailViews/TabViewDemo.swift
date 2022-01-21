@@ -128,7 +128,10 @@ struct TabViewDemo: View {
                 }
             }
         }
+        .sbbScreenPadding()
+        .sbbStyle()
         .colorScheme(colorScheme)
+        
     }
     
     private func resetSelection() {

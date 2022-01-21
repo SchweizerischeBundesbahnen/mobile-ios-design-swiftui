@@ -11,8 +11,8 @@ import Foundation
 public struct SBBTabView<Selection>: View where Selection: Hashable {
     @Binding private var selection: Selection
     private let contents: [TabBarEntryView]
-    private let circleSize: CGFloat = 44
-    private var barHeight: CGFloat { return 100 }
+    // TODO: how to make it dynamic? Here max tab = 6 so we'll define all 6 possibilities
+    @State private var textSizes: [CGSize] = [.zero, .zero, .zero, .zero, .zero, .zero]
     @State private var textSize: CGSize = .zero
     @State private var transitionFactor: CGFloat = 1.0
     @State private var transitionFactorPressed: CGFloat = 1.0
@@ -32,11 +32,22 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     }
     
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+
     
     public init<Views>(selection: Binding<Selection>, @ViewBuilder content: () -> TupleView<Views>) {
         self._selection = selection
         // Content must have at least 2 views to work (Tuple)
         self.contents = content().getTabViews
+    }
+    
+    private func isPortrait() -> Bool {
+        if self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular {
+            return true
+        } else {
+            return false
+        }
     }
     
     private func segmentWidth(parentWidth: CGFloat, nbTabs: Int) -> CGFloat {
@@ -45,7 +56,15 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     
     public var body: some View {
         GeometryReader { geometry in
-            let segmentWidth = self.segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)
+            let segmentWidth: CGFloat = self.segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)
+            let circleSize: CGFloat = isPortrait() ? 44 : 36
+            let circlePad: CGFloat = isPortrait() ? 6 : 2
+            let topPad: CGFloat = isPortrait() ? 8 : 0
+            let barHeight: CGFloat = isPortrait() ? 100 : 40
+            let buttonHeight: CGFloat = circleSize + topPad
+            let buttonWidth: CGFloat = circleSize + 2 * circlePad
+        
+            let tabBarCoordinatesParameters = TabBarCoordinatesParameters(nbTabs: self.contents.count, circleRadius: circleSize / 2, segmentWidth: segmentWidth, segmentWidths: self.textSizes, circlePad: circlePad, heightDiff: topPad, width: geometry.size.width)
             
             VStack(spacing: 0) {
                 // Content of the tab
@@ -59,45 +78,51 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                             ForEach(0..<self.contents.count) { index in
                                 Circle()
                                     .overlay(self.contents[index].imageView.colorInvert())
-                                    .frame(width: self.circleSize, height: self.circleSize)
-                                    .padding(.top, 8)
+                                    .frame(width: circleSize, height: circleSize, alignment: .leading)
+                                    .padding(.top, topPad)
+                                    .padding(.trailing, isPortrait() ? 0 : self.textSizes[index].width)
                                     .accessibilityHidden(true)
+                                    .frame(width: segmentWidth, height: barHeight, alignment: .top)
                             }
                             .frame(width: segmentWidth, height: barHeight, alignment: .top)
+                            .shadow(color: Color.sbbColor(.graphite), radius: self.colorScheme == .dark ? 0 : 10, x: 0, y: 0)
                         }
                         
                         // Additional (to cover unsafe area at the bottom)
                         Rectangle()
-                            .frame(height: self.barHeight)
-                            .offset(y: self.barHeight)
+                            .frame(width: geometry.size.width * 2, height: barHeight)
+                            .offset(y: barHeight)
                             .foregroundColor(Color.sbbColor(.tabViewBackground))
+                            .frame(width: geometry.size.width, height: barHeight)
                         
                         // Tab bar shape
-                        TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, circlePad: 6, heightDiff: 2, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
+                        TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarCoordinatesParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
                             .foregroundColor(Color.sbbColor(.tabViewBackground))
                         
-                        // Current tab title
-                        self.contents[self.selectionIndex].labelView
-                            .accessibility(hidden: true)
-                            .background(ViewGeometry())
-                            .onPreferenceChange(ViewSizeKey.self) {
-                                self.textSize = $0
-                            }
-                            .sbbFont(.body)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.1)
-                            .foregroundColor(Color.sbbColor(.textBlack))
-                            .padding(.top, 58)
-                            .offset(x: self.getOffset(selectionIndex: self.selectionIndex, textWidth: self.textSize.width, segmentWidth: segmentWidth))
-                            .frame(width: geometry.size.width, alignment: .leading)
-                            .frame(height: self.barHeight, alignment: .topLeading)
+                        if isPortrait() {
+                            // Current tab title at the bottom of the selected tab
+                            self.contents[self.selectionIndex].labelView
+                                .accessibility(hidden: true)
+                                .background(ViewGeometry())
+                                .onPreferenceChange(ViewSizeKey.self) {
+                                    self.textSize = $0
+                                }
+                                .sbbFont(.body)
+                                .lineLimit(1)
+                                .minimumScaleFactor(0.1)
+                                .foregroundColor(Color.sbbColor(.textBlack))
+                                .padding(.top, buttonHeight + topPad)
+                                .offset(x: self.getOffsetLabel(selectionIndex: self.selectionIndex, textWidth: self.textSize.width, segmentWidth: segmentWidth))
+                                .frame(width: geometry.size.width, alignment: .leading)
+                                .frame(height: barHeight, alignment: .topLeading)
+                        }
                         
                         HStack(spacing: 0) {
                             ForEach(0..<self.contents.count) { index in
                                 Button(action: {
                                     currentTab = self.selectionIndex
                                     self.selection = self.contents[index].tag as? Selection ?? self.selection
-                                    
+
                                     if self.selectionIndex != currentTab && !isPressed {
                                         self.transitionFactor = 0.2
                                         withAnimation(Animation.easeIn(duration: 0.2)) {
@@ -105,8 +130,27 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                                         }
                                     }
                                 }) {
-                                    self.contents[index].imageView
-                                        .frame(width: 56, height: 58)
+                                    if isPortrait() {
+                                        // Display only the icon
+                                        self.contents[index].imageView
+                                            .frame(width: buttonWidth, height: buttonHeight)
+                                    } else {
+                                        // Display the icon and the text
+                                        HStack(spacing: 0) {
+                                            self.contents[index].imageView
+                                            .frame(width: buttonWidth, height: buttonHeight)
+                                            self.contents[index].labelView
+                                               .accessibility(hidden: true)
+                                                .sbbFont(.body)
+                                                .lineLimit(1)
+                                                .minimumScaleFactor(0.1)
+                                                .padding(.leading, self.selectionIndex == index ? 10 : 0)
+                                                .background(ViewGeometry())
+                                                .onPreferenceChange(ViewSizeKey.self) {
+                                                    self.textSizes[index] = $0
+                                                }
+                                        }
+                                    }
                                 }
                                 .simultaneousGesture(
                                     DragGesture(minimumDistance: 0)
@@ -122,7 +166,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                                         })
                                         .onEnded({ _ in
                                             self.isPressed = false
-                                            
+
                                         })
                                 )
                                 .accessibility(label: Text((index == self.selectionIndex) ? "\("selected".localized)." : ".") + self.contents[index].labelView + Text(". \("tab".localized)"))
@@ -132,9 +176,9 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                             .foregroundColor(Color.sbbColor(.textBlack))
                             .frame(width: segmentWidth, height: barHeight, alignment: .top)
                         }
-                        .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, nbTabs: self.contents.count, circleSize: self.circleSize, segmentWidth: segmentWidth, circlePad: 6, heightDiff: 2, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed))
+                        .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarCoordinatesParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed))
                     }
-                    .frame(height: self.barHeight)
+                    .frame(height: barHeight)
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -148,7 +192,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         }
     }
     
-    private func getOffset(selectionIndex: Int, textWidth: CGFloat, segmentWidth: CGFloat) -> CGFloat {
+    private func getOffsetLabel(selectionIndex: Int, textWidth: CGFloat, segmentWidth: CGFloat) -> CGFloat {
         let halfSegment = segmentWidth / 2
         let halfText = textWidth / 2
         let offset = segmentWidth * CGFloat(selectionIndex) + halfSegment - halfText
@@ -187,7 +231,7 @@ private struct ViewGeometry: View {
 }
 
 struct SBBTabView_Previews: PreviewProvider {
-    private static var tabBar = SBBTabView(selection: .constant(0)){
+    private static var tabBar = SBBTabView(selection: .constant(1)){
         VStack {
             Text("Bahnhof")
             Image(sbbName: "station", size:.small)
@@ -215,7 +259,7 @@ struct SBBTabView_Previews: PreviewProvider {
         .sbbTag(2)
         .sbbTabItem(
             image: Image(sbbName: "train", size:.small),
-            label: Text("Unterwegs")
+            label: Text("UnterwegsUnterwegsUnterwegs")
         )
         
         VStack {
@@ -227,7 +271,7 @@ struct SBBTabView_Previews: PreviewProvider {
             image: Image(sbbName: "fullscreen", size:.small),
             label: Text("Finder")
         )
-        
+
         VStack {
             Text("Lifte")
             Image(sbbName: "Lift", size:.small)
@@ -237,7 +281,7 @@ struct SBBTabView_Previews: PreviewProvider {
             image: Image(sbbName: "lift", size:.small),
             label: Text("Lifte")
         )
-        
+
         VStack {
             Text("Einstellungen")
             Image(sbbName: "gears", size:.small)

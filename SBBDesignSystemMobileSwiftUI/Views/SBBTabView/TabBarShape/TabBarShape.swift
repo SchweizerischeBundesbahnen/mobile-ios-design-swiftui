@@ -9,83 +9,12 @@ import Foundation
 /**
  A Shape that is used to create the tab bar.
  */
-struct TabCircleCoordinatesParameters {
-    public var circleRadius: CGFloat
-    public var segmentWidth: CGFloat
-    public var circlePad: CGFloat
-    public var heightDiff: CGFloat
-    
-    public init(circleRadius: CGFloat, segmentWidth: CGFloat, circlePad: CGFloat, heightDiff: CGFloat) {
-        self.circleRadius = circleRadius
-        self.segmentWidth = segmentWidth
-        self.circlePad = circlePad
-        self.heightDiff = heightDiff
-    }
-}
-struct TabCircleCoordinates {
-    private let tab: Int
-    public let factor: CGFloat
-    private let parameters: TabCircleCoordinatesParameters
-    
-    private var tabOffset: CGFloat { return parameters.segmentWidth * CGFloat(tab) }
-    private var nextTabOffset: CGFloat { return parameters.segmentWidth * CGFloat(tab + 1)}
-    private var circleOffset: CGFloat { return (parameters.segmentWidth - 2 * (parameters.circleRadius + parameters.circlePad)) / 2}
-    
-    private var leftX: CGFloat { return tabOffset + circleOffset}
-    private var middleX: CGFloat { return leftX + parameters.circlePad + parameters.circleRadius }
-    private var rightX: CGFloat { return nextTabOffset - circleOffset}
-    private var middle1Y: CGFloat { return (parameters.circleRadius + parameters.circlePad) }
-    private var middle2Y: CGFloat { return (parameters.circleRadius + parameters.circlePad + parameters.heightDiff)}
-    private var bottomY: CGFloat { return (2 * middle1Y + parameters.heightDiff) }
-    
-    // length of control vector if we want to approximate a quarter circle
-    private var circleControl: CGFloat { return sqrt(4 * tan(.pi / 8) / 3) * parameters.circleRadius }
-    public var circleControlScaled: CGFloat { return circleControl * (1 - factor) }
-    
-    // Points
-    public var middleHeight: CGFloat { return bottomY / 2 }
-    
-    public var startLeftCurve: CGPoint { return CGPoint(x: leftX - parameters.circleRadius, y: 0) }
-    public var endLeftCurve: CGPoint { return CGPoint(x: leftX, y: middle1Y * factor) }
-    
-    public var startMiddleLeftCurve: CGPoint { return CGPoint(x: leftX, y: (middle2Y + parameters.heightDiff) * factor) }
-    public var middleCircle: CGPoint { return CGPoint(x: middleX, y: bottomY * factor) }
-    public var endMiddleRightCurve: CGPoint { return CGPoint(x: rightX, y: middle2Y * factor) }
-    public var startRightCurve: CGPoint { return CGPoint(x: rightX, y: (middle2Y + parameters.heightDiff) * factor) }
-    public var endRightCurve: CGPoint { return CGPoint(x: rightX + parameters.circleRadius, y: 0) }
-    
-    // Control points
-    public var control1Left: CGPoint { return CGPoint(x: leftX - parameters.circleRadius + circleControl, y: 0) }
-    public var control2Left: CGPoint { return CGPoint(x: leftX, y: (middle1Y - circleControl) * factor) }
-    
-    public var control1MiddleLeft: CGPoint { return CGPoint(x: leftX, y: (middle2Y + circleControl) * factor) }
-    public var control2MiddleLeft: CGPoint { return CGPoint(x: middleX - circleControl, y: bottomY * factor) }
-    
-    public var control1Middle: CGPoint { return CGPoint(x: leftX + circleControlScaled, y: (middle2Y + circleControl) * factor) }
-    public var control2Middle: CGPoint { return CGPoint(x: rightX - circleControlScaled, y: (middle2Y + circleControl) * factor) }
-    
-    public var control1MiddleRight: CGPoint { return CGPoint(x: middleX + circleControl, y: bottomY * factor) }
-    public var control2MiddleRight: CGPoint { return CGPoint(x: rightX, y: (middle2Y + circleControl) * factor) }
-
-    public var control1Right: CGPoint { return  CGPoint(x: rightX, y: (middle2Y - circleControl) * factor) }
-    public var control2Right: CGPoint { return  CGPoint(x: rightX + parameters.circleRadius - circleControl, y: 0) }
-    
-    
-    public init(tab: Int, factor: CGFloat, parameters: TabCircleCoordinatesParameters) {
-        self.tab = tab
-        self.factor = factor
-        self.parameters = parameters
-    }
-}
-
 struct TabBarShape: Shape {
     private var currentTab: Int
     private var destTab: Int
-    private var nbTabs: Int
-    private var circleSize: CGFloat
-    private var segmentWidth: CGFloat
-    private var circlePad: CGFloat
-    private var heightDiff: CGFloat
+    
+    private var tabBarCoordinatesParameters: TabBarCoordinatesParameters
+    
     private var transitionFactor: CGFloat
     private var transitionFactorPressed: CGFloat
     private var isPressed: Bool
@@ -98,21 +27,19 @@ struct TabBarShape: Shape {
             }
         }
     
-    public init(destTab: Int, currentTab: Int = -1, nbTabs: Int, circleSize: CGFloat, segmentWidth: CGFloat, circlePad: CGFloat, heightDiff: CGFloat, transitionFactor: CGFloat = 0.0, transitionFactorPressed: CGFloat = 0.0, isPressed: Bool = false) {
+    public init(destTab: Int, currentTab: Int = -1, tabBarCoordinatesParameters: TabBarCoordinatesParameters, transitionFactor: CGFloat = 0.0, transitionFactorPressed: CGFloat = 0.0, isPressed: Bool = false) {
         self.destTab = destTab
         self.currentTab = currentTab
-        self.nbTabs = nbTabs
-        self.circleSize = circleSize
-        self.segmentWidth = segmentWidth
-        self.circlePad = circlePad
-        self.heightDiff = heightDiff
+        
+        self.tabBarCoordinatesParameters = tabBarCoordinatesParameters
+        
         self.transitionFactor = transitionFactor
         self.transitionFactorPressed = transitionFactorPressed
         self.isPressed = isPressed
     }
     
     // the selected tab shape
-    private func drawCircle(path: Path, coordinates: TabCircleCoordinates) -> Path {
+    private func drawCircle(path: Path, coordinates: TabBarCoordinates) -> Path {
         var newPath = path
         newPath.addLine(to: coordinates.startLeftCurve)
         newPath.addCurve(to: coordinates.endLeftCurve, control1: coordinates.control1Left, control2: coordinates.control2Left)
@@ -125,7 +52,7 @@ struct TabBarShape: Shape {
     }
     
     // TODO: the transition shape: to improve
-    private func drawTransition(path: Path, coordinates: TabCircleCoordinates) -> Path {
+    private func drawTransition(path: Path, coordinates: TabBarCoordinates) -> Path {
         var newPath = path
         newPath.addLine(to: coordinates.startLeftCurve)
         newPath.addQuadCurve(to: coordinates.endLeftCurve, control: coordinates.control1Left)
@@ -135,7 +62,7 @@ struct TabBarShape: Shape {
     }
     
     // TODO: the transition shape: to improve
-    func drawNeighbours(path: Path, coordinatesLeft: TabCircleCoordinates, coordinatesRight: TabCircleCoordinates) -> Path {
+    func drawNeighbours(path: Path, coordinatesLeft: TabBarCoordinates, coordinatesRight: TabBarCoordinates) -> Path {
         var newPath = path
         
         let controlRight1: CGPoint = CGPoint(x: coordinatesLeft.endLeftCurve.x + coordinatesLeft.circleControlScaled, y: coordinatesLeft.middleCircle.y)
@@ -161,7 +88,7 @@ struct TabBarShape: Shape {
     }
     
     // TODO: the pressed tab shape: to improve
-    private func drawPressed(path: Path, coordinates: TabCircleCoordinates, coordinatesPressed: TabCircleCoordinates, pressedLeft: Bool) -> Path {
+    private func drawPressed(path: Path, coordinates: TabBarCoordinates, coordinatesPressed: TabBarCoordinates, pressedLeft: Bool) -> Path {
         var newPath = path
                 
         if pressedLeft {
@@ -203,28 +130,27 @@ struct TabBarShape: Shape {
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        let bottomLeftCorner = CGPoint(x: rect.minX, y: rect.maxY)
-        let topLeftCorner = CGPoint(x: rect.minX, y: rect.minY)
-        let topRightCorner = CGPoint(x: rect.maxX, y: rect.minY)
-        let bottomRightCorner = CGPoint(x: rect.maxX, y: rect.maxY)
-        let tabParameters = TabCircleCoordinatesParameters(circleRadius: self.circleSize / 2, segmentWidth: self.segmentWidth, circlePad: self.circlePad, heightDiff: self.heightDiff)
+        let bottomLeftCorner = CGPoint(x: rect.minX - self.tabBarCoordinatesParameters.width * 0.5, y: rect.maxY)
+        let topLeftCorner = CGPoint(x: rect.minX - self.tabBarCoordinatesParameters.width * 0.5, y: rect.minY)
+        let topRightCorner = CGPoint(x: rect.maxX + self.tabBarCoordinatesParameters.width * 0.5, y: rect.minY)
+        let bottomRightCorner = CGPoint(x: rect.maxX + self.tabBarCoordinatesParameters.width * 0.5, y: rect.maxY)
         
         path.move(to: bottomLeftCorner)
         path.addLine(to: topLeftCorner)
         
         // No current tab, current is the same as dest or transition is complete: only draw the destination tab
          if currentTab == -1 || destTab == currentTab || (transitionFactor == 1 && !isPressed) {
-            let destCoordinates = TabCircleCoordinates(tab: self.destTab, factor: 1.0, parameters: tabParameters)
+             let destCoordinates = TabBarCoordinates(tab: self.destTab, factor: 1.0, parameters: self.tabBarCoordinatesParameters)
             path = drawCircle(path: path, coordinates: destCoordinates)
         
         // Transition has not started and current tab exists: only draw current tab
         } else if currentTab != -1 && transitionFactor == 0 {
-            let currentCoordinates = TabCircleCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), parameters: tabParameters)
+            let currentCoordinates = TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), parameters: self.tabBarCoordinatesParameters)
             path = drawCircle(path: path, coordinates: currentCoordinates)
             
         } else {
-            let destCoordinates = isPressed ? TabCircleCoordinates(tab: destTab, factor: 1.0, parameters: tabParameters) : TabCircleCoordinates(tab: destTab, factor: transitionFactor, parameters: tabParameters)
-            let currentCoordinates = isPressed ? TabCircleCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, parameters: tabParameters) : TabCircleCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), parameters: tabParameters)
+            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, parameters: self.tabBarCoordinatesParameters) : TabBarCoordinates(tab: destTab, factor: transitionFactor, parameters: self.tabBarCoordinatesParameters)
+            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, parameters: self.tabBarCoordinatesParameters) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), parameters: self.tabBarCoordinatesParameters)
             
             if destTab > currentTab {
                 if currentCoordinates.endRightCurve.x > destCoordinates.startLeftCurve.x {
