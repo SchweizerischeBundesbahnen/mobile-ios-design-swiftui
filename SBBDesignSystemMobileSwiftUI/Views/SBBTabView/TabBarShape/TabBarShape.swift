@@ -52,16 +52,6 @@ struct TabBarShape: Shape {
     }
     
     // TODO: the transition shape: to improve
-    private func drawTransition(path: Path, coordinates: TabBarCoordinates) -> Path {
-        var newPath = path
-        newPath.addLine(to: coordinates.startLeftCurve)
-        newPath.addQuadCurve(to: coordinates.endLeftCurve, control: coordinates.control1Left)
-        newPath.addCurve(to: coordinates.endMiddleRightCurve, control1: coordinates.control1Middle, control2: coordinates.control2Middle)
-        newPath.addQuadCurve(to: coordinates.endRightCurve, control: coordinates.control2Right)
-        return newPath
-    }
-    
-    // TODO: the transition shape: to improve
     func drawNeighbours(path: Path, coordinatesLeft: TabBarCoordinates, coordinatesRight: TabBarCoordinates) -> Path {
         var newPath = path
         
@@ -161,8 +151,8 @@ struct TabBarShape: Shape {
                         path = drawNeighbours(path: path, coordinatesLeft: currentCoordinates, coordinatesRight: destCoordinates)
                     }
                 } else {
-                    path = drawTransition(path: path, coordinates: currentCoordinates)
-                    path = drawTransition(path: path, coordinates: destCoordinates)
+                    path = drawCircle(path: path, coordinates: currentCoordinates)
+                    path = drawCircle(path: path, coordinates: destCoordinates)
                 }
             } else {
                 if currentCoordinates.startLeftCurve.x < destCoordinates.endRightCurve.x {
@@ -172,8 +162,8 @@ struct TabBarShape: Shape {
                         path = drawNeighbours(path: path, coordinatesLeft: destCoordinates, coordinatesRight: currentCoordinates)
                     }
                 } else {
-                    path = drawTransition(path: path, coordinates: destCoordinates)
-                    path = drawTransition(path: path, coordinates: currentCoordinates)
+                    path = drawCircle(path: path, coordinates: destCoordinates)
+                    path = drawCircle(path: path, coordinates: currentCoordinates)
                 }
             }
         }
