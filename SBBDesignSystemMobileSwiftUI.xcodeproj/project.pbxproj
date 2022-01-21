@@ -177,6 +177,8 @@
 		A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA362434951500753AE1 /* SBBTextArea.swift */; };
 		A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA3A2434958600753AE1 /* TextAreaView.swift */; };
 		A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F54687243B5BED0068B542 /* FormGroupView.swift */; };
+		F84D57B7279B00A900AE4DDE /* __Snapshots__ in Resources */ = {isa = PBXBuildFile; fileRef = F84D57B6279B00A900AE4DDE /* __Snapshots__ */; };
+		F84D57B9279B00BB00AE4DDE /* __Snapshots__ in Resources */ = {isa = PBXBuildFile; fileRef = F84D57B8279B00BB00AE4DDE /* __Snapshots__ */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -397,6 +399,8 @@
 		A7EDCA362434951500753AE1 /* SBBTextArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextArea.swift; sourceTree = "<group>"; };
 		A7EDCA3A2434958600753AE1 /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
 		A7F54687243B5BED0068B542 /* FormGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormGroupView.swift; sourceTree = "<group>"; };
+		F84D57B6279B00A900AE4DDE /* __Snapshots__ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = __Snapshots__; sourceTree = "<group>"; };
+		F84D57B8279B00BB00AE4DDE /* __Snapshots__ */ = {isa = PBXFileReference; lastKnownFileType = folder; path = __Snapshots__; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -669,6 +673,7 @@
 		7C60948B274FBBCE001ABF67 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F84D57B8279B00BB00AE4DDE /* __Snapshots__ */,
 				92995B9F2593738D0042B5C5 /* SBBPaginationViewTests.swift */,
 				92995BA32593739F0042B5C5 /* SBBBubbleViewTests.swift */,
 				92995BA7259373B10042B5C5 /* SBBCheckBoxTests.swift */,
@@ -698,6 +703,7 @@
 		7C60948C274FBBCE001ABF67 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				F84D57B6279B00A900AE4DDE /* __Snapshots__ */,
 				7C60948D274FBC32001ABF67 /* SBBStyleTests.swift */,
 				7C60948F274FBD36001ABF67 /* SBBPrimaryButtonStyleTests.swift */,
 				7C609495274FBF99001ABF67 /* SBBIconButtonStyleTests.swift */,
@@ -1034,6 +1040,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84D57B9279B00BB00AE4DDE /* __Snapshots__ in Resources */,
+				F84D57B7279B00A900AE4DDE /* __Snapshots__ in Resources */,
 				7C60947C274F9F56001ABF67 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
