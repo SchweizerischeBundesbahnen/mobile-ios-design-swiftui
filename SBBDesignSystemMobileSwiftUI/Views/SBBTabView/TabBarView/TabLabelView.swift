@@ -1,31 +1,30 @@
+//
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2022.
+//
 
 import SwiftUI
 
-public struct TabContentView: View {
+/**
+ A View that is used to display the label of the currently selected tab
+ */
+public struct TabLabelView: View {
+    
     @Binding private var textSize: CGSize
     
     private var contents: [TabBarEntryView]
     private var selectionIndex: Int
-    private var buttonHeight: CGFloat
-    private var barHeight: CGFloat
-    private var topPad: CGFloat
-    private var segmentWidth : CGFloat
+    private var tabBarParameters: TabBarParameters
     
-    public init(textSize: Binding<CGSize>, contents: [TabBarEntryView], selectionIndex: Int, buttonHeight: CGFloat, barHeight: CGFloat, topPad: CGFloat, segmentWidth : CGFloat) {
+    public init(textSize: Binding<CGSize>, contents: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters) {
         self._textSize = textSize
         self.contents = contents
         self.selectionIndex = selectionIndex
-        self.buttonHeight = buttonHeight
-        self.barHeight = barHeight
-        self.topPad = topPad
-        self.segmentWidth = segmentWidth
+        self.tabBarParameters = tabBarParameters
     }
     
     public var body: some View {
         GeometryReader { geometry in
-            // Current tab title at the bottom of the selected tab
             self.contents[self.selectionIndex].labelView
-                .accessibility(hidden: true)
                 .background(ViewGeometry())
                 .onPreferenceChange(ViewSizeKey.self) {
                     self.textSize = $0
@@ -34,10 +33,11 @@ public struct TabContentView: View {
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
                 .foregroundColor(Color.sbbColor(.textBlack))
-                .padding(.top, self.buttonHeight + self.topPad)
-                .offset(x: self.getOffsetLabel(selectionIndex: self.selectionIndex, textWidth: self.textSize.width, segmentWidth: self.segmentWidth))
+                .padding(.top, self.tabBarParameters.buttonHeight)
+                .offset(x: self.getOffsetLabel(selectionIndex: self.selectionIndex, textWidth: self.textSize.width, segmentWidth: self.tabBarParameters.segmentWidth))
                 .frame(width: geometry.size.width, alignment: .leading)
-                .frame(height: self.barHeight, alignment: .topLeading)
+                .frame(height: self.tabBarParameters.barHeight, alignment: .topLeading)
+                .accessibility(hidden: true)
         }
     }
     

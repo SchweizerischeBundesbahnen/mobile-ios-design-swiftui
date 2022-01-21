@@ -7,10 +7,11 @@ import SwiftUI
 /**
  A View that is used to display the circles icon behind the tab bar
  */
-public struct TabCircleView: View {
+public struct TabCircleRowView: View {
+    
     private var contents: [TabBarEntryView]
     private var tabBarParameters: TabBarParameters
-
+    
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
@@ -28,10 +29,10 @@ public struct TabCircleView: View {
                     .frame(width: self.tabBarParameters.circleRadius * 2, height: self.tabBarParameters.circleRadius * 2, alignment: .leading)
                     .padding(.top, self.tabBarParameters.topPad)
                     .padding(.trailing, isPortrait ? 0 : self.tabBarParameters.segmentWidths[index].width)
-                    .accessibilityHidden(true)
                     .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
             }
             .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
+            .accessibilityHidden(true)
         }
     }
 }

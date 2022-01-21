@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */; };
+		005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CA279A9FE4009C5CEA /* TabBarView.swift */; };
+		005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */; };
+		005DC8D0279AA42B009C5CEA /* TabButtonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CF279AA42B009C5CEA /* TabButtonRowView.swift */; };
+		005DC8D2279AAB49009C5CEA /* TabLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8D1279AAB49009C5CEA /* TabLabelView.swift */; };
+		005DC8D4279AAFD8009C5CEA /* TabCircleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8D3279AAFD8009C5CEA /* TabCircleRowView.swift */; };
+		005DC8D6279AC91E009C5CEA /* TabButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8D5279AC91E009C5CEA /* TabButtonView.swift */; };
 		00774E922799923C0056BBA8 /* TupleViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00774E912799923C0056BBA8 /* TupleViewExtension.swift */; };
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
@@ -213,6 +219,12 @@
 
 /* Begin PBXFileReference section */
 		005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinates.swift; sourceTree = "<group>"; };
+		005DC8CA279A9FE4009C5CEA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShapeView.swift; sourceTree = "<group>"; };
+		005DC8CF279AA42B009C5CEA /* TabButtonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButtonRowView.swift; sourceTree = "<group>"; };
+		005DC8D1279AAB49009C5CEA /* TabLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLabelView.swift; sourceTree = "<group>"; };
+		005DC8D3279AAFD8009C5CEA /* TabCircleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCircleRowView.swift; sourceTree = "<group>"; };
+		005DC8D5279AC91E009C5CEA /* TabButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButtonView.swift; sourceTree = "<group>"; };
 		00774E912799923C0056BBA8 /* TupleViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleViewExtension.swift; sourceTree = "<group>"; };
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
@@ -446,9 +458,23 @@
 			path = TabBarShape;
 			sourceTree = "<group>";
 		};
+		005DC8CE279AA406009C5CEA /* TabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				005DC8CA279A9FE4009C5CEA /* TabBarView.swift */,
+				005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */,
+				005DC8CF279AA42B009C5CEA /* TabButtonRowView.swift */,
+				005DC8D1279AAB49009C5CEA /* TabLabelView.swift */,
+				005DC8D3279AAFD8009C5CEA /* TabCircleRowView.swift */,
+				005DC8D5279AC91E009C5CEA /* TabButtonView.swift */,
+			);
+			path = TabBarView;
+			sourceTree = "<group>";
+		};
 		00FB8193278ED4E300F07D30 /* SBBTabView */ = {
 			isa = PBXGroup;
 			children = (
+				005DC8CE279AA406009C5CEA /* TabBarView */,
 				005DC8C92799D0BF009C5CEA /* TabBarShape */,
 				005DC8C82799D0B2009C5CEA /* TabBarEntry */,
 				00E17D60278830510077BD43 /* SBBTabView.swift */,
@@ -1068,12 +1094,15 @@
 				7C3AF99825BAA845007BBF21 /* SBBProcessFlow.swift in Sources */,
 				A7AC50D5249A45A000065C71 /* SBBSecondaryButtonStyle.swift in Sources */,
 				7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */,
+				005DC8D4279AAFD8009C5CEA /* TabCircleRowView.swift in Sources */,
 				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
+				005DC8D0279AA42B009C5CEA /* TabButtonRowView.swift in Sources */,
 				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
 				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
+				005DC8D6279AC91E009C5CEA /* TabButtonView.swift in Sources */,
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
 				7C28872224BF2B3800EDBD27 /* FakeOnboardingViewModels.swift in Sources */,
@@ -1107,7 +1136,9 @@
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
 				7C595E4D25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift in Sources */,
 				7C595E4125A597010015B0FC /* SBBListItemExtension.swift in Sources */,
+				005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */,
 				7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */,
+				005DC8D2279AAB49009C5CEA /* TabLabelView.swift in Sources */,
 				7CAF977825B875B3002260AE /* ToastContainerView.swift in Sources */,
 				7CAF977D25B87653002260AE /* SBBToastService.swift in Sources */,
 				7CB2CEB225C19AD600756D9B /* SBBMapMarker.swift in Sources */,
@@ -1123,6 +1154,7 @@
 				7C106D1925DA803700B89ECD /* SBBModalViewModifier.swift in Sources */,
 				7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
+				005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */,
 				7CAC69FA25CAE73F003CF54E /* SizePreferenceKey.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
 				7C28871824BF1FB400EDBD27 /* CornerRadius.swift in Sources */,

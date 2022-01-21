@@ -3,8 +3,6 @@
 //
 
 import SwiftUI
-import Foundation
-
 
 /**
  A Shape that is used to create the tab bar.
@@ -13,11 +11,12 @@ struct TabBarShape: Shape {
     private var currentTab: Int
     private var destTab: Int
     
-    private var tabBarCoordinatesParameters: TabBarCoordinatesParameters
+    private var tabBarCoordinatesParameters: TabBarParameters
     
     private var transitionFactor: CGFloat
     private var transitionFactorPressed: CGFloat
     private var isPressed: Bool
+    private var isPortrait: Bool
     
     var animatableData: AnimatablePair<Double, Double> {
         get { AnimatablePair(self.transitionFactor, self.transitionFactorPressed) }
@@ -27,7 +26,7 @@ struct TabBarShape: Shape {
             }
         }
     
-    public init(destTab: Int, currentTab: Int = -1, tabBarCoordinatesParameters: TabBarCoordinatesParameters, transitionFactor: CGFloat = 0.0, transitionFactorPressed: CGFloat = 0.0, isPressed: Bool = false) {
+    public init(destTab: Int, currentTab: Int, tabBarCoordinatesParameters: TabBarParameters, transitionFactor: CGFloat, transitionFactorPressed: CGFloat, isPressed: Bool, isPortrait: Bool) {
         self.destTab = destTab
         self.currentTab = currentTab
         
@@ -36,6 +35,7 @@ struct TabBarShape: Shape {
         self.transitionFactor = transitionFactor
         self.transitionFactorPressed = transitionFactorPressed
         self.isPressed = isPressed
+        self.isPortrait = isPortrait
     }
     
     // the selected tab shape
@@ -130,27 +130,27 @@ struct TabBarShape: Shape {
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        let bottomLeftCorner = CGPoint(x: rect.minX - self.tabBarCoordinatesParameters.width * 0.5, y: rect.maxY)
-        let topLeftCorner = CGPoint(x: rect.minX - self.tabBarCoordinatesParameters.width * 0.5, y: rect.minY)
-        let topRightCorner = CGPoint(x: rect.maxX + self.tabBarCoordinatesParameters.width * 0.5, y: rect.minY)
-        let bottomRightCorner = CGPoint(x: rect.maxX + self.tabBarCoordinatesParameters.width * 0.5, y: rect.maxY)
+        let bottomLeftCorner = CGPoint(x: rect.minX - self.tabBarCoordinatesParameters.barWidth * 0.5, y: rect.maxY)
+        let topLeftCorner = CGPoint(x: rect.minX - self.tabBarCoordinatesParameters.barWidth * 0.5, y: rect.minY)
+        let topRightCorner = CGPoint(x: rect.maxX + self.tabBarCoordinatesParameters.barWidth * 0.5, y: rect.minY)
+        let bottomRightCorner = CGPoint(x: rect.maxX + self.tabBarCoordinatesParameters.barWidth * 0.5, y: rect.maxY)
         
         path.move(to: bottomLeftCorner)
         path.addLine(to: topLeftCorner)
         
         // No current tab, current is the same as dest or transition is complete: only draw the destination tab
          if currentTab == -1 || destTab == currentTab || (transitionFactor == 1 && !isPressed) {
-             let destCoordinates = TabBarCoordinates(tab: self.destTab, factor: 1.0, parameters: self.tabBarCoordinatesParameters)
+             let destCoordinates = TabBarCoordinates(tab: self.destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters)
             path = drawCircle(path: path, coordinates: destCoordinates)
         
         // Transition has not started and current tab exists: only draw current tab
         } else if currentTab != -1 && transitionFactor == 0 {
-            let currentCoordinates = TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), parameters: self.tabBarCoordinatesParameters)
+            let currentCoordinates = TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters)
             path = drawCircle(path: path, coordinates: currentCoordinates)
             
         } else {
-            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, parameters: self.tabBarCoordinatesParameters) : TabBarCoordinates(tab: destTab, factor: transitionFactor, parameters: self.tabBarCoordinatesParameters)
-            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, parameters: self.tabBarCoordinatesParameters) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), parameters: self.tabBarCoordinatesParameters)
+            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters)
+            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters)
             
             if destTab > currentTab {
                 if currentCoordinates.endRightCurve.x > destCoordinates.startLeftCurve.x {

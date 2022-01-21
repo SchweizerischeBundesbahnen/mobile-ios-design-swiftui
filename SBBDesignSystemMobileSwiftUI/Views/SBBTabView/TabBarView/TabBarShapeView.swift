@@ -4,41 +4,43 @@
 
 import SwiftUI
 
+/**
+ A View that is used to display the shape of the tab bar
+ */
 struct TabBarShapeView: View {
     
-    private var barHeight: CGFloat
     var selectionIndex: Int
     var currentTab: Int
-    var tabBarCoordinatesParameters: TabBarCoordinatesParameters
+    var tabBarParameters: TabBarParameters
     var transitionFactor: CGFloat
     var transitionFactorPressed: CGFloat
     var isPressed: Bool
     
-    public init(barHeight: CGFloat, selectionIndex: Int, currentTab: Int, tabBarCoordinatesParameters: TabBarCoordinatesParameters, transitionFactor: CGFloat, transitionFactorPressed: CGFloat, isPressed: Bool) {
-        self.barHeight = barHeight
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    
+    public init(selectionIndex: Int, currentTab: Int, tabBarParameters: TabBarParameters, transitionFactor: CGFloat, transitionFactorPressed: CGFloat, isPressed: Bool) {
         self.selectionIndex = selectionIndex
         self.currentTab = currentTab
-        self.tabBarCoordinatesParameters = tabBarCoordinatesParameters
+        self.tabBarParameters = tabBarParameters
         self.transitionFactor = transitionFactor
         self.transitionFactorPressed = transitionFactorPressed
         self.isPressed = isPressed
     }
     
-    public var tabBarShape: some View {
-        // Tab bar shape
-        TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: self.tabBarCoordinatesParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
-            .foregroundColor(Color.sbbColor(.tabViewBackground))
+    public var tabBarShape: TabBarShape { return TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: self.tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular)
     }
     
     public var body: some View {
-        GeometryReader { geometry in
-            // Additional (to cover unsafe area at the bottom)
-            Rectangle()
-                .frame(width: geometry.size.width * 2, height: self.barHeight)
-                .offset(y: self.barHeight)
-                .foregroundColor(Color.sbbColor(.tabViewBackground))
-                .frame(width: geometry.size.width, height: self.barHeight)
-            tabBarShape
-        }
+        Rectangle()
+            .frame(width: self.tabBarParameters.barWidth * 2, height: self.tabBarParameters.barHeight)
+            .offset(y: self.tabBarParameters.barHeight)
+            .foregroundColor(Color.sbbColor(.tabViewBackground))
+            .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
+            .accessibility(hidden: true)
+        tabBarShape
+            .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
+            .foregroundColor(Color.sbbColor(.tabViewBackground))
+            .accessibility(hidden: true)
     }
 }
