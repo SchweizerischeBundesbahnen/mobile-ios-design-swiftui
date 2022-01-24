@@ -121,6 +121,7 @@ class SBBTabViewTests: XCTestCase {
             let view = getSBBTabView(nbTabs: nbTabs)
             
             for colorScheme in ColorScheme.allCases {
+                //view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBTabView", colorScheme: colorScheme)
                 assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
             }
         }
@@ -131,6 +132,7 @@ class SBBTabViewTests: XCTestCase {
             let view = getSBBTabView(nbTabs: nbTabs)
             
             for colorScheme in ColorScheme.allCases {
+                //view.frame(minWidth: 812, minHeight: 375).recordDocumentationSnapshot(name: "SBBTabViewLandscape", colorScheme: colorScheme)
                 assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(on: .iPhoneX(.landscape)), record: recordNewReferenceSnapshots)
             }
         }

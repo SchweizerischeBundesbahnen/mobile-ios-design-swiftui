@@ -32,7 +32,7 @@ struct TabCircleRowView: View {
         HStack(spacing: 0) {
             ForEach(0..<self.contents.count) { index in
                 Circle()
-                    .overlay(self.contents[index].imageView.colorInvert())
+                    .overlay(self.contents[index].imageView.foregroundColor(Color.sbbColor(.background)))
                     .frame(width: self.tabBarParameters.circleRadius * 2, height: self.tabBarParameters.circleRadius * 2, alignment: .leading)
                     .padding(.top, self.tabBarParameters.topPad)
                     .padding(.trailing, isPortrait ? 0 : self.tabBarParameters.segmentWidths[index].width)
