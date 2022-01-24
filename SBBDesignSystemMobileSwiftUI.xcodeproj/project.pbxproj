@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
 		005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */; };
 		005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CA279A9FE4009C5CEA /* TabBarView.swift */; };
 		005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */; };
@@ -223,6 +224,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabViewTests.swift; sourceTree = "<group>"; };
 		005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinates.swift; sourceTree = "<group>"; };
 		005DC8CA279A9FE4009C5CEA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShapeView.swift; sourceTree = "<group>"; };
@@ -759,6 +761,7 @@
 				7C609485274FB7BB001ABF67 /* SBBTextAreaTests.swift */,
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
+				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1277,6 +1280,7 @@
 				92995BAC259373C20042B5C5 /* SBBDividerTests.swift in Sources */,
 				7C609480274FB4FC001ABF67 /* SBBRadioButtonTests.swift in Sources */,
 				7C609472274F9976001ABF67 /* SBBLoadingIndicatorTests.swift in Sources */,
+				001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */,
 				7C60948A274FBA00001ABF67 /* SBBToastTests.swift in Sources */,
 				7C60946A274F9088001ABF67 /* SBBDialogueTests.swift in Sources */,
 				92995BA8259373B10042B5C5 /* SBBCheckBoxTests.swift in Sources */,
