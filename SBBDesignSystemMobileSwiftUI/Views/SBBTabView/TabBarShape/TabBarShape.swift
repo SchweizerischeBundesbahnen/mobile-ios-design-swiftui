@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- A Shape that is used to create the tab bar.
+ A Shape that is used to create the tab bar for ``SBBTabView``.
  */
 struct TabBarShape: Shape {
     private var currentTab: Int

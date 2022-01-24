@@ -6,10 +6,10 @@ import SwiftUI
 
 
 /**
- A View that is used to display the tab bar only.
+ A View that is used by ``SBBTabView`` to display the tab bar only.
  
  ## Overview
- You create a TabBarView by providing a selectedSegment binding and an array of TabBarEntryView for each tab. The image and label associated with each TabBarEntryView are retrieved to be displayed in the tab bar. A TabBarEntryView can be created from scratch or obtained through the View modifiers .sbbTag(tag: Hashable) and .sbbTabItems(image: Image, label: Text).
+ You create a TabBarView by providing a selectedSegment binding and an array of TabBarEntryView for each tab. The image and label associated with each TabBarEntryView are retrieved to be displayed in the tab bar. A TabBarEntryView can be created from scratch or obtained through the View modifiers `.sbbTag(tag: Hashable)` and `.sbbTabItems(image: Image, label: Text)`.
  
  ```swift
  @State private var selectedSegment = 0
@@ -22,7 +22,6 @@ import SwiftUI
     }
  }
  ```
- ![TabBarView](TabBarView)
  */
 public struct TabBarView<Selection>: View where Selection: Hashable {
     
@@ -68,7 +67,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     
     public var body: some View {
         let isPortrait = self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
-        let barHeight: CGFloat = isPortrait ? 100 : 40
+        let barHeight: CGFloat = isPortrait ? 80 : 40
         
         GeometryReader { geometry in
             let segmentWidth: CGFloat = self.segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)
@@ -94,7 +93,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
                 }
                 // Button in the tab bar
                 if #available(iOS 15.0, *) {
-                    AccessibleTabButtonRowView(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, contents: self.contents, tabBarParameters: tabBarParameters)
+                    TabButtonRow15View(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, contents: self.contents, tabBarParameters: tabBarParameters)
                         .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: isPortrait))
                         .shadow(color: Color.sbbColor(.graphite), radius: self.colorScheme == .dark ? 0 : 10, x: 0, y: 0)
                 } else {

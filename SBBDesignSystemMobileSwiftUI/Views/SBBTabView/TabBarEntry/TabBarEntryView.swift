@@ -5,6 +5,10 @@
 import SwiftUI
 import Foundation
 
+
+/**
+ A View that is used by ``SBBTabView`` to represent the content of a tab, as well as the icon and label used in the tab bar.
+ */
 public struct TabBarEntryView: View {
     // The information needed for each tab: content, image, label and tag
     var contentView: AnyView = AnyView(Image(sbbName: "cross", size: .small))

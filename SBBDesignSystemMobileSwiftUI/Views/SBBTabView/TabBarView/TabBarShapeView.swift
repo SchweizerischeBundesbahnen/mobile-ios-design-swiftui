@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- A View that is used to display the shape of the tab bar.
+ A View that is used by ``SBBTabView`` to display the shape of the tab bar.
  */
 struct TabBarShapeView: View {
     

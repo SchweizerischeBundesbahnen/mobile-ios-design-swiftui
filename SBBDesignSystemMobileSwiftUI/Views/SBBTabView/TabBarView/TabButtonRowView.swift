@@ -6,10 +6,10 @@ import SwiftUI
 
 
 /**
- A View that is used to display the buttons in the tab bar for iOS 15.0. What's new: the first time the VoiceOver goes into the TabBar, it says 'tab bar'.
+ A View that is used by ``SBBTabView`` to display the buttons in the tab bar for iOS 15.0. What's different: the first time the VoiceOver goes into the TabBar, it says 'tab bar'.
  */
 @available(iOS 15.0, *)
-public struct AccessibleTabButtonRowView<Selection>: View where Selection: Hashable {
+public struct TabButtonRow15View<Selection>: View where Selection: Hashable {
     
     @AccessibilityFocusState private var isTabBarFocused: Bool
     
@@ -38,7 +38,7 @@ public struct AccessibleTabButtonRowView<Selection>: View where Selection: Hasha
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
     /**
-     Returns a AccessibleTabButtonRowView displaying a row of buttons.
+     Returns a TabButtonRow15View displaying a row of buttons.
      
      - Parameters:
         - selection: The currently selected tab.
@@ -75,7 +75,7 @@ public struct AccessibleTabButtonRowView<Selection>: View where Selection: Hasha
 }
 
 /**
- A View that is used to display the buttons in the tab bar.
+ A View that is used by ``SBBTabView`` to display the buttons in the tab bar.
  */
 public struct TabButtonRowView<Selection>: View where Selection: Hashable {
     

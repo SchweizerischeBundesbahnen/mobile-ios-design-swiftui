@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- A View that is used to display a tab bar at the bottom of the page.
+ A View that is used to display a tab bar at the bottom of the page, as well as the content of the selected tab.
  
  ## Overview
  You create a SBBTabView by providing a selectedSegment binding and the different Views to be displayed in each tab. The views can be modified so that the tab contains an image and a label. Each tab should also be tagger, otherwise they won't be reachable.
@@ -38,9 +38,7 @@ import SwiftUI
  }
  ```
  
- Note that the number of Elements in the ViewBuilder must be at least two.
- 
- ![SBBTabView](SBBTabView)
+ Note that the number of elements in the ViewBuilder must be at least two.
  */
 public struct SBBTabView<Selection>: View where Selection: Hashable {
     
@@ -65,7 +63,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
      
      - Parameters:
         - selection: The currently selected tab.
-        - content: The View content of each tab. An image and label can be added to a View (with .sbbTabItem(image: Image, label: Text)) and a tag should be specified for the tab to be reachable (with .sbbTag(tag: Hashable)).
+        - content: The View content of each tab. An image and label can be added to a View (using `.sbbTabItem(image: Image, label: Text)`) and a tag should be specified for the tab to be reachable (using `.sbbTag(tag: Hashable)`).
      */
     public init<Views>(selection: Binding<Selection>, @ViewBuilder content: () -> TupleView<Views>) {
         self._selection = selection

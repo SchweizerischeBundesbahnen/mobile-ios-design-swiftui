@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- Coordinates used to create the tab bar
+ Coordinates used to create the tab bar for ``SBBTabView``.
  */
 public struct TabBarCoordinates {
     private let tab: Int

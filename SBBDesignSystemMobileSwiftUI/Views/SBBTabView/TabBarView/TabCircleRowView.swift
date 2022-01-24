@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- A View that is used to display the circles icon behind the tab bar.
+ A View that is used by ``SBBTabView`` to display the circles icon behind the tab bar.
  */
 public struct TabCircleRowView: View {
     
