@@ -39,6 +39,8 @@ import SwiftUI
  ```
  
  Note that the number of elements in the ViewBuilder must be at least two.
+ 
+ ![SBBTabView](SBBTabView)
  */
 public struct SBBTabView<Selection>: View where Selection: Hashable {
     

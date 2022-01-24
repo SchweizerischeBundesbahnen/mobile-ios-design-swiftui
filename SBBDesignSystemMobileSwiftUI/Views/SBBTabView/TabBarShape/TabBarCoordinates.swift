@@ -7,7 +7,7 @@ import SwiftUI
 /**
  Coordinates used to create the tab bar for ``SBBTabView``.
  */
-public struct TabBarCoordinates {
+struct TabBarCoordinates {
     private let tab: Int
     public let factor: CGFloat
     private let isPortrait: Bool

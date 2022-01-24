@@ -8,7 +8,7 @@ import SwiftUI
 /**
  A View that is used by ``SBBTabView`` to display a button.
  */
-public struct TabButtonView<Selection>: View where Selection: Hashable {
+struct TabButtonView<Selection>: View where Selection: Hashable {
     
     @Binding private var selection: Selection
     @Binding private var transitionFactor: CGFloat

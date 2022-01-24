@@ -7,7 +7,7 @@ import SwiftUI
 /**
  A View that is used by ``SBBTabView`` to display the label of the currently selected tab.
  */
-public struct TabLabelView: View {
+struct TabLabelView: View {
     
     @Binding private var textSize: CGSize
     

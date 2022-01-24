@@ -7,7 +7,7 @@ import SwiftUI
 /**
  A View that is used by ``SBBTabView`` to display the circles icon behind the tab bar.
  */
-public struct TabCircleRowView: View {
+struct TabCircleRowView: View {
     
     private var contents: [TabBarEntryView]
     private var tabBarParameters: TabBarParameters

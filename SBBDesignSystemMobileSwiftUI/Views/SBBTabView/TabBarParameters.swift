@@ -7,7 +7,7 @@ import SwiftUI
 /**
  Parameters used to create the tab bar for ``SBBTabView``.
  */
-public struct TabBarParameters {
+struct TabBarParameters {
     public var circleRadius: CGFloat
     public var circlePad: CGFloat
     public var topPad: CGFloat

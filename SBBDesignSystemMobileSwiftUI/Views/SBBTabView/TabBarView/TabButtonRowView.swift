@@ -9,7 +9,7 @@ import SwiftUI
  A View that is used by ``SBBTabView`` to display the buttons in the tab bar for iOS 15.0. What's different: the first time the VoiceOver goes into the TabBar, it says 'tab bar'.
  */
 @available(iOS 15.0, *)
-public struct TabButtonRow15View<Selection>: View where Selection: Hashable {
+struct TabButtonRow15View<Selection>: View where Selection: Hashable {
     
     @AccessibilityFocusState private var isTabBarFocused: Bool
     
@@ -77,7 +77,7 @@ public struct TabButtonRow15View<Selection>: View where Selection: Hashable {
 /**
  A View that is used by ``SBBTabView`` to display the buttons in the tab bar.
  */
-public struct TabButtonRowView<Selection>: View where Selection: Hashable {
+struct TabButtonRowView<Selection>: View where Selection: Hashable {
     
     @Binding private var selection: Selection
     @Binding private var transitionFactor: CGFloat

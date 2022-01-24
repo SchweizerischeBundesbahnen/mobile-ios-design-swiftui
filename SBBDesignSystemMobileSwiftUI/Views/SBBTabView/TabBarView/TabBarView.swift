@@ -111,7 +111,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     }
 }
 
-public struct ViewSizeKey: PreferenceKey {
+struct ViewSizeKey: PreferenceKey {
     public static var defaultValue: CGSize = .zero
     
     public static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
@@ -119,7 +119,7 @@ public struct ViewSizeKey: PreferenceKey {
     }
 }
 
-public struct ViewGeometry: View {
+struct ViewGeometry: View {
     public var body: some View {
         GeometryReader { geometry in
             Color.clear
