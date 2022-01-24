@@ -11,7 +11,7 @@ struct TabBarShape: Shape {
     private var currentTab: Int
     private var destTab: Int
     
-    private var tabBarCoordinatesParameters: TabBarParameters
+    private var tabBarParameters: TabBarParameters
     
     private var transitionFactor: CGFloat
     private var transitionFactorPressed: CGFloat
@@ -30,7 +30,7 @@ struct TabBarShape: Shape {
         self.destTab = destTab
         self.currentTab = currentTab
         
-        self.tabBarCoordinatesParameters = tabBarCoordinatesParameters
+        self.tabBarParameters = tabBarCoordinatesParameters
         
         self.transitionFactor = transitionFactor
         self.transitionFactorPressed = transitionFactorPressed
@@ -120,27 +120,27 @@ struct TabBarShape: Shape {
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        let bottomLeftCorner = CGPoint(x: rect.minX - self.tabBarCoordinatesParameters.barWidth * 0.5, y: rect.maxY)
-        let topLeftCorner = CGPoint(x: rect.minX - self.tabBarCoordinatesParameters.barWidth * 0.5, y: rect.minY)
-        let topRightCorner = CGPoint(x: rect.maxX + self.tabBarCoordinatesParameters.barWidth * 0.5, y: rect.minY)
-        let bottomRightCorner = CGPoint(x: rect.maxX + self.tabBarCoordinatesParameters.barWidth * 0.5, y: rect.maxY)
+        let bottomLeftCorner = CGPoint(x: rect.minX - self.tabBarParameters.barWidth * 0.5, y: rect.maxY)
+        let topLeftCorner = CGPoint(x: rect.minX - self.tabBarParameters.barWidth * 0.5, y: rect.minY)
+        let topRightCorner = CGPoint(x: rect.maxX + self.tabBarParameters.barWidth * 0.5, y: rect.minY)
+        let bottomRightCorner = CGPoint(x: rect.maxX + self.tabBarParameters.barWidth * 0.5, y: rect.maxY)
         
         path.move(to: bottomLeftCorner)
         path.addLine(to: topLeftCorner)
         
         // No current tab, current is the same as dest or transition is complete: only draw the destination tab
          if currentTab == -1 || destTab == currentTab || (transitionFactor == 1 && !isPressed) {
-             let destCoordinates = TabBarCoordinates(tab: self.destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters)
+             let destCoordinates = TabBarCoordinates(tab: self.destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters)
             path = drawCircle(path: path, coordinates: destCoordinates)
         
         // Transition has not started and current tab exists: only draw current tab
         } else if currentTab != -1 && transitionFactor == 0 {
-            let currentCoordinates = TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters)
+            let currentCoordinates = TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters)
             path = drawCircle(path: path, coordinates: currentCoordinates)
             
         } else {
-            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters)
-            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarCoordinatesParameters)
+            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.isPortrait, parameters: self.tabBarParameters)
+            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, isPortrait: self.isPortrait, parameters: self.tabBarParameters) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters)
             
             if destTab > currentTab {
                 if currentCoordinates.endRightCurve.x > destCoordinates.startLeftCurve.x {
@@ -173,3 +173,32 @@ struct TabBarShape: Shape {
         return path
     }
 }
+
+struct TabBarShape_Previews: PreviewProvider {
+    
+    private static let dummyParameters = TabBarParameters(circleRadius: 30, circlePad: 5, topPad: 5, segmentWidth: 100, segmentWidths: [.zero], barHeight: 100, barWidth: 500, buttonHeight: 40, buttonWidth: 40)
+    
+    private static let pressed = false
+    private static let destTab = 1
+    
+    static var previews: some View {
+        Group {
+            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.0, transitionFactorPressed: 0.0, isPressed: pressed, isPortrait: true)
+                .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
+            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.3, transitionFactorPressed: 0.3, isPressed: pressed, isPortrait: true)
+                .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
+            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.5, transitionFactorPressed: 0.5, isPressed: pressed, isPortrait: true)
+                .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
+            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.7, transitionFactorPressed: 0.7, isPressed: pressed, isPortrait: true)
+                .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
+            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 1.0, transitionFactorPressed: 1.0, isPressed: pressed, isPortrait: true)
+                .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
+            
+            
+            
+            
+        }
+        .previewLayout(.sizeThatFits)
+    }
+}
+
