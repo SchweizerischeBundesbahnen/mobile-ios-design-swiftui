@@ -48,7 +48,6 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
         return 0
     }
     
-    @Environment(\.colorScheme) var colorScheme
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
@@ -67,7 +66,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     
     public var body: some View {
         let isPortrait = self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
-        let barHeight: CGFloat = isPortrait ? 80 : 40
+        let barHeight: CGFloat = isPortrait ? 80 : 38
         
         GeometryReader { geometry in
             let segmentWidth: CGFloat = self.segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)
@@ -95,11 +94,9 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
                 if #available(iOS 15.0, *) {
                     TabButtonRow15View(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, contents: self.contents, tabBarParameters: tabBarParameters)
                         .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: isPortrait))
-                        .shadow(color: Color.sbbColor(.graphite), radius: self.colorScheme == .dark ? 0 : 10, x: 0, y: 0)
                 } else {
                     TabButtonRowView(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, contents: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: tabBarParameters)
                         .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: isPortrait))
-                        .shadow(color: Color.sbbColor(.graphite), radius: self.colorScheme == .dark ? 0 : 10, x: 0, y: 0)
                 }
             }
         }

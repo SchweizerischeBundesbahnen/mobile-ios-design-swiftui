@@ -60,46 +60,66 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         }
         return 0
     }
+    private var contentBehindBar: Bool
     
     /**
      Returns a SBBTabView displaying a tab bar at the bottom of the page, along with the content of the selected tab.
      
      - Parameters:
         - selection: The currently selected tab.
+        - contentBehindBar: The content view is displayed behind the tab bar (some elements may therefore be hidden).
         - content: The View content of each tab. An image and label can be added to a View (using `.sbbTabItem(image: Image, label: Text)`) and a tag should be specified for the tab to be reachable (using `.sbbTag(tag: Hashable)`).
      */
-    public init<Views>(selection: Binding<Selection>, @ViewBuilder content: () -> TupleView<Views>) {
+    public init<Views>(selection: Binding<Selection>, contentBehindBar: Bool = false, @ViewBuilder content: () -> TupleView<Views>) {
         self._selection = selection
+        self.contentBehindBar = contentBehindBar
         // Content must have at least 2 views to work (Tuple)
         self.contents = content().getTabViews
     }
     
+    
     public var body: some View {
         GeometryReader { geometry in
-            VStack(spacing: 0) {
-                self.contents[self.selectionIndex].contentView
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                
-                if !self.tabBarHidden {
-                    TabBarView(selection: self.$selection, content: self.contents)
+            
+            if self.contentBehindBar {
+                ZStack(alignment: .bottom) {
+                    self.contents[self.selectionIndex].contentView
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     
+                    if !self.tabBarHidden {
+                        TabBarView(selection: self.$selection, content: self.contents)
+                    }
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+                    self.tabBarHidden = true
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                    self.tabBarHidden = false
+                }
+            } else {
+                VStack(spacing: 0) {
+                    self.contents[self.selectionIndex].contentView
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    
+                    if !self.tabBarHidden {
+                        TabBarView(selection: self.$selection, content: self.contents)
+                    }
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+                    self.tabBarHidden = true
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                    self.tabBarHidden = false
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.sbbColor(.background))
-            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
-                self.tabBarHidden = true
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-                self.tabBarHidden = false
-            }
+            
         }
         .sbbStyle()
     }
 }
 
 struct SBBTabView_Previews: PreviewProvider {
-    private static var tabBar = SBBTabView(selection: .constant(0)){
+    private static var tabBar = SBBTabView(selection: .constant(0), contentBehindBar: false){
         VStack {
             Text("Station")
             Image(sbbName: "station", size: .small)
