@@ -27,9 +27,12 @@ struct TabBarShape: Shape {
         }
     
     public init(destTab: Int, currentTab: Int, tabBarCoordinatesParameters: TabBarParameters, transitionFactor: CGFloat, transitionFactorPressed: CGFloat, isPressed: Bool, isPortrait: Bool) {
+        // destination tab is the tab displayed, as we set transitionFactor = 1.
+        // during a transition, the transitionFator becomes 0, the new tab becomes the destination tab and the destination tab becomes the current one, the transition is obtained by increasing transitionFactor.
+        // when pressed, the pressed tab becomes the current tab and a transition is obtained with transitionFactorPressed.
         self.destTab = destTab
         self.currentTab = currentTab
-        
+
         self.tabBarParameters = tabBarCoordinatesParameters
         
         self.transitionFactor = transitionFactor
@@ -75,7 +78,6 @@ struct TabBarShape: Shape {
         return newPath
     }
     
-    // TODO: the pressed tab shape: to improve
     private func drawPressed(path: Path, coordinates: TabBarCoordinates, coordinatesPressed: TabBarCoordinates, pressedLeft: Bool) -> Path {
         var newPath = path
                 
@@ -99,11 +101,9 @@ struct TabBarShape: Shape {
         } else {
             let controlBump1: CGPoint = CGPoint(x: coordinatesPressed.endMiddleRightCurve.x + coordinatesPressed.circleControl - 10, y: coordinatesPressed.endMiddleRightCurve.y)
             let controlBump2: CGPoint = CGPoint(x: coordinates.endLeftCurve.x, y: coordinatesPressed.middleHeight - coordinatesPressed.circleControl)
-            
             let middlePoint: CGPoint = CGPoint(x: coordinates.endLeftCurve.x, y: coordinates.middleHeight)
             
             newPath.addLine(to: coordinatesPressed.startLeftCurve)
-            
             newPath.addCurve(to: coordinatesPressed.endLeftCurve, control1: coordinatesPressed.control1Left, control2: coordinatesPressed.control2Left)
             newPath.addLine(to: coordinatesPressed.startMiddleLeftCurve)
             newPath.addCurve(to: coordinatesPressed.middleCircle, control1: coordinatesPressed.control1MiddleLeft, control2: coordinatesPressed.control2MiddleLeft)
@@ -142,19 +142,22 @@ struct TabBarShape: Shape {
             let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
             let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
             
+            // Current tab is on the left of destination tab
             if destTab > currentTab {
+                // If the tab are close to each other (no place to draw full 'circle' for each)
                 if currentCoordinates.endRightCurve.x > destCoordinates.startLeftCurve.x {
                     if isPressed {
                         path = drawPressed(path: path, coordinates: destCoordinates, coordinatesPressed: currentCoordinates, pressedLeft: false)
                     } else {
-                    
                         path = drawNeighbours(path: path, coordinatesLeft: currentCoordinates, coordinatesRight: destCoordinates)
                     }
                 } else {
                     path = drawCircle(path: path, coordinates: currentCoordinates)
                     path = drawCircle(path: path, coordinates: destCoordinates)
                 }
+            // Current tab is on the right of destination tab
             } else {
+                // If the tab are close to each other (no place to draw full 'circle' for each)
                 if currentCoordinates.startLeftCurve.x < destCoordinates.endRightCurve.x {
                     if isPressed {
                         path = drawPressed(path: path, coordinates: destCoordinates, coordinatesPressed: currentCoordinates, pressedLeft: true)

@@ -43,16 +43,13 @@ struct TabBarCoordinates {
     private var bottomY: CGFloat { return (2 * parameters.circleRadius + parameters.circlePad + parameters.topPad) }
     private var middle2Y: CGFloat { return (bottomY - parameters.circlePad - parameters.circleRadius)}
     private var middle1Y: CGFloat { return (bottomY - middle2Y) }
-    
-    // Length of control vector if we want to approximate a quarter circle
-    public var circleControl: CGFloat { return isPortrait ? sqrt(4 * tan(.pi / 8) / 3) * parameters.circleRadius : sqrt(4 * tan(.pi / 8) / 3) * parameters.circleRadius * 0.9 }
-    public var circleControlScaled: CGFloat { return circleControl * (1 - factor) }
-    
-    private var angle: Angle { return Angle(degrees: factor * 180) }
-    
-    // Points
     public var middleHeight: CGFloat { return bottomY / 2 }
     
+    // Length of control vector
+    public var circleControl: CGFloat { return isPortrait ? sqrt(4 * tan(.pi / 8) / 3) * parameters.circleRadius : sqrt(4 * tan(.pi / 8) / 3) * parameters.circleRadius * 0.9 }
+    public var circleControlScaled: CGFloat { return circleControl * (1 - factor) }
+        
+    // Points
     public var startLeftCurve: CGPoint { return CGPoint(x: leftX - parameters.circleRadius, y: 0) }
     public var endLeftCurve: CGPoint { return CGPoint(x: leftX, y: middle1Y * factor) }
     
@@ -71,11 +68,9 @@ struct TabBarCoordinates {
     public var control1MiddleLeft: CGPoint { return CGPoint(x: factor >= 0.5 ? startMiddleLeftCurve.x + circleControl * (1 - factor) : startMiddleLeftCurve.x + circleControl * 0.5, y: startMiddleLeftCurve.y + circleControl * factor) }
     public var control2MiddleLeft: CGPoint { return CGPoint(x: middleCircle.x - circleControl, y: middleCircle.y) }
     
-    // not considered yet
     public var control1Middle: CGPoint { return CGPoint(x: endLeftCurve.x + circleControlScaled, y: endLeftCurve.y + circleControl * factor) }
     public var control2Middle: CGPoint { return CGPoint(x: startRightCurve.x - circleControlScaled, y: startRightCurve.y + circleControl * factor) }
     
-    // later
     public var control1MiddleRight: CGPoint { return CGPoint(x: middleCircle.x + circleControl, y: middleCircle.y) }
     public var control2MiddleRight: CGPoint { return CGPoint(x: factor >= 0.5 ? endMiddleRightCurve.x - circleControl * (1 - factor) : endMiddleRightCurve.x - circleControl * 0.5, y: endMiddleRightCurve.y + circleControl * factor) }
     
