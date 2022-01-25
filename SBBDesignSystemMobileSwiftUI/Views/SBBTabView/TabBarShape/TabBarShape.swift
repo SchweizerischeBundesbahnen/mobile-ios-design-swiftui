@@ -130,17 +130,17 @@ struct TabBarShape: Shape {
         
         // No current tab, current is the same as dest or transition is complete: only draw the destination tab
          if currentTab == -1 || destTab == currentTab || (transitionFactor == 1 && !isPressed) {
-             let destCoordinates = TabBarCoordinates(tab: self.destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters)
+             let destCoordinates = TabBarCoordinates(tab: self.destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
             path = drawCircle(path: path, coordinates: destCoordinates)
         
         // Transition has not started and current tab exists: only draw current tab
         } else if currentTab != -1 && transitionFactor == 0 {
-            let currentCoordinates = TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters)
+            let currentCoordinates = TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
             path = drawCircle(path: path, coordinates: currentCoordinates)
             
         } else {
-            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.isPortrait, parameters: self.tabBarParameters)
-            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, isPortrait: self.isPortrait, parameters: self.tabBarParameters) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters)
+            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
+            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
             
             if destTab > currentTab {
                 if currentCoordinates.endRightCurve.x > destCoordinates.startLeftCurve.x {
@@ -176,7 +176,7 @@ struct TabBarShape: Shape {
 
 struct TabBarShape_Previews: PreviewProvider {
     
-    private static let dummyParameters = TabBarParameters(circleRadius: 30, circlePad: 5, topPad: 5, segmentWidth: 100, segmentWidths: [.zero], barHeight: 100, barWidth: 500, buttonHeight: 40, buttonWidth: 40)
+    private static let dummyParameters = TabBarParameters(circleRadius: 30, circlePad: 5, topPad: 5, segmentWidth: 100, segmentWidths: [.zero], barHeight: 100, barWidth: 500, buttonHeight: 40, buttonWidth: 40, isPortrait: true)
     
     private static let pressed = false
     private static let currTab = 2

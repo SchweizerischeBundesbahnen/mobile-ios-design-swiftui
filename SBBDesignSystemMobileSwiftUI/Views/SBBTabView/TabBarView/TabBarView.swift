@@ -77,11 +77,11 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
             let buttonHeight: CGFloat = topPad + circleSize + circlePad
             let buttonWidth: CGFloat = circleSize + 2 * circlePad
             
-            let tabBarParameters = TabBarParameters(circleRadius: circleSize / 2, circlePad: circlePad, topPad: topPad, segmentWidth: segmentWidth, segmentWidths: self.labelSizes, barHeight: barHeight, barWidth: geometry.size.width, buttonHeight: buttonHeight, buttonWidth: buttonWidth)
+            let tabBarParameters = TabBarParameters(circleRadius: circleSize / 2, circlePad: circlePad, topPad: topPad, segmentWidth: segmentWidth, segmentWidths: self.labelSizes, barHeight: barHeight, barWidth: geometry.size.width, buttonHeight: buttonHeight, buttonWidth: buttonWidth, isPortrait: isPortrait)
             
             ZStack(alignment: .bottom) {
                 // Circles behind the bar
-                TabCircleRowView(content: self.contents, tabBarParameters: tabBarParameters)
+                TabCircleRowView(selectionIndex: self.selectionIndex, content: self.contents, tabBarParameters: tabBarParameters)
                 
                 // Tab bar shape
                 TabBarShapeView(selectionIndex: self.selectionIndex, currentTab: self.currentTab, tabBarParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)

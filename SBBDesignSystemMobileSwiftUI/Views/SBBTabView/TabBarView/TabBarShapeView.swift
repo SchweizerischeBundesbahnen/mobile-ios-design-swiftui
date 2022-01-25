@@ -16,9 +16,6 @@ struct TabBarShapeView: View {
     var transitionFactorPressed: CGFloat
     var isPressed: Bool
     
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @Environment(\.verticalSizeClass) var verticalSizeClass
-    
     /**
      Returns a TabBarShapeView displaying the shape of the tab bar.
      
@@ -39,7 +36,7 @@ struct TabBarShapeView: View {
         self.isPressed = isPressed
     }
     
-    public var tabBarShape: TabBarShape { return TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: self.tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular)
+    public var tabBarShape: TabBarShape { return TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: self.tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: self.tabBarParameters.isPortrait)
     }
     
     public var body: some View {
@@ -69,14 +66,10 @@ struct TabBarShapeView_Previews: PreviewProvider {
             ForEach(0..<allTabBarShape.count) { index in
                 allTabBarShape[index]
                     .background(Color.sbbColor(.background))
-                    .environment(\.horizontalSizeClass, .compact)
-                    .environment(\.verticalSizeClass, .regular)
                     .previewDisplayName("Light \(allTabBarName[index % 3])")
                 
                 allTabBarShape[index]
                     .background(Color.sbbColor(.background))
-                    .environment(\.horizontalSizeClass, .compact)
-                    .environment(\.verticalSizeClass, .regular)
                     .previewDisplayName("Dark \(allTabBarName[index % 3])")
                     .environment(\.colorScheme, .dark)
             }

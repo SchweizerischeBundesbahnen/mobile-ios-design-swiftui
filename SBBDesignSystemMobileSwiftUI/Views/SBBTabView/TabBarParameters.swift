@@ -21,7 +21,9 @@ struct TabBarParameters {
     public var buttonHeight: CGFloat
     public var buttonWidth: CGFloat
     
-    public init(circleRadius: CGFloat, circlePad: CGFloat, topPad: CGFloat, segmentWidth: CGFloat, segmentWidths: [CGSize], barHeight: CGFloat, barWidth: CGFloat, buttonHeight: CGFloat, buttonWidth: CGFloat) {
+    public var isPortrait: Bool
+    
+    public init(circleRadius: CGFloat, circlePad: CGFloat, topPad: CGFloat, segmentWidth: CGFloat, segmentWidths: [CGSize], barHeight: CGFloat, barWidth: CGFloat, buttonHeight: CGFloat, buttonWidth: CGFloat, isPortrait: Bool) {
         self.circleRadius = circleRadius
         self.circlePad = circlePad
         self.topPad = topPad
@@ -31,5 +33,6 @@ struct TabBarParameters {
         self.barWidth = barWidth
         self.buttonHeight = buttonHeight
         self.buttonWidth = buttonWidth
+        self.isPortrait = isPortrait
     }
 }

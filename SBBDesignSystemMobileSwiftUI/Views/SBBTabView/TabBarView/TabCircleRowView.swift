@@ -9,11 +9,9 @@ import SwiftUI
  */
 struct TabCircleRowView: View {
     
+    private var selectionIndex: Int
     private var contents: [TabBarEntryView]
     private var tabBarParameters: TabBarParameters
-    
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     /**
      Returns a TabCircleRowView displaying a row of circle.
@@ -22,21 +20,20 @@ struct TabCircleRowView: View {
         - content: An array of TabBarEntryView, specifying the content of each tab.
         - tabBarParameters: The TabBarParameters used to create the tab bar.
      */
-    public init(content: [TabBarEntryView], tabBarParameters: TabBarParameters) {
+    public init(selectionIndex: Int, content: [TabBarEntryView], tabBarParameters: TabBarParameters) {
+        self.selectionIndex = selectionIndex
         self.contents = content
         self.tabBarParameters = tabBarParameters
     }
     
     public var body: some View {
-        let isPortrait = self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
         HStack(spacing: 0) {
             ForEach(0..<self.contents.count) { index in
                 Circle()
                     .overlay(self.contents[index].imageView.foregroundColor(Color.sbbColor(.background)))
-                    .frame(width: self.tabBarParameters.circleRadius * 2, height: self.tabBarParameters.circleRadius * 2, alignment: .leading)
+                    .frame(width: self.tabBarParameters.circleRadius * 2, height: self.tabBarParameters.circleRadius * 2)
                     .padding(.top, self.tabBarParameters.topPad)
-                    .padding(.trailing, isPortrait ? 0 : self.tabBarParameters.segmentWidths[index].width)
-                    .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
+                    .padding(.trailing, self.tabBarParameters.isPortrait ? 0 : index == self.selectionIndex ? self.tabBarParameters.segmentWidths[index].width + 10: self.tabBarParameters.segmentWidths[index].width)
             }
             .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
             .accessibilityHidden(true)
@@ -45,24 +42,34 @@ struct TabCircleRowView: View {
 }
 
 struct TabCircleRowView_Previews: PreviewProvider {
-    private static var circleRow = TabCircleRowView(content: [
+    private static var circleRow = TabCircleRowView(selectionIndex: 0, content: [
         FakeTabBarEntry.fakeTab1,
         FakeTabBarEntry.fakeTab2
     ], tabBarParameters: FakeTabBarParameters.fakeSpaced)
+    
+    private static var circleRowLandscape = TabCircleRowView(selectionIndex: 0, content: [
+        FakeTabBarEntry.fakeTab1,
+        FakeTabBarEntry.fakeTab2
+    ], tabBarParameters: FakeTabBarParameters.fakeSpacedLandscape)
     
     static var previews: some View {
         Group {
             circleRow
                 .background(Color.sbbColor(.background))
-                .environment(\.horizontalSizeClass, .compact)
-                .environment(\.verticalSizeClass, .regular)
-                .previewDisplayName("Light")
+                .previewDisplayName("Light portrait")
             
             circleRow
                 .background(Color.sbbColor(.background))
-                .environment(\.horizontalSizeClass, .compact)
-                .environment(\.verticalSizeClass, .regular)
-                .previewDisplayName("Dark")
+                .previewDisplayName("Dark portrait")
+                .environment(\.colorScheme, .dark)
+            
+            circleRowLandscape
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Light landscape")
+            
+            circleRowLandscape
+                .background(Color.sbbColor(.background))
+                .previewDisplayName("Dark landscape")
                 .environment(\.colorScheme, .dark)
         }
         .previewLayout(.sizeThatFits)

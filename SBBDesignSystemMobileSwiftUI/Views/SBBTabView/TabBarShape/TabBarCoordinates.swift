@@ -12,21 +12,28 @@ struct TabBarCoordinates {
     public let factor: CGFloat
     private let isPortrait: Bool
     private let parameters: TabBarParameters
+    private let isPressed: Bool
     
-    public init(tab: Int, factor: CGFloat, isPortrait: Bool, parameters: TabBarParameters) {
+    public init(tab: Int, factor: CGFloat, isPortrait: Bool, parameters: TabBarParameters, isPressed: Bool) {
         self.tab = tab
         self.factor = factor
         self.isPortrait = isPortrait
         self.parameters = parameters
+        self.isPressed = isPressed
     }
     
     private var tabOffset: CGFloat {
         let offsetX = parameters.segmentWidth * CGFloat(tab)
         let padding = parameters.segmentWidth / 2 - parameters.circleRadius - parameters.circlePad
-        if isPortrait {
+        if self.isPortrait {
             return offsetX + padding
         } else {
-            return offsetX + padding - parameters.segmentWidths[tab].width / 2
+            let paddingLandscape = (parameters.segmentWidths[tab].width + 10) / 2
+            if self.isPressed {
+                return offsetX + padding - paddingLandscape + 5
+            } else {
+                return offsetX + padding - paddingLandscape
+            }
         }
     }
     

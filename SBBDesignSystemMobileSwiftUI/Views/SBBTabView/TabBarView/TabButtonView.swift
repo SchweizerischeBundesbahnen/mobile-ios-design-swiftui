@@ -80,12 +80,14 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
             if isPortrait {
                 // Display only the icon
                 self.contents[self.index].imageView
-                    .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.buttonHeight)
+                    .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.circleRadius * 2)
+                    .padding(.top, self.tabBarParameters.topPad)
             } else {
                 // Display the icon and the text
                 HStack(spacing: 0) {
                     self.contents[self.index].imageView
-                        .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.buttonHeight)
+                        .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.circleRadius * 2)
+                        .padding(.top, self.tabBarParameters.topPad)
                     
                     self.contents[self.index].labelView
                         .background(ViewGeometry())
