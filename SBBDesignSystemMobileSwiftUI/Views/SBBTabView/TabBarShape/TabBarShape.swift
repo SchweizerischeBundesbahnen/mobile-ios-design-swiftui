@@ -38,7 +38,6 @@ struct TabBarShape: Shape {
         self.isPortrait = isPortrait
     }
     
-    // the selected tab shape
     private func drawCircle(path: Path, coordinates: TabBarCoordinates) -> Path {
         var newPath = path
         newPath.addLine(to: coordinates.startLeftCurve)
@@ -51,7 +50,6 @@ struct TabBarShape: Shape {
         return newPath
     }
     
-    // TODO: the transition shape: to improve
     func drawNeighbours(path: Path, coordinatesLeft: TabBarCoordinates, coordinatesRight: TabBarCoordinates) -> Path {
         var newPath = path
         
@@ -83,37 +81,39 @@ struct TabBarShape: Shape {
                 
         if pressedLeft {
             let middlePoint: CGPoint = CGPoint(x: coordinates.endMiddleRightCurve.x, y: coordinates.middleHeight)
-            let controlRight1: CGPoint = CGPoint(x: coordinates.endLeftCurve.x + coordinates.circleControlScaled, y: coordinates.middleCircle.y)
-            let controlLeft1: CGPoint = CGPoint(x: middlePoint.x - coordinates.circleControlScaled, y: coordinates.middleCircle.y)
-            let controlBump1: CGPoint = CGPoint(x: coordinates.endMiddleRightCurve.x, y: coordinatesPressed.middleCircle.y)
-            let controlBump2: CGPoint = CGPoint(x: coordinates.endMiddleRightCurve.x + coordinatesPressed.circleControlScaled, y: 0)
-            let controlDown1: CGPoint = CGPoint(x: coordinatesPressed.endMiddleRightCurve.x - coordinatesPressed.circleControlScaled, y: coordinatesPressed.middleCircle.y + 2)
+            let controlBump1: CGPoint = CGPoint(x: coordinates.endMiddleRightCurve.x, y: coordinates.middleHeight - coordinatesPressed.circleControl)
+            let controlBump2: CGPoint = CGPoint(x: coordinates.endMiddleRightCurve.x + coordinatesPressed.circleControl - 10, y: coordinatesPressed.startMiddleLeftCurve.y)
             
             newPath.addLine(to: coordinates.startLeftCurve)
-            newPath.addQuadCurve(to: coordinates.endLeftCurve, control: coordinates.control1Left)
-            newPath.addQuadCurve(to: coordinates.middleCircle, control: controlRight1)
-            newPath.addQuadCurve(to: middlePoint, control: controlLeft1)
+            newPath.addCurve(to: coordinates.endLeftCurve, control1: coordinates.control1Left, control2: coordinates.control2Left)
+            newPath.addLine(to: coordinates.startMiddleLeftCurve)
+            newPath.addCurve(to: coordinates.middleCircle, control1: coordinates.control1MiddleLeft, control2: coordinates.control2MiddleLeft)
+            newPath.addCurve(to: middlePoint, control1: coordinates.control1MiddleRight, control2: coordinates.control2MiddleRight)
+            
             newPath.addCurve(to: coordinatesPressed.middleCircle, control1: controlBump1, control2: controlBump2)
-            newPath.addQuadCurve(to: coordinatesPressed.endMiddleRightCurve, control: controlDown1)
-            newPath.addQuadCurve(to: coordinatesPressed.endRightCurve, control: coordinatesPressed.control2Right)
+            
+            newPath.addCurve(to: coordinatesPressed.endMiddleRightCurve, control1: coordinatesPressed.control1MiddleRight, control2: coordinatesPressed.control2MiddleRight)
+            newPath.addLine(to: coordinatesPressed.startRightCurve)
+            newPath.addCurve(to: coordinatesPressed.endRightCurve, control1: coordinatesPressed.control1Right, control2: coordinatesPressed.control2Right)
             
         } else {
-            let controlBump1: CGPoint = CGPoint(x: coordinates.endLeftCurve.x - coordinates.circleControlScaled, y: 0)
-            let controlBump2: CGPoint = CGPoint(x: coordinates.endLeftCurve.x, y: coordinatesPressed.middleCircle.y)
-            let controlDown1: CGPoint = CGPoint(x: coordinatesPressed.endLeftCurve.x + coordinatesPressed.circleControlScaled, y: coordinatesPressed.middleCircle.y + 2)
+            let controlBump1: CGPoint = CGPoint(x: coordinatesPressed.endMiddleRightCurve.x + coordinatesPressed.circleControl - 10, y: coordinatesPressed.endMiddleRightCurve.y)
+            let controlBump2: CGPoint = CGPoint(x: coordinates.endLeftCurve.x, y: coordinatesPressed.middleHeight - coordinatesPressed.circleControl)
             
             let middlePoint: CGPoint = CGPoint(x: coordinates.endLeftCurve.x, y: coordinates.middleHeight)
-            let controlRight1: CGPoint = CGPoint(x: middlePoint.x - coordinates.circleControlScaled, y: coordinates.middleCircle.y)
-            let controlLeft1: CGPoint = CGPoint(x: coordinates.endMiddleRightCurve.x + coordinates.circleControlScaled, y: coordinates.middleCircle.y)
             
             newPath.addLine(to: coordinatesPressed.startLeftCurve)
-            newPath.addQuadCurve(to: coordinatesPressed.endLeftCurve, control: coordinatesPressed.control1Left)
-            newPath.addQuadCurve(to: coordinatesPressed.middleCircle, control: controlDown1)
-            newPath.addCurve(to: middlePoint, control1: controlBump1, control2: controlBump2)
             
-            newPath.addQuadCurve(to: coordinates.middleCircle, control: controlRight1)
-            newPath.addQuadCurve(to: coordinates.endMiddleRightCurve, control: controlLeft1)
-            newPath.addQuadCurve(to: coordinates.endRightCurve, control: coordinates.control2Right)
+            newPath.addCurve(to: coordinatesPressed.endLeftCurve, control1: coordinatesPressed.control1Left, control2: coordinatesPressed.control2Left)
+            newPath.addLine(to: coordinatesPressed.startMiddleLeftCurve)
+            newPath.addCurve(to: coordinatesPressed.middleCircle, control1: coordinatesPressed.control1MiddleLeft, control2: coordinatesPressed.control2MiddleLeft)
+        
+            newPath.addCurve(to: middlePoint, control1: controlBump1, control2: controlBump2)
+
+            newPath.addCurve(to: coordinates.middleCircle, control1: coordinates.control1MiddleLeft, control2: coordinates.control2MiddleLeft)
+            newPath.addCurve(to: coordinates.endMiddleRightCurve, control1: coordinates.control1MiddleRight, control2: coordinates.control2MiddleRight)
+            newPath.addLine(to: coordinates.startRightCurve)
+            newPath.addCurve(to: coordinates.endRightCurve, control1: coordinates.control1Right, control2: coordinates.control2Right)
         }
         return newPath
     }
@@ -179,24 +179,29 @@ struct TabBarShape_Previews: PreviewProvider {
     private static let dummyParameters = TabBarParameters(circleRadius: 30, circlePad: 5, topPad: 5, segmentWidth: 100, segmentWidths: [.zero], barHeight: 100, barWidth: 500, buttonHeight: 40, buttonWidth: 40)
     
     private static let pressed = false
+    private static let currTab = 2
     private static let destTab = 1
     
     static var previews: some View {
         Group {
-            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.0, transitionFactorPressed: 0.0, isPressed: pressed, isPortrait: true)
+            TabBarShape(destTab: destTab, currentTab: currTab, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.0, transitionFactorPressed: 0.0, isPressed: pressed, isPortrait: true)
                 .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
-            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.3, transitionFactorPressed: 0.3, isPressed: pressed, isPortrait: true)
+                .previewDisplayName("Transition 0.0")
+            TabBarShape(destTab: destTab, currentTab: currTab, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.1, transitionFactorPressed: 0.1, isPressed: pressed, isPortrait: true)
                 .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
-            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.5, transitionFactorPressed: 0.5, isPressed: pressed, isPortrait: true)
+                .previewDisplayName("Transition 0.1")
+            TabBarShape(destTab: destTab, currentTab: currTab, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.3, transitionFactorPressed: 0.3, isPressed: pressed, isPortrait: true)
                 .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
-            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.7, transitionFactorPressed: 0.7, isPressed: pressed, isPortrait: true)
+                .previewDisplayName("Transition 0.3")
+            TabBarShape(destTab: destTab, currentTab: currTab, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.5, transitionFactorPressed: 0.5, isPressed: pressed, isPortrait: true)
                 .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
-            TabBarShape(destTab: destTab, currentTab: 0, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 1.0, transitionFactorPressed: 1.0, isPressed: pressed, isPortrait: true)
+                .previewDisplayName("Transition 0.5")
+            TabBarShape(destTab: destTab, currentTab: currTab, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 0.7, transitionFactorPressed: 0.7, isPressed: pressed, isPortrait: true)
                 .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
-            
-            
-            
-            
+                .previewDisplayName("Transition 0.7")
+            TabBarShape(destTab: destTab, currentTab: currTab, tabBarCoordinatesParameters: dummyParameters, transitionFactor: 1.0, transitionFactorPressed: 1.0, isPressed: pressed, isPortrait: true)
+                .frame(width: dummyParameters.barWidth, height: dummyParameters.barHeight)
+                .previewDisplayName("Transition 1.0")
         }
         .previewLayout(.sizeThatFits)
     }
