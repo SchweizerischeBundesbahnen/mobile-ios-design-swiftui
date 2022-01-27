@@ -16,6 +16,8 @@ struct TabBarShapeView: View {
     var transitionFactorPressed: CGFloat
     var isPressed: Bool
     
+    @Environment(\.colorScheme) var colorScheme
+    
     /**
      Returns a TabBarShapeView displaying the shape of the tab bar.
      
@@ -45,6 +47,7 @@ struct TabBarShapeView: View {
                 .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
                 .foregroundColor(Color.sbbColor(.tabViewBackground))
                 .accessibility(hidden: true)
+                .shadow(color: Color.sbbColor(.tabshadow), radius: self.colorScheme == .dark ? 0 : 20, x: 0, y: 0)
             Rectangle()
                 .frame(width: self.tabBarParameters.barWidth * 2, height: self.tabBarParameters.barHeight)
                 .offset(y: self.tabBarParameters.barHeight)
