@@ -43,7 +43,7 @@ struct TabBarCoordinates {
     private var bottomY: CGFloat { return (2 * parameters.circleRadius + parameters.circlePad + parameters.topPad) }
     private var middle2Y: CGFloat { return (bottomY - parameters.circlePad - parameters.circleRadius)}
     private var middle1Y: CGFloat { return (bottomY - middle2Y) }
-    public var middleHeight: CGFloat { return bottomY / 2 }
+    public var middleHeight: CGFloat { return parameters.circlePad + parameters.circleRadius }
     
     // Length of control vector
     public var circleControl: CGFloat { return isPortrait ? sqrt(4 * tan(.pi / 8) / 3) * parameters.circleRadius : sqrt(4 * tan(.pi / 8) / 3) * parameters.circleRadius * 0.9 }
@@ -55,8 +55,8 @@ struct TabBarCoordinates {
     
     public var middleCircle: CGPoint { return CGPoint(x: middleX, y: bottomY * factor) }
     
-    public var startMiddleLeftCurve: CGPoint { return CGPoint(x: leftX, y: middle1Y * factor) }
-    public var endMiddleRightCurve: CGPoint { return CGPoint(x: rightX, y: middle1Y * factor) }
+    public var startMiddleLeftCurve: CGPoint { return CGPoint(x: leftX, y: middle2Y * factor) }
+    public var endMiddleRightCurve: CGPoint { return CGPoint(x: rightX, y: middle2Y * factor) }
     
     public var startRightCurve: CGPoint { return CGPoint(x: rightX, y: middle1Y * factor) }
     public var endRightCurve: CGPoint { return CGPoint(x: rightX + parameters.circleRadius, y: 0) }
