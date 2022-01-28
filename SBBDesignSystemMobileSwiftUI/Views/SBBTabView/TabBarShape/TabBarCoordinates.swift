@@ -28,7 +28,7 @@ struct TabBarCoordinates {
         if self.isPortrait {
             return offsetX + padding
         } else {
-            let paddingLandscape = (parameters.segmentWidths[tab].width + 10) / 2
+            let paddingLandscape = (parameters.segmentWidths[tab].width + 15) / 2
             if self.isPressed {
                 return offsetX + padding - paddingLandscape + 5
             } else {

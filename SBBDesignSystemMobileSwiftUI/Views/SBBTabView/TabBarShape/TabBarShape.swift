@@ -139,8 +139,8 @@ struct TabBarShape: Shape {
             path = drawCircle(path: path, coordinates: currentCoordinates)
             
         } else {
-            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
-            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.25 * transitionFactorPressed, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
+            let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
+            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.5 * transitionFactorPressed, isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.isPortrait, parameters: self.tabBarParameters, isPressed: false)
             
             // Current tab is on the left of destination tab
             if destTab > currentTab {

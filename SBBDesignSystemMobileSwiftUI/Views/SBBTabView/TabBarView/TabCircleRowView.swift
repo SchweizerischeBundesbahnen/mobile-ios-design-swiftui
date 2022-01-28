@@ -33,7 +33,7 @@ struct TabCircleRowView: View {
                     .overlay(self.contents[index].imageView.foregroundColor(Color.sbbColor(.background)))
                     .frame(width: self.tabBarParameters.circleRadius * 2, height: self.tabBarParameters.circleRadius * 2)
                     .padding(.top, self.tabBarParameters.topPad)
-                    .padding(.trailing, self.tabBarParameters.isPortrait ? 0 : index == self.selectionIndex ? self.tabBarParameters.segmentWidths[index].width + 10: self.tabBarParameters.segmentWidths[index].width)
+                    .padding(.trailing, self.tabBarParameters.isPortrait ? 0 : index == self.selectionIndex ? self.tabBarParameters.segmentWidths[index].width + 15 : self.tabBarParameters.segmentWidths[index].width + 5)
             }
             .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
             .accessibilityHidden(true)
