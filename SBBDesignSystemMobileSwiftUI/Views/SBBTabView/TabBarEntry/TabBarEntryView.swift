@@ -57,6 +57,10 @@ public struct TabBarEntryView: View {
         self.imageView = imageView
         self.labelView = labelView
         self.tag = tag
+        self.contentView = AnyView(VStack {
+            imageView
+            labelView
+        })
     }
     
     /**
