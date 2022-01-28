@@ -112,73 +112,19 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                     self.tabBarHidden = false
                 }
             }
-            
         }
-        .sbbStyle()
+        .background(Color.sbbColor(.background)).edgesIgnoringSafeArea(.horizontal)
     }
 }
 
 struct SBBTabView_Previews: PreviewProvider {
     private static var tabBar = SBBTabView(selection: .constant(0), contentBehindBar: false){
-        VStack {
-            Text("Station")
-            Image(sbbName: "station", size: .small)
-        }
-        .sbbTag(0)
-        .sbbTabItem(
-            image: Image(sbbName: "station", size: .small),
-            label: Text("Station")
-        )
-        
-        VStack {
-            Text("Stop")
-            Image(sbbName: "bus-stop", size: .small)
-        }
-        .sbbTag(1)
-        .sbbTabItem(
-            image: Image(sbbName: "bus-stop", size: .small),
-            label: Text("Stop")
-        )
-        
-        VStack {
-            Text("En route")
-            Image(sbbName: "train", size: .small)
-        }
-        .sbbTag(2)
-        .sbbTabItem(
-            image: Image(sbbName: "train", size: .small),
-            label: Text("En route")
-        )
-        
-        VStack {
-            Text("Finder")
-            Image(sbbName: "fullscreen", size: .small)
-        }
-        .sbbTag(3)
-        .sbbTabItem(
-            image: Image(sbbName: "fullscreen", size: .small),
-            label: Text("Finder")
-        )
-        
-        VStack {
-            Text("Elevator")
-            Image(sbbName: "Lift", size: .small)
-        }
-        .sbbTag(4)
-        .sbbTabItem(
-            image: Image(sbbName: "lift", size: .small),
-            label: Text("Elevator")
-        )
-        
-        VStack {
-            Text("Settings")
-            Image(sbbName: "gears", size:.small)
-        }
-        .sbbTag(5)
-        .sbbTabItem(
-            image: Image(sbbName: "gears", size: .small),
-            label: Text("Settings")
-        )
+        FakeTabBarEntry.fakeTab1
+        FakeTabBarEntry.fakeTab2
+        FakeTabBarEntry.fakeTab3
+        FakeTabBarEntry.fakeTab4
+        FakeTabBarEntry.fakeTab5
+        FakeTabBarEntry.fakeTab6
     }
     
     static var previews: some View {
