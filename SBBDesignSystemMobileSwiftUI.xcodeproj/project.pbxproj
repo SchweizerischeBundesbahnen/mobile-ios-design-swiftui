@@ -20,7 +20,6 @@
 		005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */; };
 		005DC8DF279B1517009C5CEA /* FakeTabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */; };
 		005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */; };
-		00774E922799923C0056BBA8 /* TupleViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00774E912799923C0056BBA8 /* TupleViewExtension.swift */; };
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
@@ -237,7 +236,6 @@
 		005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarParameters.swift; sourceTree = "<group>"; };
 		005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarShape.swift; sourceTree = "<group>"; };
 		005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabButtons.swift; sourceTree = "<group>"; };
-		00774E912799923C0056BBA8 /* TupleViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleViewExtension.swift; sourceTree = "<group>"; };
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
@@ -502,7 +500,6 @@
 				005DC8C92799D0BF009C5CEA /* TabBarShape */,
 				005DC8C82799D0B2009C5CEA /* TabBarEntry */,
 				00E17D60278830510077BD43 /* SBBTabView.swift */,
-				00774E912799923C0056BBA8 /* TupleViewExtension.swift */,
 				005DC8D7279B08BA009C5CEA /* TabBarParameters.swift */,
 			);
 			path = SBBTabView;
@@ -1162,7 +1159,6 @@
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
 				7C595E5725A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift in Sources */,
 				00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */,
-				00774E922799923C0056BBA8 /* TupleViewExtension.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
 				7C595E4D25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift in Sources */,
 				7C595E4125A597010015B0FC /* SBBListItemExtension.swift in Sources */,

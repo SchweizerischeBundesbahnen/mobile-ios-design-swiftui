@@ -51,14 +51,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     
     private let contents: [TabBarEntryView]
     private var selectionIndex: Int {
-        for index in (0...self.contents.count) {
-            if let tag = self.contents[index].tag, let tagValue = tag as? Selection {
-                if tagValue == selection {
-                    return index
-                }
-            }
-        }
-        return 0
+        contents.firstIndex { $0.tag as? Selection == selection } ?? 0
     }
     private var contentAboveBar: Bool
     
@@ -70,11 +63,13 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         - contentBehindBar: The content view is displayed behind the tab bar (some elements may therefore be hidden).
         - content: The View content of each tab. An image and label can be added to a View (using `.sbbTabItem(image: Image, label: Text)`) and a tag should be specified for the tab to be reachable (using `.sbbTag(tag: Hashable)`).
      */
-    public init<Views>(selection: Binding<Selection>, contentAboveBar: Bool = false, @ViewBuilder content: () -> TupleView<Views>) {
+    public init?(selection: Binding<Selection>, contentAboveBar: Bool = false, @ArrayBuilder<TabBarEntryView> content: () -> [TabBarEntryView]) {
         self._selection = selection
         self.contentAboveBar = contentAboveBar
-        // Content must have at least 2 views to work (Tuple)
-        self.contents = content().getTabViews
+        self.contents = content()
+        guard self.contents.count > 0 else {
+            return nil
+        }
     }
     
     

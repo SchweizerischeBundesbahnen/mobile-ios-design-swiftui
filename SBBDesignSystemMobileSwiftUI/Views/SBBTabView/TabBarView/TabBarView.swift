@@ -37,15 +37,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     
     private var contents: [TabBarEntryView]
     private var selectionIndex: Int {
-        for index in (0...self.contents.count) {
-            // Some tab may not have a label
-            if let tag = self.contents[index].tag, let tagValue = tag as? Selection {
-                if tagValue == selection {
-                    return index
-                }
-            }
-        }
-        return 0
+        contents.firstIndex { $0.tag as? Selection == selection } ?? 0
     }
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
