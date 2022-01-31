@@ -20,8 +20,6 @@ struct TabViewDemo: View {
                         .padding(10)
                 }
             }
-            .sbbScreenPadding()
-            .sbbStyle()
             
             switch (nbTabs) {
             case 2:
