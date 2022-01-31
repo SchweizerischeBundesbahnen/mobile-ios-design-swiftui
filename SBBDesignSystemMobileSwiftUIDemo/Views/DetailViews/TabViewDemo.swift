@@ -23,25 +23,25 @@ struct TabViewDemo: View {
             
             switch (nbTabs) {
             case 2:
-                SBBTabView(selection: $selectedTab) {
+                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
                     FakeTabBarEntry.fakeTab1
                     FakeTabBarEntry.fakeTab2
                 }
             case 3:
-                SBBTabView(selection: $selectedTab) {
+                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
                     FakeTabBarEntry.fakeTab1
                     FakeTabBarEntry.fakeTab2
                     FakeTabBarEntry.fakeTab3
                 }
             case 4:
-                SBBTabView(selection: $selectedTab) {
+                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
                     FakeTabBarEntry.fakeTab1
                     FakeTabBarEntry.fakeTab2
                     FakeTabBarEntry.fakeTab3
                     FakeTabBarEntry.fakeTab4
                 }
             case 5:
-                SBBTabView(selection: $selectedTab) {
+                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
                     FakeTabBarEntry.fakeTab1
                     FakeTabBarEntry.fakeTab2
                     FakeTabBarEntry.fakeTab3
@@ -49,7 +49,7 @@ struct TabViewDemo: View {
                     FakeTabBarEntry.fakeTab5
                 }
             case 6:
-                SBBTabView(selection: $selectedTab) {
+                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
                     FakeTabBarEntry.fakeTab1
                     FakeTabBarEntry.fakeTab2
                     FakeTabBarEntry.fakeTab3
@@ -58,7 +58,7 @@ struct TabViewDemo: View {
                     FakeTabBarEntry.fakeTab6
                 }
             default:
-                SBBTabView(selection: $selectedTab) {
+                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
                     FakeTabBarEntry.fakeTab1
                     FakeTabBarEntry.fakeTab2
                 }

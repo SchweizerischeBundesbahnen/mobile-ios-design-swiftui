@@ -12,25 +12,25 @@ class SBBTabViewTests: XCTestCase {
     private func getSBBTabView(nbTabs: Int) -> SBBTabView<Int> {
         switch (nbTabs) {
         case 2:
-            return SBBTabView(selection: .constant(0)) {
+            return SBBTabView(selection: .constant(0), contentAboveBar: true) {
                 FakeTabBarEntry.fakeTab1
                 FakeTabBarEntry.fakeTab2
             }
         case 3:
-            return SBBTabView(selection: .constant(0)) {
+            return SBBTabView(selection: .constant(0), contentAboveBar: true) {
                 FakeTabBarEntry.fakeTab1
                 FakeTabBarEntry.fakeTab2
                 FakeTabBarEntry.fakeTab3
             }
         case 4:
-            return SBBTabView(selection: .constant(0)) {
+            return SBBTabView(selection: .constant(0), contentAboveBar: true) {
                 FakeTabBarEntry.fakeTab1
                 FakeTabBarEntry.fakeTab2
                 FakeTabBarEntry.fakeTab3
                 FakeTabBarEntry.fakeTab4
             }
         case 5:
-            return SBBTabView(selection: .constant(0)) {
+            return SBBTabView(selection: .constant(0), contentAboveBar: true) {
                 FakeTabBarEntry.fakeTab1
                 FakeTabBarEntry.fakeTab2
                 FakeTabBarEntry.fakeTab3
@@ -38,7 +38,7 @@ class SBBTabViewTests: XCTestCase {
                 FakeTabBarEntry.fakeTab5
             }
         case 6:
-            return SBBTabView(selection: .constant(0)) {
+            return SBBTabView(selection: .constant(0), contentAboveBar: true) {
                 FakeTabBarEntry.fakeTab1
                 FakeTabBarEntry.fakeTab2
                 FakeTabBarEntry.fakeTab3
@@ -47,7 +47,7 @@ class SBBTabViewTests: XCTestCase {
                 FakeTabBarEntry.fakeTab6
             }
         default:
-            return SBBTabView(selection: .constant(0)) {
+            return SBBTabView(selection: .constant(0), contentAboveBar: true) {
                 FakeTabBarEntry.fakeTab1
                 FakeTabBarEntry.fakeTab2
             }

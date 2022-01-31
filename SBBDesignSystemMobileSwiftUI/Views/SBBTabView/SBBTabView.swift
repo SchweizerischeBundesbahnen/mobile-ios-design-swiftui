@@ -60,7 +60,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         }
         return 0
     }
-    private var contentBehindBar: Bool
+    private var contentAboveBar: Bool
     
     /**
      Returns a SBBTabView displaying a tab bar at the bottom of the page, along with the content of the selected tab.
@@ -70,9 +70,9 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         - contentBehindBar: The content view is displayed behind the tab bar (some elements may therefore be hidden).
         - content: The View content of each tab. An image and label can be added to a View (using `.sbbTabItem(image: Image, label: Text)`) and a tag should be specified for the tab to be reachable (using `.sbbTag(tag: Hashable)`).
      */
-    public init<Views>(selection: Binding<Selection>, contentBehindBar: Bool = false, @ViewBuilder content: () -> TupleView<Views>) {
+    public init<Views>(selection: Binding<Selection>, contentAboveBar: Bool = false, @ViewBuilder content: () -> TupleView<Views>) {
         self._selection = selection
-        self.contentBehindBar = contentBehindBar
+        self.contentAboveBar = contentAboveBar
         // Content must have at least 2 views to work (Tuple)
         self.contents = content().getTabViews
     }
@@ -81,8 +81,8 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     public var body: some View {
         GeometryReader { geometry in
             
-            if self.contentBehindBar {
-                ZStack(alignment: .bottom) {
+            if self.contentAboveBar {
+                VStack(spacing: 0) {
                     self.contents[self.selectionIndex].contentView
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     
@@ -97,7 +97,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                     self.tabBarHidden = false
                 }
             } else {
-                VStack(spacing: 0) {
+                ZStack(alignment: .bottom) {
                     self.contents[self.selectionIndex].contentView
                         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
                     
@@ -118,7 +118,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
 }
 
 struct SBBTabView_Previews: PreviewProvider {
-    private static var tabBar = SBBTabView(selection: .constant(0), contentBehindBar: false){
+    private static var tabBar = SBBTabView(selection: .constant(0)){
         FakeTabBarEntry.fakeTab1
         FakeTabBarEntry.fakeTab2
         FakeTabBarEntry.fakeTab3
