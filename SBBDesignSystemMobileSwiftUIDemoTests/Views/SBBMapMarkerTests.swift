@@ -13,21 +13,21 @@ class SBBMapMarkerTests: XCTestCase {
         let view = SBBMapMarker(icon: Image(sbbName: "construction"), style: .red)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBMapMarker", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testMapMarkerBlue() {
         let view = SBBMapMarker(icon: Image(sbbName: "construction"), style: .blue)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testMapMarkerBlack() {
         let view = SBBMapMarker(icon: Image(sbbName: "construction"), style: .black)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
 }

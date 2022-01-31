@@ -16,7 +16,7 @@ class SBBPaginationViewTests: XCTestCase {
         let view = SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: 3)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBPaginationView", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
 }
