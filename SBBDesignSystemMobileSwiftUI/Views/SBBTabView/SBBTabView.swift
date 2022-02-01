@@ -67,7 +67,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         self._selection = selection
         self.contentAboveBar = contentAboveBar
         self.contents = content()
-        guard self.contents.count > 0 else {
+        guard 1...10 ~= self.contents.count else {
             return nil
         }
     }
