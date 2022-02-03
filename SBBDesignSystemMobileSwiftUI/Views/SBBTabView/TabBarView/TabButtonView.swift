@@ -43,7 +43,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
         - tabBarParameters: The TabBarParameters used to create the tab bar.
         - isTabBarFocused: Whether the tab bar is in focus of the VoiceOver
      */
-    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, index: Int, contents: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters, isTabBarFocused: Bool) {
+    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, index: Int, content: [TabBarEntryView], tabBarParameters: TabBarParameters, isTabBarFocused: Bool) {
         self._selection = selection
         self._transitionFactor = transitionFactor
         self._transitionFactorPressed = transitionFactorPressed
@@ -51,7 +51,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
         self._currentTab = currentTab
         self._labelSizes = labelSizes
         self.index = index
-        self.contents = contents
+        self.contents = content
         self.tabBarParameters = tabBarParameters
         self.isTabBarFocused = isTabBarFocused
     }

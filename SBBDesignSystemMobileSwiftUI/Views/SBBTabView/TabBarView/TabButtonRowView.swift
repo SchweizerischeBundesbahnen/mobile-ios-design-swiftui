@@ -41,7 +41,7 @@ struct TabButtonRow15View<Selection>: View where Selection: Hashable {
         - content: An array of TabBarEntryView, specifying the content of each tab.
         - tabBarParameters: The TabBarParameters used to create the tab bar.
      */
-    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, contents: [TabBarEntryView], tabBarParameters: TabBarParameters) {
+    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, content: [TabBarEntryView], tabBarParameters: TabBarParameters) {
         self._selection = selection
         self._transitionFactor = transitionFactor
         self._transitionFactorPressed = transitionFactorPressed
@@ -49,7 +49,7 @@ struct TabButtonRow15View<Selection>: View where Selection: Hashable {
         self._currentTab = currentTab
         self._labelSizes = labelSizes
         
-        self.contents = contents
+        self.contents = content
         self.tabBarParameters = tabBarParameters
     }
     
@@ -63,8 +63,7 @@ struct TabButtonRow15View<Selection>: View where Selection: Hashable {
                               currentTab: self.$currentTab,
                               labelSizes: self.$labelSizes,
                               index: index,
-                              contents: self.contents,
-                              selectionIndex: self.selectionIndex,
+                              content: self.contents,
                               tabBarParameters: self.tabBarParameters,
                               isTabBarFocused: self.isTabBarFocused)
                     .accessibility(removeTraits: .isButton)
@@ -90,15 +89,7 @@ struct TabButtonRowView<Selection>: View where Selection: Hashable {
     private var tabBarParameters: TabBarParameters
     private var contents: [TabBarEntryView]
     private var selectionIndex: Int {
-        for index in (0...self.contents.count) {
-            // Some tab may not have a label
-            if let tagValue = self.contents[index].tag as? Selection {
-                if tagValue == selection {
-                    return index
-                }
-            }
-        }
-        return 0
+        contents.firstIndex { $0.tag as? Selection == selection } ?? 0
     }
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -117,7 +108,7 @@ struct TabButtonRowView<Selection>: View where Selection: Hashable {
         - content: An array of TabBarEntryView, specifying the content of each tab.
         - tabBarParameters: The TabBarParameters used to create the tab bar.
      */
-    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, contents: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters) {
+    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, content: [TabBarEntryView], tabBarParameters: TabBarParameters) {
         self._selection = selection
         self._transitionFactor = transitionFactor
         self._transitionFactorPressed = transitionFactorPressed
@@ -125,7 +116,7 @@ struct TabButtonRowView<Selection>: View where Selection: Hashable {
         self._currentTab = currentTab
         self._labelSizes = labelSizes
         
-        self.contents = contents
+        self.contents = content
         self.tabBarParameters = tabBarParameters
     }
     
@@ -139,8 +130,7 @@ struct TabButtonRowView<Selection>: View where Selection: Hashable {
                               currentTab: self.$currentTab,
                               labelSizes: self.$labelSizes,
                               index: index,
-                              contents: self.contents,
-                              selectionIndex: self.selectionIndex,
+                              content: self.contents,
                               tabBarParameters: self.tabBarParameters,
                               isTabBarFocused: true)
             }

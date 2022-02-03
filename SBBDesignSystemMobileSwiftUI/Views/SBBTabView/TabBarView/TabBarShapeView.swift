@@ -38,7 +38,7 @@ struct TabBarShapeView: View {
         self.isPressed = isPressed
     }
     
-    public var tabBarShape: TabBarShape { return TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: self.tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: self.tabBarParameters.isPortrait)
+    public var tabBarShape: TabBarShape { return TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: self.tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
     }
     
     public var body: some View {

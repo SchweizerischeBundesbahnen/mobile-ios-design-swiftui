@@ -11,8 +11,8 @@ struct TabLabelView: View {
     
     @Binding private var textSize: CGSize
     
-    private var contents: [TabBarEntryView]
     private var selectionIndex: Int
+    private var contents: [TabBarEntryView]
     private var tabBarParameters: TabBarParameters
     
     /**
@@ -20,11 +20,11 @@ struct TabLabelView: View {
      
      - Parameters:
         - textSize: The size of the label to display.
+        - selectionIndex: The index of the selected tab.
         - content: An array of TabBarEntryView, specifying the content of each tab.
-        -  selectionIndex: The index of the selected tab
         - tabBarParameters: The TabBarParameters used to create the tab bar.
      */
-    public init(textSize: Binding<CGSize>, content: [TabBarEntryView], selectionIndex: Int, tabBarParameters: TabBarParameters) {
+    public init(textSize: Binding<CGSize>, selectionIndex: Int, content: [TabBarEntryView], tabBarParameters: TabBarParameters) {
         self._textSize = textSize
         self.contents = content
         self.selectionIndex = selectionIndex
@@ -69,7 +69,7 @@ struct TabLabelView: View {
 }
 
 struct TabLabelView_Previews: PreviewProvider {
-    private static var label = TabLabelView(textSize: .constant(CGSize.init(width: 20, height: 20)), content: [FakeTabBarEntry.fakeTab1, FakeTabBarEntry.fakeTab2], selectionIndex: 0, tabBarParameters: FakeTabBarParameters.fakeSpaced)
+    private static var label = TabLabelView(textSize: .constant(CGSize.init(width: 20, height: 20)), selectionIndex: 0, content: [FakeTabBarEntry.fakeTab1, FakeTabBarEntry.fakeTab2], tabBarParameters: FakeTabBarParameters.fakeSpaced)
     
     static var previews: some View {
         Group {

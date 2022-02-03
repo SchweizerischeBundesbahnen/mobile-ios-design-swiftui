@@ -9,15 +9,15 @@ import SwiftUI
  A View that is used by ``SBBTabView`` to display the tab bar only.
  
  ## Overview
- You create a TabBarView by providing a selectedSegment binding and an array of TabBarEntryView for each tab. The image and label associated with each TabBarEntryView are retrieved to be displayed in the tab bar. A TabBarEntryView can be created from scratch or obtained through the View modifiers `.sbbTag(tag: Hashable)` and `.sbbTabItems(image: Image, label: Text)`.
+ You create a TabBarView by providing a selectedSegment binding and an array of TabBarEntryView for each tab. The image and label associated with each TabBarEntryView are retrieved to be displayed in the tab bar. A TabBarEntryView can be created from scratch or obtained through the View modifier `.sbbTabItem(image: Image?, label: Text?, tag: AnyHashable)`.
  
  ```swift
  @State private var selectedSegment = 0
  
      var body: some View {
          TabBarView(selection: $selectedSegment, contents: [
-            TabBarEntryView(imageView: Image(sbbName: "station", size: .small), labelView: Text("Station"), tag: 0),
-            VStack { ... }.sbbTag(2).sbbTabItem(image: Image(sbbName: "bus-stop", size: .small), label: Text("Stop"))
+            VStack { ... }.sbbTabItem(image: Image(sbbName: "station", size: .small), label: Text("Station"), tag: 0),
+            VStack { ... }.sbbTabItem(image: Image(sbbName: "bus-stop", size: .small), label: Text("Stop"), tag: 1)
          ])
     }
  }
@@ -68,26 +68,64 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
             let buttonHeight: CGFloat = topPad + circleSize + circlePad
             let buttonWidth: CGFloat = circleSize + 2 * circlePad
             
-            let tabBarParameters = TabBarParameters(circleRadius: circleSize / 2, circlePad: circlePad, topPad: topPad, segmentWidth: segmentWidth, segmentWidths: self.labelSizes, barHeight: barHeight, barWidth: geometry.size.width, buttonHeight: buttonHeight, buttonWidth: buttonWidth, isPortrait: isPortrait)
+            let tabBarParameters = TabBarParameters(circleRadius: circleSize / 2,
+                                                    circlePad: circlePad,
+                                                    topPad: topPad,
+                                                    segmentWidth: segmentWidth,
+                                                    segmentWidths: self.labelSizes,
+                                                    barHeight: barHeight,
+                                                    barWidth: geometry.size.width,
+                                                    buttonHeight: buttonHeight,
+                                                    buttonWidth: buttonWidth,
+                                                    isPortrait: isPortrait)
             
             ZStack(alignment: .bottom) {
                 // Circles behind the bar
-                TabCircleRowView(selectionIndex: self.selectionIndex, content: self.contents, tabBarParameters: tabBarParameters)
+                TabCircleRowView(selectionIndex: self.selectionIndex,
+                                 content: self.contents,
+                                 tabBarParameters: tabBarParameters)
                 
                 // Tab bar shape
-                TabBarShapeView(selectionIndex: self.selectionIndex, currentTab: self.currentTab, tabBarParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed)
+                TabBarShapeView(selectionIndex: self.selectionIndex,
+                                currentTab: self.currentTab,
+                                tabBarParameters: tabBarParameters,
+                                transitionFactor: self.transitionFactor,
+                                transitionFactorPressed: self.transitionFactorPressed,
+                                isPressed: self.isPressed)
                 
                 if isPortrait {
                     // Current tab label
-                    TabLabelView(textSize: self.$labelSize, content: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: tabBarParameters)
+                    TabLabelView(textSize: self.$labelSize,
+                                 selectionIndex: self.selectionIndex,
+                                 content: self.contents,
+                                 tabBarParameters: tabBarParameters)
                 }
                 // Button in the tab bar
                 if #available(iOS 15.0, *) {
-                    TabButtonRow15View(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, contents: self.contents, tabBarParameters: tabBarParameters)
-                        .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: isPortrait))
+                    TabButtonRow15View(selection: self.$selection,
+                                       transitionFactor: self.$transitionFactor,
+                                       transitionFactorPressed: self.$transitionFactorPressed,
+                                       isPressed: self.$isPressed,
+                                       currentTab: self.$currentTab,
+                                       labelSizes: self.$labelSizes,
+                                       content: self.contents,
+                                       tabBarParameters: tabBarParameters)
+                        .clipShape(TabBarShape(destTab: self.selectionIndex,
+                                               currentTab: self.currentTab,
+                                               tabBarCoordinatesParameters: tabBarParameters,
+                                               transitionFactor: self.transitionFactor,
+                                               transitionFactorPressed: self.transitionFactorPressed,
+                                               isPressed: self.isPressed))
                 } else {
-                    TabButtonRowView(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, contents: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: tabBarParameters)
-                        .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed, isPortrait: isPortrait))
+                    TabButtonRowView(selection: self.$selection,
+                                     transitionFactor: self.$transitionFactor,
+                                     transitionFactorPressed: self.$transitionFactorPressed,
+                                     isPressed: self.$isPressed,
+                                     currentTab: self.$currentTab,
+                                     labelSizes: self.$labelSizes,
+                                     content: self.contents,
+                                     tabBarParameters: tabBarParameters)
+                        .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed))
                 }
             }
         }
@@ -119,7 +157,7 @@ struct ViewGeometry: View {
 struct TabBarView_Previews: PreviewProvider {
     private static var tabBar = TabBarView(selection: .constant(0), content: [
         FakeTabBarEntry.fakeTab1,
-        FakeTabBarEntry.fakeTab2
+        FakeTabBarEntry.fakeTab2,
     ])
     
     static var previews: some View {

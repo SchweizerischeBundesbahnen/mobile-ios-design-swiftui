@@ -17,6 +17,7 @@ struct TabCircleRowView: View {
      Returns a TabCircleRowView displaying a row of circle.
      
      - Parameters:
+        - selectionIndex: The index of the selected tab.
         - content: An array of TabBarEntryView, specifying the content of each tab.
         - tabBarParameters: The TabBarParameters used to create the tab bar.
      */

@@ -8,7 +8,7 @@ import SwiftUI
  A View that is used to display a tab bar at the bottom of the page, as well as the content of the selected tab.
  
  ## Overview
- You create a SBBTabView by providing a selectedSegment binding and the different Views to be displayed in each tab. The views can be modified so that the tab contains an image and a label. Each tab should also be tagger, otherwise they won't be reachable.
+ You create a SBBTabView by providing a selectedSegment binding and the different Views to be displayed in each tab. The views must be TabBarEntryView, they can  be created from scratch or with the modifier `.sbbTabItem(image: Image?, label: Text?, tag: AnyHashable)` which allows to add an image, a label and a tag. The tag is required as it is used to reference the tab.
 
  ```swift
  @State private var selectedSegment = 0
@@ -19,26 +19,26 @@ import SwiftUI
              Image(sbbName: "station", size: .small)
              Text("This is the content of the Station tab.")
          }
-         .sbbTag(0)
          .sbbTabItem(
              image: Image(sbbName: "station", size: .small),
-             label: Text("Station")
+             label: Text("Station"),
+             tag: 0
          )
  
          HStack {
              Image(sbbName: "bus-stop", size: .small)
              Text("This is the content of the Stop tab.")
          }
-         .sbbTag(1)
          .sbbTabItem(
              image: Image(sbbName: "bus-stop", size: .small),
-             label: Text("Stop")
+             label: Text("Stop"),
+             tag: 1
          )
      }
  }
  ```
  
- Note that the number of elements in the ViewBuilder must be at least two.
+ Note that the number of elements in the ViewBuilder must be between 1 and 10.
  
  ![SBBTabView](SBBTabView)
  ![SBBTabViewLandscape](SBBTabViewLandscape)
@@ -60,8 +60,8 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
      
      - Parameters:
         - selection: The currently selected tab.
-        - contentBehindBar: The content view is displayed behind the tab bar (some elements may therefore be hidden).
-        - content: The View content of each tab. An image and label can be added to a View (using `.sbbTabItem(image: Image, label: Text)`) and a tag should be specified for the tab to be reachable (using `.sbbTag(tag: Hashable)`).
+        - contentAboveBar: The content view is displayed above the tab bar (no elements may therefore be hidden).
+        - content: The View content of each tab, must be a TabBarEntryView. A view can be transformed into a TabBarEntryView using `.sbbTabItem(image: Image?, label: Text?, tag: AnyHashable)`.
      */
     public init?(selection: Binding<Selection>, contentAboveBar: Bool = false, @ArrayBuilder<TabBarEntryView> content: () -> [TabBarEntryView]) {
         self._selection = selection
