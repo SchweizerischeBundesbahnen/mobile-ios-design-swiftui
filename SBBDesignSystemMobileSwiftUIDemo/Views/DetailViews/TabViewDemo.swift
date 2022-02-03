@@ -12,22 +12,27 @@ struct TabViewDemo: View {
     @State private var nbTabs = 5
     
     var body: some View {
-        VStack(spacing: 0) {
-            SBBFormGroup(title: "Number of Tabs") {
-                Stepper(value: $nbTabs, in: 0...6, label: { Text("\(nbTabs)") }, onEditingChanged: resetSelection)
-                    .sbbFont(.body)
-                    .padding(10)
-            }
-            SBBTabView(selection: $selectedTab, contentAboveBar: true) {
-                for entry in FakeTabBarEntry.fakeTabEntries.prefix(upTo: nbTabs) {
-                    entry
+        GeometryReader { geometry in
+            VStack(spacing: 0) {
+                SBBFormGroup(title: "Number of Tabs") {
+                    Stepper(value: $nbTabs, in: 0...6, label: { Text("\(nbTabs)") }, onEditingChanged: resetSelection)
+                        .sbbFont(.body)
+                        .padding(10)
+                }
+                    .padding(.top, 10)
+                
+                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
+                    for entry in FakeTabBarEntry.fakeTabEntries.prefix(upTo: nbTabs) {
+                        entry
+                    }
                 }
             }
+                .sbbScreenPadding([.horizontal])
+                .navigationBarTitle("TabView")
+                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
+                .sbbStyle()
+                .colorScheme(colorScheme)
         }
-            .sbbScreenPadding()
-            .navigationBarTitle("TabView")
-            .sbbStyle()
-            .colorScheme(colorScheme)
     }
     
     private func resetSelection(_ editingBegins: Bool) {

@@ -57,7 +57,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     
     public var body: some View {
         let isPortrait = self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
-        let barHeight: CGFloat = isPortrait ? 80 : 38
+        let barHeight: CGFloat = isPortrait ? 75 : 38
         
         GeometryReader { geometry in
             let segmentWidth: CGFloat = self.segmentWidth(parentWidth: geometry.size.width, nbTabs: self.contents.count)

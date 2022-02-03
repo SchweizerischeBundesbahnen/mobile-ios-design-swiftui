@@ -45,13 +45,13 @@ struct TabBarShapeView: View {
         ZStack {
             tabBarShape
                 .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
-                .foregroundColor(Color.sbbColor(.tabViewBackground))
+                .foregroundColor(Color.sbbColor(.viewBackground))
                 .accessibility(hidden: true)
                 .shadow(color: Color.sbbColor(.tabshadow), radius: self.colorScheme == .dark ? 0 : 20, x: 0, y: 0)
             Rectangle()
-                .frame(width: self.tabBarParameters.barWidth * 2, height: self.tabBarParameters.barHeight)
+                .frame(width: self.tabBarParameters.barWidth * 1.2, height: self.tabBarParameters.barHeight)
                 .offset(y: self.tabBarParameters.barHeight)
-                .foregroundColor(Color.sbbColor(.tabViewBackground))
+                .foregroundColor(Color.sbbColor(.viewBackground))
                 .frame(width: self.tabBarParameters.barWidth, height: self.tabBarParameters.barHeight)
                 .accessibility(hidden: true)
         }

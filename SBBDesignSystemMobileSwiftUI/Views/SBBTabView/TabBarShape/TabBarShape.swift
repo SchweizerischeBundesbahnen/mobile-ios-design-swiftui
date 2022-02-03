@@ -118,10 +118,10 @@ struct TabBarShape: Shape {
     
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        let bottomLeftCorner = CGPoint(x: rect.minX - self.tabBarParameters.barWidth * 0.5, y: rect.maxY)
-        let topLeftCorner = CGPoint(x: rect.minX - self.tabBarParameters.barWidth * 0.5, y: rect.minY)
-        let topRightCorner = CGPoint(x: rect.maxX + self.tabBarParameters.barWidth * 0.5, y: rect.minY)
-        let bottomRightCorner = CGPoint(x: rect.maxX + self.tabBarParameters.barWidth * 0.5, y: rect.maxY)
+        let bottomLeftCorner = CGPoint(x: rect.minX - self.tabBarParameters.barWidth * 0.1, y: rect.maxY)
+        let topLeftCorner = CGPoint(x: rect.minX - self.tabBarParameters.barWidth * 0.1, y: rect.minY)
+        let topRightCorner = CGPoint(x: rect.maxX + self.tabBarParameters.barWidth * 0.1, y: rect.minY)
+        let bottomRightCorner = CGPoint(x: rect.maxX + self.tabBarParameters.barWidth * 0.1, y: rect.maxY)
         
         path.move(to: bottomLeftCorner)
         path.addLine(to: topLeftCorner)
@@ -138,7 +138,7 @@ struct TabBarShape: Shape {
             
         } else {
             let destCoordinates = isPressed ? TabBarCoordinates(tab: destTab, factor: 1.0, isPortrait: self.tabBarParameters.isPortrait, parameters: self.tabBarParameters, isPressed: false) : TabBarCoordinates(tab: destTab, factor: transitionFactor, isPortrait: self.tabBarParameters.isPortrait, parameters: self.tabBarParameters, isPressed: false)
-            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.5 * transitionFactorPressed, isPortrait: self.tabBarParameters.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.tabBarParameters.isPortrait, parameters: self.tabBarParameters, isPressed: false)
+            let currentCoordinates = isPressed ? TabBarCoordinates(tab: currentTab, factor: 0.2 * transitionFactorPressed, isPortrait: self.tabBarParameters.isPortrait, parameters: self.tabBarParameters, isPressed: true) : TabBarCoordinates(tab: currentTab, factor: (1.0 - transitionFactor), isPortrait: self.tabBarParameters.isPortrait, parameters: self.tabBarParameters, isPressed: false)
             
             // Current tab is on the left of destination tab
             if destTab > currentTab {
