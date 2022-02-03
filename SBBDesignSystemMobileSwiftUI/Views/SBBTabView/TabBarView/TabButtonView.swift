@@ -22,7 +22,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
     private var contents: [TabBarEntryView]
     private var isTabBarFocused: Bool
     private var selectionIndex: Int {
-        contents.firstIndex { $0.tag as? Selection == selection } ?? 0
+        TabBarEntryView.selectionIndex(for: selection, in: contents)
     }
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass

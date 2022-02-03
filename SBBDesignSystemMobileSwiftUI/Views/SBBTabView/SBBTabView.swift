@@ -51,7 +51,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     
     private let contents: [TabBarEntryView]
     private var selectionIndex: Int {
-        contents.firstIndex { $0.tag as? Selection == selection } ?? 0
+        TabBarEntryView.selectionIndex(for: selection, in: contents)
     }
     private var contentAboveBar: Bool
     

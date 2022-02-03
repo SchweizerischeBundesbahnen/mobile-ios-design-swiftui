@@ -42,4 +42,8 @@ public struct TabBarEntryView: View, Identifiable {
     public var body: some View {
         self.contentView
     }
+    
+    static func selectionIndex(for selection: AnyHashable, in contents: [TabBarEntryView]) -> Int {
+       return contents.firstIndex { $0.tag == selection } ?? 0
+    }
 }
