@@ -4,7 +4,6 @@
 
 import SwiftUI
 
-
 /**
  A View that is used by ``SBBTabView`` to display the buttons in the tab bar for iOS 15.0. What's different: the first time the VoiceOver goes into the TabBar, it says 'tab bar'.
  */
@@ -23,15 +22,7 @@ struct TabButtonRow15View<Selection>: View where Selection: Hashable {
     private var tabBarParameters: TabBarParameters
     private var contents: [TabBarEntryView]
     private var selectionIndex: Int {
-        for index in (0...self.contents.count) {
-            // Some tab may not have a label
-            if let tag = self.contents[index].tag, let tagValue = tag as? Selection {
-                if tagValue == selection {
-                    return index
-                }
-            }
-        }
-        return 0
+        contents.firstIndex { $0.tag as? Selection == selection } ?? 0
     }
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -64,8 +55,18 @@ struct TabButtonRow15View<Selection>: View where Selection: Hashable {
     
     public var body: some View {
         HStack(spacing: 0) {
-            ForEach(0..<self.contents.count) { index in
-                TabButtonView(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, index: index, contents: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: self.tabBarParameters, isTabBarFocused: self.isTabBarFocused)
+            ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
+                TabButtonView(selection: self.$selection,
+                              transitionFactor: self.$transitionFactor,
+                              transitionFactorPressed: self.$transitionFactorPressed,
+                              isPressed: self.$isPressed,
+                              currentTab: self.$currentTab,
+                              labelSizes: self.$labelSizes,
+                              index: index,
+                              contents: self.contents,
+                              selectionIndex: self.selectionIndex,
+                              tabBarParameters: self.tabBarParameters,
+                              isTabBarFocused: self.isTabBarFocused)
                     .accessibility(removeTraits: .isButton)
                     .accessibilityFocused($isTabBarFocused)
             }
@@ -91,7 +92,7 @@ struct TabButtonRowView<Selection>: View where Selection: Hashable {
     private var selectionIndex: Int {
         for index in (0...self.contents.count) {
             // Some tab may not have a label
-            if let tag = self.contents[index].tag, let tagValue = tag as? Selection {
+            if let tagValue = self.contents[index].tag as? Selection {
                 if tagValue == selection {
                     return index
                 }
@@ -130,8 +131,18 @@ struct TabButtonRowView<Selection>: View where Selection: Hashable {
     
     public var body: some View {
         HStack(spacing: 0) {
-            ForEach(0..<self.contents.count) { index in
-                TabButtonView(selection: self.$selection, transitionFactor: self.$transitionFactor, transitionFactorPressed: self.$transitionFactorPressed, isPressed: self.$isPressed, currentTab: self.$currentTab, labelSizes: self.$labelSizes, index: index, contents: self.contents, selectionIndex: self.selectionIndex, tabBarParameters: self.tabBarParameters, isTabBarFocused: true)
+            ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
+                TabButtonView(selection: self.$selection,
+                              transitionFactor: self.$transitionFactor,
+                              transitionFactorPressed: self.$transitionFactorPressed,
+                              isPressed: self.$isPressed,
+                              currentTab: self.$currentTab,
+                              labelSizes: self.$labelSizes,
+                              index: index,
+                              contents: self.contents,
+                              selectionIndex: self.selectionIndex,
+                              tabBarParameters: self.tabBarParameters,
+                              isTabBarFocused: true)
             }
             .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
         }

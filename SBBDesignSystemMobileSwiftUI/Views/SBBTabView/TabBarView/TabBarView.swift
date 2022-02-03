@@ -27,8 +27,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     
     @Binding private var selection: Selection
     
-    // TODO: how to make it dynamic? Here max tab = 6 so we'll define all 6 possibilities
-    @State private var labelSizes: [CGSize] = [.zero, .zero, .zero, .zero, .zero, .zero]
+    @State private var labelSizes: [CGSize] = Array(repeating: .zero, count: 10)
     @State private var labelSize: CGSize = .zero
     @State private var transitionFactor: CGFloat = 1.0
     @State private var transitionFactorPressed: CGFloat = 1.0
@@ -37,15 +36,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     
     private var contents: [TabBarEntryView]
     private var selectionIndex: Int {
-        for index in (0...self.contents.count) {
-            // Some tab may not have a label
-            if let tag = self.contents[index].tag, let tagValue = tag as? Selection {
-                if tagValue == selection {
-                    return index
-                }
-            }
-        }
-        return 0
+        contents.firstIndex { $0.tag as? Selection == selection } ?? 0
     }
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass

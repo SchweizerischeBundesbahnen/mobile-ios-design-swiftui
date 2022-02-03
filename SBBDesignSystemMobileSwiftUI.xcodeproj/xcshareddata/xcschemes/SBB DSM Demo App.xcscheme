@@ -26,17 +26,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "NO">
-      <CommandLineArguments>
-         <CommandLineArgument
-            argument = "-AppleLanguages (en)"
-            isEnabled = "YES">
-         </CommandLineArgument>
-         <CommandLineArgument
-            argument = "-AppleLocale en_EN"
-            isEnabled = "YES">
-         </CommandLineArgument>
-      </CommandLineArguments>
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      language = "en">
       <Testables>
          <TestableReference
             skipped = "NO">

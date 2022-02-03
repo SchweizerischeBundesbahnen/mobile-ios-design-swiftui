@@ -14,4 +14,11 @@ public struct FakeTabBarEntry {
     public static let fakeTab4 = TabBarEntryView(imageView: Image(sbbName: "fullscreen", size: .small), labelView: Text("Finder"), tag: 3)
     public static let fakeTab5 = TabBarEntryView(imageView: Image(sbbName: "lift", size: .small), labelView: Text("Elevator"), tag: 4)
     public static let fakeTab6 = TabBarEntryView(imageView: Image(sbbName: "gears", size: .small), labelView: Text("Settings"), tag: 5)
+    
+    public static let fakeTabEntries = [fakeTab1,
+                                        fakeTab2,
+                                        fakeTab3,
+                                        fakeTab4,
+                                        fakeTab5,
+                                        fakeTab6]
 }

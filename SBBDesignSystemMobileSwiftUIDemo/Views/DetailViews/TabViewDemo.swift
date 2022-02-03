@@ -9,73 +9,32 @@ struct TabViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
     @State private var selectedTab = 0
-    @State private var nbTabs = 5.0
+    @State private var nbTabs = 5
     
     var body: some View {
         VStack(spacing: 0) {
-            HStack(spacing: 0) {
-                SBBFormGroup(title: "Number of Tabs") {
-                    Stepper(value: $nbTabs, in: 2...6, label: { Text("\(Int(nbTabs))") }, onEditingChanged: { _ in resetSelection() })
-                        .sbbFont(.body)
-                        .padding(10)
-                }
+            SBBFormGroup(title: "Number of Tabs") {
+                Stepper(value: $nbTabs, in: 0...6, label: { Text("\(nbTabs)") }, onEditingChanged: resetSelection)
+                    .sbbFont(.body)
+                    .padding(10)
             }
-            
-            switch (nbTabs) {
-            case 2:
-                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
-                    FakeTabBarEntry.fakeTab1
-                    FakeTabBarEntry.fakeTab2
-                }
-            case 3:
-                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
-                    FakeTabBarEntry.fakeTab1
-                    FakeTabBarEntry.fakeTab2
-                    FakeTabBarEntry.fakeTab3
-                }
-            case 4:
-                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
-                    FakeTabBarEntry.fakeTab1
-                    FakeTabBarEntry.fakeTab2
-                    FakeTabBarEntry.fakeTab3
-                    FakeTabBarEntry.fakeTab4
-                }
-            case 5:
-                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
-                    FakeTabBarEntry.fakeTab1
-                    FakeTabBarEntry.fakeTab2
-                    FakeTabBarEntry.fakeTab3
-                    FakeTabBarEntry.fakeTab4
-                    FakeTabBarEntry.fakeTab5
-                }
-            case 6:
-                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
-                    FakeTabBarEntry.fakeTab1
-                    FakeTabBarEntry.fakeTab2
-                    FakeTabBarEntry.fakeTab3
-                    FakeTabBarEntry.fakeTab4
-                    FakeTabBarEntry.fakeTab5
-                    FakeTabBarEntry.fakeTab6
-                }
-            default:
-                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
-                    FakeTabBarEntry.fakeTab1
-                    FakeTabBarEntry.fakeTab2
+            SBBTabView(selection: $selectedTab, contentAboveBar: true) {
+                for entry in FakeTabBarEntry.fakeTabEntries.prefix(upTo: nbTabs) {
+                    entry
                 }
             }
         }
-        .sbbScreenPadding()
-        .sbbStyle()
-        .colorScheme(colorScheme)
-        
+            .sbbScreenPadding()
+            .navigationBarTitle("TabView")
+            .sbbStyle()
+            .colorScheme(colorScheme)
     }
     
-    private func resetSelection() {
-        if self.selectedTab >= Int(self.nbTabs) {
-            self.selectedTab = Int(self.nbTabs) - 1
+    private func resetSelection(_ editingBegins: Bool) {
+        if !editingBegins {
+            selectedTab = min(selectedTab, nbTabs - 1) 
         }
     }
-    
 }
 
 struct TabViewDemo_Previews: PreviewProvider {
