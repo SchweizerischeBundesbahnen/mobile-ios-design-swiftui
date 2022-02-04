@@ -13,14 +13,14 @@ class ImageExtensionTests: XCTestCase {
         let view = Image(sbbName: "product-ir-40")
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "ImageExtensionIconFPL", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testKOMIconSmall() {
         let view = Image(sbbName: "station", size: .small).foregroundColor(Color.sbbColor(.textBlack))
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
@@ -28,14 +28,14 @@ class ImageExtensionTests: XCTestCase {
         let view = Image(sbbName: "station", size: .medium).foregroundColor(Color.sbbColor(.textBlack))
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "ImageExtensionIconKOM", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testKOMIconLarge() {
         let view = Image(sbbName: "station", size: .large).foregroundColor(Color.sbbColor(.textBlack))
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
@@ -43,7 +43,7 @@ class ImageExtensionTests: XCTestCase {
         let view = Image(sbbName: "Zug_r")
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "ImageExtensionIconPictogram", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
 }

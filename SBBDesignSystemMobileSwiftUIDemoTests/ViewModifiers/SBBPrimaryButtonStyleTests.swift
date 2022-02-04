@@ -17,14 +17,14 @@ class SBBPrimaryButtonStyleTests: XCTestCase {
         let view = button.buttonStyle(SBBPrimaryButtonStyle())
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 200).recordDocumentationSnapshot(name: "SBBPrimaryButtonStyle", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testPrimaryButtonDisabled() {
         let view = button.buttonStyle(SBBPrimaryButtonStyle()).disabled(true)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
 }

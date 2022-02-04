@@ -1,5 +1,10 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## V1.0.1 - 25 January 2022
+
+### Features
+* SBBTabView to display a tab bar at the bottom of the page.
+
 ## V1.0.0 - 05 January 2022
 
 ### Features

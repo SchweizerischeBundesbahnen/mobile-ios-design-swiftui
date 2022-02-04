@@ -16,7 +16,7 @@ class SBBSegmentedPickerTests: XCTestCase {
             Text("Opt 3")
         }
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
@@ -26,7 +26,7 @@ class SBBSegmentedPickerTests: XCTestCase {
             Image(sbbName: "platform-display", size: .small)
         }
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     func testSegmentedPickerIconAndText() {
@@ -42,7 +42,7 @@ class SBBSegmentedPickerTests: XCTestCase {
         }
         for colorScheme in ColorScheme.allCases {
             view.frame(width: 375).recordDocumentationSnapshot(name: "SBBSegmentedPicker", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
 }

@@ -3,7 +3,8 @@
 //
 
 // SBBTabBar
-"tab" = "(de) tab";
+"tab" = "Tab";
+"tab bar" = "Tab-Leiste";
 
 // SBBBubbleView
 "collapse" = "zusammenklappen";

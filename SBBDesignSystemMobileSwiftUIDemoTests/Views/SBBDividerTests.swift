@@ -13,7 +13,7 @@ class SBBDividerTests: XCTestCase {
         let view = SBBDivider()
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 300).recordDocumentationSnapshot(name: "SBBDivider", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
 }

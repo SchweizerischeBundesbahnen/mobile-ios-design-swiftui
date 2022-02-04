@@ -12,14 +12,14 @@ class SBBCheckBoxTests: XCTestCase {
     func testCheckBoxTextOnly() {
         let view = SBBCheckBox(isOn: .constant(true), text: Text("Label"))
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testCheckBoxWithImage() {
         let view = SBBCheckBox(isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Label"))
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
@@ -27,7 +27,7 @@ class SBBCheckBoxTests: XCTestCase {
         let view = SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Label"))
             .disabled(true)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
@@ -35,7 +35,7 @@ class SBBCheckBoxTests: XCTestCase {
         let view = SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"), subText: Text("SubText"), showBottomLine: false)
         for colorScheme in ColorScheme.allCases {
             view.frame(width: 375).recordDocumentationSnapshot(name: "SBBCheckBox", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image, record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
 }
