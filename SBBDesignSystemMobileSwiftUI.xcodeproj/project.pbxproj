@@ -189,7 +189,7 @@
 		A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA362434951500753AE1 /* SBBTextArea.swift */; };
 		A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7EDCA3A2434958600753AE1 /* TextAreaView.swift */; };
 		A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F54687243B5BED0068B542 /* FormGroupView.swift */; };
-		F8882F2B27A9791800396FC7 /* AssertSnapshotExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8882F2A27A9791800396FC7 /* AssertSnapshotExtension.swift */; };
+		F8882F2B27A9791800396FC7 /* CustomAssertSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8882F2A27A9791800396FC7 /* CustomAssertSnapshot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -422,7 +422,7 @@
 		A7EDCA362434951500753AE1 /* SBBTextArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBTextArea.swift; sourceTree = "<group>"; };
 		A7EDCA3A2434958600753AE1 /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
 		A7F54687243B5BED0068B542 /* FormGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormGroupView.swift; sourceTree = "<group>"; };
-		F8882F2A27A9791800396FC7 /* AssertSnapshotExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertSnapshotExtension.swift; sourceTree = "<group>"; };
+		F8882F2A27A9791800396FC7 /* CustomAssertSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAssertSnapshot.swift; sourceTree = "<group>"; };
 		F8882F2C27AD37E200396FC7 /* ci_scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ci_scripts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -583,7 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				2D804E9023D9D16300CC9C0C /* Info.plist */,
-				F8882F2A27A9791800396FC7 /* AssertSnapshotExtension.swift */,
+				F8882F2A27A9791800396FC7 /* CustomAssertSnapshot.swift */,
 				92995BB1259376900042B5C5 /* SBBSnapshotTest.swift */,
 				7C60948C274FBBCE001ABF67 /* ViewModifiers */,
 				7C60948B274FBBCE001ABF67 /* Views */,
@@ -1274,7 +1274,7 @@
 				7C609478274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift in Sources */,
 				7C609476274F9B03001ABF67 /* SBBModalViewTests.swift in Sources */,
 				7C609494274FBF1E001ABF67 /* SBBTertiaryButtonStyleTests.swift in Sources */,
-				F8882F2B27A9791800396FC7 /* AssertSnapshotExtension.swift in Sources */,
+				F8882F2B27A9791800396FC7 /* CustomAssertSnapshot.swift in Sources */,
 				7C60949E274FC3FA001ABF67 /* SBBEnvironmentBannerTests.swift in Sources */,
 				7C6094A0274FC67B001ABF67 /* SBBSliderExtensionTests.swift in Sources */,
 				7C609468274F8FC8001ABF67 /* SBBChipTests.swift in Sources */,
