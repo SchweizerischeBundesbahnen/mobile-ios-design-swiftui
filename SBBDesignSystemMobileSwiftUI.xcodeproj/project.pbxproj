@@ -7,7 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00774E922799923C0056BBA8 /* TupleViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00774E912799923C0056BBA8 /* TupleViewExtension.swift */; };
+		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
+		005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */; };
+		005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CA279A9FE4009C5CEA /* TabBarView.swift */; };
+		005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */; };
+		005DC8D0279AA42B009C5CEA /* TabButtonRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CF279AA42B009C5CEA /* TabButtonRowView.swift */; };
+		005DC8D2279AAB49009C5CEA /* TabLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8D1279AAB49009C5CEA /* TabLabelView.swift */; };
+		005DC8D4279AAFD8009C5CEA /* TabCircleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8D3279AAFD8009C5CEA /* TabCircleRowView.swift */; };
+		005DC8D6279AC91E009C5CEA /* TabButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8D5279AC91E009C5CEA /* TabButtonView.swift */; };
+		005DC8D8279B08BA009C5CEA /* TabBarParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8D7279B08BA009C5CEA /* TabBarParameters.swift */; };
+		005DC8DB279B1226009C5CEA /* FakeTabBarEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DA279B1226009C5CEA /* FakeTabBarEntry.swift */; };
+		005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */; };
+		005DC8DF279B1517009C5CEA /* FakeTabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */; };
+		005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */; };
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
@@ -211,7 +223,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		00774E912799923C0056BBA8 /* TupleViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TupleViewExtension.swift; sourceTree = "<group>"; };
+		001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabViewTests.swift; sourceTree = "<group>"; };
+		005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinates.swift; sourceTree = "<group>"; };
+		005DC8CA279A9FE4009C5CEA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShapeView.swift; sourceTree = "<group>"; };
+		005DC8CF279AA42B009C5CEA /* TabButtonRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButtonRowView.swift; sourceTree = "<group>"; };
+		005DC8D1279AAB49009C5CEA /* TabLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabLabelView.swift; sourceTree = "<group>"; };
+		005DC8D3279AAFD8009C5CEA /* TabCircleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCircleRowView.swift; sourceTree = "<group>"; };
+		005DC8D5279AC91E009C5CEA /* TabButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButtonView.swift; sourceTree = "<group>"; };
+		005DC8D7279B08BA009C5CEA /* TabBarParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarParameters.swift; sourceTree = "<group>"; };
+		005DC8DA279B1226009C5CEA /* FakeTabBarEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarEntry.swift; sourceTree = "<group>"; };
+		005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarParameters.swift; sourceTree = "<group>"; };
+		005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarShape.swift; sourceTree = "<group>"; };
+		005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabButtons.swift; sourceTree = "<group>"; };
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
@@ -426,14 +450,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		005DC8C82799D0B2009C5CEA /* TabBarEntry */ = {
+			isa = PBXGroup;
+			children = (
+				00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */,
+				00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */,
+			);
+			path = TabBarEntry;
+			sourceTree = "<group>";
+		};
+		005DC8C92799D0BF009C5CEA /* TabBarShape */ = {
+			isa = PBXGroup;
+			children = (
+				00FB8194278ED50600F07D30 /* TabBarShape.swift */,
+				005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */,
+			);
+			path = TabBarShape;
+			sourceTree = "<group>";
+		};
+		005DC8CE279AA406009C5CEA /* TabBarView */ = {
+			isa = PBXGroup;
+			children = (
+				005DC8CA279A9FE4009C5CEA /* TabBarView.swift */,
+				005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */,
+				005DC8CF279AA42B009C5CEA /* TabButtonRowView.swift */,
+				005DC8D1279AAB49009C5CEA /* TabLabelView.swift */,
+				005DC8D3279AAFD8009C5CEA /* TabCircleRowView.swift */,
+				005DC8D5279AC91E009C5CEA /* TabButtonView.swift */,
+			);
+			path = TabBarView;
+			sourceTree = "<group>";
+		};
+		005DC8D9279B1219009C5CEA /* Fakes */ = {
+			isa = PBXGroup;
+			children = (
+				005DC8DA279B1226009C5CEA /* FakeTabBarEntry.swift */,
+				005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */,
+				005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */,
+				005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */,
+			);
+			path = Fakes;
+			sourceTree = "<group>";
+		};
 		00FB8193278ED4E300F07D30 /* SBBTabView */ = {
 			isa = PBXGroup;
 			children = (
+				005DC8D9279B1219009C5CEA /* Fakes */,
+				005DC8CE279AA406009C5CEA /* TabBarView */,
+				005DC8C92799D0BF009C5CEA /* TabBarShape */,
+				005DC8C82799D0B2009C5CEA /* TabBarEntry */,
 				00E17D60278830510077BD43 /* SBBTabView.swift */,
-				00FB8194278ED50600F07D30 /* TabBarShape.swift */,
-				00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */,
-				00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */,
-				00774E912799923C0056BBA8 /* TupleViewExtension.swift */,
+				005DC8D7279B08BA009C5CEA /* TabBarParameters.swift */,
 			);
 			path = SBBTabView;
 			sourceTree = "<group>";
@@ -691,6 +758,7 @@
 				7C609485274FB7BB001ABF67 /* SBBTextAreaTests.swift */,
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
+				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1049,17 +1117,24 @@
 				7C3AF99825BAA845007BBF21 /* SBBProcessFlow.swift in Sources */,
 				A7AC50D5249A45A000065C71 /* SBBSecondaryButtonStyle.swift in Sources */,
 				7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */,
+				005DC8DF279B1517009C5CEA /* FakeTabBarShape.swift in Sources */,
+				005DC8D4279AAFD8009C5CEA /* TabCircleRowView.swift in Sources */,
 				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
+				005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */,
+				005DC8D0279AA42B009C5CEA /* TabButtonRowView.swift in Sources */,
 				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
 				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
+				005DC8D8279B08BA009C5CEA /* TabBarParameters.swift in Sources */,
+				005DC8D6279AC91E009C5CEA /* TabButtonView.swift in Sources */,
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
 				7C28872224BF2B3800EDBD27 /* FakeOnboardingViewModels.swift in Sources */,
 				7C1F20A824E51298006FF30B /* SBBEnvironmentBanner.swift in Sources */,
 				7CE5D76824C9D8B300282976 /* SBBOnboardingTitleView.swift in Sources */,
+				005DC8DB279B1226009C5CEA /* FakeTabBarEntry.swift in Sources */,
 				7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */,
 				A74FEA1825138CCC00C4D1A4 /* SBBSwitchStyle.swift in Sources */,
 				7C89AE6226B154720087872E /* IsSelected.swift in Sources */,
@@ -1084,11 +1159,12 @@
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
 				7C595E5725A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift in Sources */,
 				00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */,
-				00774E922799923C0056BBA8 /* TupleViewExtension.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
 				7C595E4D25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift in Sources */,
 				7C595E4125A597010015B0FC /* SBBListItemExtension.swift in Sources */,
+				005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */,
 				7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */,
+				005DC8D2279AAB49009C5CEA /* TabLabelView.swift in Sources */,
 				7CAF977825B875B3002260AE /* ToastContainerView.swift in Sources */,
 				7CAF977D25B87653002260AE /* SBBToastService.swift in Sources */,
 				7CB2CEB225C19AD600756D9B /* SBBMapMarker.swift in Sources */,
@@ -1098,11 +1174,14 @@
 				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
 				7C3BA8D8274E4041005CEEA3 /* Documentation.docc in Sources */,
 				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
+				005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */,
+				005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */,
 				7C28871624BF055900EDBD27 /* SBBPaginationView.swift in Sources */,
 				7CA5551B267A1473006A6F00 /* SBBStyle.swift in Sources */,
 				7C106D1925DA803700B89ECD /* SBBModalViewModifier.swift in Sources */,
 				7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
+				005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */,
 				7CAC69FA25CAE73F003CF54E /* SizePreferenceKey.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
 				7C28871824BF1FB400EDBD27 /* CornerRadius.swift in Sources */,
@@ -1197,6 +1276,7 @@
 				92995BAC259373C20042B5C5 /* SBBDividerTests.swift in Sources */,
 				7C609480274FB4FC001ABF67 /* SBBRadioButtonTests.swift in Sources */,
 				7C609472274F9976001ABF67 /* SBBLoadingIndicatorTests.swift in Sources */,
+				001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */,
 				7C60948A274FBA00001ABF67 /* SBBToastTests.swift in Sources */,
 				7C60946A274F9088001ABF67 /* SBBDialogueTests.swift in Sources */,
 				92995BA8259373B10042B5C5 /* SBBCheckBoxTests.swift in Sources */,
@@ -1455,7 +1535,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1480,7 +1560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

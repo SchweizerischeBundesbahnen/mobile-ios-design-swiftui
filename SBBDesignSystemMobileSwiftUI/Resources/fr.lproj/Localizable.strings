@@ -4,6 +4,7 @@
 
 // SBBTabBar
 "tab" = "onglet";
+"tab bar" = "barre d'onglets";
 
 // SBBBubbleView
 "collapse" = "réduire";

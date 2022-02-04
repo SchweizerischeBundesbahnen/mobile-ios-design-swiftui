@@ -19,6 +19,10 @@ extension XCTestCase {
     var recordNewReferenceSnapshots: Bool {
         return false
     }
+    
+    var traitLightMode: UITraitCollection {
+        return UITraitCollection(userInterfaceStyle: .light)
+    }
 }
 
 extension View {
