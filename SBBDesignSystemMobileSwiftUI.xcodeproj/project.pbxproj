@@ -399,6 +399,7 @@
 		A7EDCA3A2434958600753AE1 /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
 		A7F54687243B5BED0068B542 /* FormGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormGroupView.swift; sourceTree = "<group>"; };
 		F8882F2A27A9791800396FC7 /* AssertSnapshotExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssertSnapshotExtension.swift; sourceTree = "<group>"; };
+		F8882F2C27AD37E200396FC7 /* ci_scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ci_scripts; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +448,7 @@
 				7CC4B00F276A19E700B3BC46 /* Contributing.md */,
 				7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */,
 				7C77C2D6276B233000AC8157 /* LICENSE */,
+				F8882F2C27AD37E200396FC7 /* ci_scripts */,
 				7C77C2D2276B155300AC8157 /* LICENSES */,
 				2D804E7623D9D16000CC9C0C /* SBBDesignSystemMobileSwiftUIDemo */,
 				2D804E8D23D9D16300CC9C0C /* SBBDesignSystemMobileSwiftUIDemoTests */,
