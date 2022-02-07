@@ -18,6 +18,7 @@ public struct TabBarEntryView: View, Identifiable {
     var contentView: AnyView
     var imageView: Image
     var labelView: Text
+    var label: String
     var tag: AnyHashable
     
     /**
@@ -26,14 +27,15 @@ public struct TabBarEntryView: View, Identifiable {
      - Parameters:
         - contentView: The content of the tab
         - imageView: The image displayed in the tab bar
-        - labelView: The label display in the tab bar
+        - label: The label display in the tab bar
         - tag: The tag used to reference the bar
      */
-    public init(contentView: AnyView? = nil, imageView: Image? = nil, labelView: Text? = nil, tag: AnyHashable) {
+    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, tag: AnyHashable) {
         self.imageView = imageView ?? Image(sbbName: "cross", size: .small)
-        self.labelView = labelView ?? Text("_")
+        self.label = label ?? "_"
+        self.labelView = Text(self.label)
         self.contentView = contentView ?? AnyView(VStack {
-            labelView ?? Text("_")
+            Text(label ?? "_")
             imageView ?? Image(sbbName: "cross", size: .small)
         })
         self.tag = tag
