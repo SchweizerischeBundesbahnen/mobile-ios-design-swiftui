@@ -116,6 +116,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
             .accessibility(label: Text(self.isTabBarFocused ? "" : "\("tab bar".localized).") + Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + self.contents[self.index].labelView + Text(". \("tab".localized)"))
             .accessibility(removeTraits: .isButton)
             .accessibility(hint: Text(" \(self.index + 1) \("of".localized) \(self.contents.count)"))
+            .accessibility(identifier: self.contents[self.index].label)
     }
 }
 
