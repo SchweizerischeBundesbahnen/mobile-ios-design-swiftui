@@ -3,7 +3,8 @@
 //
 
 // SBBTabBar
-"tab" = "(it) tab";
+"tab" = "panello";
+"tab bar" = "barra dei pannelli";
 
 // SBBBubbleView
 "collapse" = "riduci";
