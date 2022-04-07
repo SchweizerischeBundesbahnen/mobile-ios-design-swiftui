@@ -25,6 +25,7 @@ public struct SBBOnboardingTitleView: View {
     private let imageMinHeight: CGFloat = 200
     
     @State var titleHeight: CGFloat = 0
+    @State var subtitleHeight: CGFloat = 0
     
     /**
      Returns a SBBOnboardingTitleView displaying a title and an image.
@@ -58,20 +59,24 @@ public struct SBBOnboardingTitleView: View {
                                 .multilineTextAlignment(.center)
                                 .accessibility(addTraits: .isHeader)
                                 .accessibility(identifier: "onboardingTitleViewTitle")
+                                .modifier(SizePreferenceKeyUpdater())
+                                .onPreferenceChange(SizePreferenceKey.self) {
+                                    self.titleHeight = $0.height
+                                }
                             if let subtitle = subtitle {
                                 subtitle
                                     .sbbFont(.body)
                                     .fixedSize(horizontal: false, vertical: true)
                                     .multilineTextAlignment(.center)
                                     .accessibility(identifier: "onboardingTitleViewSubtitle")
+                                    .modifier(SizePreferenceKeyUpdater())
+                                    .onPreferenceChange(SizePreferenceKey.self) {
+                                        self.subtitleHeight = $0.height
+                                    }
                             }
                         }
                             .padding(.top, paddingBetweenImageAndTitle)
                             .foregroundColor(.sbbColor(.white))
-                            .modifier(SizePreferenceKeyUpdater())
-                            .onPreferenceChange(SizePreferenceKey.self) {
-                                self.titleHeight = $0.height
-                            }
                         Spacer()
                     }
                     Spacer()
@@ -82,8 +87,8 @@ public struct SBBOnboardingTitleView: View {
     }
     
     private func getContentHeight(containingViewHeight: CGFloat) -> CGFloat {
-        if titleHeight + imageMinHeight + paddingBetweenImageAndTitle > containingViewHeight {  // Content is bigger than ScrollView, image height corresponds to imageMinHeight
-            return titleHeight + imageMinHeight + paddingBetweenImageAndTitle
+        if titleHeight + 16 + subtitleHeight + imageMinHeight + paddingBetweenImageAndTitle > containingViewHeight {  // Content is bigger than ScrollView, image height corresponds to imageMinHeight
+            return titleHeight + 16 + imageMinHeight + paddingBetweenImageAndTitle
         } else {    // Content is smaller than ScrollView, image can take all the available space
             return containingViewHeight
         }
