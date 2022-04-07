@@ -80,6 +80,11 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
                                                     isPortrait: isPortrait)
             
             ZStack(alignment: .bottom) {
+                Rectangle()
+                    .frame(width: geometry.size.width, height: barHeight)
+                    .foregroundColor(Color.sbbColor(.viewBackground))
+                    .mask(LinearGradient(gradient: Gradient(colors: [Color.sbbColor(.viewBackground), .clear]), startPoint: .bottom, endPoint: .top))
+                
                 // Circles behind the bar
                 TabCircleRowView(selectionIndex: self.selectionIndex,
                                  content: self.contents,
