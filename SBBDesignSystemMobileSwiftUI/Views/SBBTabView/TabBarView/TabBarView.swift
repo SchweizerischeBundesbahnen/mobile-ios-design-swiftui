@@ -83,7 +83,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
                 Rectangle()
                     .frame(width: geometry.size.width, height: barHeight)
                     .foregroundColor(Color.sbbColor(.viewBackground))
-                    .mask(LinearGradient(gradient: Gradient(colors: [Color.sbbColor(.viewBackground), .clear]), startPoint: .bottom, endPoint: .top))
+                    .mask(LinearGradient(gradient: Gradient(colors: [Color.sbbColor(.viewBackground), Color.sbbColor(.viewBackground).opacity(0.7), .clear]), startPoint: .bottom, endPoint: .top))
                 
                 // Circles behind the bar
                 TabCircleRowView(selectionIndex: self.selectionIndex,
@@ -168,13 +168,13 @@ struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             tabBar
-                .background(Color.sbbColor(.background))
+                .background(Color.sbbColor(.red))
                 .previewDisplayName("Light portrait")
                 .environment(\.horizontalSizeClass, .compact)
                 .environment(\.verticalSizeClass, .regular)
             
             tabBar
-                .background(Color.sbbColor(.background))
+                .background(Color.sbbColor(.red))
                 .previewDisplayName("Dark portrait")
                 .environment(\.colorScheme, .dark)
                 .environment(\.horizontalSizeClass, .compact)
