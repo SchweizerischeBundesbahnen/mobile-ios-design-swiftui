@@ -142,6 +142,7 @@ public struct SBBListItem: View {
                             .sbbFont(.body)
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: labelAccessibility ?? label)
+                            .multilineTextAlignment(.leading)
                     }
                     if let footnote = footnote {
                         footnote
@@ -149,6 +150,7 @@ public struct SBBListItem: View {
                             .sbbFont(.legendSmall)
                             .foregroundColor(.sbbColor(.placeholder))
                             .accessibility(label: footnoteAccessibility ?? footnote)
+                            .multilineTextAlignment(.leading)
                     }
                 }
                 Spacer()
