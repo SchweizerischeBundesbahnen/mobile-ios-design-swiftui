@@ -44,9 +44,9 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
                 .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(44 / 2)
-                .background(
+                .overlay(
                     RoundedRectangle(cornerRadius: 23)
-                        .stroke(getForegroundColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
+                        .strokeBorder(getForegroundColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
                 )
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)

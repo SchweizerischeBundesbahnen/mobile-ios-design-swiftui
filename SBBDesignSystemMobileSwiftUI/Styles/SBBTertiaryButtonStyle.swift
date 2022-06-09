@@ -64,9 +64,9 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
                 .padding(.horizontal, horizontalPadding)
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(height / 2)
-                .background(
+                .overlay(
                     RoundedRectangle(cornerRadius: height / 2)
-                        .stroke(getForegroundColor(enabled: isEnabled), lineWidth: 1)
+                        .strokeBorder(getForegroundColor(enabled: isEnabled), lineWidth: 1)
                 )
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
