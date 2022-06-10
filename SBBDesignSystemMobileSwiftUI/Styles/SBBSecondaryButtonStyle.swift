@@ -39,26 +39,32 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
             configuration.label
                 .sbbFont(.body)
                 .padding(.horizontal, 8)
-                .foregroundColor(getForegroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
+                .foregroundColor(textColor)
                 .frame(height: 44)
                 .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(44 / 2)
                 .overlay(
                     RoundedRectangle(cornerRadius: 23)
-                        .strokeBorder(getForegroundColor(enabled: isEnabled, isPressed: configuration.isPressed), lineWidth: 1)
+                        .strokeBorder(borderColor, lineWidth: 1)
                 )
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
         }
         
-        private func getForegroundColor(enabled: Bool, isPressed: Bool) -> Color {
-            if !enabled {
-                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
-            } else if isPressed {
-                return (colorScheme == .light) ? .sbbColor(.secondary) : .sbbColor(.white)
+        private var textColor: Color {
+            if isEnabled {
+                return (colorScheme == .light) ? .sbbColor(.textRed) : .sbbColor(.white)
             } else {
-                return (colorScheme == .light) ? .sbbColor(.primary) : .sbbColor(.white)
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
+            }
+        }
+        
+        private var borderColor: Color {
+            if isEnabled {
+                return (colorScheme == .light) ? .sbbColor(.textRed) : .sbbColor(.smoke)
+            } else {
+                return (colorScheme == .light) ? .sbbColor(.cloud) : .sbbColor(.iron)
             }
         }
         
