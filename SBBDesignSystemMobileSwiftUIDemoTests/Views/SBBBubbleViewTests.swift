@@ -47,7 +47,7 @@ class SBBBubbleViewTests: XCTestCase {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         }).environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(precision: precision,traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
