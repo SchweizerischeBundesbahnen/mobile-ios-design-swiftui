@@ -25,7 +25,7 @@ extension XCTestCase {
     }
     
     var precision: Float {
-        5
+        100
     }
 }
 
