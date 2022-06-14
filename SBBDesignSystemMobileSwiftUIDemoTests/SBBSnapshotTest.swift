@@ -17,7 +17,7 @@ extension XCTestCase {
     
     // set to true to enable reference screenshot recording instead of snapshot comparison (make sure to set your simulator in .light appearance!)
     var recordNewReferenceSnapshots: Bool {
-        return false
+        return true
     }
     
     var traitLightMode: UITraitCollection {
