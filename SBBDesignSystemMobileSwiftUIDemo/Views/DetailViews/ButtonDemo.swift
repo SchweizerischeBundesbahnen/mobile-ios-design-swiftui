@@ -37,7 +37,7 @@ struct ButtonDemo: View {
                         .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                             .disabled(disabled)
                         Button(action: increment) {
-                            HStack {
+                            HStack (spacing: 4) {
                                 Image(sbbName: "dog", size: .small)
                                 Text("Tertiary Large Button w. Icon")
                             }
@@ -45,7 +45,7 @@ struct ButtonDemo: View {
                             .buttonStyle(SBBTertiaryButtonStyle())
                             .disabled(disabled)
                         Button(action: increment) {
-                            HStack {
+                            HStack (spacing: 4) {
                                 Image(sbbName: "dog", size: .small)
                                 Text("Tertiary Small Button w. Icon")
                             }
