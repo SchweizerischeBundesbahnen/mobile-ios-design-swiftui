@@ -59,31 +59,39 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
         var body: some View {
             configuration.label
                 .sbbFont(.body)
-                .foregroundColor(getForegroundColor(enabled: isEnabled))
+                .foregroundColor(textColor)
                 .frame(height: height)
                 .padding(.horizontal, horizontalPadding)
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(height / 2)
-                .background(
+                .overlay(
                     RoundedRectangle(cornerRadius: height / 2)
-                        .stroke(getForegroundColor(enabled: isEnabled), lineWidth: 1)
+                        .strokeBorder(borderColor, lineWidth: 1)
                 )
                 .lineLimit(1)
                 .minimumScaleFactor(0.1)
         }
         
-        private func getForegroundColor(enabled: Bool) -> Color {
-            if !enabled {
-                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
-            } else {
+        private var textColor: Color {
+            if isEnabled {
                 return .sbbColor(.textBlack)
+            } else {
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
+            }
+        }
+        
+        private var borderColor: Color {
+            if isEnabled {
+                return .sbbColor(.smoke)
+            } else {
+                return (colorScheme == .light) ? .sbbColor(.cloud) : .sbbColor(.iron)
             }
         }
         
         private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
             if !enabled {
                 return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.black)
-            } else  if isPressed {
+            } else if isPressed {
                 return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.black)
             } else {
                 return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.charcoal)

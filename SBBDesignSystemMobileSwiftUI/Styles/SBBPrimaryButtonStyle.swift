@@ -51,7 +51,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
                 configuration.label
                     .sbbFont(.body)
                     .padding(.horizontal, 24)
-                    .foregroundColor(.sbbColor(.textWhite))
+                    .foregroundColor(textColor)
                     .frame(height: 46)
                     .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                     .cornerRadius(23)
@@ -61,7 +61,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
                 configuration.label
                     .sbbFont(.body)
                     .padding(.horizontal, 8)
-                    .foregroundColor(.sbbColor(.textWhite))
+                    .foregroundColor(textColor)
                     .frame(height: 46)
                     .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
                     .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
@@ -72,13 +72,21 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
             
         }
         
-        private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
-            if !enabled {
-                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.iron)
-            } else if isPressed {
-                return .sbbColor(.secondary)
+        private var textColor: Color {
+            if isEnabled {
+                return .sbbColor(.textWhite)
             } else {
+                return (colorScheme == .light) ? .sbbColor(.textWhite) : .sbbColor(.smoke)
+            }
+        }
+        
+        private func getBackgroundColor(enabled: Bool, isPressed: Bool) -> Color {
+            if isPressed {
+                return .sbbColor(.secondary)
+            } else if enabled {
                 return .sbbColor(.primary)
+            } else {
+                return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.iron)
             }
         }
     }

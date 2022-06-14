@@ -23,6 +23,10 @@ extension XCTestCase {
     var traitLightMode: UITraitCollection {
         return UITraitCollection(userInterfaceStyle: .light)
     }
+    
+    var precision: Float {
+        1
+    }
 }
 
 extension View {
