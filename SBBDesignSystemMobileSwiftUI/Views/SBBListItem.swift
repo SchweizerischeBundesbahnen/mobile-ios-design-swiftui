@@ -149,7 +149,7 @@ public struct SBBListItem: View {
                         footnote
                             .fixedSize(horizontal: false, vertical: true)
                             .sbbFont(.legend)
-                            .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .red))
+                            .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .granite))
                             .accessibility(label: footnoteAccessibility ?? footnote)
                             .multilineTextAlignment(.leading)
                     }

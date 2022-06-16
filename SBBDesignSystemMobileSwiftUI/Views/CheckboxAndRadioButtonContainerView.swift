@@ -102,7 +102,7 @@ struct CheckBoxAndRadioButtonContainer: View {
                     if let subText = subText {
                         subText
                             .sbbFont(.legend)
-                            .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .red))
+                            .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .granite))
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
