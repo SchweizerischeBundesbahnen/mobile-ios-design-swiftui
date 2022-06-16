@@ -47,6 +47,7 @@ public struct SBBListItem: View {
     @State var horizontalFixedOffset = CGFloat.zero
 
     @Environment(\.sizeCategory) var sizeCategory
+    @Environment(\.colorScheme) var colorScheme
     
     private var dragGesture: some Gesture {
         return DragGesture()
@@ -147,8 +148,8 @@ public struct SBBListItem: View {
                     if let footnote = footnote {
                         footnote
                             .fixedSize(horizontal: false, vertical: true)
-                            .sbbFont(.legendSmall)
-                            .foregroundColor(.sbbColor(.placeholder))
+                            .sbbFont(.legend)
+                            .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .red))
                             .accessibility(label: footnoteAccessibility ?? footnote)
                             .multilineTextAlignment(.leading)
                     }

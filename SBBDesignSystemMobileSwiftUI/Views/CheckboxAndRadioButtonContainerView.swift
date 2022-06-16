@@ -101,8 +101,8 @@ struct CheckBoxAndRadioButtonContainer: View {
                     }
                     if let subText = subText {
                         subText
-                            .sbbFont(.legendSmall)
-                            .foregroundColor(.sbbColor(.placeholder))
+                            .sbbFont(.legend)
+                            .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .red))
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
