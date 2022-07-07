@@ -24,6 +24,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
     private var selectionIndex: Int {
         TabBarEntryView.selectionIndex(for: selection, in: contents)
     }
+    private var entry: TabBarEntryView
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
@@ -54,13 +55,28 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
         self.contents = content
         self.tabBarParameters = tabBarParameters
         self.isTabBarFocused = isTabBarFocused
+        self.entry = contents[index]
+    }
+    
+    private var imageView: some View {
+        Group {
+            if entry.customForeground != nil || entry.customBackground != nil {
+                Circle()
+                    .overlay(self.entry.imageView.foregroundColor(entry.customForeground != nil ? entry.customForeground : Color.sbbColor(.textBlack)))
+                    .foregroundColor(entry.customBackground != nil ? entry.customBackground! : Color.sbbColor(.viewBackground))
+            } else {
+                self.entry.imageView
+            }
+        }
+            .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.circleRadius * 2)
+            .padding(.top, self.tabBarParameters.topPad)
     }
     
     public var body: some View {
         let isPortrait = self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
         Button(action: {
             self.currentTab = self.selectionIndex
-            self.selection = self.contents[index].tag as? Selection ?? self.selection
+            self.selection = self.entry.tag as? Selection ?? self.selection
             
             if self.selectionIndex != self.currentTab && !self.isPressed {
                 self.transitionFactor = 0.2
@@ -71,17 +87,13 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
         }) {
             if isPortrait {
                 // Display only the icon
-                self.contents[self.index].imageView
-                    .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.circleRadius * 2)
-                    .padding(.top, self.tabBarParameters.topPad)
+                imageView
             } else {
                 // Display the icon and the text
                 HStack(spacing: 0) {
-                    self.contents[self.index].imageView
-                        .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.circleRadius * 2)
-                        .padding(.top, self.tabBarParameters.topPad)
+                    imageView
                     
-                    self.contents[self.index].labelView
+                    self.entry.labelView
                         .background(ViewGeometry())
                         .onPreferenceChange(ViewSizeKey.self) {
                             self.labelSizes[self.index] = $0
@@ -91,6 +103,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                         .minimumScaleFactor(0.1)
                         .padding(.leading, self.selectionIndex == index ? 10 : 0)
                         .padding(.trailing, 5)
+                        .padding(.top, self.tabBarParameters.topPad)
                 }
                 .accessibility(hidden: true)
             }
@@ -113,10 +126,10 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                         
                     })
             )
-            .accessibility(label: Text(self.isTabBarFocused ? "" : "\("tab bar".localized).") + Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + self.contents[self.index].labelView + Text(". \("tab".localized)"))
+            .accessibility(label: Text(self.isTabBarFocused ? "" : "\("tab bar".localized).") + Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + self.entry.labelView + Text(". \("tab".localized)"))
             .accessibility(removeTraits: .isButton)
             .accessibility(hint: Text(" \(self.index + 1) \("of".localized) \(self.contents.count)"))
-            .accessibility(identifier: self.contents[self.index].label)
+            .accessibility(identifier: self.entry.label)
     }
 }
 
@@ -135,11 +148,11 @@ struct TabButtonView_Previews: PreviewProvider {
                 .environment(\.horizontalSizeClass, .compact)
                 .environment(\.verticalSizeClass, .regular)
                 .environment(\.colorScheme, .dark)
-                .previewDisplayName("Dark landscape")
+                .previewDisplayName("Dark portrait")
             
             FakeTabButtons.fakeButton
                 .background(Color.sbbColor(.background))
-                .previewDisplayName("Light portrait")
+                .previewDisplayName("Light landscape")
             
             FakeTabButtons.fakeButton
                 .background(Color.sbbColor(.background))
