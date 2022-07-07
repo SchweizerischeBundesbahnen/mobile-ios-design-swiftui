@@ -20,6 +20,8 @@ public struct TabBarEntryView: View, Identifiable {
     var labelView: Text
     var label: String
     var tag: AnyHashable
+    var customBackground: Color?
+    var customForeground: Color?
     
     /**
      Returns a TabBarEntryView displaying the content of the tab.
@@ -29,8 +31,10 @@ public struct TabBarEntryView: View, Identifiable {
         - imageView: The image displayed in the tab bar
         - label: The label display in the tab bar
         - tag: The tag used to reference the bar
+        - customBackground: The backgroud color of the tab (circle)
+        - customForeground: The foreground color of the tab (circle)
      */
-    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, tag: AnyHashable) {
+    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, tag: AnyHashable, customBackground: Color? = nil, customForeground: Color? = nil) {
         self.imageView = imageView ?? Image(sbbName: "cross", size: .small)
         self.label = label ?? "_"
         self.labelView = Text(self.label)
@@ -39,6 +43,8 @@ public struct TabBarEntryView: View, Identifiable {
             imageView ?? Image(sbbName: "cross", size: .small)
         })
         self.tag = tag
+        self.customBackground = customBackground
+        self.customForeground = customForeground
     }
     
     public var body: some View {

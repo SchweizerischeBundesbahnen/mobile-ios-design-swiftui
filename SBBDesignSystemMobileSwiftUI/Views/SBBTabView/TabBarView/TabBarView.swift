@@ -168,13 +168,13 @@ struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             tabBar
-                .background(Color.sbbColor(.red))
+                .background(Color.sbbColor(.background))
                 .previewDisplayName("Light portrait")
                 .environment(\.horizontalSizeClass, .compact)
                 .environment(\.verticalSizeClass, .regular)
             
             tabBar
-                .background(Color.sbbColor(.red))
+                .background(Color.sbbColor(.background))
                 .previewDisplayName("Dark portrait")
                 .environment(\.colorScheme, .dark)
                 .environment(\.horizontalSizeClass, .compact)
