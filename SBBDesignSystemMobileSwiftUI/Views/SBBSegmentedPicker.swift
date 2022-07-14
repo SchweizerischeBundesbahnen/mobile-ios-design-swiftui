@@ -83,6 +83,8 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
         return tags.firstIndex(of: selection) ?? 0
     }
     
+    @State private var didAppear: Bool = false
+    
     @Environment(\.colorScheme) var colorScheme
      
     /**
@@ -115,7 +117,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     )
                     .shadow(color: Color.black.opacity(0.2), radius: 5)
                     .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selectionIndex))
-                    .animation(.default)
+                    .animation(didAppear ? .default : nil)
 
                 // Segments
                 HStack(spacing: 0) {
@@ -141,6 +143,9 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     }
                 }
             }
+                .onAppear {
+                    self.didAppear = true
+                }
                 .highPriorityGesture(DragGesture()
                     .onChanged {
                         self.selection = self.segment(for: $0.location.x, in: geometry.size.width)
