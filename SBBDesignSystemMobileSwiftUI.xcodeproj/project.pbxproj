@@ -20,6 +20,7 @@
 		005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */; };
 		005DC8DF279B1517009C5CEA /* FakeTabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */; };
 		005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */; };
+		00DC87AA287FEF570054E188 /* UIKitViewOnAppear.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC87A9287FEF570054E188 /* UIKitViewOnAppear.swift */; };
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
@@ -237,6 +238,7 @@
 		005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarParameters.swift; sourceTree = "<group>"; };
 		005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarShape.swift; sourceTree = "<group>"; };
 		005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabButtons.swift; sourceTree = "<group>"; };
+		00DC87A9287FEF570054E188 /* UIKitViewOnAppear.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitViewOnAppear.swift; sourceTree = "<group>"; };
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 				7C89AE6126B154720087872E /* IsSelected.swift */,
 				7CAC69FD25CAE775003CF54E /* Internal */,
 				7C7193C926E9DE7C00CD3EAF /* SBBScreenPadding.swift */,
+				00DC87A9287FEF570054E188 /* UIKitViewOnAppear.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -1185,6 +1188,7 @@
 				7CA5551B267A1473006A6F00 /* SBBStyle.swift in Sources */,
 				7C106D1925DA803700B89ECD /* SBBModalViewModifier.swift in Sources */,
 				7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */,
+				00DC87AA287FEF570054E188 /* UIKitViewOnAppear.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
 				005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */,
 				7CAC69FA25CAE73F003CF54E /* SizePreferenceKey.swift in Sources */,

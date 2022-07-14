@@ -143,8 +143,11 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     }
                 }
             }
-                .onAppear {
+                .uiKitOnAppear {
                     self.didAppear = true
+                }
+                .uiKitOnDisappear {
+                    self.didAppear = false
                 }
                 .highPriorityGesture(DragGesture()
                     .onChanged {
