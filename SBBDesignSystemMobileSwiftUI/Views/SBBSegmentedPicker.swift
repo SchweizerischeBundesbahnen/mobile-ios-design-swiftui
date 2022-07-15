@@ -115,13 +115,14 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     )
                     .shadow(color: Color.black.opacity(0.2), radius: 5)
                     .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selectionIndex))
-                    .animation(.default)
 
                 // Segments
                 HStack(spacing: 0) {
                     ForEach(0..<self.segments.count) { index in
                         Button(action: {
+                            withAnimation {
                                 self.selection = self.tags[index]
+                            }
                         }) {
                             HStack(spacing: 0) {
                                 Spacer()
@@ -142,8 +143,10 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                 }
             }
                 .highPriorityGesture(DragGesture()
-                    .onChanged {
-                        self.selection = self.segment(for: $0.location.x, in: geometry.size.width)
+                    .onChanged { gesture in
+                        withAnimation {
+                            self.selection = self.segment(for: gesture.location.x, in: geometry.size.width)
+                        }
                     }
                 )
         }
