@@ -144,9 +144,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                 }
             }
                 .uiKitOnAppear {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                        self.didAppear = true
-                    }
+                    self.didAppear = true
                 }
                 .uiKitOnDisappear {
                     self.didAppear = false
