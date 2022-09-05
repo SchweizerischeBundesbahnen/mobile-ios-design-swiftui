@@ -10,7 +10,7 @@ extension View {
      
      - Returns: A View containing the passed View with added image and label.
      */
-    public func sbbTabItem<V>(image: Image? = nil, label: String? = nil, tag: V, customBackground: Color? = nil, customForeground: Color? = nil) -> TabBarEntryView where V: Hashable {
-        return TabBarEntryView(contentView: AnyView(self), imageView: image, label: label, tag: tag, customBackground: customBackground, customForeground: customForeground)
+    public func sbbTabItem<V>(image: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: V, customBackground: Color? = nil, customForeground: Color? = nil) -> TabBarEntryView where V: Hashable {
+        return TabBarEntryView(contentView: AnyView(self), imageView: image, label: label, accessibilityLabel: accessibilityLabel, tag: tag, customBackground: customBackground, customForeground: customForeground)
     }
 }
