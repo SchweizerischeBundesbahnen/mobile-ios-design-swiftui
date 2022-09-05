@@ -18,7 +18,9 @@ public struct TabBarEntryView: View, Identifiable {
     var contentView: AnyView
     var imageView: Image
     var labelView: Text
+    
     var label: String
+    var accessibilityLabel: String
     var tag: AnyHashable
     var customBackground: Color?
     var customForeground: Color?
@@ -34,9 +36,11 @@ public struct TabBarEntryView: View, Identifiable {
         - customBackground: The backgroud color of the tab (circle)
         - customForeground: The foreground color of the tab (circle)
      */
-    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, tag: AnyHashable, customBackground: Color? = nil, customForeground: Color? = nil) {
+    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: AnyHashable, customBackground: Color? = nil, customForeground: Color? = nil) {
         self.imageView = imageView ?? Image(sbbName: "cross", size: .small)
         self.label = label ?? "_"
+        self.accessibilityLabel = accessibilityLabel ?? self.label
+        
         self.labelView = Text(self.label)
         self.contentView = contentView ?? AnyView(VStack {
             Text(label ?? "_")
