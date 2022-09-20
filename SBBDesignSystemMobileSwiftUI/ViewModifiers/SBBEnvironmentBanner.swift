@@ -80,7 +80,7 @@ public enum SBBEnvironmentBanner: CaseIterable {
         case .poc:
             return Text("poc")
         case .preview:
-            return Text("preview")
+            return Text("prev.")
         }
     }
 
@@ -108,7 +108,7 @@ public enum SBBEnvironmentBanner: CaseIterable {
         case .poc:
             return Color.sbbColor(.violet)
         case .preview:
-            return Color.sbbColor(.red)
+            return Color.sbbColor(.red125)
         }
     }
 }
