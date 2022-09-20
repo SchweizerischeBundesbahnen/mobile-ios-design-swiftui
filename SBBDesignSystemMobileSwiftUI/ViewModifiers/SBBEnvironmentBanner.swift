@@ -64,6 +64,8 @@ public enum SBBEnvironmentBanner: CaseIterable {
     case int
     /// Style for ProofOfConcept environments
     case poc
+    /// Style for Preview environments
+    case preview
     
     var text: Text {
         switch self {
@@ -77,6 +79,8 @@ public enum SBBEnvironmentBanner: CaseIterable {
             return Text("int")
         case .poc:
             return Text("poc")
+        case .preview:
+            return Text("preview")
         }
     }
 
@@ -86,7 +90,7 @@ public enum SBBEnvironmentBanner: CaseIterable {
             return Color.clear
         case .dev:
             return Color.sbbColor(.black)
-        case .test, .int, .poc:
+        case .test, .int, .poc, .preview:
             return Color.sbbColor(.white)
         }
     }
@@ -103,6 +107,8 @@ public enum SBBEnvironmentBanner: CaseIterable {
             return Color.sbbColor(.black)
         case .poc:
             return Color.sbbColor(.violet)
+        case .preview:
+            return Color.sbbColor(.red)
         }
     }
 }
