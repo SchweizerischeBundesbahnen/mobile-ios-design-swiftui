@@ -25,6 +25,7 @@ public struct SBBTextField: View {
     @State private var isEditing = false
     let label: String?
     let error: String?
+    let additionalAccessibilityText: String?
     let icon: Image?
     let showBottomLine: Bool
     
@@ -38,7 +39,7 @@ public struct SBBTextField: View {
         - icon: An optional Image to be shown on the leading edge of the SBBTextField.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
      */
-    public init(text: Binding<String>, label: String? = nil, error: String? = nil, icon: Image? = nil, showBottomLine: Bool = true) {
+    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true) {
         self._text = text
         if let label = label {
             self.label = NSLocalizedString(label, comment: "")
@@ -49,6 +50,11 @@ public struct SBBTextField: View {
             self.error = NSLocalizedString(error, comment: "")
         } else {
             self.error = nil
+        }
+        if let additionalAccessibilityText = additionalAccessibilityText {
+            self.additionalAccessibilityText = NSLocalizedString(additionalAccessibilityText, comment: "")
+        } else {
+            self.additionalAccessibilityText = nil
         }
         self.icon = icon
         self.showBottomLine = showBottomLine
@@ -99,6 +105,7 @@ public struct SBBTextField: View {
                                 .modifier(TextFieldPlaceholderCustomColorStyle(showPlaceHolder: text.isEmpty, placeholder: label))
                                 .sbbFont(.body)
                                 .accessibility(label: Text(accessibilityText))
+                                .accessibility(value: Text(""))
                         }
                     } else {
                         TextField("", text: $text, onEditingChanged: { editing in
@@ -149,6 +156,11 @@ public struct SBBTextField: View {
         }
         if let error = error {
             text.append("\(error). ")
+        }
+        text.append(self.text)
+        
+        if let additionalAccessibilityText = additionalAccessibilityText {
+            text.append("\(additionalAccessibilityText). ")
         }
         return text
     }
