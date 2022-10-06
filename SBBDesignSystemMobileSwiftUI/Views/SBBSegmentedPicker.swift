@@ -131,13 +131,13 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                                     .lineLimit(1)
                                     .minimumScaleFactor(0.1)
                                 Spacer()
+                                    .accessibility(label: Text("\("element".localized) \(index + 1) \("of".localized) \(self.segments.count)"))
                             }
                         }
                             .sbbFont(.body)
                             .foregroundColor(style.foregroundColor)
                             .padding(.horizontal, 16)
                             .frame(width: self.segmentWidth(parentWidth: geometry.size.width), height: 40)
-                            .accessibility(hint: Text("\(index + 1) \("of".localized) \(self.segments.count)"))
                             .accessibilityElement(children: .combine)
                     }
                 }
