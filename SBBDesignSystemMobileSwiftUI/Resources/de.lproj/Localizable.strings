@@ -5,6 +5,7 @@
 // SBBTabBar
 "tab" = "Tab";
 "tab bar" = "Tab-Leiste";
+"Element" = "Element";
 
 // SBBBubbleView
 "collapse" = "zusammenklappen";

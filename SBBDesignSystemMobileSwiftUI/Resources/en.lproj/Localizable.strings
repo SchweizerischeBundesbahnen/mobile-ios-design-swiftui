@@ -5,6 +5,7 @@
 // SBBTabBar
 "tab" = "tab";
 "tab bar" = "tab bar";
+"Element" = "element";
 
 // SBBBubbleView
 "collapse" = "collapse";
