@@ -85,6 +85,7 @@ public struct SBBOnboardingTitleView: View {
                     VStack(spacing: 0) {
                         Spacer()
                         imageView
+                            .frame(minHeight: imageMinHeight)
                         VStack(spacing: 16) {
                             titleView
                             if subtitle != nil {
@@ -104,7 +105,7 @@ public struct SBBOnboardingTitleView: View {
     
     private func getContentHeight(containingViewHeight: CGFloat) -> CGFloat {
         if titleHeight + 16 + subtitleHeight + imageMinHeight + paddingBetweenImageAndTitle > containingViewHeight {  // Content is bigger than ScrollView, image height corresponds to imageMinHeight
-            return titleHeight + 16 + imageMinHeight + paddingBetweenImageAndTitle
+            return titleHeight + 16 + subtitleHeight + imageMinHeight + paddingBetweenImageAndTitle
         } else {    // Content is smaller than ScrollView, image can take all the available space
             return containingViewHeight
         }

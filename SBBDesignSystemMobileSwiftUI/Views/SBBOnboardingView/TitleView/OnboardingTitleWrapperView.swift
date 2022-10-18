@@ -124,7 +124,7 @@ struct OnboardingTitleWrapperView: View {
     
     private func getContentHeight(containingViewHeight: CGFloat) -> CGFloat {
         if titleHeight + 16 + subtitleHeight + 16 > containingViewHeight {  // Content is bigger than ScrollView, image height corresponds to imageMinHeight
-            return titleHeight + 16 + 16
+            return titleHeight + 16 + subtitleHeight + 16
         } else {    // Content is smaller than ScrollView, image can take all the available space
             return containingViewHeight
         }
