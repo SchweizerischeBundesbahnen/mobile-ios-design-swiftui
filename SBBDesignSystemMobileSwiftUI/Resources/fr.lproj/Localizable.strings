@@ -17,7 +17,7 @@
 
 // SBBCheckBox
 "ON" = "Activé";
-"OFF" = "Desactivé";
+"OFF" = "Désactivé";
 
 // SBBOnboardingView
 "back" = "retourner";
