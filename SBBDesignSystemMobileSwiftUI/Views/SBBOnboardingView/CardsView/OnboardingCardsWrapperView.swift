@@ -8,55 +8,67 @@ struct OnboardingCardsWrapperView: View {
     
     @ObservedObject var viewModel: OnboardingViewModel
     @State private var dragOffset = CGSize.zero
-        
-    var body: some View {
-        VStack(spacing: 0) {
-            ZStack(alignment: .topLeading) {
-                Rectangle() // Fill the upper cornerRadius edges with red color, so that the View appears to only have cornerRadius at the bottom
-                    .background(Color.sbbColor(.primary).edgesIgnoringSafeArea(.top))
-                    .frame(height: 8)
-                if viewModel.currentCardView != nil {
-                    GeometryReader { geometry in
-                        ZStack {
-                            ForEach((0..<self.viewModel.cardViews.count).reversed(), id: \.self) { index in
-                                self.viewModel.cardViews[index]
-                                    .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width, safeAreaInsets: geometry.safeAreaInsets))
-                                    .offset(y: self.yOffsetForCard(at: index))
-                                    .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)
-                                    .opacity(self.opacityForCard(at: index))
-                                    .accessibilityElement(children: self.accessibilityHiddenForCard(at: index) ? .combine : .contain)   // elements of hidden cards need to be combined first (otherwise they are not hidden)
-                                    .accessibility(hidden: self.accessibilityHiddenForCard(at: index))
-                            }
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    
+    func cardsView(safeAreaInsetsLeading: CGFloat? = nil) -> some View {
+        return Group {
+            if viewModel.currentCardView != nil {
+                GeometryReader { geometry in
+                    ZStack {
+                        ForEach((0..<self.viewModel.cardViews.count).reversed(), id: \.self) { index in
+                            self.viewModel.cardViews[index]
+                                .offset(x: self.xOffsetForCard(at: index, cardWidth: geometry.size.width, safeAreaInsetsLeading: safeAreaInsetsLeading != nil ? safeAreaInsetsLeading! : geometry.safeAreaInsets.leading))
+                                .offset(y: self.yOffsetForCard(at: index))
+                                .scaleEffect(self.scaleFactorForCard(at: index), anchor: .top)
+                                .opacity(self.opacityForCard(at: index))
+                                .accessibilityElement(children: self.accessibilityHiddenForCard(at: index) ? .combine : .contain)   // elements of hidden cards need to be combined first (otherwise they are not hidden)
+                                .accessibility(hidden: self.accessibilityHiddenForCard(at: index))
                         }
-                            .edgesIgnoringSafeArea(.top)
-                            .padding([.horizontal, .bottom], 8)
-                            .padding(.top, 16)
-                            .background(Color.sbbColor(.primary).cornerRadius(16).edgesIgnoringSafeArea([.top, .horizontal]))
                     }
+                        .edgesIgnoringSafeArea(.top)
+                        .padding([.horizontal, .bottom], 8)
+                        .padding(.top, 16)
+                        .background(Color.sbbColor(.primary).edgesIgnoringSafeArea([.top, .horizontal]))
                 }
             }
+        }
+    }
+    
+    private var backButton: some View {
+        Button(action: {
+            self.showPreviousCard()
+        }) {
+            Image(sbbName: "chevron-small-left", size: .small)
+                .resizable()
+                .accessibility(label: Text("back".localized))
+        }
+    }
+    
+    private var nextButton: some View {
+        Button(action: {
+            self.showNextCard()
+        }) {
+            Image(sbbName: "chevron-small-right", size: .small)
+                .resizable()
+                .accessibility(label: Text("forward".localized))
+        }
+    }
+    
+    private var portraitView: some View {
+        VStack(spacing: 0) {
+            cardsView()
             VStack(spacing: 16) {
                 HStack {
-                    Button(action: {
-                        self.showPreviousCard()
-                    }) {
-                        Image(sbbName: "chevron-small-left", size: .small)
-                            .resizable()
-                            .accessibility(label: Text("back".localized))
-                    }
+                    backButton
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                         .accessibility(identifier: "onboardingPreviousCardButton")
                     Spacer()
                     SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViews.count)
                         .accessibility(hidden: true)
                     Spacer()
-                    Button(action: {
-                        self.showNextCard()
-                    }) {
-                        Image(sbbName: "chevron-small-right", size: .small)
-                            .resizable()
-                            .accessibility(label: Text("forward".localized))
-                    }
+                    nextButton
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                         .accessibility(identifier: "onboardingNextCardButton")
                 }
@@ -73,6 +85,54 @@ struct OnboardingCardsWrapperView: View {
         }
             .foregroundColor(.sbbColor(.textBlack))
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.all))
+    }
+    
+    private var landscapeView: some View {
+        GeometryReader { geometry in
+            HStack(spacing: 8) {
+                VStack {
+                    Spacer()
+                    backButton
+                        .buttonStyle(SBBIconButtonStyle(size: .large, style: .negative))
+                        .accessibility(identifier: "onboardingPreviousCardButton")
+                    Spacer()
+                }
+                cardsView(safeAreaInsetsLeading: 44 + 10 + 8 + geometry.safeAreaInsets.leading)
+                ZStack {
+                    VStack {
+                        Button(action: {
+                            self.viewModel.state = .hidden
+                        }) {
+                            Image(sbbName: "cross", size: .small)
+                                .resizable()
+                                .accessibility(label: Text("abort tour".localized))
+                        }
+                            .buttonStyle(SBBIconButtonStyle(size: .large, style: .negative))
+                            .accessibility(identifier: "onboardingAbortTourButton")
+                            .padding(.top, 16)
+                        Spacer()
+                    }
+                    VStack {
+                        Spacer()
+                        nextButton
+                            .buttonStyle(SBBIconButtonStyle(size: .large, style: .negative))
+                            .accessibility(identifier: "onboardingNextCardButton")
+                        Spacer()
+                    }
+                }
+            }
+                .background(Color.sbbColor(.primary).edgesIgnoringSafeArea(.all))
+        }
+    }
+        
+    var body: some View {
+        Group {
+            if self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular {
+                portraitView
+            } else {
+                landscapeView
+            }
+        }
             .gesture(
                 DragGesture()
                     .onChanged { gesture in
@@ -118,13 +178,14 @@ struct OnboardingCardsWrapperView: View {
         UIAccessibility.post(notification: .screenChanged, argument: nil)   // reset voiceover focus (to the current card)
     }
     
-    private func xOffsetForCard(at index: Int, cardWidth: CGFloat, safeAreaInsets: EdgeInsets) -> CGFloat {
+    private func xOffsetForCard(at index: Int, cardWidth: CGFloat, safeAreaInsetsLeading: CGFloat) -> CGFloat {
         let dragOffset = self.showDragOffsetForCard(at: index) ? self.dragOffset.width : 0
         
         if index < self.viewModel.currentCardIndex {
-            return CGFloat(index - self.viewModel.currentCardIndex) * cardWidth + dragOffset - safeAreaInsets.leading
+            
+            let offset = CGFloat(index - self.viewModel.currentCardIndex) * cardWidth + dragOffset - safeAreaInsetsLeading
+            return offset
         }
-        
         return 0 + dragOffset
     }
     
