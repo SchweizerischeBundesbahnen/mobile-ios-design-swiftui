@@ -47,7 +47,6 @@ public struct SBBNavigationBarSBBIcon: View {
                     .resizable()
                     .frame(width: 28, height: 14, alignment: .top)
                     .foregroundColor(.sbbColor(.textWhite))
-                    .padding(.bottom, 7)
             }
             .accessibility(hidden: onTouchAction == nil)
             .disabled(onTouchAction == nil)
