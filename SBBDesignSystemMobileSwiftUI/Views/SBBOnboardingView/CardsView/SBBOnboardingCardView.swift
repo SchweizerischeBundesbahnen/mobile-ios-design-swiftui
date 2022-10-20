@@ -23,6 +23,9 @@ public struct SBBOnboardingCardView: View {
     private let content: AnyView?
     let actionOnCardDisappear: (() -> ())?
     
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
+    
     @State var scrollViewIntrinsicHeight: CGFloat = 0
 
     private var isCustomCard: Bool {
@@ -68,42 +71,61 @@ public struct SBBOnboardingCardView: View {
         UIScrollView.appearance().bounces = false
     }
     
-    public var body: some View {
+    private var imageView: some View {
+        Group {
+            if let image = image {
+                image
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .accessibility(hidden: true)
+            }
+        }
+    }
+    
+    private var titleView: some View {
+        Group {
+            if let title = title {
+                title
+                    .sbbFont(.titleDefault)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .accessibility(addTraits: .isHeader)
+            }
+        }
+    }
+    
+    private var textView: some View {
+        Group {
+            if let text = text {
+                text
+                    .sbbFont(.body)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+    
+    private var portraitView: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
-                if self.isCustomCard {
-                    self.content
-                } else {
-                    VStack(spacing: 0) {
-                        if let image = image {
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                                .accessibility(hidden: true)
-                                .frame(height: getImageHeight(contentViewHeight: geometry.size.height))
-                        }
-                        HStack(spacing: 0) {
-                            Spacer()
-                            VStack(spacing: 16) {
-                                if let title = title {
-                                    title
-                                        .sbbFont(.titleDefault)
-                                        .multilineTextAlignment(.center)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                        .accessibility(addTraits: .isHeader)
-                                }
-                                if let text = text {
-                                    text
-                                        .sbbFont(.body)
-                                        .multilineTextAlignment(.center)
-                                        .fixedSize(horizontal: false, vertical: true)
-                                }
-                                if let content = content {
-                                    content
-                                }
+                VStack(spacing: 0) {
+                    if image != nil {
+                        imageView
+                            .frame(height: getImageHeight(contentViewHeight: geometry.size.height))
+                    }
+                    HStack(spacing: 0) {
+                        Spacer()
+                        VStack(spacing: 16) {
+                            titleView
+                            
+                            textView
+                            
+                            if let content = content {
+                                content
                             }
-                            Spacer()
                         }
+                        Spacer()
+                    }
                         .padding(16)
                         .foregroundColor(.sbbColor(.textBlack))
                         .background(Color.sbbColor(.viewBackground))
@@ -114,13 +136,74 @@ public struct SBBOnboardingCardView: View {
                                 }
                             }
                         )
-                    }
+                }
                     .frame(minHeight: geometry.size.height)
                     .clipped()
-                }
             }
+                .background(Color.sbbColor(.viewBackground))
+                .cornerRadius(16)
+        }
+    }
+    
+    private var landscapeView: some View {
+        GeometryReader { geometry in
+            HStack(spacing: 0) {
+                VStack {
+                    Spacer()
+                    imageView
+                    Spacer()
+                }
+                    .frame(width: geometry.size.width / 2)
+                    .frame(minHeight: geometry.size.height)
+                
+                ScrollView(showsIndicators: false) {
+                    VStack(spacing: 0) {
+                        HStack(spacing: 0) {
+                            Spacer()
+                            VStack(spacing: 16) {
+                                titleView
+                                
+                                textView
+                                
+                                if let content = content {
+                                    content
+                                }
+                            }
+                            Spacer()
+                        }
+                    }
+                        .padding(16)
+                        .foregroundColor(.sbbColor(.textBlack))
+                        .background(Color.sbbColor(.viewBackground))
+                        .frame(minHeight: geometry.size.height)
+                        .clipped()
+                }
+                    .frame(width: geometry.size.width / 2)
+            }
+        }
             .background(Color.sbbColor(.viewBackground))
             .cornerRadius(16)
+    }
+    
+    public var body: some View {
+        if self.isCustomCard {
+            GeometryReader { _ in
+                ScrollView(showsIndicators: false) {
+                    self.content
+                        .background(Color.sbbColor(.viewBackground))
+                        .cornerRadius(16)
+                }
+            }
+                .background(Color.sbbColor(.viewBackground))
+                .cornerRadius(16)
+        } else {
+            Group {
+                if self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular {
+                    portraitView
+                } else {
+                    landscapeView
+                }
+            }
         }
     }
     
