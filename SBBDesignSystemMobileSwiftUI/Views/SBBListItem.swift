@@ -144,6 +144,7 @@ public struct SBBListItem: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: labelAccessibility ?? label)
                             .multilineTextAlignment(.leading)
+                            .padding(.vertical, 12)
                     }
                     if let footnote = footnote {
                         footnote
@@ -160,8 +161,8 @@ public struct SBBListItem: View {
                     .frame(width: 32, height: 32)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.sbbColor(.border)))
+                    .padding(.vertical, 6)
             }
-                .padding(.vertical, 10)
                 .padding(.horizontal, 16)
                 .foregroundColor(.sbbColor(.textBlack))
                 .background(Color.sbbColor(.viewBackground))
