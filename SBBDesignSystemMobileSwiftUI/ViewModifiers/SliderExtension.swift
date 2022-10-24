@@ -18,8 +18,8 @@ public extension Slider {
      }
      ```
      */
-    func sbbStyle() -> some View {
-        self.modifier(SBBSlider())
+    func sbbStyle() -> some View {        
+        self.modifier(SBBSliderModifier())
     }
     
     /**
@@ -43,16 +43,20 @@ public extension Slider {
         HStack(alignment: .center, spacing: 4) {
             imageLeft
                 .resizeToContentSizeCategory(originalHeight: 24)
-            self.modifier(SBBSlider())
+            self.modifier(SBBSliderModifier())
             imageRight
                 .resizeToContentSizeCategory(originalHeight: 24)
         }
     }
 }
 
-struct SBBSlider: ViewModifier {
+struct SBBSliderModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .accentColor(Color.sbbColor(.primary))
+            .onAppear {
+                UISlider.appearance().minimumTrackTintColor = UIColor(Color.sbbColor(.red))
+                UISlider.appearance().maximumTrackTintColor = UIColor(Color.sbbColorInternal(.sliderSwitchInactive))
+            }
     }
 }
+

@@ -108,7 +108,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                 }
             }
         }
-        .background(Color.sbbColor(.background)).edgesIgnoringSafeArea(.horizontal)
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))
     }
 }
 

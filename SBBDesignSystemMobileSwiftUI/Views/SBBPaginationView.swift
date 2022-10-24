@@ -20,6 +20,7 @@ import SwiftUI
  */
 public struct SBBPaginationView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @Binding private var currentPageIndex: Int
     private var numberOfPages: Int
     
@@ -37,16 +38,16 @@ public struct SBBPaginationView: View {
     
     public var body: some View {
         HStack(spacing: 10) {
-            ForEach(0..<numberOfPages) { index in
+            ForEach(0..<numberOfPages, id:\.self) { index in
                 HStack {    // Workaround needed, so that the Circle-Views get reloaded after a currentPageIndex change, see https://developer.apple.com/forums/thread/131577
                     if index == self.currentPageIndex {
                         Circle()
-                            .fill(Color.sbbColor(.textBlack))
+                            .fill(colorScheme == .light ? Color.sbbColor(.red) : Color.sbbColor(.white))
                             .frame(width: 8, height: 8)
                     } else {
                         Circle()
-                            .fill(Color.sbbColorInternal(.paginationInactive))
-                            .frame(width: 4, height: 4)
+                            .strokeBorder(Color.sbbColorInternal(.paginationInactive), lineWidth: 1.0)
+                            .frame(width: 6, height: 6)
                     }
                 }
             }

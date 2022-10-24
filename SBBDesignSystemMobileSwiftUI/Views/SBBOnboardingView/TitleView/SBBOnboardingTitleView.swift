@@ -41,6 +41,42 @@ public struct SBBOnboardingTitleView: View {
         self.subtitle = subtitle
     }
     
+    var imageView: some View {
+        image
+            .resizable()
+            .accessibility(hidden: true)
+            .aspectRatio(contentMode: .fit)
+    }
+    
+    var titleView: some View {
+        title
+            .font(.sbbLight(size: 30))
+            .fixedSize(horizontal: false, vertical: true)
+            .multilineTextAlignment(.center)
+            .accessibility(addTraits: .isHeader)
+            .accessibility(identifier: "onboardingTitleViewTitle")
+            .modifier(SizePreferenceKeyUpdater())
+            .onPreferenceChange(SizePreferenceKey.self) {
+                self.titleHeight = $0.height
+            }
+    }
+    
+    var subtitleView: some View {
+        Group {
+            if let subtitle = subtitle {
+                subtitle
+                    .sbbFont(.body)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .multilineTextAlignment(.center)
+                    .accessibility(identifier: "onboardingTitleViewSubtitle")
+                    .modifier(SizePreferenceKeyUpdater())
+                    .onPreferenceChange(SizePreferenceKey.self) {
+                        self.subtitleHeight = $0.height
+                    }
+            }
+        }
+    }
+    
     public var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
@@ -48,31 +84,12 @@ public struct SBBOnboardingTitleView: View {
                     Spacer()
                     VStack(spacing: 0) {
                         Spacer()
-                        image
-                            .resizable()
-                            .accessibility(hidden: true)
-                            .aspectRatio(contentMode: .fit)
+                        imageView
+                            .frame(minHeight: imageMinHeight)
                         VStack(spacing: 16) {
-                            title
-                                .font(.sbbLight(size: 30))
-                                .fixedSize(horizontal: false, vertical: true)
-                                .multilineTextAlignment(.center)
-                                .accessibility(addTraits: .isHeader)
-                                .accessibility(identifier: "onboardingTitleViewTitle")
-                                .modifier(SizePreferenceKeyUpdater())
-                                .onPreferenceChange(SizePreferenceKey.self) {
-                                    self.titleHeight = $0.height
-                                }
-                            if let subtitle = subtitle {
-                                subtitle
-                                    .sbbFont(.body)
-                                    .fixedSize(horizontal: false, vertical: true)
-                                    .multilineTextAlignment(.center)
-                                    .accessibility(identifier: "onboardingTitleViewSubtitle")
-                                    .modifier(SizePreferenceKeyUpdater())
-                                    .onPreferenceChange(SizePreferenceKey.self) {
-                                        self.subtitleHeight = $0.height
-                                    }
+                            titleView
+                            if subtitle != nil {
+                                subtitleView
                             }
                         }
                             .padding(.top, paddingBetweenImageAndTitle)
@@ -88,7 +105,7 @@ public struct SBBOnboardingTitleView: View {
     
     private func getContentHeight(containingViewHeight: CGFloat) -> CGFloat {
         if titleHeight + 16 + subtitleHeight + imageMinHeight + paddingBetweenImageAndTitle > containingViewHeight {  // Content is bigger than ScrollView, image height corresponds to imageMinHeight
-            return titleHeight + 16 + imageMinHeight + paddingBetweenImageAndTitle
+            return titleHeight + 16 + subtitleHeight + imageMinHeight + paddingBetweenImageAndTitle
         } else {    // Content is smaller than ScrollView, image can take all the available space
             return containingViewHeight
         }
