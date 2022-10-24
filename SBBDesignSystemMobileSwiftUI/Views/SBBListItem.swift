@@ -144,7 +144,6 @@ public struct SBBListItem: View {
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: labelAccessibility ?? label)
                             .multilineTextAlignment(.leading)
-                            .padding(.vertical, 12)
                     }
                     if let footnote = footnote {
                         footnote
@@ -155,6 +154,7 @@ public struct SBBListItem: View {
                             .multilineTextAlignment(.leading)
                     }
                 }
+                    .padding(.vertical, 12)
                 Spacer()
                 imageRight
                     .accessibility(hidden: true)
