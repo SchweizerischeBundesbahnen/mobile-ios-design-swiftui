@@ -102,12 +102,13 @@ struct CheckBoxAndRadioButtonContainer: View {
                     if let subText = subText {
                         subText
                             .sbbFont(.legend)
+                            .padding(.top, 2)
                             .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .granite))
                             .fixedSize(horizontal: false, vertical: true)
                     }
                 }
             }
-                .padding(.vertical, 12)
+                .padding(.vertical, 10)
                 .padding(.horizontal, 16)
             if showBottomLine {
                 Rectangle()

@@ -36,7 +36,7 @@ public class SBBAppearance {
         appearance.backgroundColor = UIColor(color)
         appearance.shadowColor = .clear
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)!,
-                                             NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 22)!]
+                                             NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 18)!]
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance

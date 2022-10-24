@@ -46,7 +46,8 @@ public struct SBBFormGroup<Content>: View where Content: View {
                 HStack(alignment: .top, spacing: 0) {
                     Text(title)
                         .sbbFont(.body)
-                        .padding([.bottom, .leading, .trailing], 16)
+                        .padding([.leading, .trailing], 16)
+                        .padding(.bottom, 8)
                         .accessibility(addTraits: .isHeader)
                     Spacer(minLength: 0)
                 }

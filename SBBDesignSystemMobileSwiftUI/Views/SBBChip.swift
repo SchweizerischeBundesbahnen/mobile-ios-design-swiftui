@@ -68,7 +68,7 @@ public struct SBBChip: View {
                             .accessibility(label: Text("\(numberOfItems) \("entries".localized)"))
                     }
                 }
-                    .frame(width: 26, height: 26)
+                    .frame(width: 24, height: 24)
                     .background(backgroundColor)
                     .cornerRadius(13)
             }

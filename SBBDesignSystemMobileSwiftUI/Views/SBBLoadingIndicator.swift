@@ -72,10 +72,10 @@ public struct SBBLoadingIndicator: View {
     private var style: Style
     private var width: CGFloat
     private var height: CGFloat
-    private var numberOfRectangles = 4
-    private var animationDuration = 0.9
+    private var numberOfRectangles = 5
+    private var animationDuration = 1.2
     private var paddingBetweenRectangles: CGFloat = 10
-    private var rotationInDegrees = 60.0
+    private var rotationInDegrees = 25.0
     private var innerWidth: CGFloat // the width of the entire "train" is wider than it's containing view, since it's rotated to the back around the leading y-axis
     
     /**
@@ -90,43 +90,47 @@ public struct SBBLoadingIndicator: View {
         self.width = size.size.width
         self.height = size.size.height
         
-        let innerWidth = width / CGFloat(cos(rotationInDegrees * .pi / 180)) * 2.0
+        let innerWidth = width / CGFloat(cos(rotationInDegrees * .pi / 180)) * 3.0
         self.innerWidth = innerWidth
-        
-        let rectangleProperty = RectangleProperties(offset: innerWidth / 2, opacity: 0)
+
+        let rectangleProperty = RectangleProperties(offset: innerWidth, opacity: 0)
         _rectangleProperties = State(initialValue: [RectangleProperties](repeating: rectangleProperty, count: numberOfRectangles))
     }
-    
+        
     public var body: some View {
         Group {
             ZStack {
-                ForEach(0..<rectangleProperties.count) { index in
+                ForEach(rectangleProperties.indices, id:\.self) { index in
                     Rectangle()
                         .fill(style.color(for: colorScheme))
-                        .frame(width: innerWidth / CGFloat(numberOfRectangles) - paddingBetweenRectangles / CGFloat(numberOfRectangles - 1), height: height)
+                        .frame(width: innerWidth / CGFloat(numberOfRectangles), height: height)
                         .opacity(rectangleProperties[index].opacity)
                         .offset(x: rectangleProperties[index].offset)
-                            .onAppear {
-                                DispatchQueue.main.async {
-                                    withAnimation(Animation.linear(duration: animationDuration)
-                                                    .repeatForever(autoreverses: false)
-                                                    .delay(animationDuration / Double(numberOfRectangles) * Double(index))) {
-                                        rectangleProperties[index].offset = -rectangleProperties[index].offset
-                                    }
-                                    withAnimation(Animation.linear(duration: animationDuration / 2)
-                                                    .repeatForever()
-                                                    .delay(animationDuration / Double(numberOfRectangles) * Double(index))) {
-                                        rectangleProperties[index].opacity = 1
-                                    }
+                        .onAppear {
+                            withAnimation(Animation.linear(duration: animationDuration)
+                                    .repeatForever(autoreverses: false)
+                                    .delay(animationDuration / Double(numberOfRectangles) * Double(index))
+                            )
+                            {
+                                rectangleProperties[index].offset = -innerWidth / 8
+                            }
+                            DispatchQueue.main.async {
+                                withAnimation(Animation.linear(duration: animationDuration / 2)
+                                                .repeatForever(autoreverses: true)
+                                                .delay(animationDuration / Double(numberOfRectangles) * Double(index))
+                                ) {
+                                    rectangleProperties[index].opacity = 1
                                 }
                             }
+                        }
                 }
             }
-                .frame(width: innerWidth, height: height, alignment: .center)
                 .rotation3DEffect(.degrees(rotationInDegrees), axis: (x: 0, y: 1, z: 0), anchor: .leading)
         }
             .frame(width: width, height: height, alignment: .leading)
+            .clipped()
             .padding(8)
+            
         .accessibility(label: Text("Loading.".localized))
     }
 }
