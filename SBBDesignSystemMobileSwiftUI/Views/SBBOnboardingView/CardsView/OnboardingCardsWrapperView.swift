@@ -59,11 +59,13 @@ struct OnboardingCardsWrapperView: View {
     private var portraitView: some View {
         VStack(spacing: 0) {
             cardsView()
+                .accessibilitySortPriority(2)
             VStack(spacing: 16) {
                 HStack {
                     backButton
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                         .accessibility(identifier: "onboardingPreviousCardButton")
+                        .accessibilitySortPriority(3)
                     Spacer()
                     SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViews.count)
                         .accessibility(hidden: true)
@@ -71,6 +73,7 @@ struct OnboardingCardsWrapperView: View {
                     nextButton
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                         .accessibility(identifier: "onboardingNextCardButton")
+                        .accessibilitySortPriority(1)
                 }
                 Button(action: {
                     self.viewModel.state = .hidden
@@ -79,6 +82,7 @@ struct OnboardingCardsWrapperView: View {
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
                     .accessibility(identifier: "onboardingAbortTourButton")
+                    .accessibilitySortPriority(0)
             }
                 .padding(.horizontal, 8)
                 .padding(.vertical, 24)
@@ -95,9 +99,11 @@ struct OnboardingCardsWrapperView: View {
                     backButton
                         .buttonStyle(SBBIconButtonStyle(size: .large, style: .negative))
                         .accessibility(identifier: "onboardingPreviousCardButton")
+                        .accessibilitySortPriority(3)
                     Spacer()
                 }
                 cardsView(safeAreaInsetsLeading: 44 + 10 + 8 + geometry.safeAreaInsets.leading)
+                    .accessibilitySortPriority(2)
                 ZStack {
                     VStack {
                         Button(action: {
@@ -110,6 +116,7 @@ struct OnboardingCardsWrapperView: View {
                             .buttonStyle(SBBIconButtonStyle(size: .large, style: .negative))
                             .accessibility(identifier: "onboardingAbortTourButton")
                             .padding(.top, 16)
+                            .accessibilitySortPriority(0)
                         Spacer()
                     }
                     VStack {
@@ -117,10 +124,12 @@ struct OnboardingCardsWrapperView: View {
                         nextButton
                             .buttonStyle(SBBIconButtonStyle(size: .large, style: .negative))
                             .accessibility(identifier: "onboardingNextCardButton")
+                            .accessibilitySortPriority(1)
                         Spacer()
                     }
                 }
             }
+                .sbbScreenPadding(.horizontal)
                 .background(Color.sbbColor(.primary).edgesIgnoringSafeArea(.all))
         }
     }

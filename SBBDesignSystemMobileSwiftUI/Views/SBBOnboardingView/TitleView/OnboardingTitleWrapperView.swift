@@ -108,7 +108,7 @@ struct OnboardingTitleWrapperView: View {
                 }            
             }
         }
-            .sbbScreenPadding(.vertical)
+            .sbbScreenPadding()
     }
     
     var body: some View {
