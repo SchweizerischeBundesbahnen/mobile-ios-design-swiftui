@@ -75,6 +75,8 @@ public struct SBBModalView<Content>: View where Content: View {
     private let style: Style
     private let titleAlignment: SBBModalViewTitleAlignment
     @Binding private var isPresented: Bool
+    private let closeButtonAccessibilityText: Text
+    private let hideCloseButtonAccessibility: Bool
     private var showBackButton: Bool
     private let actionOnBackButtonTouched: (() -> ())?
     private let content: Content
@@ -89,11 +91,13 @@ public struct SBBModalView<Content>: View where Content: View {
         - actionOnBackButtonTouched: An optional action to be performed open touch events on the back button.
         - content: A custom VIew to be shown underneath the title.
      */
-    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, showBackButton: Bool = false, actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
+    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, closeButtonAccessibilityText: Text? = nil, hideCloseButtonAccessibility: Bool = false, showBackButton: Bool = false, actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.style = style
         self.titleAlignment = titleAlignment
         self._isPresented = isPresented
+        self.closeButtonAccessibilityText = closeButtonAccessibilityText ?? Text("close".localized)
+        self.hideCloseButtonAccessibility = hideCloseButtonAccessibility
         self.showBackButton = showBackButton
         self.actionOnBackButtonTouched = actionOnBackButtonTouched
         self.content = content()
@@ -115,6 +119,7 @@ public struct SBBModalView<Content>: View where Content: View {
                                 .accessibility(label: Text("back".localized))
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small))
+                            .accessibilitySortPriority(2)
                     } else if titleAlignment == .center {
                         Spacer()
                             .frame(width: 32)
@@ -126,18 +131,22 @@ public struct SBBModalView<Content>: View where Content: View {
                         .padding(.top, 7)
                         .sbbFont(.titleModul)
                         .accessibility(addTraits: .isHeader)
+                        .accessibilitySortPriority(2)
                     Spacer()
                     Button(action: {
                         self.isPresented = false
                     }) {
                         Image(sbbName: "cross", size: .small)
-                            .accessibility(label: Text("close".localized))
+                            .accessibility(hidden: hideCloseButtonAccessibility)
+                            .accessibility(label: closeButtonAccessibilityText)
+                            .accessibilitySortPriority(2)
                     }
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                 }
                     .sbbScreenPadding()
                 content
                     .padding(.bottom, style == .popup ? 16 : 0)
+                    .accessibilitySortPriority(1)
             }
                 .background(Color.sbbColor(.modalBackground).edgesIgnoringSafeArea(.bottom))
                 .cornerRadius(style != .full ? 16 : 0, corners: [.topLeft, .topRight])
