@@ -29,6 +29,7 @@ public struct SBBTextField: View {
     let icon: Image?
     let showBottomLine: Bool
     let showClearButtonWhenEditing: Bool
+    let boxed: Bool
     
     /**
      Returns a SBBTextField with a label and an optional Image.
@@ -40,8 +41,9 @@ public struct SBBTextField: View {
         - icon: An optional Image to be shown on the leading edge of the SBBTextField.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
         - showClearButtonWhenEditing: Shows or hides the clear button when editing a text.
+        - boxed: shows the Textfield inside a white box when enabled, and with a clear background when disabled (default). Clear background does not work inside SBBFormGroup.
      */
-    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true, showClearButtonWhenEditing: Bool = true) {
+    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true, showClearButtonWhenEditing: Bool = true, boxed: Bool = false) {
         self._text = text
         if let label = label {
             self.label = NSLocalizedString(label, comment: "")
@@ -61,6 +63,7 @@ public struct SBBTextField: View {
         self.icon = icon
         self.showBottomLine = showBottomLine
         self.showClearButtonWhenEditing = showClearButtonWhenEditing
+        self.boxed = boxed
     }
     
     private var bottomLineColor: Color {
@@ -77,6 +80,13 @@ public struct SBBTextField: View {
         default:
             return Color.clear
         }
+    }
+    
+    private var hasError: Bool {
+        guard let error = error, !error.isEmpty else {
+            return false
+        }
+        return true
     }
     
     public var body: some View {
@@ -148,6 +158,16 @@ public struct SBBTextField: View {
         }
             .padding(.leading, 16)
             .foregroundColor(isEnabled ? .sbbColor(.textBlack) : .sbbColor(.metal))
+            .background(boxed ? Color.sbbColor(.viewBackground) : .clear)
+            .cornerRadius(boxed ? 16 : 0)
+            .overlay (
+                VStack {
+                    if boxed {
+                        RoundedRectangle(cornerRadius: 16).stroke(lineWidth: 1).foregroundColor(hasError ? .sbbColor(.red) : .clear)
+                    } else {
+                        EmptyView()
+                    }
+                } , alignment: .center)
     }
     
     private func emptyText() {
