@@ -28,6 +28,7 @@ public struct SBBTextField: View {
     let additionalAccessibilityText: String?
     let icon: Image?
     let showBottomLine: Bool
+    let showClearButtonWhenEditing: Bool
     
     /**
      Returns a SBBTextField with a label and an optional Image.
@@ -38,8 +39,9 @@ public struct SBBTextField: View {
         - error: An optional label used to display errors with user input. Displayed below the text in red color and adding a red separator line below the entire SBBTextField.
         - icon: An optional Image to be shown on the leading edge of the SBBTextField.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+        - showClearButtonWhenEditing: Shows or hides the clear button when editing a text.
      */
-    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true) {
+    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true, showClearButtonWhenEditing: Bool = true) {
         self._text = text
         if let label = label {
             self.label = NSLocalizedString(label, comment: "")
@@ -58,6 +60,7 @@ public struct SBBTextField: View {
         }
         self.icon = icon
         self.showBottomLine = showBottomLine
+        self.showClearButtonWhenEditing = showClearButtonWhenEditing
     }
     
     private var bottomLineColor: Color {
@@ -123,7 +126,7 @@ public struct SBBTextField: View {
                     .frame(minHeight: 48)
                     .overlay(
                         Group {
-                            if isEditing && !text.isEmpty {
+                            if showClearButtonWhenEditing && isEditing && !text.isEmpty {
                                 Button(action: emptyText) {
                                     Image(sbbName: "cross", size: .small)
                                         .accessibility(label: Text("Delete input".localized))

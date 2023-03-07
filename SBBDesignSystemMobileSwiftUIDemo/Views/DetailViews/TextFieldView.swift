@@ -11,25 +11,26 @@ struct TextFieldView: View {
     @State private var text = "I like trains"
     @State private var disabled = false
     @State private var showBottomLine = false
+    @State private var showClearButton = true
     @EnvironmentObject var model: TextFieldViewModel
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 SBBFormGroup(title: "With placeholder") {
-                    SBBTextField(text: $text, label: "Placeholder", error: model.error, showBottomLine: showBottomLine)
+                    SBBTextField(text: $text, label: "Placeholder", error: model.error, showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
                         .disabled(disabled)
                 }
                 SBBFormGroup(title: "Without placeholder") {
-                    SBBTextField(text: $text, error: model.error, showBottomLine: showBottomLine)
+                    SBBTextField(text: $text, error: model.error, showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
                         .disabled(disabled)
                 }
                 SBBFormGroup(title: "With placeholder & icon") {
-                    SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine)
+                    SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
                         .disabled(disabled)
                 }
                 SBBFormGroup(title: "Without placeholder, with icon") {
-                    SBBTextField(text: $text, error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine)
+                    SBBTextField(text: $text, error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
                         .disabled(disabled)
                 }
                 Text("Content is: \(text)")
@@ -41,9 +42,12 @@ struct TextFieldView: View {
                     self.text = ""
                 }
                     .buttonStyle(SBBTertiaryButtonStyle(size: .small))
-                SBBCheckBox(isOn: $disabled, text: Text("Disabled"), showBottomLine: false)
-                SBBCheckBox(isOn: $showBottomLine, text: Text("Show bottom line"), showBottomLine: false)
-                SBBCheckBox(isOn: $model.showError, text: Text("Show Error"), showBottomLine: false)
+                Group {
+                    SBBCheckBox(isOn: $disabled, text: Text("Disabled"), showBottomLine: false)
+                    SBBCheckBox(isOn: $showBottomLine, text: Text("Show bottom line"), showBottomLine: false)
+                    SBBCheckBox(isOn: $model.showError, text: Text("Show Error"), showBottomLine: false)
+                    SBBCheckBox(isOn: $showClearButton, text: Text("Show clear button when editing"), showBottomLine: false)
+                }
             }
                 .sbbScreenPadding()
         }
