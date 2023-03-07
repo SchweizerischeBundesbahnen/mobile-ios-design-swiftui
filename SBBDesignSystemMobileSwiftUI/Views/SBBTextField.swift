@@ -65,8 +65,10 @@ public struct SBBTextField: View {
             return .sbbColor(.red)
         }
         switch (isEnabled, isEditing, showBottomLine) {
-        case (true, true, _):
+        case (true, true, true):
             return .sbbColor(.textBlack)
+        case (true, true, false):
+            return Color.clear
         case (_, _, true):
             return .sbbColorInternal(.textfieldLineInactive)
         default:
