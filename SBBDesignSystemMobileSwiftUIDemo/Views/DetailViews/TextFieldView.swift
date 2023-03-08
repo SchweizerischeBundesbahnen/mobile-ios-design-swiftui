@@ -18,23 +18,25 @@ struct TextFieldView: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
-                Text("Inside a SBBFormGroup")
-                    .underline()
-                SBBFormGroup(title: "With placeholder") {
-                    SBBTextField(text: $text, label: "Placeholder", error: model.error, showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
-                        .disabled(disabled)
-                }
-                SBBFormGroup(title: "Without placeholder") {
-                    SBBTextField(text: $text, error: model.error, showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
-                        .disabled(disabled)
-                }
-                SBBFormGroup(title: "With placeholder & icon") {
-                    SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
-                        .disabled(disabled)
-                }
-                SBBFormGroup(title: "Without placeholder, with icon") {
-                    SBBTextField(text: $text, error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
-                        .disabled(disabled)
+                Group {
+                    Text("Inside a SBBFormGroup")
+                        .underline()
+                    SBBFormGroup(title: "With placeholder") {
+                        SBBTextField(text: $text, label: "Placeholder", error: model.error, showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
+                            .disabled(disabled)
+                    }
+                    SBBFormGroup(title: "Without placeholder") {
+                        SBBTextField(text: $text, error: model.error, showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
+                            .disabled(disabled)
+                    }
+                    SBBFormGroup(title: "With placeholder & icon") {
+                        SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
+                            .disabled(disabled)
+                    }
+                    SBBFormGroup(title: "Without placeholder, with icon") {
+                        SBBTextField(text: $text, error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
+                            .disabled(disabled)
+                    }
                 }
                 Group {
                     Text("Outside a SBBFormGroup (Boxing possible)")
