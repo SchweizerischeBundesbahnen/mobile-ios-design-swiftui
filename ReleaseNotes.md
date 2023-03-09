@@ -1,5 +1,10 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## V1.0.2 - 08 March 2023
+
+### Features
+* Some SBBTextfields improvements: Boxed available. Clear button can be disabled. Bottom line optional even in edit mode.
+
 ## V1.0.1 - 25 January 2022
 
 ### Features
