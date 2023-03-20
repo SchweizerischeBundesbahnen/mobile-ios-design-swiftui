@@ -13,7 +13,7 @@ import SwiftUI
  @State private var isOn = false
 
  var body: some View {
-    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"), subText: Text("SubText"))
+    SBBCheckBox(isOn: $isOn, image: Image(sbbIcon: .alarm_clock_small), text: Text("Text"), subText: Text("SubText"))
  }
  ```
  ![SBBCheckBox](SBBCheckBox)
@@ -53,9 +53,9 @@ struct SBBCheckBox_Previews: PreviewProvider {
             SBBCheckBox(isOn: .constant(true), text: Text("Text"))
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark, text only")
-            SBBCheckBox(isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"))
+            SBBCheckBox(isOn: .constant(false), image: Image(sbbIcon: .alarm_clock_small), text: Text("Text"))
                 .previewDisplayName("Light, with image")
-            SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"))
+            SBBCheckBox(isOn: .constant(true), image: Image(sbbIcon: .alarm_clock_small), text: Text("Text"))
                 .disabled(true)
                 .previewDisplayName("Light, disabled")
             SBBCheckBox(isOn: .constant(true), text: Text("Text"), subText: Text("Modell: iPhone 11 Pro\niOS Version: 14.0"))

@@ -16,7 +16,7 @@ struct IconDemo: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 24) {
-                SBBInfoView(image: Image(sbbName: "circle-information", size: .small), text: Text("There are 3 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color. Pictograms are only available in one size and have a fixed color."))
+                SBBInfoView(image: Image(sbbIcon: .circle_information_small), text: Text("There are 3 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color. Pictograms are only available in one size and have a fixed color."))
                 SBBFormGroup(title: "Fahrplan Icons (FPL):") {
                     SBBTextField(text: self.$fplIconName, label: "Icon Name")
                     HStack {

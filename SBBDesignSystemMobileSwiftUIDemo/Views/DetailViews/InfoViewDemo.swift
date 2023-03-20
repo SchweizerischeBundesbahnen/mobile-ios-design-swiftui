@@ -16,7 +16,7 @@ struct InfoViewDemo: View {
     
     var body: some View {
         VStack {
-            SBBInfoView(image: Image(sbbName: "station", size: .small)
+            SBBInfoView(image: Image(sbbIcon: .station_small)
 , text: text)
             Spacer()
         }

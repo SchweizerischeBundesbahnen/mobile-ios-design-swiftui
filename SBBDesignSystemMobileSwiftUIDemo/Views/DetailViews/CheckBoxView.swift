@@ -23,7 +23,7 @@ struct CheckBoxView: View {
                 VStack(alignment: .leading, spacing: 0) {
                     SBBCheckBox(isOn: $isOn, text: Text("Normal Checkbox"), showBottomLine: false)
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), text: Text("Checkbox with Icon"), showBottomLine: false)
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbIcon: .alarm_clock_small), text: Text("Checkbox with Icon"), showBottomLine: false)
                         .disabled(isDisabled)
                     SBBCheckBox(isOn: $isOn, text: Text("Checkbox with subText"), subText: Text("Modell: iPhone 11 Pro\niOS Version: 14.0"), showBottomLine: false)
                         .disabled(isDisabled)
@@ -31,7 +31,7 @@ struct CheckBoxView: View {
                 SBBFormGroup(title: "Checkbox in FormGroup") {
                     SBBCheckBox(isOn: $isOn, text: Text("Normal Checkbox with line"))
                         .disabled(isDisabled)
-                    SBBCheckBox(isOn: $isOn, image: Image(sbbName: "alarm-clock", size: .small), text: Text("Checkbox with Icon and line"))
+                    SBBCheckBox(isOn: $isOn, image: Image(sbbIcon: .alarm_clock_small), text: Text("Checkbox with Icon and line"))
                         .disabled(isDisabled)
                     SBBCheckBox(isOn: $isOn, text: Text("Checkbox with subText"), subText: Text("Modell: iPhone 11 Pro\niOS Version: 14.0"), showBottomLine: false)
                         .disabled(isDisabled)

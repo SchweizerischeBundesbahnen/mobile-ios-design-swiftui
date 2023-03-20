@@ -11,7 +11,7 @@ class SBBListItemTests: XCTestCase {
     
     var label = Text("Label")
     var footnote = Text("Footnote")
-    var image = Image(sbbName: "station", size: .small)
+    var image = Image(sbbIcon: .station_small)
 
     func testListItemWithLabel() {
         let view = SBBListItem(label: label)

@@ -25,8 +25,46 @@ public extension Image {
      
      - Returns: A boolean value indicating, whether the specified SBB Icon exists.
      */
+    @available(*, deprecated, message: "Please use exists(sbbIcon: SBBIcon)")
     static func exists(sbbName: String) -> Bool {
         return UIImage(named: sbbName, in: Helper.bundle, with: nil) != nil
+    }
+    
+    /**
+     Checks whether a SBB Icon asset exists in the SBBDesignSystemMobileSwiftUI library for the name.
+     
+     - Parameters:
+        - sbbIcon: The name of the SBB Icon.
+     
+     - Returns: A boolean value indicating, whether the specified SBB Icon exists.
+     */
+    static func exists(sbbIcon: SBBIcon) -> Bool {
+        return UIImage(named: sbbIcon.rawValue, in: Helper.bundle, with: nil) != nil
+    }
+    /**
+     Returns a SBB Icon as Image.
+        
+     Sources:
+     Icons: https://digital.sbb.ch/de/brand_elemente/icons
+     Fahrplan-Icons: https://digital.sbb.ch/de/brand_elemente/fahrplan-icons
+     Piktogramme: https://digital.sbb.ch/de/brand_elemente/piktogramme
+     
+     ## Overview
+     You create an Image using the custom initializer:
+     ```swift
+     var body: some View {
+        Image(sbbIcon: .Zug_r)
+        Image(sbbIcon: .ir_40")
+     }
+     ```
+     ![ImageExtensionIconFPL](ImageExtensionIconFPL)
+     ![ImageExtensionIconPictogram](ImageExtensionIconPictogram)
+     
+     - Parameters:
+        - sbbIcon: The name of the FPL Icon or Pictogram.
+     */
+    init(sbbIcon: SBBIcon) {
+        self.init(sbbIcon.rawValue, bundle: Helper.bundle)
     }
     
     /**
@@ -38,6 +76,7 @@ public extension Image {
      var body: some View {
         Image(sbbName: "Zug_r")
         Image(sbbName: "product-ir-40")
+        Image(sbbIcon: .station_medium)
      }
      ```
      ![ImageExtensionIconFPL](ImageExtensionIconFPL)
@@ -46,6 +85,7 @@ public extension Image {
      - Parameters:
         - sbbName: The name of the FPL Icon or Pictogram.
      */
+    @available(*, deprecated, message: "Please use the init(sbbIcon:) initialiser")
     init(sbbName: String) {
         self.init(sbbName, bundle: Helper.bundle)
     }
@@ -67,6 +107,7 @@ public extension Image {
         - sbbName: The name of the KOM Icon (without size appendix).
         - size: The size of the KOM Icon.
      */
+    @available(*, deprecated, message: "Please use the init(sbbIcon:) initialiser")
     init(sbbName: String, size: SBBIconSize) {
         self.init("\(sbbName)-\(size.rawValue)", bundle: Helper.bundle)
     }

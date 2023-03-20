@@ -11,21 +11,21 @@ class SBBBubbleViewTests: XCTestCase {
 
 
     func testBubbleViewTitleOnly() {
-        let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"))
+        let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"))
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testBubbleViewSubtitle() {
-        let view = SBBBubbleView(image: Image(sbbName: "station", size: .medium), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."))
+        let view = SBBBubbleView(image: Image(sbbIcon: .station_medium), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."))
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testBubbleViewDetail() {
-        let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
+        let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         })
         for colorScheme in ColorScheme.allCases {
@@ -34,7 +34,7 @@ class SBBBubbleViewTests: XCTestCase {
     }
     
     func testBubbleViewDetailNoBackground() {
-        let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), extendNavigationBarBackground: false, expandableContent: {
+        let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), extendNavigationBarBackground: false, expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         })
         for colorScheme in ColorScheme.allCases {
@@ -43,7 +43,7 @@ class SBBBubbleViewTests: XCTestCase {
     }
     
     func testBubbleViewAccessbilityExtraExtraLarge() {
-        let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
+        let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         }).environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
         for colorScheme in ColorScheme.allCases {
@@ -52,7 +52,7 @@ class SBBBubbleViewTests: XCTestCase {
     }
     
     func testBubbleViewDetailMultipleView() {
-        let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
+        let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             Text("ca. +12'")
                 .foregroundColor(.sbbColor(.red))
@@ -65,7 +65,7 @@ class SBBBubbleViewTests: XCTestCase {
     }
     
     func testBubbleViewLongTitle() {
-        let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true), expandableContent: {
+        let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         })
         for colorScheme in ColorScheme.allCases {
@@ -74,7 +74,7 @@ class SBBBubbleViewTests: XCTestCase {
     }
     
     func testBubbleViewFixedContent() {
-        let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), fixedContent: {
+        let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), fixedContent: {
             Text("Wagen")
         })
         for colorScheme in ColorScheme.allCases {
@@ -83,7 +83,7 @@ class SBBBubbleViewTests: XCTestCase {
     }
     
     func testBubbleViewExpandableFixedContent() {
-        let view = SBBBubbleView(image: Image(sbbName: "train", size: .medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
+        let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         }, fixedContent: {
             SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {

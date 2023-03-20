@@ -114,7 +114,7 @@ public struct SBBModalView<Content>: View where Content: View {
                         Button(action: {
                             self.actionOnBackButtonTouched?()
                         }) {
-                            Image(sbbName: "chevron-small-right", size: .small)
+                            Image(sbbIcon: .chevron_small_right_small)
                                 .rotationEffect(Angle(degrees: 180))
                                 .accessibility(label: Text("back".localized))
                         }
@@ -136,7 +136,7 @@ public struct SBBModalView<Content>: View where Content: View {
                     Button(action: {
                         self.isPresented = false
                     }) {
-                        Image(sbbName: "cross", size: .small)
+                        Image(sbbIcon: .cross_small)
                             .accessibility(hidden: hideCloseButtonAccessibility)
                             .accessibility(label: closeButtonAccessibilityText)
                             .accessibilitySortPriority(2)

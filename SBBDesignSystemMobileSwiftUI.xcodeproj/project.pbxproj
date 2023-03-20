@@ -42,6 +42,7 @@
 		2DCEC9022539E34A008EDD15 /* TypographyUIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC9012539E34A008EDD15 /* TypographyUIKitView.swift */; };
 		2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC917253D83B7008EDD15 /* SBBColorName.swift */; };
 		2DCEC937253EC7F4008EDD15 /* SBBColorNameInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */; };
+		2DD29DFC29BCB0900083A8A0 /* SBBIconName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD29DFB29BCB0900083A8A0 /* SBBIconName.swift */; };
 		7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */; };
 		7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */; };
 		7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */; };
@@ -263,6 +264,7 @@
 		2DCEC9012539E34A008EDD15 /* TypographyUIKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyUIKitView.swift; sourceTree = "<group>"; };
 		2DCEC917253D83B7008EDD15 /* SBBColorName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorName.swift; sourceTree = "<group>"; };
 		2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorNameInternal.swift; sourceTree = "<group>"; };
+		2DD29DFB29BCB0900083A8A0 /* SBBIconName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBIconName.swift; sourceTree = "<group>"; };
 		7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderExtension.swift; sourceTree = "<group>"; };
 		7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemo.swift; sourceTree = "<group>"; };
 		7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
@@ -612,6 +614,7 @@
 		2D804EAE23D9D3BE00CC9C0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2DD29DFB29BCB0900083A8A0 /* SBBIconName.swift */,
 				2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */,
 				7C9C46DD24CB1ACE00C22E97 /* Preview Content */,
 				7CDFFD8323E9C3C000250717 /* Localizable.strings */,
@@ -967,6 +970,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D804E6B23D9D0DF00CC9C0C /* Build configuration list for PBXNativeTarget "SBBDesignSystemMobileSwiftUI" */;
 			buildPhases = (
+				2D497EA929BB88F9009DF93F /* [custom] Create Image Enum File */,
 				2D804E5223D9D0DF00CC9C0C /* Headers */,
 				2D804E5323D9D0DF00CC9C0C /* Sources */,
 				2D804E5423D9D0DF00CC9C0C /* Frameworks */,
@@ -1113,6 +1117,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D497EA929BB88F9009DF93F /* [custom] Create Image Enum File */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[custom] Create Image Enum File";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx \"$TOOLCHAIN_DIR/usr/bin/\"swift \"$PROJECT_DIR\"/SBBDesignSystemMobileSwiftUI/Scripts/generate_enum_file.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2D804E5323D9D0DF00CC9C0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1128,6 +1153,7 @@
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
 				005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */,
 				005DC8D0279AA42B009C5CEA /* TabButtonRowView.swift in Sources */,
+				2DD29DFC29BCB0900083A8A0 /* SBBIconName.swift in Sources */,
 				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
 				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,

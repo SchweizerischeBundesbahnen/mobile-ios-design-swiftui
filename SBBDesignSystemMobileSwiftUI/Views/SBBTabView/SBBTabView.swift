@@ -16,21 +16,21 @@ import SwiftUI
  var body: some View {
      SBBTabView(selection: $selectedSegment) {
          HStack {
-             Image(sbbName: "station", size: .small)
+             Image(sbbIcon: .station_small)
              Text("This is the content of the Station tab.")
          }
          .sbbTabItem(
-             image: Image(sbbName: "station", size: .small),
+             image: Image(sbbIcon: .station_small),
              label: Text("Station"),
              tag: 0
          )
  
          HStack {
-             Image(sbbName: "bus-stop", size: .small)
+             Image(sbbIco: .bus_stop_small)
              Text("This is the content of the Stop tab.")
          }
          .sbbTabItem(
-             image: Image(sbbName: "bus-stop", size: .small),
+             image: Image(sbbIcon: .bus_stop_small),
              label: Text("Stop"),
              tag: 1
          )

@@ -10,7 +10,7 @@ import SBBDesignSystemMobileSwiftUI
 class SBBIconButtonStyleTests: XCTestCase {
     
     var button = Button(action: {}) {
-        Image(sbbName: "dog", size: .small)
+        Image(sbbIcon: .dog_small)
     }
 
     func testIconButton() {

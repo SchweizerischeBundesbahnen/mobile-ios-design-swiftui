@@ -13,7 +13,7 @@ import SwiftUI
  @State private var isSelected = false
 
  var body: some View {
-    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"), subText: subText: Text("SubText"))
+    SBBRadioButton(image: Image(sbbIcon: .alarm_clock_small), text: Text("Text"), subText: subText: Text("SubText"))
         .isSelected(isSelected)
  }
  ```
@@ -60,9 +60,9 @@ struct SBBRadioButton_Previews: PreviewProvider {
             SBBRadioButton(text: Text("Text"))
                 .environment(\.colorScheme, .dark)
                 .previewDisplayName("Dark, text only")
-            SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"))
+            SBBRadioButton(image: Image(sbbIcon: .alarm_clock_small), text: Text("Text"))
                 .previewDisplayName("Light, with image")
-            SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"))
+            SBBRadioButton(image: Image(sbbIcon: .alarm_clock_small), text: Text("Text"))
                 .disabled(true)
                 .previewDisplayName("Light, disabled")
             SBBRadioButton(text: Text("Text"), subText: Text("Modell: iPhone 11 Pro\niOS Version: 14.0"))
