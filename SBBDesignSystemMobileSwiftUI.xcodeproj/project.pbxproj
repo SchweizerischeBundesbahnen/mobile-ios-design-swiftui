@@ -25,6 +25,8 @@
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
 		00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */; };
 		00FB819B278ED67F00F07D30 /* TabBarEntryViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */; };
+		2D5B275B29C994C300B3CC88 /* SBBIconsIndex.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D5B275A29C994C300B3CC88 /* SBBIconsIndex.json */; };
+		2D5B275D29C99D1800B3CC88 /* SBBIconsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */; };
 		2D804E6823D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7723D9D16000CC9C0C /* AppDelegate.swift */; };
 		2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7923D9D16000CC9C0C /* SceneDelegate.swift */; };
@@ -243,6 +245,8 @@
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
 		00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEntryView.swift; sourceTree = "<group>"; };
 		00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEntryViewModifier.swift; sourceTree = "<group>"; };
+		2D5B275A29C994C300B3CC88 /* SBBIconsIndex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBIconsIndex.json; sourceTree = "<group>"; };
+		2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconsHelper.swift; sourceTree = "<group>"; };
 		2D804E5723D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBBMobileDesignSystemSwiftUI.h; sourceTree = "<group>"; };
 		2D804E5B23D9D0DF00CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -614,6 +618,7 @@
 		2D804EAE23D9D3BE00CC9C0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D5B275A29C994C300B3CC88 /* SBBIconsIndex.json */,
 				2DD29DFB29BCB0900083A8A0 /* SBBIconName.swift */,
 				2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */,
 				7C9C46DD24CB1ACE00C22E97 /* Preview Content */,
@@ -866,6 +871,7 @@
 				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
 				7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */,
+				2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1086,6 +1092,7 @@
 				92B4A0B925592572005F4F06 /* sbbweb-bold-reduce.ttf in Resources */,
 				92B4A0B725592572005F4F06 /* sbbweb-thin-reduce.ttf in Resources */,
 				2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */,
+				2D5B275B29C994C300B3CC88 /* SBBIconsIndex.json in Resources */,
 				92B4A0B825592572005F4F06 /* sbbweb-ultralight-reduce.ttf in Resources */,
 				92B4A0BB25592572005F4F06 /* sbbweb-italic-reduce.ttf in Resources */,
 				92B4A0B625592572005F4F06 /* sbbweb-light-reduce.ttf in Resources */,
@@ -1185,6 +1192,7 @@
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
+				2D5B275D29C99D1800B3CC88 /* SBBIconsHelper.swift in Sources */,
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,

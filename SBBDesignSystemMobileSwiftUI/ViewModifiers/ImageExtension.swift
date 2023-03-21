@@ -65,6 +65,11 @@ public extension Image {
      */
     init(sbbIcon: SBBIcon) {
         self.init(sbbIcon.rawValue, bundle: Helper.bundle)
+        self = self.renderingMode(.original)
+        if SBBIconsHelper.shared.hasColor(iconName: sbbIcon.rawValue) {
+           self = self.renderingMode(.template)
+        }
+        
     }
     
     /**
@@ -76,7 +81,6 @@ public extension Image {
      var body: some View {
         Image(sbbName: "Zug_r")
         Image(sbbName: "product-ir-40")
-        Image(sbbIcon: .station_medium)
      }
      ```
      ![ImageExtensionIconFPL](ImageExtensionIconFPL)
