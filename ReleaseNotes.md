@@ -1,5 +1,13 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.0.3 - 21 March 2023
+
+### Improvements
+* All SBB Icons / SBB Pictos are now present inside the "SBBIconName.swift" enum. You can create an SBB Image with the `init(sbbIcon: SBBIcon)` initializer 
+
+### Deprecations
+* Initializing an SBB Image with `init(sbbName: String)` or `init(sbbName: String, size: SBBIconSize)` is deprecated and will be removed in a future version
+
 ## V1.0.2 - 08 March 2023
 
 ### Features

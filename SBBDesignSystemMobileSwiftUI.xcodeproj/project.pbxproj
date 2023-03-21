@@ -27,6 +27,7 @@
 		00FB819B278ED67F00F07D30 /* TabBarEntryViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */; };
 		2D5B275B29C994C300B3CC88 /* SBBIconsIndex.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D5B275A29C994C300B3CC88 /* SBBIconsIndex.json */; };
 		2D5B275D29C99D1800B3CC88 /* SBBIconsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */; };
+		2D5B276829C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D5B276729C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md */; };
 		2D804E6823D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7723D9D16000CC9C0C /* AppDelegate.swift */; };
 		2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7923D9D16000CC9C0C /* SceneDelegate.swift */; };
@@ -247,6 +248,7 @@
 		00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEntryViewModifier.swift; sourceTree = "<group>"; };
 		2D5B275A29C994C300B3CC88 /* SBBIconsIndex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBIconsIndex.json; sourceTree = "<group>"; };
 		2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconsHelper.swift; sourceTree = "<group>"; };
+		2D5B276729C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HowTo_ImportSBBIcons.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		2D804E5723D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBBMobileDesignSystemSwiftUI.h; sourceTree = "<group>"; };
 		2D804E5B23D9D0DF00CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				7C2B7E7223DAC4FD0012CF62 /* README.md */,
 				7CC4B00F276A19E700B3BC46 /* Contributing.md */,
 				7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */,
+				2D5B276729C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md */,
 				7C77C2D6276B233000AC8157 /* LICENSE */,
 				F8882F2C27AD37E200396FC7 /* ci_scripts */,
 				7C77C2D2276B155300AC8157 /* LICENSES */,
@@ -1090,6 +1093,7 @@
 				92B4A0BC25592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf in Resources */,
 				7C9C46DF24CB1AED00C22E97 /* Preview Assets.xcassets in Resources */,
 				92B4A0B925592572005F4F06 /* sbbweb-bold-reduce.ttf in Resources */,
+				2D5B276829C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md in Resources */,
 				92B4A0B725592572005F4F06 /* sbbweb-thin-reduce.ttf in Resources */,
 				2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */,
 				2D5B275B29C994C300B3CC88 /* SBBIconsIndex.json in Resources */,
