@@ -49,6 +49,8 @@ public extension Image {
      Fahrplan-Icons: https://digital.sbb.ch/de/brand_elemente/fahrplan-icons
      Piktogramme: https://digital.sbb.ch/de/brand_elemente/piktogramme
      
+     There are some images that support changing its color. These are indicated in this file: https://github.com/sbb-design-systems/sbb-icons/blob/main/icons/index.json
+     
      ## Overview
      You create an Image using the custom initializer:
      ```swift
