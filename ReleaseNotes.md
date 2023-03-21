@@ -3,7 +3,9 @@
 ## v1.0.3 - 21 March 2023
 
 ### Improvements
+* re-import the newest SBB Icons / SBB Pictos
 * All SBB Icons / SBB Pictos are now present inside the "SBBIconName.swift" enum. You can create an SBB Image with the `init(sbbIcon: SBBIcon)` initializer 
+* Attention: there were some renamings of certain icons. Please check your code whether the used icon exists.
 
 ### Deprecations
 * Initializing an SBB Image with `init(sbbName: String)` or `init(sbbName: String, size: SBBIconSize)` is deprecated and will be removed in a future version
