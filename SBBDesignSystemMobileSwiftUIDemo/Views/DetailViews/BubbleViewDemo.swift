@@ -15,7 +15,7 @@ struct BubbleViewDemo: View {
     @State var segmentedPickerSelection3 = 0
     @State var bubbleViewHeight: CGFloat = 0
     
-    var image = Image(sbbName: "train", size: .medium)
+    var image = Image(sbbIcon: .train_medium)
     var title = Text("IC6 nach Basel")
     var subtitle = Text("Gleis 2.")
     var detail1 = Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")

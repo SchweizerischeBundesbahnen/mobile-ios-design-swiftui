@@ -16,12 +16,11 @@ struct IconDemo: View {
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 24) {
-                SBBInfoView(image: Image(sbbName: "circle-information", size: .small), text: Text("There are 3 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color. Pictograms are only available in one size and have a fixed color."))
+                SBBInfoView(image: Image(sbbIcon: .circle_information_small), text: Text("There are 3 different types of SBB Icons: FPL icons are only available in one size and have a fixed color. KOM icons are available in up to three sizes and inherit the foreground color. Pictograms are only available in one size and have a fixed color."))
                 SBBFormGroup(title: "Fahrplan Icons (FPL):") {
-                    SBBTextField(text: self.$fplIconName, label: "Icon Name")
                     HStack {
                         Spacer()
-                        Image(sbbName: self.fplIconName)
+                        Image(sbbIcon: .ir_40)
                         Spacer()
                     }
                         .padding(16)
@@ -39,21 +38,20 @@ struct IconDemo: View {
                     
                 }
                 SBBFormGroup(title: "Allgemeine Icons (KOM):") {
-                    SBBTextField(text: self.$komIconName, label: "Icon Name")
                     HStack(alignment: .bottom) {
                         Spacer()
                         VStack {
-                            Image(sbbName: self.komIconName, size: .small)
+                            Image(sbbIcon: .station_small)
                             Text("small")
                         }
                         Spacer()
                         VStack {
-                            Image(sbbName: self.komIconName, size: .medium)
+                            Image(sbbIcon: .station_medium)
                             Text("medium")
                         }
                         Spacer()
                         VStack {
-                            Image(sbbName: self.komIconName, size: .large)
+                            Image(sbbIcon: .station_large)
                             Text("large")
                         }
                         Spacer()
@@ -73,11 +71,10 @@ struct IconDemo: View {
                         .padding(16)
                 }
                 SBBFormGroup(title: "Pictograms (Piktogramme):") {
-                    SBBTextField(text: self.$pictogramName, label: "Pictogram Name")
                     HStack(alignment: .bottom) {
                         Spacer()
                         VStack {
-                            Image(sbbName: self.pictogramName)
+                            Image(sbbIcon: .Zug_r)
                         }
                         Spacer()
                     }
@@ -95,6 +92,7 @@ struct IconDemo: View {
                         .buttonStyle(SBBSecondaryButtonStyle())
                         .padding(16)
                 }
+                
                 Spacer()
             }
                 .sbbScreenPadding()

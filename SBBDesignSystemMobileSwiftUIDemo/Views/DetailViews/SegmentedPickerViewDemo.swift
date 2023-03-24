@@ -41,16 +41,16 @@ struct SegmentedPickerViewDemo: View {
                         Text("Platform")
                     }
                     SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
-                        Image(sbbName: "timetable", size: .small)
-                        Image(sbbName: "platform-display", size: .small)
+                        Image(sbbIcon: .timetable_small)
+                        Image(sbbIcon: .platform_display_small)
                     }
                     SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
                         HStack {
-                            Image(sbbName: "timetable", size: .small)
+                            Image(sbbIcon: .timetable_small)
                             Text("Departures")
                         }
                         HStack {
-                            Image(sbbName: "platform-display", size: .small)
+                            Image(sbbIcon: .platform_display_small)
                             Text("Platform")
                         }
                     }

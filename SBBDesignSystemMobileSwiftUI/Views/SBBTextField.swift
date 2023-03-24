@@ -13,7 +13,7 @@ import SwiftUI
  @State var input = "I like trains"
 
  var body: some View {
-    SBBTextField(text: $input, label: "Placeholder", error: "Error", icon: Image(sbbName: "route-circle-start", size: .small))
+    SBBTextField(text: $input, label: "Placeholder", error: "Error", icon: Image(sbbIcon: .route_circle_start_small))
  }
  ```
  ![SBBTextField](SBBTextField)
@@ -138,7 +138,7 @@ public struct SBBTextField: View {
                         Group {
                             if showClearButtonWhenEditing && isEditing && !text.isEmpty {
                                 Button(action: emptyText) {
-                                    Image(sbbName: "cross", size: .small)
+                                    Image(sbbIcon: .cross_small)
                                         .accessibility(label: Text("Delete input".localized))
                                 }
                                     .buttonStyle(SBBIconButtonStyle(size: .small))
@@ -201,7 +201,7 @@ struct SBBTextField_Previews: PreviewProvider {
                     .previewDisplayName("Light empty")
                 SBBTextField(text: .constant("Text"), label: "Placeholder")
                     .previewDisplayName("Light with text")
-                SBBTextField(text: .constant("Text"), label: "Placeholder", icon: Image(sbbName: "route-circle-start", size: .small))
+                SBBTextField(text: .constant("Text"), label: "Placeholder", icon: Image(sbbIcon: .route_circle_start_small))
                     .previewDisplayName("Light with Icon")
                 SBBTextField(text: .constant(""), label: "Placeholder")
                     .previewDisplayName("Dark empty")
@@ -209,7 +209,7 @@ struct SBBTextField_Previews: PreviewProvider {
                 SBBTextField(text: .constant("Text"), label: "Placeholder")
                     .previewDisplayName("Dark with text")
                     .environment(\.colorScheme, .dark)
-                SBBTextField(text: .constant("Text"), label: "Placeholder", icon: Image(sbbName: "route-circle-start", size: .small))
+                SBBTextField(text: .constant("Text"), label: "Placeholder", icon: Image(sbbIcon: .route_circle_start_small))
                     .previewDisplayName("Dark with Icon")
                     .environment(\.colorScheme, .dark)
             }
@@ -220,7 +220,7 @@ struct SBBTextField_Previews: PreviewProvider {
                     .previewDisplayName("Light empty, error")
                 SBBTextField(text: .constant("Text"), label: "Placeholder", error: "Error")
                     .previewDisplayName("Light with text, error")
-                SBBTextField(text: .constant("Text"), label: "Placeholder", error: "Error", icon: Image(sbbName: "route-circle-start", size: .small))
+                SBBTextField(text: .constant("Text"), label: "Placeholder", error: "Error", icon: Image(sbbIcon: .route_circle_start_small))
                     .previewDisplayName("Light with Icon, error")
                 SBBTextField(text: .constant(""), label: "Placeholder", error: "Error")
                     .previewDisplayName("Dark empty, error")
@@ -228,7 +228,7 @@ struct SBBTextField_Previews: PreviewProvider {
                 SBBTextField(text: .constant("Text"), label: "Placeholder", error: "Error")
                     .previewDisplayName("Dark with text, error")
                     .environment(\.colorScheme, .dark)
-                SBBTextField(text: .constant("Text"), label: "Placeholder", error: "Error", icon: Image(sbbName: "route-circle-start", size: .small))
+                SBBTextField(text: .constant("Text"), label: "Placeholder", error: "Error", icon: Image(sbbIcon: .route_circle_start_small))
                     .previewDisplayName("Dark with Icon, error")
                     .environment(\.colorScheme, .dark)
             }

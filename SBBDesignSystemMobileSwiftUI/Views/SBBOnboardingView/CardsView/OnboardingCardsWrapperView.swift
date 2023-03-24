@@ -40,7 +40,7 @@ struct OnboardingCardsWrapperView: View {
         Button(action: {
             self.showPreviousCard()
         }) {
-            Image(sbbName: "chevron-small-left", size: .small)
+            Image(sbbIcon: .chevron_small_left_small)
                 .resizable()
                 .accessibility(label: Text("back".localized))
         }
@@ -50,7 +50,7 @@ struct OnboardingCardsWrapperView: View {
         Button(action: {
             self.showNextCard()
         }) {
-            Image(sbbName: "chevron-small-right", size: .small)
+            Image(sbbIcon: .chevron_small_right_small)
                 .resizable()
                 .accessibility(label: Text("forward".localized))
         }
@@ -109,7 +109,7 @@ struct OnboardingCardsWrapperView: View {
                         Button(action: {
                             self.viewModel.state = .hidden
                         }) {
-                            Image(sbbName: "cross", size: .small)
+                            Image(sbbIcon: .cross_small)
                                 .resizable()
                                 .accessibility(label: Text("abort tour".localized))
                         }

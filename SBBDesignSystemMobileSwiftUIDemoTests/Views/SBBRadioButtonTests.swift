@@ -9,7 +9,7 @@ import SBBDesignSystemMobileSwiftUI
 
 class SBBRadioButtonTests: XCTestCase {
     
-    let image = Image(sbbName: "alarm-clock", size: .small)
+    let image = Image(sbbIcon: .alarm_clock_small)
     let text = Text("Label")
     let subText = Text("SubLabel")
     

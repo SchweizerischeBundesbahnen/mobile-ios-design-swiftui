@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="SVG_x5F_24x24pt">
+	<path id="backgroundBlue" fill="#2D327D" d="M0,22.5v-21C0,0.675,0.675,0,1.5,0h21C23.325,0,24,0.675,24,1.5v21
+		c0,0.825-0.675,1.5-1.5,1.5h-21C0.675,24,0,23.325,0,22.5z"/>
+	<g id="content">
+		<polygon fill="#FFFFFF" points="3,7.5 3.675,7.5 3.675,8.625 3,8.625 3,7.5 		"/>
+		<polygon fill="#FFFFFF" points="3,19.125 3.675,19.125 3.675,20.25 3,20.25 3,19.125 		"/>
+		<polygon fill="#FFFFFF" points="4.425,6.75 5.475,6.75 5.475,21 4.425,21 4.425,6.75 		"/>
+		<polygon fill="#FFFFFF" points="6.15,19.163 17.85,19.163 17.85,20.25 6.15,20.25 6.15,19.163 		"/>
+		<path fill="#FFFFFF" d="M16.726,10.838H13.8v-0.563c0-0.516-0.42-0.938-0.937-0.938h-1.726c-0.517,0-0.936,0.422-0.936,0.938
+			v0.563H7.275c-0.622,0-1.125,0.504-1.125,1.125v5.289c0,0.62,0.503,1.123,1.125,1.123h9.451c0.621,0,1.124-0.503,1.124-1.123
+			v-5.289C17.85,11.342,17.347,10.838,16.726,10.838L16.726,10.838z M13.125,10.838h-2.25v-0.824h2.25V10.838L13.125,10.838z"/>
+		<polygon fill="#FFFFFF" points="6.15,7.5 17.85,7.5 17.85,8.587 6.15,8.587 6.15,7.5 		"/>
+		<polygon fill="#FFFFFF" points="18.525,6.75 19.575,6.75 19.575,21 18.525,21 18.525,6.75 		"/>
+		<polygon fill="#FFFFFF" points="20.325,7.5 21,7.5 21,8.625 20.325,8.625 20.325,7.5 		"/>
+		<polygon fill="#FFFFFF" points="20.325,19.125 21,19.125 21,20.25 20.325,20.25 20.325,19.125 		"/>
+	</g>
+</g>
+</svg>

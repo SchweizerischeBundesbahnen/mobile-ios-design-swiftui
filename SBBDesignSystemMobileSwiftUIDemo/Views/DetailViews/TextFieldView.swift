@@ -30,11 +30,11 @@ struct TextFieldView: View {
                             .disabled(disabled)
                     }
                     SBBFormGroup(title: "With placeholder & icon") {
-                        SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
+                        SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbIcon: .route_circle_start_small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
                             .disabled(disabled)
                     }
                     SBBFormGroup(title: "Without placeholder, with icon") {
-                        SBBTextField(text: $text, error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
+                        SBBTextField(text: $text, error: model.error, icon: Image(sbbIcon: .route_circle_start_small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton)
                             .disabled(disabled)
                     }
                 }
@@ -46,9 +46,9 @@ struct TextFieldView: View {
                         .disabled(disabled)
                     SBBTextField(text: $text, error: model.error, showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton, boxed: boxed)
                         .disabled(disabled)
-                    SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton, boxed: boxed)
+                    SBBTextField(text: $text, label: "Placeholder", error: model.error, icon: Image(sbbIcon: .route_circle_start_small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton, boxed: boxed)
                         .disabled(disabled)
-                    SBBTextField(text: $text, error: model.error, icon: Image(sbbName: "route-circle-start", size: .small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton, boxed: boxed)
+                    SBBTextField(text: $text, error: model.error, icon: Image(sbbIcon: .route_circle_start_small), showBottomLine: showBottomLine, showClearButtonWhenEditing: showClearButton, boxed: boxed)
                         .disabled(disabled)
                 }
                 Group {

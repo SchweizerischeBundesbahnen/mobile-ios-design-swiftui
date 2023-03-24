@@ -52,6 +52,10 @@ Generally speaking, we are welcoming contributions improving existing UI element
 
 General instructions on _how_ to contribute can be found under [Contributing](Contributing.md).
 
+## Missing SBB Icons?
+
+Tell us! How to do it is described under [How to import SBB Icons](HowTo_ImportSBBIcons.md).
+
 ## Authors
 
 * **Brunner Nicolas**

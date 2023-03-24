@@ -30,7 +30,7 @@ public extension Slider {
      ```swift
      var body: some View {
         Slider(value: .constant(50.0), in: 0.0...100.0, step: 1.0)
-            .sbbStyle(imageLeft: Image(sbbName: "walk-slow", size: .small), imageRight: Image(sbbName: "walk-fast", size: .small))
+            .sbbStyle(imageLeft: Image(sbbIcon: .walk_slow_small), imageRight: Image(sbbIcon: .walk_fast_small))
      }
      ```
      ![SliderExtension](SliderExtension)

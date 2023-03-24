@@ -13,7 +13,7 @@ Note that this frameworks contains many ViewModifiers in form of View Extensions
 * View.sbbScreenPadding(): Applies SBB specific padding to a View (typically a View covering the entire screen).
 * View.sbbEnvironmentBanner(banner: ``SBBEnvironmentBanner``): Applies a banner (typically to a NavigationBar) indicating the app's environment.
 * Color.sbbColor(name: ``SBBColorName``): Returns the specified SBB color.
-* Image(sbbName: String, size: ``SBBIconSize``): Returns the specifed SBB icon.
+* Image(sbbIcon: ``SBBIcon``): Returns the specifed SBB icon.
 * Slider.sbbStyle(imageLeft: Image, imageRight: Image): Applies SBB styling to a Slider.
 
 ## Topics

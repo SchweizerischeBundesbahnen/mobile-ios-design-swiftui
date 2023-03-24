@@ -17,14 +17,14 @@ class SBBCheckBoxTests: XCTestCase {
     }
     
     func testCheckBoxWithImage() {
-        let view = SBBCheckBox(isOn: .constant(false), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Label"))
+        let view = SBBCheckBox(isOn: .constant(false), image: Image(sbbIcon: .alarm_clock_small), text: Text("Label"))
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testCheckBoxDisabled() {
-        let view = SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Label"))
+        let view = SBBCheckBox(isOn: .constant(true), image: Image(sbbIcon: .alarm_clock_small), text: Text("Label"))
             .disabled(true)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
@@ -32,7 +32,7 @@ class SBBCheckBoxTests: XCTestCase {
     }
     
     func testCheckBoxSubText() {
-        let view = SBBCheckBox(isOn: .constant(true), image: Image(sbbName: "alarm-clock", size: .small), text: Text("Text"), subText: Text("SubText"), showBottomLine: false)
+        let view = SBBCheckBox(isOn: .constant(true), image: Image(sbbIcon: .alarm_clock_small), text: Text("Text"), subText: Text("SubText"), showBottomLine: false)
         for colorScheme in ColorScheme.allCases {
             view.frame(width: 375).recordDocumentationSnapshot(name: "SBBCheckBox", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)

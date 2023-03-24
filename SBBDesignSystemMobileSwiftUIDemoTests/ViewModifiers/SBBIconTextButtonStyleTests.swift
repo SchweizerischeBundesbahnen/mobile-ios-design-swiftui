@@ -11,7 +11,7 @@ class SBBIconTextButtonStyleTests: XCTestCase {
     
     var button = Button(action: {}) {
         VStack(alignment: .center, spacing: 4, content: {
-            Image(sbbName: "station", size: .large)
+            Image(sbbIcon: .station_large)
             Text("Station")
         })
     }

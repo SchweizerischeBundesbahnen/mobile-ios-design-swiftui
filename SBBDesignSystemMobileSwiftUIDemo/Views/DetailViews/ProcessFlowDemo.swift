@@ -22,7 +22,7 @@ struct ProcessFlowDemo: View {
                         Button(action: {
                             viewModel.currentStepIndex -= 1
                         }) {
-                            Image(sbbName: "chevron-small-right", size: .small)
+                            Image(sbbIcon: .chevron_small_right_small)
                                 .resizable()
                                 .rotationEffect(Angle(degrees: 180))
                         }
@@ -31,7 +31,7 @@ struct ProcessFlowDemo: View {
                         Button(action: {
                             viewModel.currentStepIndex += 1
                         }) {
-                            Image(sbbName: "chevron-small-right", size: .small)
+                            Image(sbbIcon: .chevron_small_right_small)
                                 .resizable()
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small))

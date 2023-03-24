@@ -186,7 +186,7 @@ struct SBBDialogue_Previews: PreviewProvider {
         Text("Button 3")
     }
     static let buttonReload = Button(action: {}) {
-        Image(sbbName: "arrows-circle", size: .small)
+        Image(sbbIcon: .arrow_circle_small)
     }
     
     static var previews: some View {

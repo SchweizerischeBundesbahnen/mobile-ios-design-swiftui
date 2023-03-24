@@ -15,11 +15,11 @@ import SwiftUI
  var body: some View {
      SBBSegmentedPicker(selection: $selectedSegment, tags: [0, 1]) {
          HStack {
-             Image(sbbName: "timetable", size: .small)
+             Image(sbbIcon: .timetable_small)
              Text("Departures")
          }
          HStack {
-             Image(sbbName: "platform-display", size: .small)
+             Image(sbbIcon: .platform_display_small)
              Text("Platform")
          }
      }

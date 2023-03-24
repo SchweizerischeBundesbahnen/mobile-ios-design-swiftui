@@ -12,7 +12,7 @@ import SwiftUI
  ```swift
  var body: some View {
      Button(action: {}) {
-         Image(sbbName: "dog", size: .small)
+         Image(sbbIcon: .dog_small)
      }
          .buttonStyle(SBBIconButtonStyle())
  }
@@ -120,24 +120,24 @@ struct SSBBIconButtonStyle_Previews: PreviewProvider {
         Group {
             Group {
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                     .resizable()
                 }
                     .previewDisplayName("Large, Light enabled")
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
                     .previewDisplayName("Large, Light disabled")
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .previewDisplayName("Large, Dark enabled")
                     .environment(\.colorScheme, .dark)
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
@@ -147,24 +147,24 @@ struct SSBBIconButtonStyle_Previews: PreviewProvider {
                 .buttonStyle(SBBIconButtonStyle())
             Group {
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                     .resizable()
                 }
                     .previewDisplayName("Small, Light enabled")
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
                     .previewDisplayName("Small, Light disabled")
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .previewDisplayName("Small, Dark enabled")
                     .environment(\.colorScheme, .dark)
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
@@ -174,12 +174,12 @@ struct SSBBIconButtonStyle_Previews: PreviewProvider {
                 .buttonStyle(SBBIconButtonStyle(size: .small))
             Group {
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                     .resizable()
                 }
                     .previewDisplayName("Small, negative, enabled")
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
@@ -189,24 +189,24 @@ struct SSBBIconButtonStyle_Previews: PreviewProvider {
                 .background(Color.sbbColor(.primary))
             Group {
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                     .resizable()
                 }
                     .previewDisplayName("Small, Light, no border, enabled")
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)
                     .previewDisplayName("Small, Light, no border, disabled")
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .previewDisplayName("Small, Dark, no border, enabled")
                     .environment(\.colorScheme, .dark)
                 Button(action: {}) {
-                    Image(sbbName: "chevron-small-right", size: .small)
+                    Image(sbbIcon: .chevron_small_right_small)
                         .resizable()
                 }
                     .environment(\.isEnabled, false)

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,9 @@
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
 		00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */; };
 		00FB819B278ED67F00F07D30 /* TabBarEntryViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */; };
+		2D5B275B29C994C300B3CC88 /* SBBIconsIndex.json in Resources */ = {isa = PBXBuildFile; fileRef = 2D5B275A29C994C300B3CC88 /* SBBIconsIndex.json */; };
+		2D5B275D29C99D1800B3CC88 /* SBBIconsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */; };
+		2D5B276829C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md in Resources */ = {isa = PBXBuildFile; fileRef = 2D5B276729C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md */; };
 		2D804E6823D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7723D9D16000CC9C0C /* AppDelegate.swift */; };
 		2D804E7A23D9D16000CC9C0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804E7923D9D16000CC9C0C /* SceneDelegate.swift */; };
@@ -42,6 +45,7 @@
 		2DCEC9022539E34A008EDD15 /* TypographyUIKitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC9012539E34A008EDD15 /* TypographyUIKitView.swift */; };
 		2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC917253D83B7008EDD15 /* SBBColorName.swift */; };
 		2DCEC937253EC7F4008EDD15 /* SBBColorNameInternal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */; };
+		2DD29DFC29BCB0900083A8A0 /* SBBIconName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD29DFB29BCB0900083A8A0 /* SBBIconName.swift */; };
 		7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */; };
 		7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */; };
 		7C0DDFEC25A6F587009BB31D /* TextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */; };
@@ -242,6 +246,9 @@
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
 		00FB8196278ED55E00F07D30 /* TabBarEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEntryView.swift; sourceTree = "<group>"; };
 		00FB819A278ED67F00F07D30 /* TabBarEntryViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarEntryViewModifier.swift; sourceTree = "<group>"; };
+		2D5B275A29C994C300B3CC88 /* SBBIconsIndex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SBBIconsIndex.json; sourceTree = "<group>"; };
+		2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBIconsHelper.swift; sourceTree = "<group>"; };
+		2D5B276729C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = HowTo_ImportSBBIcons.md; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.markdown; };
 		2D804E5723D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D804E5A23D9D0DF00CC9C0C /* SBBMobileDesignSystemSwiftUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SBBMobileDesignSystemSwiftUI.h; sourceTree = "<group>"; };
 		2D804E5B23D9D0DF00CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -263,6 +270,7 @@
 		2DCEC9012539E34A008EDD15 /* TypographyUIKitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypographyUIKitView.swift; sourceTree = "<group>"; };
 		2DCEC917253D83B7008EDD15 /* SBBColorName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorName.swift; sourceTree = "<group>"; };
 		2DCEC936253EC7F4008EDD15 /* SBBColorNameInternal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColorNameInternal.swift; sourceTree = "<group>"; };
+		2DD29DFB29BCB0900083A8A0 /* SBBIconName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBIconName.swift; sourceTree = "<group>"; };
 		7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderExtension.swift; sourceTree = "<group>"; };
 		7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDemo.swift; sourceTree = "<group>"; };
 		7C0DDFEB25A6F587009BB31D /* TextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewModel.swift; sourceTree = "<group>"; };
@@ -514,6 +522,7 @@
 				7C2B7E7223DAC4FD0012CF62 /* README.md */,
 				7CC4B00F276A19E700B3BC46 /* Contributing.md */,
 				7C2B7E7323DAC4FD0012CF62 /* ReleaseNotes.md */,
+				2D5B276729C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md */,
 				7C77C2D6276B233000AC8157 /* LICENSE */,
 				F8882F2C27AD37E200396FC7 /* ci_scripts */,
 				7C77C2D2276B155300AC8157 /* LICENSES */,
@@ -612,6 +621,8 @@
 		2D804EAE23D9D3BE00CC9C0C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2D5B275A29C994C300B3CC88 /* SBBIconsIndex.json */,
+				2DD29DFB29BCB0900083A8A0 /* SBBIconName.swift */,
 				2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */,
 				7C9C46DD24CB1ACE00C22E97 /* Preview Content */,
 				7CDFFD8323E9C3C000250717 /* Localizable.strings */,
@@ -863,6 +874,7 @@
 				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
 				7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */,
+				2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -967,6 +979,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D804E6B23D9D0DF00CC9C0C /* Build configuration list for PBXNativeTarget "SBBDesignSystemMobileSwiftUI" */;
 			buildPhases = (
+				2D497EA929BB88F9009DF93F /* [custom] Create Image Enum File */,
 				2D804E5223D9D0DF00CC9C0C /* Headers */,
 				2D804E5323D9D0DF00CC9C0C /* Sources */,
 				2D804E5423D9D0DF00CC9C0C /* Frameworks */,
@@ -1080,8 +1093,10 @@
 				92B4A0BC25592572005F4F06 /* sbbweb-condensed-bold-reduce.ttf in Resources */,
 				7C9C46DF24CB1AED00C22E97 /* Preview Assets.xcassets in Resources */,
 				92B4A0B925592572005F4F06 /* sbbweb-bold-reduce.ttf in Resources */,
+				2D5B276829C9DD4F00B3CC88 /* HowTo_ImportSBBIcons.md in Resources */,
 				92B4A0B725592572005F4F06 /* sbbweb-thin-reduce.ttf in Resources */,
 				2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */,
+				2D5B275B29C994C300B3CC88 /* SBBIconsIndex.json in Resources */,
 				92B4A0B825592572005F4F06 /* sbbweb-ultralight-reduce.ttf in Resources */,
 				92B4A0BB25592572005F4F06 /* sbbweb-italic-reduce.ttf in Resources */,
 				92B4A0B625592572005F4F06 /* sbbweb-light-reduce.ttf in Resources */,
@@ -1113,6 +1128,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2D497EA929BB88F9009DF93F /* [custom] Create Image Enum File */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[custom] Create Image Enum File";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx \"$TOOLCHAIN_DIR/usr/bin/\"swift \"$PROJECT_DIR\"/SBBDesignSystemMobileSwiftUI/Scripts/generate_enum_file.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2D804E5323D9D0DF00CC9C0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1128,6 +1165,7 @@
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
 				005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */,
 				005DC8D0279AA42B009C5CEA /* TabButtonRowView.swift in Sources */,
+				2DD29DFC29BCB0900083A8A0 /* SBBIconName.swift in Sources */,
 				A7DE2069243C5A7900557F4D /* SBBPrimaryButtonStyle.swift in Sources */,
 				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
@@ -1159,6 +1197,7 @@
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
+				2D5B275D29C99D1800B3CC88 /* SBBIconsHelper.swift in Sources */,
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,

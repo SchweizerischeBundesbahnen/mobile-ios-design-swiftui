@@ -43,7 +43,7 @@ struct RadioButtonView: View {
                                 }
                             }
                         )
-                    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), text: Text("RadioButton with Icon"), showBottomLine: false)
+                    SBBRadioButton(image: Image(sbbIcon: .alarm_clock_small), text: Text("RadioButton with Icon"), showBottomLine: false)
                         .isSelected(radioButton2IsSelected)
                         .highPriorityGesture(
                             TapGesture().onEnded {
@@ -57,7 +57,7 @@ struct RadioButtonView: View {
                     .disabled(isDisabled)
                 SBBRadioButtonGroup(title: "SBBRadioButtonGroup", selection: $selectedRadioButton, tags: [0, 1, 2]) {
                     SBBRadioButton(text: Text("Normal RadioButton with line"))
-                    SBBRadioButton(image: Image(sbbName: "alarm-clock", size: .small), text: Text("RadioButton with Icon and line"))
+                    SBBRadioButton(image: Image(sbbIcon: .alarm_clock_small), text: Text("RadioButton with Icon and line"))
                     SBBRadioButton(text: Text("RadioButton without line"), showBottomLine: false)
                 }
                     .disabled(isDisabled)

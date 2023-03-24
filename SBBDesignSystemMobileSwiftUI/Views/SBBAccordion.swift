@@ -48,7 +48,7 @@ public struct SBBAccordion: View {
                             .fixedSize(horizontal: false, vertical: true)
                         Spacer()
                         Group {
-                            Image(sbbName: "chevron-small-up", size: .small)
+                            Image(sbbIcon: .chevron_small_up_small)
                                 .rotationEffect(.degrees(self.expanded ? 0 : 180))
                         }
                             .accessibility(hidden: true)

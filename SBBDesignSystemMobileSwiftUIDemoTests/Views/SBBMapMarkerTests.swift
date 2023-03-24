@@ -10,7 +10,7 @@ import SBBDesignSystemMobileSwiftUI
 class SBBMapMarkerTests: XCTestCase {
     
     func testMapMarkerPrimary() {
-        let view = SBBMapMarker(icon: Image(sbbName: "construction"), style: .red)
+        let view = SBBMapMarker(icon: Image(sbbIcon: .construction), style: .red)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBMapMarker", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
@@ -18,14 +18,14 @@ class SBBMapMarkerTests: XCTestCase {
     }
     
     func testMapMarkerBlue() {
-        let view = SBBMapMarker(icon: Image(sbbName: "construction"), style: .blue)
+        let view = SBBMapMarker(icon: Image(sbbIcon: .construction), style: .blue)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }
     }
     
     func testMapMarkerBlack() {
-        let view = SBBMapMarker(icon: Image(sbbName: "construction"), style: .black)
+        let view = SBBMapMarker(icon: Image(sbbIcon: .construction), style: .black)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
         }

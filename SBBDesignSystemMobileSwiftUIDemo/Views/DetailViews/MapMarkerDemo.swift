@@ -11,11 +11,11 @@ struct MapMarkerDemo: View {
     public var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 24) {
-                SBBInfoView(image: Image(sbbName: "circle-information", size: .small), text: Text("There are 3 available map marker styles: .primary, .blue and .black. Use .blue style for pictograms."))
+                SBBInfoView(image: Image(sbbIcon: .circle_information_small), text: Text("There are 3 available map marker styles: .primary, .blue and .black. Use .blue style for pictograms."))
                 HStack(spacing: 16) {
-                    SBBMapMarker(icon: Image(sbbName: "construction"))
-                    SBBMapMarker(icon: Image(sbbName: "Zug_r"), style: .blue)
-                    SBBMapMarker(icon: Image(sbbName: "station", size: .small), style: .black)
+                    SBBMapMarker(icon: Image(sbbIcon: .construction))
+                    SBBMapMarker(icon: Image(sbbIcon: .Zug_r), style: .blue)
+                    SBBMapMarker(icon: Image(sbbIcon: .station_small), style: .black)
                 }
             }
                 .sbbScreenPadding()
