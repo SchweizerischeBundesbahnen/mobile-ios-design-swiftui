@@ -54,7 +54,7 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
         
         private var textColor: Color {
             if isEnabled {
-                return (colorScheme == .light) ? .sbbColor(.textRed) : .sbbColor(.white)
+                return (colorScheme == .light) ? .sbbColor(.primary) : .sbbColor(.white)
             } else {
                 return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
             }
@@ -62,7 +62,7 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
         
         private var borderColor: Color {
             if isEnabled {
-                return (colorScheme == .light) ? .sbbColor(.textRed) : .sbbColor(.smoke)
+                return (colorScheme == .light) ? .sbbColor(.primary) : .sbbColor(.smoke)
             } else {
                 return (colorScheme == .light) ? .sbbColor(.cloud) : .sbbColor(.iron)
             }

@@ -42,7 +42,7 @@ public struct SBBPaginationView: View {
                 HStack {    // Workaround needed, so that the Circle-Views get reloaded after a currentPageIndex change, see https://developer.apple.com/forums/thread/131577
                     if index == self.currentPageIndex {
                         Circle()
-                            .fill(colorScheme == .light ? Color.sbbColor(.red) : Color.sbbColor(.white))
+                            .fill(colorScheme == .light ? Color.sbbColor(.primary) : Color.sbbColor(.white))
                             .frame(width: 8, height: 8)
                     } else {
                         Circle()
