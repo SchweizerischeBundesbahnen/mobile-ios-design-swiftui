@@ -21,7 +21,7 @@ class SBBTabViewTests: XCTestCase {
         for nbTabs in (2...6) {
             let view = getSBBTabView(nbTabs: nbTabs)
             for colorScheme in ColorScheme.allCases {
-                assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+                assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
             }
         }
     }
@@ -31,7 +31,7 @@ class SBBTabViewTests: XCTestCase {
             let view = getSBBTabView(nbTabs: nbTabs)
             
             for colorScheme in ColorScheme.allCases {
-                assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(on: .iPhoneX(.landscape), traits: traitLightMode), record: recordNewReferenceSnapshots)
+                assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imageLandscape, record: recordNewReferenceSnapshots)
             }
         }
     }

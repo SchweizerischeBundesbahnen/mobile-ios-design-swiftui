@@ -4,6 +4,7 @@
 
 import SwiftUI
 import XCTest
+import SnapshotTesting
 
 extension SwiftUI.View {
     func toVC() -> UIViewController {
@@ -26,6 +27,18 @@ extension XCTestCase {
     
     var precision: Float {
         1
+    }
+    
+    var perceptualPrecision: Float {
+        0.98
+    }
+    
+    var imagePortrait: Snapshotting<UIViewController, UIImage> {
+        return .image(perceptualPrecision: perceptualPrecision, traits: traitLightMode)
+    }
+    
+    var imageLandscape: Snapshotting<UIViewController, UIImage> {
+        return .image(on: .iPhone13(.landscape), perceptualPrecision: perceptualPrecision, traits: traitLightMode)
     }
 }
 

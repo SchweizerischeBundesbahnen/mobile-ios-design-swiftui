@@ -17,14 +17,14 @@ class SBBSwitchStyleTests: XCTestCase {
         let view = toggle.toggleStyle(SBBSwitchStyle())
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBSwitchStyle", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testSwitchStyleDisabled() {
         let view = toggle.toggleStyle(SBBSwitchStyle()).disabled(true)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }

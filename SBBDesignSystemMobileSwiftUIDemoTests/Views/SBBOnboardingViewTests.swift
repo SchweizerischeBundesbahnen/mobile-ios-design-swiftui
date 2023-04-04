@@ -17,7 +17,7 @@ class SBBOnboardingViewTests: XCTestCase {
         let view = SBBOnboardingView(state: .constant(.startView), currentCardIndex: .constant(0), startView: titleView, endView: titleView, content: createCardViews)
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBOnboardingTitleView", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
@@ -25,7 +25,7 @@ class SBBOnboardingViewTests: XCTestCase {
         let view = SBBOnboardingView(state: .constant(.cardsView), currentCardIndex: .constant(0), startView: titleView, endView: titleView, content: createCardViews)
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBOnboardingCardView", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
@@ -33,7 +33,7 @@ class SBBOnboardingViewTests: XCTestCase {
         let view = SBBOnboardingView(state: .constant(.startView), currentCardIndex: .constant(0), startView: titleView, endView: titleView, content: createCardViews)
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBOnboardingTitleView", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(on: .iPhoneX(.landscape), traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imageLandscape, record: recordNewReferenceSnapshots)
         }
     }
     
@@ -41,7 +41,7 @@ class SBBOnboardingViewTests: XCTestCase {
         let view = SBBOnboardingView(state: .constant(.cardsView), currentCardIndex: .constant(0), startView: titleView, endView: titleView, content: createCardViews)
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBOnboardingCardView", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(on: .iPhoneX(.landscape), traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imageLandscape, record: recordNewReferenceSnapshots)
         }
     }
 }

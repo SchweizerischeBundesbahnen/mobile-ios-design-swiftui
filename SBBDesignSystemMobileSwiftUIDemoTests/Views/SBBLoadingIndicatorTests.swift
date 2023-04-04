@@ -13,28 +13,28 @@ class SBBLoadingIndicatorTests: XCTestCase {
         let view = SBBLoadingIndicator(size: .normal, style: .primary)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBLoadingIndicator", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testLoadingIndicatorNormalGrey() {
         let view = SBBLoadingIndicator(size: .normal, style: .grey)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testLoadingIndicatorNormalWhite() {
         let view = SBBLoadingIndicator(size: .normal, style: .primaryBackground)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testLoadingIndicatorSmallPrimary() {
         let view = SBBLoadingIndicator(size: .small, style: .primary)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }

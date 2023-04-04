@@ -16,7 +16,7 @@ class SBBFormGroupTests: XCTestCase {
         }
         for colorScheme in ColorScheme.allCases {
             view.frame(width: 375).recordDocumentationSnapshot(name: "SBBFormGroup", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }
