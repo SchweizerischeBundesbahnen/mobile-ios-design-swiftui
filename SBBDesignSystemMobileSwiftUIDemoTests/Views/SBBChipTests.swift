@@ -15,7 +15,7 @@ class SBBChipTests: XCTestCase {
     func testChipSelected() {
         let view = SBBChip(label: Text("Chip label"), isSelected: .constant(true), numberOfItems: 2)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
@@ -23,7 +23,7 @@ class SBBChipTests: XCTestCase {
         let view = SBBChip(label: Text("Chip label"), isSelected: .constant(false), numberOfItems: 2)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBChip", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }

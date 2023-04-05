@@ -17,7 +17,7 @@ class SBBEnvironmentBannerTests: XCTestCase {
                 .navigationBarItems(trailing: SBBNavigationBarSBBIcon())
         }.sbbEnvironmentBanner(.none)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
@@ -30,7 +30,7 @@ class SBBEnvironmentBannerTests: XCTestCase {
         }.sbbEnvironmentBanner(.dev)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBEnvironmentBannerDev", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }

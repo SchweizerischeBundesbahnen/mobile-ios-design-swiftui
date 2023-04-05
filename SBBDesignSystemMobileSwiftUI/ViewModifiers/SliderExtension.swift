@@ -54,7 +54,7 @@ struct SBBSliderModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .onAppear {
-                UISlider.appearance().minimumTrackTintColor = UIColor(Color.sbbColor(.red))
+                UISlider.appearance().minimumTrackTintColor = UIColor(Color.sbbColor(.primary))
                 UISlider.appearance().maximumTrackTintColor = UIColor(Color.sbbColorInternal(.sliderSwitchInactive))
             }
     }

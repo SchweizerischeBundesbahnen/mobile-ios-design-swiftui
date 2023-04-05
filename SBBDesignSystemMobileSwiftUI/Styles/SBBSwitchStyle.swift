@@ -50,7 +50,7 @@ public struct SBBSwitchStyle: ToggleStyle {
     // https://developer.apple.com/documentation/swiftui/switchtogglestyle
     // SwitchToggleStyle does not allow to change the color in disabled mode
     private struct SwitchButtonStyle: ButtonStyle {
-        var onColor = Color.sbbColor(.red)
+        var onColor = Color.sbbColor(.primary)
         var offColor: Color = Color.sbbColorInternal(.sliderSwitchInactive)
         var thumbColor = Color.sbbColor(.white)
         var isOn: Bool
