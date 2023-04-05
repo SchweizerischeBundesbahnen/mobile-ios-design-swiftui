@@ -28,7 +28,8 @@ let package = Package(
             path: "./SBBDesignSystemMobileSwiftUI",
             exclude: ["Info.plist", "SBBBundle.swift", "Scripts"],
             resources: [
-                .process("Fonts/Files")
+                .process("Fonts/Files"),
+                .process("Resources/SBBIconsIndex.json")
             ])
     ]
 )
