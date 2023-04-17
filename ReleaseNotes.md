@@ -1,5 +1,12 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+
+## v1.0.4 - 05 April 2023
+
+### Improvements
+* SBBSegmentedPicker update according to the updated design template
+
+
 ## v1.0.3 - 21 March 2023
 
 ### Improvements
