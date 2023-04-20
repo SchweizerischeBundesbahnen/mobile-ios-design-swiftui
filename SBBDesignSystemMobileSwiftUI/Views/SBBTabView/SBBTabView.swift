@@ -64,7 +64,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     public init?(selection: Binding<Selection>, @ArrayBuilder<TabBarEntryView> content: () -> [TabBarEntryView]) {
         self._selection = selection
         self.contents = content()
-        guard 1...10 ~= self.contents.count else {
+        guard 1...6 ~= self.contents.count else {
             return nil
         }
     }
@@ -81,6 +81,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                                     .tag(index)
                             }
                         }
+                            .tabViewStyle(.page(indexDisplayMode: .never))
                         VStack {
                             Spacer()
                             TabBarView(selection: self.$selection, content: self.contents)

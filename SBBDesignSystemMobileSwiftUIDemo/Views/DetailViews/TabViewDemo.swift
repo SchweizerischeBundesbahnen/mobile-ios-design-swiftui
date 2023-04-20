@@ -21,7 +21,7 @@ struct TabViewDemo: View {
                 }
                     .padding(.top, 10)
                 
-                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
+                SBBTabView(selection: $selectedTab) {
                     for entry in FakeTabBarEntry.fakeTabEntries.prefix(upTo: nbTabs) {
                         entry
                     }
