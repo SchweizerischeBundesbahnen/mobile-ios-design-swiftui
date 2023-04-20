@@ -21,13 +21,13 @@ struct TabViewDemo: View {
                 }
                     .padding(.top, 10)
                 
-                SBBTabView(selection: $selectedTab) {
+                SBBTabView(selection: $selectedTab, contentAboveBar: true) {
                     for entry in FakeTabBarEntry.fakeTabEntries.prefix(upTo: nbTabs) {
                         entry
                     }
                 }
             }
-                .sbbScreenPadding([.horizontal])
+                .sbbScreenPadding(.horizontal)
                 .navigationBarTitle("TabView")
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
                 .sbbStyle()

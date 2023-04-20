@@ -10,7 +10,7 @@ import SBBDesignSystemMobileSwiftUI
 class SBBTabViewTests: XCTestCase {
     
     private func getSBBTabView(nbTabs: Int) -> SBBTabView<Int> {
-        return SBBTabView(selection: .constant(0)) {
+        return SBBTabView(selection: .constant(0), contentAboveBar: true) {
             for entry in FakeTabBarEntry.fakeTabEntries.prefix(upTo: nbTabs) {
                 entry
             }

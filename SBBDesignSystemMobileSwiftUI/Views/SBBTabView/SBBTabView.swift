@@ -53,17 +53,26 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     private var selectionIndex: Int {
         TabBarEntryView.selectionIndex(for: selection, in: contents)
     }
+    private var contentAboveBar: Bool
+    private var isPortrait: Bool {
+        self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
+    }
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     /**
      Returns a SBBTabView displaying a tab bar at the bottom of the page, along with the content of the selected tab.
      
      - Parameters:
         - selection: The currently selected tab.
+        - contentAboveBar: The content view is displayed above the tab bar (no elements may therefore be hidden).
         - content: The View content of each tab, must be a TabBarEntryView. A view can be transformed into a TabBarEntryView using `.sbbTabItem(image: Image?, label: Text?, tag: AnyHashable)`.
      */
-    public init?(selection: Binding<Selection>, @ArrayBuilder<TabBarEntryView> content: () -> [TabBarEntryView]) {
+    public init?(selection: Binding<Selection>, contentAboveBar: Bool = false, @ArrayBuilder<TabBarEntryView> content: () -> [TabBarEntryView]) {
         self._selection = selection
         self.contents = content()
+        self.contentAboveBar = contentAboveBar
         guard 1...6 ~= self.contents.count else {
             return nil
         }
@@ -79,6 +88,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                             ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
                                 contents[index]
                                     .tag(index)
+                                    .padding(.bottom, contentAboveBar ? isPortrait ? 75 : 38 : 0)
                             }
                         }
                             .tabViewStyle(.page(indexDisplayMode: .never))
