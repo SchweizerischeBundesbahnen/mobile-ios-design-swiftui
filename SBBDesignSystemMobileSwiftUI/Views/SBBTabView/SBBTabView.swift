@@ -54,6 +54,12 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         TabBarEntryView.selectionIndex(for: selection, in: contents)
     }
     private var contentAboveBar: Bool
+    private var isPortrait: Bool {
+        self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
+    }
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     /**
      Returns a SBBTabView displaying a tab bar at the bottom of the page, along with the content of the selected tab.
@@ -65,9 +71,9 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
      */
     public init?(selection: Binding<Selection>, contentAboveBar: Bool = false, @ArrayBuilder<TabBarEntryView> content: () -> [TabBarEntryView]) {
         self._selection = selection
-        self.contentAboveBar = contentAboveBar
         self.contents = content()
-        guard 1...10 ~= self.contents.count else {
+        self.contentAboveBar = contentAboveBar
+        guard 1...6 ~= self.contents.count else {
             return nil
         }
     }
@@ -75,37 +81,29 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     
     public var body: some View {
         GeometryReader { geometry in
-            
-            if self.contentAboveBar {
-                VStack(spacing: 0) {
-                    self.contents[self.selectionIndex].contentView
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    
-                    if !self.tabBarHidden {
-                        TabBarView(selection: self.$selection, content: self.contents)
+            ZStack(alignment: .bottom) {
+                if !self.tabBarHidden {
+                    ZStack {
+                        TabView(selection: self.$selection) {
+                            ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
+                                contents[index]
+                                    .tag(index)
+                                    .padding(.bottom, contentAboveBar ? isPortrait ? 75 : 38 : 0)
+                            }
+                        }
+                            .tabViewStyle(.page(indexDisplayMode: .never))
+                        VStack {
+                            Spacer()
+                            TabBarView(selection: self.$selection, content: self.contents)
+                        }
                     }
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
-                    self.tabBarHidden = true
-                }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-                    self.tabBarHidden = false
-                }
-            } else {
-                ZStack(alignment: .bottom) {
-                    self.contents[self.selectionIndex].contentView
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    
-                    if !self.tabBarHidden {
-                        TabBarView(selection: self.$selection, content: self.contents)
-                    }
-                }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
-                    self.tabBarHidden = true
-                }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-                    self.tabBarHidden = false
-                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+                self.tabBarHidden = true
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                self.tabBarHidden = false
             }
         }
             .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))

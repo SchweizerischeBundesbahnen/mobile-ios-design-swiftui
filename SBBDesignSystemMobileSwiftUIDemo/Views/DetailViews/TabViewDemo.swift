@@ -27,7 +27,7 @@ struct TabViewDemo: View {
                     }
                 }
             }
-                .sbbScreenPadding([.horizontal])
+                .sbbScreenPadding(.horizontal)
                 .navigationBarTitle("TabView")
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
                 .sbbStyle()
