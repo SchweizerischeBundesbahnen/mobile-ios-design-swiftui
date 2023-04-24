@@ -1,5 +1,10 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.0.5 - 24 April 2023
+
+### Bugfix
+* SBBTabbar now keeps the Navigation persistence when switching Tab. Before it always jumped back to Root View.
+
 
 ## v1.0.4 - 05 April 2023
 
