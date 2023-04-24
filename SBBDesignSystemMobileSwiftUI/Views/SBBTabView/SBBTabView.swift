@@ -86,7 +86,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                     TabView(selection: self.$selection) {
                         ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
                             contents[index]
-                                .tag(index)
+                                .tag(self.contents[index].tag)
                                 .padding(.bottom, contentAboveBar ? isPortrait ? 75 : 38 : 0)
                         }
                     }
