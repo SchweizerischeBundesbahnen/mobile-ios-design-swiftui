@@ -75,6 +75,7 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         guard 1...5 ~= self.contents.count else {
             return nil
         }
+        UITabBar.appearance().isHidden = true
     }
     
     
