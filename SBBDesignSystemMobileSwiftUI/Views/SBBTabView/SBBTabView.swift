@@ -81,24 +81,25 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     
     public var body: some View {
         GeometryReader { geometry in
-            if !self.tabBarHidden {
-                ZStack {
-                    TabView(selection: self.$selectionIndex) {
-                        ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
-                            contents[index].contentView
-                                .tag(index)
-                                .padding(.bottom, contentAboveBar ? isPortrait ? 75 : 38 : 0)
-                        }
+            ZStack {
+                TabView(selection: self.$selectionIndex) {
+                    ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
+                        contents[index].contentView
+                            .tag(index)
+                            .padding(.bottom, tabBarHidden ? 0 : contentAboveBar ? isPortrait ? 75 : 38 : 0)
                     }
-                    
+                }
+                
+                if !self.tabBarHidden {
                     VStack {
                         Spacer()
                         TabBarView(selection: self.$selection, content: self.contents)
                     }
-                    .onChange(of: self.selection) { selection in
-                        self.selectionIndex = TabBarEntryView.selectionIndex(for: selection, in: contents)
-                    }
+                        .onChange(of: self.selection) { selection in
+                            self.selectionIndex = TabBarEntryView.selectionIndex(for: selection, in: contents)
+                        }
                 }
+            }
                 .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
                     self.tabBarHidden = true
                 }
@@ -106,7 +107,6 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                     self.tabBarHidden = false
                 }
                 .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))
-            }
         }
     }
 }
