@@ -50,9 +50,8 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     @State private var tabBarHidden: Bool = false
     
     private let contents: [TabBarEntryView]
-    private var selectionIndex: Int {
-        TabBarEntryView.selectionIndex(for: selection, in: contents)
-    }
+    @State private var selectionIndex: Int = 0
+    
     private var contentAboveBar: Bool
     private var isPortrait: Bool {
         self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
@@ -73,40 +72,42 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
         self._selection = selection
         self.contents = content()
         self.contentAboveBar = contentAboveBar
-        guard 1...6 ~= self.contents.count else {
+        guard 1...5 ~= self.contents.count else {
             return nil
         }
+        UITabBar.appearance().isHidden = true
     }
     
     
     public var body: some View {
         GeometryReader { geometry in
-            ZStack(alignment: .bottom) {
-                if !self.tabBarHidden {
-                    ZStack {
-                        TabView(selection: self.$selection) {
-                            ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
-                                contents[index]
-                                    .tag(index)
-                                    .padding(.bottom, contentAboveBar ? isPortrait ? 75 : 38 : 0)
-                            }
-                        }
-                            .tabViewStyle(.page(indexDisplayMode: .never))
-                        VStack {
-                            Spacer()
-                            TabBarView(selection: self.$selection, content: self.contents)
-                        }
+            ZStack {
+                TabView(selection: self.$selectionIndex) {
+                    ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
+                        contents[index].contentView
+                            .tag(index)
+                            .padding(.bottom, tabBarHidden ? 0 : contentAboveBar ? isPortrait ? 75 : 38 : 0)
                     }
                 }
+                
+                if !self.tabBarHidden {
+                    VStack {
+                        Spacer()
+                        TabBarView(selection: self.$selection, content: self.contents)
+                    }
+                        .onChange(of: self.selection) { selection in
+                            self.selectionIndex = TabBarEntryView.selectionIndex(for: selection, in: contents)
+                        }
+                }
             }
-            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
-                self.tabBarHidden = true
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-                self.tabBarHidden = false
-            }
+                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+                    self.tabBarHidden = true
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                    self.tabBarHidden = false
+                }
+                .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))
         }
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))
     }
 }
 
