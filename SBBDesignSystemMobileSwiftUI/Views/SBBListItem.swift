@@ -11,31 +11,23 @@ import SwiftUI
  You create a SBBListItem by providing a label. You can optionally also provide an image and a footnote:
  ```swift
  var body: some View {
-     SBBFormGroup(title: "Title") {
-         NavigationLink(destination: ChildView(), label: {
-            SBBListItem(label: Text("Label"), image: Image(sbbIcon: station_small), footnote: Text("Footnote"))
-         })
-    }
+ SBBFormGroup(title: "Title") {
+ NavigationLink(destination: ChildView(), label: {
+ SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: station_small), footnote: Text("Footnote"))
+ })
+ }
  }
  ```
  ![SBBListItem](SBBListItem)
  */
 public struct SBBListItem: View {
     
-    /// SBBListItem Type.
-    public enum SBBListItemType: Equatable {
-        /// Normal SBBListItem Style (chevron icon)
-        case normal
-        /// Info SBBListItem Style (information icon)
-        case info
-    }
-    
     private let label: Text
     private let labelAccessibility: Text?
-    private let image: Image?
+    private let leftImage: Image?
+    private let rightImage: Image?
     private let footnote: Text?
     private let footnoteAccessibility: Text?
-    private let imageRight: Image
     private let showBottomLine: Bool
     
     var leftSwipeButtonText: Text?
@@ -45,7 +37,7 @@ public struct SBBListItem: View {
     
     @State var horizontalDragOffset = CGFloat.zero
     @State var horizontalFixedOffset = CGFloat.zero
-
+    
     @Environment(\.sizeCategory) var sizeCategory
     @Environment(\.colorScheme) var colorScheme
     
@@ -72,21 +64,44 @@ public struct SBBListItem: View {
      Returns a SBBListItem with a label, an optional Image and an optional footnote.
      
      - Parameters:
-        - label: Sets the main label.
-        - labelAccessibility: The optional alternative text for the label's VoiceOver.
-        - image: An optional Image to be shown on the leading edge of the SBBTextField.
-        - footnote: An optional label displayed underneath the main label.
-        - footnoteAccessibility: The optional alternative text for the footnote's VoiceOver.
-        - type: The type of the trailing edge's image.
-        - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     - label: Sets the main label.
+     - labelAccessibility: The optional alternative text for the label's VoiceOver.
+     - image: An optional Image to be shown on the leading edge of the SBBTextField.
+     - footnote: An optional label displayed underneath the main label.
+     - footnoteAccessibility: The optional alternative text for the footnote's VoiceOver.
+     - type: The type of the trailing edge's image.
+     - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
      */
-    public init(label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal, showBottomLine: Bool = true) {
+    @available(*, deprecated, message: "image renamed to leftImage. SBBListItemType removed, instead use rightImage")
+    public init(label: Text, labelAccessibility: Text? = nil, image: Image, rightImage: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, showBottomLine: Bool = true) {
         self.label = label
         self.labelAccessibility = labelAccessibility
-        self.image = image
+        self.leftImage = image
+        self.rightImage = rightImage
         self.footnote = footnote
         self.footnoteAccessibility = footnoteAccessibility
-        self.imageRight = Image(sbbIcon: (type == .normal ? .chevron_small_right_small : .circle_information_small_small))
+        self.showBottomLine = showBottomLine
+    }
+    
+    /**
+     Returns a SBBListItem with a label, an optional Image and an optional footnote.
+     
+     - Parameters:
+     - label: Sets the main label.
+     - labelAccessibility: The optional alternative text for the label's VoiceOver.
+     - leftImage: An optional Image to be shown on the leading edge of the SBBListItem.
+     - rightImage: An optional Image to be shown on the trailing edge of the SBBListItem.
+     - footnote: An optional label displayed underneath the main label.
+     - footnoteAccessibility: The optional alternative text for the footnote's VoiceOver.
+     - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     */
+    public init(label: Text, labelAccessibility: Text? = nil, leftImage: Image? = nil, rightImage: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, showBottomLine: Bool = true) {
+        self.label = label
+        self.labelAccessibility = labelAccessibility
+        self.leftImage = leftImage
+        self.rightImage = rightImage
+        self.footnote = footnote
+        self.footnoteAccessibility = footnoteAccessibility
         self.showBottomLine = showBottomLine
     }
     
@@ -104,7 +119,7 @@ public struct SBBListItem: View {
                                     .sbbFont(.copy)
                                 Spacer()
                             }
-                                .padding(.horizontal, 16)
+                            .padding(.horizontal, 16)
                         }
                     }
                     .frame(width: max(self.horizontalDragOffset + self.horizontalFixedOffset, 0))
@@ -123,19 +138,19 @@ public struct SBBListItem: View {
                                     .sbbFont(.copy)
                                 Spacer()
                             }
-                                .padding(.horizontal, 16)
+                            .padding(.horizontal, 16)
                         }
                     }
-                        .frame(width: max(-(self.horizontalDragOffset + self.horizontalFixedOffset), 0))
-                        .foregroundColor(Color.sbbColor(.white))
-                        .background(Color.sbbColor(.primary))
+                    .frame(width: max(-(self.horizontalDragOffset + self.horizontalFixedOffset), 0))
+                    .foregroundColor(Color.sbbColor(.white))
+                    .background(Color.sbbColor(.primary))
                 }
             }
             HStack {
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        if !sizeCategory.isAccessibilityCategory, let image = image {
-                            image
+                        if !sizeCategory.isAccessibilityCategory, let leftImage = leftImage {
+                            leftImage
                                 .resizeToContentSizeCategory(originalHeight: 24)
                                 .accessibility(hidden: true)
                         }
@@ -154,55 +169,58 @@ public struct SBBListItem: View {
                             .multilineTextAlignment(.leading)
                     }
                 }
-                    .padding(.vertical, 12)
+                .padding(.vertical, 12)
                 Spacer()
-                imageRight
-                    .accessibility(hidden: true)
-                    .frame(width: 32, height: 32)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.sbbColor(.border)))
-                    .padding(.vertical, 6)
+                if let rightImage {
+                    rightImage
+                        .accessibility(hidden: true)
+                        .frame(width: 32, height: 32)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.sbbColor(.border)))
+                        .padding(.vertical, 6)
+                }
             }
-                .padding(.horizontal, 16)
-                .foregroundColor(.sbbColor(.textBlack))
-                .background(Color.sbbColor(.viewBackground))
-                .accessibilityElement(children: .combine)
-                .offset(x: self.horizontalDragOffset + self.horizontalFixedOffset)
+            .frame(minHeight: 44)
+            .padding(.horizontal, 16)
+            .foregroundColor(.sbbColor(.textBlack))
+            .background(Color.sbbColor(.viewBackground))
+            .accessibilityElement(children: .combine)
+            .offset(x: self.horizontalDragOffset + self.horizontalFixedOffset)
             if showBottomLine {
                 Rectangle()
                     .fill(Color.sbbColorInternal(.textfieldLineInactive))
                     .frame(height: 1)
             }
         }
-            .gesture(dragGesture, including: tapGestureMask)
+        .gesture(dragGesture, including: tapGestureMask)
     }
     
     // this disables the dragGesture if none of the swipe buttons is set (otherwise it interferes with the ScrollView, see: https://developer.apple.com/forums/thread/122083)
     private var tapGestureMask: GestureMask {
-            return (leftSwipeButtonText != nil || rightSwipeButtonText != nil) ? .all : .subviews
-        }
+        return (leftSwipeButtonText != nil || rightSwipeButtonText != nil) ? .all : .subviews
+    }
 }
 
 struct SBBListItem_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
+        VStack {
             Group {
                 SBBListItem(label: Text("Label"))
-                SBBListItem(label: Text("Label"), type: .info)
-                SBBListItem(label: Text("Label"), image: Image(sbbIcon: .circle_information_small))
+                SBBListItem(label: Text("Label"), rightImage: Image(sbbIcon: .chevron_small_right_small))
+                SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: .circle_information_small), rightImage: Image(sbbIcon: .circle_information_small_small))
                 SBBListItem(label: Text("Label"), footnote: Text("This is a footnote."))
-                SBBListItem(label: Text("Label"), image: Image(sbbIcon: .circle_information_small), footnote: Text("This is a longer multiline footnote. Here comes more text."))
+                SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: .circle_information_small), rightImage: Image(sbbIcon: .circle_information_small_small), footnote: Text("This is a longer multiline footnote. Here comes more text. much more text"))
             }
             Group {
                 SBBListItem(label: Text("Label"))
-                SBBListItem(label: Text("Label"), type: .info)
-                SBBListItem(label: Text("Label"), image: Image(sbbIcon: .circle_information_small))
+                SBBListItem(label: Text("Label"), rightImage: Image(sbbIcon: .chevron_small_right_small))
+                SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: .circle_information_small), rightImage: Image(sbbIcon: .circle_information_small_small))
                 SBBListItem(label: Text("Label"), footnote: Text("This is a footnote."))
-                SBBListItem(label: Text("Label"), image: Image(sbbIcon: .circle_information_small), footnote: Text("This is a longer multiline footnote. Here comes more text."))
+                SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: .circle_information_small), rightImage: Image(sbbIcon: .circle_information_small_small), footnote: Text("This is a longer multiline footnote. Here comes more text. much more text"))
             }
-                .environment(\.colorScheme, .dark)
+            .environment(\.colorScheme, .dark)
         }
-            .previewLayout(.sizeThatFits)
-
+        .previewLayout(.sizeThatFits)
+        
     }
 }

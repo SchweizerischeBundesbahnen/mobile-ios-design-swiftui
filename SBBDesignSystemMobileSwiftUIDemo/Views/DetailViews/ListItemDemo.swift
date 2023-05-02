@@ -19,10 +19,10 @@ struct ListItemDemo: View {
             VStack(spacing: 16) {
                 SBBFormGroup(title: "ListItem variations") {
                     NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label")) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label (info type)"), type: .info) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and image"), image: self.image) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label (info type)")) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and image"), leftImage: self.image) })
                     NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and Footnote"), footnote: self.footnote) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label, Image and Footnote"), image: self.image, footnote: self.footnote)})
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label, Image and Footnote"), leftImage: self.image, footnote: self.footnote)})
                     NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label with swipe actions (count: \(self.swipeButtonCounter))"), showBottomLine: false)
                         .rightSwipeButton(label: Text("+"), action: {
                             self.swipeButtonCounter += 1
