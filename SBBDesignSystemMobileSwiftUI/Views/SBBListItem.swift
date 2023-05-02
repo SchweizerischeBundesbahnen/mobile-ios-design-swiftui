@@ -30,9 +30,9 @@ public struct SBBListItem: View {
     private let footnoteAccessibility: Text?
     private let showBottomLine: Bool
     
-    var leftSwipeButtonText: Text?
+    var leftSwipeButtonLabel: AnyView?
     var leftSwipeButtonAction: (() -> ())?
-    var rightSwipeButtonText: Text?
+    var rightSwipeButtonLabel: AnyView?
     var rightSwipeButtonAction: (() -> ())?
     
     @State var horizontalDragOffset = CGFloat.zero
@@ -40,25 +40,6 @@ public struct SBBListItem: View {
     
     @Environment(\.sizeCategory) var sizeCategory
     @Environment(\.colorScheme) var colorScheme
-    
-    private var dragGesture: some Gesture {
-        return DragGesture()
-            .onChanged { gesture in
-                self.horizontalDragOffset = gesture.translation.width
-            }
-            .onEnded { _ in
-                if self.horizontalDragOffset > 81 / 2 && (self.leftSwipeButtonText != nil || self.horizontalFixedOffset < 0) {
-                    if self.horizontalFixedOffset <= 0 {
-                        self.horizontalFixedOffset += 81
-                    }
-                } else if self.horizontalDragOffset < -81 / 2 && (self.rightSwipeButtonText != nil || self.horizontalFixedOffset > 0) {
-                    if self.horizontalFixedOffset >= 0 {
-                        self.horizontalFixedOffset -= 81
-                    }
-                }
-                self.horizontalDragOffset = .zero
-            }
-    }
     
     /**
      Returns a SBBListItem with a label, an optional Image and an optional footnote.
@@ -108,14 +89,14 @@ public struct SBBListItem: View {
     public var body: some View {
         ZStack(alignment: .bottomLeading) {
             HStack {
-                if let leftSwipeButtonText = leftSwipeButtonText {
+                if let leftSwipeButtonLabel = leftSwipeButtonLabel {
                     VStack(alignment: .center) {
                         Button(action: {
                             leftSwipeButtonAction?()
                         }) {
                             VStack {
                                 Spacer()
-                                leftSwipeButtonText
+                                leftSwipeButtonLabel
                                     .sbbFont(.copy)
                                 Spacer()
                             }
@@ -127,14 +108,14 @@ public struct SBBListItem: View {
                     .background(Color.sbbColor(.metal))
                 }
                 Spacer()
-                if let rightSwipeButtonText = rightSwipeButtonText {
+                if let rightSwipeButtonLabel = rightSwipeButtonLabel {
                     VStack(alignment: .center) {
                         Button(action: {
                             rightSwipeButtonAction?()
                         }) {
                             VStack {
                                 Spacer()
-                                rightSwipeButtonText
+                                rightSwipeButtonLabel
                                     .sbbFont(.copy)
                                 Spacer()
                             }
@@ -197,7 +178,32 @@ public struct SBBListItem: View {
     
     // this disables the dragGesture if none of the swipe buttons is set (otherwise it interferes with the ScrollView, see: https://developer.apple.com/forums/thread/122083)
     private var tapGestureMask: GestureMask {
-        return (leftSwipeButtonText != nil || rightSwipeButtonText != nil) ? .all : .subviews
+        return (leftSwipeButtonLabel != nil || rightSwipeButtonLabel != nil) ? .all : .subviews
+    }
+    
+    private var dragGesture: some Gesture {
+        return DragGesture()
+            .onChanged { gesture in
+                self.horizontalDragOffset = gesture.translation.width
+            }
+            .onEnded { _ in
+                if self.horizontalDragOffset > 81 / 2 && (self.leftSwipeButtonLabel != nil || self.horizontalFixedOffset < 0) {
+                    if self.horizontalFixedOffset <= 0 {
+                        withAnimation {
+                            self.horizontalFixedOffset += 81
+                        }
+                    }
+                } else if self.horizontalDragOffset < -81 / 2 && (self.rightSwipeButtonLabel != nil || self.horizontalFixedOffset > 0) {
+                    if self.horizontalFixedOffset >= 0 {
+                        withAnimation {
+                            self.horizontalFixedOffset -= 81
+                        }
+                    }
+                }
+                withAnimation {
+                    self.horizontalDragOffset = .zero
+                }
+            }
     }
 }
 
@@ -217,6 +223,12 @@ struct SBBListItem_Previews: PreviewProvider {
                 SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: .circle_information_small), rightImage: Image(sbbIcon: .circle_information_small_small))
                 SBBListItem(label: Text("Label"), footnote: Text("This is a footnote."))
                 SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: .circle_information_small), rightImage: Image(sbbIcon: .circle_information_small_small), footnote: Text("This is a longer multiline footnote. Here comes more text. much more text"))
+                    .leftSwipeButton(label: Text("Left")) {
+                        
+                    }
+                    .rightSwipeButton(label: Text("Right")) {
+                        
+                    }
             }
             .environment(\.colorScheme, .dark)
         }

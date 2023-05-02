@@ -26,11 +26,11 @@ public extension SBBListItem {
      
      - Returns: A SBBListItem with the added right-swipe button.
      */
-    func rightSwipeButton(label: Text, action: @escaping () -> Void) -> SBBListItem {
+    func rightSwipeButton<SwipeLabel: View>(label: SwipeLabel, action: @escaping () -> Void) -> SBBListItem {
         var view = self
         
         view.rightSwipeButtonAction = action
-        view.rightSwipeButtonText = label
+        view.rightSwipeButtonLabel = AnyView(label)
         
         return view
     }
@@ -55,11 +55,11 @@ public extension SBBListItem {
      
      - Returns: A SBBListItem with the added left-swipe button.
      */
-    func leftSwipeButton(label: Text, action: @escaping () -> Void) -> SBBListItem {
+    func leftSwipeButton<SwipeLabel: View>(label: SwipeLabel, action: @escaping () -> Void) -> SBBListItem {
         var view = self
         
         view.leftSwipeButtonAction = action
-        view.leftSwipeButtonText = label
+        view.leftSwipeButtonLabel = AnyView(label)
         
         return view
     }
