@@ -25,23 +25,18 @@ struct ListItemDemo: View {
                     NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label, Image and Footnote"), leftImage: self.image, footnote: self.footnote)
                             .rightSwipeButton(label: Image(sbbIcon: .plus_small), action: {
                                 self.swipeButtonCounter += 1
-                                
                             })
                             .leftSwipeButton(label: Image(sbbIcon: .minus_small), action: {
                                 self.swipeButtonCounter -= 1
-                                
                             }
                             )}
-                    
                     )
                     NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label with swipe actions (count: \(self.swipeButtonCounter))"), showBottomLine: false)
                         .rightSwipeButton(label: Text("+"), action: {
                             self.swipeButtonCounter += 1
-                            
                         })
                         .leftSwipeButton(label: Text("-"), action: {
                             self.swipeButtonCounter -= 1
-                            
                         })
                     })
                 }

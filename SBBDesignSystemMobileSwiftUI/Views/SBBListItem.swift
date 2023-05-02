@@ -53,7 +53,7 @@ public struct SBBListItem: View {
      - type: The type of the trailing edge's image.
      - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
      */
-    @available(*, deprecated, message: "image renamed to leftImage. SBBListItemType removed, instead use rightImage")
+    @available(*, deprecated, message: "image renamed to leftImage. SBBListItemType removed, instead use rightImage. For previous behaviour use Image(sbbIcon: .chevron_small_right_small) as default right image (SBBListItemType.normal). For SBBListItemType.info use Image(sbbIcon: .circle_information_small_small) for rightImage.")
     public init(label: Text, labelAccessibility: Text? = nil, image: Image, rightImage: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, showBottomLine: Bool = true) {
         self.label = label
         self.labelAccessibility = labelAccessibility

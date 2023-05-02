@@ -21,7 +21,7 @@ public extension SBBListItem {
      ```
      
      - Parameters:
-        - label: The Text to be displayed in the button.
+        - label: The View to be displayed in the button.
         - action: The code block to execute when the user touches the button.
      
      - Returns: A SBBListItem with the added right-swipe button.
@@ -50,7 +50,7 @@ public extension SBBListItem {
      ```
      
      - Parameters:
-        - label: The Text to be displayed in the button.
+        - label: The View to be displayed in the button.
         - action: The code block to execute when the user touches the button.
      
      - Returns: A SBBListItem with the added left-swipe button.
