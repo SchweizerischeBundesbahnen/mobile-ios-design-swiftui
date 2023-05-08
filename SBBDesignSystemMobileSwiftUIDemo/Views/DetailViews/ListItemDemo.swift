@@ -18,21 +18,24 @@ struct ListItemDemo: View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 16) {
                 SBBFormGroup(title: "ListItem variations") {
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label")) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label (info type)"), type: .info) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and image"), image: self.image) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and Footnote"), footnote: self.footnote) })
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label, Image and Footnote"), image: self.image, footnote: self.footnote)})
-                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label with swipe actions (count: \(self.swipeButtonCounter))"), showBottomLine: false)
-                        .rightSwipeButton(label: Text("+"), action: {
+                    SBBListItem(label: Text("Label"))
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label (info type)"), rightImage: Image(sbbIcon: .circle_information_small_small)) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and image"), leftImage: self.image, rightImage: Image(sbbIcon: .circle_information_small_small)) })
+                    NavigationLink(destination: ListItemDetailDemo(colorScheme: self.$colorScheme), label: { SBBListItem(label: Text("Label and Footnote"), rightImage: Image(sbbIcon: .chevron_small_right_small), footnote: self.footnote) })
+                    SBBListItem(label: Text("Label, Image, Footnote and Swipe actions"), leftImage: self.image, footnote: self.footnote)
+                        .rightSwipeButton(label: Image(sbbIcon: .plus_small)) {
                             self.swipeButtonCounter += 1
-                            
-                        })
-                        .leftSwipeButton(label: Text("-"), action: {
+                        }
+                        .leftSwipeButton(label: Image(sbbIcon: .minus_small)) {
                             self.swipeButtonCounter -= 1
-                            
-                        })
-                    })
+                        }
+                    SBBListItem(label: Text("Label with swipe actions (count: \(self.swipeButtonCounter))"), showBottomLine: false)
+                        .rightSwipeButton(label: Text("+")) {
+                            self.swipeButtonCounter += 1
+                        }
+                        .leftSwipeButton(label: Text("-")) {
+                            self.swipeButtonCounter -= 1
+                        }
                 }
             }
                 .sbbScreenPadding()

@@ -50,7 +50,6 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     @State private var tabBarHidden: Bool = false
     
     private let contents: [TabBarEntryView]
-    @State private var selectionIndex: Int = 0
     
     private var contentAboveBar: Bool
     private var isPortrait: Bool {
@@ -82,10 +81,10 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     public var body: some View {
         GeometryReader { geometry in
             ZStack {
-                TabView(selection: self.$selectionIndex) {
+                TabView(selection: self.$selection) {
                     ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
                         contents[index].contentView
-                            .tag(index)
+                            .tag(contents[index].tag as! Selection)
                             .padding(.bottom, tabBarHidden ? 0 : contentAboveBar ? isPortrait ? 75 : 38 : 0)
                     }
                 }
@@ -95,9 +94,6 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                         Spacer()
                         TabBarView(selection: self.$selection, content: self.contents)
                     }
-                        .onChange(of: self.selection) { selection in
-                            self.selectionIndex = TabBarEntryView.selectionIndex(for: selection, in: contents)
-                        }
                 }
             }
                 .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in

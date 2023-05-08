@@ -25,14 +25,14 @@ struct ChipDemo: View {
                 SBBCheckBox(isOn: $disabled, text: Text("Disabled"), showBottomLine: false)
                 SBBFormGroup(title: "Demo Vehicle List") {
                     if !internationalFilter {
-                        SBBListItem(label: Text("ICN"), image: Image(sbbIcon: .train_profile_small), footnote: Text("National train"), type: .info)
+                        SBBListItem(label: Text("ICN"), leftImage: Image(sbbIcon: .train_profile_small), footnote: Text("National train"))
                     }
-                    SBBListItem(label: Text("Giruno"), image: Image(sbbIcon: .train_profile_small), footnote: Text("International train"), type: .info)
+                    SBBListItem(label: Text("Giruno"), leftImage: Image(sbbIcon: .train_profile_small), footnote: Text("International train"))
                     if !trainFilter {
-                        SBBListItem(label: Text("Basler Drämmli"), image: Image(sbbIcon: .locomotive_small), footnote: Text("International Tram"), type: .info)
+                        SBBListItem(label: Text("Basler Drämmli"), leftImage: Image(sbbIcon: .locomotive_small), footnote: Text("International Tram"))
                     }
                     if !trainFilter && !internationalFilter {
-                        SBBListItem(label: Text("Berner Tram"), image: Image(sbbIcon: .locomotive_small), footnote: Text("National Tram"), type: .info)
+                        SBBListItem(label: Text("Berner Tram"), leftImage: Image(sbbIcon: .locomotive_small), footnote: Text("National Tram"))
                     }
                 }
             }
