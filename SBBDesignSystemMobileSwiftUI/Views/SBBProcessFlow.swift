@@ -14,7 +14,7 @@ import SwiftUI
  var currentIndex = 1
 
  var body: some View {
-    SBBProcessFlow(currentStepIndex: currentIndex, images: [Image(sbbName: "face-worker", size: .small), Image(sbbName: "piggy-bank", size: .small), Image(sbbName: "heart", size: .small)])
+    SBBProcessFlow(currentStepIndex: currentIndex, images: [Image(sbbIcon: .face_worker_small), Image(sbbIcon: .piggy_bank_small), Image(sbbIcon: .heart_small)])
  }
  ```
  ![SBBProcessFlow](SBBProcessFlow)
@@ -77,7 +77,7 @@ public struct SBBProcessFlow: View {
 
 struct SBBProcessFlow_Previews: PreviewProvider {
     
-    static let images = [Image(sbbName: "lock-closed", size: .small), Image(sbbName: "lock-open", size: .small), Image(sbbName: "tick", size: .small)]
+    static let images = [Image(sbbIcon: .lock_closed_small), Image(sbbIcon: .lock_open_small), Image(sbbIcon: .tick_small)]
     
     static var previews: some View {
         Group {

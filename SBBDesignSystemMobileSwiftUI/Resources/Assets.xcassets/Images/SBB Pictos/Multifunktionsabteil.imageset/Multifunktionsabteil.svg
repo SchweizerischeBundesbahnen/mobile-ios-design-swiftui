@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="SVG_x5F_24x24pt">
+	<path id="backgroundBlue" fill="#2D327D" d="M0,22.5v-21C0,0.675,0.675,0,1.5,0h21C23.325,0,24,0.675,24,1.5v21
+		c0,0.825-0.675,1.5-1.5,1.5h-21C0.675,24,0,23.325,0,22.5z"/>
+	<g id="content">
+		<rect x="3" y="20.7" fill="#FFFFFF" width="18" height="0.3"/>
+		<path fill="#FFFFFF" d="M3,7.275L5.467,16.8h0.001c0.113,0.39,0.473,0.675,0.9,0.675h1.161L4.35,7.275H3z"/>
+		<path fill="#FFFFFF" d="M8.475,11.475H7.5c-0.206,0-0.375,0.169-0.375,0.375v3.321l0.718,2.304H8.1c0.412,0,0.75-0.337,0.75-0.75
+			V11.85C8.85,11.644,8.681,11.475,8.475,11.475z"/>
+		<path fill="#FFFFFF" d="M5.175,5.925c0.158-0.166,0.15-0.245,0.15-0.397V3.375C5.325,3.169,5.156,3,4.95,3H3.375
+			C3.169,3,3,3.169,3,3.375v3.45h1.35L5.175,5.925z"/>
+		<path fill="#FFFFFF" d="M9.15,8.175L9.15,8.175l-0.375,0l0.888-0.877H9.064L7.963,8.4l1.102,1.102h0.599L8.775,8.625H9.15v0
+			c1.489,0,2.7,1.212,2.7,2.702h0.45C12.3,9.589,10.887,8.175,9.15,8.175z"/>
+	</g>
+</g>
+</svg>

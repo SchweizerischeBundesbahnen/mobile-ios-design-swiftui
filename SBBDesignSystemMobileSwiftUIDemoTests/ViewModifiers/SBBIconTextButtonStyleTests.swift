@@ -11,7 +11,7 @@ class SBBIconTextButtonStyleTests: XCTestCase {
     
     var button = Button(action: {}) {
         VStack(alignment: .center, spacing: 4, content: {
-            Image(sbbName: "station", size: .large)
+            Image(sbbIcon: .station_large)
             Text("Station")
         })
     }
@@ -20,14 +20,14 @@ class SBBIconTextButtonStyleTests: XCTestCase {
         let view = button.buttonStyle(SBBIconTextButtonStyle())
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBIconTextButtonStyle", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testIconTextButtonDisabled() {
         let view = button.buttonStyle(SBBIconTextButtonStyle()).disabled(true)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }

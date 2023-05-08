@@ -15,11 +15,11 @@ import SwiftUI
  var body: some View {
      SBBSegmentedPicker(selection: $selectedSegment, tags: [0, 1]) {
          HStack {
-             Image(sbbName: "timetable", size: .small)
+             Image(sbbIcon: .timetable_small)
              Text("Departures")
          }
          HStack {
-             Image(sbbName: "platform-display", size: .small)
+             Image(sbbIcon: .platform_display_small)
              Text("Platform")
          }
      }
@@ -41,9 +41,18 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
         var currentSegmentBackgroundColor: Color {
             switch self {
             case .normal:
-                return Color.sbbColor(.tabViewBackground)
+                return Color.sbbColorInternal(.segmentedPickerSelectedSegmentBackground)
             case .primaryColor:
                 return Color.sbbColor(.primary)
+            }
+        }
+        
+        var currentSegmentOutlineColor: Color {
+            switch self {
+            case .normal:
+                return Color.sbbColor(.placeholder)
+            case .primaryColor:
+                return Color.sbbColor(.secondary)
             }
         }
         
@@ -61,16 +70,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
             case .normal:
                 return Color.sbbColorInternal(.segmentedPickerBackground)
             case .primaryColor:
-                return Color.sbbColor(.primary)
-            }
-        }
-        
-        var backgroundSaturation: Double {
-            switch self {
-            case .normal:
-                return 1
-            case .primaryColor:
-                return 0.8
+                return Color.sbbColor(.primary) == .red ? Color.sbbColor(.red125) : Color.sbbColor(.primary)
             }
         }
     }
@@ -104,6 +104,15 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
     public var body: some View {
         GeometryReader { geometry in
             ZStack(alignment: .leading) {
+                Rectangle()
+                    .fill(style.backgroundColor)
+                    .saturation(style == .primaryColor && Color.sbbColor(.primary) != .red ? 0.7 : 1.0) // For blue theme - use darker blue for the background
+                    .cornerRadius(20)
+                    .overlay(
+                RoundedRectangle(cornerRadius: 20)
+                    .stroke(Color.sbbColor(.iron), lineWidth: self.colorScheme == .dark && self.style == .normal ? 1 : 0) // only draw border for dark mode with normal style
+                )
+                
                 // Highlighter for current segment
                 Rectangle()
                     .fill(style.currentSegmentBackgroundColor)
@@ -111,14 +120,13 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     .cornerRadius(20)
                     .overlay(
                         RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.sbbColor(.smoke), lineWidth: self.colorScheme == .dark && style == .normal ? 1 : 0)   // only draw border for dark mode with normal style
+                            .stroke(style.currentSegmentOutlineColor, lineWidth: 1)
                     )
-                    .shadow(color: Color.black.opacity(0.2), radius: 5)
                     .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selectionIndex))
 
                 // Segments
                 HStack(spacing: 0) {
-                    ForEach(0..<self.segments.count) { index in
+                    ForEach(0..<self.segments.count, id:\.self) { index in
                         Button(action: {
                             withAnimation {
                                 self.selection = self.tags[index]
@@ -150,10 +158,9 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     }
                 )
         }
-            .padding(2)
+            .padding(1)
             .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
-            .background(style.backgroundColor.saturation(style.backgroundSaturation))
-            .cornerRadius(22)
+            .cornerRadius(20)
     }
     
     private func segment(for xPosition: CGFloat, in parentWidth: CGFloat) -> Selection {

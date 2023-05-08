@@ -1,5 +1,30 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.0.5 - 24 April 2023
+
+### Bugfix
+* SBBTabbar now keeps the Navigation persistence when switching Tab. Before it always jumped back to Root View.
+
+
+## v1.0.4 - 05 April 2023
+
+### Improvements
+* SBBSegmentedPicker update according to the updated design template
+
+
+## v1.0.3 - 21 March 2023
+
+### Improvements
+* re-import the newest SBB Icons / SBB Pictos
+* All SBB Icons / SBB Pictos are now present inside the "SBBIconName.swift" enum. You can create an SBB Image with the `init(sbbIcon: SBBIcon)` initializer 
+
+### Deprecations
+* Initializing an SBB Image with `init(sbbName: String)` or `init(sbbName: String, size: SBBIconSize)` is deprecated and will be removed in a future version
+
+### Breaking changes
+* Attention: certain icons have been renamed. Please check your code whether the used icon-string exists. Better: migrate to the new `init(sbbIcon: SBBIcon)` initializer 
+
+
 ## V1.0.2 - 08 March 2023
 
 ### Features

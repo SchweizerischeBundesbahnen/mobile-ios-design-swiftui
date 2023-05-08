@@ -22,7 +22,7 @@ struct ContentView: View {
             NavigationView {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 16) {
-                        SBBInfoView(image: Image(sbbName: "smartphone", size: .medium), text: Text("This demo app showcases all features of the Design System Mobile (DSM) SwiftUI Library."))
+                        SBBInfoView(image: Image(sbbIcon: .smartphone_medium), text: Text("This demo app showcases all features of the Design System Mobile (DSM) SwiftUI Library."))
                         SBBSegmentedPicker(selection: $theme, tags: Theme.allCases) {
                             Text("Red")
                                 .foregroundColor(Theme.sbbDefault.sbbTheme.primaryColor)
@@ -155,7 +155,7 @@ struct ContentView: View {
                                 }
                                 UIApplication.shared.open(url)
                             }) {
-                                SBBListItem(label: Text("Official Documentation"), image: Image(sbbName: "document-text", size: .small))
+                                SBBListItem(label: Text("Official Documentation"), image: Image(sbbIcon: .document_text_small))
                             }
                             Button(action: {
                                 guard let url = URL(string: "https://sbb.sharepoint.com/sites/app-bakery/SitePages/Mobile-Libraries.aspx"),
@@ -164,13 +164,13 @@ struct ContentView: View {
                                 }
                                 UIApplication.shared.open(url)
                             }) {
-                                SBBListItem(label: Text("Mobile Libraries"), image: Image(sbbName: "smartphone", size: .small))
+                                SBBListItem(label: Text("Mobile Libraries"), image: Image(sbbIcon: .smartphone_small))
                             }
                             Button(action: {
                                 onboardingViewModel.currentOnboardingCardIndex = 0
                                 onboardingViewModel.onboardingState = .startView
                             }) {
-                                SBBListItem(label: Text("Show Onboarding"), image: Image(sbbName: "circle-information", size: .small), showBottomLine: false)
+                                SBBListItem(label: Text("Show Onboarding"), image: Image(sbbIcon: .circle_information_small), showBottomLine: false)
                             }
                         }
                     }

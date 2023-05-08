@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "Metro_r_fr.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

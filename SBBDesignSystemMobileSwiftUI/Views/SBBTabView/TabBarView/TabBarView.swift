@@ -16,8 +16,8 @@ import SwiftUI
  
      var body: some View {
          TabBarView(selection: $selectedSegment, contents: [
-            VStack { ... }.sbbTabItem(image: Image(sbbName: "station", size: .small), label: Text("Station"), tag: 0),
-            VStack { ... }.sbbTabItem(image: Image(sbbName: "bus-stop", size: .small), label: Text("Stop"), tag: 1)
+            VStack { ... }.sbbTabItem(image: Image(sbbIcon: .station_small), label: Text("Station"), tag: 0),
+            VStack { ... }.sbbTabItem(image: Image(sbbIcon: .bus_stop:small), label: Text("Stop"), tag: 1)
          ])
     }
  }

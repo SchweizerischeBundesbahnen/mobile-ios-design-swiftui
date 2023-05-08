@@ -11,7 +11,7 @@ import SwiftUI
  You create a SBBInfoView  by providing an image and a text:
  ```swift
  var body: some View {
-    SBBInfoView(image: Image(sbbName: "station", size: .small), text: Text("Your text"))
+    SBBInfoView(image: Image(sbbIcon: station_small), text: Text("Your text"))
  }
  ```
  ![SBBInfoView](SBBInfoView)
@@ -59,7 +59,7 @@ public struct SBBInfoView: View {
 
 struct SBBInfoView_Previews: PreviewProvider {
     
-    static let image = Image(sbbName: "circle-information-small", size: .medium)
+    static let image = Image(sbbIcon: .circle_information_small_medium)
     static let text = Text("Dies ist ein Info Text. Er informiert über Informationen.")
     
     static var previews: some View {

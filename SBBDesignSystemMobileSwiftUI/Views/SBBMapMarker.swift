@@ -11,7 +11,7 @@ import SwiftUI
  You create a SBBMapMarker by providing an image and by specifying its ``SBBMapMarker/Style``:
  ```swift
  var body: some View {
-    SBBMapMarker(icon: Image(sbbName: "construction"), style: .red)
+    SBBMapMarker(icon: Image(sbbIcon: .construction), style: .red)
  }
  ```
  ![SBBMapMarker](SBBMapMarker)
@@ -72,19 +72,19 @@ public struct SBBMapMarker: View {
 struct SBBMapMarker_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBMapMarker(icon: Image(sbbName: "construction"))
+            SBBMapMarker(icon: Image(sbbIcon: .construction))
                 .previewDisplayName("Red, light")
-            SBBMapMarker(icon: Image(sbbName: "construction"))
+            SBBMapMarker(icon: Image(sbbIcon: .construction))
                 .previewDisplayName("Red, dark")
                 .environment(\.colorScheme, .dark)
-            SBBMapMarker(icon: Image(sbbName: "Zug_r"), style: .blue)
+            SBBMapMarker(icon: Image(sbbIcon: .Zug_r), style: .blue)
                 .previewDisplayName("Blue, light")
-            SBBMapMarker(icon: Image(sbbName: "Zug_r"), style: .blue)
+            SBBMapMarker(icon: Image(sbbIcon: .Zug_r), style: .blue)
                 .previewDisplayName("Blue, dark")
                 .environment(\.colorScheme, .dark)
-            SBBMapMarker(icon: Image(sbbName: "station", size: .small), style: .black)
+            SBBMapMarker(icon: Image(sbbIcon: .station_small), style: .black)
                 .previewDisplayName("Black, light")
-            SBBMapMarker(icon: Image(sbbName: "station", size: .small), style: .black)
+            SBBMapMarker(icon: Image(sbbIcon: .station_small), style: .black)
                 .previewDisplayName("Black, dark")
                 .environment(\.colorScheme, .dark)
         }

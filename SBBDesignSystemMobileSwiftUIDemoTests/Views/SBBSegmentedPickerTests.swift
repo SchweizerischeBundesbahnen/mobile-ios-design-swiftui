@@ -16,33 +16,33 @@ class SBBSegmentedPickerTests: XCTestCase {
             Text("Opt 3")
         }
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testSegmentedPickerIcon() {
         let view = SBBSegmentedPicker(selection: .constant(0), tags: [0, 1]) {
-            Image(sbbName: "timetable", size: .small)
-            Image(sbbName: "platform-display", size: .small)
+            Image(sbbIcon: .timetable_small)
+            Image(sbbIcon: .platform_display_small)
         }
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     func testSegmentedPickerIconAndText() {
         let view = SBBSegmentedPicker(selection: .constant(0), tags: [0, 1]) {
             HStack {
-                Image(sbbName: "timetable", size: .small)
+                Image(sbbIcon: .timetable_small)
                 Text("Departures")
             }
             HStack {
-                Image(sbbName: "platform-display", size: .small)
+                Image(sbbIcon: .platform_display_small)
                 Text("Platform")
             }
         }
         for colorScheme in ColorScheme.allCases {
             view.frame(width: 375).recordDocumentationSnapshot(name: "SBBSegmentedPicker", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }

@@ -72,7 +72,7 @@ struct DialogueDemo: View {
                                 .buttonStyle(SBBPrimaryButtonStyle())
                         } else {    // retryAction
                             Button(action: { showDialogue = false }) {
-                                Image(sbbName: "arrows-circle", size: .small)
+                                Image(sbbIcon: .arrow_circle_small)
                             }
                                 .buttonStyle(SBBIconButtonStyle())
                         }
@@ -97,7 +97,7 @@ struct DialogueDemo: View {
                             .buttonStyle(SBBPrimaryButtonStyle())
                     } else {    // model.retryAction
                         Button(action: { showDialogue = false }) {
-                            Image(sbbName: "arrows-circle", size: .small)
+                            Image(sbbIcon: .arrow_circle_small)
                         }
                             .buttonStyle(SBBIconButtonStyle())
                     }

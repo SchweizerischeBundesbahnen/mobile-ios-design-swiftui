@@ -38,7 +38,7 @@ struct ButtonDemo: View {
                             .disabled(disabled)
                         Button(action: increment) {
                             HStack (spacing: 4) {
-                                Image(sbbName: "dog", size: .small)
+                                Image(sbbIcon: .dog_small)
                                 Text("Tertiary Large Button w. Icon")
                             }
                         }
@@ -46,7 +46,7 @@ struct ButtonDemo: View {
                             .disabled(disabled)
                         Button(action: increment) {
                             HStack (spacing: 4) {
-                                Image(sbbName: "dog", size: .small)
+                                Image(sbbIcon: .dog_small)
                                 Text("Tertiary Small Button w. Icon")
                             }
                         }
@@ -55,34 +55,34 @@ struct ButtonDemo: View {
                     }
                     Group {
                         Button(action: increment) {
-                            Image(sbbName: "dog", size: .small)
+                            Image(sbbIcon: .dog_small)
                         }
                             .buttonStyle(SBBIconButtonStyle())
                             .disabled(disabled)
                         Button(action: increment) {
-                            Image(sbbName: "dog", size: .small)
+                            Image(sbbIcon: .dog_small)
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small))
                             .disabled(disabled)
                         Button(action: increment) {
-                            Image(sbbName: "dog", size: .small)
+                            Image(sbbIcon: .dog_small)
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
                             .disabled(disabled)
                             .background(Color.sbbColor(.primary))
                         Button(action: increment) {
-                            Image(sbbName: "dog", size: .small)
+                            Image(sbbIcon: .dog_small)
                         }
                             .buttonStyle(SBBIconButtonStyle(showBorder: false))
                             .disabled(disabled)
                         Button(action: increment) {
-                            Image(sbbName: "dog", size: .small)
+                            Image(sbbIcon: .dog_small)
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small, showBorder: false))
                             .disabled(disabled)
                         Button(action: increment) {
                             VStack(alignment: .center, spacing: 4, content: {
-                                Image(sbbName: "station", size: .large)
+                                Image(sbbIcon: .station_large)
                                 Text("Station")
                             })
                         }
@@ -106,7 +106,7 @@ struct ButtonDemo: View {
         .sbbStyle()
         .navigationBarItems(trailing:
             Button(action: increment) {
-                Image(sbbName: "dog", size: .small)
+                Image(sbbIcon: .dog_small)
             }
                 .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
                 .disabled(disabled)

@@ -16,21 +16,21 @@ import SwiftUI
  var body: some View {
      SBBTabView(selection: $selectedSegment) {
          HStack {
-             Image(sbbName: "station", size: .small)
+             Image(sbbIcon: .station_small)
              Text("This is the content of the Station tab.")
          }
          .sbbTabItem(
-             image: Image(sbbName: "station", size: .small),
+             image: Image(sbbIcon: .station_small),
              label: Text("Station"),
              tag: 0
          )
  
          HStack {
-             Image(sbbName: "bus-stop", size: .small)
+             Image(sbbIco: .bus_stop_small)
              Text("This is the content of the Stop tab.")
          }
          .sbbTabItem(
-             image: Image(sbbName: "bus-stop", size: .small),
+             image: Image(sbbIcon: .bus_stop_small),
              label: Text("Stop"),
              tag: 1
          )
@@ -50,10 +50,15 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     @State private var tabBarHidden: Bool = false
     
     private let contents: [TabBarEntryView]
-    private var selectionIndex: Int {
-        TabBarEntryView.selectionIndex(for: selection, in: contents)
-    }
+    @State private var selectionIndex: Int = 0
+    
     private var contentAboveBar: Bool
+    private var isPortrait: Bool {
+        self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular
+    }
+    
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     
     /**
      Returns a SBBTabView displaying a tab bar at the bottom of the page, along with the content of the selected tab.
@@ -65,50 +70,44 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
      */
     public init?(selection: Binding<Selection>, contentAboveBar: Bool = false, @ArrayBuilder<TabBarEntryView> content: () -> [TabBarEntryView]) {
         self._selection = selection
-        self.contentAboveBar = contentAboveBar
         self.contents = content()
-        guard 1...10 ~= self.contents.count else {
+        self.contentAboveBar = contentAboveBar
+        guard 1...5 ~= self.contents.count else {
             return nil
         }
+        UITabBar.appearance().isHidden = true
     }
     
     
     public var body: some View {
         GeometryReader { geometry in
-            
-            if self.contentAboveBar {
-                VStack(spacing: 0) {
-                    self.contents[self.selectionIndex].contentView
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    
-                    if !self.tabBarHidden {
-                        TabBarView(selection: self.$selection, content: self.contents)
+            ZStack {
+                TabView(selection: self.$selectionIndex) {
+                    ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
+                        contents[index].contentView
+                            .tag(index)
+                            .padding(.bottom, tabBarHidden ? 0 : contentAboveBar ? isPortrait ? 75 : 38 : 0)
                     }
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
-                    self.tabBarHidden = true
-                }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-                    self.tabBarHidden = false
-                }
-            } else {
-                ZStack(alignment: .bottom) {
-                    self.contents[self.selectionIndex].contentView
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    
-                    if !self.tabBarHidden {
+                
+                if !self.tabBarHidden {
+                    VStack {
+                        Spacer()
                         TabBarView(selection: self.$selection, content: self.contents)
                     }
-                }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
-                    self.tabBarHidden = true
-                }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-                    self.tabBarHidden = false
+                        .onChange(of: self.selection) { selection in
+                            self.selectionIndex = TabBarEntryView.selectionIndex(for: selection, in: contents)
+                        }
                 }
             }
+                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+                    self.tabBarHidden = true
+                }
+                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                    self.tabBarHidden = false
+                }
+                .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))
         }
-            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))
     }
 }
 

@@ -13,7 +13,7 @@ import SwiftUI
  var body: some View {
      Button(action: {}) {
          VStack(alignment: .center, spacing: 4, content: {
-             Image(sbbName: "station", size: .large)
+             Image(sbbIcon: .station_large)
              Text("Station")
          })
      }
@@ -76,14 +76,14 @@ struct SSBBIconTextButtonStyle_Previews: PreviewProvider {
             Group {
                 Button(action: {}) {
                     VStack(alignment: .center, spacing: 4, content: {
-                        Image(sbbName: "station", size: .large)
+                        Image(sbbIcon: .station_large)
                         Text("Station")
                     })
                 }
                     .previewDisplayName("Large, Light enabled")
                 Button(action: {}) {
                     VStack(alignment: .center, spacing: 4, content: {
-                        Image(sbbName: "station", size: .large)
+                        Image(sbbIcon: .station_large)
                         Text("Station")
                     })
                 }
@@ -91,7 +91,7 @@ struct SSBBIconTextButtonStyle_Previews: PreviewProvider {
                     .previewDisplayName("Large, Light disabled")
                 Button(action: {}) {
                     VStack(alignment: .center, spacing: 4, content: {
-                        Image(sbbName: "station", size: .large)
+                        Image(sbbIcon: .station_large)
                         Text("Station")
                     })
                 }
@@ -99,7 +99,7 @@ struct SSBBIconTextButtonStyle_Previews: PreviewProvider {
                     .environment(\.colorScheme, .dark)
                 Button(action: {}) {
                     VStack(alignment: .center, spacing: 4, content: {
-                        Image(sbbName: "station", size: .large)
+                        Image(sbbIcon: .station_large)
                         Text("Station")
                     })
                 }

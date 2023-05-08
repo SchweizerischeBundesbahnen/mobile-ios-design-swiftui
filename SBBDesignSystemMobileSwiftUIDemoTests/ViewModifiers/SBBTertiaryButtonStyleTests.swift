@@ -17,14 +17,14 @@ class SBBTertiaryButtonStyleTests: XCTestCase {
         let view = button.buttonStyle(SBBTertiaryButtonStyle())
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBTertiaryButtonStyle", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testTertiaryButtonDisabled() {
         let view = button.buttonStyle(SBBTertiaryButtonStyle()).disabled(true)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
@@ -32,7 +32,7 @@ class SBBTertiaryButtonStyleTests: XCTestCase {
         let view = button.buttonStyle(SBBTertiaryButtonStyle(size: .small))
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 200).recordDocumentationSnapshot(name: "SBBTertiaryButtonStyleSmall", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }

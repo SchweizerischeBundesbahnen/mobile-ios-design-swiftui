@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.0" id="Ebene_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="SVG_x5F_24x24pt">
+	<path id="backgroundBlue" fill="#2D327D" d="M0,22.5v-21C0,0.675,0.675,0,1.5,0h21C23.325,0,24,0.675,24,1.5v21
+		c0,0.825-0.675,1.5-1.5,1.5h-21C0.675,24,0,23.325,0,22.5z"/>
+	<g id="content">
+		<path fill="#FFFFFF" d="M18.751,7.5h-3.975V6.562c0-0.724-0.588-1.312-1.313-1.312h-2.926c-0.725,0-1.312,0.588-1.312,1.312V7.5
+			H5.25C4.008,7.5,3,8.508,3,9.75v9.001C3,19.992,4.008,21,5.25,21h13.501C19.993,21,21,19.992,21,18.751V9.75
+			C21,8.508,19.993,7.5,18.751,7.5L18.751,7.5z M13.726,7.5h-3.451V6.3h3.451V7.5L13.726,7.5z"/>
+	</g>
+</g>
+</svg>

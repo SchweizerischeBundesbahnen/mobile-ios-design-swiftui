@@ -37,14 +37,14 @@ public struct TabBarEntryView: View, Identifiable {
         - customForeground: The foreground color of the tab (circle)
      */
     public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: AnyHashable, customBackground: Color? = nil, customForeground: Color? = nil) {
-        self.imageView = imageView ?? Image(sbbName: "cross", size: .small)
+        self.imageView = imageView ?? Image(sbbIcon: .cross_small)
         self.label = label ?? "_"
         self.accessibilityLabel = accessibilityLabel ?? self.label
         
         self.labelView = Text(self.label)
         self.contentView = contentView ?? AnyView(VStack {
             Text(label ?? "_")
-            imageView ?? Image(sbbName: "cross", size: .small)
+            imageView ?? Image(sbbIcon: .cross_small)
         })
         self.tag = tag
         self.customBackground = customBackground

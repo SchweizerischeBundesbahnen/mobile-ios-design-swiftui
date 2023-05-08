@@ -14,15 +14,15 @@ class SBBSliderExtensionTests: XCTestCase {
     func testSliderExtension() {
         let view = slider.sbbStyle()
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testSliderExtensionWithImages() {
-        let view = slider.sbbStyle(imageLeft: Image(sbbName: "walk-slow", size: .small), imageRight: Image(sbbName: "walk-fast", size: .small))
+        let view = slider.sbbStyle(imageLeft: Image(sbbIcon: .walk_slow_small), imageRight: Image(sbbIcon: .walk_fast_small))
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 200).recordDocumentationSnapshot(name: "SliderExtension", colorScheme: colorScheme)
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: .image(traits: traitLightMode), record: recordNewReferenceSnapshots)
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 }

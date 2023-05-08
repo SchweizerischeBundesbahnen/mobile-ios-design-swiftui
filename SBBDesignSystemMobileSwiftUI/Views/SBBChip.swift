@@ -60,7 +60,7 @@ public struct SBBChip: View {
                     .sbbFont(.body)
                 Group {
                     if isSelected {
-                        Image(sbbName: "cross", size: .small)
+                        Image(sbbIcon: .cross_small)
                     } else {
                         Text("\(numberOfItems)")
                             .foregroundColor(Color.sbbColor(.white))

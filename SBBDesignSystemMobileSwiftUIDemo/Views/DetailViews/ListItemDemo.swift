@@ -9,7 +9,7 @@ struct ListItemDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
-    let image = Image(sbbName: "station", size: .small)
+    let image = Image(sbbIcon: .station_small)
     let footnote = Text("This is a footnote.")
     
     @State var swipeButtonCounter = 0

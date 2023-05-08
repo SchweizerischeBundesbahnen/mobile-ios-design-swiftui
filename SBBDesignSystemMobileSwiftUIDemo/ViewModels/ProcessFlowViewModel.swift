@@ -14,6 +14,6 @@ class ProcessFlowViewModel: ObservableObject {
         }
     }
         
-    var images: [Image] = [Image(sbbName: "face-worker", size: .small), Image(sbbName: "piggy-bank", size: .small), Image(sbbName: "heart", size: .small), Image(sbbName: "bottle-apple", size: .small), Image(sbbName: "cloud-little-snow-moon", size: .small), Image(sbbName: "bicycle", size: .small)]
+    var images: [Image] = [Image(sbbIcon: .face_worker_small), Image(sbbIcon: .piggy_bank_small), Image(sbbIcon: .heart_small), Image(sbbIcon: .bottle_apple_small), Image(sbbIcon: .cloud_little_snow_moon_small), Image(sbbIcon: .bicycle_small)]
 }
 

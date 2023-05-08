@@ -15,7 +15,7 @@ struct TabViewDemo: View {
         GeometryReader { geometry in
             VStack(spacing: 0) {
                 SBBFormGroup(title: "Number of Tabs") {
-                    Stepper(value: $nbTabs, in: 0...6, label: { Text("\(nbTabs)") }, onEditingChanged: resetSelection)
+                    Stepper(value: $nbTabs, in: 0...5, label: { Text("\(nbTabs)") }, onEditingChanged: resetSelection)
                         .sbbFont(.body)
                         .padding(10)
                 }
@@ -27,7 +27,7 @@ struct TabViewDemo: View {
                     }
                 }
             }
-                .sbbScreenPadding([.horizontal])
+                .sbbScreenPadding(.horizontal)
                 .navigationBarTitle("TabView")
                 .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
                 .sbbStyle()

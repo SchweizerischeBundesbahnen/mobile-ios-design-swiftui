@@ -13,7 +13,7 @@ import SwiftUI
  var body: some View {
      SBBFormGroup(title: "Title") {
          NavigationLink(destination: ChildView(), label: {
-            SBBListItem(label: Text("Label"), image: Image(sbbName: "station", size: .small), footnote: Text("Footnote"))
+            SBBListItem(label: Text("Label"), image: Image(sbbIcon: station_small), footnote: Text("Footnote"))
          })
     }
  }
@@ -86,7 +86,7 @@ public struct SBBListItem: View {
         self.image = image
         self.footnote = footnote
         self.footnoteAccessibility = footnoteAccessibility
-        self.imageRight = Image(sbbName: (type == .normal ? "chevron-small-right" : "circle-information-small"), size: .small)
+        self.imageRight = Image(sbbIcon: (type == .normal ? .chevron_small_right_small : .circle_information_small_small))
         self.showBottomLine = showBottomLine
     }
     
@@ -189,16 +189,16 @@ struct SBBListItem_Previews: PreviewProvider {
             Group {
                 SBBListItem(label: Text("Label"))
                 SBBListItem(label: Text("Label"), type: .info)
-                SBBListItem(label: Text("Label"), image: Image(sbbName: "circle-information", size: .small))
+                SBBListItem(label: Text("Label"), image: Image(sbbIcon: .circle_information_small))
                 SBBListItem(label: Text("Label"), footnote: Text("This is a footnote."))
-                SBBListItem(label: Text("Label"), image: Image(sbbName: "circle-information", size: .small), footnote: Text("This is a longer multiline footnote. Here comes more text."))
+                SBBListItem(label: Text("Label"), image: Image(sbbIcon: .circle_information_small), footnote: Text("This is a longer multiline footnote. Here comes more text."))
             }
             Group {
                 SBBListItem(label: Text("Label"))
                 SBBListItem(label: Text("Label"), type: .info)
-                SBBListItem(label: Text("Label"), image: Image(sbbName: "circle-information", size: .small))
+                SBBListItem(label: Text("Label"), image: Image(sbbIcon: .circle_information_small))
                 SBBListItem(label: Text("Label"), footnote: Text("This is a footnote."))
-                SBBListItem(label: Text("Label"), image: Image(sbbName: "circle-information", size: .small), footnote: Text("This is a longer multiline footnote. Here comes more text."))
+                SBBListItem(label: Text("Label"), image: Image(sbbIcon: .circle_information_small), footnote: Text("This is a longer multiline footnote. Here comes more text."))
             }
                 .environment(\.colorScheme, .dark)
         }
