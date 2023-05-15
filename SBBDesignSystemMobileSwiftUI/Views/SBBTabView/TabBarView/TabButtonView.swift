@@ -105,7 +105,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                         .padding(.trailing, 5)
                         .padding(.top, self.tabBarParameters.topPad)
                 }
-                .accessibility(hidden: true)
+                    .accessibilityElement(children: .combine)
             }
         }
             .foregroundColor(Color.sbbColor(.textBlack))
@@ -126,9 +126,10 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                         
                     })
             )
-            .accessibility(label: Text(self.isTabBarFocused ? "" : "\("tab bar".localized).") + Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + Text(self.entry.accessibilityLabel) + Text(". \("tab".localized)") +  Text(". \("element".localized) \(self.index + 1) \("of".localized) \(self.contents.count)"))
-            .accessibility(removeTraits: .isButton)
-            .accessibility(identifier: self.entry.label)
+                .accessibility(label: Text(self.isTabBarFocused ? "" : "\("tab bar".localized).") + Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + Text(self.entry.accessibilityLabel) + Text(". \("tab".localized)") +  Text(". \("element".localized) \(self.index + 1) \("of".localized) \(self.contents.count)"))
+                .accessibility(removeTraits: .isButton)
+                .accessibility(identifier: self.entry.label)
+                .accessibilitySortPriority(-1)
     }
 }
 
