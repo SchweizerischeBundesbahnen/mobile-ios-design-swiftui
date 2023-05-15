@@ -69,7 +69,8 @@ struct TabButtonRow15View<Selection>: View where Selection: Hashable {
                     .accessibility(removeTraits: .isButton)
                     .accessibilityFocused($isTabBarFocused)
             }
-            .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
+                .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
+                .accessibilityElement(children: .contain)
         }
     }
 }

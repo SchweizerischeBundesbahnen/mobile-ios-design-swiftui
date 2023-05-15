@@ -79,31 +79,33 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
     
     
     public var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                TabView(selection: self.$selection) {
-                    ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
-                        contents[index].contentView
-                            .tag(contents[index].tag as! Selection)
-                            .padding(.bottom, tabBarHidden ? 0 : contentAboveBar ? isPortrait ? 75 : 38 : 0)
-                    }
-                }
-                
-                if !self.tabBarHidden {
-                    VStack {
-                        Spacer()
-                        TabBarView(selection: self.$selection, content: self.contents)
-                    }
+        ZStack {
+            TabView(selection: self.$selection) {
+                ForEach(Array(self.contents.enumerated()), id: \.offset) { index, _ in
+                    contents[index].contentView
+                        .tag(contents[index].tag as! Selection)
+                        .padding(.bottom, tabBarHidden ? 0 : contentAboveBar ? isPortrait ? 75 : 38 : 0)
+                        .tabItem{
+                            Text("\(index)")
+                        }
                 }
             }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
-                    self.tabBarHidden = true
+            
+            if !self.tabBarHidden {
+                VStack {
+                    Spacer()
+                    TabBarView(selection: self.$selection, content: self.contents)
+                        .accessibilitySortPriority(-1)
                 }
-                .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-                    self.tabBarHidden = false
-                }
-                .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))
+            }
         }
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { _ in
+                self.tabBarHidden = true
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                self.tabBarHidden = false
+            }
+            .background(Color.sbbColor(.background).edgesIgnoringSafeArea(.horizontal))
     }
 }
 
