@@ -84,6 +84,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
                     .frame(width: geometry.size.width, height: barHeight)
                     .foregroundColor(Color.sbbColor(.viewBackground))
                     .mask(LinearGradient(gradient: Gradient(colors: [Color.sbbColor(.viewBackground), Color.sbbColor(.viewBackground).opacity(0.8), .clear]), startPoint: .bottom, endPoint: .top))
+                    .accessibility(hidden: true)
                 
                 // Circles behind the bar
                 TabCircleRowView(selectionIndex: self.selectionIndex,
@@ -134,7 +135,7 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
                 }
             }
         }
-        .frame(height: barHeight)
+            .frame(height: barHeight)
     }
     
     private func segmentWidth(parentWidth: CGFloat, nbTabs: Int) -> CGFloat {
