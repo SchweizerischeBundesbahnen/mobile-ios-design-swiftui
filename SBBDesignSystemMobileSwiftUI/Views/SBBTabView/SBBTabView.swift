@@ -85,9 +85,6 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                     contents[index].contentView
                         .tag(contents[index].tag as! Selection)
                         .padding(.bottom, tabBarHidden ? 0 : contentAboveBar ? isPortrait ? 75 : 38 : 0)
-                        .tabItem{
-                            Text("\(index)")
-                        }
                 }
             }
             
