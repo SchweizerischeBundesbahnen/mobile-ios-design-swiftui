@@ -4,6 +4,21 @@
 
 import SwiftUI
 
+/**
+ A View that is used to display a SBB DSM stepper, usually inside a ``SBBFormGroup``.
+ 
+ ## Overview
+ You create a SBBUpDnCounter by providing a Label. Optionally you can also provide a icon on the left side and / or a subtext.
+ ```swift
+ @State var counter = 0
+ var body: some View {
+     SBBFormGroup(title: "Title") {
+         SBBUpDnCounterView(label: Text("Label"), value: $counter)
+     }
+ }
+ ```
+ ![SBBUpDnCounter](SBBUpDnCounter)
+ */
 public struct SBBUpDnCounterView: View {
     
     private let leftIcon: Image?
@@ -18,8 +33,20 @@ public struct SBBUpDnCounterView: View {
     private let incrementAction: (() -> Void)?
     private let decrementAction: (() -> Void)?
     
+    @Environment(\.sizeCategory) var sizeCategory
     @Environment(\.colorScheme) var colorScheme
     
+    /**
+     Returns a UpDnCounter with a label, an optional image and an optional footnote. The Binding value will be increased / decreased. There is also an optional range parameter
+     
+     - Parameters:
+     - leftIcon: an optional image to show on the leading edge the the UpDnCounter
+     - label: Sets the main label.
+     - subtext: An optional Text displayed underneath the main label
+     - value: a Binding that will be increased / decreased by the stepper
+     - range: a ClosedRange to limit the stepper value
+     - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     */
     public init(leftIcon: Image? = nil, label: Text, subtext: Text? = nil, value: Binding<Int>, range: ClosedRange<Int>? = nil, showBottomLine: Bool = true) {
         self.leftIcon = leftIcon
         self.label = label
@@ -33,6 +60,19 @@ public struct SBBUpDnCounterView: View {
         self.showBottomLine = showBottomLine
     }
     
+    /**
+     Returns a UpDnCounter with a label, an optional image and an optional footnote. There is also an optional range parameter. There are manual action function paramenter to increase / decrease.
+     
+     - Parameters:
+     - leftIcon: an optional image to show on the leading edge the the UpDnCounter
+     - label: Sets the main label.
+     - subtext: An optional Text displayed underneath the main label
+     - displayValue: The value that will be displayed
+     - range: a ClosedRange to limit the stepper value
+     - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     - incrementAction: The action to perform then pressing the `+` of the stepper
+     - decrementAction: The action to perform when pressing the `-`of the stepper
+     */
     public init(leftIcon: Image? = nil, label: Text, subtext: Text? = nil, displayValue: Int, range: ClosedRange<Int>? = nil, showBottomLine: Bool = true, incrementAction: @escaping () -> Void, decrementAction: @escaping () -> Void) {
         self.leftIcon = leftIcon
         self.label = label
@@ -50,8 +90,8 @@ public struct SBBUpDnCounterView: View {
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 1) {
                 HStack(spacing: 0) {
-                    if let leftIcon {
-                        leftIcon
+                    if !sizeCategory.isAccessibilityCategory, let leftImage = leftIcon {
+                        leftImage
                             .resizeToContentSizeCategory(originalHeight: 24)
                             .padding(.trailing, 10)
                             .accessibility(hidden: true)
@@ -93,7 +133,10 @@ public struct SBBUpDnCounterView: View {
             .contentShape(Rectangle().inset(by: -10))
             .disabled(hasReachedMaxValue)
         }
+        .frame(minHeight: 44)
         .padding(.horizontal, 16)
+        .foregroundColor(.sbbColor(.textBlack))
+        .background(Color.sbbColor(.viewBackground))
         .overlay(
             Group {
                 if showBottomLine {

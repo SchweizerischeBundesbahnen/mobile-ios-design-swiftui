@@ -41,6 +41,7 @@
 		2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */; };
 		2D92C0152A152CF5001FE5B7 /* SBBUpDnCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */; };
 		2D92C0172A1B5331001FE5B7 /* UpDnCounterDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92C0162A1B5331001FE5B7 /* UpDnCounterDemoView.swift */; };
+		2D92C01B2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */; };
 		2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC8F52539DA42008EDD15 /* UIFontExtension.swift */; };
 		2DCEC8FA2539E2DE008EDD15 /* Typography.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCEC8F92539E2DE008EDD15 /* Typography.storyboard */; };
 		2DCEC8FE2539E2E9008EDD15 /* TypographyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC8FD2539E2E9008EDD15 /* TypographyViewController.swift */; };
@@ -268,6 +269,7 @@
 		2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBUpDnCounterView.swift; sourceTree = "<group>"; };
 		2D92C0162A1B5331001FE5B7 /* UpDnCounterDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpDnCounterDemoView.swift; sourceTree = "<group>"; };
+		2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBUpDnCounterTests.swift; sourceTree = "<group>"; };
 		2DCEC8F52539DA42008EDD15 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		2DCEC8F92539E2DE008EDD15 /* Typography.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Typography.storyboard; sourceTree = "<group>"; };
 		2DCEC8FD2539E2E9008EDD15 /* TypographyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypographyViewController.swift; sourceTree = "<group>"; };
@@ -780,6 +782,7 @@
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
 				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
+				2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1315,6 +1318,7 @@
 				7C60949C274FC1FE001ABF67 /* ImageExtensionTests.swift in Sources */,
 				7C609486274FB7BB001ABF67 /* SBBTextAreaTests.swift in Sources */,
 				7C609474274F9A4B001ABF67 /* SBBMapMarkerTests.swift in Sources */,
+				2D92C01B2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift in Sources */,
 				92995BA02593738D0042B5C5 /* SBBPaginationViewTests.swift in Sources */,
 				7C60946E274F9776001ABF67 /* SBBInfoViewTests.swift in Sources */,
 				7C609490274FBD36001ABF67 /* SBBPrimaryButtonStyleTests.swift in Sources */,
