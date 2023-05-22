@@ -46,7 +46,6 @@ public struct SBBUpDnCounterView: View {
         self.showBottomLine = showBottomLine
     }
     
-    
     public var body: some View {
         HStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 1) {
