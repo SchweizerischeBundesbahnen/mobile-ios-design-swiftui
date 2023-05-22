@@ -49,3 +49,10 @@
 "You're not logged in." = "Vous n'êtes pas connecté.";
 "Login" = "Login";
 "Logout" = "Logout";
+
+// SBBUpDnCounter
+"increment %@ to %lld" = "Incrémenter %@ à %lld.";
+"decrement %@ to %lld" = "Décrémenter %@ à %lld.";
+"%@ has value %lld" = "%@ a la valeur %lld.";
+"%@ has reached maximum of %lld" = "%@ a atteint le maximum de %lld.";
+"%@ has reached minimum of %lld" = "%@ a atteint le minimum de %lld.";

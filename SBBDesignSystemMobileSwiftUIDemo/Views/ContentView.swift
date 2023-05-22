@@ -143,7 +143,10 @@ struct ContentView: View {
                                     SBBListItem(label: Text("Toggle"))
                                 }
                                 NavigationLink(destination: TabViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("TabBar"), showBottomLine: false)
+                                    SBBListItem(label: Text("TabBar"))
+                                }
+                                NavigationLink(destination: UpDnCounterDemoView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("UpDnCounter"), showBottomLine: false)
                                 }
                             }
                         }

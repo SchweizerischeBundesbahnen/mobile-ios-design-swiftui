@@ -49,3 +49,10 @@
 "You're not logged in." = "You're not logged in.";
 "Login" = "Login";
 "Logout" = "Logout";
+
+// SBBUpDnCounter
+"increment %@ to %lld" = "";
+"decrement %@ to %lld" = "Decrement %@ to %lld.";
+"%@ has value %lld" = "%@ has value %lld.";
+"%@ has reached maximum of %lld" = "%@ has reached its maximum of %lld.";
+"%@ has reached minimum of %lld" = "%@ has reached its minimum of %lld.";
