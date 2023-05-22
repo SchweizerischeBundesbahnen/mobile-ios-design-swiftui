@@ -108,12 +108,6 @@ public struct SBBUpDnCounterView: View {
                  , alignment: .bottom)
     }
     
-//    "Increment %@ to %lld" = "Erhöhen von %@ auf %lld.";
-//    "Decrement %@ to %lld" = "Verringern von %@ auf %lld.";
-//    "%@ has value %lld" = "%@ hat Wert von %lld.";
-//    "%@ has reached maximum of %lld" = "%@ hat sein Maximum von %lld erreicht.";
-//    "%@ has reached minimum of %lld" = "%@ hat sein Minimum von %lld erreicht.";
-    
     private func incrementValueIfPossible() {
         if let maxValue {
             if value < maxValue {
