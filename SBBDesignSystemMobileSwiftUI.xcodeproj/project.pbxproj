@@ -39,6 +39,9 @@
 		2D804EA723D9D1E000CC9C0C /* SBBDesignSystemMobileSwiftUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2D804E5723D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */; };
 		2D804EB023D9D3E600CC9C0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */; };
+		2D92C0152A152CF5001FE5B7 /* SBBUpDnCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */; };
+		2D92C0172A1B5331001FE5B7 /* UpDnCounterDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92C0162A1B5331001FE5B7 /* UpDnCounterDemoView.swift */; };
+		2D92C01B2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */; };
 		2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC8F52539DA42008EDD15 /* UIFontExtension.swift */; };
 		2DCEC8FA2539E2DE008EDD15 /* Typography.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DCEC8F92539E2DE008EDD15 /* Typography.storyboard */; };
 		2DCEC8FE2539E2E9008EDD15 /* TypographyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCEC8FD2539E2E9008EDD15 /* TypographyViewController.swift */; };
@@ -264,6 +267,9 @@
 		2D804E9023D9D16300CC9C0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D804EAC23D9D1FE00CC9C0C /* SBBColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBColors.swift; sourceTree = "<group>"; };
 		2D804EAF23D9D3E600CC9C0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBUpDnCounterView.swift; sourceTree = "<group>"; };
+		2D92C0162A1B5331001FE5B7 /* UpDnCounterDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpDnCounterDemoView.swift; sourceTree = "<group>"; };
+		2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBUpDnCounterTests.swift; sourceTree = "<group>"; };
 		2DCEC8F52539DA42008EDD15 /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
 		2DCEC8F92539E2DE008EDD15 /* Typography.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Typography.storyboard; sourceTree = "<group>"; };
 		2DCEC8FD2539E2E9008EDD15 /* TypographyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TypographyViewController.swift; sourceTree = "<group>"; };
@@ -735,6 +741,7 @@
 				7C6248A2247E60FC00F54C9D /* ToggleDemo.swift */,
 				7C71655F246D6492009C3FB1 /* TypographyView */,
 				00E17D6227883FD00077BD43 /* TabViewDemo.swift */,
+				2D92C0162A1B5331001FE5B7 /* UpDnCounterDemoView.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -775,6 +782,7 @@
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
 				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
+				2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -824,6 +832,7 @@
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
 				7CE19B1D25B98D7700FEFC1E /* SBBToast */,
+				2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1175,6 +1184,7 @@
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
 				7C28872224BF2B3800EDBD27 /* FakeOnboardingViewModels.swift in Sources */,
+				2D92C0152A152CF5001FE5B7 /* SBBUpDnCounterView.swift in Sources */,
 				7C1F20A824E51298006FF30B /* SBBEnvironmentBanner.swift in Sources */,
 				7CE5D76824C9D8B300282976 /* SBBOnboardingTitleView.swift in Sources */,
 				005DC8DB279B1226009C5CEA /* FakeTabBarEntry.swift in Sources */,
@@ -1287,6 +1297,7 @@
 				7C64548B2403F690005997AB /* DividerViewDemo.swift in Sources */,
 				7CE19B1A25B957EA00FEFC1E /* ToastDemo.swift in Sources */,
 				7C1F20AA24E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift in Sources */,
+				2D92C0172A1B5331001FE5B7 /* UpDnCounterDemoView.swift in Sources */,
 				7CE5D76624C9D43700282976 /* OnboardingViewDemo.swift in Sources */,
 				7C2DFE4625B5DC5300030342 /* DialogueDemo.swift in Sources */,
 				7C3AFA0225BAFCE7007BBF21 /* ProcessFlowViewModel.swift in Sources */,
@@ -1307,6 +1318,7 @@
 				7C60949C274FC1FE001ABF67 /* ImageExtensionTests.swift in Sources */,
 				7C609486274FB7BB001ABF67 /* SBBTextAreaTests.swift in Sources */,
 				7C609474274F9A4B001ABF67 /* SBBMapMarkerTests.swift in Sources */,
+				2D92C01B2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift in Sources */,
 				92995BA02593738D0042B5C5 /* SBBPaginationViewTests.swift in Sources */,
 				7C60946E274F9776001ABF67 /* SBBInfoViewTests.swift in Sources */,
 				7C609490274FBD36001ABF67 /* SBBPrimaryButtonStyleTests.swift in Sources */,

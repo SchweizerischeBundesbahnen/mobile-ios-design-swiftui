@@ -11,11 +11,11 @@ import SwiftUI
  You create a SBBListItem by providing a label. You can optionally also provide an image and a footnote:
  ```swift
  var body: some View {
- SBBFormGroup(title: "Title") {
- NavigationLink(destination: ChildView(), label: {
- SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: station_small), footnote: Text("Footnote"))
- })
- }
+     SBBFormGroup(title: "Title") {
+         NavigationLink(destination: ChildView(), label: {
+             SBBListItem(label: Text("Label"), leftImage: Image(sbbIcon: station_small), footnote: Text("Footnote"))
+         })
+     }
  }
  ```
  ![SBBListItem](SBBListItem)
@@ -47,7 +47,7 @@ public struct SBBListItem: View {
      - Parameters:
      - label: Sets the main label.
      - labelAccessibility: The optional alternative text for the label's VoiceOver.
-     - image: An optional Image to be shown on the leading edge of the SBBTextField.
+     - image: An optional Image to be shown on the leading edge of the SBBListItem.
      - footnote: An optional label displayed underneath the main label.
      - footnoteAccessibility: The optional alternative text for the footnote's VoiceOver.
      - type: The type of the trailing edge's image.
