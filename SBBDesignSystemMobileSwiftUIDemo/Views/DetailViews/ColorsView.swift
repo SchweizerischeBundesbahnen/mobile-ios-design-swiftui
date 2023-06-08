@@ -15,6 +15,7 @@ struct ColorsView: View {
             (.sbbColor(.red), "red"),
             (.sbbColor(.red125), "red125"),
             (.sbbColor(.red150), "red150"),
+            (.sbbColor(.redDark), "redDark"),
             (.sbbColor(.white), "white"),
             (.sbbColor(.milk), "milk"),
             (.sbbColor(.cloud), "cloud"),

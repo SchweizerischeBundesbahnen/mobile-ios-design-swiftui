@@ -15,6 +15,7 @@ public enum SBBColorName: String {
     case red = "Red"
     case red125 = "Red125"
     case red150 = "Red150"
+    case redDark = "RedDark"
     case white = "White"
     case milk = "Milk"
     case cloud = "Cloud"
