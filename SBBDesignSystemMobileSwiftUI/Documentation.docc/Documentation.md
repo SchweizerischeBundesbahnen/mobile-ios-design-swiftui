@@ -35,6 +35,7 @@ Note that this frameworks contains many ViewModifiers in form of View Extensions
 - ``SBBListItem``
 - ``SBBLoadingIndicator``
 - ``SBBMapMarker``
+- ``SBBMessage``
 - ``SBBModalView``
 - ``SBBNavigationBarSBBIcon``
 - ``SBBOnboardingView``
