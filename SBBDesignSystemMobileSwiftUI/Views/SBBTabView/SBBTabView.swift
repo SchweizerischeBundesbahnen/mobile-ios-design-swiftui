@@ -38,7 +38,7 @@ import SwiftUI
  }
  ```
  
- Note that the number of elements in the ViewBuilder must be between 1 and 10.
+ Note that the number of elements in the ViewBuilder must be between 1 and 5.
  
  ![SBBTabView](SBBTabView)
  ![SBBTabViewLandscape](SBBTabViewLandscape)

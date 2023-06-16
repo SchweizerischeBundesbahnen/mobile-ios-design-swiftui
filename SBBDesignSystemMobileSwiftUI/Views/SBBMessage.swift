@@ -5,7 +5,16 @@
 import SwiftUI
 
 public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyView {
-    
+    /**
+     Returns a SBBMessage.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - text: The Text to display as the body of the message.
+        - imageType: The type of message, either ImageType.info or ImageType.error.
+        - errorCode: The Text to display as error.
+        - isLoading: Whether to show the loading indicator at the bottom.
+     */
     init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false) {
         self.title = title
         self.message = text
@@ -17,6 +26,16 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         self.retry = nil
     }
     
+    /**
+     Returns a SBBMessage.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - text: The Text to display as the body of the message.
+        - imageType: The type of message, either ImageType.info or ImageType.error.
+        - errorCode: The Text to display as error.
+        - retry: The action to do when retry button (displayed at the bottom) is pressed.
+     */
     init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ())) {
         self.title = title
         self.message = text
@@ -31,6 +50,16 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
 
 public extension SBBMessage where TopImage == EmptyView {
     
+    /**
+     Returns a SBBMessage.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - text: The Text to display as the body of the message.
+        - imageType: The type of message, either ImageType.info or ImageType.error.
+        - bottomImage: The image (View) to display at the bottom of the message.
+        - errorCode: The Text to display as error.
+     */
     init(title: Text, text: Text, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil) {
         self.title = title
         self.message = text
@@ -45,6 +74,16 @@ public extension SBBMessage where TopImage == EmptyView {
 
 public extension SBBMessage where BottomImage == EmptyView {
     
+    /**
+     Returns a SBBMessage.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - text: The Text to display as the body of the message.
+        - topImage: The image (View) to display at the top of the message.
+        - errorCode: The Text to display as error.
+        - isLoading: Whether to show the loading indicator at the bottom.
+     */
     init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false) {
         self.title = title
         self.message = text
@@ -56,6 +95,16 @@ public extension SBBMessage where BottomImage == EmptyView {
         self.retry = nil
     }
     
+    /**
+     Returns a SBBMessage.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - text: The Text to display as the body of the message.
+        - topImage: The image (View) to display at the top of the message.
+        - errorCode: The Text to display as error.
+        - retry: The action to do when retry button (displayed at the bottom) is pressed.
+     */
     init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ())) {
         self.title = title
         self.message = text
@@ -68,14 +117,36 @@ public extension SBBMessage where BottomImage == EmptyView {
     }
 }
 
+
+/**
+ A  View that is used to display a message, usually in full screen.
+ 
+ ## Overview
+ You create a SBBMessage by providing a title and a text message, both as Text. You typically provide a ``SBBMessage/ImageType`` for the message, it is either ``SBBMessage/ImageType/info`` if the message is informative or ``SBBMessage/ImageType/error`` if the message is an error or a warning.
+ The top and bottom image can be customized with the parameters `topImage` and `bottomImage`.
+ 
+ ```swift
+ var body: some View {
+    SBBMessage(title: "A title", text: "Some message", imageType: .info, errorCode: Text("Error: 404"), isLoading: false)
+ }
+ 
+ var body: some View {
+    SBBMessage(title: "A title", text: "Some message", imageType: .info, errorCode: Text("Error: 404"), retry: {
+         // Some action to do on retry
+         }
+    )
+ }
+ ```
+ ![SBBMessage](SBBMessage)
+ */
 public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     
     @Environment(\.colorScheme) var colorScheme
     
     public enum ImageType: CaseIterable {
-        //
+        /// Used for information: the image is either a man or a woman
         case info
-        //
+        /// Used for error or warnings: the image is the display board
         case error
     }
     
@@ -107,6 +178,17 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     private let isLoading: Bool
     private let retry: (() -> ())?
     
+    /**
+     Returns a SBBMessage.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - text: The Text to display as the body of the message.
+        - topImage: The image (View) to display at the top of the message.
+        - bottomImage: The image (View) to display at the bottom of the message.
+        - errorCode: The Text to display as error.
+        - isLoading: Whether to show the loading indicator at the bottom.
+     */
     public init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false) {
         self.title = title
         self.message = text
@@ -118,6 +200,17 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         self.retry = nil
     }
     
+    /**
+     Returns a SBBMessage.
+     
+     - Parameters:
+        - title: The Text to display as title.
+        - text: The Text to display as the body of the message.
+        - topImage: The image (View) to display at the top of the message.
+        - bottomImage: The image (View) to display at the bottom of the message.
+        - errorCode: The Text to display as error.
+        - retry: The action to do when retry button (displayed at the bottom) is pressed.
+     */
     init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ())) {
         self.title = title
         self.message = text

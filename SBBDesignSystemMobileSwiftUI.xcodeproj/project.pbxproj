@@ -733,6 +733,7 @@
 				7C62489D247E48A400F54C9D /* ListItemDetailDemo.swift */,
 				7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */,
 				7CCAECF225C293E5000E958A /* MapMarkerDemo.swift */,
+				00B773C92A3C70A6002BDB85 /* MessageDemo.swift */,
 				7CF57A7024C1E2AC00631837 /* ModalViewDemo.swift */,
 				7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */,
 				7CE5D76524C9D43700282976 /* OnboardingViewDemo.swift */,
@@ -748,7 +749,6 @@
 				7C71655F246D6492009C3FB1 /* TypographyView */,
 				00E17D6227883FD00077BD43 /* TabViewDemo.swift */,
 				2D92C0162A1B5331001FE5B7 /* UpDnCounterDemoView.swift */,
-				00B773C92A3C70A6002BDB85 /* MessageDemo.swift */,
 			);
 			path = DetailViews;
 			sourceTree = "<group>";
@@ -778,6 +778,7 @@
 				7C60946F274F97E7001ABF67 /* SBBListItemTests.swift */,
 				7C609471274F9976001ABF67 /* SBBLoadingIndicatorTests.swift */,
 				7C609473274F9A4B001ABF67 /* SBBMapMarkerTests.swift */,
+				00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */,
 				7C609475274F9B03001ABF67 /* SBBModalViewTests.swift */,
 				7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */,
 				7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */,
@@ -785,12 +786,11 @@
 				7C60947F274FB4FC001ABF67 /* SBBRadioButtonTests.swift */,
 				7C609481274FB60C001ABF67 /* SBBRadioButtonGroupTests.swift */,
 				7C609483274FB6B5001ABF67 /* SBBSegmentedPickerTests.swift */,
+				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
 				7C609485274FB7BB001ABF67 /* SBBTextAreaTests.swift */,
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
-				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
 				2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */,
-				00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -829,6 +829,7 @@
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
 				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
 				7CB2CEB125C19AD600756D9B /* SBBMapMarker.swift */,
+				00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */,
 				7C106D1525DA7FD700B89ECD /* SBBModalView */,
 				7C1A846125F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift */,
 				7CBA440E24BDA63E0078E68F /* SBBOnboardingView */,
@@ -841,7 +842,6 @@
 				A73734892436135B00E34716 /* SBBTextField.swift */,
 				7CE19B1D25B98D7700FEFC1E /* SBBToast */,
 				2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */,
-				00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
