@@ -104,6 +104,9 @@ struct ContentView: View {
                                 NavigationLink(destination: MapMarkerDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("MapMarker"))
                                 }
+                                NavigationLink(destination: MessageDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Message"))
+                                }
                                 NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("ModalView"))
                                 }
