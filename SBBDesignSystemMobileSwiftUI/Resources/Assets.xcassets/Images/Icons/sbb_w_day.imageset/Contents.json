@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "sbb_w_day.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
