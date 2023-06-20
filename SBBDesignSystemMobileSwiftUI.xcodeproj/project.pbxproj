@@ -10,6 +10,7 @@
 		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
 		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
 		003C23542A3CABA90095C31A /* PromotionBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */; };
+		003C23562A4207790095C31A /* SBBPromotionBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */; };
 		005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */; };
 		005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CA279A9FE4009C5CEA /* TabBarView.swift */; };
 		005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */; };
@@ -239,6 +240,7 @@
 		001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabViewTests.swift; sourceTree = "<group>"; };
 		003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBox.swift; sourceTree = "<group>"; };
 		003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionBoxDemo.swift; sourceTree = "<group>"; };
+		003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBoxTests.swift; sourceTree = "<group>"; };
 		005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinates.swift; sourceTree = "<group>"; };
 		005DC8CA279A9FE4009C5CEA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShapeView.swift; sourceTree = "<group>"; };
@@ -788,6 +790,7 @@
 				7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */,
 				7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */,
 				7C60947D274FB452001ABF67 /* SBBProcessFlowTests.swift */,
+				003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */,
 				7C60947F274FB4FC001ABF67 /* SBBRadioButtonTests.swift */,
 				7C609481274FB60C001ABF67 /* SBBRadioButtonGroupTests.swift */,
 				7C609483274FB6B5001ABF67 /* SBBSegmentedPickerTests.swift */,
@@ -1365,6 +1368,7 @@
 				7C60947A274F9EC8001ABF67 /* SBBOnboardingViewTests.swift in Sources */,
 				7C609488274FB917001ABF67 /* SBBTextFieldTests.swift in Sources */,
 				7C60949A274FC04A001ABF67 /* SBBSwitchStyleTests.swift in Sources */,
+				003C23562A4207790095C31A /* SBBPromotionBoxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
