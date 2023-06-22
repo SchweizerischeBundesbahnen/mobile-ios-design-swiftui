@@ -240,6 +240,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                 VStack(alignment: .center, spacing: 16) {
                     title
                         .sbbFont(.body)
+                        .multilineTextAlignment(.center)
                         .foregroundColor(Color.sbbColor(.textBlack))
                     message
                         .multilineTextAlignment(.center)
