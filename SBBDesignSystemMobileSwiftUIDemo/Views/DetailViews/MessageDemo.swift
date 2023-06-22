@@ -31,63 +31,78 @@ struct MessageDemo: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            if topType == .custom {
-                if bottomType == .custom {
-                    SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), bottomImage: Image(sbbIcon: .arrows_circle_small), errorCode: error ? Text("Error: 404") : nil)
-                } else if bottomType == .retry {
-                    SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), errorCode: error ? Text("Error: 404") : nil, retry: {})
+            ScrollView(showsIndicators: false) {
+                if topType == .custom {
+                    if bottomType == .custom {
+                        SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), bottomImage: Image(sbbIcon: .arrows_circle_small), errorCode: error ? Text("Error: 404") : nil)
+                    } else if bottomType == .retry {
+                        SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), errorCode: error ? Text("Error: 404") : nil, retry: {})
+                    } else {
+                        SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), errorCode: error ? Text("Error: 404") : nil, isLoading: bottomType == .loading)
+                    }
                 } else {
-                    SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), errorCode: error ? Text("Error: 404") : nil, isLoading: bottomType == .loading)
-                }
-            } else {
-                if bottomType == .custom {
-                    SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, bottomImage: Image(sbbIcon: .arrows_circle_small), errorCode: error ? Text("Error: 404") : nil)
-                } else if bottomType == .retry {
-                    SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, errorCode: error ? Text("Error: 404") : nil, retry: {})
-                } else {
-                    SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, errorCode: error ? Text("Error: 404") : nil, isLoading: bottomType == .loading)
+                    if bottomType == .custom {
+                        SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, bottomImage: Image(sbbIcon: .arrows_circle_small), errorCode: error ? Text("Error: 404") : nil)
+                    } else if bottomType == .retry {
+                        SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, errorCode: error ? Text("Error: 404") : nil, retry: {})
+                    } else {
+                        SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, errorCode: error ? Text("Error: 404") : nil, isLoading: bottomType == .loading)
+                    }
                 }
             }
+            
             SBBDivider()
             
             Group {
                 HStack {
                     VStack {
                         Text("Top")
+                            .font(.system(size: 14))
                         Text("image")
+                            .font(.system(size: 14))
                     }
                     SBBSegmentedPicker(selection: $topType, tags: [.info, .error, .custom]) {
                         Text("Info")
+                            .font(.system(size: 14))
                         Text("Error")
+                            .font(.system(size: 14))
                         Text("Custom")
+                            .font(.system(size: 14))
                     }
                 }
-                      
+                
                 HStack {
                     VStack {
                         Text("Bottom")
+                            .font(.system(size: 14))
                         Text("image")
+                            .font(.system(size: 14))
                     }
                     SBBSegmentedPicker(selection: $bottomType, tags: [.none, .loading, .retry, .custom]) {
                         Text("None")
+                            .font(.system(size: 14))
                         Text("Loading")
+                            .font(.system(size: 14))
                         Text("Retry")
+                            .font(.system(size: 14))
                         Text("Custom")
+                            .font(.system(size: 14))
                     }
                 }
                 
                 Toggle(isOn: $error) {
                     Text("Error")
+                        .font(.system(size: 14))
                 }
-                    .toggleStyle(SBBSwitchStyle())
-                    .sbbScreenPadding(.horizontal)
-            }
-                .sbbFont(.legend)
+                .toggleStyle(SBBSwitchStyle())
                 .sbbScreenPadding(.horizontal)
+            }
+            .sbbFont(.legend)
+            .sbbScreenPadding(.horizontal)
         }
-            .navigationBarTitle("Message")
-            .sbbStyle()
-            .colorScheme(colorScheme)
+        .navigationBarTitle("Message")
+        .sbbStyle()
+        .colorScheme(colorScheme)
     }
 }
 
