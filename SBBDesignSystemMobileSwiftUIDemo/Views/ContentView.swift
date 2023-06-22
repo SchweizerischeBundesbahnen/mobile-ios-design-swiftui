@@ -104,6 +104,9 @@ struct ContentView: View {
                                 NavigationLink(destination: MapMarkerDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("MapMarker"))
                                 }
+                                NavigationLink(destination: MessageDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Message"))
+                                }
                                 NavigationLink(destination: ModalViewDemo(colorScheme: self.$colorScheme, contentSizeCategory: $contentSizeCategory).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("ModalView"))
                                 }
@@ -118,6 +121,9 @@ struct ContentView: View {
                                 }
                                 NavigationLink(destination: ProcessFlowDemo(viewModel: ProcessFlowViewModel(), colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("ProcessFlow"))
+                                }
+                                NavigationLink(destination: PromotionBoxDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("PromotionBox"))
                                 }
                             }
                             Group {

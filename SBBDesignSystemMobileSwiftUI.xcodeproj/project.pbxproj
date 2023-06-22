@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
+		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
+		003C23542A3CABA90095C31A /* PromotionBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */; };
+		003C23562A4207790095C31A /* SBBPromotionBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */; };
 		005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */; };
 		005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CA279A9FE4009C5CEA /* TabBarView.swift */; };
 		005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */; };
@@ -20,6 +23,9 @@
 		005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */; };
 		005DC8DF279B1517009C5CEA /* FakeTabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */; };
 		005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */; };
+		00B773C42A3C4BB7002BDB85 /* SBBMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */; };
+		00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */; };
+		00B773CA2A3C70A6002BDB85 /* MessageDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C92A3C70A6002BDB85 /* MessageDemo.swift */; };
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
@@ -232,6 +238,9 @@
 
 /* Begin PBXFileReference section */
 		001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabViewTests.swift; sourceTree = "<group>"; };
+		003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBox.swift; sourceTree = "<group>"; };
+		003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionBoxDemo.swift; sourceTree = "<group>"; };
+		003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBoxTests.swift; sourceTree = "<group>"; };
 		005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinates.swift; sourceTree = "<group>"; };
 		005DC8CA279A9FE4009C5CEA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShapeView.swift; sourceTree = "<group>"; };
@@ -244,6 +253,9 @@
 		005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarParameters.swift; sourceTree = "<group>"; };
 		005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarShape.swift; sourceTree = "<group>"; };
 		005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabButtons.swift; sourceTree = "<group>"; };
+		00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessage.swift; sourceTree = "<group>"; };
+		00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessageTests.swift; sourceTree = "<group>"; };
+		00B773C92A3C70A6002BDB85 /* MessageDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDemo.swift; sourceTree = "<group>"; };
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
@@ -727,11 +739,13 @@
 				7C62489D247E48A400F54C9D /* ListItemDetailDemo.swift */,
 				7CC3FAD325AEDBEB00D227D4 /* LoadingIndicatorDemo.swift */,
 				7CCAECF225C293E5000E958A /* MapMarkerDemo.swift */,
+				00B773C92A3C70A6002BDB85 /* MessageDemo.swift */,
 				7CF57A7024C1E2AC00631837 /* ModalViewDemo.swift */,
 				7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */,
 				7CE5D76524C9D43700282976 /* OnboardingViewDemo.swift */,
 				7CF57A6E24C1E02E00631837 /* PaginationViewDemo.swift */,
 				7C3AF99B25BAB2E9007BBF21 /* ProcessFlowDemo.swift */,
+				003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */,
 				7C595E5A25A5FDD20015B0FC /* RadioButtonView.swift */,
 				7C43038623FD72610033865F /* SegmentedPickerViewDemo.swift */,
 				7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */,
@@ -771,17 +785,19 @@
 				7C60946F274F97E7001ABF67 /* SBBListItemTests.swift */,
 				7C609471274F9976001ABF67 /* SBBLoadingIndicatorTests.swift */,
 				7C609473274F9A4B001ABF67 /* SBBMapMarkerTests.swift */,
+				00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */,
 				7C609475274F9B03001ABF67 /* SBBModalViewTests.swift */,
 				7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */,
 				7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */,
 				7C60947D274FB452001ABF67 /* SBBProcessFlowTests.swift */,
+				003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */,
 				7C60947F274FB4FC001ABF67 /* SBBRadioButtonTests.swift */,
 				7C609481274FB60C001ABF67 /* SBBRadioButtonGroupTests.swift */,
 				7C609483274FB6B5001ABF67 /* SBBSegmentedPickerTests.swift */,
+				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
 				7C609485274FB7BB001ABF67 /* SBBTextAreaTests.swift */,
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
-				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
 				2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */,
 			);
 			path = Views;
@@ -821,11 +837,13 @@
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
 				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
 				7CB2CEB125C19AD600756D9B /* SBBMapMarker.swift */,
+				00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */,
 				7C106D1525DA7FD700B89ECD /* SBBModalView */,
 				7C1A846125F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift */,
 				7CBA440E24BDA63E0078E68F /* SBBOnboardingView */,
 				7C28871524BF055900EDBD27 /* SBBPaginationView.swift */,
 				7C3AF99725BAA845007BBF21 /* SBBProcessFlow.swift */,
+				003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */,
 				7C595E5225A5FBCE0015B0FC /* SBBRadioButton.swift */,
 				7CC5F4B926B03D230028161D /* SBBRadioButtonGroup.swift */,
 				7C43038823FD86110033865F /* SBBSegmentedPicker.swift */,
@@ -1179,6 +1197,7 @@
 				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
+				00B773C42A3C4BB7002BDB85 /* SBBMessage.swift in Sources */,
 				005DC8D8279B08BA009C5CEA /* TabBarParameters.swift in Sources */,
 				005DC8D6279AC91E009C5CEA /* TabButtonView.swift in Sources */,
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
@@ -1211,6 +1230,7 @@
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
+				003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */,
 				7C595E5725A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift in Sources */,
 				00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
@@ -1260,11 +1280,13 @@
 			files = (
 				7C2B7E7123D9F8940012CF62 /* ColorsView.swift in Sources */,
 				7C62489A247E3DA100F54C9D /* ListItemDemo.swift in Sources */,
+				003C23542A3CABA90095C31A /* PromotionBoxDemo.swift in Sources */,
 				7C3AF99C25BAB2E9007BBF21 /* ProcessFlowDemo.swift in Sources */,
 				2D804E7823D9D16000CC9C0C /* AppDelegate.swift in Sources */,
 				7CBEAD19273E76510063E011 /* Theme.swift in Sources */,
 				2DCEC8FE2539E2E9008EDD15 /* TypographyViewController.swift in Sources */,
 				7C1A845825F781C5008B66D3 /* BannerDemo.swift in Sources */,
+				00B773CA2A3C70A6002BDB85 /* MessageDemo.swift in Sources */,
 				7CF57A7124C1E2AC00631837 /* ModalViewDemo.swift in Sources */,
 				7C0DDFE625A6DFA6009BB31D /* SliderDemo.swift in Sources */,
 				A7EDCA3B2434958600753AE1 /* TextAreaView.swift in Sources */,
@@ -1329,6 +1351,7 @@
 				7C60949E274FC3FA001ABF67 /* SBBEnvironmentBannerTests.swift in Sources */,
 				7C6094A0274FC67B001ABF67 /* SBBSliderExtensionTests.swift in Sources */,
 				7C609468274F8FC8001ABF67 /* SBBChipTests.swift in Sources */,
+				00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */,
 				92995BA42593739F0042B5C5 /* SBBBubbleViewTests.swift in Sources */,
 				92995BAC259373C20042B5C5 /* SBBDividerTests.swift in Sources */,
 				7C609480274FB4FC001ABF67 /* SBBRadioButtonTests.swift in Sources */,
@@ -1345,6 +1368,7 @@
 				7C60947A274F9EC8001ABF67 /* SBBOnboardingViewTests.swift in Sources */,
 				7C609488274FB917001ABF67 /* SBBTextFieldTests.swift in Sources */,
 				7C60949A274FC04A001ABF67 /* SBBSwitchStyleTests.swift in Sources */,
+				003C23562A4207790095C31A /* SBBPromotionBoxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1592,7 +1616,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1617,7 +1641,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
