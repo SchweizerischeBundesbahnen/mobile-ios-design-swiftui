@@ -235,11 +235,12 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                         topImage
                     }
                 }
-                .accessibility(hidden: true)
+                    .accessibility(hidden: true)
                 
                 VStack(alignment: .center, spacing: 16) {
                     title
                         .sbbFont(.body)
+                        .foregroundColor(Color.sbbColor(.textBlack))
                     message
                         .multilineTextAlignment(.center)
                         .sbbFont(.legend)
@@ -250,6 +251,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                             .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
                     }
                 }
+                    .accessibilityElement(children: .combine)
                 
                 Group {
                     if isLoading {
@@ -263,7 +265,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                         bottomImage
                     }
                 }
-                .accessibility(hidden: true)
+                    .accessibility(hidden: true)
                 Spacer()
             }
                 .sbbScreenPadding(.horizontal)

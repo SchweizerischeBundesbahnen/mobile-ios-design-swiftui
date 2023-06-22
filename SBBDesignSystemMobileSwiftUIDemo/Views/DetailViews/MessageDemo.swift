@@ -1,5 +1,5 @@
 //
-// Copyright (C) Schweizerische Bundesbahnen SBB, 2022.
+// Copyright (C) Schweizerische Bundesbahnen SBB, 2023.
 //
 
 import SwiftUI
@@ -86,6 +86,8 @@ struct MessageDemo: View {
                 .sbbScreenPadding(.horizontal)
         }
             .navigationBarTitle("Message")
+            .sbbStyle()
+            .colorScheme(colorScheme)
     }
 }
 

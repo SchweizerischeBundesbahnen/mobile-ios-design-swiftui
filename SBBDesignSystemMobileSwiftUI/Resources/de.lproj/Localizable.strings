@@ -56,3 +56,8 @@
 "%@ has value %lld" = "%@ hat Wert von %lld.";
 "%@ has reached maximum of %lld" = "%@ hat sein Maximum von %lld erreicht.";
 "%@ has reached minimum of %lld" = "%@ hat sein Minimum von %lld erreicht.";
+
+// SBBPromotionBox
+"close note" = "Hinweis schliessen";
+"new" = "Neu";
+"new in %@" = "Neu in %@";

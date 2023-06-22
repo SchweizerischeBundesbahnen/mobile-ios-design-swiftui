@@ -122,6 +122,9 @@ struct ContentView: View {
                                 NavigationLink(destination: ProcessFlowDemo(viewModel: ProcessFlowViewModel(), colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("ProcessFlow"))
                                 }
+                                NavigationLink(destination: PromotionBoxDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("PromotionBox"))
+                                }
                             }
                             Group {
                                 NavigationLink(destination: RadioButtonView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {

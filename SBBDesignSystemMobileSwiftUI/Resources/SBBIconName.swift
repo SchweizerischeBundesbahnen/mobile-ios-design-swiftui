@@ -1915,6 +1915,7 @@ public enum SBBIcon: String {
     case nine_squares_medium = "nine-squares-medium"
     case nine_squares_small = "nine-squares-small"
     case nj = "nj"
+    case noise = "noise"
     case office_chair_medium = "office-chair-medium"
     case office_chair_small = "office-chair-small"
     case ogv = "ogv"
