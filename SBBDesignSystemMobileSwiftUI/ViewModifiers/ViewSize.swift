@@ -75,16 +75,15 @@ struct ViewSize: ViewModifier {
         content
             .background(ViewGeometry())
             .onPreferenceChange(ViewSizeKey.self, perform: { value in
-                DispatchQueue.main.async {
-                    switch sizeType {
-                    case .size:
-                        self.contentSize = value.first?.size ?? .zero
-                    case .height:
-                        self.contentFloat = value.first?.size.height ?? 0.0
-                    case .width:
-                        self.contentFloat = value.first?.size.width ?? 0.0
-                    }
+                switch sizeType {
+                case .size:
+                    self.contentSize = value.first?.size ?? .zero
+                case .height:
+                    self.contentFloat = value.first?.size.height ?? 0.0
+                case .width:
+                    self.contentFloat = value.first?.size.width ?? 0.0
                 }
+                
             })
     }
 }

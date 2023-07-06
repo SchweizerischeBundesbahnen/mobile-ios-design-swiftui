@@ -106,10 +106,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                     imageView
                     
                     self.entry.labelView
-                        .background(ViewGeometry())
-                        .onPreferenceChange(ViewSizeKey.self) {
-                            self.labelSizes[self.index] = $0.first?.size ?? .zero
-                        }
+                        .viewSize(self.$labelSizes[self.index])
                         .sbbFont(.body)
                         .lineLimit(1)
                         .minimumScaleFactor(0.1)

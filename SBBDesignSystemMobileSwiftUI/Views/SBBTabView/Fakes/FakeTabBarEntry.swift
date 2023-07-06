@@ -9,8 +9,8 @@ import SwiftUI
  */
 public struct FakeTabBarEntry {
     
-    public static let fakeTabContent1 = (Image(sbbIcon: .avatar_police_small), "Station")
-    public static let fakeTabContent2 = (Image(sbbIcon: .clock_small), "Stop")
+    public static let fakeTabContent1 = (Image(sbbIcon: .station_small), "Station")
+    public static let fakeTabContent2 = (Image(sbbIcon: .bus_stop_small), "Stop")
     public static let fakeTabContent3 = (Image(sbbIcon: .train_small), "En route")
     public static let fakeTabContent4 = (Image(sbbIcon: .fullscreen_small), "Finder")
     public static let fakeTabContent5 = (Image(sbbIcon: .gears_small), "Settings")
