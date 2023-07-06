@@ -26,6 +26,7 @@
 		00B773C42A3C4BB7002BDB85 /* SBBMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */; };
 		00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */; };
 		00B773CA2A3C70A6002BDB85 /* MessageDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C92A3C70A6002BDB85 /* MessageDemo.swift */; };
+		00BB63A92A56C18A003E2FBC /* ViewSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BB63A82A56C18A003E2FBC /* ViewSize.swift */; };
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
@@ -137,8 +138,7 @@
 		7CA464DF2445F31100118D7B /* SBBAccordion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA464DE2445F31100118D7B /* SBBAccordion.swift */; };
 		7CA464E12445F58B00118D7B /* AccordionDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA464E02445F58B00118D7B /* AccordionDemo.swift */; };
 		7CA5551B267A1473006A6F00 /* SBBStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5551A267A1473006A6F00 /* SBBStyle.swift */; };
-		7CAC69FA25CAE73F003CF54E /* SizePreferenceKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */; };
-		7CAC69FF25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC69FE25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift */; };
+		7CAC69FA25CAE73F003CF54E /* ViewSizeKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAC69F925CAE73F003CF54E /* ViewSizeKey.swift */; };
 		7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C43038823FD86110033865F /* SBBSegmentedPicker.swift */; };
 		7CAF977825B875B3002260AE /* ToastContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF977725B875B3002260AE /* ToastContainerView.swift */; };
 		7CAF977D25B87653002260AE /* SBBToastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CAF977C25B87653002260AE /* SBBToastService.swift */; };
@@ -256,6 +256,7 @@
 		00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessage.swift; sourceTree = "<group>"; };
 		00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessageTests.swift; sourceTree = "<group>"; };
 		00B773C92A3C70A6002BDB85 /* MessageDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDemo.swift; sourceTree = "<group>"; };
+		00BB63A82A56C18A003E2FBC /* ViewSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSize.swift; sourceTree = "<group>"; };
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
@@ -378,8 +379,7 @@
 		7CA464DE2445F31100118D7B /* SBBAccordion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBAccordion.swift; sourceTree = "<group>"; };
 		7CA464E02445F58B00118D7B /* AccordionDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccordionDemo.swift; sourceTree = "<group>"; };
 		7CA5551A267A1473006A6F00 /* SBBStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStyle.swift; sourceTree = "<group>"; };
-		7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreferenceKey.swift; sourceTree = "<group>"; };
-		7CAC69FE25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizePreferenceKeyUpdater.swift; sourceTree = "<group>"; };
+		7CAC69F925CAE73F003CF54E /* ViewSizeKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSizeKey.swift; sourceTree = "<group>"; };
 		7CAF977725B875B3002260AE /* ToastContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastContainerView.swift; sourceTree = "<group>"; };
 		7CAF977C25B87653002260AE /* SBBToastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBToastService.swift; sourceTree = "<group>"; };
 		7CAF978225B87DCE002260AE /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
@@ -667,8 +667,8 @@
 				7C47590C2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift */,
 				7C0DDFD925A6DBA9009BB31D /* SliderExtension.swift */,
 				7C89AE6126B154720087872E /* IsSelected.swift */,
-				7CAC69FD25CAE775003CF54E /* Internal */,
 				7C7193C926E9DE7C00CD3EAF /* SBBScreenPadding.swift */,
+				00BB63A82A56C18A003E2FBC /* ViewSize.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -887,20 +887,12 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		7CAC69FD25CAE775003CF54E /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				7CAC69FE25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift */,
-			);
-			path = Internal;
-			sourceTree = "<group>";
-		};
 		7CAFE98423DEC816001ADBE8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
 				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
-				7CAC69F925CAE73F003CF54E /* SizePreferenceKey.swift */,
+				7CAC69F925CAE73F003CF54E /* ViewSizeKey.swift */,
 				2D5B275C29C99D1800B3CC88 /* SBBIconsHelper.swift */,
 			);
 			path = Helper;
@@ -1234,6 +1226,7 @@
 				7C595E5725A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift in Sources */,
 				00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
+				00BB63A92A56C18A003E2FBC /* ViewSize.swift in Sources */,
 				7C595E4D25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift in Sources */,
 				7C595E4125A597010015B0FC /* SBBListItemExtension.swift in Sources */,
 				005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */,
@@ -1256,7 +1249,7 @@
 				7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */,
 				7CAFE9A123DF2C62001ADBE8 /* SBBBubbleView.swift in Sources */,
 				005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */,
-				7CAC69FA25CAE73F003CF54E /* SizePreferenceKey.swift in Sources */,
+				7CAC69FA25CAE73F003CF54E /* ViewSizeKey.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
 				7C28871824BF1FB400EDBD27 /* CornerRadius.swift in Sources */,
 				7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */,
@@ -1269,7 +1262,6 @@
 				7CE7BD5025B16A84000ADF6B /* SBBChip.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
 				7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */,
-				7CAC69FF25CAE7F3003CF54E /* SizePreferenceKeyUpdater.swift in Sources */,
 				00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

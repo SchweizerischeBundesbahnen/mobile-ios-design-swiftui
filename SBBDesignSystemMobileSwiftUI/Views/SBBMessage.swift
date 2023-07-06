@@ -143,6 +143,8 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     
     @Environment(\.colorScheme) var colorScheme
     
+    @State var contentSize: CGSize = .zero
+    
     public enum ImageType: CaseIterable {
         /// Used for information: the image is either a man or a woman
         case info
@@ -222,58 +224,78 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         self.retry = retry
     }
     
-    public var body: some View {
+    private var contentView: some View {
         HStack {
             Spacer()
-            VStack(alignment: .center, spacing: 32) {
+            VStack {
                 Spacer()
-                
-                Group {
-                    if let image = image {
-                        image
-                    } else if let topImage = topImage {
-                        topImage
-                    }
-                }
-                    .accessibility(hidden: true)
-                
-                VStack(alignment: .center, spacing: 16) {
-                    title
-                        .sbbFont(.body)
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(Color.sbbColor(.textBlack))
-                    message
-                        .multilineTextAlignment(.center)
-                        .sbbFont(.legend)
-                        .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
-                    if let errorCode = errorCode {
-                        errorCode
-                            .sbbFont(.legendSmall)
-                            .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
-                    }
-                }
-                    .accessibilityElement(children: .combine)
-                
-                Group {
-                    if isLoading {
-                        SBBLoadingIndicator()
-                    } else if let retry = retry {
-                        Button(action: retry) {
-                            Image(sbbIcon: .arrows_circle_small)
+                VStack(alignment: .center, spacing: 32) {
+                    Group {
+                        if let image = image {
+                            image
+                        } else if let topImage = topImage {
+                            topImage
                         }
-                        .buttonStyle(SBBIconButtonStyle())
-                    } else if let bottomImage = bottomImage {
-                        bottomImage
                     }
-                }
                     .accessibility(hidden: true)
+                    
+                    VStack(alignment: .center, spacing: 16) {
+                        title
+                            .sbbFont(.body)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(Color.sbbColor(.textBlack))
+                        message
+                            .multilineTextAlignment(.center)
+                            .sbbFont(.legend)
+                            .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
+                        if let errorCode = errorCode {
+                            errorCode
+                                .sbbFont(.legendSmall)
+                                .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
+                        }
+                    }
+                    .accessibilityElement(children: .combine)
+                    
+                    Group {
+                        if isLoading {
+                            SBBLoadingIndicator()
+                        } else if let retry = retry {
+                            Button(action: retry) {
+                                Image(sbbIcon: .arrows_circle_small)
+                            }
+                            .buttonStyle(SBBIconButtonStyle())
+                        } else if let bottomImage = bottomImage {
+                            bottomImage
+                        }
+                    }
+                    .accessibility(hidden: true)
+                }
+                .sbbScreenPadding(.horizontal)
+                .fixedSize(horizontal: false, vertical: true)
+                .viewSize(self.$contentSize)
                 Spacer()
             }
-                .sbbScreenPadding(.horizontal)
             Spacer()
         }
-            .background(Color.sbbColor(.background))
-            
+        .background(Color.sbbColor(.background))
+    }
+    
+    public var body: some View {
+        GeometryReader { geometry in
+            VStack {
+                if useScrollView(parentSize: geometry.size.height) {
+                    ScrollView(.vertical, showsIndicators: false) {
+                        contentView
+                    }
+                } else {
+                    contentView
+                }
+            }
+        }
+    }
+    
+    func useScrollView(parentSize: CGFloat) -> Bool {
+        return contentSize.height > parentSize
     }
 }
 

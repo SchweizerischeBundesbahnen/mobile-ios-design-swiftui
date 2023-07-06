@@ -22,8 +22,9 @@ public struct TabBarEntryView: View, Identifiable {
     var label: String
     var accessibilityLabel: String
     var tag: AnyHashable
-    var customBackground: Color?
-    var customForeground: Color?
+    var warningBackground: Bool
+    var badge: Bool
+    var badgeView: AnyView?
     
     /**
      Returns a TabBarEntryView displaying the content of the tab.
@@ -33,10 +34,11 @@ public struct TabBarEntryView: View, Identifiable {
         - imageView: The image displayed in the tab bar
         - label: The label display in the tab bar
         - tag: The tag used to reference the bar
-        - customBackground: The backgroud color of the tab (circle)
-        - customForeground: The foreground color of the tab (circle)
+        - warningBackground: Whether the backgroud color of the tab (circle) is in the primary color (red or blue)
+        - badge: Whether to display a small badge at the top right of the tab
+        - badgeView: A view to be displayed on top of the badge
      */
-    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: AnyHashable, customBackground: Color? = nil, customForeground: Color? = nil) {
+    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: AnyHashable, warningBackground: Bool = false, badge: Bool = false, badgeView: AnyView? = nil) {
         self.imageView = imageView ?? Image(sbbIcon: .cross_small)
         self.label = label ?? "_"
         self.accessibilityLabel = accessibilityLabel ?? self.label
@@ -47,8 +49,9 @@ public struct TabBarEntryView: View, Identifiable {
             imageView ?? Image(sbbIcon: .cross_small)
         })
         self.tag = tag
-        self.customBackground = customBackground
-        self.customForeground = customForeground
+        self.warningBackground = warningBackground
+        self.badge = badge
+        self.badgeView = badgeView
     }
     
     public var body: some View {

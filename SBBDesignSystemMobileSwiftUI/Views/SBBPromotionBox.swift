@@ -74,7 +74,6 @@ public struct SBBPromotionBox: View {
                             title
                                 .bold()
                                 .sbbFont(.body)
-                                .background(ViewGeometry())
                             Spacer()
                             Button(action: {
                                 self.isPresented = false
@@ -87,7 +86,6 @@ public struct SBBPromotionBox: View {
                         
                         text
                             .multilineTextAlignment(.leading)
-                            .background(ViewGeometry())
                     }
                     .foregroundColor(Color.sbbColor(.textBlack))
                     .padding(16)
@@ -130,10 +128,7 @@ public struct SBBPromotionBox: View {
                                             .font(.system(size: 14))
                                             .fixedSize()
                                             .foregroundColor(.white)
-                                            .background(ViewGeometry())
-                                            .onPreferenceChange(ViewSizeKey.self) {
-                                                self.textSize = $0
-                                            }
+                                            .viewSize(self.$textSize)
                                     }
                                 )
                                 .frame(width: self.textSize.width + 20, height: 24)

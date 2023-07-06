@@ -60,10 +60,18 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
     
     private var imageView: some View {
         Group {
-            if entry.customForeground != nil || entry.customBackground != nil {
+            if entry.warningBackground {
                 Circle()
-                    .overlay(self.entry.imageView.foregroundColor(entry.customForeground != nil ? entry.customForeground : Color.sbbColor(.textBlack)))
-                    .foregroundColor(entry.customBackground != nil ? entry.customBackground! : Color.sbbColor(.viewBackground))
+                    .overlay(self.entry.imageView.foregroundColor(Color.sbbColor(.textWhite)))
+                    .foregroundColor(Color.sbbColor(.primary))
+            } else if entry.badge {
+                self.entry.imageView
+                    .overlay(Circle()
+                        .frame(width: self.tabBarParameters.badgeSize, height: self.tabBarParameters.badgeSize)
+                        .overlay(entry.badgeView?
+                            .foregroundColor(Color.sbbColor(.white)))
+                        .offset(x: self.tabBarParameters.badgeOffset, y: -1 * self.tabBarParameters.badgeOffset)
+                        .foregroundColor(Color.sbbColor(.red)))
             } else {
                 self.entry.imageView
             }
@@ -94,10 +102,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                     imageView
                     
                     self.entry.labelView
-                        .background(ViewGeometry())
-                        .onPreferenceChange(ViewSizeKey.self) {
-                            self.labelSizes[self.index] = $0
-                        }
+                        .viewSize(self.$labelSizes[self.index])
                         .sbbFont(.body)
                         .lineLimit(1)
                         .minimumScaleFactor(0.1)
