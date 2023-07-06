@@ -65,12 +65,17 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
             let circlePad: CGFloat = isPortrait ? 6 : 2
             let topPad: CGFloat = isPortrait ? 8 : 0
             
+            let badgeSize: CGFloat = isPortrait ? 18 : 15
+            let badgeOffset: CGFloat = isPortrait ? 11 : 9
+            
             let buttonHeight: CGFloat = topPad + circleSize + circlePad
             let buttonWidth: CGFloat = circleSize + 2 * circlePad
             
             let tabBarParameters = TabBarParameters(circleRadius: circleSize / 2,
                                                     circlePad: circlePad,
                                                     topPad: topPad,
+                                                    badgeSize: badgeSize,
+                                                    badgeOffset: badgeOffset,
                                                     segmentWidth: segmentWidth,
                                                     segmentWidths: self.labelSizes,
                                                     barHeight: barHeight,
@@ -140,23 +145,6 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
     
     private func segmentWidth(parentWidth: CGFloat, nbTabs: Int) -> CGFloat {
         return parentWidth / CGFloat(nbTabs)
-    }
-}
-
-struct ViewSizeKey: PreferenceKey {
-    public static var defaultValue: CGSize = .zero
-    
-    public static func reduce(value: inout CGSize, nextValue: () -> CGSize) {
-        value = nextValue()
-    }
-}
-
-struct ViewGeometry: View {
-    public var body: some View {
-        GeometryReader { geometry in
-            Color.clear
-                .preference(key: ViewSizeKey.self, value: geometry.size)
-        }
     }
 }
 

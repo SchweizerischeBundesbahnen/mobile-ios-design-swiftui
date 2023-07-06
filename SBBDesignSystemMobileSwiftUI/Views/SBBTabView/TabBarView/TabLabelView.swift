@@ -35,7 +35,7 @@ struct TabLabelView: View {
         self.contents[self.selectionIndex].labelView
             .background(ViewGeometry())
             .onPreferenceChange(ViewSizeKey.self) {
-                self.textSize = $0
+                self.textSize = $0.first?.size ?? .zero
             }
             .sbbFont(.body)
             .lineLimit(1)

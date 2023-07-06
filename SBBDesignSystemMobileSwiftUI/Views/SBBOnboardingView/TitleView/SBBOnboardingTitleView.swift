@@ -55,10 +55,7 @@ public struct SBBOnboardingTitleView: View {
             .multilineTextAlignment(.center)
             .accessibility(addTraits: .isHeader)
             .accessibility(identifier: "onboardingTitleViewTitle")
-            .modifier(SizePreferenceKeyUpdater())
-            .onPreferenceChange(SizePreferenceKey.self) {
-                self.titleHeight = $0.height
-            }
+            .viewHeight($titleHeight)
     }
     
     var subtitleView: some View {
@@ -69,10 +66,7 @@ public struct SBBOnboardingTitleView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .multilineTextAlignment(.center)
                     .accessibility(identifier: "onboardingTitleViewSubtitle")
-                    .modifier(SizePreferenceKeyUpdater())
-                    .onPreferenceChange(SizePreferenceKey.self) {
-                        self.subtitleHeight = $0.height
-                    }
+                    .viewHeight($subtitleHeight)
             }
         }
     }

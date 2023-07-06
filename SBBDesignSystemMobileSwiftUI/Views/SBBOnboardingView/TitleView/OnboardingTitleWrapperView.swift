@@ -86,13 +86,9 @@ struct OnboardingTitleWrapperView: View {
                                 VStack(alignment: .center, spacing: 16) {
                                     Spacer()
                                     sbbOnboardingTitleView.titleView
-                                        .onPreferenceChange(SizePreferenceKey.self) {
-                                            self.titleHeight = $0.height
-                                        }
+                                        .viewHeight($titleHeight)
                                     sbbOnboardingTitleView.subtitleView
-                                        .onPreferenceChange(SizePreferenceKey.self) {
-                                            self.subtitleHeight = $0.height
-                                        }
+                                        .viewHeight($subtitleHeight)
                                     Spacer()
                                 }
                                     .sbbScreenPadding(.horizontal)

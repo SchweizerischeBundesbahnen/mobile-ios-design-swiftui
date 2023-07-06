@@ -28,81 +28,96 @@ struct MessageDemo: View {
     @State var topType: TopType = .info
     @State var bottomType: BottomType = .none
     @State var error: Bool = false
+    @State var showSettings: Bool = false
     
     var body: some View {
-        VStack(alignment: .leading) {
-            ScrollView(showsIndicators: false) {
-                if topType == .custom {
-                    if bottomType == .custom {
-                        SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), bottomImage: Image(sbbIcon: .arrows_circle_small), errorCode: error ? Text("Error: 404") : nil)
-                    } else if bottomType == .retry {
-                        SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), errorCode: error ? Text("Error: 404") : nil, retry: {})
-                    } else {
-                        SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), errorCode: error ? Text("Error: 404") : nil, isLoading: bottomType == .loading)
-                    }
+        ZStack {
+            if topType == .custom {
+                if bottomType == .custom {
+                    SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), bottomImage: Image(sbbIcon: .arrows_circle_small), errorCode: error ? Text("Error: 404") : nil)
+                } else if bottomType == .retry {
+                    SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), errorCode: error ? Text("Error: 404") : nil, retry: {})
                 } else {
-                    if bottomType == .custom {
-                        SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, bottomImage: Image(sbbIcon: .arrows_circle_small), errorCode: error ? Text("Error: 404") : nil)
-                    } else if bottomType == .retry {
-                        SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, errorCode: error ? Text("Error: 404") : nil, retry: {})
-                    } else {
-                        SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, errorCode: error ? Text("Error: 404") : nil, isLoading: bottomType == .loading)
-                    }
+                    SBBMessage(title: title, text: text, topImage: Image(sbbIcon: .binoculars_large), errorCode: error ? Text("Error: 404") : nil, isLoading: bottomType == .loading)
+                }
+            } else {
+                if bottomType == .custom {
+                    SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, bottomImage: Image(sbbIcon: .arrows_circle_small), errorCode: error ? Text("Error: 404") : nil)
+                } else if bottomType == .retry {
+                    SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, errorCode: error ? Text("Error: 404") : nil, retry: {})
+                } else {
+                    SBBMessage(title: title, text: text, imageType: topType == .info ? .info : .error, errorCode: error ? Text("Error: 404") : nil, isLoading: bottomType == .loading)
                 }
             }
             
-            SBBDivider()
-            
-            Group {
+            VStack {
                 HStack {
-                    VStack {
-                        Text("Top")
-                            .font(.system(size: 14))
-                        Text("image")
-                            .font(.system(size: 14))
+                    Spacer()
+                    Button(action: {
+                        showSettings = true
+                    }) {
+                        Image(sbbIcon: .controls_medium)
                     }
-                    SBBSegmentedPicker(selection: $topType, tags: [.info, .error, .custom]) {
-                        Text("Info")
-                            .font(.system(size: 14))
-                        Text("Error")
-                            .font(.system(size: 14))
-                        Text("Custom")
-                            .font(.system(size: 14))
-                    }
+                    .buttonStyle(SBBIconButtonStyle())
+                    .padding(10)
+                    
                 }
-                
-                HStack {
-                    VStack {
-                        Text("Bottom")
-                            .font(.system(size: 14))
-                        Text("image")
-                            .font(.system(size: 14))
-                    }
-                    SBBSegmentedPicker(selection: $bottomType, tags: [.none, .loading, .retry, .custom]) {
-                        Text("None")
-                            .font(.system(size: 14))
-                        Text("Loading")
-                            .font(.system(size: 14))
-                        Text("Retry")
-                            .font(.system(size: 14))
-                        Text("Custom")
-                            .font(.system(size: 14))
-                    }
-                }
-                
-                Toggle(isOn: $error) {
-                    Text("Error")
-                        .font(.system(size: 14))
-                }
-                .toggleStyle(SBBSwitchStyle())
-                .sbbScreenPadding(.horizontal)
+                Spacer()
             }
-            .sbbFont(.legend)
-            .sbbScreenPadding(.horizontal)
         }
         .navigationBarTitle("Message")
         .sbbStyle()
         .colorScheme(colorScheme)
+        .sbbModal(isPresented: $showSettings) {
+            SBBModalView(title: Text("Settings"), style: .bottom, isPresented: $showSettings) {
+                VStack(spacing: 10) {
+                    HStack {
+                        VStack {
+                            Text("Top")
+                                .font(.system(size: 14))
+                            Text("image")
+                                .font(.system(size: 14))
+                        }
+                        SBBSegmentedPicker(selection: $topType, tags: [.info, .error, .custom]) {
+                            Text("Info")
+                                .font(.system(size: 14))
+                            Text("Error")
+                                .font(.system(size: 14))
+                            Text("Custom")
+                                .font(.system(size: 14))
+                        }
+                    }
+                    
+                    HStack {
+                        VStack {
+                            Text("Bottom")
+                                .font(.system(size: 14))
+                            Text("image")
+                                .font(.system(size: 14))
+                        }
+                        SBBSegmentedPicker(selection: $bottomType, tags: [.none, .loading, .retry, .custom]) {
+                            Text("None")
+                                .font(.system(size: 14))
+                            Text("Loading")
+                                .font(.system(size: 14))
+                            Text("Retry")
+                                .font(.system(size: 14))
+                            Text("Custom")
+                                .font(.system(size: 14))
+                        }
+                    }
+                    
+                    Toggle(isOn: $error) {
+                        Text("Error")
+                            .font(.system(size: 14))
+                    }
+                    .toggleStyle(SBBSwitchStyle())
+                    .sbbScreenPadding(.horizontal)
+                }
+                .padding(10)
+                .padding(.bottom, 16)
+            }
+        }
     }
 }
 

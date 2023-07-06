@@ -197,6 +197,7 @@ struct ContentView: View {
                 .id(navigationViewID)
                 .navigationViewStyle(StackNavigationViewStyle())    // iPad SwiftUI SplitView issue workaround
                 .sbbEnvironmentBanner(selectedBanner)
+                .accentColor(.white)
             if onboardingViewModel.onboardingState != .hidden {
                 OnboardingView()
             }
