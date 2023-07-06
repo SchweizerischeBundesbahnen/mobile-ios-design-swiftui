@@ -34,7 +34,15 @@ struct TabViewDemo: View {
                                 Text(content.1)
                                 content.0
                             }
-                            .sbbTabItem(image: content.0, label: content.1, tag: index, badge: true, badgeNumber: selectedBadgeNumber == 0 ? nil : selectedBadgeNumber)
+                            .sbbTabItem(image: content.0, label: content.1, tag: index, badge: true, badgeView: selectedBadgeNumber == 0 ? nil : selectedBadgeNumber == 1 ? AnyView(Image(sbbIcon: .tick_small)
+                                            .resizable()
+                                            .frame(width: 16, height: 16)) :
+                                AnyView(Text("\(selectedBadgeNumber)")
+                                    .bold()
+                                    .sbbFont(.legend)
+                                    .lineLimit(1)
+                                    .minimumScaleFactor(0.1)
+                            ))
                         } else {
                             FakeTabBarEntry.fakeTabEntries[index]
                         }
@@ -83,9 +91,9 @@ struct TabViewDemo: View {
                     }
                     
                     if selectedExtra == 2 {
-                        SBBFormGroup(title: "Number on badge") {
-                            SBBRadioButtonGroup(selection: $selectedBadgeNumber, tags: [0, 8, 24, 136]) {
-                                SBBRadioButton(text: Text("Nil"))
+                        SBBFormGroup(title: "View on badge") {
+                            SBBRadioButtonGroup(selection: $selectedBadgeNumber, tags: [0, 8, 24, 136, 1]) {
+                                SBBRadioButton(text: Text("nil"))
                                     .tag(0)
                                 SBBRadioButton(text: Text("8"))
                                     .tag(8)
@@ -93,6 +101,8 @@ struct TabViewDemo: View {
                                     .tag(24)
                                 SBBRadioButton(text: Text("136"), showBottomLine: false)
                                     .tag(136)
+                                SBBRadioButton(text: Text("checkmark"), showBottomLine: false)
+                                    .tag(1)
                             }
                         }
                     }

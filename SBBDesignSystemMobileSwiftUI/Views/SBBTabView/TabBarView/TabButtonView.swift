@@ -68,12 +68,8 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                 self.entry.imageView
                     .overlay(Circle()
                         .frame(width: self.tabBarParameters.badgeSize, height: self.tabBarParameters.badgeSize)
-                        .overlay(Text("\(entry.badgeNumber != nil ? "\(entry.badgeNumber!)" : "")")
-                            .bold()
-                            .sbbFont(.legend)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.1)
-                            .foregroundColor(Color.sbbColor(.textWhite)))
+                        .overlay(entry.badgeView?
+                            .foregroundColor(Color.sbbColor(.white)))
                         .offset(x: self.tabBarParameters.badgeOffset, y: -1 * self.tabBarParameters.badgeOffset)
                         .foregroundColor(Color.sbbColor(.red)))
             } else {

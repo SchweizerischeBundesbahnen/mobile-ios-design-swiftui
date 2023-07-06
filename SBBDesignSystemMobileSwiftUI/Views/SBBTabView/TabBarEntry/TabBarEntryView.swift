@@ -24,7 +24,7 @@ public struct TabBarEntryView: View, Identifiable {
     var tag: AnyHashable
     var warningBackground: Bool
     var badge: Bool
-    var badgeNumber: Int?
+    var badgeView: AnyView?
     
     /**
      Returns a TabBarEntryView displaying the content of the tab.
@@ -36,9 +36,9 @@ public struct TabBarEntryView: View, Identifiable {
         - tag: The tag used to reference the bar
         - warningBackground: Whether the backgroud color of the tab (circle) is in the primary color (red or blue)
         - badge: Whether to display a small badge at the top right of the tab
-        - badgeNumber: The number to display inside the badge
+        - badgeView: A view to be displayed on top of the badge
      */
-    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: AnyHashable, warningBackground: Bool = false, badge: Bool = false, badgeNumber: Int? = nil) {
+    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: AnyHashable, warningBackground: Bool = false, badge: Bool = false, badgeView: AnyView? = nil) {
         self.imageView = imageView ?? Image(sbbIcon: .cross_small)
         self.label = label ?? "_"
         self.accessibilityLabel = accessibilityLabel ?? self.label
@@ -51,7 +51,7 @@ public struct TabBarEntryView: View, Identifiable {
         self.tag = tag
         self.warningBackground = warningBackground
         self.badge = badge
-        self.badgeNumber = badgeNumber
+        self.badgeView = badgeView
     }
     
     public var body: some View {
