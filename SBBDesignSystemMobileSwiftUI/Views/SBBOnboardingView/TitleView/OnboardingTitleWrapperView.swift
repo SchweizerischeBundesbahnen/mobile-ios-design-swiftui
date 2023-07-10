@@ -86,6 +86,7 @@ struct OnboardingTitleWrapperView: View {
                             ScrollView(showsIndicators: false) {
                                 VStack(alignment: .center, spacing: 16) {
                                     Spacer()
+                                    
                                     if sizeCategory.isAccessibilityCategory {
                                         sbbOnboardingTitleView.titleView
                                             .minimumScaleFactor(0.1)
@@ -103,11 +104,12 @@ struct OnboardingTitleWrapperView: View {
                                             .fixedSize(horizontal: false, vertical: true)
                                             .viewHeight($subtitleHeight)
                                     }
+                                    
                                     Spacer()
                                 }
                                     .sbbScreenPadding(.horizontal)
                                     .frame(width: mainGeometry.size.width / 2)
-                                    .frame(maxHeight: sizeCategory.isAccessibilityCategory ? .infinity : getContentHeight(containingViewHeight: geometry.size.height))
+                                    .frame(height: sizeCategory.isAccessibilityCategory ? .infinity : getContentHeight(containingViewHeight: geometry.size.height))
                                     .foregroundColor(.sbbColor(.white))
                             }
                         }

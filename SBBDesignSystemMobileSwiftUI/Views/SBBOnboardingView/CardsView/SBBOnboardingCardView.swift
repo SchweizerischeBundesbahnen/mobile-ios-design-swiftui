@@ -27,6 +27,7 @@ public struct SBBOnboardingCardView: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     
     @State var scrollViewIntrinsicHeight: CGFloat = 0
+    @State var titleHeight: CGFloat = 0
 
     private var isCustomCard: Bool {
         return image == nil && title == nil && text == nil && content != nil
@@ -160,14 +161,15 @@ public struct SBBOnboardingCardView: View {
                             Spacer()
                             VStack(spacing: 16) {
                                 titleView
+                                    .viewHeight($titleHeight)
                                 
                                 textView
-                                    .frame(maxHeight: geometry.size.height)
                                 
                                 if let content = content {
                                     content
                                 }
                             }
+                                .frame(maxHeight: geometry.size.height + titleHeight + 16)
                             Spacer()
                         }
                     }
