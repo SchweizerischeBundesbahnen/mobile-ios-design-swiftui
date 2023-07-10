@@ -51,87 +51,68 @@ public struct SBBOnboardingTitleView: View {
     }
     
     var titleView: some View {
-        Group {
-            if sizeCategory.isAccessibilityCategory {
-                title
-                    .fixedSize(horizontal: false, vertical: false)
-                    .minimumScaleFactor(0.1)
-            } else {
-                title
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-                
-        }
+        title
             .font(.sbbLight(size: 30))
             .multilineTextAlignment(.center)
             .accessibility(addTraits: .isHeader)
             .accessibility(identifier: "onboardingTitleViewTitle")
-            .viewHeight($titleHeight)
     }
     
     var subtitleView: some View {
         Group {
             if let subtitle = subtitle {
-                if sizeCategory.isAccessibilityCategory {
-                    subtitle
-                        .fixedSize(horizontal: false, vertical: false)
-                        .minimumScaleFactor(0.1)
-                } else {
-                    subtitle
-                        .fixedSize(horizontal: false, vertical: true)
-                }
+                subtitle
+                    .sbbFont(.body)
+                    .multilineTextAlignment(.center)
+                    .accessibility(identifier: "onboardingTitleViewSubtitle")
             }
-        }
-            .sbbFont(.body)
-            .multilineTextAlignment(.center)
-            .accessibility(identifier: "onboardingTitleViewSubtitle")
-            .viewHeight($subtitleHeight)
-    }
-    
-    private func contentView(geometry: GeometryProxy) -> some View {
-        HStack(spacing: 0) {
-            Spacer()
-            VStack(spacing: 0) {
-                Spacer()
-                if sizeCategory.isAccessibilityCategory {
-                    imageView
-                        .frame(height: imageMinHeight)
-                } else {
-                    imageView
-                        .frame(minHeight: imageMinHeight)
-                }
-                VStack(spacing: 16) {
-                    if sizeCategory.isAccessibilityCategory {
-                        titleView
-                            .frame(maxHeight: geometry.size.height - imageMinHeight - paddingBetweenImageAndTitle)
-                        if subtitle != nil {
-                            subtitleView
-                                .frame(maxHeight: geometry.size.height)
-                        }
-                    } else {
-                        titleView
-                        if subtitle != nil {
-                            subtitleView
-                        }
-                    }
-                }
-                .padding(.top, paddingBetweenImageAndTitle)
-                .foregroundColor(.sbbColor(.white))
-                Spacer()
-            }
-            Spacer()
         }
     }
     
     public var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
-                if sizeCategory.isAccessibilityCategory {
-                    contentView(geometry: geometry)
-                } else {
-                    contentView(geometry: geometry)
-                        .frame(height: getContentHeight(containingViewHeight: geometry.size.height))
+                HStack(spacing: 0) {
+                    Spacer()
+                    VStack(spacing: 0) {
+                        Spacer()
+                        if sizeCategory.isAccessibilityCategory {
+                            imageView
+                                .frame(height: imageMinHeight)
+                        } else {
+                            imageView
+                                .frame(minHeight: imageMinHeight)
+                        }
+                        VStack(spacing: 16) {
+                            if sizeCategory.isAccessibilityCategory {
+                                titleView
+                                    .fixedSize(horizontal: false, vertical: false)
+                                    .minimumScaleFactor(0.1)
+                                    .frame(maxHeight: geometry.size.height - imageMinHeight - paddingBetweenImageAndTitle)
+                                if subtitle != nil {
+                                    subtitleView
+                                        .fixedSize(horizontal: false, vertical: false)
+                                        .minimumScaleFactor(0.1)
+                                        .frame(maxHeight: geometry.size.height)
+                                }
+                            } else {
+                                titleView
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .viewHeight($titleHeight)
+                                if subtitle != nil {
+                                    subtitleView
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .viewHeight($subtitleHeight)
+                                }
+                            }
+                        }
+                        .padding(.top, paddingBetweenImageAndTitle)
+                        .foregroundColor(.sbbColor(.white))
+                        Spacer()
+                    }
+                    Spacer()
                 }
+                .frame(maxHeight: sizeCategory.isAccessibilityCategory ? .infinity : getContentHeight(containingViewHeight: geometry.size.height))
             }
         }
     }

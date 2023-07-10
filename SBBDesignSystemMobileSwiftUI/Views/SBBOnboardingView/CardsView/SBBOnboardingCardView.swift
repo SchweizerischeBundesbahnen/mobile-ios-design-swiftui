@@ -162,6 +162,7 @@ public struct SBBOnboardingCardView: View {
                                 titleView
                                 
                                 textView
+                                    .frame(maxHeight: geometry.size.height)
                                 
                                 if let content = content {
                                     content

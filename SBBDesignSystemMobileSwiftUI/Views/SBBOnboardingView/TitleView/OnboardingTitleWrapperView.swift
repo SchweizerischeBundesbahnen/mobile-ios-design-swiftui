@@ -11,6 +11,7 @@ struct OnboardingTitleWrapperView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.sizeCategory) private var sizeCategory
     
     @State var titleHeight: CGFloat = 0
     @State var subtitleHeight: CGFloat = 0
@@ -85,14 +86,28 @@ struct OnboardingTitleWrapperView: View {
                             ScrollView(showsIndicators: false) {
                                 VStack(alignment: .center, spacing: 16) {
                                     Spacer()
-                                    sbbOnboardingTitleView.titleView
-                                        .viewHeight($titleHeight)
-                                    sbbOnboardingTitleView.subtitleView
-                                        .viewHeight($subtitleHeight)
+                                    if sizeCategory.isAccessibilityCategory {
+                                        sbbOnboardingTitleView.titleView
+                                            .minimumScaleFactor(0.1)
+                                            .fixedSize(horizontal: false, vertical: false)
+                                            .frame(maxHeight: geometry.size.height)
+                                        sbbOnboardingTitleView.subtitleView
+                                            .minimumScaleFactor(0.1)
+                                            .fixedSize(horizontal: false, vertical: false)
+                                            .frame(maxHeight: geometry.size.height)
+                                    } else {
+                                        sbbOnboardingTitleView.titleView
+                                            .fixedSize(horizontal: false, vertical: true)
+                                            .viewHeight($titleHeight)
+                                        sbbOnboardingTitleView.subtitleView
+                                            .fixedSize(horizontal: false, vertical: true)
+                                            .viewHeight($subtitleHeight)
+                                    }
                                     Spacer()
                                 }
                                     .sbbScreenPadding(.horizontal)
-                                    .frame(width: mainGeometry.size.width / 2, height: getContentHeight(containingViewHeight: geometry.size.height))
+                                    .frame(width: mainGeometry.size.width / 2)
+                                    .frame(maxHeight: sizeCategory.isAccessibilityCategory ? .infinity : getContentHeight(containingViewHeight: geometry.size.height))
                                     .foregroundColor(.sbbColor(.white))
                             }
                         }
