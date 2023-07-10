@@ -24,6 +24,8 @@ public struct SBBOnboardingTitleView: View {
     private let paddingBetweenImageAndTitle: CGFloat = 36
     private let imageMinHeight: CGFloat = 200
     
+    @Environment(\.sizeCategory) private var sizeCategory
+    
     @State var titleHeight: CGFloat = 0
     @State var subtitleHeight: CGFloat = 0
     
@@ -49,9 +51,18 @@ public struct SBBOnboardingTitleView: View {
     }
     
     var titleView: some View {
-        title
+        Group {
+            if sizeCategory.isAccessibilityCategory {
+                title
+                    .fixedSize(horizontal: false, vertical: false)
+                    .minimumScaleFactor(0.1)
+            } else {
+                title
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+                
+        }
             .font(.sbbLight(size: 30))
-            .fixedSize(horizontal: false, vertical: true)
             .multilineTextAlignment(.center)
             .accessibility(addTraits: .isHeader)
             .accessibility(identifier: "onboardingTitleViewTitle")
@@ -61,38 +72,66 @@ public struct SBBOnboardingTitleView: View {
     var subtitleView: some View {
         Group {
             if let subtitle = subtitle {
-                subtitle
-                    .sbbFont(.body)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .multilineTextAlignment(.center)
-                    .accessibility(identifier: "onboardingTitleViewSubtitle")
-                    .viewHeight($subtitleHeight)
+                if sizeCategory.isAccessibilityCategory {
+                    subtitle
+                        .fixedSize(horizontal: false, vertical: false)
+                        .minimumScaleFactor(0.1)
+                } else {
+                    subtitle
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
+        }
+            .sbbFont(.body)
+            .multilineTextAlignment(.center)
+            .accessibility(identifier: "onboardingTitleViewSubtitle")
+            .viewHeight($subtitleHeight)
+    }
+    
+    private func contentView(geometry: GeometryProxy) -> some View {
+        HStack(spacing: 0) {
+            Spacer()
+            VStack(spacing: 0) {
+                Spacer()
+                if sizeCategory.isAccessibilityCategory {
+                    imageView
+                        .frame(height: imageMinHeight)
+                } else {
+                    imageView
+                        .frame(minHeight: imageMinHeight)
+                }
+                VStack(spacing: 16) {
+                    if sizeCategory.isAccessibilityCategory {
+                        titleView
+                            .frame(maxHeight: geometry.size.height - imageMinHeight - paddingBetweenImageAndTitle)
+                        if subtitle != nil {
+                            subtitleView
+                                .frame(maxHeight: geometry.size.height)
+                        }
+                    } else {
+                        titleView
+                        if subtitle != nil {
+                            subtitleView
+                        }
+                    }
+                }
+                .padding(.top, paddingBetweenImageAndTitle)
+                .foregroundColor(.sbbColor(.white))
+                Spacer()
+            }
+            Spacer()
         }
     }
     
     public var body: some View {
         GeometryReader { geometry in
             ScrollView(showsIndicators: false) {
-                HStack(spacing: 0) {
-                    Spacer()
-                    VStack(spacing: 0) {
-                        Spacer()
-                        imageView
-                            .frame(minHeight: imageMinHeight)
-                        VStack(spacing: 16) {
-                            titleView
-                            if subtitle != nil {
-                                subtitleView
-                            }
-                        }
-                            .padding(.top, paddingBetweenImageAndTitle)
-                            .foregroundColor(.sbbColor(.white))
-                        Spacer()
-                    }
-                    Spacer()
+                if sizeCategory.isAccessibilityCategory {
+                    contentView(geometry: geometry)
+                } else {
+                    contentView(geometry: geometry)
+                        .frame(height: getContentHeight(containingViewHeight: geometry.size.height))
                 }
-                    .frame(height: getContentHeight(containingViewHeight: geometry.size.height))
             }
         }
     }

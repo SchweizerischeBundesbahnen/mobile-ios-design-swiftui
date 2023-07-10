@@ -87,6 +87,8 @@ public struct SBBOnboardingCardView: View {
             if let title = title {
                 title
                     .sbbFont(.titleDefault)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.1)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                     .accessibility(addTraits: .isHeader)
@@ -99,8 +101,9 @@ public struct SBBOnboardingCardView: View {
             if let text = text {
                 text
                     .sbbFont(.body)
+                    .minimumScaleFactor(0.1)
                     .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .fixedSize(horizontal: false, vertical: false)
             }
         }
     }
@@ -119,6 +122,7 @@ public struct SBBOnboardingCardView: View {
                             titleView
                             
                             textView
+                                .frame(maxHeight: geometry.size.height)
                             
                             if let content = content {
                                 content
@@ -129,13 +133,7 @@ public struct SBBOnboardingCardView: View {
                         .padding(16)
                         .foregroundColor(.sbbColor(.textBlack))
                         .background(Color.sbbColor(.viewBackground))
-                        .overlay(
-                            GeometryReader { scrollViewIntrinsicGeometry in
-                                Color.clear.onAppear {
-                                    self.scrollViewIntrinsicHeight = scrollViewIntrinsicGeometry.size.height
-                                }
-                            }
-                        )
+                        .viewHeight($scrollViewIntrinsicHeight)
                 }
                     .frame(minHeight: geometry.size.height)
                     .clipped()
