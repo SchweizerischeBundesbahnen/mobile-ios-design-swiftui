@@ -24,6 +24,8 @@ public struct SBBOnboardingTitleView: View {
     private let paddingBetweenImageAndTitle: CGFloat = 36
     private let imageMinHeight: CGFloat = 200
     
+    @Environment(\.sizeCategory) private var sizeCategory
+    
     @State var titleHeight: CGFloat = 0
     @State var subtitleHeight: CGFloat = 0
     
@@ -51,11 +53,9 @@ public struct SBBOnboardingTitleView: View {
     var titleView: some View {
         title
             .font(.sbbLight(size: 30))
-            .fixedSize(horizontal: false, vertical: true)
             .multilineTextAlignment(.center)
             .accessibility(addTraits: .isHeader)
             .accessibility(identifier: "onboardingTitleViewTitle")
-            .viewHeight($titleHeight)
     }
     
     var subtitleView: some View {
@@ -63,10 +63,8 @@ public struct SBBOnboardingTitleView: View {
             if let subtitle = subtitle {
                 subtitle
                     .sbbFont(.body)
-                    .fixedSize(horizontal: false, vertical: true)
                     .multilineTextAlignment(.center)
                     .accessibility(identifier: "onboardingTitleViewSubtitle")
-                    .viewHeight($subtitleHeight)
             }
         }
     }
@@ -78,21 +76,43 @@ public struct SBBOnboardingTitleView: View {
                     Spacer()
                     VStack(spacing: 0) {
                         Spacer()
-                        imageView
-                            .frame(minHeight: imageMinHeight)
+                        if sizeCategory.isAccessibilityCategory {
+                            imageView
+                                .frame(height: imageMinHeight)
+                        } else {
+                            imageView
+                                .frame(minHeight: imageMinHeight)
+                        }
                         VStack(spacing: 16) {
-                            titleView
-                            if subtitle != nil {
-                                subtitleView
+                            if sizeCategory.isAccessibilityCategory {
+                                titleView
+                                    .fixedSize(horizontal: false, vertical: false)
+                                    .minimumScaleFactor(0.1)
+                                    .frame(maxHeight: geometry.size.height - imageMinHeight - paddingBetweenImageAndTitle)
+                                if subtitle != nil {
+                                    subtitleView
+                                        .fixedSize(horizontal: false, vertical: false)
+                                        .minimumScaleFactor(0.1)
+                                        .frame(maxHeight: geometry.size.height)
+                                }
+                            } else {
+                                titleView
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .viewHeight($titleHeight)
+                                if subtitle != nil {
+                                    subtitleView
+                                        .fixedSize(horizontal: false, vertical: true)
+                                        .viewHeight($subtitleHeight)
+                                }
                             }
                         }
-                            .padding(.top, paddingBetweenImageAndTitle)
-                            .foregroundColor(.sbbColor(.white))
+                        .padding(.top, paddingBetweenImageAndTitle)
+                        .foregroundColor(.sbbColor(.white))
                         Spacer()
                     }
                     Spacer()
                 }
-                    .frame(height: getContentHeight(containingViewHeight: geometry.size.height))
+                .frame(maxHeight: sizeCategory.isAccessibilityCategory ? .infinity : getContentHeight(containingViewHeight: geometry.size.height))
             }
         }
     }
