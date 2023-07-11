@@ -30,12 +30,27 @@ struct TabCircleRowView: View {
     public var body: some View {
         HStack(spacing: 0) {
             ForEach(Array(self.contents.enumerated()), id: \.offset) { index, entry in
-                Circle()
-                    .overlay(entry.imageView.foregroundColor(entry.customForeground != nil ? entry.customForeground! : Color.sbbColor(.background)))
-                    .frame(width: self.tabBarParameters.circleRadius * 2, height: self.tabBarParameters.circleRadius * 2)
-                    .padding(.top, self.tabBarParameters.topPad)
-                    .padding(.trailing, self.tabBarParameters.isPortrait ? 0 : index == self.selectionIndex ? self.tabBarParameters.segmentWidths[index].width + 15 : self.tabBarParameters.segmentWidths[index].width + 5)
-                    .foregroundColor(entry.customBackground != nil ? entry.customBackground! : Color.sbbColor(.textBlack))
+                if entry.badge {
+                    Circle()
+                        .overlay(entry.imageView.foregroundColor(entry.warningBackground ? Color.sbbColor(.textWhite) : Color.sbbColor(.background)))
+                        .frame(width: self.tabBarParameters.circleRadius * 2, height: self.tabBarParameters.circleRadius * 2)
+                        .overlay(Circle()
+                            .frame(width: self.tabBarParameters.badgeSize, height: self.tabBarParameters.badgeSize)
+                            .overlay(entry.badgeView
+                                .foregroundColor(Color.sbbColor(.white)))
+                            .offset(x: self.tabBarParameters.badgeOffset, y: -1 * self.tabBarParameters.badgeOffset)
+                            .foregroundColor(Color.sbbColor(.red)))
+                        .padding(.top, self.tabBarParameters.topPad)
+                        .padding(.trailing, self.tabBarParameters.isPortrait ? 0 : index == self.selectionIndex ? self.tabBarParameters.segmentWidths[index].width + 15 : self.tabBarParameters.segmentWidths[index].width + 5)
+                        .foregroundColor(entry.warningBackground ? Color.sbbColor(.primary) : Color.sbbColor(.textBlack))
+                } else {
+                    Circle()
+                        .overlay(entry.imageView.foregroundColor(entry.warningBackground ? Color.sbbColor(.textWhite) : Color.sbbColor(.background)))
+                        .frame(width: self.tabBarParameters.circleRadius * 2, height: self.tabBarParameters.circleRadius * 2)
+                        .padding(.top, self.tabBarParameters.topPad)
+                        .padding(.trailing, self.tabBarParameters.isPortrait ? 0 : index == self.selectionIndex ? self.tabBarParameters.segmentWidths[index].width + 15 : self.tabBarParameters.segmentWidths[index].width + 5)
+                        .foregroundColor(entry.warningBackground ? Color.sbbColor(.primary) : Color.sbbColor(.textBlack))
+                }
             }
             .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight, alignment: .top)
             .accessibilityHidden(true)

@@ -12,6 +12,9 @@ struct TabBarParameters {
     public var circlePad: CGFloat
     public var topPad: CGFloat
     
+    public var badgeSize: CGFloat
+    public var badgeOffset: CGFloat
+    
     public var segmentWidth: CGFloat
     public var segmentWidths: [CGSize]
     
@@ -23,10 +26,12 @@ struct TabBarParameters {
     
     public var isPortrait: Bool
     
-    public init(circleRadius: CGFloat, circlePad: CGFloat, topPad: CGFloat, segmentWidth: CGFloat, segmentWidths: [CGSize], barHeight: CGFloat, barWidth: CGFloat, buttonHeight: CGFloat, buttonWidth: CGFloat, isPortrait: Bool) {
+    public init(circleRadius: CGFloat, circlePad: CGFloat, topPad: CGFloat, badgeSize: CGFloat, badgeOffset: CGFloat, segmentWidth: CGFloat, segmentWidths: [CGSize], barHeight: CGFloat, barWidth: CGFloat, buttonHeight: CGFloat, buttonWidth: CGFloat, isPortrait: Bool) {
         self.circleRadius = circleRadius
         self.circlePad = circlePad
         self.topPad = topPad
+        self.badgeSize = badgeSize
+        self.badgeOffset = badgeOffset
         self.segmentWidth = segmentWidth
         self.segmentWidths = segmentWidths
         self.barHeight = barHeight

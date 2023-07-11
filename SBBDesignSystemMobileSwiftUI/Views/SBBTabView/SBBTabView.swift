@@ -113,7 +113,6 @@ struct SBBTabView_Previews: PreviewProvider {
         FakeTabBarEntry.fakeTab3
         FakeTabBarEntry.fakeTab4
         FakeTabBarEntry.fakeTab5
-        FakeTabBarEntry.fakeTab6
     }
     
     static var previews: some View {

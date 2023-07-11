@@ -177,7 +177,7 @@ struct TabBarShape: Shape {
 
 struct TabBarShape_Previews: PreviewProvider {
     
-    private static let dummyParameters = TabBarParameters(circleRadius: 30, circlePad: 5, topPad: 5, segmentWidth: 100, segmentWidths: [.zero], barHeight: 100, barWidth: 500, buttonHeight: 40, buttonWidth: 40, isPortrait: true)
+    private static let dummyParameters = TabBarParameters(circleRadius: 30, circlePad: 5, topPad: 5, badgeSize: 18, badgeOffset: 11, segmentWidth: 100, segmentWidths: [.zero], barHeight: 100, barWidth: 500, buttonHeight: 40, buttonWidth: 40, isPortrait: true)
     
     private static let pressed = false
     private static let currTab = 2
