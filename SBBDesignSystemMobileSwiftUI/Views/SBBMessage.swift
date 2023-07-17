@@ -14,8 +14,9 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - imageType: The type of message, either ImageType.info or ImageType.error.
         - errorCode: The Text to display as error.
         - isLoading: Whether to show the loading indicator at the bottom.
+        - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false) {
+    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -24,6 +25,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         self.bottomImage = nil
         self.isLoading = isLoading
         self.retry = nil
+        self.fixedSize = fixedSize
     }
     
     /**
@@ -35,8 +37,9 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - imageType: The type of message, either ImageType.info or ImageType.error.
         - errorCode: The Text to display as error.
         - retry: The action to do when retry button (displayed at the bottom) is pressed.
+        - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ())) {
+    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -45,6 +48,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         self.bottomImage = nil
         self.isLoading = false
         self.retry = retry
+        self.fixedSize = fixedSize
     }
 }
 
@@ -59,8 +63,9 @@ public extension SBBMessage where TopImage == EmptyView {
         - imageType: The type of message, either ImageType.info or ImageType.error.
         - bottomImage: The image (View) to display at the bottom of the message.
         - errorCode: The Text to display as error.
+        - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
      */
-    init(title: Text, text: Text, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil) {
+    init(title: Text, text: Text, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil, fixedSize: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -69,6 +74,7 @@ public extension SBBMessage where TopImage == EmptyView {
         self.bottomImage = bottomImage
         self.isLoading = false
         self.retry = nil
+        self.fixedSize = fixedSize
     }
 }
 
@@ -83,8 +89,9 @@ public extension SBBMessage where BottomImage == EmptyView {
         - topImage: The image (View) to display at the top of the message.
         - errorCode: The Text to display as error.
         - isLoading: Whether to show the loading indicator at the bottom.
+        - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false) {
+    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -93,6 +100,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         self.bottomImage = nil
         self.isLoading = isLoading
         self.retry = nil
+        self.fixedSize = fixedSize
     }
     
     /**
@@ -104,8 +112,9 @@ public extension SBBMessage where BottomImage == EmptyView {
         - topImage: The image (View) to display at the top of the message.
         - errorCode: The Text to display as error.
         - retry: The action to do when retry button (displayed at the bottom) is pressed.
+        - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ())) {
+    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -114,6 +123,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         self.bottomImage = nil
         self.isLoading = false
         self.retry = retry
+        self.fixedSize = fixedSize
     }
 }
 
@@ -179,6 +189,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     private let bottomImage: BottomImage?
     private let isLoading: Bool
     private let retry: (() -> ())?
+    private let fixedSize: Bool
     
     /**
      Returns a SBBMessage.
@@ -190,8 +201,9 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - bottomImage: The image (View) to display at the bottom of the message.
         - errorCode: The Text to display as error.
         - isLoading: Whether to show the loading indicator at the bottom.
+        - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
      */
-    public init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false) {
+    public init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -200,6 +212,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         self.bottomImage = bottomImage
         self.isLoading = isLoading
         self.retry = nil
+        self.fixedSize = fixedSize
     }
     
     /**
@@ -212,8 +225,9 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - bottomImage: The image (View) to display at the bottom of the message.
         - errorCode: The Text to display as error.
         - retry: The action to do when retry button (displayed at the bottom) is pressed.
+        - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
      */
-    init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ())) {
+    init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -222,6 +236,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         self.bottomImage = bottomImage
         self.isLoading = false
         self.retry = retry
+        self.fixedSize = fixedSize
     }
     
     private var contentView: some View {
@@ -281,14 +296,20 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     }
     
     public var body: some View {
-        GeometryReader { geometry in
-            VStack {
-                if useScrollView(parentSize: geometry.size.height) {
-                    ScrollView(.vertical, showsIndicators: false) {
-                        contentView
+        Group {
+            if fixedSize {
+                contentView
+            } else {
+                GeometryReader { geometry in
+                    VStack {
+                        if useScrollView(parentSize: geometry.size.height) {
+                            ScrollView(.vertical, showsIndicators: false) {
+                                contentView
+                            }
+                        } else {
+                            contentView
+                        }
                     }
-                } else {
-                    contentView
                 }
             }
         }
