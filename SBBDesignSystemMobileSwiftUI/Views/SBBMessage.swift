@@ -15,8 +15,9 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - errorCode: The Text to display as error.
         - isLoading: Whether to show the loading indicator at the bottom.
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
+        - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false) {
+    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -26,6 +27,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         self.isLoading = isLoading
         self.retry = nil
         self.fixedSize = fixedSize
+        self.bottomAccessibilityHidden = bottomAccessibilityHidden
     }
     
     /**
@@ -38,8 +40,9 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - errorCode: The Text to display as error.
         - retry: The action to do when retry button (displayed at the bottom) is pressed.
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
+        - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false) {
+    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -49,6 +52,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         self.isLoading = false
         self.retry = retry
         self.fixedSize = fixedSize
+        self.bottomAccessibilityHidden = bottomAccessibilityHidden
     }
 }
 
@@ -64,8 +68,9 @@ public extension SBBMessage where TopImage == EmptyView {
         - bottomImage: The image (View) to display at the bottom of the message.
         - errorCode: The Text to display as error.
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
+        - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil, fixedSize: Bool = false) {
+    init(title: Text, text: Text, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -75,6 +80,7 @@ public extension SBBMessage where TopImage == EmptyView {
         self.isLoading = false
         self.retry = nil
         self.fixedSize = fixedSize
+        self.bottomAccessibilityHidden = bottomAccessibilityHidden
     }
 }
 
@@ -90,8 +96,9 @@ public extension SBBMessage where BottomImage == EmptyView {
         - errorCode: The Text to display as error.
         - isLoading: Whether to show the loading indicator at the bottom.
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
+        - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false) {
+    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -101,6 +108,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         self.isLoading = isLoading
         self.retry = nil
         self.fixedSize = fixedSize
+        self.bottomAccessibilityHidden = bottomAccessibilityHidden
     }
     
     /**
@@ -113,8 +121,9 @@ public extension SBBMessage where BottomImage == EmptyView {
         - errorCode: The Text to display as error.
         - retry: The action to do when retry button (displayed at the bottom) is pressed.
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
+        - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false) {
+    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -124,6 +133,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         self.isLoading = false
         self.retry = retry
         self.fixedSize = fixedSize
+        self.bottomAccessibilityHidden = bottomAccessibilityHidden
     }
 }
 
@@ -190,6 +200,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     private let isLoading: Bool
     private let retry: (() -> ())?
     private let fixedSize: Bool
+    private let bottomAccessibilityHidden: Bool
     
     /**
      Returns a SBBMessage.
@@ -202,8 +213,9 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - errorCode: The Text to display as error.
         - isLoading: Whether to show the loading indicator at the bottom.
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
+        - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    public init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false) {
+    public init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -213,6 +225,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         self.isLoading = isLoading
         self.retry = nil
         self.fixedSize = fixedSize
+        self.bottomAccessibilityHidden = bottomAccessibilityHidden
     }
     
     /**
@@ -226,8 +239,9 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - errorCode: The Text to display as error.
         - retry: The action to do when retry button (displayed at the bottom) is pressed.
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
+        - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false) {
+    init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -237,6 +251,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         self.isLoading = false
         self.retry = retry
         self.fixedSize = fixedSize
+        self.bottomAccessibilityHidden = bottomAccessibilityHidden
     }
     
     private var contentView: some View {
@@ -283,7 +298,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                             bottomImage
                         }
                     }
-                    .accessibility(hidden: true)
+                    .accessibility(hidden: bottomAccessibilityHidden)
                 }
                 .sbbScreenPadding(.horizontal)
                 .fixedSize(horizontal: false, vertical: true)
