@@ -27,6 +27,15 @@
 		00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */; };
 		00B773CA2A3C70A6002BDB85 /* MessageDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C92A3C70A6002BDB85 /* MessageDemo.swift */; };
 		00BB63A92A56C18A003E2FBC /* ViewSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BB63A82A56C18A003E2FBC /* ViewSize.swift */; };
+		00D096262A6A5987009E02B1 /* SBBDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096252A6A5987009E02B1 /* SBBDatePicker.swift */; };
+		00D096282A6A8354009E02B1 /* PickerDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096272A6A8354009E02B1 /* PickerDemo.swift */; };
+		00D0962A2A6A8B38009E02B1 /* SBBPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096292A6A8B38009E02B1 /* SBBPicker.swift */; };
+		00D0962D2A6AB85F009E02B1 /* SBBPickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0962C2A6AB85F009E02B1 /* SBBPickerHelper.swift */; };
+		00D0962F2A6ACC31009E02B1 /* SBBPickerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0962E2A6ACC31009E02B1 /* SBBPickerWrapper.swift */; };
+		00D096312A6AE437009E02B1 /* SBBDatePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096302A6AE437009E02B1 /* SBBDatePickerHelper.swift */; };
+		00D096332A711266009E02B1 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096322A711266009E02B1 /* DateExtension.swift */; };
+		00D096352A714CD2009E02B1 /* SBBPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096342A714CD2009E02B1 /* SBBPickerTests.swift */; };
+		00D096382A7159D7009E02B1 /* DemoWithModalSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096372A7159D7009E02B1 /* DemoWithModalSettingsView.swift */; };
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
@@ -257,6 +266,15 @@
 		00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessageTests.swift; sourceTree = "<group>"; };
 		00B773C92A3C70A6002BDB85 /* MessageDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDemo.swift; sourceTree = "<group>"; };
 		00BB63A82A56C18A003E2FBC /* ViewSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSize.swift; sourceTree = "<group>"; };
+		00D096252A6A5987009E02B1 /* SBBDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBDatePicker.swift; sourceTree = "<group>"; };
+		00D096272A6A8354009E02B1 /* PickerDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerDemo.swift; sourceTree = "<group>"; };
+		00D096292A6A8B38009E02B1 /* SBBPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPicker.swift; sourceTree = "<group>"; };
+		00D0962C2A6AB85F009E02B1 /* SBBPickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPickerHelper.swift; sourceTree = "<group>"; };
+		00D0962E2A6ACC31009E02B1 /* SBBPickerWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPickerWrapper.swift; sourceTree = "<group>"; };
+		00D096302A6AE437009E02B1 /* SBBDatePickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBDatePickerHelper.swift; sourceTree = "<group>"; };
+		00D096322A711266009E02B1 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		00D096342A714CD2009E02B1 /* SBBPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPickerTests.swift; sourceTree = "<group>"; };
+		00D096372A7159D7009E02B1 /* DemoWithModalSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoWithModalSettingsView.swift; sourceTree = "<group>"; };
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
@@ -521,6 +539,26 @@
 			path = Fakes;
 			sourceTree = "<group>";
 		};
+		00D0962B2A6AA8E5009E02B1 /* SBBDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				00D096292A6A8B38009E02B1 /* SBBPicker.swift */,
+				00D096252A6A5987009E02B1 /* SBBDatePicker.swift */,
+				00D0962C2A6AB85F009E02B1 /* SBBPickerHelper.swift */,
+				00D0962E2A6ACC31009E02B1 /* SBBPickerWrapper.swift */,
+				00D096302A6AE437009E02B1 /* SBBDatePickerHelper.swift */,
+			);
+			path = SBBDatePicker;
+			sourceTree = "<group>";
+		};
+		00D096362A7159C2009E02B1 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				00D096372A7159D7009E02B1 /* DemoWithModalSettingsView.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		00FB8193278ED4E300F07D30 /* SBBTabView */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +707,7 @@
 				7C89AE6126B154720087872E /* IsSelected.swift */,
 				7C7193C926E9DE7C00CD3EAF /* SBBScreenPadding.swift */,
 				00BB63A82A56C18A003E2FBC /* ViewSize.swift */,
+				00D096322A711266009E02B1 /* DateExtension.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -713,6 +752,7 @@
 		7C2B7E6E23D9F8700012CF62 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00D096362A7159C2009E02B1 /* Helper */,
 				2D804E7B23D9D16000CC9C0C /* ContentView.swift */,
 				7CA055572660C3A000513F00 /* OnboardingView.swift */,
 				7C2B7E6F23D9F8890012CF62 /* DetailViews */,
@@ -744,6 +784,7 @@
 				7C1F20A924E517A1006FF30B /* NavigationBarWithSBBIconDemo.swift */,
 				7CE5D76524C9D43700282976 /* OnboardingViewDemo.swift */,
 				7CF57A6E24C1E02E00631837 /* PaginationViewDemo.swift */,
+				00D096272A6A8354009E02B1 /* PickerDemo.swift */,
 				7C3AF99B25BAB2E9007BBF21 /* ProcessFlowDemo.swift */,
 				003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */,
 				7C595E5A25A5FDD20015B0FC /* RadioButtonView.swift */,
@@ -799,6 +840,7 @@
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
 				2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */,
+				00D096342A714CD2009E02B1 /* SBBPickerTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -823,6 +865,7 @@
 		7C6665F423DB5DED002549F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00D0962B2A6AA8E5009E02B1 /* SBBDatePicker */,
 				00FB8193278ED4E300F07D30 /* SBBTabView */,
 				7C595E5625A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift */,
 				7C595E4C25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift */,
@@ -1193,6 +1236,7 @@
 				005DC8D8279B08BA009C5CEA /* TabBarParameters.swift in Sources */,
 				005DC8D6279AC91E009C5CEA /* TabButtonView.swift in Sources */,
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
+				00D0962F2A6ACC31009E02B1 /* SBBPickerWrapper.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
 				7C28872224BF2B3800EDBD27 /* FakeOnboardingViewModels.swift in Sources */,
 				2D92C0152A152CF5001FE5B7 /* SBBUpDnCounterView.swift in Sources */,
@@ -1223,6 +1267,8 @@
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
 				003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */,
+				00D0962D2A6AB85F009E02B1 /* SBBPickerHelper.swift in Sources */,
+				00D0962A2A6A8B38009E02B1 /* SBBPicker.swift in Sources */,
 				7C595E5725A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift in Sources */,
 				00FB8197278ED55E00F07D30 /* TabBarEntryView.swift in Sources */,
 				2DCEC8F62539DA42008EDD15 /* UIFontExtension.swift in Sources */,
@@ -1251,10 +1297,13 @@
 				005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */,
 				7CAC69FA25CAE73F003CF54E /* ViewSizeKey.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
+				00D096262A6A5987009E02B1 /* SBBDatePicker.swift in Sources */,
+				00D096332A711266009E02B1 /* DateExtension.swift in Sources */,
 				7C28871824BF1FB400EDBD27 /* CornerRadius.swift in Sources */,
 				7CDBA68D24C16B86002289EE /* SBBModalView.swift in Sources */,
 				7CACF8B22403A2DC00376775 /* SBBSegmentedPicker.swift in Sources */,
 				7C7193CA26E9DE7C00CD3EAF /* SBBScreenPadding.swift in Sources */,
+				00D096312A6AE437009E02B1 /* SBBDatePickerHelper.swift in Sources */,
 				7CAFE98923DED65C001ADBE8 /* SBBFont.swift in Sources */,
 				7C7FB27225BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift in Sources */,
 				A7EDCA372434951600753AE1 /* SBBTextArea.swift in Sources */,
@@ -1305,6 +1354,8 @@
 				7C71655C246D23CA009C3FB1 /* TypographySBBFontView.swift in Sources */,
 				7CEF769324DA905600AFD5EB /* IconDemo.swift in Sources */,
 				7CAFE99B23DED934001ADBE8 /* TypographyView.swift in Sources */,
+				00D096282A6A8354009E02B1 /* PickerDemo.swift in Sources */,
+				00D096382A7159D7009E02B1 /* DemoWithModalSettingsView.swift in Sources */,
 				7CA464E12445F58B00118D7B /* AccordionDemo.swift in Sources */,
 				7C716561246D6575009C3FB1 /* TypographyFontView.swift in Sources */,
 				7C50F16123E44A7200ABBA2C /* BubbleViewDemo.swift in Sources */,
@@ -1334,6 +1385,7 @@
 				7C609474274F9A4B001ABF67 /* SBBMapMarkerTests.swift in Sources */,
 				2D92C01B2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift in Sources */,
 				92995BA02593738D0042B5C5 /* SBBPaginationViewTests.swift in Sources */,
+				00D096352A714CD2009E02B1 /* SBBPickerTests.swift in Sources */,
 				7C60946E274F9776001ABF67 /* SBBInfoViewTests.swift in Sources */,
 				7C609490274FBD36001ABF67 /* SBBPrimaryButtonStyleTests.swift in Sources */,
 				7C609478274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift in Sources */,

@@ -12,5 +12,7 @@ internal enum SBBColorNameInternal: String {
     case textfieldLineInactive = "textfieldLineInactive"
     case paginationInactive = "paginationInactive"
     case sliderSwitchInactive = "sliderSwitchInactive"
+    case pickerSelectedSegmentBackground = "pickerSelectedSegmentBackground"
+    case textPicker = "textPicker"
 
 }
