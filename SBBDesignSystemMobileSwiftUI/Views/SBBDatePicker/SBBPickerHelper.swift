@@ -69,7 +69,7 @@ struct SBBPickerHelper<Selection: Hashable, Content: View>: View {
             .offset(y: self.translation + (SBBPickerValues.datePickerHeight / 2) + (SBBPickerValues.valuesHeight / 2))
             .viewHeight($allValuesHeight)
             .offset(y:  min((allValuesHeight - SBBPickerValues.datePickerHeight) / 2, allValuesHeight / 2))
-            .frame(maxHeight: SBBPickerValues.getHeight(self.tags.count), alignment: .center)
+            .frame(height: SBBPickerValues.getHeight(self.tags.count), alignment: .center)
             .clipped()
             .onChange(of: self.selection) { selection in
                 if let genNewTags = self.genNewTags {
@@ -87,7 +87,7 @@ struct SBBPickerHelper<Selection: Hashable, Content: View>: View {
             // WORKAROUND: Add "clear" rectangle for the gesture; otherwise the gesture extends past the view
             // Cannot be completely clear as otherwise the gesture does not work
             Rectangle()
-                .frame(maxHeight: SBBPickerValues.getHeight(self.tags.count), alignment: .center)
+                .frame(height: SBBPickerValues.getHeight(self.tags.count), alignment: .center)
                 .opacity(0.00001)
                 .gesture(
                     DragGesture().updating(self.$translation) { value, state, _ in

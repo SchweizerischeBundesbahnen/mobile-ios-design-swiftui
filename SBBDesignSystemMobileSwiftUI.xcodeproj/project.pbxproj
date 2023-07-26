@@ -814,13 +814,12 @@
 		7C60948B274FBBCE001ABF67 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				92995B9F2593738D0042B5C5 /* SBBPaginationViewTests.swift */,
+				7C609465274F8F03001ABF67 /* SBBAccordionTests.swift */,
 				92995BA32593739F0042B5C5 /* SBBBubbleViewTests.swift */,
 				92995BA7259373B10042B5C5 /* SBBCheckBoxTests.swift */,
-				92995BAB259373C20042B5C5 /* SBBDividerTests.swift */,
-				7C609465274F8F03001ABF67 /* SBBAccordionTests.swift */,
 				7C609467274F8FC8001ABF67 /* SBBChipTests.swift */,
 				7C609469274F9088001ABF67 /* SBBDialogueTests.swift */,
+				92995BAB259373C20042B5C5 /* SBBDividerTests.swift */,
 				7C60946B274F9652001ABF67 /* SBBFormGroupTests.swift */,
 				7C60946D274F9776001ABF67 /* SBBInfoViewTests.swift */,
 				7C60946F274F97E7001ABF67 /* SBBListItemTests.swift */,
@@ -830,6 +829,8 @@
 				7C609475274F9B03001ABF67 /* SBBModalViewTests.swift */,
 				7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */,
 				7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */,
+				92995B9F2593738D0042B5C5 /* SBBPaginationViewTests.swift */,
+				00D096342A714CD2009E02B1 /* SBBPickerTests.swift */,
 				7C60947D274FB452001ABF67 /* SBBProcessFlowTests.swift */,
 				003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */,
 				7C60947F274FB4FC001ABF67 /* SBBRadioButtonTests.swift */,
@@ -840,7 +841,6 @@
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
 				2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */,
-				00D096342A714CD2009E02B1 /* SBBPickerTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

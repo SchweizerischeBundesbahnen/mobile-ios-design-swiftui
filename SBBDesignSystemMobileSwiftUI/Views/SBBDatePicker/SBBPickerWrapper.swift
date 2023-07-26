@@ -30,7 +30,7 @@ struct SBBPickerWrapper<Picker: View>: View {
                 }
                 if isBoxed {
                     pickerView
-                        .frame(maxHeight: SBBPickerValues.getHeight(nbValues), alignment: .center)
+                        .frame(height: SBBPickerValues.getHeight(nbValues), alignment: .center)
                         .background(Color.sbbColor(.viewBackground))
                         .cornerRadius(16)
                 } else {
@@ -38,7 +38,7 @@ struct SBBPickerWrapper<Picker: View>: View {
                         pickerView
                         SBBDivider()
                     }
-                    .frame(maxHeight: SBBPickerValues.datePickerHeight, alignment: .center)
+                    .frame(height: SBBPickerValues.datePickerHeight, alignment: .center)
                 }
             }
         }
@@ -59,7 +59,7 @@ extension View {
                     .frame(height: SBBPickerValues.valuesHeight, alignment: .center)
                     .foregroundColor(Color.sbbColorInternal(.pickerSelectedSegmentBackground))
             }
-            .frame(maxHeight: SBBPickerValues.getHeight(nbValues), alignment: .center)
+            .frame(height: SBBPickerValues.getHeight(nbValues), alignment: .center)
             self
         }
     }

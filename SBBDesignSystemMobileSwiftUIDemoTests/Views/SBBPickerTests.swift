@@ -25,6 +25,7 @@ class SBBPickerTests: XCTestCase {
     
     func testSBBDatePicker() {
         let view = SBBDatePicker(selection: .constant(date), pickerType: .dateTime)
+            .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBDatePicker", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
@@ -33,6 +34,7 @@ class SBBPickerTests: XCTestCase {
     
     func testSBBDatePickerDateNotBoxed() {
         let view = SBBDatePicker(selection: .constant(date), pickerType: .date, isBoxed: false)
+            .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
@@ -40,6 +42,7 @@ class SBBPickerTests: XCTestCase {
     
     func testSBBDatePickerTimeNotBoxedLabel() {
         let view = SBBDatePicker(selection: .constant(date), pickerType: .time, isBoxed: false)
+            .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
@@ -47,6 +50,7 @@ class SBBPickerTests: XCTestCase {
     
     func testSBBDatePickerWithTimeRange() {
         let view = SBBDatePicker(fromTime: .constant(date), toTime: .constant(calendar.date(byAdding: .minute, value: 15, to: date)!))
+            .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBDatePickerTimerange", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
@@ -57,6 +61,7 @@ class SBBPickerTests: XCTestCase {
         let view = SBBPicker(.constant("Value 4"), tags: ["Value 1", "Value 2", "Value 3", "Value 4", "Value 5", "Value 6", "Value 7"]) { value in
             Text(value)
         }
+            .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBPicker", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
