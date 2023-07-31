@@ -265,11 +265,11 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
+                                .frame(height: imageType == .error ? 118 : 145)
                         } else if let topImage = topImage {
                             topImage
                         }
                     }
-                    .frame(height: 145)
                     .accessibility(hidden: true)
                     
                     VStack(alignment: .center, spacing: 16) {

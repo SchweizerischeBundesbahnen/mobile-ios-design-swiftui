@@ -28,7 +28,7 @@ class SBBMessageTests: XCTestCase {
     func testSBBMessageErrorRetry() {
         let view = SBBMessage(title: title, text: text, imageType: .error, retry: {})
         for colorScheme in ColorScheme.allCases {
-            //gview.recordDocumentationSnapshot(name: "SBBMessage", colorScheme: colorScheme)
+            //view.recordDocumentationSnapshot(name: "SBBMessage", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
@@ -47,7 +47,7 @@ class SBBMessageTests: XCTestCase {
         }
     }
     
-    func testSBBMessageInfoWithBottomImage() {
+    func testSBBMessageErrorWithBottomImage() {
         let view = SBBMessage(title: title, text: text, imageType: .error, bottomImage: Image(sbbIcon: .arrows_circle_small))
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
