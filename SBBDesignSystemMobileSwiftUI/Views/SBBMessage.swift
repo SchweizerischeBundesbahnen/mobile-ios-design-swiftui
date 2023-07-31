@@ -178,13 +178,13 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
             case .info:
                 let randomInt = Int.random(in: 0..<2)
                 if randomInt == 0 {
-                    return Image(colorScheme == .dark ? "sbb_m_dark" : "sbb_m_day", bundle: Helper.bundle)
+                    return Image("sbb_m", bundle: Helper.bundle)
                 } else {
-                    return Image(colorScheme == .dark ? "sbb_w_dark" : "sbb_w_day", bundle: Helper.bundle)
+                    return Image("sbb_w", bundle: Helper.bundle)
                 }
                 
             case .error:
-                return Image(colorScheme == .dark ? "sbb_board_dark" : "sbb_board_day", bundle: Helper.bundle)
+                return Image("sbb_board", bundle: Helper.bundle)
             }
         } else {
             return nil
@@ -263,10 +263,13 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                     Group {
                         if let image = image {
                             image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                         } else if let topImage = topImage {
                             topImage
                         }
                     }
+                    .frame(height: 145)
                     .accessibility(hidden: true)
                     
                     VStack(alignment: .center, spacing: 16) {
