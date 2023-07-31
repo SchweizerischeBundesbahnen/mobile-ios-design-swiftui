@@ -28,7 +28,7 @@ class SBBMessageTests: XCTestCase {
     func testSBBMessageErrorRetry() {
         let view = SBBMessage(title: title, text: text, imageType: .error, retry: {})
         for colorScheme in ColorScheme.allCases {
-            view.recordDocumentationSnapshot(name: "SBBMessage", colorScheme: colorScheme)
+            //gview.recordDocumentationSnapshot(name: "SBBMessage", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
