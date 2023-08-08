@@ -119,6 +119,9 @@ struct ContentView: View {
                                 NavigationLink(destination: PaginationViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Pagination"))
                                 }
+                                NavigationLink(destination: PickerDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Picker"))
+                                }
                                 NavigationLink(destination: ProcessFlowDemo(viewModel: ProcessFlowViewModel(), colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("ProcessFlow"))
                                 }
@@ -136,6 +139,9 @@ struct ContentView: View {
                                 NavigationLink(destination: SliderDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Slider"))
                                 }
+                                NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Switch / Toggle"))
+                                }
                                 NavigationLink(destination: TextAreaView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("TextArea"))
                                 }
@@ -144,9 +150,6 @@ struct ContentView: View {
                                 }
                                 NavigationLink(destination: ToastDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory).environmentObject(SBBToastService())) {
                                     SBBListItem(label: Text("Toast"))
-                                }
-                                NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Toggle"))
                                 }
                                 NavigationLink(destination: TabViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("TabBar"))
