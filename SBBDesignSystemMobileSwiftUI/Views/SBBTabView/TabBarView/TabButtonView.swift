@@ -20,7 +20,6 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
     private var index: Int
     private var tabBarParameters: TabBarParameters
     private var contents: [TabBarEntryView]
-    private var isTabBarFocused: Bool
     private var selectionIndex: Int {
         TabBarEntryView.selectionIndex(for: selection, in: contents)
     }
@@ -42,9 +41,8 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
         - index: The index of the button
         - content: An array of TabBarEntryView, specifying the content of each tab.
         - tabBarParameters: The TabBarParameters used to create the tab bar.
-        - isTabBarFocused: Whether the tab bar is in focus of the VoiceOver
      */
-    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, index: Int, content: [TabBarEntryView], tabBarParameters: TabBarParameters, isTabBarFocused: Bool) {
+    public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, index: Int, content: [TabBarEntryView], tabBarParameters: TabBarParameters) {
         self._selection = selection
         self._transitionFactor = transitionFactor
         self._transitionFactorPressed = transitionFactorPressed
@@ -54,7 +52,6 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
         self.index = index
         self.contents = content
         self.tabBarParameters = tabBarParameters
-        self.isTabBarFocused = isTabBarFocused
         self.entry = contents[index]
     }
     
@@ -95,21 +92,29 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
         }) {
             if isPortrait {
                 // Display only the icon
-                imageView
+                VStack {
+                    imageView
+                    Spacer()
+                }
+                    .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight)
             } else {
                 // Display the icon and the text
-                HStack(spacing: 0) {
-                    imageView
-                    
-                    self.entry.labelView
-                        .viewSize(self.$labelSizes[self.index])
-                        .sbbFont(.body)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.1)
-                        .padding(.leading, self.selectionIndex == index ? 10 : 0)
-                        .padding(.trailing, 5)
-                        .padding(.top, self.tabBarParameters.topPad)
+                VStack {
+                    Spacer()
+                    HStack(spacing: 0) {
+                        imageView
+                        
+                        self.entry.labelView
+                            .viewSize(self.$labelSizes[self.index])
+                            .sbbFont(.body)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.1)
+                            .padding(.leading, self.selectionIndex == index ? 10 : 0)
+                            .padding(.trailing, 5)
+                            .padding(.top, self.tabBarParameters.topPad)
+                    }
                 }
+                    .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight)
                     .accessibilityElement(children: .combine)
             }
         }
@@ -131,7 +136,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                         
                     })
             )
-                .accessibility(label: Text(self.isTabBarFocused ? "" : "\("tab bar".localized).") + Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + Text(self.entry.accessibilityLabel) + Text(". \("tab".localized)") +  Text(". \("element".localized) \(self.index + 1) \("of".localized) \(self.contents.count)"))
+                .accessibility(label: Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + Text(self.entry.accessibilityLabel) + Text(". \("tab".localized)") +  Text(". \("element".localized) \(self.index + 1) \("of".localized) \(self.contents.count)"))
                 .accessibility(removeTraits: .isButton)
                 .accessibility(identifier: self.entry.label)
                 .accessibilitySortPriority(-1)
