@@ -99,7 +99,6 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                     .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight)
             } else {
                 // Display the icon and the text
-                VStack {
                     HStack(spacing: 0) {
                         imageView
                         
@@ -112,8 +111,6 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                             .padding(.trailing, 5)
                             .padding(.top, self.tabBarParameters.topPad)
                     }
-                }
-                    .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight)
                     .accessibilityElement(children: .combine)
             }
         }
