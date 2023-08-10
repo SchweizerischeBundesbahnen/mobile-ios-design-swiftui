@@ -92,6 +92,8 @@ public struct SBBTabView<Selection>: View where Selection: Hashable {
                 VStack {
                     Spacer()
                     TabBarView(selection: self.$selection, content: self.contents)
+                        .accessibilityElement(children: .contain)
+                        .accessibilityLabel(Text("tab bar".localized))
                         .accessibilitySortPriority(-1)
                 }
             }
