@@ -112,32 +112,20 @@ public struct TabBarView<Selection>: View where Selection: Hashable {
                                  tabBarParameters: tabBarParameters)
                 }
                 // Button in the tab bar
-                if #available(iOS 15.0, *) {
-                    TabButtonRow15View(selection: self.$selection,
-                                       transitionFactor: self.$transitionFactor,
-                                       transitionFactorPressed: self.$transitionFactorPressed,
-                                       isPressed: self.$isPressed,
-                                       currentTab: self.$currentTab,
-                                       labelSizes: self.$labelSizes,
-                                       content: self.contents,
-                                       tabBarParameters: tabBarParameters)
-                        .clipShape(TabBarShape(destTab: self.selectionIndex,
-                                               currentTab: self.currentTab,
-                                               tabBarCoordinatesParameters: tabBarParameters,
-                                               transitionFactor: self.transitionFactor,
-                                               transitionFactorPressed: self.transitionFactorPressed,
-                                               isPressed: self.isPressed))
-                } else {
-                    TabButtonRowView(selection: self.$selection,
-                                     transitionFactor: self.$transitionFactor,
-                                     transitionFactorPressed: self.$transitionFactorPressed,
-                                     isPressed: self.$isPressed,
-                                     currentTab: self.$currentTab,
-                                     labelSizes: self.$labelSizes,
-                                     content: self.contents,
-                                     tabBarParameters: tabBarParameters)
-                        .clipShape(TabBarShape(destTab: self.selectionIndex, currentTab: self.currentTab, tabBarCoordinatesParameters: tabBarParameters, transitionFactor: self.transitionFactor, transitionFactorPressed: self.transitionFactorPressed, isPressed: self.isPressed))
-                }
+                TabButtonRowView(selection: self.$selection,
+                                 transitionFactor: self.$transitionFactor,
+                                 transitionFactorPressed: self.$transitionFactorPressed,
+                                 isPressed: self.$isPressed,
+                                 currentTab: self.$currentTab,
+                                 labelSizes: self.$labelSizes,
+                                 content: self.contents,
+                                 tabBarParameters: tabBarParameters)
+                    .clipShape(TabBarShape(destTab: self.selectionIndex,
+                                           currentTab: self.currentTab,
+                                           tabBarCoordinatesParameters: tabBarParameters,
+                                           transitionFactor: self.transitionFactor,
+                                           transitionFactorPressed: self.transitionFactorPressed,
+                                           isPressed: self.isPressed))
             }
         }
             .frame(height: barHeight)
