@@ -12,7 +12,7 @@ class SBBStatusTests: XCTestCase {
     func testSBBStatusAlert() {
         let view = SBBStatus(statusType: .alert)
         for colorScheme in ColorScheme.allCases {
-            view.recordDocumentationSnapshot(name: "SBBStatus", colorScheme: colorScheme)
+//            view.recordDocumentationSnapshot(name: "SBBStatus", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
