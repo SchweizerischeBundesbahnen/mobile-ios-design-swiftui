@@ -103,8 +103,7 @@ public struct SBBNotification: View {
             return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_cross_medium : .circle_cross_small)
                 .foregroundColor(Color.sbbColor(.red))
         case .warning:
-            // TODO: use .circle_exclamation_point once icons update
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .exclamation_point_medium : .exclamation_point_small)
+            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_exclamation_point_small : .circle_exclamation_point_small)
                 .foregroundColor(Color.sbbColor(colorScheme == .dark ? .peach : .black))
         case .success:
             return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_tick_medium : .circle_tick_small)
