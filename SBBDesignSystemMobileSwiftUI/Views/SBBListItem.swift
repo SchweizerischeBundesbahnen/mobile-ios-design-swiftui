@@ -47,42 +47,49 @@ public struct SBBListItem: View {
      - Parameters:
      - label: Sets the main label.
      - labelAccessibility: The optional alternative text for the label's VoiceOver.
-     - image: An optional Image to be shown on the leading edge of the SBBListItem.
-     - footnote: An optional label displayed underneath the main label.
-     - footnoteAccessibility: The optional alternative text for the footnote's VoiceOver.
-     - type: The type of the trailing edge's image.
-     - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
-     */
-    @available(*, deprecated, message: "image renamed to leftImage. SBBListItemType removed, instead use rightImage. For previous behaviour use Image(sbbIcon: .chevron_small_right_small) as default right image (SBBListItemType.normal). For SBBListItemType.info use Image(sbbIcon: .circle_information_small_small) for rightImage.")
-    public init(label: Text, labelAccessibility: Text? = nil, image: Image, rightImage: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, showBottomLine: Bool = true) {
-        self.label = label
-        self.labelAccessibility = labelAccessibility
-        self.leftImage = image
-        self.rightImage = rightImage
-        self.footnote = footnote
-        self.footnoteAccessibility = footnoteAccessibility
-        self.showBottomLine = showBottomLine
-    }
-    
-    /**
-     Returns a SBBListItem with a label, an optional Image and an optional footnote.
-     
-     - Parameters:
-     - label: Sets the main label.
-     - labelAccessibility: The optional alternative text for the label's VoiceOver.
      - leftImage: An optional Image to be shown on the leading edge of the SBBListItem.
      - rightImage: An optional Image to be shown on the trailing edge of the SBBListItem.
      - footnote: An optional label displayed underneath the main label.
      - footnoteAccessibility: The optional alternative text for the footnote's VoiceOver.
      - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
      */
-    public init(label: Text, labelAccessibility: Text? = nil, leftImage: Image? = nil, rightImage: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, showBottomLine: Bool = true) {
+    public init(label: Text, labelAccessibility: Text? = nil, leftImage: Image? = nil, rightImage: Image? = Image(sbbIcon: .chevron_small_right_small), footnote: Text? = nil, footnoteAccessibility: Text? = nil, showBottomLine: Bool = true) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.leftImage = leftImage
         self.rightImage = rightImage
         self.footnote = footnote
         self.footnoteAccessibility = footnoteAccessibility
+        self.showBottomLine = showBottomLine
+    }
+    
+    /// SBBListItem Type.
+    public enum SBBListItemType: Equatable {
+        /// Normal SBBListItem Style (chevron icon)
+        case normal
+        /// Info SBBListItem Style (information icon)
+        case info
+    }
+    
+    @available(*, deprecated, message: "image renamed to leftImage. SBBListItemType removed, instead use rightImage to specify the desired image.")
+    public init(label: Text, labelAccessibility: Text? = nil, image: Image, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal, showBottomLine: Bool = true) {
+        self.label = label
+        self.labelAccessibility = labelAccessibility
+        self.leftImage = image
+        self.footnote = footnote
+        self.footnoteAccessibility = footnoteAccessibility
+        self.rightImage = Image(sbbIcon: (type == .normal ? .chevron_small_right_small : .circle_information_small_small))
+        self.showBottomLine = showBottomLine
+    }
+    
+    @available(*, deprecated, message: "image renamed to leftImage. SBBListItemType removed, instead use rightImage to specify the desired image.")
+    public init(label: Text, labelAccessibility: Text? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType, showBottomLine: Bool = true) {
+        self.label = label
+        self.labelAccessibility = labelAccessibility
+        self.leftImage = nil
+        self.footnote = footnote
+        self.footnoteAccessibility = footnoteAccessibility
+        self.rightImage = Image(sbbIcon: (type == .normal ? .chevron_small_right_small : .circle_information_small_small))
         self.showBottomLine = showBottomLine
     }
     
