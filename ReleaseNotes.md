@@ -1,5 +1,21 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.0.6 - 29 September 2023
+### Features
+* SBBUpDnCounterView to display an up and down counter
+* SBBMessage to display a message with an illustration
+* SBBPromotionBox to display a promotion box
+* SBBDatePicker to display a date picker
+* SBBTabView: a badge can be added to the tab bar icon
+* New color .redDark is added
+
+### Improvements
+* SBBTabView: accessibility area for a tab is bigger
+* SBBOnboardingView: accessibility is improved (e.g. text completely visible with all font sizes)
+
+### Deprecations
+* Initializing an SBB List Item with init(label: String, image: Image) or init(label: String, type: SBBListItemType) is deprecated and will be removed in a future version. `image` is replaced with `leftImage` and the right image (decided by SBBListItemType) can now be customized using `rightImage`.
+
 ## v1.0.5 - 24 April 2023
 
 ### Bugfix
