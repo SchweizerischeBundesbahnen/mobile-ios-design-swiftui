@@ -8,6 +8,9 @@
 "success" = "Erfolg";
 "info" = "Information";
 
+// SBBMessage
+"retry" = "Noch einmal versuchen";
+
 // SBBDatePicker
 "und" = "und";
 
