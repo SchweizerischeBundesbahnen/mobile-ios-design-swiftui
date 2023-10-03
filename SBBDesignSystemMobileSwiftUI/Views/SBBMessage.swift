@@ -42,7 +42,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -123,7 +123,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -241,7 +241,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -297,6 +297,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                                 Image(sbbIcon: .arrows_circle_small)
                             }
                             .buttonStyle(SBBIconButtonStyle())
+                            .accessibilityLabel(Text("retry".localized))
                         } else if let bottomImage = bottomImage {
                             bottomImage
                         }
