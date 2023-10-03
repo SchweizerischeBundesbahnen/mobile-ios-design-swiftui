@@ -2,6 +2,15 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
+// Status
+"alert" = "Errore";
+"warning" = "Avviso";
+"success" = "Successo";
+"info" = "Informazioni";
+
+// SBBMessage
+"retry" = "Riprovare nuovamente";
+
 // SBBDatePicker
 "und" = "e";
 

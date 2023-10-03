@@ -113,6 +113,9 @@ struct ContentView: View {
                                 NavigationLink(destination: NavigationBarWithSBBIconDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("NavigationBar with SBB Icon"))
                                 }
+                                NavigationLink(destination: NotificationDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Notification"))
+                                }
                                 NavigationLink(destination: OnboardingViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("OnboardingView"))
                                 }
@@ -138,6 +141,9 @@ struct ContentView: View {
                                 }
                                 NavigationLink(destination: SliderDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Slider"))
+                                }
+                                NavigationLink(destination: StatusDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Status"))
                                 }
                                 NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Switch / Toggle"))
