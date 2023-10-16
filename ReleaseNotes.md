@@ -1,5 +1,8 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## in development:
+- Renaming of the typographie names according to the revised DSM (e.g. xlarge instead of SBBHeader)
+
 ## v1.1.0 - 03 October 2023
 ### Features
 - New components:
