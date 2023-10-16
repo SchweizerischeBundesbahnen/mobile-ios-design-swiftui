@@ -31,7 +31,7 @@ struct DialogueDemo: View {
                     }
                     Toggle(isOn: $showImage) {
                         Text("Show image:")
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                     }
                         .toggleStyle(SBBSwitchStyle())
                         .padding(.horizontal, 16)

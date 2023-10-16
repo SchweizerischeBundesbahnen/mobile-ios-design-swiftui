@@ -35,7 +35,7 @@ struct TabViewDemo: View {
                                     .frame(width: 16, height: 16)) :
                         AnyView(Text("\(selectedBadgeNumber)")
                             .bold()
-                            .sbbFont(.legend)
+                            .sbbFont(.small_light)
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
                     ))
@@ -50,7 +50,7 @@ struct TabViewDemo: View {
         VStack(spacing: 10) {
             SBBFormGroup(title: "Number of tabs") {
                 Stepper(value: $nbTabs, in: 0...5, label: { Text("\(nbTabs)") })
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                     .padding(10)
             }
             

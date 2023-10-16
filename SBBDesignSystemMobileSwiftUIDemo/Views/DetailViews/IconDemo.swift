@@ -56,7 +56,7 @@ struct IconDemo: View {
                         }
                         Spacer()
                     }
-                        .sbbFont(.legend)
+                        .sbbFont(.small_light)
                         .padding(16)
                     Button(action: {
                         guard let url = URL(string: "https://digital.sbb.ch/brand_elemente/icons"),
@@ -78,7 +78,7 @@ struct IconDemo: View {
                         }
                         Spacer()
                     }
-                        .sbbFont(.legend)
+                        .sbbFont(.small_light)
                         .padding(16)
                     Button(action: {
                         guard let url = URL(string: "https://digital.sbb.ch/de/brand_elemente/piktogramme"),

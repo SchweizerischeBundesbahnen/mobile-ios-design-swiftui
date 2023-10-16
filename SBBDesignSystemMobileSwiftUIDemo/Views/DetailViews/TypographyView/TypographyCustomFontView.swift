@@ -16,7 +16,7 @@ struct TypographyCustomFontView: View {
             Slider(value: $fontSize, in: 4...50, step: 1)
                 .accentColor(.sbbColor(.primary))
             Text("Custom Font Size: \(Int(fontSize))")
-                .font(.sbbBody)
+                .font(.medium_light)
             SBBDivider()
             Group {
                 Text("SBB Bold")

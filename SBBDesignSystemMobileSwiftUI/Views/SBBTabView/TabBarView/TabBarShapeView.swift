@@ -61,7 +61,7 @@ struct TabBarShapeView_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            ForEach(0..<allTabBarShape.count) { index in
+            ForEach(0..<allTabBarShape.count, id:\.self) { index in
                 allTabBarShape[index]
                     .background(Color.sbbColor(.background))
                     .previewDisplayName("Light \(allTabBarName[index % 3])")

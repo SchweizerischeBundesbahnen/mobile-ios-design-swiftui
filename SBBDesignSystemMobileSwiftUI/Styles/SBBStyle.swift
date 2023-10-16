@@ -28,6 +28,6 @@ public extension View {
             .foregroundColor(.sbbColor(.textBlack))
             //.edgesIgnoringSafeAreaSBBStyle(edgesIgnoringSafeArea: edgesIgnoringSafeArea)
             .navigationBarItems(trailing: showSBBIcon ? SBBNavigationBarSBBIcon() : nil)
-            .sbbFont(.body)
+            .sbbFont(.medium_light)
     }
 }

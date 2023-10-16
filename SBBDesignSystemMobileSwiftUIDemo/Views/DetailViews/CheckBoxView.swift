@@ -17,7 +17,7 @@ struct CheckBoxView: View {
             VStack(alignment: .leading, spacing: 16) {
                 Toggle(isOn: $isDisabled) {
                     Text("Disable Checkboxes")
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                 }
                     .toggleStyle(SBBSwitchStyle())
                 VStack(alignment: .leading, spacing: 0) {

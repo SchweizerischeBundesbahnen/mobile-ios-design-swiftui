@@ -97,13 +97,13 @@ public struct SBBUpDnCounterView: View {
                             .accessibility(hidden: true)
                     }
                     label
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                         .padding(.vertical, 12)
                         .multilineTextAlignment(.leading)
                 }
                 if let subText {
                     subText
-                        .sbbFont(.legend)
+                        .sbbFont(.small_light)
                         .padding(.bottom, 12)
                         .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .granite))
                         .multilineTextAlignment(.leading)
@@ -120,7 +120,7 @@ public struct SBBUpDnCounterView: View {
             .disabled(hasReachedMinValue)
             .padding(.leading, 8)
             Text("\(value)")
-                .sbbFont(.headline)
+                .sbbFont(.large_bold)
                 .frame(minWidth: 40)
                 .accessibilityLabel(Text("\(label) has value \(value)"))
                 .padding(.horizontal, 4)

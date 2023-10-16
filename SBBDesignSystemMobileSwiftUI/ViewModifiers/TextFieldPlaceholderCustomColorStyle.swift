@@ -13,7 +13,7 @@ struct TextFieldPlaceholderCustomColorStyle: ViewModifier {
         ZStack(alignment: .leading) {
             if showPlaceHolder {
                 Text(placeholder)
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                     .foregroundColor(.sbbColor(.placeholder))
                     .accessibility(hidden: true)
             }

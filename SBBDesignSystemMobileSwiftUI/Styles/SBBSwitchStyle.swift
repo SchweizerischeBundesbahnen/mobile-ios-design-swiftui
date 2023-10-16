@@ -37,7 +37,7 @@ public struct SBBSwitchStyle: ToggleStyle {
         var body: some View {
             HStack {
                 configuration.label
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                 Spacer()
                 Button("", action: {
                     configuration.isOn.toggle()

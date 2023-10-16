@@ -41,7 +41,7 @@ public struct SBBIconTextButtonStyle: ButtonStyle {
 
         var body: some View {
             configuration.label
-                .sbbFont(.legend)
+                .sbbFont(.small_light)
                 .foregroundColor(getForegroundColor(enabled: isEnabled))
                 .padding(.vertical, 16)
                 .padding(.horizontal, 8)

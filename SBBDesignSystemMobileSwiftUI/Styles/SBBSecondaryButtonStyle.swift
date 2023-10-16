@@ -37,7 +37,7 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
 
         var body: some View {
             configuration.label
-                .sbbFont(.body)
+                .sbbFont(.medium_light)
                 .padding(.horizontal, 8)
                 .foregroundColor(textColor)
                 .frame(height: 44)

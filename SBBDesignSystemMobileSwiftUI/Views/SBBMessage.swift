@@ -274,16 +274,16 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
                     
                     VStack(alignment: .center, spacing: 16) {
                         title
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                             .multilineTextAlignment(.center)
                             .foregroundColor(Color.sbbColor(.textBlack))
                         message
                             .multilineTextAlignment(.center)
-                            .sbbFont(.legend)
+                            .sbbFont(.small_light)
                             .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
                         if let errorCode = errorCode {
                             errorCode
-                                .sbbFont(.legendSmall)
+                                .sbbFont(.xsmall_light)
                                 .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
                         }
                     }

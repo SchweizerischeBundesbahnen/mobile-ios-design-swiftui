@@ -52,7 +52,7 @@ public struct SBBRadioButtonGroup<RadioButtonContent, Selection>: View where Rad
     
     public var body: some View {
         SBBFormGroup(title: title) {
-            ForEach(0..<self.radioButtons.count) { index in
+            ForEach(0..<self.radioButtons.count, id: \.self) { index in
                 radioButtons[index]
                     .isSelected(index == selectionIndex)
                     .highPriorityGesture(

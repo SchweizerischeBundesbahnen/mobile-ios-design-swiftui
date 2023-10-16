@@ -89,7 +89,7 @@ public struct SBBStatus: View {
                 VStack {
                     text
                         .foregroundColor(Color.sbbColor(.textBlack))
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                 }
                 .padding(8)
                 .background(Color.sbbColor(colorScheme == .dark ? .black : .white).opacity(colorScheme == .dark ? 0.85 : 0.95))
