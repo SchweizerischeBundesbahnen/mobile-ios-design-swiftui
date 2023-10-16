@@ -47,7 +47,7 @@ struct OnboardingViewDemo: View {
                         VStack(spacing: 16) {
                             SBBFormGroup(title: "Number of Cards") {
                                 Stepper("\(self.viewModel.numberOfCards)", value: self.$viewModel.numberOfCards, in: 1...10)
-                                    .sbbFont(.body)
+                                    .sbbFont(.medium_light)
                                 .padding(16)
                             }
                             SBBFormGroup(title: "Customize Content") {

@@ -127,7 +127,7 @@ struct PickerDemo: View {
             if pickerType == .value {
                 SBBFormGroup(title: "Number of values") {
                     Stepper(value: $nbValues, in: 1...20, label: { Text("\(nbValues)") })
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                         .padding(10)
                 }
             }

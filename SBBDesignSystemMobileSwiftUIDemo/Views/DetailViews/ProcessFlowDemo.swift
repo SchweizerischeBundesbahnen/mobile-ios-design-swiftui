@@ -17,7 +17,7 @@ struct ProcessFlowDemo: View {
                 SBBFormGroup(title: "Customize Content") {
                     HStack {
                         Text("Current Step: \(viewModel.currentStepIndex)")
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                         Spacer()
                         Button(action: {
                             viewModel.currentStepIndex -= 1
@@ -40,7 +40,7 @@ struct ProcessFlowDemo: View {
                         .padding(16)
                     SBBDivider()
                     Stepper("Number of Steps: \(viewModel.numberOfSteps)", value: $viewModel.numberOfSteps, in: 2...6)
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                     .padding(16)
                 }
             }

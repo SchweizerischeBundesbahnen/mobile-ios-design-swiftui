@@ -49,7 +49,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
         var body: some View {
             if sizeToFit {
                 configuration.label
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                     .padding(.horizontal, 24)
                     .foregroundColor(textColor)
                     .frame(height: 46)
@@ -59,7 +59,7 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
                     .minimumScaleFactor(0.1)
             } else {
                 configuration.label
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                     .padding(.horizontal, 8)
                     .foregroundColor(textColor)
                     .frame(height: 46)

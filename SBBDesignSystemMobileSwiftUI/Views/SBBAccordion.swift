@@ -44,7 +44,7 @@ public struct SBBAccordion: View {
                 VStack(alignment: .leading, spacing: 10) {
                     HStack(alignment: .center) {
                         self.title
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                             .fixedSize(horizontal: false, vertical: true)
                         Spacer()
                         Group {
@@ -59,7 +59,7 @@ public struct SBBAccordion: View {
                     }
                     if self.expanded {
                         self.text
-                            .sbbFont(.legend)
+                            .sbbFont(.small_light)
                             .fixedSize(horizontal: false, vertical: true)
                             .padding(.top, 8)
                             .padding(.bottom, 16)

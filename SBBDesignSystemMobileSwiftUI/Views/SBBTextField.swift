@@ -118,7 +118,7 @@ public struct SBBTextField: View {
                                 }
                             })
                                 .modifier(TextFieldPlaceholderCustomColorStyle(showPlaceHolder: text.isEmpty, placeholder: label))
-                                .sbbFont(.body)
+                                .sbbFont(.medium_light)
                                 .accessibility(label: Text(accessibilityText))
                                 .accessibility(value: Text(""))
                         }
@@ -130,7 +130,7 @@ public struct SBBTextField: View {
                                 }
                             }
                         })
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                     }
                 }
                     .frame(minHeight: 48)

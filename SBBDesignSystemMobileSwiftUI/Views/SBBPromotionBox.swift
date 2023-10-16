@@ -73,7 +73,7 @@ public struct SBBPromotionBox: View {
                         HStack {
                             title
                                 .bold()
-                                .sbbFont(.body)
+                                .sbbFont(.medium_light)
                             Spacer()
                             Button(action: {
                                 self.isPresented = false

@@ -142,7 +142,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                                     .accessibility(label: Text("\("element".localized) \(index + 1) \("of".localized) \(self.segments.count)"))
                             }
                         }
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                             .foregroundColor(style.foregroundColor)
                             .padding(.horizontal, 16)
                             .frame(width: self.segmentWidth(parentWidth: geometry.size.width), height: 40)

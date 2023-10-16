@@ -137,7 +137,7 @@ public struct SBBNotification: View {
                                 .frame(width: 28, height: 28)
                             title
                                 .foregroundColor(Color.sbbColor(.textBlack))
-                                .sbbFont(.headline)
+                                .sbbFont(.large_bold)
                             Spacer()
                             closeButton
                         }
@@ -160,7 +160,7 @@ public struct SBBNotification: View {
                         }
                         .frame(minWidth: 28, minHeight: 28)
                         .foregroundColor(Color.sbbColor(.textBlack))
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                         .viewSize($textSize)
                         Spacer()
                         

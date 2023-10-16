@@ -38,7 +38,7 @@ struct ToggleDemo: View {
                     .disabled(true)
                 Spacer()
             }
-                .sbbFont(.body)
+                .sbbFont(.medium_light)
             Spacer()
         }
             .sbbScreenPadding()

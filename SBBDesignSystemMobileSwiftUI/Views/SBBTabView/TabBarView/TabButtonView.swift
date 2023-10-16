@@ -104,7 +104,7 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                         
                         self.entry.labelView
                             .viewSize(self.$labelSizes[self.index])
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                             .lineLimit(1)
                             .minimumScaleFactor(0.1)
                             .padding(.leading, self.selectionIndex == index ? 10 : 0)

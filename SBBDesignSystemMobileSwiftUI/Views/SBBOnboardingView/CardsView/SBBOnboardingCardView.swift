@@ -87,7 +87,7 @@ public struct SBBOnboardingCardView: View {
         Group {
             if let title = title {
                 title
-                    .sbbFont(.titleDefault)
+                    .sbbFont(.medium_bold)
                     .lineLimit(1)
                     .minimumScaleFactor(0.1)
                     .multilineTextAlignment(.center)
@@ -101,7 +101,7 @@ public struct SBBOnboardingCardView: View {
         Group {
             if let text = text {
                 text
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                     .minimumScaleFactor(0.1)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: false)

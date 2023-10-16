@@ -25,7 +25,7 @@ struct ModalViewDemo: View {
                     SBBCheckBox(isOn: self.$showBackButton, text: Text("Show back button"))
                     HStack {
                         Text("Title alignment")
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                         SBBSegmentedPicker(selection: self.$titleAlignment, tags: [SBBModalViewTitleAlignment.leading, SBBModalViewTitleAlignment.center]) {
                             Text("leading")
                             Text("center")

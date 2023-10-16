@@ -57,14 +57,14 @@ public struct SBBChip: View {
         Button(action: { isSelected.toggle() }) {
             HStack(spacing: 12) {
                 label
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                 Group {
                     if isSelected {
                         Image(sbbIcon: .cross_small)
                     } else {
                         Text("\(numberOfItems)")
                             .foregroundColor(Color.sbbColor(.white))
-                            .sbbFont(.subtitle)
+                            .sbbFont(.small_bold)
                             .accessibility(label: Text("\(numberOfItems) \("entries".localized)"))
                     }
                 }

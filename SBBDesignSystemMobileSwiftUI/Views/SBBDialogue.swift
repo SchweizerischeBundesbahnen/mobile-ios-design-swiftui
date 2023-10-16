@@ -138,12 +138,12 @@ public struct SBBDialogue<Content>: View where Content: View {
             }
             VStack(alignment: .center, spacing: 16) {
                 title
-                    .sbbFont(.titleModul)
+                    .sbbFont(.large_light)
                     .foregroundColor(Color.sbbColor(.textBlack))
                     .fixedSize(horizontal: false, vertical: true)
                     .accessibility(addTraits: .isHeader)
                 label
-                    .sbbFont(.legend)
+                    .sbbFont(.small_light)
                     .foregroundColor(Color.sbbColor(.textMetal))
                     .fixedSize(horizontal: false, vertical: true)
                 VStack(alignment: .center, spacing: 16) {
@@ -152,7 +152,7 @@ public struct SBBDialogue<Content>: View where Content: View {
                     .padding(.vertical, 8)
                 if let errorCode = errorCode {
                     errorCode
-                        .sbbFont(.legendSmall)
+                        .sbbFont(.xsmall_light)
                         .foregroundColor(Color.sbbColor(.textMetal))
                         .fixedSize(horizontal: false, vertical: true)
                 }

@@ -66,17 +66,17 @@ struct SBBFormGroup_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SBBFormGroup() {
-                Text("Text").sbbFont(.body).padding(16)
+                Text("Text").sbbFont(.medium_light).padding(16)
             }
             .previewDisplayName("One row, no title, light")
             SBBFormGroup(title: "Title") {
-                Text("Text").sbbFont(.body).padding(16)
+                Text("Text").sbbFont(.medium_light).padding(16)
                 SBBTextField(text: .constant("Value"), label: "title")
                 SBBCheckBox(isOn: .constant(true), text: Text("Placeholder"))
             }
             .previewDisplayName("Light")
             SBBFormGroup(title: "Title") {
-                Text("Text").sbbFont(.body).padding(16)
+                Text("Text").sbbFont(.medium_light).padding(16)
                 SBBTextField(text: .constant("Value"), label: "title")
                 SBBCheckBox(isOn: .constant(true), text: Text("Placeholder"))
             }

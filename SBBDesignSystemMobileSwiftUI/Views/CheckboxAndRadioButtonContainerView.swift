@@ -94,14 +94,14 @@ struct CheckBoxAndRadioButtonContainer: View {
                                 .accessibility(hidden: true)
                         }
                         text
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                             .padding(.top, 2)
                             .fixedSize(horizontal: false, vertical: true)
                         Spacer()
                     }
                     if let subText = subText {
                         subText
-                            .sbbFont(.legend)
+                            .sbbFont(.small_light)
                             .padding(.top, 2)
                             .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .granite))
                             .fixedSize(horizontal: false, vertical: true)

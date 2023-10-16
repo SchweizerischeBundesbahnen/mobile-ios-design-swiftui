@@ -40,7 +40,7 @@ struct BubbleViewDemo: View {
                                 .accessibility(label: self.detail1Accessibility)
                             self.detail2
                                 .foregroundColor(.sbbColor(.red))
-                                .font(.sbbTitleDefault)
+                                .font(.medium_bold)
                                 .fixedSize(horizontal: false, vertical: true)
                                 .accessibility(label: self.detail2Accessibility)
                         })
@@ -81,7 +81,7 @@ struct BubbleViewDemo: View {
                             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                             Text("ca. +12'")
                                 .foregroundColor(.sbbColor(.red))
-                                .font(.sbbTitleDefault)
+                                .font(.medium_bold)
                                 .padding(.top, 6)
                         }, fixedContent: {
                             SBBSegmentedPicker(selection: $segmentedPickerSelection3, tags: [0, 1], content: {
