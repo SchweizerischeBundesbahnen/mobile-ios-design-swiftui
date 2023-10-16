@@ -70,7 +70,7 @@ public struct SBBStatus: View {
             return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_cross_medium : .circle_cross_small)
                 .foregroundColor(Color.sbbColor(.white))
         case .warning:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_exclamation_point_small : .circle_exclamation_point_small)
+            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_exclamation_point_medium : .circle_exclamation_point_small)
                 .foregroundColor(Color.sbbColor(.black))
         case .success:
             return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_tick_medium : .circle_tick_small)
