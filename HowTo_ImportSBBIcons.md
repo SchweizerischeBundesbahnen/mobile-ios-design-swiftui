@@ -5,9 +5,9 @@
 This library offers all icons you can find in the official https://digital.sbb.ch/de/brand_elemente site.
 
 There are three different types of icons:
-* SBB-Icons: https://digital.sbb.ch/de/brand_elemente/icons
-* SBB-Timetable-Icons: https://digital.sbb.ch/de/brand_elemente/fahrplan-icons
-* SBB-Pictograms: https://digital.sbb.ch/de/brand_elemente/piktogramme
+* SBB-Icons: https://digital.sbb.ch/de/foundation/assets/icons/
+* SBB-Timetable-Icons: https://digital.sbb.ch/de/foundation/assets/fpl/
+* SBB-Pictograms: https://digital.sbb.ch/de/foundation/assets/pictos/
 
 In general, SBB-Icons are present in three different sizes (small, medium, large), meanwhile SBB-Timetable-Icons and SBB-Pictograms have each only one size. Also, you are allowed to change the colour of some of the above icons, and some of them not. In general you can say, that only the SBB-Icons can change their color. There is a list indicating what icons can change it.
 
