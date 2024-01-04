@@ -31,6 +31,7 @@ public struct SBBNotification: View {
     let statusType: StatusType
     let title: Text?
     let text: Text
+    let canBeClosed: Bool
     let onClose: (() -> ())?
     let onMoreInfo: (() -> ())?
     let maxNumberLines: Int?
@@ -53,12 +54,35 @@ public struct SBBNotification: View {
      */
     public init(isPresented: Binding<Bool>, statusType: StatusType, title: Text, text: Text, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, onMoreInfo: (() -> ())? = nil) {
         self._isPresented = isPresented
+        self.canBeClosed = true
         self.statusType = statusType
         self.title = title
         self.text = text
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = closeAfterSeconds
         self.onClose = onClose
+        self.onMoreInfo = onMoreInfo
+    }
+    
+    /**
+     Returns a SBBNotification.
+     
+     - Parameters:
+        - statusType: The type of status for the notification.
+        - title: The title of the notification.
+        - text: The content text for the notification.
+        - maxNumberLines: The optional max of number of lines used by the text.
+        - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
+     */
+    public init(statusType: StatusType, title: Text, text: Text, maxNumberLines: Int? = nil, onMoreInfo: (() -> ())? = nil) {
+        self._isPresented = .constant(true)
+        self.canBeClosed = false
+        self.statusType = statusType
+        self.title = title
+        self.text = text
+        self.maxNumberLines = maxNumberLines
+        self.closeAfterSeconds = nil
+        self.onClose = nil
         self.onMoreInfo = onMoreInfo
     }
     
@@ -75,12 +99,33 @@ public struct SBBNotification: View {
      */
     public init(isPresented: Binding<Bool>, statusType: StatusType, text: Text, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil) {
         self._isPresented = isPresented
+        self.canBeClosed = true
         self.statusType = statusType
         self.title = nil
         self.text = text
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = closeAfterSeconds
         self.onClose = onClose
+        self.onMoreInfo = nil
+    }
+    
+    /**
+     Returns a SBBNotification.
+     
+     - Parameters:
+        - statusType: The type of status for the notification.
+        - text: The content text for the notification.
+        - maxNumberLines: The optional max of number of lines used by the text.
+     */
+    public init(statusType: StatusType, text: Text, maxNumberLines: Int? = nil) {
+        self._isPresented = .constant(true)
+        self.canBeClosed = false
+        self.statusType = statusType
+        self.title = nil
+        self.text = text
+        self.maxNumberLines = maxNumberLines
+        self.closeAfterSeconds = nil
+        self.onClose = nil
         self.onMoreInfo = nil
     }
     
@@ -114,6 +159,10 @@ public struct SBBNotification: View {
         }
     }
     
+    private var iconSize: CGFloat {
+        return sizeCategory.isAccessibilityCategory ? 36 : 24
+    }
+    
     private var closeButton: some View {
         Button(action: {
             self.isPresented = false
@@ -123,29 +172,31 @@ public struct SBBNotification: View {
         }) {
             Image(sbbIcon: .cross_small)
                 .foregroundColor(Color.sbbColor(.textBlack))
-                .frame(width: 28, height: 28)
+                .frame(width: iconSize, height: iconSize)
         }
     }
     
     public var body: some View {
         if self.isPresented {
             VStack(spacing: 0) {
-                VStack(spacing: 16) {
+                VStack(spacing: 10) {
                     if let title = title {
                         HStack {
                             icon
-                                .frame(width: 28, height: 28)
+                                .frame(width: iconSize, height: iconSize)
                             title
                                 .foregroundColor(Color.sbbColor(.textBlack))
                                 .sbbFont(.large_bold)
                             Spacer()
-                            closeButton
+                            if canBeClosed {
+                                closeButton
+                            }
                         }
                     }
                     HStack(alignment: .top) {
                         if title == nil {
                             icon
-                                .frame(width: 28, height: 28)
+                                .frame(width: iconSize, height: iconSize)
                         }
                         Group {
                             if let maxNumberLines = maxNumberLines {
@@ -158,10 +209,11 @@ public struct SBBNotification: View {
                                     .fixedSize(horizontal: false, vertical: true)
                             }
                         }
-                        .frame(minWidth: 28, minHeight: 28)
+                        .frame(minWidth: iconSize, minHeight: iconSize)
                         .foregroundColor(Color.sbbColor(.textBlack))
                         .sbbFont(.medium_light)
                         .viewSize($textSize)
+                        
                         Spacer()
                         
                         if let onMoreInfo = onMoreInfo {
@@ -170,12 +222,11 @@ public struct SBBNotification: View {
                             }) {
                                 Image(sbbIcon: .chevron_small_right_medium)
                                     .foregroundColor(Color.sbbColor(.textBlack))
-                                    .frame(height: title == nil ? textSize.height - 28 : textSize.height)
+                                    .frame(height: textSize.height)
                             }
-                        } else if title == nil {
+                        } else if title == nil && canBeClosed {
                             closeButton
                         }
-                        
                     }
                 }
                 .sbbScreenPadding()

@@ -81,10 +81,14 @@ public struct SBBStatus: View {
         }
     }
     
+    private var iconSize: CGFloat {
+        return sizeCategory.isAccessibilityCategory ? 36 : 24
+    }
+    
     public var body: some View {
         HStack(spacing: 0) {
             icon
-                .frame(minWidth: 28, minHeight: 28)
+                .frame(minWidth: iconSize, minHeight: iconSize)
             if showText {
                 VStack {
                     text
