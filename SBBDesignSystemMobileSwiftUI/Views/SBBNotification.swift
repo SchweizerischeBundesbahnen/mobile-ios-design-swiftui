@@ -230,6 +230,7 @@ public struct SBBNotification: View {
                     }
                 }
                 .sbbScreenPadding()
+                .padding(.leading, 8)
                 .background(Color.sbbColor(colorScheme == .dark ? .black : .white).opacity(colorScheme == .dark ? 0.85 : 0.95))
                 .cornerRadius(16, corners: [.topRight, .bottomRight])
                 .cornerRadius(7, corners: [.topLeft, .bottomLeft])
