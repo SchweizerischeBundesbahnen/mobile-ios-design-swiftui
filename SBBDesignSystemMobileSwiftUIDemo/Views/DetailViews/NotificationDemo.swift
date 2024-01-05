@@ -14,6 +14,7 @@ struct NotificationDemo: View {
     @State var showMoreInfo: Bool = false
     @State var selectedStatus: StatusType = .alert
     
+    @State var canBeClosed: Bool = false
     @State var enableCloseAfterSeconds: Bool = false
     @State var closeAfterSeconds: Int = 3
     
@@ -38,17 +39,24 @@ struct NotificationDemo: View {
                     if enableMaxNumberLines {
                         SBBUpDnCounterView(label: Text("Max number of lines"), value: $maxNumberLines)
                     }
-                    SBBCheckBox(isOn: $enableCloseAfterSeconds, text: Text("Close the notification after a while"), showBottomLine: enableCloseAfterSeconds)
-                    if enableCloseAfterSeconds {
-                        SBBUpDnCounterView(label: Text("Close after x seconds"), value: $closeAfterSeconds, showBottomLine: false)
+                    
+                    SBBCheckBox(isOn: $canBeClosed, text: Text("Notification can be closed"), showBottomLine: canBeClosed)
+                    
+                    if canBeClosed {
+                        SBBCheckBox(isOn: $enableCloseAfterSeconds, text: Text("Close the notification after a while"), showBottomLine: enableCloseAfterSeconds)
+                        if enableCloseAfterSeconds {
+                            SBBUpDnCounterView(label: Text("Close after x seconds"), value: $closeAfterSeconds, showBottomLine: false)
+                        }
                     }
                 }
-            
+                
                 Text("With title and text")
-                if enableCloseAfterSeconds {
+                if !canBeClosed {
+                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
+                } else if enableCloseAfterSeconds {
                     SBBNotification(isPresented: $isPresented1, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds)
                 } else {
-                    SBBNotification(isPresented: $isPresented1, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: nil)
+                    SBBNotification(isPresented: $isPresented1, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
                 }
                 
                 if !isPresented1 {
@@ -65,10 +73,12 @@ struct NotificationDemo: View {
                 }
                 
                 Text("Without title")
-                if enableCloseAfterSeconds {
+                if !canBeClosed {
+                    SBBNotification(statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
+                } else if enableCloseAfterSeconds {
                     SBBNotification(isPresented: $isPresented2, statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds)
                 } else {
-                    SBBNotification(isPresented: $isPresented2, statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: nil)
+                    SBBNotification(isPresented: $isPresented2, statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
                 }
                 if !isPresented2 {
                     HStack {
@@ -84,12 +94,16 @@ struct NotificationDemo: View {
                 }
                 
                 Text("With more info")
-                if enableCloseAfterSeconds {
+                if !canBeClosed {
+                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onMoreInfo: {
+                        self.showMoreInfo = true
+                    })
+                } else if enableCloseAfterSeconds {
                     SBBNotification(isPresented: $isPresented3, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds, onMoreInfo: {
                         self.showMoreInfo = true
                     })
                 } else {
-                    SBBNotification(isPresented: $isPresented3, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: nil, onMoreInfo: {
+                    SBBNotification(isPresented: $isPresented3, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onMoreInfo: {
                         self.showMoreInfo = true
                     })
                 }
