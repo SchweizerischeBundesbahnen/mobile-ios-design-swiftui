@@ -121,7 +121,6 @@ struct NotificationDemo: View {
                     }
                 }
                 
-                /*
                 if !canBeClosed {
                     Text("With title and retry")
                     SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onRetry: {
@@ -133,8 +132,6 @@ struct NotificationDemo: View {
                         self.retry = true
                     })
                 }
-                 */
-                                    
             }
             .sbbScreenPadding()
         }
