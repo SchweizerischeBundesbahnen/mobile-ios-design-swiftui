@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
+		0021DD5C2B5A855F00DD7E3E /* SBBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */; };
 		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
 		003C23542A3CABA90095C31A /* PromotionBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */; };
 		003C23562A4207790095C31A /* SBBPromotionBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */; };
@@ -2416,7 +2417,6 @@
 		00C731D12AC57988009D5DCA /* StatusDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731D02AC57988009D5DCA /* StatusDemo.swift */; };
 		00C731D32AC58017009D5DCA /* SBBStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731D22AC58017009D5DCA /* SBBStatusTests.swift */; };
 		00C731D72AC582F2009D5DCA /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731D62AC582F2009D5DCA /* StatusType.swift */; };
-		00C731D82AC58425009D5DCA /* SBBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731D42AC582C4009D5DCA /* SBBNotification.swift */; };
 		00C731DA2AC59C0B009D5DCA /* NotificationDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731D92AC59C0B009D5DCA /* NotificationDemo.swift */; };
 		00C731DC2AC5B7A6009D5DCA /* SBBNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731DB2AC5B7A6009D5DCA /* SBBNotificationTests.swift */; };
 		00D096262A6A5987009E02B1 /* SBBDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096252A6A5987009E02B1 /* SBBDatePicker.swift */; };
@@ -2639,6 +2639,7 @@
 
 /* Begin PBXFileReference section */
 		001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabViewTests.swift; sourceTree = "<group>"; };
+		0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBNotification.swift; sourceTree = "<group>"; };
 		003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBox.swift; sourceTree = "<group>"; };
 		003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionBoxDemo.swift; sourceTree = "<group>"; };
 		003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBoxTests.swift; sourceTree = "<group>"; };
@@ -5046,7 +5047,6 @@
 		00C731CE2AC5742E009D5DCA /* SBBStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBStatus.swift; sourceTree = "<group>"; };
 		00C731D02AC57988009D5DCA /* StatusDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDemo.swift; sourceTree = "<group>"; };
 		00C731D22AC58017009D5DCA /* SBBStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStatusTests.swift; sourceTree = "<group>"; };
-		00C731D42AC582C4009D5DCA /* SBBNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBNotification.swift; sourceTree = "<group>"; };
 		00C731D62AC582F2009D5DCA /* StatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusType.swift; sourceTree = "<group>"; };
 		00C731D92AC59C0B009D5DCA /* NotificationDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDemo.swift; sourceTree = "<group>"; };
 		00C731DB2AC5B7A6009D5DCA /* SBBNotificationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBNotificationTests.swift; sourceTree = "<group>"; };
@@ -8065,7 +8065,7 @@
 				00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */,
 				7C106D1525DA7FD700B89ECD /* SBBModalView */,
 				7C1A846125F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift */,
-				00C731D42AC582C4009D5DCA /* SBBNotification.swift */,
+				0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */,
 				7CBA440E24BDA63E0078E68F /* SBBOnboardingView */,
 				7C28871524BF055900EDBD27 /* SBBPaginationView.swift */,
 				7C3AF99725BAA845007BBF21 /* SBBProcessFlow.swift */,
@@ -10815,7 +10815,7 @@
 				7CE5D76824C9D8B300282976 /* SBBOnboardingTitleView.swift in Sources */,
 				005DC8DB279B1226009C5CEA /* FakeTabBarEntry.swift in Sources */,
 				7CBA441824BDE47A0078E68F /* OnboardingCardsWrapperView.swift in Sources */,
-				00C731D82AC58425009D5DCA /* SBBNotification.swift in Sources */,
+				0021DD5C2B5A855F00DD7E3E /* SBBNotification.swift in Sources */,
 				A74FEA1825138CCC00C4D1A4 /* SBBSwitchStyle.swift in Sources */,
 				7C89AE6226B154720087872E /* IsSelected.swift in Sources */,
 				7CA464DF2445F31100118D7B /* SBBAccordion.swift in Sources */,
