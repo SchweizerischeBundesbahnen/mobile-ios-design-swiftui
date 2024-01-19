@@ -2,6 +2,9 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
+// Notifications
+"more info" = "more information";
+
 // Status
 "alert" = "Error";
 "warning" = "Warning";
