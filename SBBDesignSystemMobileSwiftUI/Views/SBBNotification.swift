@@ -78,6 +78,7 @@ public struct SBBNotification: View {
         - closeAfterSeconds: The optional time in seconds after which the notification closes.
         - onClose: The optional action to do when the notification is closed.
         - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
+        -  moreInfoAccessibility: The accessibility label to announce the button action. Default: "more information".
      */
     public init(isPresented: Binding<Bool>, statusType: StatusType, title: Text, text: Text, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
         self._isPresented = isPresented
@@ -125,6 +126,7 @@ public struct SBBNotification: View {
         - text: The content text for the notification.
         - maxNumberLines: The optional max of number of lines used by the text.
         - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
+        -  moreInfoAccessibility: The accessibility label to announce the button action. Default: "more information".
      */
     public init(statusType: StatusType, title: Text, text: Text, maxNumberLines: Int? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
         self._isPresented = .constant(true)
@@ -150,6 +152,7 @@ public struct SBBNotification: View {
         - text: The content text for the notification.
         - maxNumberLines: The optional max of number of lines used by the text.
         - onRetry: The  action to do when tapping on retry.
+        -  retryAccessibility: The accessibility label to announce the button action. Default: "retry".
      */
     public init(statusType: StatusType, text: Text, maxNumberLines: Int? = nil, onRetry: @escaping (() -> ()), retryAccessibility: String? = nil) {
         self._isPresented = .constant(true)
@@ -176,6 +179,7 @@ public struct SBBNotification: View {
         - text: The content text for the notification.
         - maxNumberLines: The optional max of number of lines used by the text.
         - onRetry: The action to do when tapping on retry.
+        -  retryAccessibility: The accessibility label to announce the button action. Default: "retry".
      */
     public init(statusType: StatusType, title: Text, text: Text, maxNumberLines: Int? = nil, onRetry: @escaping (() -> ()), retryAccessibility: String? = nil) {
         self._isPresented = .constant(true)
