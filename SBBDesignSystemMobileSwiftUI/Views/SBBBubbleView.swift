@@ -257,7 +257,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                     .padding(.leading, 16)
                     .padding(.trailing, horizontalSizeClass == .compact ? 16 : (expandableContent != nil) ? 16 : 0)
                     .padding(.vertical, horizontalSizeClass == .compact ? 16 : 8)
-                    .background(Color.sbbColor(.tabViewBackground))
+                    .background(Color.sbbColor(.viewBackground))
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(.sbbColor(.textBlack))
