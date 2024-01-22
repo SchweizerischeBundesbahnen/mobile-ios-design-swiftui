@@ -12,6 +12,7 @@ struct NotificationDemo: View {
     @State var isPresented2: Bool = true
     @State var isPresented3: Bool = true
     @State var showMoreInfo: Bool = false
+    @State var retry: Bool = false
     @State var selectedStatus: StatusType = .alert
     
     @State var canBeClosed: Bool = false
@@ -59,7 +60,7 @@ struct NotificationDemo: View {
                     SBBNotification(isPresented: $isPresented1, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
                 }
                 
-                if !isPresented1 {
+                if !isPresented1 && canBeClosed {
                     HStack {
                         Spacer()
                         Button(action: {
@@ -80,7 +81,7 @@ struct NotificationDemo: View {
                 } else {
                     SBBNotification(isPresented: $isPresented2, statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
                 }
-                if !isPresented2 {
+                if !isPresented2 && canBeClosed {
                     HStack {
                         Spacer()
                         Button(action: {
@@ -107,7 +108,7 @@ struct NotificationDemo: View {
                         self.showMoreInfo = true
                     })
                 }
-                if !isPresented3 {
+                if !isPresented3 && canBeClosed {
                     HStack {
                         Spacer()
                         Button(action: {
@@ -119,10 +120,24 @@ struct NotificationDemo: View {
                         Spacer()
                     }
                 }
-                                    
+                
+                if !canBeClosed {
+                    Text("With title and retry")
+                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onRetry: {
+                        self.retry = true
+                    })
+                    
+                    Text("Without title and retry")
+                    SBBNotification(statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onRetry: {
+                        self.retry = true
+                    })
+                }
             }
             .sbbScreenPadding()
         }
+        .alert(isPresented: $retry, content: {
+            Alert(title: Text("Retry"), message: Text("Retrying something..."), dismissButton: .cancel(Text("OK")))
+        })
         .sbbModal(isPresented: $showMoreInfo) {
             SBBModalView(title: Text("More info"), style: .bottom, isPresented: $showMoreInfo) {
                 VStack {
