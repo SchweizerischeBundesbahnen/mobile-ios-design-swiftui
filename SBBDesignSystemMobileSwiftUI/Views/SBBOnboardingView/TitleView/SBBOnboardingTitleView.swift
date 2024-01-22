@@ -62,7 +62,7 @@ public struct SBBOnboardingTitleView: View {
         Group {
             if let subtitle = subtitle {
                 subtitle
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                     .multilineTextAlignment(.center)
                     .accessibility(identifier: "onboardingTitleViewSubtitle")
             }

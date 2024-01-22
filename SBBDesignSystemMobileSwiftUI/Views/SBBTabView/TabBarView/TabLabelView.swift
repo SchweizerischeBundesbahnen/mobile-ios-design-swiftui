@@ -34,7 +34,7 @@ struct TabLabelView: View {
     public var body: some View {
         self.contents[self.selectionIndex].labelView
             .viewSize($textSize)
-            .sbbFont(.body)
+            .sbbFont(.medium_light)
             .lineLimit(1)
             .minimumScaleFactor(0.1)
             .foregroundColor(Color.sbbColor(.textBlack))

@@ -44,7 +44,7 @@ public struct SBBInfoView: View {
                     .accessibility(hidden: true)
             }
             text
-                .sbbFont(.body)
+                .sbbFont(.medium_light)
                 .fixedSize(horizontal: false, vertical: true)
             Spacer()
         }

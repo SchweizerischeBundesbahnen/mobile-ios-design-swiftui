@@ -104,7 +104,7 @@ public struct SBBListItem: View {
                             VStack {
                                 Spacer()
                                 leftSwipeButtonLabel
-                                    .sbbFont(.copy)
+                                    .sbbFont(.large_light)
                                 Spacer()
                             }
                             .padding(.horizontal, 16)
@@ -123,7 +123,7 @@ public struct SBBListItem: View {
                             VStack {
                                 Spacer()
                                 rightSwipeButtonLabel
-                                    .sbbFont(.copy)
+                                    .sbbFont(.large_light)
                                 Spacer()
                             }
                             .padding(.horizontal, 16)
@@ -143,7 +143,7 @@ public struct SBBListItem: View {
                                 .accessibility(hidden: true)
                         }
                         label
-                            .sbbFont(.body)
+                            .sbbFont(.medium_light)
                             .fixedSize(horizontal: false, vertical: true)
                             .accessibility(label: labelAccessibility ?? label)
                             .multilineTextAlignment(.leading)
@@ -151,7 +151,7 @@ public struct SBBListItem: View {
                     if let footnote = footnote {
                         footnote
                             .fixedSize(horizontal: false, vertical: true)
-                            .sbbFont(.legend)
+                            .sbbFont(.small_light)
                             .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .granite))
                             .accessibility(label: footnoteAccessibility ?? footnote)
                             .multilineTextAlignment(.leading)

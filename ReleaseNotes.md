@@ -1,5 +1,11 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.1.1 - 04 January 2024
+### Improvements
+- SBBNotification: can also stay open (close button not present).
+### Deprecations
+- Renaming of the typographie names according to the revised DSM (e.g. xlarge instead of SBBHeader). Old typographie names are deprecated and will be removed in a future version.
+
 ## v1.1.0 - 03 October 2023
 ### Features
 - New components:

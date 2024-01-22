@@ -17,7 +17,7 @@ public struct SliderDemo: View {
                 Slider(value: $sliderValue, in: 0.0...100.0, step: 1.0)
                     .sbbStyle(imageLeft: Image(sbbIcon: .walk_large), imageRight: Image(sbbIcon: .walk_fast_small))
                 Text("Selected value: \(Int(sliderValue))%")
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
             }
                 .sbbScreenPadding()
         }

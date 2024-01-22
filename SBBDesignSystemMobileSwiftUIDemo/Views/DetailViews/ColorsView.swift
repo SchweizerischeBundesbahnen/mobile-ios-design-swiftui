@@ -90,7 +90,7 @@ struct ColorRow: View {
                         .foregroundColor(self.element.color)
                         .colorScheme(.light)
                     Text(".light")
-                        .sbbFont(.legendSmall)
+                        .sbbFont(.xsmall_light)
                 }
                     .frame(width: 100, height: 24)
                 ZStack(alignment: .bottomTrailing) {
@@ -98,12 +98,12 @@ struct ColorRow: View {
                         .foregroundColor(self.element.color)
                         .colorScheme(.dark)
                     Text(".dark")
-                        .sbbFont(.legendSmall)
+                        .sbbFont(.xsmall_light)
                 }
                     .frame(width: 100, height: 24)
                 Spacer()
                 Text(self.element.name)
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
             }
                 .padding(.vertical, 10)
                 .padding(.horizontal, 16)

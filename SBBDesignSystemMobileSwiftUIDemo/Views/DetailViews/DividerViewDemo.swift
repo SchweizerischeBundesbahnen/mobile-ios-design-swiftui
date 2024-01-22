@@ -15,10 +15,10 @@ struct DividerViewDemo: View {
         ScrollView(showsIndicators: false) {
             VStack {
                 Text(self.text)
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                 SBBDivider()
                 Text(self.text)
-                    .sbbFont(.body)
+                    .sbbFont(.medium_light)
                 Spacer()
             }
         }

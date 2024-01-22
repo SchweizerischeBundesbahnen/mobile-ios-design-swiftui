@@ -31,89 +31,98 @@ class TypographyViewController: UIViewController {
         
         navigationItem.title = "Typography"
         
-        headerWhiteLabel.font = .sbbHeader
+        headerWhiteLabel.font = .xlarge_light
         headerWhiteLabel.textColor = .sbbColor(.textWhite)
+        headerWhiteLabel.text = "xlarge light"
         
-        headlineBlackLabel.font = .sbbHeadline
+        headlineBlackLabel.font = .large_bold
         headlineBlackLabel.textColor = .sbbColor(.textBlack)
+        headlineBlackLabel.text = "large bold"
         
-        headlineWhiteLabel.font = .sbbHeadline
+        headlineWhiteLabel.font = .large_bold
         headlineWhiteLabel.textColor = .sbbColor(.textWhite)
+        headlineWhiteLabel.text = "large bold"
         
-        titleBlackLabel.font = .sbbTitleDefault
+        titleBlackLabel.font = .medium_bold
         titleBlackLabel.textColor = .sbbColor(.textBlack)
+        titleBlackLabel.text = "medium bold"
         
-        titleMetalLabel.font = .sbbTitleDefault
+        titleMetalLabel.font = .medium_bold
         titleMetalLabel.textColor = .sbbColor(.textMetal)
+        titleMetalLabel.text = "medium bold"
         
-        titleModulLabel.font = .sbbTitleModul
+        titleModulLabel.font = .large_light
         titleModulLabel.textColor = .sbbColor(.textBlack)
+        titleModulLabel.text = "large light"
         
-        subtitleBlackLabel.font = .sbbSubtitle
+        subtitleBlackLabel.font = .small_bold
         subtitleBlackLabel.textColor = .sbbColor(.textBlack)
+        subtitleBlackLabel.text = "small bold"
         
-        subtitleMetalLabel.font = .sbbSubtitle
+        subtitleMetalLabel.font = .small_bold
         subtitleMetalLabel.textColor = .sbbColor(.textMetal)
+        subtitleMetalLabel.text = "small bold"
         
-        copyBlackLabel.font = .sbbCopy
+        copyBlackLabel.font = .large_light
         copyBlackLabel.textColor = .sbbColor(.textBlack)
+        copyBlackLabel.text = "large light"
         
-        copyWhiteLabel.font = .sbbCopy
+        copyWhiteLabel.font = .large_light
         copyWhiteLabel.textColor = .white
         
-        bodyBlackLabel.font = .sbbBody
+        bodyBlackLabel.font = .medium_light
         bodyBlackLabel.textColor = .sbbColor(.textBlack)
         bodyBlackLabel.text = """
-        SBB Body black
+        SBB medium light black
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
-        bodyMetalLabel.font = .sbbBody
+        bodyMetalLabel.font = .medium_light
         bodyMetalLabel.textColor = .sbbColor(.textMetal)
         bodyMetalLabel.text = """
-        SBB Body metal
+        SBB medium light metal
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
-        bodyRedLabel.font = .sbbBody
+        bodyRedLabel.font = .medium_light
         bodyRedLabel.textColor = .sbbColor(.textRed)
         bodyRedLabel.text = """
-        SBB Body red
+        SBB medium light red
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat. thisl
         """
         
-        legendNormalBlackLabel.font = .sbbLegend
+        legendNormalBlackLabel.font = .small_light
         legendNormalBlackLabel.textColor = .sbbColor(.textBlack)
         legendNormalBlackLabel.text = """
-        SBB Legend Normal black
+        SBB small light black
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
-        legendNormalMetalLabel.font = .sbbLegend
+        legendNormalMetalLabel.font = .small_light
         legendNormalMetalLabel.textColor = .sbbColor(.textMetal)
         legendNormalMetalLabel.text = """
-        SBB Legend Normal metal
+        SBB small light metal
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
-        legendNormalRedLabel.font = .sbbLegend
+        legendNormalRedLabel.font = .small_light
         legendNormalRedLabel.textColor = .sbbColor(.textRed)
         legendNormalRedLabel.text = """
-        SBB Legend Normal red
+        SBB small light red
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
-        legendNormalWhiteLabel.font = .sbbLegend
+        legendNormalWhiteLabel.font = .small_light
         legendNormalWhiteLabel.textColor = .sbbColor(.textWhite)
         legendNormalWhiteLabel.text = """
-        SBB Legend Normal white
+        SBB small light white
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
         
-        legendSmallLabel.font = .sbbLegendSmall
+        legendSmallLabel.font = .xsmall_light
         legendSmallLabel.textColor = .sbbColor(.textBlack)
         legendSmallLabel.text = """
-        SBB Legend Small
+        SBB xsmall light
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis congue placerat massa condimentum pharetra. Cras iaculis neque ut urna auctor dignissim id quis sapien. Sed ullamcorper ornare cursus. Quisque venenatis iaculis quam posuere pharetra. Pellentesque feugiat viverra augue nec feugiat.
         """
     }

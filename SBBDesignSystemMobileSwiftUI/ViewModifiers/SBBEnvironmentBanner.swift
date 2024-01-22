@@ -125,7 +125,7 @@ struct EnvironmentBannerView: View {
             .background(backgroundColor)
             .rotationEffect(.init(degrees: 45))
             .position(x: 44, y: 16)
-            .sbbFont(.legendSmall)
+            .sbbFont(.xsmall_light)
             .foregroundColor(textColor)
             .clipped()
             .frame(width: 60, height: 44)

@@ -81,15 +81,19 @@ public struct SBBStatus: View {
         }
     }
     
+    private var iconSize: CGFloat {
+        return sizeCategory.isAccessibilityCategory ? 36 : 24
+    }
+    
     public var body: some View {
         HStack(spacing: 0) {
             icon
-                .frame(minWidth: 28, minHeight: 28)
+                .frame(minWidth: iconSize, minHeight: iconSize)
             if showText {
                 VStack {
                     text
                         .foregroundColor(Color.sbbColor(.textBlack))
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                 }
                 .padding(8)
                 .background(Color.sbbColor(colorScheme == .dark ? .black : .white).opacity(colorScheme == .dark ? 0.85 : 0.95))

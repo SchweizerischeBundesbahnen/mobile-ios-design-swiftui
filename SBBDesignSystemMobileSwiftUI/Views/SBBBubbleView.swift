@@ -197,23 +197,23 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                                 HStack(alignment: .center) {
                                     VStack(alignment: .leading, spacing: 0) {
                                         title
-                                            .sbbFont(.titleDefault)
+                                            .sbbFont(.medium_bold)
                                             .frame(maxWidth: .infinity, minHeight: 36, alignment: .leading)
                                             .fixedSize(horizontal: false, vertical: true)
                                             .accessibility(label: self.titleAccessibility ?? self.title)
                                         if let subtitle = subtitle {
                                             subtitle
-                                                .sbbFont(.body)
+                                                .sbbFont(.medium_light)
                                                 .fixedSize(horizontal: false, vertical: true)
                                                 .accessibility(label: self.subtitleAccessibility ?? subtitle)
                                         }
                                         if let subtitleContent = subtitleContent {
                                             subtitleContent
-                                                .sbbFont(.body)
+                                                .sbbFont(.medium_light)
                                         }
                                         if horizontalSizeClass == .regular, expanded, let expandableContent = expandableContent {
                                             expandableContent
-                                                .sbbFont(.body)
+                                                .sbbFont(.medium_light)
                                         }
                                     }
                                         .accessibilityElement(children: .combine)
@@ -238,7 +238,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                             VStack(alignment: .leading, spacing: 0) {
                                 SBBDivider()
                                 expandableContent
-                                    .sbbFont(.body)
+                                    .sbbFont(.medium_light)
                                     .padding(.top, 8)
                             }
                                 .padding(.leading, sizeCategory.isAccessibilityCategory ? 0 : 44)
@@ -257,7 +257,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                     .padding(.leading, 16)
                     .padding(.trailing, horizontalSizeClass == .compact ? 16 : (expandableContent != nil) ? 16 : 0)
                     .padding(.vertical, horizontalSizeClass == .compact ? 16 : 8)
-                    .background(Color.sbbColor(.tabViewBackground))
+                    .background(Color.sbbColor(.viewBackground))
                     .cornerRadius(16)
                     .shadow(color: Color.black.opacity(0.1), radius: 5)
                     .accentColor(.sbbColor(.textBlack))
@@ -295,7 +295,7 @@ struct SBBBubbleView_Previews: PreviewProvider {
                         Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                         Text("ca. +12'")
                             .foregroundColor(.sbbColor(.primary))
-                            .font(.sbbTitleDefault)
+                            .font(.medium_bold)
                     })
                         .previewDisplayName("Long title, multiple views")
                     SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), fixedContent: {
@@ -318,7 +318,7 @@ struct SBBBubbleView_Previews: PreviewProvider {
                         Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
                         Text("ca. +12'")
                             .foregroundColor(.sbbColor(.primary))
-                            .font(.sbbTitleDefault)
+                            .font(.medium_bold)
                             .padding(.top, 6)
                     }, fixedContent: {
                         SBBSegmentedPicker(selection: .constant(0), tags: [0, 1], content: {

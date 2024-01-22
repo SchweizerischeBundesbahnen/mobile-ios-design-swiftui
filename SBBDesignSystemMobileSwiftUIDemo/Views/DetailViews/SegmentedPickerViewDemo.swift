@@ -25,17 +25,17 @@ struct SegmentedPickerViewDemo: View {
                 VStack(spacing: 16) {
                     
                     Text("Simple Integer Picker")
-                        .sbbFont(.header)
+                        .sbbFont(.xlarge_light)
                     SBBSegmentedPicker(selection: self.$selectedSegment1, tags: [0, 1, 2]) {
                         Text("Opt 1")
                         Text("Opt 2")
                         Text("Opt 3")
                     }
                     Text("Selected Segment: \(selectedSegment1)")
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                     SBBDivider()
                     Text("Enum Picker")
-                        .sbbFont(.header)
+                        .sbbFont(.xlarge_light)
                     SBBSegmentedPicker(selection: self.$selectedSegment2, tags: [.departures, .platform]) {
                         Text("Departures")
                         Text("Platform")
@@ -55,7 +55,7 @@ struct SegmentedPickerViewDemo: View {
                         }
                     }
                     Text("Selected Segment: .\(selectedSegment2.rawValue)")
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                     Spacer()
                 }
                     .sbbScreenPadding()

@@ -129,7 +129,7 @@ public struct SBBModalView<Content>: View where Content: View {
                     }
                     title
                         .padding(.top, 7)
-                        .sbbFont(.titleModul)
+                        .sbbFont(.large_light)
                         .accessibility(addTraits: .isHeader)
                         .accessibilitySortPriority(2)
                     Spacer()

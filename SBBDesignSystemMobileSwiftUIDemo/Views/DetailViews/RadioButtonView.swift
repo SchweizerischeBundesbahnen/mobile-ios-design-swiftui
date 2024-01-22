@@ -29,7 +29,7 @@ struct RadioButtonView: View {
             VStack(alignment: .leading, spacing: 16) {
                 Toggle(isOn: $isDisabled) {
                     Text("Disable RadioButtons")
-                        .sbbFont(.body)
+                        .sbbFont(.medium_light)
                 }
                     .toggleStyle(SBBSwitchStyle())
                 VStack(alignment: .leading, spacing: 0) {

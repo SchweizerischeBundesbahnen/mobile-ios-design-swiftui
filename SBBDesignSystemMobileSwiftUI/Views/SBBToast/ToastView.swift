@@ -15,7 +15,7 @@ public struct ToastView: View {
     
     public var body: some View {
         viewModel.label
-            .sbbFont(.legend)
+            .sbbFont(.small_light)
             .foregroundColor(Color.sbbColor(.white))
             .multilineTextAlignment(.center)
             .padding(.horizontal, 20)
