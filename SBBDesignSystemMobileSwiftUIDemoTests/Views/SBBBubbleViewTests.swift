@@ -56,7 +56,7 @@ class SBBBubbleViewTests: XCTestCase {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             Text("ca. +12'")
                 .foregroundColor(.sbbColor(.red))
-                .font(.sbbTitleDefault)
+                .font(.medium_bold)
         })
         for colorScheme in ColorScheme.allCases {
             view.frame(width: 375).recordDocumentationSnapshot(name: "SBBBubbleView", colorScheme: colorScheme)

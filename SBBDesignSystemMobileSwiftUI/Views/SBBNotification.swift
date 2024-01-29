@@ -301,9 +301,9 @@ public struct SBBNotification: View {
                                 onRetry()
                             }) {
                                 Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .arrows_circle_medium : .arrows_circle_small)
+                                    .foregroundColor(Color.sbbColor(.textBlack))
+                                    .frame(width: iconSize, height: textSize.height)
                             }
-                            .buttonStyle(SBBIconButtonStyle(size: sizeCategory.isAccessibilityCategory ? .large : .small))
-                            .frame(height: textSize.height)
                         }
                     }
                         .accessibilityElement(children: .combine)
