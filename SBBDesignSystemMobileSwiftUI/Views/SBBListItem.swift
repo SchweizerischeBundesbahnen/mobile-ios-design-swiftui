@@ -175,9 +175,7 @@ public struct SBBListItem: View {
             .accessibilityElement(children: .combine)
             .offset(x: self.horizontalDragOffset + self.horizontalFixedOffset)
             if showBottomLine {
-                Rectangle()
-                    .fill(Color.sbbColorInternal(.textfieldLineInactive))
-                    .frame(height: 1)
+                SBBDivider()
             }
         }
         .gesture(dragGesture, including: tapGestureMask)
