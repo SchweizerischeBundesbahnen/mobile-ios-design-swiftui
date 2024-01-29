@@ -140,9 +140,7 @@ public struct SBBUpDnCounterView: View {
         .overlay(
             Group {
                 if showBottomLine {
-                    Rectangle()
-                        .fill(Color.sbbColorInternal(.textfieldLineInactive))
-                        .frame(height: 1)
+                    SBBDivider()
                 } else {
                     EmptyView()
                 }

@@ -111,10 +111,7 @@ struct CheckBoxAndRadioButtonContainer: View {
                 .padding(.vertical, 10)
                 .padding(.horizontal, 16)
             if showBottomLine {
-                Rectangle()
-                    .fill(Color.sbbColorInternal(.textfieldLineInactive))
-                    .frame(height: 1)
-                    .padding(.leading, 16)
+                SBBDivider()
             }
         }
             .foregroundColor(foregroundColor)
