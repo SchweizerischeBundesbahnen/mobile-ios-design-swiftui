@@ -1,5 +1,9 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.1.2 - 30 January 2024
+### Improvements
+- SBBNotifications: a retry button is added
+
 ## v1.1.1 - 04 January 2024
 ### Improvements
 - SBBNotification: can also stay open (close button not present).
