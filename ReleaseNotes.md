@@ -1,5 +1,9 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.1.3 - 2 February 2024
+### Improvements
+- SBBNotifications: icon can be hidden
+
 ## v1.1.2 - 30 January 2024
 ### Improvements
 - SBBNotifications: a retry button is added

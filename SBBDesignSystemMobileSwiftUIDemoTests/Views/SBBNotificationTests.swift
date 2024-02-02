@@ -65,4 +65,32 @@ class SBBNotificationTests: XCTestCase {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
+    
+    func testSBBNotificationAlertCantBeClosed() {
+        let view = SBBNotification(statusType: .info, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."))
+        for colorScheme in ColorScheme.allCases {
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
+        }
+    }
+    
+    func testSBBNotificationWarningCantBeClosedNoTitle() {
+        let view = SBBNotification(statusType: .info, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."))
+        for colorScheme in ColorScheme.allCases {
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
+        }
+    }
+    
+    func testSBBNotificationSuccessCantBeClosedRetry() {
+        let view = SBBNotification(statusType: .info, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), onRetry: {})
+        for colorScheme in ColorScheme.allCases {
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
+        }
+    }
+    
+    func testSBBNotificationInfoCantBeClosedNoIcon() {
+        let view = SBBNotification(statusType: .info, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: true)
+        for colorScheme in ColorScheme.allCases {
+            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
+        }
+    }
 }
