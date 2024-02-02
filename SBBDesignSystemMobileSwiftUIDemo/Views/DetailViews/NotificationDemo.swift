@@ -15,6 +15,7 @@ struct NotificationDemo: View {
     @State var retry: Bool = false
     @State var selectedStatus: StatusType = .alert
     
+    @State var hideIcon: Bool = false
     @State var canBeClosed: Bool = false
     @State var enableCloseAfterSeconds: Bool = false
     @State var closeAfterSeconds: Int = 3
@@ -36,6 +37,9 @@ struct NotificationDemo: View {
                         Text("Info")
                             .tag(StatusType.info)
                     }
+                    
+                    SBBCheckBox(isOn: $hideIcon, text: Text("Hide icon"))
+                    
                     SBBCheckBox(isOn: $enableMaxNumberLines, text: Text("Set a maximum number of lines"))
                     if enableMaxNumberLines {
                         SBBUpDnCounterView(label: Text("Max number of lines"), value: $maxNumberLines)
@@ -53,11 +57,11 @@ struct NotificationDemo: View {
                 
                 Text("With title and text")
                 if !canBeClosed {
-                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
+                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
                 } else if enableCloseAfterSeconds {
-                    SBBNotification(isPresented: $isPresented1, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds)
+                    SBBNotification(isPresented: $isPresented1, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds)
                 } else {
-                    SBBNotification(isPresented: $isPresented1, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
+                    SBBNotification(isPresented: $isPresented1, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
                 }
                 
                 if !isPresented1 && canBeClosed {
@@ -75,11 +79,11 @@ struct NotificationDemo: View {
                 
                 Text("Without title")
                 if !canBeClosed {
-                    SBBNotification(statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
+                    SBBNotification(statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
                 } else if enableCloseAfterSeconds {
-                    SBBNotification(isPresented: $isPresented2, statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds)
+                    SBBNotification(isPresented: $isPresented2, statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds)
                 } else {
-                    SBBNotification(isPresented: $isPresented2, statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
+                    SBBNotification(isPresented: $isPresented2, statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil)
                 }
                 if !isPresented2 && canBeClosed {
                     HStack {
@@ -96,15 +100,15 @@ struct NotificationDemo: View {
                 
                 Text("With more info")
                 if !canBeClosed {
-                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onMoreInfo: {
+                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onMoreInfo: {
                         self.showMoreInfo = true
                     })
                 } else if enableCloseAfterSeconds {
-                    SBBNotification(isPresented: $isPresented3, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds, onMoreInfo: {
+                    SBBNotification(isPresented: $isPresented3, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, closeAfterSeconds: closeAfterSeconds, onMoreInfo: {
                         self.showMoreInfo = true
                     })
                 } else {
-                    SBBNotification(isPresented: $isPresented3, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onMoreInfo: {
+                    SBBNotification(isPresented: $isPresented3, statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onMoreInfo: {
                         self.showMoreInfo = true
                     })
                 }
@@ -123,12 +127,12 @@ struct NotificationDemo: View {
                 
                 if !canBeClosed {
                     Text("With title and retry")
-                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onRetry: {
+                    SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onRetry: {
                         self.retry = true
                     })
                     
                     Text("Without title and retry")
-                    SBBNotification(statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onRetry: {
+                    SBBNotification(statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onRetry: {
                         self.retry = true
                     })
                 }
