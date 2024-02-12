@@ -41,21 +41,17 @@ public struct SBBLoadingIndicator: View {
         case primary
         /// Grey SBBLoadingIndicator on a background depending on the current ColorScheme.
         case grey
-        /// White SBBLoadingIndicator on a  background of the primary color (red by default).
+        /// White SBBLoadingIndicator on a background of the primary color (red by default).
         case primaryBackground
         
         func color(for colorScheme: ColorScheme) -> Color {
             switch (self, colorScheme) {
             case (.primary, _):
-                return Color.sbbColor(.primary).opacity(1.0)
-            case (.grey, .light):
-                return Color.sbbColor(.iron).opacity(0.5)
-            case (.grey, .dark):
-                return Color.sbbColor(.white).opacity(0.7)
-            case (.grey, _):    // should never happen, silences a warning
-                return Color.sbbColor(.iron).opacity(0.5)
+                return Color.sbbColor(.primary)
+            case (.grey, _):
+                return Color.sbbColor(.metal)
             case (.primaryBackground, _):
-                return Color.sbbColor(.white).opacity(0.7)
+                return Color.sbbColor(.white)
             }
         }
     }
@@ -65,6 +61,8 @@ public struct SBBLoadingIndicator: View {
         var opacity: Double
     }
     
+    private var rectangleOpacity = [0.0, 0.4, 1.0, 0.7, 0.4, 0.1]
+    private var rectangleOffsets: [CGFloat]
     @State private var rectangleProperties: [RectangleProperties]
     
     @Environment(\.colorScheme) var colorScheme
@@ -73,10 +71,10 @@ public struct SBBLoadingIndicator: View {
     private var width: CGFloat
     private var height: CGFloat
     private var numberOfRectangles = 5
-    private var animationDuration = 1.2
-    private var paddingBetweenRectangles: CGFloat = 10
-    private var rotationInDegrees = 25.0
+    private var animationDuration = 0.5
+    private var rotationInDegrees = 20.0
     private var innerWidth: CGFloat // the width of the entire "train" is wider than it's containing view, since it's rotated to the back around the leading y-axis
+    private var rectangleWidth: CGFloat
     
     /**
      Returns a SBBLoadingIndicator with the given size and style.
@@ -92,9 +90,12 @@ public struct SBBLoadingIndicator: View {
         
         let innerWidth = width / CGFloat(cos(rotationInDegrees * .pi / 180)) * 3.0
         self.innerWidth = innerWidth
+        let paddingBetweenRectangles = size == .normal ? 8.0 : 4.0
+        self.rectangleWidth = innerWidth / CGFloat(numberOfRectangles) + paddingBetweenRectangles
+        
+        rectangleOffsets = [-rectangleWidth, 0, rectangleWidth, 2.0*rectangleWidth, 3.0*rectangleWidth, 4.0*rectangleWidth]
 
-        let rectangleProperty = RectangleProperties(offset: innerWidth, opacity: 0)
-        _rectangleProperties = State(initialValue: [RectangleProperties](repeating: rectangleProperty, count: numberOfRectangles))
+        _rectangleProperties = State(initialValue: [RectangleProperties(offset: rectangleOffsets[1], opacity: rectangleOpacity[1]), RectangleProperties(offset: rectangleOffsets[2], opacity: rectangleOpacity[2]), RectangleProperties(offset: rectangleOffsets[3], opacity: rectangleOpacity[3]), RectangleProperties(offset: rectangleOffsets[4], opacity: rectangleOpacity[4]), RectangleProperties(offset: rectangleOffsets[5], opacity: rectangleOpacity[5])])
     }
         
     public var body: some View {
@@ -107,19 +108,18 @@ public struct SBBLoadingIndicator: View {
                         .opacity(rectangleProperties[index].opacity)
                         .offset(x: rectangleProperties[index].offset)
                         .onAppear {
-                            withAnimation(Animation.linear(duration: animationDuration)
-                                    .repeatForever(autoreverses: false)
-                                    .delay(animationDuration / Double(numberOfRectangles) * Double(index))
-                            )
-                            {
-                                rectangleProperties[index].offset = -innerWidth / 8
-                            }
                             DispatchQueue.main.async {
-                                withAnimation(Animation.linear(duration: animationDuration / 2)
-                                                .repeatForever(autoreverses: true)
-                                                .delay(animationDuration / Double(numberOfRectangles) * Double(index))
+                                withAnimation(Animation.linear(duration: animationDuration)
+                                        .repeatForever(autoreverses: false)
+                                )
+                                {
+                                    rectangleProperties[index].offset = rectangleOffsets[index]
+                                }
+                            
+                                withAnimation(Animation.linear(duration: animationDuration)
+                                                .repeatForever(autoreverses: false)
                                 ) {
-                                    rectangleProperties[index].opacity = 1
+                                    rectangleProperties[index].opacity = rectangleOpacity[index]
                                 }
                             }
                         }
@@ -128,8 +128,7 @@ public struct SBBLoadingIndicator: View {
                 .rotation3DEffect(.degrees(rotationInDegrees), axis: (x: 0, y: 1, z: 0), anchor: .leading)
         }
             .frame(width: width, height: height, alignment: .leading)
-            .clipped()
-            .padding(8)
+            .padding(16)
             
         .accessibility(label: Text("Loading.".localized))
     }
