@@ -25,7 +25,7 @@ struct IconDemo: View {
                     }
                         .padding(16)
                     Button(action: {
-                        guard let url = URL(string: "https://digital.sbb.ch/brand_elemente/fahrplan-icons"),
+                        guard let url = URL(string: "https://digital.sbb.ch/en/foundation/assets/fpl/"),
                             UIApplication.shared.canOpenURL(url) else {
                             return
                         }
@@ -59,7 +59,7 @@ struct IconDemo: View {
                         .sbbFont(.small_light)
                         .padding(16)
                     Button(action: {
-                        guard let url = URL(string: "https://digital.sbb.ch/brand_elemente/icons"),
+                        guard let url = URL(string: "https://digital.sbb.ch/en/foundation/assets/icons/"),
                             UIApplication.shared.canOpenURL(url) else {
                             return
                         }
@@ -81,7 +81,7 @@ struct IconDemo: View {
                         .sbbFont(.small_light)
                         .padding(16)
                     Button(action: {
-                        guard let url = URL(string: "https://digital.sbb.ch/de/brand_elemente/piktogramme"),
+                        guard let url = URL(string: "https://digital.sbb.ch/en/foundation/assets/pictos/"),
                             UIApplication.shared.canOpenURL(url) else {
                             return
                         }
