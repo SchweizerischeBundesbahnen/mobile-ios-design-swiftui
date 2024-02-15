@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		000742102B7DFF2000BB7A79 /* SBBHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007420F2B7DFF2000BB7A79 /* SBBHeader.swift */; };
+		000742122B7E06F600BB7A79 /* HeaderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742112B7E06F600BB7A79 /* HeaderDemo.swift */; };
+		000742142B7E1BB400BB7A79 /* SBBHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742132B7E1BB400BB7A79 /* SBBHeaderTests.swift */; };
 		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
 		0021DD5C2B5A855F00DD7E3E /* SBBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */; };
 		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
@@ -2638,6 +2641,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0007420F2B7DFF2000BB7A79 /* SBBHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBHeader.swift; sourceTree = "<group>"; };
+		000742112B7E06F600BB7A79 /* HeaderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDemo.swift; sourceTree = "<group>"; };
+		000742132B7E1BB400BB7A79 /* SBBHeaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBHeaderTests.swift; sourceTree = "<group>"; };
 		001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabViewTests.swift; sourceTree = "<group>"; };
 		0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBNotification.swift; sourceTree = "<group>"; };
 		003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBox.swift; sourceTree = "<group>"; };
@@ -7952,6 +7958,7 @@
 				7C64548A2403F690005997AB /* DividerViewDemo.swift */,
 				A7F54687243B5BED0068B542 /* FormGroupView.swift */,
 				7CEF769224DA905600AFD5EB /* IconDemo.swift */,
+				000742112B7E06F600BB7A79 /* HeaderDemo.swift */,
 				7C9C46D824CB046200C22E97 /* InfoViewDemo.swift */,
 				7C624899247E3DA100F54C9D /* ListItemDemo.swift */,
 				7C62489D247E48A400F54C9D /* ListItemDetailDemo.swift */,
@@ -8001,6 +8008,7 @@
 				7C609469274F9088001ABF67 /* SBBDialogueTests.swift */,
 				92995BAB259373C20042B5C5 /* SBBDividerTests.swift */,
 				7C60946B274F9652001ABF67 /* SBBFormGroupTests.swift */,
+				000742132B7E1BB400BB7A79 /* SBBHeaderTests.swift */,
 				7C60946D274F9776001ABF67 /* SBBInfoViewTests.swift */,
 				7C60946F274F97E7001ABF67 /* SBBListItemTests.swift */,
 				7C609471274F9976001ABF67 /* SBBLoadingIndicatorTests.swift */,
@@ -8057,7 +8065,9 @@
 				7CE7BD4F25B16A84000ADF6B /* SBBChip.swift */,
 				7C2DFE3B25B5BF7900030342 /* SBBDialogue.swift */,
 				7C6454882403F50A005997AB /* SBBDivider.swift */,
+				2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */,
 				A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */,
+				0007420F2B7DFF2000BB7A79 /* SBBHeader.swift */,
 				7C9C46D624CB034000C22E97 /* SBBInfoView.swift */,
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
 				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
@@ -8077,7 +8087,6 @@
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
 				7CE19B1D25B98D7700FEFC1E /* SBBToast */,
-				2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -10806,6 +10815,7 @@
 				00B773C42A3C4BB7002BDB85 /* SBBMessage.swift in Sources */,
 				005DC8D8279B08BA009C5CEA /* TabBarParameters.swift in Sources */,
 				005DC8D6279AC91E009C5CEA /* TabButtonView.swift in Sources */,
+				000742102B7DFF2000BB7A79 /* SBBHeader.swift in Sources */,
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
 				00D0962F2A6ACC31009E02B1 /* SBBPickerWrapper.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
@@ -10917,6 +10927,7 @@
 				7CE7BD5425B17CCB000ADF6B /* ChipDemo.swift in Sources */,
 				7C43038723FD72610033865F /* SegmentedPickerViewDemo.swift in Sources */,
 				7CA0555A2660C43B00513F00 /* OnboardingViewModel.swift in Sources */,
+				000742122B7E06F600BB7A79 /* HeaderDemo.swift in Sources */,
 				7C595E5B25A5FDD20015B0FC /* RadioButtonView.swift in Sources */,
 				2DCEC9022539E34A008EDD15 /* TypographyUIKitView.swift in Sources */,
 				A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */,
@@ -10971,6 +10982,7 @@
 				7C60949E274FC3FA001ABF67 /* SBBEnvironmentBannerTests.swift in Sources */,
 				7C6094A0274FC67B001ABF67 /* SBBSliderExtensionTests.swift in Sources */,
 				7C609468274F8FC8001ABF67 /* SBBChipTests.swift in Sources */,
+				000742142B7E1BB400BB7A79 /* SBBHeaderTests.swift in Sources */,
 				00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */,
 				92995BA42593739F0042B5C5 /* SBBBubbleViewTests.swift in Sources */,
 				92995BAC259373C20042B5C5 /* SBBDividerTests.swift in Sources */,

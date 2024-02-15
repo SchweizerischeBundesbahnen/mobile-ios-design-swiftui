@@ -49,6 +49,7 @@ struct DemoWithModalSettingsView<Demo: View, Settings: View>: View {
                     .padding(10)
                     .padding(.bottom, 16)
             }
+            .colorScheme(colorScheme)
         }
         .onChange(of: showSettings) { value in
             if !value {
