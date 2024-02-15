@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		000742102B7DFF2000BB7A79 /* SBBHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007420F2B7DFF2000BB7A79 /* SBBHeader.swift */; };
-		000742122B7E06F600BB7A79 /* HeaderDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742112B7E06F600BB7A79 /* HeaderDemo.swift */; };
+		000742102B7DFF2000BB7A79 /* SBBHeaderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */; };
+		000742122B7E06F600BB7A79 /* HeaderBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742112B7E06F600BB7A79 /* HeaderBoxDemo.swift */; };
 		000742142B7E1BB400BB7A79 /* SBBHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742132B7E1BB400BB7A79 /* SBBHeaderTests.swift */; };
+		000742162B7E207C00BB7A79 /* SBBFooterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742152B7E207C00BB7A79 /* SBBFooterBox.swift */; };
+		000742182B7E251100BB7A79 /* FooterBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742172B7E251100BB7A79 /* FooterBoxDemo.swift */; };
+		0007421A2B7E328C00BB7A79 /* SBBFooterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742192B7E328C00BB7A79 /* SBBFooterModifier.swift */; };
 		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
 		0021DD5C2B5A855F00DD7E3E /* SBBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */; };
 		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
@@ -2641,9 +2644,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0007420F2B7DFF2000BB7A79 /* SBBHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBHeader.swift; sourceTree = "<group>"; };
-		000742112B7E06F600BB7A79 /* HeaderDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderDemo.swift; sourceTree = "<group>"; };
+		0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBHeaderBox.swift; sourceTree = "<group>"; };
+		000742112B7E06F600BB7A79 /* HeaderBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBoxDemo.swift; sourceTree = "<group>"; };
 		000742132B7E1BB400BB7A79 /* SBBHeaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBHeaderTests.swift; sourceTree = "<group>"; };
+		000742152B7E207C00BB7A79 /* SBBFooterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFooterBox.swift; sourceTree = "<group>"; };
+		000742172B7E251100BB7A79 /* FooterBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBoxDemo.swift; sourceTree = "<group>"; };
+		000742192B7E328C00BB7A79 /* SBBFooterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFooterModifier.swift; sourceTree = "<group>"; };
 		001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabViewTests.swift; sourceTree = "<group>"; };
 		0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBNotification.swift; sourceTree = "<group>"; };
 		003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBox.swift; sourceTree = "<group>"; };
@@ -5287,6 +5293,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0007421B2B7E32E800BB7A79 /* SBBFooterBox */ = {
+			isa = PBXGroup;
+			children = (
+				000742152B7E207C00BB7A79 /* SBBFooterBox.swift */,
+				000742192B7E328C00BB7A79 /* SBBFooterModifier.swift */,
+			);
+			path = SBBFooterBox;
+			sourceTree = "<group>";
+		};
 		005DC8C82799D0B2009C5CEA /* TabBarEntry */ = {
 			isa = PBXGroup;
 			children = (
@@ -7956,9 +7971,10 @@
 				7C2B7E7023D9F8940012CF62 /* ColorsView.swift */,
 				7C2DFE4525B5DC5300030342 /* DialogueDemo.swift */,
 				7C64548A2403F690005997AB /* DividerViewDemo.swift */,
+				000742172B7E251100BB7A79 /* FooterBoxDemo.swift */,
 				A7F54687243B5BED0068B542 /* FormGroupView.swift */,
 				7CEF769224DA905600AFD5EB /* IconDemo.swift */,
-				000742112B7E06F600BB7A79 /* HeaderDemo.swift */,
+				000742112B7E06F600BB7A79 /* HeaderBoxDemo.swift */,
 				7C9C46D824CB046200C22E97 /* InfoViewDemo.swift */,
 				7C624899247E3DA100F54C9D /* ListItemDemo.swift */,
 				7C62489D247E48A400F54C9D /* ListItemDetailDemo.swift */,
@@ -8056,7 +8072,6 @@
 			isa = PBXGroup;
 			children = (
 				00D0962B2A6AA8E5009E02B1 /* SBBDatePicker */,
-				00FB8193278ED4E300F07D30 /* SBBTabView */,
 				7C595E5625A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift */,
 				7C595E4C25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift */,
 				7CA464DE2445F31100118D7B /* SBBAccordion.swift */,
@@ -8065,9 +8080,9 @@
 				7CE7BD4F25B16A84000ADF6B /* SBBChip.swift */,
 				7C2DFE3B25B5BF7900030342 /* SBBDialogue.swift */,
 				7C6454882403F50A005997AB /* SBBDivider.swift */,
-				2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */,
+				0007421B2B7E32E800BB7A79 /* SBBFooterBox */,
 				A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */,
-				0007420F2B7DFF2000BB7A79 /* SBBHeader.swift */,
+				0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */,
 				7C9C46D624CB034000C22E97 /* SBBInfoView.swift */,
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
 				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
@@ -8084,9 +8099,11 @@
 				7CC5F4B926B03D230028161D /* SBBRadioButtonGroup.swift */,
 				7C43038823FD86110033865F /* SBBSegmentedPicker.swift */,
 				00C731CE2AC5742E009D5DCA /* SBBStatus.swift */,
+				00FB8193278ED4E300F07D30 /* SBBTabView */,
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
 				7CE19B1D25B98D7700FEFC1E /* SBBToast */,
+				2D92C0142A152CF5001FE5B7 /* SBBUpDnCounterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -10812,10 +10829,11 @@
 				92B4A0C125592694005F4F06 /* SBBBundle.swift in Sources */,
 				7C624895247E2ACB00F54C9D /* SBBListItem.swift in Sources */,
 				2D804EAD23D9D1FE00CC9C0C /* SBBColors.swift in Sources */,
+				000742162B7E207C00BB7A79 /* SBBFooterBox.swift in Sources */,
 				00B773C42A3C4BB7002BDB85 /* SBBMessage.swift in Sources */,
 				005DC8D8279B08BA009C5CEA /* TabBarParameters.swift in Sources */,
 				005DC8D6279AC91E009C5CEA /* TabButtonView.swift in Sources */,
-				000742102B7DFF2000BB7A79 /* SBBHeader.swift in Sources */,
+				000742102B7DFF2000BB7A79 /* SBBHeaderBox.swift in Sources */,
 				7C28871A24BF266E00EDBD27 /* OnboardingViewModel.swift in Sources */,
 				00D0962F2A6ACC31009E02B1 /* SBBPickerWrapper.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
@@ -10841,6 +10859,7 @@
 				2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */,
 				7CE19B1F25B98D8300FEFC1E /* SBBToast.swift in Sources */,
 				7C1A846225F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift in Sources */,
+				0007421A2B7E328C00BB7A79 /* SBBFooterModifier.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */,
 				A706C156243715060029BD8D /* SBBCheckBox.swift in Sources */,
@@ -10927,8 +10946,9 @@
 				7CE7BD5425B17CCB000ADF6B /* ChipDemo.swift in Sources */,
 				7C43038723FD72610033865F /* SegmentedPickerViewDemo.swift in Sources */,
 				7CA0555A2660C43B00513F00 /* OnboardingViewModel.swift in Sources */,
-				000742122B7E06F600BB7A79 /* HeaderDemo.swift in Sources */,
+				000742122B7E06F600BB7A79 /* HeaderBoxDemo.swift in Sources */,
 				7C595E5B25A5FDD20015B0FC /* RadioButtonView.swift in Sources */,
+				000742182B7E251100BB7A79 /* FooterBoxDemo.swift in Sources */,
 				2DCEC9022539E34A008EDD15 /* TypographyUIKitView.swift in Sources */,
 				A7F54688243B5BED0068B542 /* FormGroupView.swift in Sources */,
 				A75AAE2024373C0C0054B54A /* CheckBoxView.swift in Sources */,

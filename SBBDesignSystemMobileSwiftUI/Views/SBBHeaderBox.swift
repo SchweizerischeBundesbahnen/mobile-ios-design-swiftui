@@ -4,9 +4,9 @@
 
 import SwiftUI
 
-public extension SBBHeader where AdditionalContent == EmptyView {
+public extension SBBHeaderBox where AdditionalContent == EmptyView {
     /**
-     Returns a SBBHeader.
+     Returns a SBBHeaderBox.
      
      - Parameters:
         - content: The View to display in the Header.
@@ -23,7 +23,7 @@ public extension SBBHeader where AdditionalContent == EmptyView {
  A  View that is mainly used right underneath the Navigationbar.
  
  ## Overview
- You create a SBBHeader by providing a custom Content and optionnally a custom AdditionalContent. You can also specify wether you want to extend the red NavigationBar theme to flow under the upper part of the SBBHeader:
+ You create a SBBHeaderBox by providing a custom Content and optionnally a custom AdditionalContent. You can also specify wether you want to extend the red NavigationBar theme to flow under the upper part of the SBBHeaderBox:
  ```swift
  var body: some View {
      SBBHeader(content: HStack {
@@ -39,7 +39,7 @@ public extension SBBHeader where AdditionalContent == EmptyView {
  ```
  ![SBBHeader](SBBHeader)
  */
-public struct SBBHeader<Content: View, AdditionalContent: View>: View {
+public struct SBBHeaderBox<Content: View, AdditionalContent: View>: View {
     
     private let content: Content
     private let additionalContent: AdditionalContent?
@@ -79,7 +79,7 @@ public struct SBBHeader<Content: View, AdditionalContent: View>: View {
                     }
                     .background(Color.sbbColor(.viewBackground))
                     .cornerRadius(16)
-                    .shadow(color: Color.black.opacity(0.1), radius: 5)
+                    .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
                     
                     if let additionalContent = additionalContent {
                         additionalContent
@@ -91,7 +91,7 @@ public struct SBBHeader<Content: View, AdditionalContent: View>: View {
                 }
                 .background(Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
                 .cornerRadius(16)
-                .shadow(color: Color.black.opacity(0.1), radius: additionalContent == nil ? 5 : 0)
+                .shadow(color: Color.sbbColor(.tabshadow), radius: additionalContent == nil ? 8 : 0)
             }
             .sbbScreenPadding(.horizontal)
         }
@@ -101,7 +101,7 @@ public struct SBBHeader<Content: View, AdditionalContent: View>: View {
 struct SBBHeader_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBHeader(content: {
+            SBBHeaderBox(content: {
                 Rectangle()
                     .foregroundColor(.purple)
                     .frame(height: 24)
@@ -114,7 +114,7 @@ struct SBBHeader_Previews: PreviewProvider {
                     }
             }, extendNavigationBarBackground: true)
             .previewDisplayName("With extended background")
-            SBBHeader(content: {
+            SBBHeaderBox(content: {
                 Rectangle()
                     .foregroundColor(.purple)
                     .frame(height: 24)
@@ -127,13 +127,13 @@ struct SBBHeader_Previews: PreviewProvider {
                     }
             }, extendNavigationBarBackground: false)
             .previewDisplayName("Without extended background")
-            SBBHeader(content: {
+            SBBHeaderBox(content: {
                 Rectangle()
                     .foregroundColor(.purple)
                     .frame(height: 24)
             }, extendNavigationBarBackground: true)
             .previewDisplayName("Without additional info, with extended background")
-            SBBHeader(content: {
+            SBBHeaderBox(content: {
                 Rectangle()
                     .foregroundColor(.purple)
                     .frame(height: 24)

@@ -5,7 +5,7 @@
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-struct HeaderDemo: View {
+struct HeaderBoxDemo: View {
     
     @Binding var colorScheme: ColorScheme
     
@@ -55,7 +55,7 @@ struct HeaderDemo: View {
                     }
                     .sbbScreenPadding()
                     
-                    SBBHeader(content: {
+                    SBBHeaderBox(content: {
                         switch selectedContent {
                         case .rectangle:
                             Rectangle()
@@ -100,7 +100,7 @@ struct HeaderDemo: View {
             }
             .padding(.top, headerHeight + 16)
             
-            SBBHeader(content: {
+            SBBHeaderBox(content: {
                 Text("Header examples").sbbFont(.medium_bold)
             }, additionalContent: {
                 Text("Header can be created with any content and additional content. Here are some examples.")
@@ -119,9 +119,9 @@ struct HeaderDemo_Previews: PreviewProvider {
     
     static var previews: some View {
         Group {
-            HeaderDemo(colorScheme: $lightScheme)
+            HeaderBoxDemo(colorScheme: $lightScheme)
                 .previewDisplayName("Light")
-            HeaderDemo(colorScheme: $darkScheme)
+            HeaderBoxDemo(colorScheme: $darkScheme)
                 .previewDisplayName("Dark")
                 .environment(\.colorScheme, .dark)
         }
