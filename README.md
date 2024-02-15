@@ -38,9 +38,9 @@ The main documentation (DocC) on how to use SBB DSM SwiftUI can be created direc
 ### SBB internal documentation
 
 A the moment, the following documents are only available to persons internal to SBB:
-* [SBB Design System Mobile documentation](https://digital.sbb.ch/en/mobile "Design System Mobile documentation")
+* [SBB Design System Mobile documentation](https://digital.sbb.ch/en/design-system/mobile/overview/ "Design System Mobile documentation")
 * [AppBakery libraries](https://sbb.sharepoint.com/sites/app-bakery/SitePages/Mobile-Libraries.aspx "AppBakery liraries")
-* [Figma](https://www.figma.com/file/56woOj0p1qEOrZiTzi4mJ7/SBB-Mobile-Library-%28draft%29 "Figma library")
+* [Figma](https://www.figma.com/file/WOtLIam1xwrqcgnAITsEhV/Design-System-Mobile?type=design "Figma library")
 
 ## Getting help
 
