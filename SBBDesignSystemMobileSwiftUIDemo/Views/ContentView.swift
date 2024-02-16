@@ -167,7 +167,7 @@ struct ContentView: View {
                         }
                         SBBFormGroup(title: "Additional Information") {
                             Button(action: {
-                                guard let url = URL(string: "https://digital.sbb.ch/de/design-system/mobile/overview/"),
+                                guard let url = URL(string: "https://digital.sbb.ch/en/design-system/mobile/overview/"),
                                     UIApplication.shared.canOpenURL(url) else {
                                     return
                                 }
