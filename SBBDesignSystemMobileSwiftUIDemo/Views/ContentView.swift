@@ -88,13 +88,13 @@ struct ContentView: View {
                                     SBBListItem(label: Text("Divider"))
                                 }
                                 NavigationLink(destination: FooterBoxDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Footer"))
+                                    SBBListItem(label: Text("FooterBox"))
                                 }
                                 NavigationLink(destination: FormGroupView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("FormGroup"))
                                 }
                                 NavigationLink(destination: HeaderBoxDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("Header"))
+                                    SBBListItem(label: Text("HeaderBox"))
                                 }
                                 NavigationLink(destination: InfoViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("InfoView"))

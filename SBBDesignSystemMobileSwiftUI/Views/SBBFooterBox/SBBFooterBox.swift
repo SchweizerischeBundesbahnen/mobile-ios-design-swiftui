@@ -4,6 +4,23 @@
 
 import SwiftUI
 
+/**
+ A  View that is used to display a footer.
+ 
+ ## Overview
+ You create a SBBFooterBox by providing a custom Content. You can also specify the footer is used with a tab bar or not
+ ```swift
+ var body: some View {
+    SBBFooterBox(content: {
+            VStack(alignment: .leading) {
+                Text("Title")
+                Text("This is some information.")
+            }
+        }, hasTabBar = false)
+    }
+ ```
+ ![SBBFooterBox](SBBFooterBox)
+ */
 public struct SBBFooterBox<Content: View>: View {
     
     private let content: Content
@@ -31,7 +48,7 @@ public struct SBBFooterBox<Content: View>: View {
 }
 
 
-struct SBBFooter_Previews: PreviewProvider {
+struct SBBFooterBox_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SBBFooterBox(content: {

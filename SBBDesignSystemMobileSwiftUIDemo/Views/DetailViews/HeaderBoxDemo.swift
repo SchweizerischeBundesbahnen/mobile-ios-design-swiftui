@@ -107,7 +107,7 @@ struct HeaderBoxDemo: View {
             })
                 .viewHeight($headerHeight)
         }
-        .navigationBarTitle("Header")
+        .navigationBarTitle("HeaderBox")
         .sbbStyle()
         .colorScheme(colorScheme)
     }

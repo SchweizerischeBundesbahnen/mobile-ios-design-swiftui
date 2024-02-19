@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		000742102B7DFF2000BB7A79 /* SBBHeaderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */; };
 		000742122B7E06F600BB7A79 /* HeaderBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742112B7E06F600BB7A79 /* HeaderBoxDemo.swift */; };
-		000742142B7E1BB400BB7A79 /* SBBHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742132B7E1BB400BB7A79 /* SBBHeaderTests.swift */; };
+		000742142B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742132B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift */; };
 		000742162B7E207C00BB7A79 /* SBBFooterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742152B7E207C00BB7A79 /* SBBFooterBox.swift */; };
 		000742182B7E251100BB7A79 /* FooterBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742172B7E251100BB7A79 /* FooterBoxDemo.swift */; };
 		0007421A2B7E328C00BB7A79 /* SBBFooterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742192B7E328C00BB7A79 /* SBBFooterModifier.swift */; };
+		0007421D2B7E378C00BB7A79 /* SBBFooterBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007421C2B7E378C00BB7A79 /* SBBFooterBoxTests.swift */; };
 		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
 		0021DD5C2B5A855F00DD7E3E /* SBBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */; };
 		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
@@ -2646,10 +2647,11 @@
 /* Begin PBXFileReference section */
 		0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBHeaderBox.swift; sourceTree = "<group>"; };
 		000742112B7E06F600BB7A79 /* HeaderBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBoxDemo.swift; sourceTree = "<group>"; };
-		000742132B7E1BB400BB7A79 /* SBBHeaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBHeaderTests.swift; sourceTree = "<group>"; };
+		000742132B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBHeaderBoxTests.swift; sourceTree = "<group>"; };
 		000742152B7E207C00BB7A79 /* SBBFooterBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFooterBox.swift; sourceTree = "<group>"; };
 		000742172B7E251100BB7A79 /* FooterBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterBoxDemo.swift; sourceTree = "<group>"; };
 		000742192B7E328C00BB7A79 /* SBBFooterModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFooterModifier.swift; sourceTree = "<group>"; };
+		0007421C2B7E378C00BB7A79 /* SBBFooterBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBFooterBoxTests.swift; sourceTree = "<group>"; };
 		001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabViewTests.swift; sourceTree = "<group>"; };
 		0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBNotification.swift; sourceTree = "<group>"; };
 		003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBox.swift; sourceTree = "<group>"; };
@@ -8024,7 +8026,7 @@
 				7C609469274F9088001ABF67 /* SBBDialogueTests.swift */,
 				92995BAB259373C20042B5C5 /* SBBDividerTests.swift */,
 				7C60946B274F9652001ABF67 /* SBBFormGroupTests.swift */,
-				000742132B7E1BB400BB7A79 /* SBBHeaderTests.swift */,
+				000742132B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift */,
 				7C60946D274F9776001ABF67 /* SBBInfoViewTests.swift */,
 				7C60946F274F97E7001ABF67 /* SBBListItemTests.swift */,
 				7C609471274F9976001ABF67 /* SBBLoadingIndicatorTests.swift */,
@@ -8047,6 +8049,7 @@
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
 				7C609489274FBA00001ABF67 /* SBBToastTests.swift */,
 				2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */,
+				0007421C2B7E378C00BB7A79 /* SBBFooterBoxTests.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -11002,12 +11005,13 @@
 				7C60949E274FC3FA001ABF67 /* SBBEnvironmentBannerTests.swift in Sources */,
 				7C6094A0274FC67B001ABF67 /* SBBSliderExtensionTests.swift in Sources */,
 				7C609468274F8FC8001ABF67 /* SBBChipTests.swift in Sources */,
-				000742142B7E1BB400BB7A79 /* SBBHeaderTests.swift in Sources */,
+				000742142B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift in Sources */,
 				00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */,
 				92995BA42593739F0042B5C5 /* SBBBubbleViewTests.swift in Sources */,
 				92995BAC259373C20042B5C5 /* SBBDividerTests.swift in Sources */,
 				7C609480274FB4FC001ABF67 /* SBBRadioButtonTests.swift in Sources */,
 				7C609472274F9976001ABF67 /* SBBLoadingIndicatorTests.swift in Sources */,
+				0007421D2B7E378C00BB7A79 /* SBBFooterBoxTests.swift in Sources */,
 				001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */,
 				7C60948A274FBA00001ABF67 /* SBBToastTests.swift in Sources */,
 				7C60946A274F9088001ABF67 /* SBBDialogueTests.swift in Sources */,

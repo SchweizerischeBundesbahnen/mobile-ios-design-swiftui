@@ -85,7 +85,7 @@ struct FooterBoxDemo: View {
                 ContentView(showTabBar: $showTabBar)
             }
         }
-        .navigationBarTitle("Footer")
+        .navigationBarTitle("FooterBox")
         .sbbStyle()
         .colorScheme(colorScheme)
     }

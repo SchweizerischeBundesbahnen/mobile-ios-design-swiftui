@@ -23,31 +23,30 @@ class SBBHeaderTests: XCTestCase {
            }
     }
     
-    
-    func testSBBHeader() {
-        let view = SBBHeader(content: content)
+    func testSBBHeaderBox() {
+        let view = SBBHeaderBox(content: content)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBHeaderWithAdditionalContent() {
-        let view = SBBHeader(content: content, additionalContent: additionalContent)
+    func testSBBHeaderBoxWithAdditionalContent() {
+        let view = SBBHeaderBox(content: content, additionalContent: additionalContent)
         for colorScheme in ColorScheme.allCases {
-            view.recordDocumentationSnapshot(name: "SBBHeader", colorScheme: colorScheme)
+            view.recordDocumentationSnapshot(name: "SBBHeaderBox", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBHeaderWithoutExtendedBackground() {
-        let view = SBBHeader(content: content, extendNavigationBarBackground: false)
+    func testSBBHeaderBoxWithoutExtendedBackground() {
+        let view = SBBHeaderBox(content: content, extendNavigationBarBackground: false)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testSBBHeaderWithAdditionalContentWithoutExtendedBackground() {
-        let view = SBBHeader(content: content, additionalContent: additionalContent, extendNavigationBarBackground: false)
+        let view = SBBHeaderBox(content: content, additionalContent: additionalContent, extendNavigationBarBackground: false)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }

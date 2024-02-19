@@ -23,21 +23,25 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView {
  A  View that is mainly used right underneath the Navigationbar.
  
  ## Overview
- You create a SBBHeaderBox by providing a custom Content and optionnally a custom AdditionalContent. You can also specify wether you want to extend the red NavigationBar theme to flow under the upper part of the SBBHeaderBox:
+ You create a SBBHeaderBox by providing a custom Content and optionally a custom AdditionalContent. You can also specify wether you want to extend the red NavigationBar theme to flow under the upper part of the SBBHeaderBox:
  ```swift
  var body: some View {
-     SBBHeader(content: HStack {
-        Image(sbbIcon: .city_small)
-         Text("Some title")
-         }, additionalContent: HStack {
-         Image(sbbIcon: .sign_exclamation_point_small)
-         Text("Additional text or information")
-         Spacer()
-         Image(sbbIcon: .circle_information_small)
+    SBBHeaderBox(content: {
+            HStack {
+                Image(sbbIcon: .city_small)
+                Text("Some title")
+            }
+         }, additionalContent: {
+            HStack {
+                Image(sbbIcon: .sign_exclamation_point_small)
+                Text("Additional text or information")
+                Spacer()
+                Image(sbbIcon: .circle_information_small)
+            }
         }, extendNavigationBarBackground = false)
     }
  ```
- ![SBBHeader](SBBHeader)
+ ![SBBHeaderBox](SBBHeaderBox)
  */
 public struct SBBHeaderBox<Content: View, AdditionalContent: View>: View {
     
@@ -53,7 +57,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View>: View {
      
      - Parameters:
         - content: The View to display in the Header.
-        - additionalContent: The View to display as addiitonal content.
+        - additionalContent: The View to display as additional content.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
      */
     public init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, extendNavigationBarBackground: Bool = true) {
@@ -98,7 +102,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View>: View {
     }
 }
 
-struct SBBHeader_Previews: PreviewProvider {
+struct SBBHeaderBox_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             SBBHeaderBox(content: {
