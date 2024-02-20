@@ -259,7 +259,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                     .padding(.vertical, horizontalSizeClass == .compact ? 16 : 8)
                     .background(Color.sbbColor(.viewBackground))
                     .cornerRadius(16)
-                    .shadow(color: Color.black.opacity(0.1), radius: 5)
+                    .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
                     .accentColor(.sbbColor(.textBlack))
                     .onTapGesture {
                         withAnimation{

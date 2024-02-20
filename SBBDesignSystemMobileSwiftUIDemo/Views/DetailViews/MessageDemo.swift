@@ -53,29 +53,17 @@ struct MessageDemo: View {
     
     private var settingsView: some View {
         VStack(spacing: 10) {
-            HStack {
-                VStack {
-                    Text("Top")
-                    Text("image")
-                }
-                SBBSegmentedPicker(selection: $topType, tags: [.info, .error, .custom]) {
-                    Text("Info")
-                    Text("Error")
-                    Text("Custom")
-                }
+            SBBRadioButtonGroup(title: "Top image", selection: $topType, tags: [.info, .error, .custom]) {
+                SBBRadioButton(text: Text("Info"))
+                SBBRadioButton(text: Text("Error"))
+                SBBRadioButton(text: Text("Custom"), showBottomLine: false)
             }
             
-            HStack {
-                VStack {
-                    Text("Bottom")
-                    Text("image")
-                }
-                SBBSegmentedPicker(selection: $bottomType, tags: [.none, .loading, .retry, .custom]) {
-                    Text("None")
-                    Text("Loading")
-                    Text("Retry")
-                    Text("Custom")
-                }
+            SBBRadioButtonGroup(title: "Bottom image", selection: $bottomType, tags: [.none, .loading, .retry, .custom]) {
+                SBBRadioButton(text: Text("None"))
+                SBBRadioButton(text: Text("Loading"))
+                SBBRadioButton(text: Text("Retry"))
+                SBBRadioButton(text: Text("Custom"), showBottomLine: false)
             }
             
             Toggle(isOn: $error) {
