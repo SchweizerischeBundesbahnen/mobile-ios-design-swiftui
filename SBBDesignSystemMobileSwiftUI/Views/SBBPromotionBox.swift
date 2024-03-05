@@ -29,8 +29,12 @@ public struct SBBPromotionBox: View {
     let newIn: String?
     let title: Text
     let text: Text
+    let onClick: (()->())?
+    var closeAccessibility: String = "close note".localized
+    var clickAccessibility: String = "more info".localized
     
     @Binding var isPresented: Bool
+    @State var newSize: CGSize = .zero
     @State var textSize: CGSize = .zero
     
     
@@ -42,12 +46,61 @@ public struct SBBPromotionBox: View {
         - title: The Text to display as the title of the message.
         - text: The Text to display as the title of the message.
         - isPresented: Whether the promotion box is displayed.
+        - onClick: An action to be performed on click.
+        -  closeAccessibility: The accessibility label to announce the close action. Default: "close".
+        -  clickAccessibility: The accessibility label to announce the button action. Default: "more information".
      */
-    public init(newIn: String? = nil, title: Text, text: Text, isPresented: Binding<Bool>) {
+    public init(newIn: String? = nil, title: Text, text: Text, isPresented: Binding<Bool>, onClick: (() ->())? = nil, closeAccessibility: String? = nil, clickAccessibility: String? = nil) {
         self.newIn = newIn
         self.title = title
         self.text = text
         self._isPresented = isPresented
+        self.onClick = onClick
+        if let closeAccessibility = closeAccessibility {
+            self.closeAccessibility = closeAccessibility
+        }
+        if let clickAccessibility = clickAccessibility {
+            self.clickAccessibility = clickAccessibility
+        }
+    }
+    
+    private var iconSize: CGFloat {
+        return sizeCategory.isAccessibilityCategory ? 36 : 24
+    }
+    
+    private var topView: some View {
+        HStack {
+            title
+                .bold()
+                .sbbFont(.medium_light)
+            Spacer()
+            Button(action: {
+                self.isPresented = false
+            }
+            ) {
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .cross_medium : .cross_small)
+                    .foregroundColor(Color.sbbColor(.textBlack))
+            }
+        }
+    }
+    
+    private var bottomView: some View {
+        HStack(alignment: .top) {
+            text
+                .multilineTextAlignment(.leading)
+                .viewSize($textSize)
+            
+            if let onClick = onClick {
+                Spacer()
+                Button(action: {
+                    onClick()
+                }) {
+                    Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .chevron_right_medium : .chevron_small_right_medium)
+                        .foregroundColor(Color.sbbColor(.textBlack))
+                        .frame(width: iconSize, height: textSize.height)
+                }
+            }
+        }
     }
     
     public var body: some View {
@@ -61,7 +114,7 @@ public struct SBBPromotionBox: View {
                             Rectangle()
                                 .fill(Color.sbbColor(.red))
                                 .cornerRadius(20)
-                                .frame(width: self.textSize.width + 40, height: 39)
+                                .frame(width: self.newSize.width + 40, height: 39)
                                 .opacity(0.4)
                             Spacer()
                         }
@@ -69,23 +122,36 @@ public struct SBBPromotionBox: View {
                     .accessibility(hidden: true)
                     .offset(y: -19.5)
                     
-                    VStack(alignment: .leading, spacing: 8) {
-                        HStack {
-                            title
-                                .bold()
-                                .sbbFont(.medium_light)
-                            Spacer()
-                            Button(action: {
+                    Group {
+                        if let onClick = onClick {
+                            VStack(alignment: .leading, spacing: 8) {
+                                topView
+                                    .accessibilityElement(children: .combine)
+                                    .accessibilityAddTraits(.isButton)
+                                    .accessibilityAction {
+                                        self.isPresented = false
+                                    }
+                                    .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" . ") + Text(closeAccessibility))
+                                bottomView
+                                    .accessibilityElement(children: .combine)
+                                    .accessibilityAddTraits(.isButton)
+                                    .accessibilityAction {
+                                        onClick()
+                                    }
+                                    .accessibility(label: text + Text(" . ") + Text(clickAccessibility))
+                            }
+                        } else {
+                            VStack(alignment: .leading, spacing: 8) {
+                                topView
+                                bottomView
+                            }
+                            .accessibilityElement(children: .combine)
+                            .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" . ") + text + Text(" . ") + Text(closeAccessibility))
+                            .accessibilityAddTraits(.isButton)
+                            .accessibilityAction {
                                 self.isPresented = false
                             }
-                            ) {
-                                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .cross_medium : .cross_small)
-                                    .foregroundColor(Color.sbbColor(.textBlack))
-                            }
                         }
-                        
-                        text
-                            .multilineTextAlignment(.leading)
                     }
                     .foregroundColor(Color.sbbColor(.textBlack))
                     .padding(16)
@@ -104,13 +170,14 @@ public struct SBBPromotionBox: View {
                                 .aspectRatio(contentMode: .fill)
                                 .compositingGroup()
                                 .blendMode(.overlay))
+                        .accessibility(hidden: true)
                     )
                     .cornerRadius(16)
                     .overlay(
                         RoundedRectangle(cornerRadius: 16)
                             .stroke(Color.sbbColor(colorScheme == .dark ? .charcoal : .white), lineWidth: 1)
+                            .accessibility(hidden: true)
                     )
-                    .accessibility(hidden: true)
                     
                     // Red top bubble
                     VStack {
@@ -123,15 +190,15 @@ public struct SBBPromotionBox: View {
                                     ZStack {
                                         RoundedRectangle(cornerRadius: 20)
                                             .stroke(Color.sbbColor(colorScheme == .dark ? .charcoal : .white), lineWidth: 1)
-                                        Text("Neu")
+                                        Text("new".localized)
                                             .bold()
                                             .font(.system(size: 14))
                                             .fixedSize()
                                             .foregroundColor(.white)
-                                            .viewSize(self.$textSize)
+                                            .viewSize(self.$newSize)
                                     }
                                 )
-                                .frame(width: self.textSize.width + 20, height: 24)
+                                .frame(width: self.newSize.width + 20, height: 24)
                             Spacer()
                         }
                     }
@@ -139,13 +206,7 @@ public struct SBBPromotionBox: View {
                     .offset(y: -12)
                 }
                     .padding(.top, 19.5)
-                    .sbbScreenPadding(.horizontal)
-                    .accessibilityElement(children: .combine)
-                    .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" . ") + text + Text(" . ") + Text("close note".localized))
-                    .accessibilityAddTraits(.isButton)
-                    .accessibilityAction {
-                        self.isPresented = false
-                    }
+                    
             } else {
                 EmptyView()
             }
