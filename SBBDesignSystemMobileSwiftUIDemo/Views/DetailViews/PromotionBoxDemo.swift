@@ -16,7 +16,7 @@ struct PromotionBoxDemo: View {
     var body: some View {
         VStack(spacing: 8) {
             ScrollView(showsIndicators: false) {
-                SBBPromotionBox(newIn: "l'application", title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate massa ut ex fringilla, vel rutrum nulla pretium. Vivamus auctor ex sed nunc maximus."), isPresented: $isPresented1)
+                SBBPromotionBox(title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate massa ut ex fringilla, vel rutrum nulla pretium. Vivamus auctor ex sed nunc maximus."), isPresented: $isPresented1)
                 
                 if !isPresented1 {
                     HStack {
@@ -31,7 +31,7 @@ struct PromotionBoxDemo: View {
                     }
                 }
                 
-                SBBPromotionBox(newIn: "l'application", title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate massa ut ex fringilla, vel rutrum nulla pretium. Vivamus auctor ex sed nunc maximus."), isPresented: $isPresented2, onClick: {
+                SBBPromotionBox(title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vulputate massa ut ex fringilla, vel rutrum nulla pretium. Vivamus auctor ex sed nunc maximus."), isPresented: $isPresented2, onClick: {
                     self.showAlert = true
                 })
                 
