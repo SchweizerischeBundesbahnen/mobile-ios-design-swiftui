@@ -138,7 +138,7 @@ public struct SBBPromotionBox: View {
                                     .accessibilityAction {
                                         onClick()
                                     }
-                                    .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" ") + text + Text(". \(clickAccessibility)"))
+                                    .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" ") + text + Text(". \(clickAccessibility.localized)"))
                                     .accessibility(sortPriority: 1)
                                 
                                 HStack {
@@ -151,14 +151,14 @@ public struct SBBPromotionBox: View {
                                         .accessibilityAction {
                                             self.isPresented = false
                                         }
-                                        .accessibility(label: Text(closeAccessibility))
+                                        .accessibility(label: Text(closeAccessibility.localized))
                                 }
                             }
                             .accessibilityElement(children: .contain)
                         } else {
                             contentView
                                 .accessibilityElement(children: .combine)
-                                .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" ") + text + Text(" \(closeAccessibility)"))
+                                .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" ") + text + Text(" \(closeAccessibility.localized)"))
                                 .accessibilityAddTraits(.isButton)
                                 .accessibilityAction {
                                     self.isPresented = false
