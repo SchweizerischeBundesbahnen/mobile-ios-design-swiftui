@@ -38,6 +38,7 @@ public struct SBBNotification: View {
     let onRetry: (() -> ())?
     let maxNumberLines: Int?
     let closeAfterSeconds: Int?
+    var closeAccessibility: String = "close".localized
     var moreInfoAccessibility: String = "more info".localized
     var retryAccessibility: String = "retry".localized
     
@@ -55,7 +56,7 @@ public struct SBBNotification: View {
         - closeAfterSeconds: The optional time in seconds after which the notification closes.
         - onClose: The optional action to do when the notification is closed.
      */
-    public init(isPresented: Binding<Bool>, statusType: StatusType, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil) {
+    public init(isPresented: Binding<Bool>, statusType: StatusType, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, closeAccessibility: String? = nil) {
         self._isPresented = isPresented
         self.canBeClosed = true
         self.statusType = statusType
@@ -65,6 +66,9 @@ public struct SBBNotification: View {
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = closeAfterSeconds
         self.onClose = onClose
+        if let closeAccessibility = closeAccessibility {
+            self.closeAccessibility = closeAccessibility
+        }
         self.onMoreInfo = nil
         self.onRetry = nil
     }
@@ -84,7 +88,7 @@ public struct SBBNotification: View {
         - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
         -  moreInfoAccessibility: The accessibility label to announce the button action. Default: "more information".
      */
-    public init(isPresented: Binding<Bool>, statusType: StatusType, title: Text, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
+    public init(isPresented: Binding<Bool>, statusType: StatusType, title: Text, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, closeAccessibility: String? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
         self._isPresented = isPresented
         self.canBeClosed = true
         self.statusType = statusType
@@ -94,6 +98,9 @@ public struct SBBNotification: View {
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = closeAfterSeconds
         self.onClose = onClose
+        if let closeAccessibility = closeAccessibility {
+            self.closeAccessibility = closeAccessibility
+        }
         self.onMoreInfo = onMoreInfo
         self.onRetry = nil
         if let moreInfoAccessibility = moreInfoAccessibility {
@@ -328,7 +335,7 @@ public struct SBBNotification: View {
         } else if onRetry != nil {
             return accessibilityText + Text(". \(retryAccessibility.localized)")
         } else if canBeClosed {
-            return accessibilityText + Text(". \("close".localized)")
+            return accessibilityText + Text(". \(closeAccessibility.localized)")
         }
         return accessibilityText
     }
@@ -356,25 +363,33 @@ public struct SBBNotification: View {
                 Group {
                     if let title = title, let onMoreInfo = onMoreInfo, canBeClosed {
                         // isButton + 2 accessibility elements
-                        VStack(spacing: 8) {
-                            topView
-                                .accessibilityElement(children: .combine)
-                                .accessibilityAddTraits(.isButton)
-                                .accessibilityAction {
-                                    self.isPresented = false
-                                    if let onClose = onClose {
-                                        onClose()
+                        ZStack(alignment: .top) {
+                            VStack(spacing: 8) {
+                                topView
+                                bottomView
+                            }
+                            .accessibilityElement(children: .combine)
+                            .accessibilityAddTraits(.isButton)
+                            .accessibilityAction {
+                                onMoreInfo()
+                            }
+                            .accessibilityLabel(title + Text(". ") + text + Text(". \(moreInfoAccessibility.localized)"))
+                            .accessibility(sortPriority: 1)
+                            
+                            HStack {
+                                Spacer()
+                                Rectangle()
+                                    .fill(Color.clear)
+                                    .frame(width: iconSize, height: iconSize)
+                                    .accessibilityElement(children: .combine)
+                                    .accessibilityAddTraits(.isButton)
+                                    .accessibilityAction {
+                                        self.isPresented = false
                                     }
-                                }
-                                .accessibilityLabel(title + Text(". \("close".localized)"))
-                            bottomView
-                                .accessibilityElement(children: .combine)
-                                .accessibilityAddTraits(.isButton)
-                                .accessibilityAction {
-                                    onMoreInfo()
-                                }
-                                .accessibilityLabel(text + Text(". \(moreInfoAccessibility.localized)"))
+                                    .accessibility(label: Text(closeAccessibility.localized))
+                            }
                         }
+                        .accessibilityElement(children: .contain)
                     } else if let notificationAction = notificationAction {
                         // isButton + 1 accessibility element
                         VStack(spacing: 8) {

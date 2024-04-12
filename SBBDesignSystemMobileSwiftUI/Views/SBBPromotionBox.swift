@@ -103,6 +103,13 @@ public struct SBBPromotionBox: View {
         }
     }
     
+    private var contentView: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            topView
+            bottomView
+        }
+    }
+    
     public var body: some View {
         Group {
             if isPresented {
@@ -124,33 +131,38 @@ public struct SBBPromotionBox: View {
                     
                     Group {
                         if let onClick = onClick {
-                            VStack(alignment: .leading, spacing: 8) {
-                                topView
-                                    .accessibilityElement(children: .combine)
-                                    .accessibilityAddTraits(.isButton)
-                                    .accessibilityAction {
-                                        self.isPresented = false
-                                    }
-                                    .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(". \(closeAccessibility)"))
-                                bottomView
+                            ZStack(alignment: .top) {
+                                contentView
                                     .accessibilityElement(children: .combine)
                                     .accessibilityAddTraits(.isButton)
                                     .accessibilityAction {
                                         onClick()
                                     }
-                                    .accessibility(label: text + Text(" \(clickAccessibility)"))
+                                    .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" ") + text + Text(". \(clickAccessibility.localized)"))
+                                    .accessibility(sortPriority: 1)
+                                
+                                HStack {
+                                    Spacer()
+                                    Rectangle()
+                                        .fill(Color.clear)
+                                        .frame(width: iconSize, height: iconSize)
+                                        .accessibilityElement(children: .combine)
+                                        .accessibilityAddTraits(.isButton)
+                                        .accessibilityAction {
+                                            self.isPresented = false
+                                        }
+                                        .accessibility(label: Text(closeAccessibility.localized))
+                                }
                             }
+                            .accessibilityElement(children: .contain)
                         } else {
-                            VStack(alignment: .leading, spacing: 8) {
-                                topView
-                                bottomView
-                            }
-                            .accessibilityElement(children: .combine)
-                            .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" ") + text + Text(" \(closeAccessibility)"))
-                            .accessibilityAddTraits(.isButton)
-                            .accessibilityAction {
-                                self.isPresented = false
-                            }
+                            contentView
+                                .accessibilityElement(children: .combine)
+                                .accessibility(label: Text("\(newIn == nil ? "new".localized : (String.localizedStringWithFormat(NSLocalizedString("new in %@", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), newIn!))) . ") + title + Text(" ") + text + Text(" \(closeAccessibility.localized)"))
+                                .accessibilityAddTraits(.isButton)
+                                .accessibilityAction {
+                                    self.isPresented = false
+                                }
                         }
                     }
                     .foregroundColor(Color.sbbColor(.textBlack))
