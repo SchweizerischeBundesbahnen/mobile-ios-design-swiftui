@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "utilization-none-high-contrast.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

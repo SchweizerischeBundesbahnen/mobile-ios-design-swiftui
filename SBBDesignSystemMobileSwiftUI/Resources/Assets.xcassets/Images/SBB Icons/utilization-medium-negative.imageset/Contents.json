@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "utilization-medium-negative.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

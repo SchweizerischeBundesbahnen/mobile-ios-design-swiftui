@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "four-diamonds-small.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

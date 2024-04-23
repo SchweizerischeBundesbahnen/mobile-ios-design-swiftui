@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "arrow-compass-filled-small.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

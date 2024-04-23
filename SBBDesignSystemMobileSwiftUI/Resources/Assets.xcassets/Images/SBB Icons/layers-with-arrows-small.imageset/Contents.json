@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "layers-with-arrows-small.svg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
