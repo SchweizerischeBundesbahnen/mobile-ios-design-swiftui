@@ -1,39 +1,49 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.0 - TBD
+### Features
+* New components:
+  * SBBFooterBox to display a footer
+  * SBBHeaderBox to display a footer
+  
+### Bugfix
+* SBBNotification and SBBPromotionBox: elements are now correctly read by VoiceOver.
+
+
 ## v1.1.3 - 2 February 2024
 ### Improvements
-- SBBNotifications: icon can be hidden
+* SBBNotification: icon can be hidden
 
 ## v1.1.2 - 30 January 2024
 ### Improvements
-- SBBNotifications: a retry button is added
+* SBBNotification: a retry button is added
 
 ## v1.1.1 - 04 January 2024
 ### Improvements
-- SBBNotification: can also stay open (close button not present).
+* SBBNotification: can also stay open (close button not present).
 ### Deprecations
-- Renaming of the typographie names according to the revised DSM (e.g. xlarge instead of SBBHeader). Old typographie names are deprecated and will be removed in a future version.
+* Renaming of the typographie names according to the revised DSM (e.g. xlarge instead of SBBHeader). Old typographie names are deprecated and will be removed in a future version.
 
 ## v1.1.0 - 03 October 2023
 ### Features
-- New components:
-  - SBBUpDnCounterView to display an up and down counter
-  - SBBMessage to display a message with an illustration
-  - SBBPromotionBox to display a promotion box
-  - SBBDatePicker to display a date picker
-  - SBBStatus to display a status (alert, warning, success or info)
-  - SBBNotification to display a status notification (alert, warning, success or info)
-- SBBTabView: a badge can be added to the tab bar icon
-- New color .redDark is added
+* New components:
+  * SBBUpDnCounterView to display an up and down counter
+  * SBBMessage to display a message with an illustration
+  * SBBPromotionBox to display a promotion box
+  * SBBDatePicker to display a date picker
+  * SBBStatus to display a status (alert, warning, success or info)
+  * SBBNotification to display a status notification (alert, warning, success or info)
+* SBBTabView: a badge can be added to the tab bar icon
+* New color .redDark is added
 
 ### Improvements
-- SBBTabView: accessibility area for a tab is bigger
-- SBBOnboardingView: accessibility is improved (e.g. text completely visible with all font sizes)
-- SBBMessage: accessibility label for 'retry' button is added
-- SBBIcons updated
+* SBBTabView: accessibility area for a tab is bigger
+* SBBOnboardingView: accessibility is improved (e.g. text completely visible with all font sizes)
+* SBBMessage: accessibility label for 'retry' button is added
+* SBBIcons updated
 
 ### Deprecations
-- Initializing an SBB List Item with `init(label: String, image: Image)` or `init(label: String, type: SBBListItemType)` is deprecated and will be removed in a future version. `image` is replaced with `leftImage` and the right image (decided by SBBListItemType) can now be customized using `rightImage`.
+* Initializing an SBB List Item with `init(label: String, image: Image)` or `init(label: String, type: SBBListItemType)` is deprecated and will be removed in a future version. `image` is replaced with `leftImage` and the right image (decided by SBBListItemType) can now be customized using `rightImage`.
 
 ## v1.0.5 - 24 April 2023
 
