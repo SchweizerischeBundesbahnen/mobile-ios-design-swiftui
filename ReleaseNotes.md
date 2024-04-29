@@ -5,6 +5,9 @@
 * New components:
   * SBBFooterBox to display a footer
   * SBBHeaderBox to display a footer
+
+### Improvements
+* New icons
   
 ### Bugfix
 * SBBNotification and SBBPromotionBox: elements are now correctly read by VoiceOver.
