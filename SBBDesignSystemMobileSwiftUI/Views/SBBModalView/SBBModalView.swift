@@ -144,6 +144,7 @@ public struct SBBModalView<Content>: View where Content: View {
                         .buttonStyle(SBBIconButtonStyle(size: .small))
                 }
                     .sbbScreenPadding()
+                    .padding(.horizontal, 8)
                 content
                     .padding(.bottom, style == .popup ? 16 : 0)
                     .accessibilitySortPriority(1)
