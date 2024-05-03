@@ -78,6 +78,7 @@ public struct SBBModalView<Content>: View where Content: View {
     private let closeButtonAccessibilityText: Text
     private let hideCloseButtonAccessibility: Bool
     private var showBackButton: Bool
+    private let showCancelButton: Bool
     private let actionOnBackButtonTouched: (() -> ())?
     private let content: Content
 
@@ -88,10 +89,11 @@ public struct SBBModalView<Content>: View where Content: View {
         - title: The Text to display as title.
         - style: The style of the SBBModalView depending on how it is presented.
         - showBackButton: An optional flag, controlling if a back button should be displayed at the top-trailing edge. Allowing navigation inside a SBBModalView.
+        - showCancelButton: An optional flag, controlling if the Cancel button on the top right should appear.
         - actionOnBackButtonTouched: An optional action to be performed open touch events on the back button.
         - content: A custom VIew to be shown underneath the title.
      */
-    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, closeButtonAccessibilityText: Text? = nil, hideCloseButtonAccessibility: Bool = false, showBackButton: Bool = false, actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
+    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, closeButtonAccessibilityText: Text? = nil, hideCloseButtonAccessibility: Bool = false, showBackButton: Bool = false, showCancelButton: Bool = true, actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.style = style
         self.titleAlignment = titleAlignment
@@ -99,6 +101,7 @@ public struct SBBModalView<Content>: View where Content: View {
         self.closeButtonAccessibilityText = closeButtonAccessibilityText ?? Text("close".localized)
         self.hideCloseButtonAccessibility = hideCloseButtonAccessibility
         self.showBackButton = showBackButton
+        self.showCancelButton = showCancelButton
         self.actionOnBackButtonTouched = actionOnBackButtonTouched
         self.content = content()
     }
@@ -129,19 +132,22 @@ public struct SBBModalView<Content>: View where Content: View {
                     }
                     title
                         .padding(.top, 7)
+                        .padding(.leading, 16)
                         .sbbFont(.large_light)
                         .accessibility(addTraits: .isHeader)
                         .accessibilitySortPriority(2)
                     Spacer()
-                    Button(action: {
-                        self.isPresented = false
-                    }) {
-                        Image(sbbIcon: .cross_small)
-                            .accessibility(hidden: hideCloseButtonAccessibility)
-                            .accessibility(label: closeButtonAccessibilityText)
-                            .accessibilitySortPriority(2)
+                    if (showCancelButton) {
+                        Button(action: {
+                            self.isPresented = false
+                        }) {
+                            Image(sbbIcon: .cross_small)
+                                .accessibility(hidden: hideCloseButtonAccessibility)
+                                .accessibility(label: closeButtonAccessibilityText)
+                                .accessibilitySortPriority(2)
+                        }
+                            .buttonStyle(SBBIconButtonStyle(size: .small))
                     }
-                        .buttonStyle(SBBIconButtonStyle(size: .small))
                 }
                     .sbbScreenPadding()
                     .padding(.horizontal, 8)
@@ -186,6 +192,10 @@ struct SBBModalView_Previews: PreviewProvider {
                     Text("Custom content")
                 }
                     .previewDisplayName("Popup, light, Back Button")
+                SBBModalView(title: Text("Modal View"), style: .popup, titleAlignment: .center, isPresented: .constant(true), showBackButton: true, showCancelButton: false) {
+                    Text("Custom content")
+                }
+                    .previewDisplayName("Popup, light, Back Button, No Cancel Button")
             }
             Group {
                 SBBModalView(title: Text("Modal View"), style: .bottom, isPresented: .constant(true)) {
@@ -205,6 +215,10 @@ struct SBBModalView_Previews: PreviewProvider {
                     Text("Custom content")
                 }
                     .previewDisplayName("Sheet, light, Back Button")
+                SBBModalView(title: Text("Modal View"), style: .bottom, titleAlignment: .center, isPresented: .constant(true), showBackButton: true, showCancelButton: false) {
+                    Text("Custom content")
+                }
+                    .previewDisplayName("Sheet, light, Back Button, No Cancel Button")
             }
                 .previewLayout(.fixed(width: 400, height: 200))
             Group {
@@ -225,6 +239,11 @@ struct SBBModalView_Previews: PreviewProvider {
                     Text("Custom content")
                 }
                     .previewDisplayName("Full, light, Back Button")
+                SBBModalView(title: Text("Modal View"), style: .full, titleAlignment: .center, isPresented: .constant(true), showBackButton: true, showCancelButton: false) {
+                    Text("Custom content")
+                }
+                    .previewDisplayName("Full, light, Back Button, No Cancel Button")
+                
             }
         }
             .previewLayout(.sizeThatFits)
