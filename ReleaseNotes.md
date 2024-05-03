@@ -8,7 +8,7 @@
 
 ### Improvements
 * New icons
-  * added the option to hide the Cancel Button in the ModalView
+* added the option to hide the Cancel Button in the ModalView
   
 ### Bugfix
 * SBBNotification and SBBPromotionBox: elements are now correctly read by VoiceOver.
