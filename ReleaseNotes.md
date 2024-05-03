@@ -1,6 +1,6 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
-## v1.2.0 - TBD
+## v1.2.0 - 3 May 2024
 ### Features
 * New components:
   * SBBFooterBox to display a footer
@@ -8,13 +8,10 @@
 
 ### Improvements
 * New icons
+  * added the option to hide the Cancel Button in the ModalView
   
 ### Bugfix
 * SBBNotification and SBBPromotionBox: elements are now correctly read by VoiceOver.
-
-## v1.1.4 - 3 May 2024
-###Improvements
-* added the option to hide the Cancel Button in the ModalView
 
 ## v1.1.3 - 2 February 2024
 ### Improvements
