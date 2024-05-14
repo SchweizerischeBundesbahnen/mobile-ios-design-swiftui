@@ -20,6 +20,9 @@ In general, SBB-Icons are present in three different sizes (small, medium, large
 * Remove old `SBB Icons` of the Assets.xcassets
 * Move the newly downloaded and renamed `SBB Icons` folder into the Assets.xcassets
 * Select every icon in the Assets and change from "Individual Scales" to "Single Scale"
+* Select every icon in the Assets and enable "Preserve Vector Data"
+* Select every icon in the Assets and change "Render As" to "Template Image"
+
 
 Note that the `Resources/SBBIconsIndex.json` indicate, whether the icon is able to change color or not.
 
@@ -29,6 +32,7 @@ Note that the `Resources/SBBIconsIndex.json` indicate, whether the icon is able 
 * Remove old `SBB Pictos` of the Assets.xcassets
 * Move the newly downloaded and renamed `SBB Pictos` folder into the Assets.xcassets
 * Select every icon in the Assets and change from "Individual Scales" to "Single Scale"
+* Select every icon in the Assets and enable "Preserve Vector Data"
 
 Building the Lib should now invoke the `generate_enum_file.swift` script, which generates the `Resources/SBBIconName.swift` file containing an enum with all the icons of the Assets.xcassets.
 
