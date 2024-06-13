@@ -16,7 +16,7 @@ In general, SBB-Icons are present in three different sizes (small, medium, large
 ### SBB-Icons and SBB-Timetable-Icons:
 * Download the repo at: https://github.com/sbb-design-systems/sbb-icons/
 * change folder name `icons` to `SBB Icons`
-* Replace the content of the file `index.json` with the content of the source file `Resources/SBBIconsIndex.json`. Then remove the `index.json`
+* Replace the content of the file `Resources/SBBIconsIndex.json` with the content of the source file `index.json`. Then remove the `index.json`
 * Remove old `SBB Icons` of the Assets.xcassets
 * Move the newly downloaded and renamed `SBB Icons` folder into the Assets.xcassets
 * Select every icon in the Assets and change from "Individual Scales" to "Single Scale"
