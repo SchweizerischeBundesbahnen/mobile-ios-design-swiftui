@@ -150,7 +150,6 @@ public struct SBBTextField: View {
                         .padding(.bottom, 8)
                 }
             }
-            .animation(.linear)
             .background(bottomLineColor.frame(height: 1), alignment: .bottom)
         }
             .padding(.leading, 16)
@@ -165,6 +164,7 @@ public struct SBBTextField: View {
                         EmptyView()
                     }
                 } , alignment: .center)
+            .animation(.linear)
     }
     
     private func emptyText() {
