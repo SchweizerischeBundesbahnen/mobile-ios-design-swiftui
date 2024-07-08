@@ -22,7 +22,8 @@ public struct SBBTextField: View {
     
     @Environment(\.isEnabled) private var isEnabled
     @Binding private var text: String
-    @State private var isEditing = false
+    @Binding var isEditing: Bool
+    @State private var isFocused = false
     let label: String?
     let error: String?
     let additionalAccessibilityText: String?
@@ -43,8 +44,9 @@ public struct SBBTextField: View {
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
         - showClearButtonWhenEditing: Shows or hides the clear button when editing a text.
         - boxed: shows the Textfield inside a white box when enabled, and with a clear background when disabled (default). Clear background does not work inside SBBFormGroup.
+        - isEditing: a binding to get the state of the TextField (whether of not it is editing)
      */
-    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true, showClearButtonWhenEditing: Bool = true, boxed: Bool = false) {
+    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true, showClearButtonWhenEditing: Bool = true, boxed: Bool = false, isEditing: Binding<Bool>? = nil) {
         self._text = text
         if let label = label {
             self.label = NSLocalizedString(label, comment: "")
@@ -65,13 +67,14 @@ public struct SBBTextField: View {
         self.showBottomLine = showBottomLine
         self.showClearButtonWhenEditing = showClearButtonWhenEditing
         self.boxed = boxed
+        self._isEditing = isEditing != nil ? isEditing! : .constant(false)
     }
     
     private var bottomLineColor: Color {
         if error != nil {
             return .sbbColor(.red)
         }
-        switch (isEnabled, isEditing, showBottomLine) {
+        switch (isEnabled, isFocused, showBottomLine) {
         case (true, true, true):
             return .sbbColor(.textBlack)
         case (true, true, false):
@@ -115,6 +118,7 @@ public struct SBBTextField: View {
                                 DispatchQueue.main.async {
                                     withAnimation {
                                         self.isEditing = editing
+                                        self.isFocused = editing
                                     }
                                 }
                             })
@@ -127,13 +131,14 @@ public struct SBBTextField: View {
                             DispatchQueue.main.async {
                                 withAnimation {
                                     self.isEditing = editing
+                                    self.isFocused = editing
                                 }
                             }
                         })
                             .sbbFont(.medium_light)
                     }
                     
-                    if showClearButtonWhenEditing && isEditing && !text.isEmpty {
+                    if showClearButtonWhenEditing && isFocused && !text.isEmpty {
                         Button(action: emptyText) {
                             Image(sbbIcon: .cross_small)
                                 .accessibility(label: Text("Delete input".localized))
