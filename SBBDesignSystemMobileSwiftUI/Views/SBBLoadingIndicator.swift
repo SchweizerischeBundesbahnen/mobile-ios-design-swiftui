@@ -24,6 +24,8 @@ public struct SBBLoadingIndicator: View {
         case normal
         /// Small SBBLoadingIndicator Size.
         case small
+        /// Tiny SBBLoadingIndicator Size.
+        case tiny
         
         var size: CGSize {
             switch self {
@@ -31,6 +33,8 @@ public struct SBBLoadingIndicator: View {
                 return CGSize(width: 55, height: 32)
             case .small:
                 return CGSize(width: 31, height: 18)
+            case .tiny:
+                return CGSize(width: 15, height: 9)
             }
         }
     }
@@ -90,7 +94,7 @@ public struct SBBLoadingIndicator: View {
         
         let innerWidth = width / CGFloat(cos(rotationInDegrees * .pi / 180)) * 3.0
         self.innerWidth = innerWidth
-        let paddingBetweenRectangles = size == .normal ? 8.0 : 4.0
+        let paddingBetweenRectangles = size == .normal ? 8.0 : size == .small ? 4.0 : 2.0
         self.rectangleWidth = innerWidth / CGFloat(numberOfRectangles) + paddingBetweenRectangles
         
         rectangleOffsets = [-rectangleWidth, 0, rectangleWidth, 2.0*rectangleWidth, 3.0*rectangleWidth, 4.0*rectangleWidth]
@@ -99,37 +103,34 @@ public struct SBBLoadingIndicator: View {
     }
         
     public var body: some View {
-        Group {
-            ZStack {
-                ForEach(rectangleProperties.indices, id:\.self) { index in
-                    Rectangle()
-                        .fill(style.color(for: colorScheme))
-                        .frame(width: innerWidth / CGFloat(numberOfRectangles), height: height)
-                        .opacity(rectangleProperties[index].opacity)
-                        .offset(x: rectangleProperties[index].offset)
-                        .onAppear {
-                            DispatchQueue.main.async {
-                                withAnimation(Animation.linear(duration: animationDuration)
-                                        .repeatForever(autoreverses: false)
-                                )
-                                {
-                                    rectangleProperties[index].offset = rectangleOffsets[index]
-                                }
-                            
-                                withAnimation(Animation.linear(duration: animationDuration)
-                                                .repeatForever(autoreverses: false)
-                                ) {
-                                    rectangleProperties[index].opacity = rectangleOpacity[index]
-                                }
+        ZStack {
+            ForEach(rectangleProperties.indices, id:\.self) { index in
+                Rectangle()
+                    .fill(style.color(for: colorScheme))
+                    .frame(width: innerWidth / CGFloat(numberOfRectangles), height: height)
+                    .opacity(rectangleProperties[index].opacity)
+                    .offset(x: rectangleProperties[index].offset)
+                    .onAppear {
+                        DispatchQueue.main.async {
+                            withAnimation(Animation.linear(duration: animationDuration)
+                                    .repeatForever(autoreverses: false)
+                            )
+                            {
+                                rectangleProperties[index].offset = rectangleOffsets[index]
+                            }
+                        
+                            withAnimation(Animation.linear(duration: animationDuration)
+                                            .repeatForever(autoreverses: false)
+                            ) {
+                                rectangleProperties[index].opacity = rectangleOpacity[index]
                             }
                         }
-                }
+                    }
             }
-                .rotation3DEffect(.degrees(rotationInDegrees), axis: (x: 0, y: 1, z: 0), anchor: .leading)
         }
-            .frame(width: width, height: height, alignment: .leading)
-            .padding(16)
-            
+        .rotation3DEffect(.degrees(rotationInDegrees), axis: (x: 0, y: 1, z: 0), anchor: .leading)
+        .frame(width: width, height: height, alignment: .leading)
+        .padding(16)
         .accessibility(label: Text("Loading.".localized))
     }
 }
@@ -138,6 +139,15 @@ public struct SBBLoadingIndicator: View {
 struct SBBLoadingIndicator_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+            VStack {
+                SBBLoadingIndicator()
+                    .previewDisplayName("normal, red, light")
+                SBBLoadingIndicator(size: .small)
+                    .previewDisplayName("normal, red, light")
+                SBBLoadingIndicator(size: .tiny)
+                    .previewDisplayName("normal, red, light")
+                
+            }
             Group {
                 SBBLoadingIndicator()
                     .previewDisplayName("normal, red, light")
@@ -168,6 +178,23 @@ struct SBBLoadingIndicator_Previews: PreviewProvider {
                     .previewDisplayName("small, white, light")
                 SBBLoadingIndicator(size: .small, style: .primaryBackground)
                     .previewDisplayName("small, white, dark")
+                    .environment(\.colorScheme, .dark)
+            }
+            
+            Group {
+                SBBLoadingIndicator(size: .tiny)
+                    .previewDisplayName("tiny, red, light")
+                SBBLoadingIndicator(size: .tiny)
+                    .previewDisplayName("tiny, red, dark")
+                    .environment(\.colorScheme, .dark)
+                SBBLoadingIndicator(size: .tiny, style: .grey)
+                    .previewDisplayName("tiny, grey, light")
+                SBBLoadingIndicator(size: .tiny, style: .grey)
+                    .previewDisplayName("tiny, grey, dark")
+                SBBLoadingIndicator(size: .tiny, style: .primaryBackground)
+                    .previewDisplayName("tiny, white, light")
+                SBBLoadingIndicator(size: .small, style: .primaryBackground)
+                    .previewDisplayName("tiny, white, dark")
                     .environment(\.colorScheme, .dark)
             }
         }
