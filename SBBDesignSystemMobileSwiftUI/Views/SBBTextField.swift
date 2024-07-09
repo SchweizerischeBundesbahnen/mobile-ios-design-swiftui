@@ -114,7 +114,7 @@ public struct SBBTextField: View {
                                     .opacity(text.isEmpty ? 0.0 : 1.0)
                                     .accessibility(hidden: true)
                             }
-                            TextField("\(label)", text: $text, onEditingChanged: { editing in
+                            TextField("", text: $text, onEditingChanged: { editing in
                                 DispatchQueue.main.async {
                                     withAnimation {
                                         self.isEditing = editing
