@@ -1,5 +1,17 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.1 - 8 July 2024
+### Features
+* SBBLoadingIndicator: now also exists in size `.tiny`
+
+### Improvements
+* SBBListItem: rightImage can also be displayed as is (without circle) 
+* Update icons to 0.1.82 
+
+### Bugfix
+* SBBTextArea and SBBTextField accessibility
+
+
 ## v1.2.0 - 3 May 2024
 ### Features
 * New components:

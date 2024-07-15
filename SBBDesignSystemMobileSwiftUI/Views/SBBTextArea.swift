@@ -23,8 +23,8 @@ public struct SBBTextArea: View {
     @Binding private var text: String
     @State private var isEditing = false
     private var label: String?
-    private var localizedLabel: LocalizedStringKey?
     private let showBottomLine: Bool
+    private var additionalAccessibilityText: String?
     
     /**
      Returns a SBBTextArea with a label and an optional Image.
@@ -32,17 +32,14 @@ public struct SBBTextArea: View {
      - Parameters:
         - text: Sets the user-modifiable text state.
         - label: An optional label displayed instead of the text (if the text is empty) or above the text (if not empty).
+        - additionalAccessibilityText: An optional string appended at the end of the accessibility label.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
      */
-    public init(text: Binding<String>, label: String? = nil, showBottomLine: Bool = true) {
+    public init(text: Binding<String>, label: String? = nil, additionalAccessibilityText: String? = nil, showBottomLine: Bool = true) {
         self._text = text
         self.label = label
-        if let label = label {
-            self.localizedLabel = LocalizedStringKey(label)
-        } else {
-            self.localizedLabel = nil
-        }
         self.showBottomLine = showBottomLine
+        self.additionalAccessibilityText = additionalAccessibilityText
     }
     
     private var bottomLineColor: Color {
@@ -59,11 +56,18 @@ public struct SBBTextArea: View {
     public var body: some View {
         SBBTextAreaImpl(text: $text, isEditing: $isEditing, label: label)
             .background(bottomLineColor.frame(height: 1).padding(.horizontal, 17.5), alignment: .bottom)
-            .accessibilityElement(children: .ignore)
-            .accessibility(label: localizedLabel != nil ? Text(localizedLabel!) : Text(text))
-            .accessibility(label: localizedLabel != nil ? Text(localizedLabel!) : Text(text))
-
-            .accessibility(value: localizedLabel != nil ? Text(text) : Text(""))
+            .accessibility(label: Text(accessibilityText))
+    }
+    
+    private var accessibilityText: String {
+        var text = ""
+        if let label = label {
+            text.append("\(label). ")
+        }
+        if let additionalAccessibilityText = additionalAccessibilityText {
+            text.append("\(additionalAccessibilityText). ")
+        }
+        return text
     }
     
     private struct SBBTextAreaImpl: UIViewRepresentable {
@@ -121,6 +125,8 @@ public struct SBBTextArea: View {
             let hasContent = !text.isEmpty
             descriptionLabel.isHidden = !hasContent
             placeholderLabel.isHidden = hasContent
+            descriptionLabel.isAccessibilityElement = false
+            placeholderLabel.isAccessibilityElement = false
             
             return view
         }
@@ -157,6 +163,8 @@ public struct SBBTextArea: View {
                 let hasContent = !textView.text.isEmpty
                 parent.descriptionLabel.isHidden = !hasContent
                 parent.placeholderLabel.isHidden = hasContent
+                parent.descriptionLabel.isAccessibilityElement = false
+                parent.placeholderLabel.isAccessibilityElement = false
             }
             
             func textViewDidBeginEditing(_ textView: UITextView) {

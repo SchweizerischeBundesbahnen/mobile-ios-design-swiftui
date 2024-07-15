@@ -29,6 +29,7 @@ public struct SBBListItem: View {
     private let footnote: Text?
     private let footnoteAccessibility: Text?
     private let showBottomLine: Bool
+    private let rightImageIsCircled: Bool
     
     var leftSwipeButtonLabel: AnyView?
     var leftSwipeButtonAction: (() -> ())?
@@ -52,8 +53,9 @@ public struct SBBListItem: View {
      - footnote: An optional label displayed underneath the main label.
      - footnoteAccessibility: The optional alternative text for the footnote's VoiceOver.
      - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+     - rightImageIsCircled: The right icon is in a circle.
      */
-    public init(label: Text, labelAccessibility: Text? = nil, leftImage: Image? = nil, rightImage: Image? = Image(sbbIcon: .chevron_small_right_small), footnote: Text? = nil, footnoteAccessibility: Text? = nil, showBottomLine: Bool = true) {
+    public init(label: Text, labelAccessibility: Text? = nil, leftImage: Image? = nil, rightImage: Image? = Image(sbbIcon: .chevron_small_right_small), footnote: Text? = nil, footnoteAccessibility: Text? = nil, showBottomLine: Bool = true, rightImageIsCircled: Bool = true) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.leftImage = leftImage
@@ -61,6 +63,7 @@ public struct SBBListItem: View {
         self.footnote = footnote
         self.footnoteAccessibility = footnoteAccessibility
         self.showBottomLine = showBottomLine
+        self.rightImageIsCircled = rightImageIsCircled
     }
     
     /// SBBListItem Type.
@@ -72,7 +75,7 @@ public struct SBBListItem: View {
     }
     
     @available(*, deprecated, message: "image renamed to leftImage. SBBListItemType removed, instead use rightImage to specify the desired image.")
-    public init(label: Text, labelAccessibility: Text? = nil, image: Image, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal, showBottomLine: Bool = true) {
+    public init(label: Text, labelAccessibility: Text? = nil, image: Image, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType = .normal, showBottomLine: Bool = true, rightImageIsCircled: Bool = true) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.leftImage = image
@@ -80,10 +83,11 @@ public struct SBBListItem: View {
         self.footnoteAccessibility = footnoteAccessibility
         self.rightImage = Image(sbbIcon: (type == .normal ? .chevron_small_right_small : .circle_information_small_small))
         self.showBottomLine = showBottomLine
+        self.rightImageIsCircled = rightImageIsCircled
     }
     
     @available(*, deprecated, message: "image renamed to leftImage. SBBListItemType removed, instead use rightImage to specify the desired image.")
-    public init(label: Text, labelAccessibility: Text? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType, showBottomLine: Bool = true) {
+    public init(label: Text, labelAccessibility: Text? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBListItemType, showBottomLine: Bool = true, rightImageIsCircled: Bool = true) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.leftImage = nil
@@ -91,6 +95,7 @@ public struct SBBListItem: View {
         self.footnoteAccessibility = footnoteAccessibility
         self.rightImage = Image(sbbIcon: (type == .normal ? .chevron_small_right_small : .circle_information_small_small))
         self.showBottomLine = showBottomLine
+        self.rightImageIsCircled = rightImageIsCircled
     }
     
     public var body: some View {
@@ -160,12 +165,19 @@ public struct SBBListItem: View {
                 .padding(.vertical, 12)
                 Spacer()
                 if let rightImage {
-                    rightImage
-                        .accessibility(hidden: true)
-                        .frame(width: 32, height: 32)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.sbbColor(.border)))
-                        .padding(.vertical, 6)
+                    if rightImageIsCircled {
+                        rightImage
+                            .accessibility(hidden: true)
+                            .frame(width: 32, height: 32)
+                            .clipShape(Circle())
+                            .overlay(Circle().stroke(Color.sbbColor(.border)))
+                            .padding(.vertical, 6)
+                    } else {
+                        rightImage
+                            .accessibility(hidden: true)
+                            .frame(width: 32, height: 32)
+                            .padding(.vertical, 6)
+                    }
                 }
             }
             .frame(minHeight: 44)
