@@ -31,6 +31,7 @@ public struct SBBTextField: View {
     let showBottomLine: Bool
     let showClearButtonWhenEditing: Bool
     let boxed: Bool
+    let showIconBorder: Bool
     
     /**
      Returns a SBBTextField with a label and an optional Image.
@@ -43,10 +44,11 @@ public struct SBBTextField: View {
         - icon: An optional Image to be shown on the leading edge of the SBBTextField.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
         - showClearButtonWhenEditing: Shows or hides the clear button when editing a text.
-        - boxed: shows the Textfield inside a white box when enabled, and with a clear background when disabled (default). Clear background does not work inside SBBFormGroup.
+        - showIconBorder: Shows the border of the icon when editing a text..
+        - boxed: Shows the Textfield inside a white box when enabled, and with a clear background when disabled (default). Clear background does not work inside SBBFormGroup.
         - isEditing: a binding to get the state of the TextField (whether of not it is editing)
      */
-    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true, showClearButtonWhenEditing: Bool = true, boxed: Bool = false, isEditing: Binding<Bool>? = nil) {
+    public init(text: Binding<String>, label: String? = nil, error: String? = nil, additionalAccessibilityText: String? = nil, icon: Image? = nil, showBottomLine: Bool = true, showClearButtonWhenEditing: Bool = true, showIconBorder: Bool = true, boxed: Bool = false, isEditing: Binding<Bool>? = nil) {
         self._text = text
         if let label = label {
             self.label = NSLocalizedString(label, comment: "")
@@ -66,6 +68,7 @@ public struct SBBTextField: View {
         self.icon = icon
         self.showBottomLine = showBottomLine
         self.showClearButtonWhenEditing = showClearButtonWhenEditing
+        self.showIconBorder = showIconBorder
         self.boxed = boxed
         self._isEditing = isEditing != nil ? isEditing! : .constant(false)
     }
@@ -143,7 +146,7 @@ public struct SBBTextField: View {
                             Image(sbbIcon: .cross_small)
                                 .accessibility(label: Text("Delete input".localized))
                         }
-                            .buttonStyle(SBBIconButtonStyle(size: .small))
+                            .buttonStyle(SBBIconButtonStyle(size: .small, showBorder: showIconBorder))
                             .padding(.trailing, 16)
                     }
                 }
