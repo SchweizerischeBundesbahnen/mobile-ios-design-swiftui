@@ -123,19 +123,17 @@ public struct SBBModalView<Content>: View where Content: View {
                         }
                             .buttonStyle(SBBIconButtonStyle(size: .small))
                             .accessibilitySortPriority(2)
-                    } else if titleAlignment == .center {
-                        Spacer()
-                            .frame(width: 32)
                     }
                     if titleAlignment == .center {
                         Spacer()
                     }
                     title
                         .padding(.top, 7)
-                        .padding(.leading, 8)
+                        .padding(.leading, titleAlignment == .leading ? 8 : 0)
                         .sbbFont(.large_light)
                         .accessibility(addTraits: .isHeader)
                         .accessibilitySortPriority(2)
+                        .multilineTextAlignment(titleAlignment == .leading ? .leading : .center)
                     Spacer()
                     if (showCancelButton) {
                         Button(action: {
