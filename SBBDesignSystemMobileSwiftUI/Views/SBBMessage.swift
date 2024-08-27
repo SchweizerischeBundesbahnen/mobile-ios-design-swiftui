@@ -17,7 +17,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Message, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -42,7 +42,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
+    init(title: Text, text: Message, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -70,7 +70,7 @@ public extension SBBMessage where TopImage == EmptyView {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Message, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -98,7 +98,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Message, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -123,7 +123,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
+    init(title: Text, text: Message, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -147,11 +147,11 @@ public extension SBBMessage where BottomImage == EmptyView {
  
  ```swift
  var body: some View {
-    SBBMessage(title: "A title", text: "Some message", imageType: .info, errorCode: Text("Error: 404"), isLoading: false)
+    SBBMessage(title: Text("A title"), text: Text("Some message"), imageType: .info, errorCode: Text("Error: 404"), isLoading: false)
  }
  
  var body: some View {
-    SBBMessage(title: "A title", text: "Some message", imageType: .info, errorCode: Text("Error: 404"), retry: {
+    SBBMessage(title: Text("A title"), text: Text("Some message"), imageType: .info, errorCode: Text("Error: 404"), retry: {
          // Some action to do on retry
          }
     )
@@ -159,7 +159,7 @@ public extension SBBMessage where BottomImage == EmptyView {
  ```
  ![SBBMessage](SBBMessage)
  */
-public struct SBBMessage<TopImage: View, BottomImage: View>: View {
+public struct SBBMessage<Message: View, TopImage: View, BottomImage: View>: View {
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -192,7 +192,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     }
     
     private let title: Text
-    private let message: Text
+    private let message: Message
     private let errorCode: Text?
     private let imageType: ImageType?
     private let topImage: TopImage?
@@ -215,7 +215,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    public init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    public init(title: Text, text: Message, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -241,7 +241,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
+    init(title: Text, text: Message, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
