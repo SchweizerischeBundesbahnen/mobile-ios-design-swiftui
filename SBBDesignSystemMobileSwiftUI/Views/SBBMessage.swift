@@ -255,62 +255,63 @@ public struct SBBMessage<Message: View, TopImage: View, BottomImage: View>: View
     }
     
     private var contentView: some View {
-        HStack {
+        VStack(alignment: .center) {
             Spacer()
-            VStack {
-                Spacer()
-                VStack(alignment: .center, spacing: 32) {
-                    Group {
-                        if let image = image {
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: imageType == .error ? 118 : 145)
-                        } else if let topImage = topImage {
-                            topImage
-                        }
+            VStack(alignment: .center, spacing: 32) {
+                Group {
+                    if let image = image {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: imageType == .error ? 118 : 145)
+                    } else if let topImage = topImage {
+                        topImage
                     }
-                    .accessibility(hidden: true)
-                    
-                    VStack(alignment: .center, spacing: 16) {
+                }
+                .accessibility(hidden: true)
+                
+                VStack(alignment: .center, spacing: 16) {
+                    HStack {
+                        Spacer()
                         title
                             .sbbFont(.medium_light)
                             .multilineTextAlignment(.center)
                             .foregroundColor(Color.sbbColor(.textBlack))
-                        message
-                            .multilineTextAlignment(.center)
-                            .sbbFont(.small_light)
+                        Spacer()
+                    }
+                    message
+                        .multilineTextAlignment(.center)
+                        .sbbFont(.small_light)
+                        .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
+                    if let errorCode = errorCode {
+                        errorCode
+                            .sbbFont(.xsmall_light)
                             .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
-                        if let errorCode = errorCode {
-                            errorCode
-                                .sbbFont(.xsmall_light)
-                                .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
-                        }
                     }
-                    .accessibilityElement(children: .combine)
-                    
-                    Group {
-                        if isLoading {
-                            SBBLoadingIndicator()
-                        } else if let retry = retry {
-                            Button(action: retry) {
-                                Image(sbbIcon: .arrows_circle_small)
-                            }
-                            .buttonStyle(SBBIconButtonStyle())
-                            .accessibilityLabel(Text("retry".localized))
-                        } else if let bottomImage = bottomImage {
-                            bottomImage
-                        }
-                    }
-                    .accessibility(hidden: bottomAccessibilityHidden)
                 }
+                .accessibilityElement(children: .combine)
+                
+                Group {
+                    if isLoading {
+                        SBBLoadingIndicator()
+                    } else if let retry = retry {
+                        Button(action: retry) {
+                            Image(sbbIcon: .arrows_circle_small)
+                        }
+                        .buttonStyle(SBBIconButtonStyle())
+                        .accessibilityLabel(Text("retry".localized))
+                    } else if let bottomImage = bottomImage {
+                        bottomImage
+                    }
+                }
+                .accessibility(hidden: bottomAccessibilityHidden)
+            }
                 .sbbScreenPadding(.horizontal)
                 .fixedSize(horizontal: false, vertical: true)
                 .viewSize(self.$contentSize)
-                Spacer()
-            }
             Spacer()
         }
+
         .background(Color.sbbColor(.background))
     }
     
