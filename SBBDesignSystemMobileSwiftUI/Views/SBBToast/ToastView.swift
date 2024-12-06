@@ -14,8 +14,17 @@ public struct ToastView: View {
     }
     
     public var body: some View {
-        viewModel.label
-            .sbbFont(.small_light)
+        HStack(alignment: .center, spacing: 16) {
+            viewModel.label
+                .sbbFont(.small_light)
+            
+            if let actionLabel = viewModel.actionLabel, let action = viewModel.onClickAction {
+                Button(action: action) {
+                    actionLabel
+                        .sbbFont(.small_bold)
+                }
+            }
+        }
             .foregroundColor(Color.sbbColor(.white))
             .multilineTextAlignment(.center)
             .padding(.horizontal, 20)
