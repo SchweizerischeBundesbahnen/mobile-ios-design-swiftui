@@ -28,6 +28,27 @@ struct ToastDemo: View {
                     Text("Show Toast")
                 }
                     .buttonStyle(SBBPrimaryButtonStyle())
+                
+                Button(action: {
+                    let uuid = UUID()
+                    counter += 1
+                    toastService.showToast(SBBToast(label: Text("Hello Toast \(counter)\nThis Toast has multiple lines, in fact it might be longer than 2 IC2000 compositions linked together."), id: uuid, actionLabel: Text("Remove it"), onClickAction: {
+                        toastService.removeToast(where: { $0.id == uuid })
+                    }))
+                }) {
+                    Text("Show Multiline Toast with Action")
+                }
+                    .buttonStyle(SBBSecondaryButtonStyle())
+                Button(action: {
+                    let uuid = UUID()
+                    counter += 1
+                    toastService.showToast(SBBToast(label: Text("Hello Toast \(counter)"), id: uuid, actionLabel: Text("Remove it"), onClickAction: {
+                        toastService.removeToast(where: { $0.id == uuid })
+                    }))
+                }) {
+                    Text("Show Toast with Action")
+                }
+                    .buttonStyle(SBBPrimaryButtonStyle())
             }
                 .sbbScreenPadding()
         }
@@ -36,7 +57,6 @@ struct ToastDemo: View {
             .sbbStyle()
             .sbbToastContainer()
             .colorScheme(colorScheme)
-            
     }
 }
 
