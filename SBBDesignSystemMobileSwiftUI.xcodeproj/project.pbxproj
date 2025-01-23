@@ -50,6 +50,9 @@
 		00D096332A711266009E02B1 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096322A711266009E02B1 /* DateExtension.swift */; };
 		00D096352A714CD2009E02B1 /* SBBPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096342A714CD2009E02B1 /* SBBPickerTests.swift */; };
 		00D096382A7159D7009E02B1 /* DemoWithModalSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096372A7159D7009E02B1 /* DemoWithModalSettingsView.swift */; };
+		00E16DDB2D0339ED00C30173 /* SBBStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDA2D0339E700C30173 /* SBBStepper.swift */; };
+		00E16DDD2D033D7300C30173 /* StepperDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDC2D033D7000C30173 /* StepperDemo.swift */; };
+		00E16DDF2D06D9E000C30173 /* SBBStepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDE2D06D9DC00C30173 /* SBBStepperTests.swift */; };
 		00E17D61278830510077BD43 /* SBBTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D60278830510077BD43 /* SBBTabView.swift */; };
 		00E17D6327883FD00077BD43 /* TabViewDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E17D6227883FD00077BD43 /* TabViewDemo.swift */; };
 		00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FB8194278ED50600F07D30 /* TabBarShape.swift */; };
@@ -303,6 +306,9 @@
 		00D096322A711266009E02B1 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		00D096342A714CD2009E02B1 /* SBBPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPickerTests.swift; sourceTree = "<group>"; };
 		00D096372A7159D7009E02B1 /* DemoWithModalSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoWithModalSettingsView.swift; sourceTree = "<group>"; };
+		00E16DDA2D0339E700C30173 /* SBBStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStepper.swift; sourceTree = "<group>"; };
+		00E16DDC2D033D7000C30173 /* StepperDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperDemo.swift; sourceTree = "<group>"; };
+		00E16DDE2D06D9DC00C30173 /* SBBStepperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStepperTests.swift; sourceTree = "<group>"; };
 		00E17D60278830510077BD43 /* SBBTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTabView.swift; sourceTree = "<group>"; };
 		00E17D6227883FD00077BD43 /* TabViewDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewDemo.swift; sourceTree = "<group>"; };
 		00FB8194278ED50600F07D30 /* TabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShape.swift; sourceTree = "<group>"; };
@@ -831,6 +837,7 @@
 				7C43038623FD72610033865F /* SegmentedPickerViewDemo.swift */,
 				7C0DDFE525A6DFA6009BB31D /* SliderDemo.swift */,
 				00C731D02AC57988009D5DCA /* StatusDemo.swift */,
+				00E16DDC2D033D7000C30173 /* StepperDemo.swift */,
 				A7EDCA3A2434958600753AE1 /* TextAreaView.swift */,
 				A737348B2436141200E34716 /* TextFieldView.swift */,
 				7CE19B1925B957EA00FEFC1E /* ToastDemo.swift */,
@@ -880,6 +887,7 @@
 				7C609481274FB60C001ABF67 /* SBBRadioButtonGroupTests.swift */,
 				7C609483274FB6B5001ABF67 /* SBBSegmentedPickerTests.swift */,
 				00C731D22AC58017009D5DCA /* SBBStatusTests.swift */,
+				00E16DDE2D06D9DC00C30173 /* SBBStepperTests.swift */,
 				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
 				7C609485274FB7BB001ABF67 /* SBBTextAreaTests.swift */,
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
@@ -938,6 +946,7 @@
 				7CC5F4B926B03D230028161D /* SBBRadioButtonGroup.swift */,
 				7C43038823FD86110033865F /* SBBSegmentedPicker.swift */,
 				00C731CE2AC5742E009D5DCA /* SBBStatus.swift */,
+				00E16DDA2D0339E700C30173 /* SBBStepper.swift */,
 				00FB8193278ED4E300F07D30 /* SBBTabView */,
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
@@ -1342,6 +1351,7 @@
 				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
 				7C3BA8D8274E4041005CEEA3 /* Documentation.docc in Sources */,
 				00C731CF2AC5742E009D5DCA /* SBBStatus.swift in Sources */,
+				00E16DDB2D0339ED00C30173 /* SBBStepper.swift in Sources */,
 				A737348A2436135B00E34716 /* SBBTextField.swift in Sources */,
 				005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */,
 				005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */,
@@ -1399,6 +1409,7 @@
 				7C9C46D924CB046200C22E97 /* InfoViewDemo.swift in Sources */,
 				7CE7BD5425B17CCB000ADF6B /* ChipDemo.swift in Sources */,
 				7C43038723FD72610033865F /* SegmentedPickerViewDemo.swift in Sources */,
+				00E16DDD2D033D7300C30173 /* StepperDemo.swift in Sources */,
 				7CA0555A2660C43B00513F00 /* OnboardingViewModel.swift in Sources */,
 				000742122B7E06F600BB7A79 /* HeaderBoxDemo.swift in Sources */,
 				7C595E5B25A5FDD20015B0FC /* RadioButtonView.swift in Sources */,
@@ -1451,6 +1462,7 @@
 				7C609490274FBD36001ABF67 /* SBBPrimaryButtonStyleTests.swift in Sources */,
 				7C609478274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift in Sources */,
 				7C609476274F9B03001ABF67 /* SBBModalViewTests.swift in Sources */,
+				00E16DDF2D06D9E000C30173 /* SBBStepperTests.swift in Sources */,
 				7C609494274FBF1E001ABF67 /* SBBTertiaryButtonStyleTests.swift in Sources */,
 				F8882F2B27A9791800396FC7 /* CustomAssertSnapshot.swift in Sources */,
 				7C60949E274FC3FA001ABF67 /* SBBEnvironmentBannerTests.swift in Sources */,

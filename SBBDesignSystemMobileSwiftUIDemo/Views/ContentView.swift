@@ -151,6 +151,9 @@ struct ContentView: View {
                                 NavigationLink(destination: StatusDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Status"))
                                 }
+                                NavigationLink(destination: StepperDemo(viewModel: ProcessFlowViewModel(), colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                    SBBListItem(label: Text("Stepper"))
+                                }
                                 NavigationLink(destination: ToggleDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Switch / Toggle"))
                                 }
