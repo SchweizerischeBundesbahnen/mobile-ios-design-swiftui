@@ -167,7 +167,7 @@ public struct SBBTextField: View {
             .overlay (
                 VStack {
                     if boxed {
-                        RoundedRectangle(cornerRadius: 16).stroke(lineWidth: 1).foregroundColor(hasError ? .sbbColor(.red) : .clear)
+                        RoundedRectangle(cornerRadius: 16, style: .circular).stroke(lineWidth: 1).foregroundColor(hasError ? .sbbColor(.red) : .clear)
                     } else {
                         EmptyView()
                     }

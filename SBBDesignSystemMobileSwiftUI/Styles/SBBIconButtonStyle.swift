@@ -78,7 +78,7 @@ public struct SBBIconButtonStyle: ButtonStyle {
                 .background(
                     Group {
                         if showBorder {
-                            RoundedRectangle(cornerRadius: diameter / 2)
+                            RoundedRectangle(cornerRadius: diameter / 2, style: .circular)
                                 .stroke(getForegroundColor(enabled: isEnabled), lineWidth: 1)
                         }
                     }

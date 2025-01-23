@@ -93,7 +93,7 @@ public struct SBBStepper: View {
             .background((index == currentStepIndex) ? selectedBackgroundColor : backgroundColor)
             .cornerRadius(stepSize / 2)
             .background(
-                RoundedRectangle(cornerRadius: stepSize / 2)
+                RoundedRectangle(cornerRadius: stepSize / 2, style: .circular)
                     .stroke((index == currentStepIndex) ? selectedBorderColor : borderColor, lineWidth: 1)
             )
             .frame(width: stepSize, height: stepSize)

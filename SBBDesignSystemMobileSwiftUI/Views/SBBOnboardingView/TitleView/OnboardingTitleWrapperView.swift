@@ -26,7 +26,7 @@ struct OnboardingTitleWrapperView: View {
                 }
                     .buttonStyle(SBBPrimaryButtonStyle())
                     .background(
-                        RoundedRectangle(cornerRadius: 23)
+                        RoundedRectangle(cornerRadius: 23, style: .circular)
                             .stroke(Color.sbbColor(.white), lineWidth: 1)
                     )
                     .accessibility(identifier: "onboardingTitleViewStartTourButton")
@@ -38,7 +38,7 @@ struct OnboardingTitleWrapperView: View {
             }
                 .buttonStyle(SBBPrimaryButtonStyle())
                 .background(
-                    RoundedRectangle(cornerRadius: 23)
+                    RoundedRectangle(cornerRadius: 23, style: .circular)
                         .stroke((viewModel.state == .startView) ? Color.clear : .sbbColor(.white), lineWidth: 1)
                 )
                 .accessibility(identifier: "onboardingTitleViewEndTourButton")
