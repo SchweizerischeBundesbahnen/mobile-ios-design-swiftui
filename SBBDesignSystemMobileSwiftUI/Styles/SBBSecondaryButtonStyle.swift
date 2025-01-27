@@ -45,7 +45,7 @@ public struct SBBSecondaryButtonStyle: ButtonStyle {
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(44 / 2)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 23)
+                    RoundedRectangle(cornerRadius: 23, style: .circular)
                         .strokeBorder(borderColor, lineWidth: 1)
                 )
                 .lineLimit(1)

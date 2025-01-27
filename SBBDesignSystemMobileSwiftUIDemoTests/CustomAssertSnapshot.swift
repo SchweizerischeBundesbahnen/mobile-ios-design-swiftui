@@ -24,7 +24,7 @@ public func assertSnapshot<Value, Format>(
     let snapshotDirectoryUrl = URL(fileURLWithPath: "\(snapshotDirectory)/\(groupName)/\(fileName)", isDirectory: true)
 
     let failure = verifySnapshot(
-        matching: try value(),
+        of: try value(),
         as: snapshotting,
         named: name,
         record: recording,

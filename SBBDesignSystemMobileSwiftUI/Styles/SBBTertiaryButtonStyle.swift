@@ -65,7 +65,7 @@ public struct SBBTertiaryButtonStyle: ButtonStyle {
                 .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
                 .cornerRadius(height / 2)
                 .overlay(
-                    RoundedRectangle(cornerRadius: height / 2)
+                    RoundedRectangle(cornerRadius: height / 2, style: .circular)
                         .strokeBorder(borderColor, lineWidth: 1)
                 )
                 .lineLimit(1)

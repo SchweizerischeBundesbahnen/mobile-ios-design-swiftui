@@ -67,9 +67,9 @@ struct CheckBoxAndRadioButtonContainer: View {
         ZStack(alignment: .bottom) {
             HStack(alignment: .top, spacing: 8) {
                 if type == .checkbox {
-                    RoundedRectangle(cornerRadius: 6)
+                    RoundedRectangle(cornerRadius: 6, style: .circular)
                         .strokeBorder(checkboxBorderColor, lineWidth: 1)
-                        .background(RoundedRectangle(cornerRadius: 6).fill((colorScheme == .light) ? Color.sbbColor(.white) : .clear))
+                        .background(RoundedRectangle(cornerRadius: 6, style: .circular).fill((colorScheme == .light) ? Color.sbbColor(.white) : .clear))
                         .frame(width: 20, height: 20)
                         .overlay(
                             Image("checkbox_selected", bundle: Helper.bundle)

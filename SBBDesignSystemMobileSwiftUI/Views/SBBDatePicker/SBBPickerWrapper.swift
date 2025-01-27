@@ -54,7 +54,7 @@ extension View {
     func addSelectedView(nbValues: Int = 7) -> some View {
         ZStack {
             VStack {
-                RoundedRectangle(cornerSize: CGSize(width: 8, height: 8))
+                RoundedRectangle(cornerSize: CGSize(width: 8, height: 8), style: .circular)
                     .padding(.horizontal, 8)
                     .frame(height: SBBPickerValues.valuesHeight, alignment: .center)
                     .foregroundColor(Color.sbbColorInternal(.pickerSelectedSegmentBackground))

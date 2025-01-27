@@ -57,7 +57,7 @@ public struct SBBProcessFlow: View {
                     .background(backgroundColor)
                     .cornerRadius(height / 2)
                     .background(
-                        RoundedRectangle(cornerRadius: height / 2)
+                        RoundedRectangle(cornerRadius: height / 2, style: .circular)
                             .stroke(borderColor, lineWidth: 1)
                     )
                 if i < images.count - 1 {
