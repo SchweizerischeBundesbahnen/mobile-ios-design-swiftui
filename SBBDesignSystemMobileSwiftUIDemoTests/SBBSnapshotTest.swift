@@ -26,7 +26,7 @@ extension XCTestCase {
     }
     
     var precision: Float {
-        1
+        1.0
     }
     
     // https://github.com/pointfreeco/swift-snapshot-testing/pull/628
@@ -39,7 +39,7 @@ extension XCTestCase {
     }
     
     var imageLandscape: Snapshotting<UIViewController, UIImage> {
-        return .image(on: .iPhone13(.landscape), perceptualPrecision: perceptualPrecision, traits: traitLightMode)
+        return .image(on: .iPhone13(.landscape), precision: precision, perceptualPrecision: perceptualPrecision, traits: traitLightMode)
     }
 }
 
