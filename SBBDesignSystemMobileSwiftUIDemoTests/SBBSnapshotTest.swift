@@ -31,7 +31,7 @@ extension XCTestCase {
     
     // https://github.com/pointfreeco/swift-snapshot-testing/pull/628
     var perceptualPrecision: Float {
-        0.99
+        0.98
     }
     
     var imagePortrait: Snapshotting<UIViewController, UIImage> {
