@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		000742102B7DFF2000BB7A79 /* SBBHeaderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */; };
 		000742122B7E06F600BB7A79 /* HeaderBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742112B7E06F600BB7A79 /* HeaderBoxDemo.swift */; };
-		000742142B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742132B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift */; };
 		000742162B7E207C00BB7A79 /* SBBFooterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742152B7E207C00BB7A79 /* SBBFooterBox.swift */; };
 		000742182B7E251100BB7A79 /* FooterBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742172B7E251100BB7A79 /* FooterBoxDemo.swift */; };
 		0007421A2B7E328C00BB7A79 /* SBBFooterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742192B7E328C00BB7A79 /* SBBFooterModifier.swift */; };
@@ -1607,7 +1606,6 @@
 				7C60949E274FC3FA001ABF67 /* SBBEnvironmentBannerTests.swift in Sources */,
 				7C6094A0274FC67B001ABF67 /* SBBSliderExtensionTests.swift in Sources */,
 				7C609468274F8FC8001ABF67 /* SBBChipTests.swift in Sources */,
-				000742142B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift in Sources */,
 				00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */,
 				92995BA42593739F0042B5C5 /* SBBBubbleViewTests.swift in Sources */,
 				92995BAC259373C20042B5C5 /* SBBDividerTests.swift in Sources */,
