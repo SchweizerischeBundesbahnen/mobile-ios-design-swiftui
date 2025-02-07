@@ -103,12 +103,12 @@ public struct SBBTextArea: View {
             view.textContainerInset = UIEdgeInsets(top: 17, left: 11, bottom: 16, right: 11)
             view.backgroundColor = UIColor.clear
             let placeholderScaledFontSize = UIFontMetrics.default.scaledValue(for: placeholderFontSize)
-            view.textContainerInset = UIEdgeInsets(top: placeholderScaledFontSize + 7, left: 11, bottom: 16, right: 11)
+            view.textContainerInset = UIEdgeInsets(top: placeholderScaledFontSize * 2, left: 11, bottom: 16, right: 11)
             
             if let placeholder = label {
                 descriptionLabel.text = NSLocalizedString(placeholder, comment: "")
             }
-            let descriptionScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
+            let descriptionScaledFontSize = UIFontMetrics.default.scaledValue(for: placeholderFontSize)
             descriptionLabel.font = UIFont(name: "SBBWeb-Light", size: descriptionScaledFontSize)
             descriptionLabel.textColor = UIColor(named: "placeholder", in: Helper.bundle, compatibleWith: nil)
             view.addSubview(descriptionLabel)
