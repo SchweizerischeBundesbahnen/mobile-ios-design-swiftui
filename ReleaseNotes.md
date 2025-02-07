@@ -1,11 +1,13 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
-## v1.2.2 - 24 January 2025
+## v1.2.2 - TBD
 ### Features
 * New component:
     * SBBStepper to display a visual separation of a multi-step processes or forms. Highlights, the current step
 
 ### Improvements
+* SecondaryButtonStyle: added the option `sizeToFit`
+* SBBToast: added the option to add bottom padding
 * SBBHeaderBox: added the option to add a collapsible content
 
 ## v1.2.1 - 8 July 2024
