@@ -25,6 +25,13 @@ public struct SBBTextArea: View {
     private var label: String?
     private let showBottomLine: Bool
     private var additionalAccessibilityText: String?
+    private let placeholderFontSize: FontSize
+    
+    public enum FontSize: CGFloat {
+        case small = 10
+        case medium = 12
+        case large = 14
+    }
     
     /**
      Returns a SBBTextArea with a label and an optional Image.
@@ -35,11 +42,12 @@ public struct SBBTextArea: View {
         - additionalAccessibilityText: An optional string appended at the end of the accessibility label.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
      */
-    public init(text: Binding<String>, label: String? = nil, additionalAccessibilityText: String? = nil, showBottomLine: Bool = true) {
+    public init(text: Binding<String>, label: String? = nil, additionalAccessibilityText: String? = nil, showBottomLine: Bool = true, placeholderFontSize: FontSize = .small) {
         self._text = text
         self.label = label
         self.showBottomLine = showBottomLine
         self.additionalAccessibilityText = additionalAccessibilityText
+        self.placeholderFontSize = placeholderFontSize
     }
     
     private var bottomLineColor: Color {
@@ -54,7 +62,7 @@ public struct SBBTextArea: View {
     }
     
     public var body: some View {
-        SBBTextAreaImpl(text: $text, isEditing: $isEditing, label: label)
+        SBBTextAreaImpl(text: $text, isEditing: $isEditing, label: label, placeholderFontSize: placeholderFontSize.rawValue)
             .background(bottomLineColor.frame(height: 1).padding(.horizontal, 17.5), alignment: .bottom)
             .accessibility(label: Text(accessibilityText))
     }
@@ -77,11 +85,13 @@ public struct SBBTextArea: View {
         private var label: String?
         private let descriptionLabel = UILabel()
         private let placeholderLabel = UILabel()
+        private let placeholderFontSize: CGFloat
         
-        init(text: Binding<String>, isEditing: Binding<Bool>, label: String?) {
+        init(text: Binding<String>, isEditing: Binding<Bool>, label: String?, placeholderFontSize: CGFloat) {
             self._text = text
             self._isEditing = isEditing
             self.label = label
+            self.placeholderFontSize = placeholderFontSize
         }
         
         func makeUIView(context: Context) -> UITextView {
@@ -92,7 +102,7 @@ public struct SBBTextArea: View {
             view.font = UIFont(name: "SBBWeb-Light", size: scaledFontSize)
             view.textContainerInset = UIEdgeInsets(top: 17, left: 11, bottom: 16, right: 11)
             view.backgroundColor = UIColor.clear
-            let placeholderScaledFontSize = UIFontMetrics.default.scaledValue(for: 10)
+            let placeholderScaledFontSize = UIFontMetrics.default.scaledValue(for: placeholderFontSize)
             view.textContainerInset = UIEdgeInsets(top: placeholderScaledFontSize + 7, left: 11, bottom: 16, right: 11)
             
             if let placeholder = label {
