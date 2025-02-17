@@ -132,6 +132,34 @@ public struct SBBNotification: View {
     }
     
     /**
+     Returns a SBBNotification that cannot be closed, with optional 'more info' button.
+     
+     - Parameters:
+        - statusType: The type of status for the notification.
+        - text: The content text for the notification.
+        - hideIcon: Whether the status icon is shown.
+        - maxNumberLines: The optional max of number of lines used by the text.
+        - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
+        -  moreInfoAccessibility: The accessibility label to announce the button action. Default: "more information".
+     */
+    public init(statusType: StatusType, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
+        self._isPresented = .constant(true)
+        self.canBeClosed = false
+        self.statusType = statusType
+        self.title = nil
+        self.text = text
+        self.hideIcon = hideIcon
+        self.maxNumberLines = maxNumberLines
+        self.closeAfterSeconds = nil
+        self.onClose = nil
+        self.onMoreInfo = onMoreInfo
+        self.onRetry = nil
+        if let moreInfoAccessibility = moreInfoAccessibility {
+            self.moreInfoAccessibility = moreInfoAccessibility
+        }
+    }
+    
+    /**
      Returns a SBBNotification with title that cannot be closed, with optional 'more info' button.
      
      - Parameters:
