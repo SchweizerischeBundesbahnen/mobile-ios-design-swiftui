@@ -50,6 +50,7 @@ public class SBBToast: Identifiable, ObservableObject {
     let label: Text
     let easeInOutAnimationDuration: Double
     let presentedDuration: Double
+    let bottomPadding: CGFloat
     let actionLabel: Text?
     let onClickAction: (() -> Void)?
     
@@ -63,11 +64,16 @@ public class SBBToast: Identifiable, ObservableObject {
         - label: The Text to display in the toast.
         - easeInOutAnimationDuration: The duration of the ease-in and ease-out animation performed upon presenting/hiding a toast.
         - presentedDuration: The duration during which the toast is presented on screen
+        - bottomPadding: The padding at the bottom of the toast
+        - id: The id of the toast
+        - actionLabel: The text for the possible action if any
+        - onClickAction: The action possible
      */
-    public init(label: Text, easeInOutAnimationDuration: Double = 1, presentedDuration: Double = 2, id: UUID = UUID(), actionLabel: Text? = nil, onClickAction: (() -> Void)? = nil) {
+    public init(label: Text, easeInOutAnimationDuration: Double = 1, presentedDuration: Double = 2, bottomPadding: CGFloat = 0, id: UUID = UUID(), actionLabel: Text? = nil, onClickAction: (() -> Void)? = nil) {
         self.label = label
         self.easeInOutAnimationDuration = easeInOutAnimationDuration
         self.presentedDuration = presentedDuration
+        self.bottomPadding = bottomPadding
         self.actionLabel = actionLabel
         self.onClickAction = onClickAction
         self.id = id
@@ -78,6 +84,7 @@ public class SBBToast: Identifiable, ObservableObject {
         self.label = label
         self.easeInOutAnimationDuration = 1
         self.presentedDuration = 2
+        self.bottomPadding = 0
         self.isPresented = isPresented
         self.actionLabel = nil
         self.onClickAction = nil

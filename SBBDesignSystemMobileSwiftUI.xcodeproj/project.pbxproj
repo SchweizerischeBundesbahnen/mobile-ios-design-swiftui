@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		000742102B7DFF2000BB7A79 /* SBBHeaderBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */; };
 		000742122B7E06F600BB7A79 /* HeaderBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742112B7E06F600BB7A79 /* HeaderBoxDemo.swift */; };
-		000742142B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742132B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift */; };
 		000742162B7E207C00BB7A79 /* SBBFooterBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742152B7E207C00BB7A79 /* SBBFooterBox.swift */; };
 		000742182B7E251100BB7A79 /* FooterBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742172B7E251100BB7A79 /* FooterBoxDemo.swift */; };
 		0007421A2B7E328C00BB7A79 /* SBBFooterModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742192B7E328C00BB7A79 /* SBBFooterModifier.swift */; };
 		0007421D2B7E378C00BB7A79 /* SBBFooterBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007421C2B7E378C00BB7A79 /* SBBFooterBoxTests.swift */; };
-		001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
 		0021DD5C2B5A855F00DD7E3E /* SBBNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0021DD5B2B5A855E00DD7E3E /* SBBNotification.swift */; };
 		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
 		003C23542A3CABA90095C31A /* PromotionBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */; };
@@ -31,6 +29,52 @@
 		005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */; };
 		005DC8DF279B1517009C5CEA /* FakeTabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */; };
 		005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */; };
+		008317172D47B52800BB8074 /* SBBSegmentedPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609483274FB6B5001ABF67 /* SBBSegmentedPickerTests.swift */; };
+		008317182D47B52800BB8074 /* SBBStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60948D274FBC32001ABF67 /* SBBStyleTests.swift */; };
+		008317192D47B52800BB8074 /* SBBIconTextButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609497274FBFF4001ABF67 /* SBBIconTextButtonStyleTests.swift */; };
+		0083171A2D47B52800BB8074 /* SBBSecondaryButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609491274FBEB0001ABF67 /* SBBSecondaryButtonStyleTests.swift */; };
+		0083171B2D47B52800BB8074 /* SBBAccordionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609465274F8F03001ABF67 /* SBBAccordionTests.swift */; };
+		0083171C2D47B52800BB8074 /* SBBStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731D22AC58017009D5DCA /* SBBStatusTests.swift */; };
+		0083171D2D47B52800BB8074 /* SBBRadioButtonGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609481274FB60C001ABF67 /* SBBRadioButtonGroupTests.swift */; };
+		0083171E2D47B52800BB8074 /* ImageExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60949B274FC1FE001ABF67 /* ImageExtensionTests.swift */; };
+		0083171F2D47B52800BB8074 /* SBBTextAreaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609485274FB7BB001ABF67 /* SBBTextAreaTests.swift */; };
+		008317202D47B52800BB8074 /* SBBMapMarkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609473274F9A4B001ABF67 /* SBBMapMarkerTests.swift */; };
+		008317212D47B52800BB8074 /* SBBUpDnCounterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D92C01A2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift */; };
+		008317222D47B52800BB8074 /* SBBPaginationViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92995B9F2593738D0042B5C5 /* SBBPaginationViewTests.swift */; };
+		008317242D47B52800BB8074 /* SBBInfoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60946D274F9776001ABF67 /* SBBInfoViewTests.swift */; };
+		008317252D47B52800BB8074 /* SBBPrimaryButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60948F274FBD36001ABF67 /* SBBPrimaryButtonStyleTests.swift */; };
+		008317262D47B52800BB8074 /* SBBNavigationBarWithSBBIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */; };
+		008317272D47B52800BB8074 /* SBBModalViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609475274F9B03001ABF67 /* SBBModalViewTests.swift */; };
+		008317282D47B52800BB8074 /* SBBStepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDE2D06D9DC00C30173 /* SBBStepperTests.swift */; };
+		008317292D47B52800BB8074 /* SBBTertiaryButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609493274FBF1E001ABF67 /* SBBTertiaryButtonStyleTests.swift */; };
+		0083172A2D47B52800BB8074 /* CustomAssertSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8882F2A27A9791800396FC7 /* CustomAssertSnapshot.swift */; };
+		0083172B2D47B52800BB8074 /* SBBEnvironmentBannerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60949D274FC3FA001ABF67 /* SBBEnvironmentBannerTests.swift */; };
+		0083172C2D47B52800BB8074 /* SBBSliderExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60949F274FC67B001ABF67 /* SBBSliderExtensionTests.swift */; };
+		0083172D2D47B52800BB8074 /* SBBChipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609467274F8FC8001ABF67 /* SBBChipTests.swift */; };
+		0083172E2D47B52800BB8074 /* SBBHeaderBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000742132B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift */; };
+		0083172F2D47B52800BB8074 /* SBBMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */; };
+		008317302D47B52800BB8074 /* SBBBubbleViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92995BA32593739F0042B5C5 /* SBBBubbleViewTests.swift */; };
+		008317312D47B52800BB8074 /* SBBDividerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92995BAB259373C20042B5C5 /* SBBDividerTests.swift */; };
+		008317322D47B52800BB8074 /* SBBRadioButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60947F274FB4FC001ABF67 /* SBBRadioButtonTests.swift */; };
+		008317342D47B52800BB8074 /* SBBFooterBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0007421C2B7E378C00BB7A79 /* SBBFooterBoxTests.swift */; };
+		008317352D47B52800BB8074 /* SBBTabViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */; };
+		008317362D47B52800BB8074 /* SBBToastTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609489274FBA00001ABF67 /* SBBToastTests.swift */; };
+		008317372D47B52800BB8074 /* SBBDialogueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609469274F9088001ABF67 /* SBBDialogueTests.swift */; };
+		008317382D47B52800BB8074 /* SBBCheckBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92995BA7259373B10042B5C5 /* SBBCheckBoxTests.swift */; };
+		008317392D47B52800BB8074 /* SBBNotificationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731DB2AC5B7A6009D5DCA /* SBBNotificationTests.swift */; };
+		0083173A2D47B52800BB8074 /* SBBProcessFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60947D274FB452001ABF67 /* SBBProcessFlowTests.swift */; };
+		0083173B2D47B52800BB8074 /* SBBFormGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60946B274F9652001ABF67 /* SBBFormGroupTests.swift */; };
+		0083173C2D47B52800BB8074 /* SBBListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60946F274F97E7001ABF67 /* SBBListItemTests.swift */; };
+		0083173D2D47B52800BB8074 /* SBBIconButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609495274FBF99001ABF67 /* SBBIconButtonStyleTests.swift */; };
+		0083173E2D47B52800BB8074 /* SBBSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92995BB1259376900042B5C5 /* SBBSnapshotTest.swift */; };
+		0083173F2D47B52800BB8074 /* SBBOnboardingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */; };
+		008317402D47B52800BB8074 /* SBBTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */; };
+		008317412D47B52800BB8074 /* SBBSwitchStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609499274FC04A001ABF67 /* SBBSwitchStyleTests.swift */; };
+		008317422D47B52800BB8074 /* SBBPromotionBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */; };
+		008317442D47B52800BB8074 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 008317142D47B52800BB8074 /* SnapshotTesting */; };
+		008317462D47B52800BB8074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C60947B274F9F56001ABF67 /* Assets.xcassets */; };
+		0083174C2D47B62B00BB8074 /* SBBLoadingIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609471274F9976001ABF67 /* SBBLoadingIndicatorTests.swift */; };
+		0083174D2D47B62B00BB8074 /* SBBPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096342A714CD2009E02B1 /* SBBPickerTests.swift */; };
 		00B773C42A3C4BB7002BDB85 /* SBBMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */; };
 		00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */; };
 		00B773CA2A3C70A6002BDB85 /* MessageDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C92A3C70A6002BDB85 /* MessageDemo.swift */; };
@@ -48,7 +92,6 @@
 		00D0962F2A6ACC31009E02B1 /* SBBPickerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0962E2A6ACC31009E02B1 /* SBBPickerWrapper.swift */; };
 		00D096312A6AE437009E02B1 /* SBBDatePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096302A6AE437009E02B1 /* SBBDatePickerHelper.swift */; };
 		00D096332A711266009E02B1 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096322A711266009E02B1 /* DateExtension.swift */; };
-		00D096352A714CD2009E02B1 /* SBBPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096342A714CD2009E02B1 /* SBBPickerTests.swift */; };
 		00D096382A7159D7009E02B1 /* DemoWithModalSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096372A7159D7009E02B1 /* DemoWithModalSettingsView.swift */; };
 		00E16DDB2D0339ED00C30173 /* SBBStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDA2D0339E700C30173 /* SBBStepper.swift */; };
 		00E16DDD2D033D7300C30173 /* StepperDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDC2D033D7000C30173 /* StepperDemo.swift */; };
@@ -120,11 +163,9 @@
 		7C60946C274F9652001ABF67 /* SBBFormGroupTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60946B274F9652001ABF67 /* SBBFormGroupTests.swift */; };
 		7C60946E274F9776001ABF67 /* SBBInfoViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60946D274F9776001ABF67 /* SBBInfoViewTests.swift */; };
 		7C609470274F97E7001ABF67 /* SBBListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60946F274F97E7001ABF67 /* SBBListItemTests.swift */; };
-		7C609472274F9976001ABF67 /* SBBLoadingIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609471274F9976001ABF67 /* SBBLoadingIndicatorTests.swift */; };
 		7C609474274F9A4B001ABF67 /* SBBMapMarkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609473274F9A4B001ABF67 /* SBBMapMarkerTests.swift */; };
 		7C609476274F9B03001ABF67 /* SBBModalViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609475274F9B03001ABF67 /* SBBModalViewTests.swift */; };
 		7C609478274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */; };
-		7C60947A274F9EC8001ABF67 /* SBBOnboardingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */; };
 		7C60947C274F9F56001ABF67 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C60947B274F9F56001ABF67 /* Assets.xcassets */; };
 		7C60947E274FB452001ABF67 /* SBBProcessFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60947D274FB452001ABF67 /* SBBProcessFlowTests.swift */; };
 		7C609480274FB4FC001ABF67 /* SBBRadioButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60947F274FB4FC001ABF67 /* SBBRadioButtonTests.swift */; };
@@ -232,6 +273,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		008317132D47B52800BB8074 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2D804E4E23D9D0DF00CC9C0C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2D804E7423D9D16000CC9C0C;
+			remoteInfo = SBBMobileDesignSystemSwiftUIDemo;
+		};
 		2D804E8B23D9D16300CC9C0C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 2D804E4E23D9D0DF00CC9C0C /* Project object */;
@@ -287,6 +335,7 @@
 		005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarParameters.swift; sourceTree = "<group>"; };
 		005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarShape.swift; sourceTree = "<group>"; };
 		005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabButtons.swift; sourceTree = "<group>"; };
+		0083174A2D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessage.swift; sourceTree = "<group>"; };
 		00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessageTests.swift; sourceTree = "<group>"; };
 		00B773C92A3C70A6002BDB85 /* MessageDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDemo.swift; sourceTree = "<group>"; };
@@ -505,6 +554,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		008317432D47B52800BB8074 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				008317442D47B52800BB8074 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2D804E5423D9D0DF00CC9C0C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -639,6 +696,7 @@
 				2D804E5723D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI.framework */,
 				2D804E7523D9D16000CC9C0C /* SBBDesignSystemMobileSwiftUIDemo.app */,
 				2D804E8A23D9D16300CC9C0C /* SBBDesignSystemMobileSwiftUIDemoTests.xctest */,
+				0083174A2D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1096,6 +1154,27 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		008317112D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 008317472D47B52800BB8074 /* Build configuration list for PBXNativeTarget "SBBDesignSystemMobileSwiftUIDemoTestsAll" */;
+			buildPhases = (
+				008317162D47B52800BB8074 /* Sources */,
+				008317432D47B52800BB8074 /* Frameworks */,
+				008317452D47B52800BB8074 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				008317122D47B52800BB8074 /* PBXTargetDependency */,
+			);
+			name = SBBDesignSystemMobileSwiftUIDemoTestsAll;
+			packageProductDependencies = (
+				008317142D47B52800BB8074 /* SnapshotTesting */,
+			);
+			productName = SBBMobileDesignSystemSwiftUIDemoTests;
+			productReference = 0083174A2D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		2D804E5623D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D804E6B23D9D0DF00CC9C0C /* Build configuration list for PBXNativeTarget "SBBDesignSystemMobileSwiftUI" */;
@@ -1201,12 +1280,21 @@
 			targets = (
 				2D804E7423D9D16000CC9C0C /* SBBDesignSystemMobileSwiftUIDemo */,
 				2D804E8923D9D16300CC9C0C /* SBBDesignSystemMobileSwiftUIDemoTests */,
+				008317112D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll */,
 				2D804E5623D9D0DF00CC9C0C /* SBBDesignSystemMobileSwiftUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		008317452D47B52800BB8074 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				008317462D47B52800BB8074 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2D804E5523D9D0DF00CC9C0C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1272,6 +1360,57 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		008317162D47B52800BB8074 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0083174C2D47B62B00BB8074 /* SBBLoadingIndicatorTests.swift in Sources */,
+				0083174D2D47B62B00BB8074 /* SBBPickerTests.swift in Sources */,
+				008317172D47B52800BB8074 /* SBBSegmentedPickerTests.swift in Sources */,
+				008317182D47B52800BB8074 /* SBBStyleTests.swift in Sources */,
+				008317192D47B52800BB8074 /* SBBIconTextButtonStyleTests.swift in Sources */,
+				0083171A2D47B52800BB8074 /* SBBSecondaryButtonStyleTests.swift in Sources */,
+				0083171B2D47B52800BB8074 /* SBBAccordionTests.swift in Sources */,
+				0083171C2D47B52800BB8074 /* SBBStatusTests.swift in Sources */,
+				0083171D2D47B52800BB8074 /* SBBRadioButtonGroupTests.swift in Sources */,
+				0083171E2D47B52800BB8074 /* ImageExtensionTests.swift in Sources */,
+				0083171F2D47B52800BB8074 /* SBBTextAreaTests.swift in Sources */,
+				008317202D47B52800BB8074 /* SBBMapMarkerTests.swift in Sources */,
+				008317212D47B52800BB8074 /* SBBUpDnCounterTests.swift in Sources */,
+				008317222D47B52800BB8074 /* SBBPaginationViewTests.swift in Sources */,
+				008317242D47B52800BB8074 /* SBBInfoViewTests.swift in Sources */,
+				008317252D47B52800BB8074 /* SBBPrimaryButtonStyleTests.swift in Sources */,
+				008317262D47B52800BB8074 /* SBBNavigationBarWithSBBIconTests.swift in Sources */,
+				008317272D47B52800BB8074 /* SBBModalViewTests.swift in Sources */,
+				008317282D47B52800BB8074 /* SBBStepperTests.swift in Sources */,
+				008317292D47B52800BB8074 /* SBBTertiaryButtonStyleTests.swift in Sources */,
+				0083172A2D47B52800BB8074 /* CustomAssertSnapshot.swift in Sources */,
+				0083172B2D47B52800BB8074 /* SBBEnvironmentBannerTests.swift in Sources */,
+				0083172C2D47B52800BB8074 /* SBBSliderExtensionTests.swift in Sources */,
+				0083172D2D47B52800BB8074 /* SBBChipTests.swift in Sources */,
+				0083172E2D47B52800BB8074 /* SBBHeaderBoxTests.swift in Sources */,
+				0083172F2D47B52800BB8074 /* SBBMessageTests.swift in Sources */,
+				008317302D47B52800BB8074 /* SBBBubbleViewTests.swift in Sources */,
+				008317312D47B52800BB8074 /* SBBDividerTests.swift in Sources */,
+				008317322D47B52800BB8074 /* SBBRadioButtonTests.swift in Sources */,
+				008317342D47B52800BB8074 /* SBBFooterBoxTests.swift in Sources */,
+				008317352D47B52800BB8074 /* SBBTabViewTests.swift in Sources */,
+				008317362D47B52800BB8074 /* SBBToastTests.swift in Sources */,
+				008317372D47B52800BB8074 /* SBBDialogueTests.swift in Sources */,
+				008317382D47B52800BB8074 /* SBBCheckBoxTests.swift in Sources */,
+				008317392D47B52800BB8074 /* SBBNotificationTests.swift in Sources */,
+				0083173A2D47B52800BB8074 /* SBBProcessFlowTests.swift in Sources */,
+				0083173B2D47B52800BB8074 /* SBBFormGroupTests.swift in Sources */,
+				0083173C2D47B52800BB8074 /* SBBListItemTests.swift in Sources */,
+				0083173D2D47B52800BB8074 /* SBBIconButtonStyleTests.swift in Sources */,
+				0083173E2D47B52800BB8074 /* SBBSnapshotTest.swift in Sources */,
+				0083173F2D47B52800BB8074 /* SBBOnboardingViewTests.swift in Sources */,
+				008317402D47B52800BB8074 /* SBBTextFieldTests.swift in Sources */,
+				008317412D47B52800BB8074 /* SBBSwitchStyleTests.swift in Sources */,
+				008317422D47B52800BB8074 /* SBBPromotionBoxTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2D804E5323D9D0DF00CC9C0C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1457,7 +1596,6 @@
 				7C609474274F9A4B001ABF67 /* SBBMapMarkerTests.swift in Sources */,
 				2D92C01B2A1BC2FD001FE5B7 /* SBBUpDnCounterTests.swift in Sources */,
 				92995BA02593738D0042B5C5 /* SBBPaginationViewTests.swift in Sources */,
-				00D096352A714CD2009E02B1 /* SBBPickerTests.swift in Sources */,
 				7C60946E274F9776001ABF67 /* SBBInfoViewTests.swift in Sources */,
 				7C609490274FBD36001ABF67 /* SBBPrimaryButtonStyleTests.swift in Sources */,
 				7C609478274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift in Sources */,
@@ -1468,14 +1606,11 @@
 				7C60949E274FC3FA001ABF67 /* SBBEnvironmentBannerTests.swift in Sources */,
 				7C6094A0274FC67B001ABF67 /* SBBSliderExtensionTests.swift in Sources */,
 				7C609468274F8FC8001ABF67 /* SBBChipTests.swift in Sources */,
-				000742142B7E1BB400BB7A79 /* SBBHeaderBoxTests.swift in Sources */,
 				00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */,
 				92995BA42593739F0042B5C5 /* SBBBubbleViewTests.swift in Sources */,
 				92995BAC259373C20042B5C5 /* SBBDividerTests.swift in Sources */,
 				7C609480274FB4FC001ABF67 /* SBBRadioButtonTests.swift in Sources */,
-				7C609472274F9976001ABF67 /* SBBLoadingIndicatorTests.swift in Sources */,
 				0007421D2B7E378C00BB7A79 /* SBBFooterBoxTests.swift in Sources */,
-				001F37D7279EBECC000DED95 /* SBBTabViewTests.swift in Sources */,
 				7C60948A274FBA00001ABF67 /* SBBToastTests.swift in Sources */,
 				7C60946A274F9088001ABF67 /* SBBDialogueTests.swift in Sources */,
 				92995BA8259373B10042B5C5 /* SBBCheckBoxTests.swift in Sources */,
@@ -1485,7 +1620,6 @@
 				7C609470274F97E7001ABF67 /* SBBListItemTests.swift in Sources */,
 				7C609496274FBF99001ABF67 /* SBBIconButtonStyleTests.swift in Sources */,
 				92995BB2259376900042B5C5 /* SBBSnapshotTest.swift in Sources */,
-				7C60947A274F9EC8001ABF67 /* SBBOnboardingViewTests.swift in Sources */,
 				7C609488274FB917001ABF67 /* SBBTextFieldTests.swift in Sources */,
 				7C60949A274FC04A001ABF67 /* SBBSwitchStyleTests.swift in Sources */,
 				003C23562A4207790095C31A /* SBBPromotionBoxTests.swift in Sources */,
@@ -1495,6 +1629,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		008317122D47B52800BB8074 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2D804E7423D9D16000CC9C0C /* SBBDesignSystemMobileSwiftUIDemo */;
+			targetProxy = 008317132D47B52800BB8074 /* PBXContainerItemProxy */;
+		};
 		2D804E8C23D9D16300CC9C0C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2D804E7423D9D16000CC9C0C /* SBBDesignSystemMobileSwiftUIDemo */;
@@ -1541,6 +1680,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		008317482D47B52800BB8074 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUIDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBDesignSystemMobileSwiftUIDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SBBDesignSystemMobileSwiftUIDemo.app/SBBDesignSystemMobileSwiftUIDemo";
+			};
+			name = Debug;
+		};
+		008317492D47B52800BB8074 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUIDemoTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.SBBDesignSystemMobileSwiftUIDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SBBDesignSystemMobileSwiftUIDemo.app/SBBDesignSystemMobileSwiftUIDemo";
+			};
+			name = Release;
+		};
 		2D804E6923D9D0DF00CC9C0C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1815,6 +1996,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		008317472D47B52800BB8074 /* Build configuration list for PBXNativeTarget "SBBDesignSystemMobileSwiftUIDemoTestsAll" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				008317482D47B52800BB8074 /* Debug */,
+				008317492D47B52800BB8074 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D804E5123D9D0DF00CC9C0C /* Build configuration list for PBXProject "SBBDesignSystemMobileSwiftUI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1854,6 +2044,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		008317152D47B52800BB8074 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.11.0;
+			};
+		};
 		92995B94259368BA0042B5C5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
@@ -1865,6 +2063,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		008317142D47B52800BB8074 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 008317152D47B52800BB8074 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
 		92995B9B25936B5B0042B5C5 /* SnapshotTesting */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 92995B94259368BA0042B5C5 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;

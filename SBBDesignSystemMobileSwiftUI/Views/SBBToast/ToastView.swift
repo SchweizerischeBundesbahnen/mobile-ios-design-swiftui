@@ -33,6 +33,7 @@ public struct ToastView: View {
             .cornerRadius(19)
             .opacity(viewModel.isPresented ? 1 : 0)
             .animation(.easeInOut(duration: viewModel.easeInOutAnimationDuration))
+            .padding(.bottom, viewModel.bottomPadding)
     }
 }
 

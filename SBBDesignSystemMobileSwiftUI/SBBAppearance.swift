@@ -37,6 +37,10 @@ public class SBBAppearance {
         appearance.shadowColor = .clear
         appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)!,
                                              NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 18)!]
+        let button = UIBarButtonItemAppearance()
+        button.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "textWhite", in: SBBBundle.getBundle(), compatibleWith: nil)!,
+                                             NSAttributedString.Key.font : UIFont(name: "SBBWeb-Light", size: 18)!]
+        appearance.backButtonAppearance = button
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
