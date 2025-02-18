@@ -639,7 +639,7 @@
 			path = Fakes;
 			sourceTree = "<group>";
 		};
-		00D0962B2A6AA8E5009E02B1 /* SBBDatePicker */ = {
+		00D0962B2A6AA8E5009E02B1 /* SBBPicker */ = {
 			isa = PBXGroup;
 			children = (
 				00D096292A6A8B38009E02B1 /* SBBPicker.swift */,
@@ -648,7 +648,7 @@
 				00D0962E2A6ACC31009E02B1 /* SBBPickerWrapper.swift */,
 				00D096302A6AE437009E02B1 /* SBBDatePickerHelper.swift */,
 			);
-			path = SBBDatePicker;
+			path = SBBPicker;
 			sourceTree = "<group>";
 		};
 		00D096362A7159C2009E02B1 /* Helper */ = {
@@ -976,7 +976,7 @@
 		7C6665F423DB5DED002549F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00D0962B2A6AA8E5009E02B1 /* SBBDatePicker */,
+				00D0962B2A6AA8E5009E02B1 /* SBBPicker */,
 				7C595E5625A5FD2E0015B0FC /* CheckBoxAndRadioButtonContainerType.swift */,
 				7C595E4C25A5F5B20015B0FC /* CheckboxAndRadioButtonContainerView.swift */,
 				7CA464DE2445F31100118D7B /* SBBAccordion.swift */,
@@ -1917,7 +1917,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1942,7 +1942,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

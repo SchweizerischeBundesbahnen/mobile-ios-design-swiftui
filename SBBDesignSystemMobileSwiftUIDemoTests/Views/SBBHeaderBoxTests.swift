@@ -24,22 +24,21 @@ class SBBHeaderTests: XCTestCase {
     }
     
     func testSBBHeaderBox() {
-        let view = SBBHeaderBox(content: content)
+        let view = SBBHeaderBox(content: content, pageContent: {})
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
-    
+
     func testSBBHeaderBoxWithAdditionalContent() {
         let view = SBBHeaderBox(content: content, additionalContent: additionalContent)
         for colorScheme in ColorScheme.allCases {
-            view.recordDocumentationSnapshot(name: "SBBHeaderBox", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
     func testSBBHeaderBoxWithoutExtendedBackground() {
-        let view = SBBHeaderBox(content: content, extendNavigationBarBackground: false)
+        let view = SBBHeaderBox(content: content, extendNavigationBarBackground: false, pageContent: {})
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
@@ -51,6 +50,5 @@ class SBBHeaderTests: XCTestCase {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
-    
 }
     
