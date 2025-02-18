@@ -14,12 +14,6 @@ class SBBHeaderTests: XCTestCase {
             Text("Some title")
         }
     }
-    
-    let collapsibleContent = {
-        VStack(spacing: 8) {
-            Text("This content is collapsible.")
-        }
-    }
     let additionalContent = {
         HStack {
             Image(sbbIcon: .sign_exclamation_point_small)
@@ -35,25 +29,10 @@ class SBBHeaderTests: XCTestCase {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
-    
-    func testSBBHeaderBoxWithCollpasibleContent() {
-        let view = SBBHeaderBox(content: content, collapsibleContent: collapsibleContent) {}
-        for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
-        }
-    }
-    
+
     func testSBBHeaderBoxWithAdditionalContent() {
         let view = SBBHeaderBox(content: content, additionalContent: additionalContent)
         for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
-        }
-    }
-    
-    func testSBBHeaderBoxWithCollapsibleContentAndAdditionalContent() {
-        let view = SBBHeaderBox(content: content, collapsibleContent: collapsibleContent, additionalContent: additionalContent) {}
-        for colorScheme in ColorScheme.allCases {
-            view.recordDocumentationSnapshot(name: "SBBHeaderBox", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
@@ -65,22 +44,8 @@ class SBBHeaderTests: XCTestCase {
         }
     }
     
-    func testSBBHeaderBoxWithCollpasibleContentWithoutExtendedBackground() {
-        let view = SBBHeaderBox(content: content, collapsibleContent: collapsibleContent, extendNavigationBarBackground: false) {}
-        for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
-        }
-    }
-    
     func testSBBHeaderWithAdditionalContentWithoutExtendedBackground() {
         let view = SBBHeaderBox(content: content, additionalContent: additionalContent, extendNavigationBarBackground: false)
-        for colorScheme in ColorScheme.allCases {
-            assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
-        }
-    }
-    
-    func testSBBHeaderBoxWithCollapsibleContentAndAdditionalContentWithoutExtendedBackground() {
-        let view = SBBHeaderBox(content: content, collapsibleContent: collapsibleContent, additionalContent: additionalContent, extendNavigationBarBackground: false) {}
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }

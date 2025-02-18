@@ -49,9 +49,8 @@ struct HeaderBoxDemo: View {
     
     private var smallSettingsView: some View {
         SBBFormGroup {
-            SBBSegmentedPicker(selection: $selectedPicker, tags: [0, 1, 2]) {
+            SBBSegmentedPicker(selection: $selectedPicker, tags: [0, 1]) {
                 Text("Content")
-                Text("Collapsible content")
                 Text("Additional content")
             }
             if selectedPicker == 0 {
@@ -61,14 +60,6 @@ struct HeaderBoxDemo: View {
                     SBBRadioButton(text: Text("Text and picker"), showBottomLine: false)
                 }
             } else if selectedPicker == 1 {
-                SBBRadioButtonGroup(selection: $selectedCollapsibleContent, tags: [.rectangle, .longText, .textAndPicker, .none]) {
-                    SBBRadioButton(text: Text("Rectangle placeholder"))
-                    SBBRadioButton(text: Text("Long text"))
-                    SBBRadioButton(text: Text("Text and picker"))
-                    SBBRadioButton(text: Text("None"), showBottomLine: false)
-                    
-                }
-            } else {
                 SBBRadioButtonGroup(selection: $selectedAdditionalContent, tags: [.rectangle, .textAndIcon, .longText, .none]) {
                     SBBRadioButton(text: Text("Rectangle placeholder"))
                     SBBRadioButton(text: Text("Text and icon"))
@@ -124,33 +115,6 @@ struct HeaderBoxDemo: View {
     }
     
     @ViewBuilder
-    private var collapsibleContent: some View {
-        switch selectedCollapsibleContent {
-        case .rectangle:
-            Rectangle()
-                .foregroundColor(Color.sbbColor(.placeholder))
-                .frame(height: 20)
-        case .longText:
-            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
-                .multilineTextAlignment(.leading)
-                .minimumScaleFactor(0.1)
-                .fixedSize(horizontal: false, vertical: true)
-        case .textAndPicker:
-            VStack(alignment: .leading) {
-                Text("Some title")
-                SBBSegmentedPicker(selection: $pickerSelected, tags: [0, 1]) {
-                    Text("Option 1")
-                        .tag(0)
-                    Text("Option 2")
-                        .tag(1)
-                }
-            }
-        case .none:
-            EmptyView()
-        }
-    }
-    
-    @ViewBuilder
     private var additionalContent: some View {
         switch selectedAdditionalContent {
         case .rectangle :
@@ -176,14 +140,10 @@ struct HeaderBoxDemo: View {
     
     var body: some View {
         VStack(spacing: 16) {
-            if selectedAdditionalContent == .none && selectedCollapsibleContent == .none {
+            if selectedAdditionalContent == .none {
                 SBBHeaderBox(content: { contentView }, extendNavigationBarBackground: true, pageContent: { settingsView })
-            } else if selectedAdditionalContent == .none {
-                SBBHeaderBox(content: { contentView }, collapsibleContent: { collapsibleContent }, extendNavigationBarBackground: true) { settingsView }
-            } else if selectedCollapsibleContent == .none {
-                SBBHeaderBox(content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true) { settingsView }
             } else {
-                SBBHeaderBox(content: { contentView }, collapsibleContent: { collapsibleContent }, additionalContent: { additionalContent }, extendNavigationBarBackground: true) { settingsView }
+                SBBHeaderBox(content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true) { settingsView }
             }
             
             Spacer()

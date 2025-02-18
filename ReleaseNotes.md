@@ -3,12 +3,19 @@
 ## v1.2.2 - TBD
 ### Features
 * New component:
-    * SBBStepper to display a visual separation of a multi-step processes or forms. Highlights, the current step
+    * SBBStepper to display a visual separation of a multi-step processes or forms.
 
 ### Improvements
 * SecondaryButtonStyle: added the option `sizeToFit`
-* SBBToast: added the option to add bottom padding
-* SBBHeaderBox: added the option to add a collapsible content
+* SBBToast: bottom padding can be added
+* SBBNotification: added the option to have a 'more info' button but no title
+* SBBTextArea: placeholder font size can be chosen (small, medium or large)
+* SBBTextField: added the option `showIconBorder`
+* SBBMessage: the `text` of an SBBMessage is not restricted to `Text`, it can be any `View`.
+
+### Bugfix
+* SBBStyle: Back button in navigation bar also uses SBB font
+* SBBModalView: same multiline alignement for title and text
 
 ## v1.2.1 - 8 July 2024
 ### Features

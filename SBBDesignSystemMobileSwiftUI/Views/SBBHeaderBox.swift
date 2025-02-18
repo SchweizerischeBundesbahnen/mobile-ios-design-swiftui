@@ -76,25 +76,6 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
     }
 }
 
-public extension SBBHeaderBox where AdditionalContent == EmptyView {
-    /**
-     Returns a SBBHeaderBox.
-     
-     - Parameters:
-        - content: The View to display in the Header.
-        - collapsibleContent: The View to display in the Header, that can be collapsed.
-        - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
-        - pageContent: The View used as the content of the page, in particular, it will be wrapped in a ScrollView.
-     */
-    init(@ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
-        self.content = content()
-        self.additionalContent = nil
-        self.collapsibleContent = collapsibleContent()
-        self.pageContent = pageContent()
-        self.extendNavigationBarBackground = extendNavigationBarBackground
-    }
-}
-
 /**
  A  View that is mainly used right underneath the Navigationbar.
  
@@ -144,7 +125,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
      */
-    public init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
+    init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
         self.content = content()
         self.additionalContent = additionalContent()
         self.collapsibleContent = collapsibleContent()
@@ -178,24 +159,26 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
             ZStack(alignment: .top) {
                 if let collapsibleContent {
                     ScrollView {
-                        VStack(spacing: 0) {
-                            Spacer()
-                                .frame(height: contentHeight)
-                            
-                            ZStack(alignment: .top) {
-                                CollapsibleView(minYParent: parentGeometry.frame(in: .global).minY + contentHeight, collapsibleContent: collapsibleContent, collapsibleContentHeight: $collapsibleContentHeight)
-                                    .zIndex(2)
+                        ScrollViewReader { proxy in
+                            VStack(spacing: 0) {
+                                Spacer()
+                                    .frame(height: contentHeight)
                                 
-                                if let additionalContent {
-                                    AdditionalView(topPadding: collapsibleContentHeight, minYParent: parentGeometry.frame(in: .global).minY + contentHeight - collapsibleContentHeight + 16, additionalContent: additionalContent, additionalContentHeight: $additionalContentHeight)
-                                        .zIndex(1)
-                                }
-                                
-                                if let pageContent {
-                                    VStack(spacing: 0) {
-                                        Spacer()
-                                            .frame(height: collapsibleContentHeight + (additionalContent != nil ? additionalContentHeight : 0))
-                                        pageContent
+                                ZStack(alignment: .top) {
+                                    CollapsibleView(minYParent: parentGeometry.frame(in: .global).minY + contentHeight, collapsibleContent: collapsibleContent, collapsibleContentHeight: $collapsibleContentHeight)
+                                        .zIndex(2)
+                                    
+                                    if let additionalContent {
+                                        AdditionalView(topPadding: collapsibleContentHeight, minYParent: parentGeometry.frame(in: .global).minY + contentHeight - collapsibleContentHeight + 16, additionalContent: additionalContent, additionalContentHeight: $additionalContentHeight)
+                                            .zIndex(1)
+                                    }
+                                    
+                                    if let pageContent {
+                                        VStack(spacing: 0) {
+                                            Spacer()
+                                                .frame(height: collapsibleContentHeight + (additionalContent != nil ? additionalContentHeight : 0))
+                                            pageContent
+                                        }
                                     }
                                 }
                             }
@@ -207,7 +190,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                         .viewHeight($contentHeight)
                 } else {
                     if let pageContent {
-                        VStack(spacing: 0) {
+                        ScrollView {
                             Spacer()
                                 .frame(height: contentHeight + (additionalContent != nil ? additionalContentHeight : 0))
                             pageContent
