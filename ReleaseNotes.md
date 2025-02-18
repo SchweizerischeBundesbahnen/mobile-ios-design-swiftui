@@ -1,6 +1,6 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
-## v1.2.2 - TBD
+## v1.2.2 - 18 February 2025
 ### Features
 * New component:
     * SBBStepper to display a visual separation of a multi-step processes or forms.
