@@ -32,12 +32,22 @@ public class SBBToastService: ObservableObject {
     }
     
     /**
-     Instantaneously removes an already pressented SBBToast View. SBBToast Views are removed automatically after the defined presentation duration, this method allows to remove them sooner.
+     Instantaneously removes an already presented SBBToast View. SBBToast Views are removed automatically after the defined presentation duration, this method allows to remove them sooner.
      
      - Parameters:
         - toast: The SBBToast View to be removed instantaneously.
      */
-    func removeToast(_ toast: SBBToast) {
+    public func removeToast(_ toast: SBBToast) {
         toasts.removeAll(where: { $0.id == toast.id })
+    }
+    
+    /**
+     Instantaneously removes an already presented SBBToast View. SBBToast Views are removed automatically after the defined presentation duration, this method allows to remove them sooner.
+     
+     - Parameters:
+        - where: The condition for which to remove the SBBToast.
+     */
+    public func removeToast(where condition: (SBBToast) -> Bool) {
+        toasts.removeAll(where: condition)
     }
 }

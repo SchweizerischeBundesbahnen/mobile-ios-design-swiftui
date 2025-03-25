@@ -132,6 +132,34 @@ public struct SBBNotification: View {
     }
     
     /**
+     Returns a SBBNotification that cannot be closed, with optional 'more info' button.
+     
+     - Parameters:
+        - statusType: The type of status for the notification.
+        - text: The content text for the notification.
+        - hideIcon: Whether the status icon is shown.
+        - maxNumberLines: The optional max of number of lines used by the text.
+        - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
+        -  moreInfoAccessibility: The accessibility label to announce the button action. Default: "more information".
+     */
+    public init(statusType: StatusType, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
+        self._isPresented = .constant(true)
+        self.canBeClosed = false
+        self.statusType = statusType
+        self.title = nil
+        self.text = text
+        self.hideIcon = hideIcon
+        self.maxNumberLines = maxNumberLines
+        self.closeAfterSeconds = nil
+        self.onClose = nil
+        self.onMoreInfo = onMoreInfo
+        self.onRetry = nil
+        if let moreInfoAccessibility = moreInfoAccessibility {
+            self.moreInfoAccessibility = moreInfoAccessibility
+        }
+    }
+    
+    /**
      Returns a SBBNotification with title that cannot be closed, with optional 'more info' button.
      
      - Parameters:
@@ -252,16 +280,9 @@ public struct SBBNotification: View {
     }
     
     private var closeButton: some View {
-        Button(action: {
-            self.isPresented = false
-            if let onClose = onClose {
-                onClose()
-            }
-        }) {
-            Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .cross_medium : .cross_small)
-                .foregroundColor(Color.sbbColor(.textBlack))
-                .frame(width: iconSize, height: iconSize)
-        }
+        Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .cross_medium : .cross_small)
+            .foregroundColor(Color.sbbColor(.textBlack))
+            .frame(width: iconSize, height: iconSize)
     }
     
     private var topView: some View {
@@ -274,6 +295,7 @@ public struct SBBNotification: View {
             title
                 .foregroundColor(Color.sbbColor(.textBlack))
                 .sbbFont(.medium_bold)
+                .multilineTextAlignment(.leading)
             Spacer()
             if canBeClosed {
                 closeButton
@@ -299,6 +321,7 @@ public struct SBBNotification: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
+            .multilineTextAlignment(.leading)
             .frame(minWidth: iconSize, minHeight: iconSize)
             .foregroundColor(Color.sbbColor(.textBlack))
             .sbbFont(.medium_light)
@@ -306,24 +329,16 @@ public struct SBBNotification: View {
             
             Spacer()
             
-            if let onMoreInfo = onMoreInfo {
-                Button(action: {
-                    onMoreInfo()
-                }) {
-                    Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .chevron_right_medium : .chevron_small_right_medium)
-                        .foregroundColor(Color.sbbColor(.textBlack))
-                        .frame(width: iconSize, height: textSize.height)
-                }
+            if onMoreInfo != nil {
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .chevron_right_medium : .chevron_small_right_medium)
+                    .foregroundColor(Color.sbbColor(.textBlack))
+                    .frame(width: iconSize, height: textSize.height)
             } else if title == nil && canBeClosed {
                 closeButton
-            } else if let onRetry = onRetry {
-                Button(action: {
-                    onRetry()
-                }) {
-                    Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .arrows_circle_medium : .arrows_circle_small)
-                        .foregroundColor(Color.sbbColor(.textBlack))
-                        .frame(width: iconSize, height: textSize.height)
-                }
+            } else if onRetry != nil {
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .arrows_circle_medium : .arrows_circle_small)
+                    .foregroundColor(Color.sbbColor(.textBlack))
+                    .frame(width: iconSize, height: textSize.height)
             }
         }
     }
@@ -362,41 +377,49 @@ public struct SBBNotification: View {
             VStack(spacing: 0) {
                 Group {
                     if let title = title, let onMoreInfo = onMoreInfo, canBeClosed {
-                        // isButton + 2 accessibility elements
+                        // isButton + 2 accessibility elements (close + more info)
                         ZStack(alignment: .top) {
                             VStack(spacing: 8) {
-                                topView
-                                bottomView
-                            }
-                            .accessibilityElement(children: .combine)
-                            .accessibilityAddTraits(.isButton)
-                            .accessibilityAction {
-                                onMoreInfo()
-                            }
-                            .accessibilityLabel(title + Text(". ") + text + Text(". \(moreInfoAccessibility.localized)"))
-                            .accessibility(sortPriority: 1)
-                            
-                            HStack {
-                                Spacer()
-                                Rectangle()
-                                    .fill(Color.clear)
-                                    .frame(width: iconSize, height: iconSize)
-                                    .accessibilityElement(children: .combine)
-                                    .accessibilityAddTraits(.isButton)
-                                    .accessibilityAction {
-                                        self.isPresented = false
+                                Button(action: {
+                                    isPresented = false
+                                    if let onClose {
+                                        onClose()
                                     }
-                                    .accessibility(label: Text(closeAccessibility.localized))
+                                }) {
+                                    topView
+                                }
+                                .accessibilityLabel(title + Text(". \(closeAccessibility.localized)"))
+                                .accessibilityAction {
+                                    self.isPresented = false
+                                    if let onClose {
+                                        onClose()
+                                    }
+                                }
+                                
+                                Button(action: {
+                                    onMoreInfo()
+                                }) {
+                                    bottomView
+                                }
+                                .accessibilityAction {
+                                    onMoreInfo()
+                                }
                             }
+                            .accessibilityLabel(text + Text(". \(moreInfoAccessibility.localized)"))
+                            .accessibility(sortPriority: 1)
                         }
                         .accessibilityElement(children: .contain)
                     } else if let notificationAction = notificationAction {
-                        // isButton + 1 accessibility element
-                        VStack(spacing: 8) {
-                            if title != nil {
-                                topView
+                        // isButton + 1 accessibility element (one of close, more info or retry)
+                        Button(action: {
+                            notificationAction()
+                        }) {
+                            VStack(spacing: 8) {
+                                if title != nil {
+                                    topView
+                                }
+                                bottomView
                             }
-                            bottomView
                         }
                         .accessibilityElement(children: .combine)
                         .accessibilityAddTraits(.isButton)
@@ -405,7 +428,7 @@ public struct SBBNotification: View {
                         }
                         .accessibilityLabel(accessibilityLabel)
                     } else {
-                        // 1 accessibility element
+                        // 1 accessibility element (not a button)
                         VStack(spacing: 8) {
                             if title != nil {
                                 topView

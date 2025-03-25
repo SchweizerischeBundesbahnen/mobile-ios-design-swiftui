@@ -20,36 +20,55 @@ import SwiftUI
  ![SBBSecondaryButtonStyle](SBBSecondaryButtonStyle)
  */
 public struct SBBSecondaryButtonStyle: ButtonStyle {
-        
-    /// Returns a Button in SBB secondary button style (red outline and text color).
-    public init() {}
+
+    private let sizeToFit: Bool
+    
+    /**
+     Returns a Button in SBB secondary button style (red outline and text color).
+     
+     - Parameters:
+        - sizeToFit: If the button's width should only fit it's content or expand to the entire available width. You would typically set sizeToFit to true when using a floating primary button in a ZStack at the .bottomLeading edge of your view.
+     */
+    public init(sizeToFit: Bool = false) {
+        self.sizeToFit = sizeToFit
+    }
     
     public func makeBody(configuration: Self.Configuration) -> some View {
-        SBBSecondaryButton(configuration: configuration)
+        SBBSecondaryButton(configuration: configuration, sizeToFit: sizeToFit)
     }
     
     private struct SBBSecondaryButton: View {
         
         let configuration: ButtonStyle.Configuration
+        let sizeToFit: Bool
         @Environment(\.isEnabled) private var isEnabled: Bool
         @Environment(\.horizontalSizeClass) var horizontalSizeClass
         @Environment(\.colorScheme) var colorScheme
 
         var body: some View {
-            configuration.label
-                .sbbFont(.medium_light)
-                .padding(.horizontal, 8)
-                .foregroundColor(textColor)
-                .frame(height: 44)
-                .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
-                .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
-                .cornerRadius(44 / 2)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 23)
-                        .strokeBorder(borderColor, lineWidth: 1)
-                )
-                .lineLimit(1)
-                .minimumScaleFactor(0.1)
+            Group {
+                if sizeToFit {
+                    configuration.label
+                        .sbbFont(.medium_light)
+                        .padding(.horizontal, 24)
+                        
+                } else {
+                    configuration.label
+                        .sbbFont(.medium_light)
+                        .padding(.horizontal, 8)
+                        .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
+                }
+            }
+            .foregroundColor(textColor)
+            .frame(height: 44)
+            .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
+            .cornerRadius(44 / 2)
+            .overlay(
+                RoundedRectangle(cornerRadius: 23, style: .circular)
+                    .strokeBorder(borderColor, lineWidth: 1)
+            )
+            .lineLimit(1)
+            .minimumScaleFactor(0.1)
         }
         
         private var textColor: Color {

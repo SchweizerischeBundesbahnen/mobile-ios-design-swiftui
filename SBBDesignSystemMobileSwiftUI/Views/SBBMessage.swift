@@ -17,7 +17,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Message, imageType: ImageType, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -42,7 +42,7 @@ public extension SBBMessage where TopImage == EmptyView, BottomImage == EmptyVie
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
+    init(title: Text, text: Message, imageType: ImageType, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -70,7 +70,7 @@ public extension SBBMessage where TopImage == EmptyView {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Message, imageType: ImageType, bottomImage: BottomImage, errorCode: Text? = nil, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -98,7 +98,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    init(title: Text, text: Message, topImage: TopImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -123,7 +123,7 @@ public extension SBBMessage where BottomImage == EmptyView {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
+    init(title: Text, text: Message, topImage: TopImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -147,11 +147,11 @@ public extension SBBMessage where BottomImage == EmptyView {
  
  ```swift
  var body: some View {
-    SBBMessage(title: "A title", text: "Some message", imageType: .info, errorCode: Text("Error: 404"), isLoading: false)
+    SBBMessage(title: Text("A title"), text: Text("Some message"), imageType: .info, errorCode: Text("Error: 404"), isLoading: false)
  }
  
  var body: some View {
-    SBBMessage(title: "A title", text: "Some message", imageType: .info, errorCode: Text("Error: 404"), retry: {
+    SBBMessage(title: Text("A title"), text: Text("Some message"), imageType: .info, errorCode: Text("Error: 404"), retry: {
          // Some action to do on retry
          }
     )
@@ -159,7 +159,7 @@ public extension SBBMessage where BottomImage == EmptyView {
  ```
  ![SBBMessage](SBBMessage)
  */
-public struct SBBMessage<TopImage: View, BottomImage: View>: View {
+public struct SBBMessage<Message: View, TopImage: View, BottomImage: View>: View {
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -192,7 +192,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     }
     
     private let title: Text
-    private let message: Text
+    private let message: Message
     private let errorCode: Text?
     private let imageType: ImageType?
     private let topImage: TopImage?
@@ -215,7 +215,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    public init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
+    public init(title: Text, text: Message, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, isLoading: Bool = false, fixedSize: Bool = false, bottomAccessibilityHidden: Bool = true) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -241,7 +241,7 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
         - fixedSize: Whether the message size is fixed, if not fixed: automatically wrapped in ScrollView if too big.
         - bottomAccessibilityHidden: Whether the bottom image (View) is hidden for the accessibility (VoiceOver).
      */
-    init(title: Text, text: Text, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
+    init(title: Text, text: Message, topImage: TopImage, bottomImage: BottomImage, errorCode: Text? = nil, retry: @escaping (() -> ()), fixedSize: Bool = false, bottomAccessibilityHidden: Bool = false) {
         self.title = title
         self.message = text
         self.errorCode = errorCode
@@ -255,62 +255,63 @@ public struct SBBMessage<TopImage: View, BottomImage: View>: View {
     }
     
     private var contentView: some View {
-        HStack {
+        VStack(alignment: .center) {
             Spacer()
-            VStack {
-                Spacer()
-                VStack(alignment: .center, spacing: 32) {
-                    Group {
-                        if let image = image {
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(height: imageType == .error ? 118 : 145)
-                        } else if let topImage = topImage {
-                            topImage
-                        }
+            VStack(alignment: .center, spacing: 32) {
+                Group {
+                    if let image = image {
+                        image
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(height: imageType == .error ? 118 : 145)
+                    } else if let topImage = topImage {
+                        topImage
                     }
-                    .accessibility(hidden: true)
-                    
-                    VStack(alignment: .center, spacing: 16) {
+                }
+                .accessibility(hidden: true)
+                
+                VStack(alignment: .center, spacing: 16) {
+                    HStack {
+                        Spacer()
                         title
                             .sbbFont(.medium_light)
                             .multilineTextAlignment(.center)
                             .foregroundColor(Color.sbbColor(.textBlack))
-                        message
-                            .multilineTextAlignment(.center)
-                            .sbbFont(.small_light)
+                        Spacer()
+                    }
+                    message
+                        .multilineTextAlignment(.center)
+                        .sbbFont(.small_light)
+                        .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
+                    if let errorCode = errorCode {
+                        errorCode
+                            .sbbFont(.xsmall_light)
                             .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
-                        if let errorCode = errorCode {
-                            errorCode
-                                .sbbFont(.xsmall_light)
-                                .foregroundColor(Color.sbbColor(colorScheme == .light ? .granite : .graphite))
-                        }
                     }
-                    .accessibilityElement(children: .combine)
-                    
-                    Group {
-                        if isLoading {
-                            SBBLoadingIndicator()
-                        } else if let retry = retry {
-                            Button(action: retry) {
-                                Image(sbbIcon: .arrows_circle_small)
-                            }
-                            .buttonStyle(SBBIconButtonStyle())
-                            .accessibilityLabel(Text("retry".localized))
-                        } else if let bottomImage = bottomImage {
-                            bottomImage
-                        }
-                    }
-                    .accessibility(hidden: bottomAccessibilityHidden)
                 }
+                .accessibilityElement(children: .combine)
+                
+                Group {
+                    if isLoading {
+                        SBBLoadingIndicator()
+                    } else if let retry = retry {
+                        Button(action: retry) {
+                            Image(sbbIcon: .arrows_circle_small)
+                        }
+                        .buttonStyle(SBBIconButtonStyle())
+                        .accessibilityLabel(Text("retry".localized))
+                    } else if let bottomImage = bottomImage {
+                        bottomImage
+                    }
+                }
+                .accessibility(hidden: bottomAccessibilityHidden)
+            }
                 .sbbScreenPadding(.horizontal)
                 .fixedSize(horizontal: false, vertical: true)
                 .viewSize(self.$contentSize)
-                Spacer()
-            }
             Spacer()
         }
+
         .background(Color.sbbColor(.background))
     }
     

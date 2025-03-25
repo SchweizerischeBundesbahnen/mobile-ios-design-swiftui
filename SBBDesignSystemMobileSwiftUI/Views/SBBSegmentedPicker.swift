@@ -109,7 +109,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     .saturation(style == .primaryColor && Color.sbbColor(.primary) != .red ? 0.7 : 1.0) // For blue theme - use darker blue for the background
                     .cornerRadius(20)
                     .overlay(
-                RoundedRectangle(cornerRadius: 20)
+                RoundedRectangle(cornerRadius: 20, style: .circular)
                     .stroke(Color.sbbColor(.iron), lineWidth: self.colorScheme == .dark && self.style == .normal ? 1 : 0) // only draw border for dark mode with normal style
                 )
                 
@@ -119,7 +119,7 @@ public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, 
                     .frame(width: self.segmentWidth(parentWidth: geometry.size.width))
                     .cornerRadius(20)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20)
+                        RoundedRectangle(cornerRadius: 20, style: .circular)
                             .stroke(style.currentSegmentOutlineColor, lineWidth: 1)
                     )
                     .offset(x: self.segmentWidth(parentWidth: geometry.size.width) * CGFloat(self.selectionIndex))

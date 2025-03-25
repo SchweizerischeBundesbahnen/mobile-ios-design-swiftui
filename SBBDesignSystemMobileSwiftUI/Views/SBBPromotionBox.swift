@@ -186,7 +186,7 @@ public struct SBBPromotionBox: View {
                     )
                     .cornerRadius(16)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 16)
+                        RoundedRectangle(cornerRadius: 16, style: .circular)
                             .stroke(Color.sbbColor(colorScheme == .dark ? .charcoal : .white), lineWidth: 1)
                             .accessibility(hidden: true)
                     )
@@ -200,7 +200,7 @@ public struct SBBPromotionBox: View {
                                 .cornerRadius(20)
                                 .overlay(
                                     ZStack {
-                                        RoundedRectangle(cornerRadius: 20)
+                                        RoundedRectangle(cornerRadius: 20, style: .circular)
                                             .stroke(Color.sbbColor(colorScheme == .dark ? .charcoal : .white), lineWidth: 1)
                                         Text("new".localized)
                                             .bold()

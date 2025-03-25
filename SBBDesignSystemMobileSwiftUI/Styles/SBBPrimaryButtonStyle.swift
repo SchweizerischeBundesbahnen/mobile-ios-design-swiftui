@@ -45,30 +45,26 @@ public struct SBBPrimaryButtonStyle: ButtonStyle {
         @Environment(\.horizontalSizeClass) var horizontalSizeClass
         @Environment(\.colorScheme) var colorScheme
         
-        @ViewBuilder
         var body: some View {
-            if sizeToFit {
-                configuration.label
-                    .sbbFont(.medium_light)
-                    .padding(.horizontal, 24)
-                    .foregroundColor(textColor)
-                    .frame(height: 46)
-                    .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
-                    .cornerRadius(23)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.1)
-            } else {
-                configuration.label
-                    .sbbFont(.medium_light)
-                    .padding(.horizontal, 8)
-                    .foregroundColor(textColor)
-                    .frame(height: 46)
-                    .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
-                    .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
-                    .cornerRadius(23)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.1)
+            Group {
+                if sizeToFit {
+                    configuration.label
+                        .sbbFont(.medium_light)
+                        .padding(.horizontal, 24)
+                        
+                } else {
+                    configuration.label
+                        .sbbFont(.medium_light)
+                        .padding(.horizontal, 8)
+                        .frame(minWidth: 0, maxWidth: horizontalSizeClass == .compact ? .infinity : 343)
+                }
             }
+            .foregroundColor(textColor)
+            .frame(height: 46)
+            .background(getBackgroundColor(enabled: isEnabled, isPressed: configuration.isPressed))
+            .cornerRadius(23)
+            .lineLimit(1)
+            .minimumScaleFactor(0.1)
             
         }
         

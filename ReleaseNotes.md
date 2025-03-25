@@ -1,5 +1,22 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.2 - 18 February 2025
+### Features
+* New component:
+    * SBBStepper to display a visual separation of a multi-step processes or forms.
+
+### Improvements
+* SecondaryButtonStyle: added the option `sizeToFit`
+* SBBToast: bottom padding can be added
+* SBBNotification: added the option to have a 'more info' button but no title
+* SBBTextArea: placeholder font size can be chosen (small, medium or large)
+* SBBTextField: added the option `showIconBorder`
+* SBBMessage: the `text` of an SBBMessage is not restricted to `Text`, it can be any `View`.
+
+### Bugfix
+* SBBStyle: Back button in navigation bar also uses SBB font
+* SBBModalView: same multiline alignement for title and text
+
 ## v1.2.1 - 8 July 2024
 ### Features
 * SBBLoadingIndicator: now also exists in size `.tiny`
@@ -10,7 +27,6 @@
 
 ### Bugfix
 * SBBTextArea and SBBTextField accessibility
-
 
 ## v1.2.0 - 3 May 2024
 ### Features

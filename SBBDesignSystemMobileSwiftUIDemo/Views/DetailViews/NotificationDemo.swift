@@ -98,7 +98,7 @@ struct NotificationDemo: View {
                     }
                 }
                 
-                Text("With more info")
+                Text("With title and more info")
                 if !canBeClosed {
                     SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onMoreInfo: {
                         self.showMoreInfo = true
@@ -126,6 +126,10 @@ struct NotificationDemo: View {
                 }
                 
                 if !canBeClosed {
+                    Text("Without title and more info")
+                    SBBNotification(statusType: selectedStatus, text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onMoreInfo: {
+                        self.showMoreInfo = true
+                    })
                     Text("With title and retry")
                     SBBNotification(statusType: selectedStatus, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."), hideIcon: hideIcon, maxNumberLines: enableMaxNumberLines ? maxNumberLines : nil, onRetry: {
                         self.retry = true
