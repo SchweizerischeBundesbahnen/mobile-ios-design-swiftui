@@ -25,6 +25,7 @@ public struct TabBarEntryView: View, Identifiable {
     var warningBackground: Bool
     var badge: Bool
     var badgeView: AnyView?
+    var onDoubleTap: () -> Void
     
     /**
      Returns a TabBarEntryView displaying the content of the tab.
@@ -38,7 +39,7 @@ public struct TabBarEntryView: View, Identifiable {
         - badge: Whether to display a small badge at the top right of the tab
         - badgeView: A view to be displayed on top of the badge
      */
-    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: AnyHashable, warningBackground: Bool = false, badge: Bool = false, badgeView: AnyView? = nil) {
+    public init(contentView: AnyView? = nil, imageView: Image? = nil, label: String? = nil, accessibilityLabel: String? = nil, tag: AnyHashable, warningBackground: Bool = false, badge: Bool = false, badgeView: AnyView? = nil, onDoubleTap: (() -> Void)? = nil) {
         self.imageView = imageView ?? Image(sbbIcon: .cross_small)
         self.label = label ?? "_"
         self.accessibilityLabel = accessibilityLabel ?? self.label
@@ -52,6 +53,7 @@ public struct TabBarEntryView: View, Identifiable {
         self.warningBackground = warningBackground
         self.badge = badge
         self.badgeView = badgeView
+        self.onDoubleTap = onDoubleTap ?? {}
     }
     
     public var body: some View {
