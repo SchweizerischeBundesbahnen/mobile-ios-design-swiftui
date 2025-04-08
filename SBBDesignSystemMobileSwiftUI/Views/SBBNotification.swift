@@ -27,7 +27,6 @@ public struct SBBNotification: View {
     @Environment(\.sizeCategory) var sizeCategory
     
     @Binding var isPresented: Bool
-    @State var textSize: CGSize = .zero
     let statusType: StatusType
     let title: Text?
     let text: Text
@@ -325,20 +324,23 @@ public struct SBBNotification: View {
             .frame(minWidth: iconSize, minHeight: iconSize)
             .foregroundColor(Color.sbbColor(.textBlack))
             .sbbFont(.medium_light)
-            .viewSize($textSize)
             
             Spacer()
             
-            if onMoreInfo != nil {
-                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .chevron_right_medium : .chevron_small_right_medium)
-                    .foregroundColor(Color.sbbColor(.textBlack))
-                    .frame(width: iconSize, height: textSize.height)
-            } else if title == nil && canBeClosed {
-                closeButton
-            } else if onRetry != nil {
-                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .arrows_circle_medium : .arrows_circle_small)
-                    .foregroundColor(Color.sbbColor(.textBlack))
-                    .frame(width: iconSize, height: textSize.height)
+            VStack {
+                Spacer()
+                if onMoreInfo != nil {
+                    Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .chevron_right_medium : .chevron_small_right_medium)
+                        .foregroundColor(Color.sbbColor(.textBlack))
+                        .frame(width: iconSize)
+                } else if title == nil && canBeClosed {
+                    closeButton
+                } else if onRetry != nil {
+                    Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .arrows_circle_medium : .arrows_circle_small)
+                        .foregroundColor(Color.sbbColor(.textBlack))
+                        .frame(width: iconSize)
+                }
+                Spacer()
             }
         }
     }
