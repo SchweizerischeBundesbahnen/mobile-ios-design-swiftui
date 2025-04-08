@@ -32,15 +32,15 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
      Returns a TabButtonView displaying a button.
      
      - Parameters:
-        - selection: The currently selected tab.
-        - transitionFactor: The factor used to animate the transition between two tabs
-        - transitionFactorPressed: The factor to animate the pressed shape
-        - isPressed: Whether one pressed on a tab
-        - currentTab: The index of the currently displayed tab
-        - labelSizes: An array containing the size of the labels (for landscape mode)
-        - index: The index of the button
-        - content: An array of TabBarEntryView, specifying the content of each tab.
-        - tabBarParameters: The TabBarParameters used to create the tab bar.
+     - selection: The currently selected tab.
+     - transitionFactor: The factor used to animate the transition between two tabs
+     - transitionFactorPressed: The factor to animate the pressed shape
+     - isPressed: Whether one pressed on a tab
+     - currentTab: The index of the currently displayed tab
+     - labelSizes: An array containing the size of the labels (for landscape mode)
+     - index: The index of the button
+     - content: An array of TabBarEntryView, specifying the content of each tab.
+     - tabBarParameters: The TabBarParameters used to create the tab bar.
      */
     public init(selection: Binding<Selection>, transitionFactor: Binding<CGFloat>, transitionFactorPressed: Binding<CGFloat>, isPressed: Binding<Bool>, currentTab: Binding<Int>, labelSizes: Binding<[CGSize]>, index: Int, content: [TabBarEntryView], tabBarParameters: TabBarParameters) {
         self._selection = selection
@@ -67,14 +67,14 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                         .frame(width: self.tabBarParameters.badgeSize, height: self.tabBarParameters.badgeSize)
                         .overlay(entry.badgeView?
                             .foregroundColor(Color.sbbColor(.white)))
-                        .offset(x: self.tabBarParameters.badgeOffset, y: -1 * self.tabBarParameters.badgeOffset)
-                        .foregroundColor(Color.sbbColor(.red)))
+                            .offset(x: self.tabBarParameters.badgeOffset, y: -1 * self.tabBarParameters.badgeOffset)
+                            .foregroundColor(Color.sbbColor(.red)))
             } else {
                 self.entry.imageView
             }
         }
-            .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.circleRadius * 2)
-            .padding(.top, self.tabBarParameters.topPad)
+        .frame(width: self.tabBarParameters.buttonWidth, height: self.tabBarParameters.circleRadius * 2)
+        .padding(.top, self.tabBarParameters.topPad)
     }
     
     public var body: some View {
@@ -96,46 +96,49 @@ struct TabButtonView<Selection>: View where Selection: Hashable {
                     imageView
                     Spacer()
                 }
-                    .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight)
+                .frame(width: self.tabBarParameters.segmentWidth, height: self.tabBarParameters.barHeight)
             } else {
                 // Display the icon and the text
-                    HStack(spacing: 0) {
-                        imageView
-                        
-                        self.entry.labelView
-                            .viewSize(self.$labelSizes[self.index])
-                            .sbbFont(.medium_light)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.1)
-                            .padding(.leading, self.selectionIndex == index ? 10 : 0)
-                            .padding(.trailing, 5)
-                            .padding(.top, self.tabBarParameters.topPad)
-                    }
-                    .accessibilityElement(children: .combine)
+                HStack(spacing: 0) {
+                    imageView
+                    
+                    self.entry.labelView
+                        .viewSize(self.$labelSizes[self.index])
+                        .sbbFont(.medium_light)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.1)
+                        .padding(.leading, self.selectionIndex == index ? 10 : 0)
+                        .padding(.trailing, 5)
+                        .padding(.top, self.tabBarParameters.topPad)
+                }
+                .accessibilityElement(children: .combine)
             }
         }
-            .foregroundColor(Color.sbbColor(.textBlack))
-            .simultaneousGesture(
-                DragGesture(minimumDistance: 0)
-                    .onChanged({ _ in
-                        if !self.isPressed {
-                            self.isPressed = true
-                            self.currentTab = self.index
-                            self.transitionFactorPressed = 0
-                            withAnimation(Animation.easeIn(duration: 0.2)) {
-                                self.transitionFactorPressed = 1
-                            }
+        .foregroundColor(Color.sbbColor(.textBlack))
+        .simultaneousGesture(
+            DragGesture(minimumDistance: 0)
+                .onChanged({ _ in
+                    if !self.isPressed {
+                        self.isPressed = true
+                        self.currentTab = self.index
+                        self.transitionFactorPressed = 0
+                        withAnimation(Animation.easeIn(duration: 0.2)) {
+                            self.transitionFactorPressed = 1
                         }
-                    })
-                    .onEnded({ _ in
-                        self.isPressed = false
-                        
-                    })
-            )
-                .accessibility(label: Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + Text(self.entry.accessibilityLabel) + Text(". \("tab".localized)") +  Text(". \("element".localized) \(self.index + 1) \("of".localized) \(self.contents.count)"))
-                .accessibility(removeTraits: .isButton)
-                .accessibility(identifier: self.entry.label)
-                .accessibilitySortPriority(-1)
+                    }
+                })
+                .onEnded({ _ in
+                    self.isPressed = false
+                    
+                })
+        )
+        .simultaneousGesture(TapGesture(count: 2).onEnded {
+            self.entry.onDoubleTap()
+        })
+        .accessibility(label: Text((self.index == self.selectionIndex) ? "\("selected".localized)." : "") + Text(self.entry.accessibilityLabel) + Text(". \("tab".localized)") +  Text(". \("element".localized) \(self.index + 1) \("of".localized) \(self.contents.count)"))
+        .accessibility(removeTraits: .isButton)
+        .accessibility(identifier: self.entry.label)
+        .accessibilitySortPriority(-1)
     }
 }
 
