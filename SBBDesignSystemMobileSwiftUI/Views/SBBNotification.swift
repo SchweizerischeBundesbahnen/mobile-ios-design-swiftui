@@ -303,44 +303,41 @@ public struct SBBNotification: View {
     }
     
     private var bottomView: some View {
-        HStack(alignment: .top) {
-            if title == nil, !hideIcon {
-                icon
-                    .frame(width: iconSize, height: iconSize)
-                    .accessibilityHidden(true)
-            }
-            Group {
-                if let maxNumberLines = maxNumberLines {
-                    text
-                        .minimumScaleFactor(0.1)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .lineLimit(maxNumberLines)
-                } else {
-                    text
-                        .fixedSize(horizontal: false, vertical: true)
+        HStack(alignment: .center) {
+            HStack(alignment: .top) {
+                if title == nil, !hideIcon {
+                    icon
+                        .frame(width: iconSize, height: iconSize)
+                        .accessibilityHidden(true)
                 }
+                Group {
+                    if let maxNumberLines = maxNumberLines {
+                        text
+                            .minimumScaleFactor(0.1)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(maxNumberLines)
+                    } else {
+                        text
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+                .multilineTextAlignment(.leading)
+                .frame(minWidth: iconSize, minHeight: iconSize)
+                .foregroundColor(Color.sbbColor(.textBlack))
+                .sbbFont(.medium_light)
             }
-            .multilineTextAlignment(.leading)
-            .frame(minWidth: iconSize, minHeight: iconSize)
-            .foregroundColor(Color.sbbColor(.textBlack))
-            .sbbFont(.medium_light)
             
             Spacer()
-            
-            VStack {
-                Spacer()
-                if onMoreInfo != nil {
-                    Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .chevron_right_medium : .chevron_small_right_medium)
-                        .foregroundColor(Color.sbbColor(.textBlack))
-                        .frame(width: iconSize)
-                } else if title == nil && canBeClosed {
-                    closeButton
-                } else if onRetry != nil {
-                    Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .arrows_circle_medium : .arrows_circle_small)
-                        .foregroundColor(Color.sbbColor(.textBlack))
-                        .frame(width: iconSize)
-                }
-                Spacer()
+            if onMoreInfo != nil {
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .chevron_right_medium : .chevron_small_right_medium)
+                    .foregroundColor(Color.sbbColor(.textBlack))
+                    .frame(width: iconSize)
+            } else if title == nil && canBeClosed {
+                closeButton
+            } else if onRetry != nil {
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .arrows_circle_medium : .arrows_circle_small)
+                    .foregroundColor(Color.sbbColor(.textBlack))
+                    .frame(width: iconSize)
             }
         }
     }
