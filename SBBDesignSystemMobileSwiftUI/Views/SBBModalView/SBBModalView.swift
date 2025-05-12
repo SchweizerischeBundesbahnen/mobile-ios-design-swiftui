@@ -74,6 +74,7 @@ public struct SBBModalView<Content>: View where Content: View {
     private let title: Text
     private let style: Style
     private let titleAlignment: SBBModalViewTitleAlignment
+    private let titleLineLimit: Int?
     @Binding private var isPresented: Bool
     private let closeButtonAccessibilityText: Text
     private let hideCloseButtonAccessibility: Bool
@@ -88,15 +89,18 @@ public struct SBBModalView<Content>: View where Content: View {
      - Parameters:
         - title: The Text to display as title.
         - style: The style of the SBBModalView depending on how it is presented.
+        - titleAlignment: The alignment of the title.
+        - titleLineLimit: The line limit for the title.
         - showBackButton: An optional flag, controlling if a back button should be displayed at the top-trailing edge. Allowing navigation inside a SBBModalView.
         - showCancelButton: An optional flag, controlling if the Cancel button on the top right should appear.
         - actionOnBackButtonTouched: An optional action to be performed open touch events on the back button.
         - content: A custom VIew to be shown underneath the title.
      */
-    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, isPresented: Binding<Bool>, closeButtonAccessibilityText: Text? = nil, hideCloseButtonAccessibility: Bool = false, showBackButton: Bool = false, showCancelButton: Bool = true, actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
+    public init(title: Text, style: Style = .full, titleAlignment: SBBModalViewTitleAlignment = .leading, titleLineLimit: Int? = nil, isPresented: Binding<Bool>, closeButtonAccessibilityText: Text? = nil, hideCloseButtonAccessibility: Bool = false, showBackButton: Bool = false, showCancelButton: Bool = true, actionOnBackButtonTouched: (() -> ())? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.title = title
         self.style = style
         self.titleAlignment = titleAlignment
+        self.titleLineLimit = titleLineLimit
         self._isPresented = isPresented
         self.closeButtonAccessibilityText = closeButtonAccessibilityText ?? Text("close".localized)
         self.hideCloseButtonAccessibility = hideCloseButtonAccessibility
@@ -134,6 +138,9 @@ public struct SBBModalView<Content>: View where Content: View {
                         .accessibility(addTraits: .isHeader)
                         .accessibilitySortPriority(2)
                         .multilineTextAlignment(titleAlignment == .leading ? .leading : .center)
+                        .lineLimit(titleLineLimit)
+                        .minimumScaleFactor(0.1)
+                        .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                     if (showCancelButton) {
                         Button(action: {

@@ -29,6 +29,12 @@
 		005DC8DD279B12D2009C5CEA /* FakeTabBarParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */; };
 		005DC8DF279B1517009C5CEA /* FakeTabBarShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */; };
 		005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */; };
+		005ED5882DD1CD9100E31B3D /* SBBSwitchButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED5872DD1CD8B00E31B3D /* SBBSwitchButtonStyle.swift */; };
+		005ED58E2DD1D4B200E31B3D /* SBBSwitchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED58D2DD1D4AE00E31B3D /* SBBSwitchItem.swift */; };
+		005ED7EA2DD2114900E31B3D /* SBBSwitchButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED7E92DD2114200E31B3D /* SBBSwitchButtonStyleTests.swift */; };
+		005ED7EB2DD2114900E31B3D /* SBBSwitchButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED7E92DD2114200E31B3D /* SBBSwitchButtonStyleTests.swift */; };
+		005ED7ED2DD2123900E31B3D /* SBBSwitchItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED7EC2DD2123500E31B3D /* SBBSwitchItemTests.swift */; };
+		005ED7EE2DD2123900E31B3D /* SBBSwitchItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED7EC2DD2123500E31B3D /* SBBSwitchItemTests.swift */; };
 		008317172D47B52800BB8074 /* SBBSegmentedPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609483274FB6B5001ABF67 /* SBBSegmentedPickerTests.swift */; };
 		008317182D47B52800BB8074 /* SBBStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60948D274FBC32001ABF67 /* SBBStyleTests.swift */; };
 		008317192D47B52800BB8074 /* SBBIconTextButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609497274FBFF4001ABF67 /* SBBIconTextButtonStyleTests.swift */; };
@@ -335,6 +341,10 @@
 		005DC8DC279B12D2009C5CEA /* FakeTabBarParameters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarParameters.swift; sourceTree = "<group>"; };
 		005DC8DE279B1517009C5CEA /* FakeTabBarShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabBarShape.swift; sourceTree = "<group>"; };
 		005DC8E0279B18A3009C5CEA /* FakeTabButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTabButtons.swift; sourceTree = "<group>"; };
+		005ED5872DD1CD8B00E31B3D /* SBBSwitchButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSwitchButtonStyle.swift; sourceTree = "<group>"; };
+		005ED58D2DD1D4AE00E31B3D /* SBBSwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSwitchItem.swift; sourceTree = "<group>"; };
+		005ED7E92DD2114200E31B3D /* SBBSwitchButtonStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSwitchButtonStyleTests.swift; sourceTree = "<group>"; };
+		005ED7EC2DD2123500E31B3D /* SBBSwitchItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSwitchItemTests.swift; sourceTree = "<group>"; };
 		0083174A2D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessage.swift; sourceTree = "<group>"; };
 		00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessageTests.swift; sourceTree = "<group>"; };
@@ -946,6 +956,7 @@
 				7C609483274FB6B5001ABF67 /* SBBSegmentedPickerTests.swift */,
 				00C731D22AC58017009D5DCA /* SBBStatusTests.swift */,
 				00E16DDE2D06D9DC00C30173 /* SBBStepperTests.swift */,
+				005ED7EC2DD2123500E31B3D /* SBBSwitchItemTests.swift */,
 				001F37D6279EBECC000DED95 /* SBBTabViewTests.swift */,
 				7C609485274FB7BB001ABF67 /* SBBTextAreaTests.swift */,
 				7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */,
@@ -959,6 +970,7 @@
 		7C60948C274FBBCE001ABF67 /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				005ED7E92DD2114200E31B3D /* SBBSwitchButtonStyleTests.swift */,
 				7C60948D274FBC32001ABF67 /* SBBStyleTests.swift */,
 				7C60948F274FBD36001ABF67 /* SBBPrimaryButtonStyleTests.swift */,
 				7C609495274FBF99001ABF67 /* SBBIconButtonStyleTests.swift */,
@@ -1005,6 +1017,7 @@
 				7C43038823FD86110033865F /* SBBSegmentedPicker.swift */,
 				00C731CE2AC5742E009D5DCA /* SBBStatus.swift */,
 				00E16DDA2D0339E700C30173 /* SBBStepper.swift */,
+				005ED58D2DD1D4AE00E31B3D /* SBBSwitchItem.swift */,
 				00FB8193278ED4E300F07D30 /* SBBTabView */,
 				A7EDCA362434951500753AE1 /* SBBTextArea.swift */,
 				A73734892436135B00E34716 /* SBBTextField.swift */,
@@ -1135,6 +1148,7 @@
 				A7AC50D4249A45A000065C71 /* SBBSecondaryButtonStyle.swift */,
 				7CA5551A267A1473006A6F00 /* SBBStyle.swift */,
 				A74FEA1725138CCC00C4D1A4 /* SBBSwitchStyle.swift */,
+				005ED5872DD1CD8B00E31B3D /* SBBSwitchButtonStyle.swift */,
 				7C28871124BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift */,
 			);
 			path = Styles;
@@ -1369,6 +1383,8 @@
 				008317172D47B52800BB8074 /* SBBSegmentedPickerTests.swift in Sources */,
 				008317182D47B52800BB8074 /* SBBStyleTests.swift in Sources */,
 				008317192D47B52800BB8074 /* SBBIconTextButtonStyleTests.swift in Sources */,
+				005ED7EB2DD2114900E31B3D /* SBBSwitchButtonStyleTests.swift in Sources */,
+				005ED7ED2DD2123900E31B3D /* SBBSwitchItemTests.swift in Sources */,
 				0083171A2D47B52800BB8074 /* SBBSecondaryButtonStyleTests.swift in Sources */,
 				0083171B2D47B52800BB8074 /* SBBAccordionTests.swift in Sources */,
 				0083171C2D47B52800BB8074 /* SBBStatusTests.swift in Sources */,
@@ -1461,6 +1477,7 @@
 				2DCEC918253D83B7008EDD15 /* SBBColorName.swift in Sources */,
 				7CE19B1F25B98D8300FEFC1E /* SBBToast.swift in Sources */,
 				7C1A846225F787D4008B66D3 /* SBBNavigationBarSBBIcon.swift in Sources */,
+				005ED58E2DD1D4B200E31B3D /* SBBSwitchItem.swift in Sources */,
 				0007421A2B7E328C00BB7A79 /* SBBFooterModifier.swift in Sources */,
 				7CAFE99F23DEE515001ADBE8 /* SBBAppearance.swift in Sources */,
 				7C106D2E25DAA74D00B89ECD /* SBBToastContainerViewModifier.swift in Sources */,
@@ -1516,6 +1533,7 @@
 				7CE7BD5025B16A84000ADF6B /* SBBChip.swift in Sources */,
 				7CAFE99D23DEE432001ADBE8 /* SBBFontLoader.swift in Sources */,
 				7CAFE98623DECD9B001ADBE8 /* Helper.swift in Sources */,
+				005ED5882DD1CD9100E31B3D /* SBBSwitchButtonStyle.swift in Sources */,
 				00FB8195278ED50600F07D30 /* TabBarShape.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1591,6 +1609,7 @@
 				7C609466274F8F03001ABF67 /* SBBAccordionTests.swift in Sources */,
 				00C731D32AC58017009D5DCA /* SBBStatusTests.swift in Sources */,
 				7C609482274FB60C001ABF67 /* SBBRadioButtonGroupTests.swift in Sources */,
+				005ED7EE2DD2123900E31B3D /* SBBSwitchItemTests.swift in Sources */,
 				7C60949C274FC1FE001ABF67 /* ImageExtensionTests.swift in Sources */,
 				7C609486274FB7BB001ABF67 /* SBBTextAreaTests.swift in Sources */,
 				7C609474274F9A4B001ABF67 /* SBBMapMarkerTests.swift in Sources */,
@@ -1619,6 +1638,7 @@
 				7C60946C274F9652001ABF67 /* SBBFormGroupTests.swift in Sources */,
 				7C609470274F97E7001ABF67 /* SBBListItemTests.swift in Sources */,
 				7C609496274FBF99001ABF67 /* SBBIconButtonStyleTests.swift in Sources */,
+				005ED7EA2DD2114900E31B3D /* SBBSwitchButtonStyleTests.swift in Sources */,
 				92995BB2259376900042B5C5 /* SBBSnapshotTest.swift in Sources */,
 				7C609488274FB917001ABF67 /* SBBTextFieldTests.swift in Sources */,
 				7C60949A274FC04A001ABF67 /* SBBSwitchStyleTests.swift in Sources */,
