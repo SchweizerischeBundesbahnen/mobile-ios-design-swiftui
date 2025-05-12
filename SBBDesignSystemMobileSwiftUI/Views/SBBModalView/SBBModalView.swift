@@ -139,6 +139,8 @@ public struct SBBModalView<Content>: View where Content: View {
                         .accessibilitySortPriority(2)
                         .multilineTextAlignment(titleAlignment == .leading ? .leading : .center)
                         .lineLimit(titleLineLimit)
+                        .minimumScaleFactor(0.1)
+                        .fixedSize(horizontal: false, vertical: true)
                     Spacer()
                     if (showCancelButton) {
                         Button(action: {
