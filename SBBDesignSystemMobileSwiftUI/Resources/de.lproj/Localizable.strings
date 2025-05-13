@@ -35,6 +35,9 @@
 "OFF" = "Deaktiviert";
 
 // SBBOnboardingView
+"try" = "Ausprobieren";
+"next" = "Weiter";
+
 "back" = "zurück";
 "forward" = "vorwärts";
 "abort tour" = "Rundgang abbrechen";

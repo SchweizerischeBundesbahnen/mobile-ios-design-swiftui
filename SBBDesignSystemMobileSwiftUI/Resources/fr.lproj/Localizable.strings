@@ -35,6 +35,9 @@
 "OFF" = "Désactivé";
 
 // SBBOnboardingView
+"try" = "Essayer";
+"next" = "Suivant";
+
 "back" = "retourner";
 "forward" = "continuer";
 "abort tour" = "Arrêter la visite de l'app";

@@ -35,6 +35,9 @@
 "OFF" = "Disattivato";
 
 // SBBOnboardingView
+"try" = "Prova";
+"next" = "Avanti";
+
 "back" = "indietro";
 "forward" = "avanti";
 "abort tour" = "Terminare il giro";
