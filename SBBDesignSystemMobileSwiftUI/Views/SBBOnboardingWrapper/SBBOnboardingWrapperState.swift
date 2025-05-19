@@ -3,7 +3,7 @@
 //  
 
 /// SBBOverview current process state. This state typically needs to be persisted (e.g. in UserDefaults).
-public enum SBBOverviewState: String, Equatable {
+public enum SBBOnboardingWrapperState: String, Equatable {
     /// state hiding the entire SBBOverview (typically set after the user finished or aborted the Onboarding process)
     case hidden
     /// state showing the start of the overview (typically on first app launch)

@@ -6,19 +6,19 @@ import SwiftUI
 
 /**
  A  View that is used to inform users about app functionality and guide them through it (typically shown upon first app launch). It can consist of a start view, restart view, update view, settings view, end view and a builder for the cards views.
- The state is given by an ``SBBOverviewState``, which specify which view is then displayed. For the cards view, the state of it is given by a ``Card: Equatable`` which can be an enum, and by a index ``Int`` which is used for the pagination.
+ The state is given by an ``SBBOnboardingWrapperState``, which specify which view is then displayed. For the cards view, the state of it is given by a ``Card: Equatable`` which can be an enum, and by a index ``Int`` which is used for the pagination.
  
  
  ## Overview
-You can create a SBBOnboarding by specifying all the views, as well as the card views.
+You can create a SBBOnboardingWrapper by specifying all the views, as well as the card views.
  ```swift
  // You typically use a ViewModel for overviewState handling and persistence
- @State var state: SBBOverviewState = .start
+ @State var state: SBBOnboardingWrapperState = .start
  @State var currentCard: OverviewCard = .card1
  @State var currentCardIndex: Int = 0
  
  var body: some View {
- SBBOnboarding(state: $viewModel.onboardingState, currentCard: $viewModel.currentOnboardingCard, currentCardIndex: $viewModel.currentOnboardingCardIndex, nbCards: viewModel.nbCards, startView: {
+ SBBOnboardingWrapper(state: $viewModel.onboardingState, currentCard: $viewModel.currentOnboardingCard, currentCardIndex: $viewModel.currentOnboardingCardIndex, nbCards: viewModel.nbCards, startView: {
         // start view here, typically a ``SBBTitleView``
      }, restartView: {
          // rstart view here, typically a ``SBBTitleView``
@@ -39,17 +39,17 @@ You can create a SBBOnboarding by specifying all the views, as well as the card 
      })
  }
  ```
- ![SBBOverview](SBBOverview)
- ![SBBOverviewCard](SBBOverviewCard)
+ ![SBBOnboardingWrapper](SBBOnboardingWrapper)
+ ![SBBOnboardingWrapperCard](SBBOnboardingWrapperCard)
  */
 
-public struct SBBOverview<Card: Equatable, CardView: View, StartView: View, RestartView: View, UpdateView: View, SettingsView: View, EndView: View>: View {
+public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: View, RestartView: View, UpdateView: View, SettingsView: View, EndView: View>: View {
         
     @Environment(\.sizeCategory) private var sizeCategory
     
     @State private var width: CGFloat = .zero
     
-    @Binding private var state: SBBOverviewState
+    @Binding private var state: SBBOnboardingWrapperState
     @Binding private var currentCard: Card
     @Binding private var currentCardIndex: Int
     private var nbCards: Int
@@ -62,7 +62,7 @@ public struct SBBOverview<Card: Equatable, CardView: View, StartView: View, Rest
     private var cardBuilder: (Card) -> CardView
     
     /**
-     Returns a SBBOverview.
+     Returns a SBBOnboardingWrapper.
      
      - Parameters:
         - state: The current state of the  process. This state typically needs to be persisted (e.g. in UserDefaults).
@@ -76,7 +76,7 @@ public struct SBBOverview<Card: Equatable, CardView: View, StartView: View, Rest
         - endView: The view used as a final screen.
         - cardBuilder: The view builder to create the cards from `currentCard`.
      */
-    public init(state: Binding<SBBOverviewState>, currentCard: Binding<Card>, currentCardIndex: Binding<Int>, nbCards: Int, @ViewBuilder startView: () -> StartView, @ViewBuilder restartView: () -> RestartView = { EmptyView() }, @ViewBuilder updateView: () -> UpdateView = { EmptyView() }, @ViewBuilder settingsView: () -> SettingsView = { EmptyView() }, @ViewBuilder endView: () -> EndView, @ViewBuilder cardBuilder: @escaping (Card) -> CardView) {
+    public init(state: Binding<SBBOnboardingWrapperState>, currentCard: Binding<Card>, currentCardIndex: Binding<Int>, nbCards: Int, @ViewBuilder startView: () -> StartView, @ViewBuilder restartView: () -> RestartView = { EmptyView() }, @ViewBuilder updateView: () -> UpdateView = { EmptyView() }, @ViewBuilder settingsView: () -> SettingsView = { EmptyView() }, @ViewBuilder endView: () -> EndView, @ViewBuilder cardBuilder: @escaping (Card) -> CardView) {
         self._state = state
         self._currentCard = currentCard
         self._currentCardIndex = currentCardIndex
@@ -144,7 +144,7 @@ public struct SBBOverview<Card: Equatable, CardView: View, StartView: View, Rest
 }
 
 #Preview {
-    SBBOverview(state: .constant(.start), currentCard: .constant(1), currentCardIndex: .constant(1), nbCards: 1, startView: {
+    SBBOnboardingWrapper(state: .constant(.start), currentCard: .constant(1), currentCardIndex: .constant(1), nbCards: 1, startView: {
         SBBTitleView(image: Image("Onboarding_Luc", bundle: Helper.bundle), title: Text("Welcome!"), subtitle: Text("Welcome to your app tour."), buttonView: {
             Button(action: {}) {
                 Text("Start")

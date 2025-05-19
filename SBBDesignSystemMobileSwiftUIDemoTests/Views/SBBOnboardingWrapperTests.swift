@@ -10,7 +10,7 @@ import SBBDesignSystemMobileSwiftUI
 class SBBOverviewTests: XCTestCase {
     
     
-    func testOverviewTitle() {
+    func testOnboardingTitle() {
         let view = SBBTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"), subtitle: Text("Willkommen zum Rundgang."), buttonView: {
             Button(action: {}) {
                 Text("Start")
@@ -18,15 +18,15 @@ class SBBOverviewTests: XCTestCase {
             .buttonStyle(SBBPrimaryButtonStyle())
         })
         for colorScheme in ColorScheme.allCases {
-            view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBOverview", colorScheme: colorScheme)
+            view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBOnboardingWrapper", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testOverviewCard() {
+    func testOnboardingCard() {
         let view = SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."), nextCard: nil, onNext: { card in })
         for colorScheme in ColorScheme.allCases {
-            view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBOverviewCard", colorScheme: colorScheme)
+            view.frame(minWidth: 375, minHeight: 812).recordDocumentationSnapshot(name: "SBBOnboardingWrapperCard", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
