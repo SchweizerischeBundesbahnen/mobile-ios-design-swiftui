@@ -24,7 +24,7 @@ public struct SBBCardView<Card: Equatable>: View {
     @Environment(\.sizeCategory) private var sizeCategory
     
     
-    public init(image: Image, title: Text, text: Text, titleLineLimit: Int = 1, textLineLimit: Int = 9, bigTextLineLimit: Int = 5, width: CGFloat? = nil, showTrySheet: Binding<Bool>,nextCard: Card?, onNext: @escaping (Card?) -> Void) {
+    public init(image: Image, title: Text, text: Text, titleLineLimit: Int = 1, textLineLimit: Int = 9, bigTextLineLimit: Int = 5, width: CGFloat? = nil, showTrySheet: Binding<Bool>, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
         self.text = text
@@ -55,10 +55,14 @@ public struct SBBCardView<Card: Equatable>: View {
     }
     
     private var imageView: some View {
-        image
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .accessibility(hidden: true)
+        GeometryReader { geometry in
+            image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+                .clipped()
+                .accessibility(hidden: true)
+        }
     }
     
     private var nextButton: some View {
@@ -136,10 +140,7 @@ public struct SBBCardView<Card: Equatable>: View {
     
     private var landscapeView: some View {
             ZStack {
-                VStack {
-                    imageView
-                    Spacer()
-                }
+                imageView
                 
                 VStack {
                     Spacer()
@@ -194,10 +195,10 @@ public struct SBBCardView<Card: Equatable>: View {
     }
 }
 
-//#Preview("Without try function") {
-//    SBBOnboardingCardWrapper<Int>(image: Image(sbbIcon: .unicorn_small), title: Text("Title"), text: Text("This is the content of the onboarding card."), titleLineLimit: 1, textLineLimit: 3, width: 300, nextCard: nil, onNext: { _ in })
-//}
-//
-//#Preview("With try function") {
-//    SBBOnboardingCardWrapper<Int>(image: Image(sbbIcon: .unicorn_small), title: Text("Title"), text: Text("This is the content of the onboarding card."), titleLineLimit: 1, textLineLimit: 3, width: 300, showTrySheet: .constant(true), nextCard: nil, onNext: { _ in })
-//}
+#Preview("Without try function") {
+    SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), titleLineLimit: 1, textLineLimit: 3, bigTextLineLimit: 3, width: 300, nextCard: nil, onNext: { _ in })
+}
+
+#Preview("With try function") {
+    SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), titleLineLimit: 1, textLineLimit: 3, bigTextLineLimit: 3, width: 300, showTrySheet: .constant(false), nextCard: nil, onNext: { _ in })
+}

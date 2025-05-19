@@ -12,18 +12,18 @@ public struct SBBTitleView<ButtonView: View>: View {
     
     private let image: Image
     private let title: Text
-    private let subtitle: Text
+    private let subtitle: Text?
     private let titleLineLimit: Int
     private let subtitleLineLimit: Int
     private let buttonView: ButtonView
     
-    public init(image: Image, title: Text, subtitle: Text, titleLineLimit: Int = 3, subtitleLineLimit: Int = 5, buttonView: ButtonView) {
+    public init(image: Image, title: Text, subtitle: Text? = nil, titleLineLimit: Int = 3, subtitleLineLimit: Int = 5, @ViewBuilder buttonView: () -> ButtonView) {
         self.image = image
         self.title = title
         self.subtitle = subtitle
         self.titleLineLimit = titleLineLimit
         self.subtitleLineLimit = subtitleLineLimit
-        self.buttonView = buttonView
+        self.buttonView = buttonView()
     }
     
     private var imageView: some View {
@@ -41,17 +41,24 @@ public struct SBBTitleView<ButtonView: View>: View {
             .accessibility(addTraits: .isHeader)
     }
     
+    @ViewBuilder
     private var subtitleView: some View {
-        subtitle
-            .sbbFont(.medium_light)
-            .foregroundColor(Color.sbbColor(.textBlack))
-            .multiline(alignment: .center, lineLimit: subtitleLineLimit)
+        if let subtitle {
+            subtitle
+                .sbbFont(.medium_light)
+                .foregroundColor(Color.sbbColor(.textBlack))
+                .multiline(alignment: .center, lineLimit: subtitleLineLimit)
+        }
     }
     
     private var portraitView: some View {
         VStack(spacing: sizeCategory.isAccessibilityCategory ? 0 : 32) {
             if !sizeCategory.isAccessibilityCategory {
-                imageView
+                VStack {
+                    Spacer()
+                    imageView
+                    Spacer()
+                }
             }
             Spacer()
             
@@ -81,6 +88,7 @@ public struct SBBTitleView<ButtonView: View>: View {
                         Spacer()
                     }
                     .frame(maxWidth: geometry.size.width / 2)
+                    
                     Spacer()
                     VStack(alignment: .center, spacing: 32) {
                         Spacer()
@@ -125,11 +133,10 @@ public struct SBBTitleView<ButtonView: View>: View {
     }
 }
 
-//#Preview {
-//    SBBOnboardingTitleWrapper(image: Image(sbbIcon: .unicorn_medium), title: Text("Title"), subtitle: Text("Hello! Welcome to Onboarding!"), titleLineLimit: 3, subtitleLineLimit: 5, buttonView: VStack {
-//        Button(action: {}) {
-//            Text("Button")
-//        }
-//        .buttonStyle(SBBPrimaryButtonStyle())
-//    })
-//}
+#Preview {
+    SBBTitleView(image: Image("Onboarding_Luc", bundle: Helper.bundle), title: Text("Welcome!"), subtitle: Text("Welcome to your app tour."), buttonView: {
+        Button(action: {}) {
+            Text("Start")
+        }.buttonStyle(SBBPrimaryButtonStyle())
+    })
+}

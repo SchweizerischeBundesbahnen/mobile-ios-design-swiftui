@@ -87,6 +87,8 @@
 		008317462D47B52800BB8074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C60947B274F9F56001ABF67 /* Assets.xcassets */; };
 		0083174C2D47B62B00BB8074 /* SBBLoadingIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609471274F9976001ABF67 /* SBBLoadingIndicatorTests.swift */; };
 		0083174D2D47B62B00BB8074 /* SBBPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096342A714CD2009E02B1 /* SBBPickerTests.swift */; };
+		00B2BC8A2DDB575D00B9D52A /* SBBOverviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B2BC892DDB575800B9D52A /* SBBOverviewTests.swift */; };
+		00B2BC8B2DDB575D00B9D52A /* SBBOverviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B2BC892DDB575800B9D52A /* SBBOverviewTests.swift */; };
 		00B773C42A3C4BB7002BDB85 /* SBBMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */; };
 		00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */; };
 		00B773CA2A3C70A6002BDB85 /* MessageDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C92A3C70A6002BDB85 /* MessageDemo.swift */; };
@@ -358,6 +360,7 @@
 		005EDCB02DD34DE800E31B3D /* SBBOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOverview.swift; sourceTree = "<group>"; };
 		005EDCB22DD350BD00E31B3D /* Backslide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backslide.swift; sourceTree = "<group>"; };
 		0083174A2D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00B2BC892DDB575800B9D52A /* SBBOverviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOverviewTests.swift; sourceTree = "<group>"; };
 		00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessage.swift; sourceTree = "<group>"; };
 		00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessageTests.swift; sourceTree = "<group>"; };
 		00B773C92A3C70A6002BDB85 /* MessageDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDemo.swift; sourceTree = "<group>"; };
@@ -972,6 +975,7 @@
 				00C731DB2AC5B7A6009D5DCA /* SBBNotificationTests.swift */,
 				7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */,
 				7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */,
+				00B2BC892DDB575800B9D52A /* SBBOverviewTests.swift */,
 				92995B9F2593738D0042B5C5 /* SBBPaginationViewTests.swift */,
 				00D096342A714CD2009E02B1 /* SBBPickerTests.swift */,
 				7C60947D274FB452001ABF67 /* SBBProcessFlowTests.swift */,
@@ -1424,6 +1428,7 @@
 				008317252D47B52800BB8074 /* SBBPrimaryButtonStyleTests.swift in Sources */,
 				008317262D47B52800BB8074 /* SBBNavigationBarWithSBBIconTests.swift in Sources */,
 				008317272D47B52800BB8074 /* SBBModalViewTests.swift in Sources */,
+				00B2BC8A2DDB575D00B9D52A /* SBBOverviewTests.swift in Sources */,
 				008317282D47B52800BB8074 /* SBBStepperTests.swift in Sources */,
 				008317292D47B52800BB8074 /* SBBTertiaryButtonStyleTests.swift in Sources */,
 				0083172A2D47B52800BB8074 /* CustomAssertSnapshot.swift in Sources */,
@@ -1668,6 +1673,7 @@
 				00C731DC2AC5B7A6009D5DCA /* SBBNotificationTests.swift in Sources */,
 				7C60947E274FB452001ABF67 /* SBBProcessFlowTests.swift in Sources */,
 				7C60946C274F9652001ABF67 /* SBBFormGroupTests.swift in Sources */,
+				00B2BC8B2DDB575D00B9D52A /* SBBOverviewTests.swift in Sources */,
 				7C609470274F97E7001ABF67 /* SBBListItemTests.swift in Sources */,
 				7C609496274FBF99001ABF67 /* SBBIconButtonStyleTests.swift in Sources */,
 				005ED7EA2DD2114900E31B3D /* SBBSwitchButtonStyleTests.swift in Sources */,
