@@ -123,7 +123,7 @@ public struct SBBTitleView<ButtonView: View>: View {
     
     public var body: some View {
         Group {
-            if self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular {
+            if self.verticalSizeClass == .regular {
                 portraitView
             } else {
                 landscapeView
