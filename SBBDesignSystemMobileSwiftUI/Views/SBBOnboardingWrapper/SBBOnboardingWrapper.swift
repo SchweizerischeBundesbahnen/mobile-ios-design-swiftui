@@ -46,9 +46,7 @@ You can create a SBBOnboardingWrapper by specifying all the views, as well as th
 public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: View, RestartView: View, UpdateView: View, SettingsView: View, EndView: View>: View {
         
     @Environment(\.sizeCategory) private var sizeCategory
-    
-    @State private var width: CGFloat = .zero
-    
+        
     @Binding private var state: SBBOnboardingWrapperState
     @Binding private var currentCard: Card
     @Binding private var currentCardIndex: Int
@@ -105,13 +103,7 @@ public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: V
     }
 
     public var body: some View {
-        // WORKAROUND: we need the width to give it to the OnboardingCardView to avoid the animation when the text adjust to the size (text, lineLimit, minScaleFactor) in landscape mode
-        ZStack {
-            HStack {
-                Spacer()
-                    .frame(height: .zero)
-                    .viewWidth($width)
-            }
+        Group {
             if state == .start {
                 startView
                     .transition(.backslide)

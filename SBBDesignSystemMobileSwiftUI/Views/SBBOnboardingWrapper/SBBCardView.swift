@@ -9,11 +9,7 @@ public struct SBBCardView<Card: Equatable>: View {
     private let image: Image
     private let title: Text
     private let text: Text
-    private let titleLineLimit: Int
-    private let textLineLimit: Int
-    private let bigTextLineLimit: Int
-    private let textWidth: CGFloat?
-    private let buttonWidth: CGFloat?
+    private let size: CGSize?
     private let canBeTried: Bool
     private let nextCard: Card?
     private let onNext: (Card?) -> Void
@@ -23,35 +19,42 @@ public struct SBBCardView<Card: Equatable>: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.sizeCategory) private var sizeCategory
     
+    private let widthPortrait: CGFloat?
     
-    public init(image: Image, title: Text, text: Text, titleLineLimit: Int = 1, textLineLimit: Int = 9, bigTextLineLimit: Int = 5, width: CGFloat? = nil, showTrySheet: Binding<Bool>, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
+    private let contentWidthLandscape: CGFloat?
+    private let buttonWidthLandscape: CGFloat?
+    private let contentHeight: CGFloat?
+        
+    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
         self.text = text
-        self.titleLineLimit = titleLineLimit
-        self.textLineLimit = textLineLimit
-        self.bigTextLineLimit = bigTextLineLimit
-        self.textWidth = width != nil ? 3 * width! / 4 : nil
-        self.buttonWidth = width != nil ? width! / 4 : nil
+        self.size = size
         self.canBeTried = true
         self._showTrySheet = showTrySheet
         self.nextCard = nextCard
         self.onNext = onNext
+        
+        self.widthPortrait = size?.width != nil ? size!.width : nil
+        self.contentHeight = size?.height != nil ? 3 * size!.height / 4 : nil
+        self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
+        self.buttonWidthLandscape = size?.width != nil ? size!.width / 4 : nil
     }
     
-    public init(image: Image, title: Text, text: Text, titleLineLimit: Int = 1, textLineLimit: Int = 9, bigTextLineLimit: Int = 5, width: CGFloat? = nil, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
+    public init(image: Image, title: Text, text: Text, titleLineLimit: Int = 1, size: CGSize? = nil, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
         self.text = text
-        self.titleLineLimit = titleLineLimit
-        self.textLineLimit = textLineLimit
-        self.bigTextLineLimit = bigTextLineLimit
-        self.textWidth = width != nil ? 3 * width! / 4 : nil
-        self.buttonWidth = width != nil ? width! / 4 : nil
+        self.size = size
         self.canBeTried = false
         self._showTrySheet = .constant(false)
         self.nextCard = nextCard
         self.onNext = onNext
+        
+        self.widthPortrait = size?.width != nil ? size!.width : nil
+        self.contentHeight = size?.height != nil ? 3 * size!.height / 4 : nil
+        self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
+        self.buttonWidthLandscape = size?.width != nil ? size!.width / 4 : nil
     }
     
     private var imageView: some View {
@@ -102,12 +105,15 @@ public struct SBBCardView<Card: Equatable>: View {
                         title
                             .font(.sbbBold(size: sizeCategory.isAccessibilityCategory ? 20 : 30))
                             .foregroundColor(Color.sbbColor(.textBlack))
-                            .multiline(alignment: .center, lineLimit: titleLineLimit)
+                            .minimumScaleFactor(0.1)
+                            .multilineTextAlignment(.center)
                             .accessibility(addTraits: .isHeader)
                         text
                             .sbbFont(.medium_light)
-                            .multiline(alignment: .center, lineLimit: textLineLimit)
+                            .multilineTextAlignment(.center)
+                            .minimumScaleFactor(0.1)
                     }
+                    .frame(height: sizeCategory.isAccessibilityCategory ? contentHeight : nil)
                     
                     if sizeCategory.isAccessibilityCategory {
                         VStack(spacing: 8) {
@@ -131,6 +137,7 @@ public struct SBBCardView<Card: Equatable>: View {
             .padding(.horizontal, 32)
             .padding(.bottom, 32)
             .padding(.top, 24)
+            .frame(width: sizeCategory.isAccessibilityCategory ? widthPortrait : nil)
             .foregroundColor(.sbbColor(.textBlack))
             .background(Color.sbbColor(.viewBackground))
             .cornerRadius(16, corners: [.topLeft, .topRight])
@@ -142,7 +149,7 @@ public struct SBBCardView<Card: Equatable>: View {
             ZStack {
                 imageView
                 
-                VStack {
+                VStack(spacing: 0) {
                     Spacer()
                     HStack(spacing: 0) {
                         Spacer()
@@ -150,16 +157,16 @@ public struct SBBCardView<Card: Equatable>: View {
                             title
                                 .font(.sbbBold(size: sizeCategory.isAccessibilityCategory ? 20 : 30))
                                 .foregroundColor(Color.sbbColor(.textBlack))
-                                .multiline(alignment: .center, lineLimit: 1)
+                                .minimumScaleFactor(0.1)
+                                .multilineTextAlignment(.center)
                                 .accessibility(addTraits: .isHeader)
-                                
                             text
                                 .sbbFont(.medium_light)
-                                .multiline(alignment: .center, lineLimit: sizeCategory.isAccessibilityCategory ? bigTextLineLimit : textLineLimit)
-                            
+                                .multilineTextAlignment(.center)
+                                .minimumScaleFactor(0.1)
                         }
-                        .padding(.leading, 32)
-                        .frame(width: textWidth)
+                        .padding(.horizontal, 32)
+                        .frame(width: sizeCategory.isAccessibilityCategory ? contentWidthLandscape : nil, height: sizeCategory.isAccessibilityCategory ? contentHeight : nil)
                         
                         VStack(spacing: 16) {
                             if canBeTried {
@@ -169,7 +176,7 @@ public struct SBBCardView<Card: Equatable>: View {
                         }
                         .padding(.leading, 16)
                         .padding(.trailing, 32)
-                        .frame(width: buttonWidth)
+                        .frame(width: buttonWidthLandscape)
                         Spacer()
                     }
                     .padding(.bottom, 32)
@@ -196,9 +203,9 @@ public struct SBBCardView<Card: Equatable>: View {
 }
 
 #Preview("Without try function") {
-    SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), titleLineLimit: 1, textLineLimit: 3, bigTextLineLimit: 3, width: 300, nextCard: nil, onNext: { _ in })
+    SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), nextCard: nil, onNext: { _ in })
 }
 
 #Preview("With try function") {
-    SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), titleLineLimit: 1, textLineLimit: 3, bigTextLineLimit: 3, width: 300, showTrySheet: .constant(false), nextCard: nil, onNext: { _ in })
+    SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), showTrySheet: .constant(false), nextCard: nil, onNext: { _ in })
 }
