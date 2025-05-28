@@ -19,12 +19,11 @@ public struct SBBCardView<Card: Equatable>: View {
     @Environment(\.verticalSizeClass) var verticalSizeClass
     @Environment(\.sizeCategory) private var sizeCategory
     
-    private let widthPortrait: CGFloat?
-    
     private let contentWidthLandscape: CGFloat?
     private let buttonWidthLandscape: CGFloat?
-    private let contentHeight: CGFloat?
-        
+    
+    private let scrollViewHeight: CGFloat?
+    
     public init(image: Image, title: Text, text: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
@@ -35,13 +34,12 @@ public struct SBBCardView<Card: Equatable>: View {
         self.nextCard = nextCard
         self.onNext = onNext
         
-        self.widthPortrait = size?.width != nil ? size!.width : nil
-        self.contentHeight = size?.height != nil ? 3 * size!.height / 4 : nil
         self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
         self.buttonWidthLandscape = size?.width != nil ? size!.width / 4 : nil
+        self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
     }
     
-    public init(image: Image, title: Text, text: Text, titleLineLimit: Int = 1, size: CGSize? = nil, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
+    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
         self.text = text
@@ -51,10 +49,9 @@ public struct SBBCardView<Card: Equatable>: View {
         self.nextCard = nextCard
         self.onNext = onNext
         
-        self.widthPortrait = size?.width != nil ? size!.width : nil
-        self.contentHeight = size?.height != nil ? 3 * size!.height / 4 : nil
         self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
         self.buttonWidthLandscape = size?.width != nil ? size!.width / 4 : nil
+        self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
     }
     
     private var imageView: some View {
@@ -91,29 +88,48 @@ public struct SBBCardView<Card: Equatable>: View {
         .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: !sizeCategory.isAccessibilityCategory && self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular))
     }
     
+    private var contentView: some View {
+        VStack(spacing: 16) {
+            title
+                .font(.sbbBold(size: sizeCategory.isAccessibilityCategory ? 20 : 30))
+                .foregroundColor(Color.sbbColor(.textBlack))
+                .minimumScaleFactor(0.1)
+                .multilineTextAlignment(.center)
+                .accessibility(addTraits: .isHeader)
+            text
+                .sbbFont(.medium_light)
+                .multilineTextAlignment(.center)
+                .minimumScaleFactor(0.1)
+        }
+    }
+    
+    @ViewBuilder
+    private var dynamicPortraitContentView: some View {
+        if sizeCategory.isAccessibilityCategory {
+            ScrollView(showsIndicators: false) {
+                contentView
+                    .padding(.bottom, 32 + (sizeCategory.isAccessibilityCategory ? 108 : 54))
+            }
+            .frame(height: scrollViewHeight)
+        } else {
+            contentView
+                .padding(.bottom, 32 + (sizeCategory.isAccessibilityCategory ? 108 : 54))
+        }
+    }
+    
     private var portraitView: some View {
         ZStack(alignment: .bottom) {
             VStack {
-                imageView
-                Spacer()
+                if !sizeCategory.isAccessibilityCategory {
+                    imageView
+                    Spacer()
+                }
             }
             
             HStack(spacing: 0) {
                 Spacer()
-                VStack(spacing: 32) {
-                    VStack(spacing: 16) {
-                        title
-                            .font(.sbbBold(size: sizeCategory.isAccessibilityCategory ? 20 : 30))
-                            .foregroundColor(Color.sbbColor(.textBlack))
-                            .minimumScaleFactor(0.1)
-                            .multilineTextAlignment(.center)
-                            .accessibility(addTraits: .isHeader)
-                        text
-                            .sbbFont(.medium_light)
-                            .multilineTextAlignment(.center)
-                            .minimumScaleFactor(0.1)
-                    }
-                    .frame(height: sizeCategory.isAccessibilityCategory ? contentHeight : nil)
+                ZStack(alignment: .bottom) {
+                    dynamicPortraitContentView
                     
                     if sizeCategory.isAccessibilityCategory {
                         VStack(spacing: 8) {
@@ -137,7 +153,6 @@ public struct SBBCardView<Card: Equatable>: View {
             .padding(.horizontal, 32)
             .padding(.bottom, 32)
             .padding(.top, 24)
-            .frame(width: sizeCategory.isAccessibilityCategory ? widthPortrait : nil)
             .foregroundColor(.sbbColor(.textBlack))
             .background(Color.sbbColor(.viewBackground))
             .cornerRadius(16, corners: [.topLeft, .topRight])
@@ -145,47 +160,52 @@ public struct SBBCardView<Card: Equatable>: View {
         }
     }
     
-    private var landscapeView: some View {
-            ZStack {
-                imageView
-                
-                VStack(spacing: 0) {
-                    Spacer()
-                    HStack(spacing: 0) {
-                        Spacer()
-                        VStack(spacing: 16) {
-                            title
-                                .font(.sbbBold(size: sizeCategory.isAccessibilityCategory ? 20 : 30))
-                                .foregroundColor(Color.sbbColor(.textBlack))
-                                .minimumScaleFactor(0.1)
-                                .multilineTextAlignment(.center)
-                                .accessibility(addTraits: .isHeader)
-                            text
-                                .sbbFont(.medium_light)
-                                .multilineTextAlignment(.center)
-                                .minimumScaleFactor(0.1)
-                        }
-                        .padding(.horizontal, 32)
-                        .frame(width: sizeCategory.isAccessibilityCategory ? contentWidthLandscape : nil, height: sizeCategory.isAccessibilityCategory ? contentHeight : nil)
-                        
-                        VStack(spacing: 16) {
-                            if canBeTried {
-                                tryButton
-                            }
-                            nextButton
-                        }
-                        .padding(.leading, 16)
-                        .padding(.trailing, 32)
-                        .frame(width: buttonWidthLandscape)
-                        Spacer()
-                    }
+    @ViewBuilder
+    private var dynamicLandscapeContentView: some View {
+        if sizeCategory.isAccessibilityCategory {
+            ScrollView(showsIndicators: false) {
+                contentView
                     .padding(.bottom, 32)
-                    .padding(.top, 24)
-                    .foregroundColor(.sbbColor(.textBlack))
-                    .background(Color.sbbColor(.viewBackground))
-                    .cornerRadius(16, corners: [.topLeft, .topRight])
-                    .shadow(color: Color.sbbColor(.tabshadow), radius: 20, x: 0, y: 0)
+            }
+            .frame(height: scrollViewHeight)
+            .padding(.horizontal, 32)
+        } else {
+            contentView
+                .padding(.horizontal, 32)
+        }
+    }
+    
+    private var landscapeView: some View {
+        ZStack(alignment: .bottom) {
+            VStack {
+                if !sizeCategory.isAccessibilityCategory {
+                    imageView
                 }
+                Spacer()
+            }
+            
+            HStack(spacing: 0) {
+                Spacer()
+                
+                dynamicLandscapeContentView
+                
+                VStack(spacing: 16) {
+                    if canBeTried {
+                        tryButton
+                    }
+                    nextButton
+                }
+                .padding(.leading, 16)
+                .padding(.trailing, 32)
+                .frame(width: buttonWidthLandscape)
+                Spacer()
+            }
+            .padding(.bottom, 32)
+            .padding(.top, 24)
+            .foregroundColor(.sbbColor(.textBlack))
+            .background(Color.sbbColor(.viewBackground))
+            .cornerRadius(16, corners: [.topLeft, .topRight])
+            .shadow(color: Color.sbbColor(.tabshadow), radius: 20, x: 0, y: 0)
         }
     }
     
@@ -198,7 +218,7 @@ public struct SBBCardView<Card: Equatable>: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
-        .background(Color.sbbColor(.viewBackground))
+        .background(Color.sbbColor(.viewBackground).edgesIgnoringSafeArea(.all))
     }
 }
 

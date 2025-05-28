@@ -52,27 +52,31 @@ public struct SBBTitleView<ButtonView: View>: View {
     }
     
     private var portraitView: some View {
-        VStack(spacing: sizeCategory.isAccessibilityCategory ? 0 : 32) {
-            if !sizeCategory.isAccessibilityCategory {
-                VStack {
-                    Spacer()
-                    imageView
+        HStack {
+            Spacer()
+            VStack(spacing: sizeCategory.isAccessibilityCategory ? 0 : 32) {
+                if !sizeCategory.isAccessibilityCategory {
+                    VStack {
+                        Spacer()
+                        imageView
+                        Spacer()
+                    }
+                }
+                Spacer()
+                
+                VStack(spacing: 16) {
+                    titleView
+                    subtitleView
+                }
+                .foregroundColor(.sbbColor(.white))
+                
+                if sizeCategory.isAccessibilityCategory {
                     Spacer()
                 }
+                
+                buttonView
             }
             Spacer()
-            
-            VStack(spacing: 16) {
-                titleView
-                subtitleView
-            }
-            .foregroundColor(.sbbColor(.white))
-            
-            if sizeCategory.isAccessibilityCategory {
-                Spacer()
-            }
-                        
-            buttonView
         }
         .sbbScreenPadding(.horizontal)
         .sbbScreenPadding()
