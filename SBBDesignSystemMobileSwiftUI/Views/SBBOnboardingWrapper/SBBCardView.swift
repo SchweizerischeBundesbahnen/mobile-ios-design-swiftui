@@ -122,8 +122,8 @@ public struct SBBCardView<Card: Equatable>: View {
             VStack {
                 if !sizeCategory.isAccessibilityCategory {
                     imageView
-                    Spacer()
                 }
+                Spacer()
             }
             
             HStack(spacing: 0) {
