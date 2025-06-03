@@ -272,23 +272,25 @@ public struct SBBNotification: View {
         }
     }
     
-    private var icon: any View {
+    @ViewBuilder
+    private var icon: some View {
         if let overrideIcon {
-            return overrideIcon
-        }
-        switch statusType {
-        case .alert:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_cross_medium : .circle_cross_small)
-                .foregroundColor(Color.sbbColor(.red))
-        case .warning:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_exclamation_point_medium : .circle_exclamation_point_small)
-                .foregroundColor(Color.sbbColor(colorScheme == .dark ? .peach : .black))
-        case .success:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_tick_medium : .circle_tick_small)
-                .foregroundColor(Color.sbbColor(.green))
-        case .info:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_information_medium : .circle_information_small)
-                .foregroundColor(Color.sbbColor(.textBlack))
+            overrideIcon
+        } else {
+            switch statusType {
+            case .alert:
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_cross_medium : .circle_cross_small)
+                    .foregroundColor(Color.sbbColor(.red))
+            case .warning:
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_exclamation_point_medium : .circle_exclamation_point_small)
+                    .foregroundColor(Color.sbbColor(colorScheme == .dark ? .peach : .black))
+            case .success:
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_tick_medium : .circle_tick_small)
+                    .foregroundColor(Color.sbbColor(.green))
+            case .info:
+                Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_information_medium : .circle_information_small)
+                    .foregroundColor(Color.sbbColor(.textBlack))
+            }
         }
     }
     
