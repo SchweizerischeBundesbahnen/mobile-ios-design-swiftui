@@ -7,7 +7,7 @@ import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBOverviewTests: XCTestCase {
+class SBBOnboardingWrapperTests: XCTestCase {
     
     
     func testOnboardingTitle() {

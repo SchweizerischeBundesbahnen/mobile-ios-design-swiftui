@@ -22,7 +22,8 @@ public struct SBBPaginationView: View {
     
     @Environment(\.colorScheme) var colorScheme
     @Binding private var currentPageIndex: Int
-    private var numberOfPages: Int
+    private let numberOfPages: Int
+    private let selectedDoubleSize: Bool
     
     /**
      Returns a SBBPaginationView with a dot for every page.
@@ -30,10 +31,12 @@ public struct SBBPaginationView: View {
      - Parameters:
         - currentPageIndex: Sets the current page's index state.
         - numberOfPages: The total number of pages.
+        - selectedDoubleSize: Whether the selected page point is double the size of the other.
      */
-    public init(currentPageIndex: Binding<Int>, numberOfPages: Int) {
+    public init(currentPageIndex: Binding<Int>, numberOfPages: Int, selectedDoubleSize: Bool = false) {
         self._currentPageIndex = currentPageIndex
         self.numberOfPages = numberOfPages
+        self.selectedDoubleSize = selectedDoubleSize
     }
     
     public var body: some View {
@@ -43,11 +46,15 @@ public struct SBBPaginationView: View {
                     if index == self.currentPageIndex {
                         Circle()
                             .fill(colorScheme == .light ? Color.sbbColor(.primary) : Color.sbbColor(.white))
+                            .frame(width: selectedDoubleSize ? 16 : 8, height: selectedDoubleSize ? 16 : 8)
+                    } else if selectedDoubleSize {
+                        Circle()
+                            .fill(selectedDoubleSize ? Color.sbbColorInternal(.paginationInactive) : Color.clear)
                             .frame(width: 8, height: 8)
                     } else {
                         Circle()
                             .strokeBorder(Color.sbbColorInternal(.paginationInactive), lineWidth: 1.0)
-                            .frame(width: 6, height: 6)
+                            .frame(width: 6, height: 8)
                     }
                 }
             }

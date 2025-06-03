@@ -90,7 +90,7 @@ public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: V
     private var pagination: some View {
         VStack {
             HStack {
-                SBBPaginationView(currentPageIndex: $currentCardIndex, numberOfPages: nbCards)
+                SBBPaginationView(currentPageIndex: $currentCardIndex, numberOfPages: nbCards, selectedDoubleSize: true)
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 8
