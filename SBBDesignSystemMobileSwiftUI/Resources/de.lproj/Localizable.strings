@@ -60,7 +60,7 @@
 "entries" = "Einträge";
 
 // SBBProcessFlow
-"Step %lld out of %lld" = "Schritt %lld von total %lld Schritten.";
+"Step %lld out of %lld" = "Schritt %lld von %lld.";
 
 // SBBProfile
 "You're logged in as:" = "Sie sind eingeloggt als:";

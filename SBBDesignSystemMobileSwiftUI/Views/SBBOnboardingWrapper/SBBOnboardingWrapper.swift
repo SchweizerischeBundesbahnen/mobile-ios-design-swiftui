@@ -117,7 +117,11 @@ public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: V
                 ZStack {
                     cardBuilder(currentCard)
                         .transition(.backslide)
-                    pagination
+                    
+                    if nbCards != 1 {
+                        pagination
+                            .accessibilitySortPriority(2)
+                    }
                 }
                 .transition(.backslide)
                 .foregroundColor(.sbbColor(.textBlack))

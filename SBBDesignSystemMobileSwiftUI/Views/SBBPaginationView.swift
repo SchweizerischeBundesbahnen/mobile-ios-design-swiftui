@@ -59,6 +59,7 @@ public struct SBBPaginationView: View {
                 }
             }
         }
+        .accessibility(label: Text(String.localizedStringWithFormat(NSLocalizedString("Step %lld out of %lld", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), currentPageIndex + 1, numberOfPages)))
     }
 }
 

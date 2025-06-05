@@ -74,6 +74,7 @@ public struct SBBCardView<Card: Equatable>: View {
         }) {
             Text("next".localized)
         }
+        .padding(.bottom, 16)
         .buttonStyle(SBBSecondaryButtonStyle(sizeToFit: !sizeCategory.isAccessibilityCategory && self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular))
     }
     
@@ -85,6 +86,7 @@ public struct SBBCardView<Card: Equatable>: View {
         }) {
             Text("try".localized)
         }
+        .padding(.bottom, 16)
         .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: !sizeCategory.isAccessibilityCategory && self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular))
     }
     

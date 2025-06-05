@@ -62,7 +62,6 @@ public struct SBBTitleView<ButtonView: View>: View {
                         Spacer()
                     }
                 }
-                Spacer()
                 
                 VStack(spacing: 16) {
                     titleView
