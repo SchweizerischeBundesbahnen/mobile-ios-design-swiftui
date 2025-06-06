@@ -93,11 +93,10 @@ public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: V
                 SBBPaginationView(currentPageIndex: $currentCardIndex, numberOfPages: nbCards, selectedDoubleSize: true)
             }
             .padding(.horizontal, 16)
-            .padding(.vertical, 8
-            )
+            .padding(.vertical, 8)
             .background(Color.sbbColor(.viewBackground))
             .cornerRadius(16)
-            
+            .padding(.vertical, 8)
             Spacer()
         }
     }

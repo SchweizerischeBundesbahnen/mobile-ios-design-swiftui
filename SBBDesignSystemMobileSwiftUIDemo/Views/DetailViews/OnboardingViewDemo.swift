@@ -109,9 +109,13 @@ struct OnboardingViewDemo: View {
                     })
                 }, cardBuilder: { card in
                     if card % 2 == 1 {
-                        createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton)
+                        GeometryReader { geometry in
+                            createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton, geometry.size)
+                        }
                     } else {
-                        createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton)
+                        GeometryReader { geometry in
+                        createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton, geometry.size)
+                        }
                     }
                 })
                 .sheet(isPresented: $showTrySheet, content: {
@@ -171,7 +175,7 @@ struct OnboardingViewDemo: View {
     }
     
     @ViewBuilder
-    private func createCardView(_ card: Int, _ customCard: Bool, _ customAction: Bool, _ customButton: Bool) -> some View {
+    private func createCardView(_ card: Int, _ customCard: Bool, _ customAction: Bool, _ customButton: Bool, _ geometrySize: CGSize) -> some View {
         if card == 0, customCard {
             VStack {
                 Spacer()
@@ -207,7 +211,7 @@ struct OnboardingViewDemo: View {
                 }
             }
         } else if customButton {
-            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), showTrySheet: $showTrySheet, nextCard: card+1, onNext: { card in
+            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, showTrySheet: $showTrySheet, nextCard: card+1, onNext: { card in
                 currentOnboardingCardIndex += 1
                 if card == viewModel.numberOfCards {
                     overviewState = .end
@@ -219,7 +223,7 @@ struct OnboardingViewDemo: View {
                 }
             }
         } else {
-            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), nextCard: card+1, onNext: { card in
+            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, nextCard: card+1, onNext: { card in
                 currentOnboardingCardIndex += 1
                 if card == viewModel.numberOfCards {
                     overviewState = .end
