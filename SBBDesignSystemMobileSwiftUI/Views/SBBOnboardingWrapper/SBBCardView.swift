@@ -15,8 +15,8 @@ public struct SBBCardView<Card: Equatable>: View {
     private let onNext: (Card?) -> Void
     @Binding private var showTrySheet: Bool
     
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
-    @Environment(\.verticalSizeClass) var verticalSizeClass
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
     @Environment(\.sizeCategory) private var sizeCategory
     
     private let contentWidthLandscape: CGFloat?
@@ -80,7 +80,6 @@ public struct SBBCardView<Card: Equatable>: View {
         }) {
             Text("next".localized)
         }
-        .padding(.bottom, 16)
         .buttonStyle(SBBSecondaryButtonStyle(sizeToFit: !sizeCategory.isAccessibilityCategory && self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular))
     }
     
@@ -92,7 +91,6 @@ public struct SBBCardView<Card: Equatable>: View {
         }) {
             Text("try".localized)
         }
-        .padding(.bottom, 16)
         .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: !sizeCategory.isAccessibilityCategory && self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular))
     }
     
@@ -146,6 +144,7 @@ public struct SBBCardView<Card: Equatable>: View {
                             }
                             nextButton
                         }
+                        .padding(.bottom, 16)
                     } else {
                         HStack {
                             if canBeTried {
@@ -154,12 +153,12 @@ public struct SBBCardView<Card: Equatable>: View {
                             }
                             nextButton
                         }
+                        .padding(.bottom, 16)
                     }
                 }
                 Spacer()
             }
             .padding(.horizontal, 32)
-            .edgesIgnoringSafeArea(.vertical)
             .foregroundColor(.sbbColor(.textBlack))
             .background(Color.sbbColor(.viewBackground))
             .cornerRadius(16, corners: [.topLeft, .topRight])
@@ -177,21 +176,19 @@ public struct SBBCardView<Card: Equatable>: View {
                     .padding(.bottom, 32)
             }
             .frame(height: scrollViewHeight)
-            .padding(.horizontal, 32)
+            .padding(.horizontal, 48)
         } else {
             contentView
                 .padding(.top, 24)
                 .padding(.bottom, 32)
-                .padding(.horizontal, 32)
+                .padding(.horizontal, 48)
         }
     }
     
     private var landscapeView: some View {
         ZStack(alignment: .bottom) {
             VStack {
-                if !sizeCategory.isAccessibilityCategory {
-                    imageView
-                }
+                imageView
                 Spacer()
             }
             
@@ -208,7 +205,8 @@ public struct SBBCardView<Card: Equatable>: View {
                         }
                         nextButton
                     }
-                    .padding(.horizontal, 26)
+                    .padding(.horizontal, 24)
+                    .padding(.trailing, 24)
                 }
                 Spacer()
             }
@@ -217,7 +215,6 @@ public struct SBBCardView<Card: Equatable>: View {
             .cornerRadius(16, corners: [.topLeft, .topRight])
             .shadow(color: Color.sbbColor(.tabshadow), radius: 20, x: 0, y: 0)
             .mask(Rectangle().padding(.top, -50))
-            .edgesIgnoringSafeArea(.vertical)
         }
     }
     

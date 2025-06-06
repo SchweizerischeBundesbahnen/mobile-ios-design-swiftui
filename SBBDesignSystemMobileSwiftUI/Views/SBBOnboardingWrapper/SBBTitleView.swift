@@ -64,8 +64,14 @@ public struct SBBTitleView<ButtonView: View>: View {
                 }
                 
                 VStack(spacing: 16) {
+                    if sizeCategory.isAccessibilityCategory {
+                        Spacer()
+                    }
                     titleView
                     subtitleView
+                    if sizeCategory.isAccessibilityCategory {
+                        Spacer()
+                    }
                 }
                 .foregroundColor(.sbbColor(.white))
                 
