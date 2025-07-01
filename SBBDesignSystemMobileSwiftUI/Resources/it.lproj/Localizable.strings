@@ -35,6 +35,9 @@
 "OFF" = "Disattivato";
 
 // SBBOnboardingView
+"try" = "Prova";
+"next" = "Avanti";
+
 "back" = "indietro";
 "forward" = "avanti";
 "abort tour" = "Terminare il giro";
@@ -57,7 +60,7 @@
 "entries" = "voci";
 
 // SBBProcessFlow
-"Step %lld out of %lld" = "Passo %lld di %lld";
+"Step %lld out of %lld" = "Passo %lld di %lld.";
 
 // SBBProfile
 "You're logged in as:" = "Hai effettuato l'accesso come:";

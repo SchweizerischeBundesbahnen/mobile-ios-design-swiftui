@@ -31,8 +31,10 @@ struct OnboardingViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
     @State private var onboardingState: SBBOnboardingState = .hidden
+    @State private var overviewState: SBBOnboardingWrapperState = .hidden
     @State private var currentOnboardingCardIndex: Int = 0
     @State private var showingAlert = false
+    @State private var showTrySheet = false
     
     @ObservedObject private var viewModel = OnboardingViewDemoModel()
 
@@ -41,7 +43,7 @@ struct OnboardingViewDemo: View {
 
     var body: some View {
         Group {
-            if onboardingState == .hidden {
+            if onboardingState == .hidden && overviewState == .hidden {
                 VStack(spacing: 0) {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 16) {
@@ -65,15 +67,70 @@ struct OnboardingViewDemo: View {
                         Text("Show Onboarding View")
                     }
                         .buttonStyle(SBBPrimaryButtonStyle())
+                        .padding(.bottom, 8)
+                    Button(action: {
+                        self.currentOnboardingCardIndex = 0
+                        self.overviewState = .start
+                    }) {
+                        Text("Show new Onboarding")
+                    }
+                    .buttonStyle(SBBSecondaryButtonStyle())
                 }
                     .sbbScreenPadding()
                     .navigationBarTitle("Onboarding")
                     .sbbStyle()
-            } else {
+            } else if onboardingState != .hidden {
                 SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: startView, endView: endView, content: createCardViews)
                     .alert(isPresented: $showingAlert) {
                         Alert(title: Text("Custom Action"), message: Text("This alert is presented as a custom executable action on card disappear."), dismissButton: .default(Text("Got it!")))
                     }
+            } else {
+                SBBOnboardingWrapper(state: $overviewState, currentCard: $currentOnboardingCardIndex, currentCardIndex: $currentOnboardingCardIndex, nbCards: viewModel.numberOfCards, startView: {
+                    SBBTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"), subtitle: Text("Willkommen zum Rundgang."), buttonView: {
+                        Button(action: {
+                            withAnimation {
+                                overviewState = .cards
+                            }
+                        }) {
+                            Text("Start")
+                        }
+                        .buttonStyle(SBBPrimaryButtonStyle())
+                    })
+                }, endView: {
+                    SBBTitleView(image: Image("Onboarding_Gang"), title: Text("Gute Fahrt"), subtitle: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM."), buttonView: {
+                        Button(action: {
+                            withAnimation {
+                                overviewState = .hidden
+                            }
+                        }) {
+                            Text("End")
+                        }
+                        .buttonStyle(SBBPrimaryButtonStyle())
+                    })
+                }, cardBuilder: { card in
+                    if card % 2 == 1 {
+                        GeometryReader { geometry in
+                            createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton, geometry.size)
+                        }
+                    } else {
+                        GeometryReader { geometry in
+                        createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton, geometry.size)
+                        }
+                    }
+                })
+                .sheet(isPresented: $showTrySheet, content: {
+                    SBBModalView(title: Text("Funktion Ausprobieren"), isPresented: self.$showTrySheet) {
+                        VStack {
+                            Spacer()
+                            Text("Your content here")
+                            Spacer()
+                        }
+                    }
+                        .sbbStyle()
+                })
+                .alert(isPresented: $showingAlert) {
+                    Alert(title: Text("Custom Action"), message: Text("This alert is presented as a custom executable action on card disappear."), dismissButton: .default(Text("Got it!")))
+                }
             }
         }
              .colorScheme(colorScheme)
@@ -115,6 +172,69 @@ struct OnboardingViewDemo: View {
         }
         
         return cardViews
+    }
+    
+    @ViewBuilder
+    private func createCardView(_ card: Int, _ customCard: Bool, _ customAction: Bool, _ customButton: Bool, _ geometrySize: CGSize) -> some View {
+        if card == 0, customCard {
+            VStack {
+                Spacer()
+                Text("Custom card")
+                
+                Button(action: {
+                    currentOnboardingCardIndex += 1
+                    if card == viewModel.numberOfCards {
+                        overviewState = .end
+                    }
+                }) {
+                    Text("Weiter")
+                }
+                .buttonStyle(SBBSecondaryButtonStyle())
+                
+                if customButton {
+                    Button(action: {
+                        withAnimation {
+                            showTrySheet = true
+                        }
+                    }) {
+                        Text("Ausprobieren")
+                    }
+                    .buttonStyle(SBBPrimaryButtonStyle())
+                }
+                Spacer()
+            }
+            .sbbScreenPadding()
+            .transition(.backslide)
+            .onDisappear {
+                if customAction {
+                    showingAlert = true
+                }
+            }
+        } else if customButton {
+            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, showTrySheet: $showTrySheet, nextCard: card+1, onNext: { card in
+                currentOnboardingCardIndex += 1
+                if card == viewModel.numberOfCards {
+                    overviewState = .end
+                }
+            })
+            .onDisappear {
+                if card == 0 && customAction {
+                    showingAlert = true
+                }
+            }
+        } else {
+            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, nextCard: card+1, onNext: { card in
+                currentOnboardingCardIndex += 1
+                if card == viewModel.numberOfCards {
+                    overviewState = .end
+                }
+            })
+            .onDisappear {
+                if card == 0 && customAction {
+                    showingAlert = true
+                }
+            }
+        }
     }
 }
 

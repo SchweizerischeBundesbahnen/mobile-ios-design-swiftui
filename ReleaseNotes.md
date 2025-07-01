@@ -1,5 +1,25 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.3 - 1 July 2025
+### Features
+* New component:
+    * SBBSwitchItem to display a switch item (icon, title, toggle)
+    * SBBSwitchButtonStyle to make a switch use the new SBB style
+    * New onboarding:
+        * SBBCardView for a typical card view (step to showcase a feature)
+        * SBBTitleView for a typical title view (start or end view)
+        * SBBOnboardingWrapper to wrap the views with the new onboarding style
+    
+### Improvements
+* SBBTabView: double tap on selected tab can trigger an action
+* SBBMessage: background color can be changed
+* SBBModalView: title can have a line limit
+* SBBNotification: a notification can have a custom icon
+
+### Bugfix
+    * SBBLoadingIndicator: the view does not make the whole view move anymore
+    * SBBNotification: icon placement and overall layout
+
 ## v1.2.2 - 18 February 2025
 ### Features
 * New component:
@@ -7,10 +27,10 @@
 
 ### Improvements
 * SecondaryButtonStyle: added the option `sizeToFit`
-* SBBToast: bottom padding can be added
-* SBBNotification: added the option to have a 'more info' button but no title
+* SBBToast: bottom padding can be specified
+* SBBNotification: notification can have a 'more info' button but no title
 * SBBTextArea: placeholder font size can be chosen (small, medium or large)
-* SBBTextField: added the option `showIconBorder`
+* SBBTextField: new option `showIconBorder` to show or not the border of the icon (circle)
 * SBBMessage: the `text` of an SBBMessage is not restricted to `Text`, it can be any `View`.
 
 ### Bugfix
