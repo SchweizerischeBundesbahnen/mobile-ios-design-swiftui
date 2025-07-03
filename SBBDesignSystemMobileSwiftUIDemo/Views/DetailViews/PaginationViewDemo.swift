@@ -14,7 +14,7 @@ struct PaginationViewDemo: View {
     var body: some View {
         VStack(spacing: 16) {
             Spacer()
-            SBBPaginationView(currentPageIndex: $currentPageIndex, numberOfPages: numberOfPages)
+            SBBPaginationView(currentPageIndex: currentPageIndex, numberOfPages: numberOfPages)
             Spacer()
             SBBDivider()
             HStack {
