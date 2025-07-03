@@ -15,16 +15,13 @@ public struct SBBCardView<Card: Equatable>: View {
     private let onNext: (Card?) -> Void
     @Binding private var showTrySheet: Bool
     
-    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @Environment(\.verticalSizeClass) private var verticalSizeClass
-    @Environment(\.sizeCategory) private var sizeCategory
-    
     private let contentWidthLandscape: CGFloat?
     private let buttonWidthLandscape: CGFloat?
     
     private let scrollViewHeight: CGFloat?
     
-    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
+    @available(*, deprecated, message: "renamed to `SBBOnboardingWrapperCardView` for consistency. Parameter `nextCard` not needed anymore, `onNext` takes no parameter.")
+    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, nextCard: Card, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
         self.text = text
@@ -39,7 +36,8 @@ public struct SBBCardView<Card: Equatable>: View {
         self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
     }
     
-    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, nextCard: Card?, onNext: @escaping (Card?) -> Void) {
+    @available(*, deprecated, message: "renamed to `SBBOnboardingWrapperCardView` for consistency. Parameter `nextCard` not needed anymore, `onNext` takes no parameter.")
+    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, nextCard: Card, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
         self.text = text
@@ -47,6 +45,66 @@ public struct SBBCardView<Card: Equatable>: View {
         self.canBeTried = false
         self._showTrySheet = .constant(false)
         self.nextCard = nextCard
+        self.onNext = onNext
+        
+        self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
+        self.buttonWidthLandscape = size?.width != nil ? size!.width / 4 : nil
+        self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
+    }
+    
+    public var body: some View {
+        if canBeTried {
+            SBBOnboardingWrapperCardView(image: image, title: title, text: text, size: size, showTrySheet: $showTrySheet, onNext: {
+                onNext(nextCard)
+            })
+        } else {
+            SBBOnboardingWrapperCardView(image: image, title: title, text: text, size: size, onNext: {
+                onNext(nextCard)
+            })
+        }
+    }
+}
+
+public struct SBBOnboardingWrapperCardView: View {
+    
+    private let image: Image
+    private let title: Text
+    private let text: Text
+    private let size: CGSize?
+    private let canBeTried: Bool
+    private let onNext: () -> Void
+    @Binding private var showTrySheet: Bool
+    
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    @Environment(\.sizeCategory) private var sizeCategory
+    
+    private let contentWidthLandscape: CGFloat?
+    private let buttonWidthLandscape: CGFloat?
+    
+    private let scrollViewHeight: CGFloat?
+    
+    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, onNext: @escaping () -> Void) {
+        self.image = image
+        self.title = title
+        self.text = text
+        self.size = size
+        self.canBeTried = true
+        self._showTrySheet = showTrySheet
+        self.onNext = onNext
+        
+        self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
+        self.buttonWidthLandscape = size?.width != nil ? size!.width / 4 : nil
+        self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
+    }
+    
+    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, onNext: @escaping () -> Void) {
+        self.image = image
+        self.title = title
+        self.text = text
+        self.size = size
+        self.canBeTried = false
+        self._showTrySheet = .constant(false)
         self.onNext = onNext
         
         self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
@@ -74,7 +132,7 @@ public struct SBBCardView<Card: Equatable>: View {
     private var nextButton: some View {
         Button(action: {
             withAnimation {
-                onNext(nextCard)
+                onNext()
             }
             UIAccessibility.post(notification: .screenChanged, argument: nil)   // reset voiceover focus (to the current card)
         }) {
@@ -234,9 +292,9 @@ public struct SBBCardView<Card: Equatable>: View {
 }
 
 #Preview("Without try function") {
-    SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), nextCard: nil, onNext: { _ in })
+    SBBOnboardingWrapperCardView(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), onNext: { })
 }
 
 #Preview("With try function") {
-    SBBCardView<Int>(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), showTrySheet: .constant(false), nextCard: nil, onNext: { _ in })
+    SBBOnboardingWrapperCardView(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), showTrySheet: .constant(false), onNext: { })
 }

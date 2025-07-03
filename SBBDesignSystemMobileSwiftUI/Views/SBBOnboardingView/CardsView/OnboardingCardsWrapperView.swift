@@ -68,7 +68,7 @@ struct OnboardingCardsWrapperView: View {
                         .accessibility(identifier: "onboardingPreviousCardButton")
                         .accessibilitySortPriority(3)
                     Spacer()
-                    SBBPaginationView(currentPageIndex: $viewModel.currentCardIndex, numberOfPages: viewModel.cardViews.count)
+                    SBBPaginationView(currentPageIndex: viewModel.currentCardIndex, numberOfPages: viewModel.cardViews.count)
                         .accessibility(hidden: true)
                     Spacer()
                     nextButton

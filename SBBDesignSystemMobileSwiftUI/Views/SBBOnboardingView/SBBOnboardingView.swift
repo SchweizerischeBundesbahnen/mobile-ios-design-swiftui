@@ -25,6 +25,7 @@ import SwiftUI
  ![SBBOnboardingTitleView](SBBOnboardingTitleView)
  ![SBBOnboardingCardView](SBBOnboardingCardView)
  */
+@available(*, deprecated, message: "New Onboarding design: `SBBOnboardingWrapper`.")
 public struct SBBOnboardingView: View {
     
     @ObservedObject private var viewModel: OnboardingViewModel

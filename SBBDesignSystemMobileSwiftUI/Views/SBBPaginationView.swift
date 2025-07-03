@@ -21,7 +21,7 @@ import SwiftUI
 public struct SBBPaginationView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @Binding private var currentPageIndex: Int
+    private var currentPageIndex: Int
     private let numberOfPages: Int
     private let selectedDoubleSize: Bool
     
@@ -33,8 +33,15 @@ public struct SBBPaginationView: View {
         - numberOfPages: The total number of pages.
         - selectedDoubleSize: Whether the selected page point is double the size of the other.
      */
+    public init(currentPageIndex: Int, numberOfPages: Int, selectedDoubleSize: Bool = false) {
+        self.currentPageIndex = currentPageIndex
+        self.numberOfPages = numberOfPages
+        self.selectedDoubleSize = selectedDoubleSize
+    }
+    
+    @available(*, deprecated, message: "currentPageIndex is not a Binding anymore")
     public init(currentPageIndex: Binding<Int>, numberOfPages: Int, selectedDoubleSize: Bool = false) {
-        self._currentPageIndex = currentPageIndex
+        self.currentPageIndex = currentPageIndex.wrappedValue
         self.numberOfPages = numberOfPages
         self.selectedDoubleSize = selectedDoubleSize
     }
@@ -66,9 +73,9 @@ public struct SBBPaginationView: View {
 struct SBBPaginationView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBPaginationView(currentPageIndex: .constant(0), numberOfPages: 4)
+            SBBPaginationView(currentPageIndex: 0, numberOfPages: 4)
                 .previewDisplayName("light")
-            SBBPaginationView(currentPageIndex: .constant(2), numberOfPages: 4)
+            SBBPaginationView(currentPageIndex: 2, numberOfPages: 4)
                 .previewDisplayName("dark")
                 .environment(\.colorScheme, .dark)
         }

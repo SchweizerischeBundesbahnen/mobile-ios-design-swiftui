@@ -85,8 +85,8 @@ struct OnboardingViewDemo: View {
                         Alert(title: Text("Custom Action"), message: Text("This alert is presented as a custom executable action on card disappear."), dismissButton: .default(Text("Got it!")))
                     }
             } else {
-                SBBOnboardingWrapper(state: $overviewState, currentCard: $currentOnboardingCardIndex, currentCardIndex: $currentOnboardingCardIndex, nbCards: viewModel.numberOfCards, startView: {
-                    SBBTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"), subtitle: Text("Willkommen zum Rundgang."), buttonView: {
+                SBBOnboardingWrapper(state: overviewState, currentCard: currentOnboardingCardIndex, currentCardIndex: currentOnboardingCardIndex, nbCards: viewModel.numberOfCards, startView: {
+                    SBBOnboardingWrapperTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"), subtitle: Text("Willkommen zum Rundgang."), buttonView: {
                         Button(action: {
                             withAnimation {
                                 overviewState = .cards
@@ -97,7 +97,7 @@ struct OnboardingViewDemo: View {
                         .buttonStyle(SBBPrimaryButtonStyle())
                     })
                 }, endView: {
-                    SBBTitleView(image: Image("Onboarding_Gang"), title: Text("Gute Fahrt"), subtitle: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM."), buttonView: {
+                    SBBOnboardingWrapperTitleView(image: Image("Onboarding_Gang"), title: Text("Gute Fahrt"), subtitle: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM."), buttonView: {
                         Button(action: {
                             withAnimation {
                                 overviewState = .hidden
@@ -107,15 +107,11 @@ struct OnboardingViewDemo: View {
                         }
                         .buttonStyle(SBBPrimaryButtonStyle())
                     })
-                }, cardBuilder: { card in
+                }, cardBuilder: { card, geometrySize in
                     if card % 2 == 1 {
-                        GeometryReader { geometry in
-                            createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton, geometry.size)
-                        }
+                        createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton, geometrySize)
                     } else {
-                        GeometryReader { geometry in
-                        createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton, geometry.size)
-                        }
+                        createCardView(card, viewModel.withCustomCard, viewModel.withCustomAction, viewModel.withCustomButton, geometrySize)
                     }
                 })
                 .sheet(isPresented: $showTrySheet, content: {
@@ -135,8 +131,7 @@ struct OnboardingViewDemo: View {
         }
              .colorScheme(colorScheme)
     }
-    
-    
+
     
     private func createCardViews() -> [SBBOnboardingCardView] {
         let text = Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
@@ -183,7 +178,7 @@ struct OnboardingViewDemo: View {
                 
                 Button(action: {
                     currentOnboardingCardIndex += 1
-                    if card == viewModel.numberOfCards {
+                    if card == viewModel.numberOfCards - 1 {
                         overviewState = .end
                     }
                 }) {
@@ -204,16 +199,15 @@ struct OnboardingViewDemo: View {
                 Spacer()
             }
             .sbbScreenPadding()
-            .transition(.backslide)
             .onDisappear {
                 if customAction {
                     showingAlert = true
                 }
             }
         } else if customButton {
-            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, showTrySheet: $showTrySheet, nextCard: card+1, onNext: { card in
+            SBBOnboardingWrapperCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, showTrySheet: $showTrySheet, onNext: {
                 currentOnboardingCardIndex += 1
-                if card == viewModel.numberOfCards {
+                if card == viewModel.numberOfCards - 1 {
                     overviewState = .end
                 }
             })
@@ -223,9 +217,9 @@ struct OnboardingViewDemo: View {
                 }
             }
         } else {
-            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, nextCard: card+1, onNext: { card in
+            SBBOnboardingWrapperCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, onNext: {
                 currentOnboardingCardIndex += 1
-                if card == viewModel.numberOfCards {
+                if card == viewModel.numberOfCards - 1 {
                     overviewState = .end
                 }
             })
