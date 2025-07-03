@@ -2,8 +2,9 @@
 
 ## v1.2.4 - 3 July 2025
 ### Improvement 
-* SBBPagination: `currentPageIndex` is not a `Binding`, as it is never changed.
-* SBBCardView: `nextCard` attribute is removed, as it is not used. `onNext` does not take a `nextCard` attribute.
+* Breaking change: SBBPagination: `currentPageIndex` is not a `Binding`, as it is never changed.
+* SBBCardView has been renamed to `SBBOnboardingWrapperCardView`, `nextCard` attribute is removed, as it is not used, `onNext` does not take a `nextCard` attribute.
+* SBBTitleView has been renamed to `SBBOnboardingWrapperTitleView` for consistency.
 * SBBOnboardingWrapper: `GeometryReader` added for the card builder, so that we get the size from it. No `Binding` attributes anymore: no state management is done in the wrapper, it simply used to display the views.
 
 ## v1.2.3 - 1 July 2025

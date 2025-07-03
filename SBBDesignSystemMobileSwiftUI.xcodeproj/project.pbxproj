@@ -36,11 +36,12 @@
 		005ED7EB2DD2114900E31B3D /* SBBSwitchButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED7E92DD2114200E31B3D /* SBBSwitchButtonStyleTests.swift */; };
 		005ED7ED2DD2123900E31B3D /* SBBSwitchItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED7EC2DD2123500E31B3D /* SBBSwitchItemTests.swift */; };
 		005ED7EE2DD2123900E31B3D /* SBBSwitchItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005ED7EC2DD2123500E31B3D /* SBBSwitchItemTests.swift */; };
-		005EDCA92DD3499C00E31B3D /* SBBTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EDCA82DD3499200E31B3D /* SBBTitleView.swift */; };
-		005EDCAB2DD34A5A00E31B3D /* SBBCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EDCAA2DD34A5100E31B3D /* SBBCardView.swift */; };
+		005EDCA92DD3499C00E31B3D /* SBBOnboardingWrapperTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EDCA82DD3499200E31B3D /* SBBOnboardingWrapperTitleView.swift */; };
+		005EDCAB2DD34A5A00E31B3D /* SBBOnboardingWrapperCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EDCAA2DD34A5100E31B3D /* SBBOnboardingWrapperCardView.swift */; };
 		005EDCAD2DD34AFC00E31B3D /* Multiline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EDCAC2DD34AF500E31B3D /* Multiline.swift */; };
 		005EDCB12DD34DEC00E31B3D /* SBBOnboardingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EDCB02DD34DE800E31B3D /* SBBOnboardingWrapper.swift */; };
 		005EDCB32DD350BE00E31B3D /* Backslide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005EDCB22DD350BD00E31B3D /* Backslide.swift */; };
+		0077C64D2E16B83C003C585D /* SBBOnboardingWrapperSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077C64C2E16B837003C585D /* SBBOnboardingWrapperSettingsView.swift */; };
 		008317172D47B52800BB8074 /* SBBSegmentedPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609483274FB6B5001ABF67 /* SBBSegmentedPickerTests.swift */; };
 		008317182D47B52800BB8074 /* SBBStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60948D274FBC32001ABF67 /* SBBStyleTests.swift */; };
 		008317192D47B52800BB8074 /* SBBIconTextButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609497274FBFF4001ABF67 /* SBBIconTextButtonStyleTests.swift */; };
@@ -354,11 +355,12 @@
 		005ED58D2DD1D4AE00E31B3D /* SBBSwitchItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSwitchItem.swift; sourceTree = "<group>"; };
 		005ED7E92DD2114200E31B3D /* SBBSwitchButtonStyleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSwitchButtonStyleTests.swift; sourceTree = "<group>"; };
 		005ED7EC2DD2123500E31B3D /* SBBSwitchItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBSwitchItemTests.swift; sourceTree = "<group>"; };
-		005EDCA82DD3499200E31B3D /* SBBTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBTitleView.swift; sourceTree = "<group>"; };
-		005EDCAA2DD34A5100E31B3D /* SBBCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBCardView.swift; sourceTree = "<group>"; };
+		005EDCA82DD3499200E31B3D /* SBBOnboardingWrapperTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingWrapperTitleView.swift; sourceTree = "<group>"; };
+		005EDCAA2DD34A5100E31B3D /* SBBOnboardingWrapperCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingWrapperCardView.swift; sourceTree = "<group>"; };
 		005EDCAC2DD34AF500E31B3D /* Multiline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multiline.swift; sourceTree = "<group>"; };
 		005EDCB02DD34DE800E31B3D /* SBBOnboardingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingWrapper.swift; sourceTree = "<group>"; };
 		005EDCB22DD350BD00E31B3D /* Backslide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backslide.swift; sourceTree = "<group>"; };
+		0077C64C2E16B837003C585D /* SBBOnboardingWrapperSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingWrapperSettingsView.swift; sourceTree = "<group>"; };
 		0083174A2D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00B2BC892DDB575800B9D52A /* SBBOnboardingWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingWrapperTests.swift; sourceTree = "<group>"; };
 		00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessage.swift; sourceTree = "<group>"; };
@@ -669,8 +671,9 @@
 			children = (
 				002A02232DD35B8600681736 /* SBBOnboardingWrapperState.swift */,
 				005EDCB02DD34DE800E31B3D /* SBBOnboardingWrapper.swift */,
-				005EDCAA2DD34A5100E31B3D /* SBBCardView.swift */,
-				005EDCA82DD3499200E31B3D /* SBBTitleView.swift */,
+				005EDCAA2DD34A5100E31B3D /* SBBOnboardingWrapperCardView.swift */,
+				005EDCA82DD3499200E31B3D /* SBBOnboardingWrapperTitleView.swift */,
+				0077C64C2E16B837003C585D /* SBBOnboardingWrapperSettingsView.swift */,
 			);
 			path = SBBOnboardingWrapper;
 			sourceTree = "<group>";
@@ -1518,7 +1521,7 @@
 				2D5B275D29C99D1800B3CC88 /* SBBIconsHelper.swift in Sources */,
 				7C28871E24BF2B1200EDBD27 /* FakeSBBOnboardingTitleViews.swift in Sources */,
 				7C2DFE3C25B5BF7900030342 /* SBBDialogue.swift in Sources */,
-				005EDCAB2DD34A5A00E31B3D /* SBBCardView.swift in Sources */,
+				005EDCAB2DD34A5A00E31B3D /* SBBOnboardingWrapperCardView.swift in Sources */,
 				7C595E5325A5FBCE0015B0FC /* SBBRadioButton.swift in Sources */,
 				003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */,
 				00D0962D2A6AB85F009E02B1 /* SBBPickerHelper.swift in Sources */,
@@ -1533,6 +1536,7 @@
 				7CBA441224BDAD3C0078E68F /* SBBOnboardingView.swift in Sources */,
 				005DC8D2279AAB49009C5CEA /* TabLabelView.swift in Sources */,
 				7CAF977825B875B3002260AE /* ToastContainerView.swift in Sources */,
+				0077C64D2E16B83C003C585D /* SBBOnboardingWrapperSettingsView.swift in Sources */,
 				7CAF977D25B87653002260AE /* SBBToastService.swift in Sources */,
 				7CB2CEB225C19AD600756D9B /* SBBMapMarker.swift in Sources */,
 				00FB819B278ED67F00F07D30 /* TabBarEntryViewModifier.swift in Sources */,
@@ -1555,7 +1559,7 @@
 				005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */,
 				7CAC69FA25CAE73F003CF54E /* ViewSizeKey.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
-				005EDCA92DD3499C00E31B3D /* SBBTitleView.swift in Sources */,
+				005EDCA92DD3499C00E31B3D /* SBBOnboardingWrapperTitleView.swift in Sources */,
 				00D096262A6A5987009E02B1 /* SBBDatePicker.swift in Sources */,
 				00D096332A711266009E02B1 /* DateExtension.swift in Sources */,
 				7C28871824BF1FB400EDBD27 /* CornerRadius.swift in Sources */,

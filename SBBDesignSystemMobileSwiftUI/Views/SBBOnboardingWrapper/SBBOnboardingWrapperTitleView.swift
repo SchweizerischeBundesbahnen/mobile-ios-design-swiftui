@@ -4,7 +4,31 @@
 
 import SwiftUI
 
+@available(*, deprecated, message: "renamed to `SBBOnboardingWrapperTitleView` for consistency.")
 public struct SBBTitleView<ButtonView: View>: View {
+    
+    private let image: Image
+    private let title: Text
+    private let subtitle: Text?
+    private let titleLineLimit: Int
+    private let subtitleLineLimit: Int
+    private let buttonView: () -> ButtonView
+    
+    public init(image: Image, title: Text, subtitle: Text? = nil, titleLineLimit: Int = 3, subtitleLineLimit: Int = 5, @ViewBuilder buttonView: @escaping () -> ButtonView) {
+        self.image = image
+        self.title = title
+        self.subtitle = subtitle
+        self.titleLineLimit = titleLineLimit
+        self.subtitleLineLimit = subtitleLineLimit
+        self.buttonView = buttonView
+    }
+    
+    public var body: some View {
+        SBBOnboardingWrapperTitleView(image: image, title: title, subtitle: subtitle, titleLineLimit: titleLineLimit, subtitleLineLimit: subtitleLineLimit, buttonView: buttonView)
+    }
+}
+
+public struct SBBOnboardingWrapperTitleView<ButtonView: View>: View {
         
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
@@ -143,7 +167,7 @@ public struct SBBTitleView<ButtonView: View>: View {
 }
 
 #Preview {
-    SBBTitleView(image: Image("Onboarding_Luc", bundle: Helper.bundle), title: Text("Welcome!"), subtitle: Text("Welcome to your app tour."), buttonView: {
+    SBBOnboardingWrapperTitleView(image: Image("Onboarding_Luc", bundle: Helper.bundle), title: Text("Welcome!"), subtitle: Text("Welcome to your app tour."), buttonView: {
         Button(action: {}) {
             Text("Start")
         }.buttonStyle(SBBPrimaryButtonStyle())

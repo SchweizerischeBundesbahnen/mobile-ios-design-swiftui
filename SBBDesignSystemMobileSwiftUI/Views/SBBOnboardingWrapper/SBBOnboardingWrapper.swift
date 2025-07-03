@@ -68,11 +68,11 @@ public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: V
         - currentCard: The current card of the process. Typically a case from an enum.
         - currentCardIndex: The current card index of the process.
         - nbCars: The number of cards.
-        - startView: (optional) The view used as a welcome screen.
-        - restartView: (optional) The view used when looking at the overview again.
-        - updateView: (optional) The view used when a new feature is added.
-        - settingsView: (optional) The view to display settings if any.
-        - endView: (optional) The view used as a final screen.
+        - startView: (optional) The view used as a welcome screen. Typically `SBBTitleView`.
+        - restartView: (optional) The view used when looking at the onboarding again.
+        - updateView: (optional) The view used when a new feature is added. Typically `SBBTitleView`.
+        - settingsView: (optional) The view to display settings if any. Typically `SBBOnboardingSettingsView`.
+        - endView: (optional) The view used as a final screen. Typically `SBBTitleView`.
         - cardBuilder: The view builder to create the cards from `currentCard`.
      */
     public init(state: SBBOnboardingWrapperState, currentCard: Card, currentCardIndex: Int, nbCards: Int, @ViewBuilder startView: () -> StartView = { EmptyView() }, @ViewBuilder restartView: () -> RestartView = { EmptyView() }, @ViewBuilder updateView: () -> UpdateView = { EmptyView() }, @ViewBuilder settingsView: () -> SettingsView = { EmptyView() }, @ViewBuilder endView: () -> EndView = { EmptyView() }, @ViewBuilder cardBuilder: @escaping (Card, CGSize) -> CardView) {
@@ -174,7 +174,7 @@ public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: V
 
 #Preview {
     SBBOnboardingWrapper(state: .start, currentCard: 1, currentCardIndex: 1, nbCards: 1, startView: {
-        SBBTitleView(image: Image("Onboarding_Luc", bundle: Helper.bundle), title: Text("Welcome!"), subtitle: Text("Welcome to your app tour."), buttonView: {
+        SBBOnboardingWrapperTitleView(image: Image("Onboarding_Luc", bundle: Helper.bundle), title: Text("Welcome!"), subtitle: Text("Welcome to your app tour."), buttonView: {
             Button(action: {}) {
                 Text("Start")
             }.buttonStyle(SBBPrimaryButtonStyle())

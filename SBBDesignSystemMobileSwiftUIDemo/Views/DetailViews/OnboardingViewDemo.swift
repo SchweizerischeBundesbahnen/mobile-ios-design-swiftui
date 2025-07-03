@@ -86,7 +86,7 @@ struct OnboardingViewDemo: View {
                     }
             } else {
                 SBBOnboardingWrapper(state: overviewState, currentCard: currentOnboardingCardIndex, currentCardIndex: currentOnboardingCardIndex, nbCards: viewModel.numberOfCards, startView: {
-                    SBBTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"), subtitle: Text("Willkommen zum Rundgang."), buttonView: {
+                    SBBOnboardingWrapperTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"), subtitle: Text("Willkommen zum Rundgang."), buttonView: {
                         Button(action: {
                             withAnimation {
                                 overviewState = .cards
@@ -97,7 +97,7 @@ struct OnboardingViewDemo: View {
                         .buttonStyle(SBBPrimaryButtonStyle())
                     })
                 }, endView: {
-                    SBBTitleView(image: Image("Onboarding_Gang"), title: Text("Gute Fahrt"), subtitle: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM."), buttonView: {
+                    SBBOnboardingWrapperTitleView(image: Image("Onboarding_Gang"), title: Text("Gute Fahrt"), subtitle: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM."), buttonView: {
                         Button(action: {
                             withAnimation {
                                 overviewState = .hidden
@@ -205,7 +205,7 @@ struct OnboardingViewDemo: View {
                 }
             }
         } else if customButton {
-            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, showTrySheet: $showTrySheet, onNext: {
+            SBBOnboardingWrapperCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, showTrySheet: $showTrySheet, onNext: {
                 currentOnboardingCardIndex += 1
                 if card == viewModel.numberOfCards - 1 {
                     overviewState = .end
@@ -217,7 +217,7 @@ struct OnboardingViewDemo: View {
                 }
             }
         } else {
-            SBBCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, onNext: {
+            SBBOnboardingWrapperCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, onNext: {
                 currentOnboardingCardIndex += 1
                 if card == viewModel.numberOfCards - 1 {
                     overviewState = .end
