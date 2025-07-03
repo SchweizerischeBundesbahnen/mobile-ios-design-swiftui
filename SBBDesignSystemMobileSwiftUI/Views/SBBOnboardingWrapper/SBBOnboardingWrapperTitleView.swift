@@ -4,7 +4,6 @@
 
 import SwiftUI
 
-@available(*, deprecated, message: "renamed to `SBBOnboardingWrapperTitleView` for consistency.")
 public struct SBBTitleView<ButtonView: View>: View {
     
     private let image: Image
@@ -14,6 +13,7 @@ public struct SBBTitleView<ButtonView: View>: View {
     private let subtitleLineLimit: Int
     private let buttonView: () -> ButtonView
     
+    @available(*, deprecated, message: "renamed to `SBBOnboardingWrapperTitleView` for consistency.")
     public init(image: Image, title: Text, subtitle: Text? = nil, titleLineLimit: Int = 3, subtitleLineLimit: Int = 5, @ViewBuilder buttonView: @escaping () -> ButtonView) {
         self.image = image
         self.title = title

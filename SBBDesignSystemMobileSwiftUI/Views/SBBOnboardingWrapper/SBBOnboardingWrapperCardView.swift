@@ -4,7 +4,6 @@
 
 import SwiftUI
 
-@available(*, deprecated, message: "renamed to `SBBOnboardingWrapperCardView` for consistency. Parameter `nextCard` not needed anymore, `onNext` takes no parameter.")
 public struct SBBCardView<Card: Equatable>: View {
     
     private let image: Image
@@ -21,6 +20,7 @@ public struct SBBCardView<Card: Equatable>: View {
     
     private let scrollViewHeight: CGFloat?
     
+    @available(*, deprecated, message: "renamed to `SBBOnboardingWrapperCardView` for consistency. Parameter `nextCard` not needed anymore, `onNext` takes no parameter.")
     public init(image: Image, title: Text, text: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, nextCard: Card, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
@@ -36,6 +36,7 @@ public struct SBBCardView<Card: Equatable>: View {
         self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
     }
     
+    @available(*, deprecated, message: "renamed to `SBBOnboardingWrapperCardView` for consistency. Parameter `nextCard` not needed anymore, `onNext` takes no parameter.")
     public init(image: Image, title: Text, text: Text, size: CGSize? = nil, nextCard: Card, onNext: @escaping (Card?) -> Void) {
         self.image = image
         self.title = title
