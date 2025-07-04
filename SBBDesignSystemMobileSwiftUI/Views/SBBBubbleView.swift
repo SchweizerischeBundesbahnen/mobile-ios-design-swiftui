@@ -16,7 +16,7 @@ public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleCon
         - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
         - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
      */
-    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true) {
+    init(image: Image?, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true) {
         self.image = image
         self.title = title
         self.titleAccessibility = titleAccessibility
@@ -44,7 +44,7 @@ public extension SBBBubbleView where FixedContent == EmptyView, SubtitleContent 
         - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - expandableContent: The custom View which can be collapsed.
      */
-    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent) {
+    init(image: Image?, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent) {
         self.image = image
         self.title = title
         self.titleAccessibility = titleAccessibility
@@ -70,7 +70,7 @@ public extension SBBBubbleView where ExpandableContent == EmptyView {
         - subtitleContent: The custom View shown below the subtitle
         - fixedContent: The custom View shown below the icon and subtitle.
      */
-    init(image: Image, title: Text, titleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder subtitleContent: @escaping () -> SubtitleContent, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
+    init(image: Image?, title: Text, titleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder subtitleContent: @escaping () -> SubtitleContent, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
         self.image = image
         self.title = title
         self.titleAccessibility = titleAccessibility
@@ -98,7 +98,7 @@ public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleCon
         - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - fixedContent: The custom View shown below the icon and subtitle.
      */
-    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
+    init(image: Image?, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
         self.image = image
         self.title = title
         self.titleAccessibility = titleAccessibility
@@ -127,7 +127,7 @@ public extension SBBBubbleView where SubtitleContent == EmptyView {
         - expandableContent: The custom View which can be collapsed.
         - fixedContent: The custom View shown below the icon and subtitle.
      */
-    init(image: Image, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
+    init(image: Image?, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, expanded: Binding<Bool>, extendNavigationBarBackground: Bool = true, @ViewBuilder expandableContent: @escaping () -> ExpandableContent, @ViewBuilder fixedContent: @escaping () -> FixedContent) {
         self.image = image
         self.title = title
         self.titleAccessibility = titleAccessibility
@@ -162,7 +162,7 @@ public extension SBBBubbleView where SubtitleContent == EmptyView {
  */
 public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: View where ExpandableContent: View, SubtitleContent: View, FixedContent: View {
     
-    private let image: Image
+    private let image: Image?
     private let title: Text
     private let titleAccessibility: Text?
     private let subtitle: Text?
@@ -189,7 +189,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                     VStack(alignment: .leading, spacing: 8) {
                         VStack(alignment: .leading, spacing: 0) {
                             HStack(alignment: .top) {
-                                if !sizeCategory.isAccessibilityCategory {
+                                if let image, !sizeCategory.isAccessibilityCategory {
                                     image
                                         .frame(width: 36, height: 36, alignment: .center)
                                         .accessibility(hidden: true)
@@ -198,9 +198,10 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                                     VStack(alignment: .leading, spacing: 0) {
                                         title
                                             .sbbFont(.medium_bold)
-                                            .frame(maxWidth: .infinity, minHeight: 36, alignment: .leading)
+                                            .frame(maxWidth: .infinity, minHeight: image != nil ? 36 : 0, alignment: .leading)
                                             .fixedSize(horizontal: false, vertical: true)
                                             .accessibility(label: self.titleAccessibility ?? self.title)
+                                            .padding(.bottom, image != nil ? 0 : 8)
                                         if let subtitle = subtitle {
                                             subtitle
                                                 .sbbFont(.medium_light)
