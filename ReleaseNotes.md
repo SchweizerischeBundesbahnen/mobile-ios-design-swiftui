@@ -1,5 +1,12 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.5 - TBD
+### Improvement
+* SBBBubbleView: `image` can be nil.
+
+### Bugfix
+* SBBFooterBox: padding at the bottom is now smaller - was too big.
+
 ## v1.2.4 - 3 July 2025
 ### Improvement 
 * Breaking change: SBBPagination: `currentPageIndex` is not a `Binding`, as it is never changed.
