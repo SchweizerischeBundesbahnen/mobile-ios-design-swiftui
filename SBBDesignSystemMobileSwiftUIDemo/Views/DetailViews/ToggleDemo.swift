@@ -70,12 +70,15 @@ struct ToggleDemo: View {
                 
                 VStack(spacing: 0) {
                     SBBSwitchItem(isOn: $toggle5, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), showTopLine: true, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
+                    SBBSwitchItem(isOn: $toggle5, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), footnote: Text("Footnote"), showTopLine: true, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
+                    
                     SBBSwitchItem(isOn: $toggle2, label: Text("Label on disabled"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
                         .disabled(true)
                     SBBSwitchItem(isOn: $toggle6, label: Text("Label error"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), errorMessage: errorMessage1, errorCode: errorCode1, actionOnEnable: returnFalseAfterDelay1, actionOnDisable: returnFalseAfterDelay1)
                 }
                 
                 SBBSwitchItem(isOn: $toggle7, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), type: .standalone, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
+                SBBSwitchItem(isOn: $toggle7, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), footnote: Text("Footnote"), type: .standalone, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
                 SBBSwitchItem(isOn: $toggle2, label: Text("Label off disabled"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), type: .standalone, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
                     .disabled(true)
                 SBBSwitchItem(isOn: $toggle8, label: Text("Label error"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), type: .standalone, errorMessage: errorMessage2, errorCode: errorCode2, actionOnEnable: returnFalseAfterDelay2, actionOnDisable: returnFalseAfterDelay2)
