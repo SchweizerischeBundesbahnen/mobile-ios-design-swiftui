@@ -4,7 +4,62 @@
 
 import SwiftUI
 
-public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleContent == EmptyView, FixedContent == EmptyView {
+public extension SBBBubbleView where ExpandableContent == EmptyView, FixedContent == EmptyView, SubtitleContent == EmptyView {
+    /**
+     Returns a SBBBubbleView with custom content below the icon and subtitle.
+     
+     - Parameters:
+        - image: The Image to display on the top leading edge (typically a SBB Icon).
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - subtitle: The Text to display as subtitle.
+        - subtitleAccessibility: The optional alternative text for the subtitle's VoiceOver.
+        - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - rightContent: The custom View shown on the right.
+     */
+    init(image: Image?, title: Text, titleAccessibility: Text? = nil, subtitle: Text? = nil, subtitleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder rightContent: @escaping () -> RightContent) {
+        self.image = image
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = subtitle
+        self.subtitleAccessibility = subtitleAccessibility
+        self._expanded = .constant(false)
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+        self.expandableContent = nil
+        self.subtitleContent = nil
+        self.fixedContent = nil
+        self.rightContent = rightContent()
+    }
+}
+
+public extension SBBBubbleView where ExpandableContent == EmptyView, FixedContent == EmptyView {
+    /**
+     Returns a SBBBubbleView with custom content below the icon and subtitle.
+     
+     - Parameters:
+        - image: The Image to display on the top leading edge (typically a SBB Icon).
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - subtitleContent: The custom View shown below the subtitle
+        - rightContent: The custom View shown on the right.
+     */
+    init(image: Image?, title: Text, titleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder subtitleContent: @escaping () -> SubtitleContent, @ViewBuilder rightContent: @escaping () -> RightContent) {
+        self.image = image
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = nil
+        self.subtitleAccessibility = nil
+        self._expanded = .constant(false)
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+        self.expandableContent = nil
+        self.subtitleContent = subtitleContent()
+        self.fixedContent = nil
+        self.rightContent = rightContent()
+    }
+}
+
+public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleContent == EmptyView, FixedContent == EmptyView, RightContent == EmptyView {
     /**
      Returns a SBBBubbleView.
      
@@ -27,10 +82,11 @@ public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleCon
         self.expandableContent = nil
         self.subtitleContent = nil
         self.fixedContent = nil
+        self.rightContent = nil
     }
 }
 
-public extension SBBBubbleView where FixedContent == EmptyView, SubtitleContent == EmptyView {
+public extension SBBBubbleView where FixedContent == EmptyView, SubtitleContent == EmptyView, RightContent == EmptyView {
     /**
      Returns a SBBBubbleView with expandable custom content.
      
@@ -55,10 +111,11 @@ public extension SBBBubbleView where FixedContent == EmptyView, SubtitleContent 
         self.expandableContent = expandableContent()
         self.subtitleContent = nil
         self.fixedContent = nil
+        self.rightContent = nil
     }
 }
 
-public extension SBBBubbleView where ExpandableContent == EmptyView {
+public extension SBBBubbleView where ExpandableContent == EmptyView, RightContent == EmptyView {
     /**
      Returns a SBBBubbleView with custom content below the  icon and subtitle.
      
@@ -81,10 +138,37 @@ public extension SBBBubbleView where ExpandableContent == EmptyView {
         self.expandableContent = nil
         self.subtitleContent = subtitleContent()
         self.fixedContent = fixedContent()
+        self.rightContent = nil
     }
 }
 
-public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleContent == EmptyView {
+public extension SBBBubbleView where ExpandableContent == EmptyView, FixedContent == EmptyView, RightContent == EmptyView {
+    /**
+     Returns a SBBBubbleView with custom content below the icon and subtitle.
+     
+     - Parameters:
+        - image: The Image to display on the top leading edge (typically a SBB Icon).
+        - title: The Text to display as title.
+        - titleAccessibility: The optional alternative text for the title's VoiceOver.
+        - extendNavigationBarBackground: Flag indicating whether the BubbleView is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - subtitleContent: The custom View shown below the subtitle
+     */
+    init(image: Image?, title: Text, titleAccessibility: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder subtitleContent: @escaping () -> SubtitleContent) {
+        self.image = image
+        self.title = title
+        self.titleAccessibility = titleAccessibility
+        self.subtitle = nil
+        self.subtitleAccessibility = nil
+        self._expanded = .constant(false)
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+        self.expandableContent = nil
+        self.subtitleContent = subtitleContent()
+        self.fixedContent = nil
+        self.rightContent = nil
+    }
+}
+
+public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleContent == EmptyView, RightContent == EmptyView {
     /**
      Returns a SBBBubbleView with custom content below the  icon and subtitle.
      
@@ -109,10 +193,11 @@ public extension SBBBubbleView where ExpandableContent == EmptyView, SubtitleCon
         self.expandableContent = nil
         self.subtitleContent = nil
         self.fixedContent = fixedContent()
+        self.rightContent = nil
     }
 }
 
-public extension SBBBubbleView where SubtitleContent == EmptyView {
+public extension SBBBubbleView where SubtitleContent == EmptyView, RightContent == EmptyView {
     /**
      Returns a SBBBubbleView with collapsible content and custom content below the icon and subtitle.
      
@@ -138,6 +223,7 @@ public extension SBBBubbleView where SubtitleContent == EmptyView {
         self.expandableContent = expandableContent()
         self.subtitleContent = nil
         self.fixedContent = fixedContent()
+        self.rightContent = nil
     }
 }
 
@@ -160,7 +246,7 @@ public extension SBBBubbleView where SubtitleContent == EmptyView {
  ```
  ![SBBBubbleView](SBBBubbleView)
  */
-public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: View where ExpandableContent: View, SubtitleContent: View, FixedContent: View {
+public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent, RightContent>: View where ExpandableContent: View, SubtitleContent: View, FixedContent: View, RightContent: View {
     
     private let image: Image?
     private let title: Text
@@ -172,6 +258,7 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
     private let expandableContent: ExpandableContent?
     private let subtitleContent: SubtitleContent?
     private let fixedContent: FixedContent?
+    private let rightContent: RightContent?
     
     @Environment(\.sizeCategory) var sizeCategory
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -222,6 +309,11 @@ public struct SBBBubbleView<ExpandableContent, SubtitleContent, FixedContent>: V
                                         fixedContent
                                     }
                                     Spacer()
+                                    
+                                    if let rightContent {
+                                        rightContent
+                                    }
+                                    
                                     if (expandableContent != nil) {
                                         Group {
                                             Image(sbbIcon: .chevron_small_up_small)

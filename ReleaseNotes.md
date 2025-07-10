@@ -2,7 +2,8 @@
 
 ## v1.2.5 - TBD
 ### Improvement
-* SBBBubbleView: `image` can be nil.
+* SBBBubbleView: `image` can be nil. `rightContent` can be added - displayed on the right of the bubble view.
+* SBBSwitchItem: can have a `footnote` that is displayed below the label.
 
 ### Bugfix
 * SBBFooterBox: padding at the bottom is now smaller - was too big.
