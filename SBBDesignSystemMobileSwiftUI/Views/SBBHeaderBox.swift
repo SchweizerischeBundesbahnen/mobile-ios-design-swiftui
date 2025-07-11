@@ -237,45 +237,47 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                 }
                 
                 backgroundView
-                ZStack(alignment: .bottom) {
-                    VStack(spacing: 0) {
+                
+                VStack(spacing: 0) {
+                    ZStack(alignment: .bottom) {
                         content
                             .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
                             .padding(16)
-                            .background(Color.sbbColor(.viewBackground))
-                            .cornerRadius(16)
-                            .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
-                            .viewHeight($contentHeight)
                         
-                        if let additionalContent = additionalContent {
-                            additionalContent
-                                .frame(maxWidth: .infinity, minHeight: 20, alignment: .leading)
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 8)
-                                .viewHeight($additionalContentHeight)
+                        if isLoading {
+                            GeometryReader { geometry in
+                                Rectangle()
+                                    .fill(
+                                        LinearGradient(
+                                            gradient: Gradient(colors: [Color.clear, Color.sbbColor(.primary)]),
+                                            startPoint: .leading,
+                                            endPoint: .trailing
+                                        )
+                                    )
+                                    .frame(width: 64, height: 2)
+                                    .offset(x: offsetX, y: geometry.size.height / 2)
+                                    .onAppear {
+                                        offsetX = 0
+                                        withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
+                                            self.offsetX = geometry.size.width
+                                        }
+                                    }
+                            }
+                            .frame(height: 2)
+                            .accessibilityHidden(true)
                         }
                     }
-                    if isLoading {
-                        GeometryReader { geometry in
-                            Rectangle()
-                                .fill(
-                                    LinearGradient(
-                                        gradient: Gradient(colors: [Color.clear, Color.sbbColor(.primary)]),
-                                        startPoint: .leading,
-                                        endPoint: .trailing
-                                    )
-                                )
-                                .frame(width: 64, height: 2)
-                                .offset(x: offsetX, y: geometry.size.height / 2)
-                                .onAppear {
-                                    offsetX = 0
-                                    withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
-                                        self.offsetX = geometry.size.width
-                                    }
-                                }
-                        }
-                        .frame(height: 2)
-                        .accessibilityHidden(true)
+                    .background(Color.sbbColor(.viewBackground))
+                    .cornerRadius(16)
+                    .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
+                    .viewHeight($contentHeight)
+                    
+                    if let additionalContent = additionalContent {
+                        additionalContent
+                            .frame(maxWidth: .infinity, minHeight: 20, alignment: .leading)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .viewHeight($additionalContentHeight)
                     }
                 }
                 .background(additionalContentBackgroundColor != nil ? additionalContentBackgroundColor! : Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
