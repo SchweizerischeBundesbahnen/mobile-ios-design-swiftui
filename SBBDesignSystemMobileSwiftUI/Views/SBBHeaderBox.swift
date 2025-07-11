@@ -18,6 +18,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
         self.pageContent = nil
+        self.pageContentScrollable = false
         self.extendNavigationBarBackground = extendNavigationBarBackground
     }
 }
@@ -37,6 +38,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, PageContent
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
         self.pageContent = nil
+        self.pageContentScrollable = false
         self.extendNavigationBarBackground = extendNavigationBarBackground
     }
 }
@@ -49,13 +51,15 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
         - content: The View to display in the Header.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
+        - pageContentScrollable: Whether the page content is scrollable, default true.
      */
-    init(@ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
+    init(@ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
         self.content = content()
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
         self.pageContent = pageContent()
+        self.pageContentScrollable = pageContentScrollable
         self.extendNavigationBarBackground = extendNavigationBarBackground
     }
 }
@@ -69,13 +73,15 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
         - additionalContent: The View to display as additional content.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
+        - pageContentScrollable: Whether the page content is scrollable, default true.
      */
-    init(@ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
+    init(@ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
         self.pageContent = pageContent()
+        self.pageContentScrollable = pageContentScrollable
         self.extendNavigationBarBackground = extendNavigationBarBackground
     }
 }
@@ -111,6 +117,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     private let additionalContentBackgroundColor: Color?
     private let collapsibleContent: CollapsibleContent?
     private let pageContent: PageContent?
+    private let pageContentScrollable: Bool
     private let extendNavigationBarBackground: Bool
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
@@ -129,14 +136,16 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
         - additionalContent: The View to display as additional content.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
+        - pageContentScrollable: Whether the page content is scrollable, default true.
      */
-    init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
+    init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = collapsibleContent()
         self.pageContent = pageContent()
         self.extendNavigationBarBackground = extendNavigationBarBackground
+        self.pageContentScrollable = pageContentScrollable
     }
     
     @ViewBuilder
@@ -161,9 +170,9 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     }
     
     public var body: some View {
-        GeometryReader { parentGeometry in
-            ZStack(alignment: .top) {
-                if let collapsibleContent {
+        ZStack(alignment: .top) {
+            if let collapsibleContent {
+                GeometryReader { parentGeometry in
                     ScrollView {
                         ScrollViewReader { proxy in
                             VStack(spacing: 0) {
@@ -190,44 +199,52 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                             }
                         }
                     }
-                    
-                    backgroundView
-                    contentView
-                        .viewHeight($contentHeight)
-                } else {
-                    if let pageContent {
+                }
+                
+                backgroundView
+                contentView
+                    .viewHeight($contentHeight)
+            } else {
+                if let pageContent {
+                    if pageContentScrollable {
                         ScrollView {
                             Spacer()
                                 .frame(height: contentHeight + (additionalContent != nil ? additionalContentHeight : 0))
                             pageContent
                         }
-                    }
-                    
-                    backgroundView
-                    VStack(spacing: 0) {
-                        content
-                            .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
-                            .padding(16)
-                            .background(Color.sbbColor(.viewBackground))
-                            .cornerRadius(16)
-                            .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
-                            .viewHeight($contentHeight)
-                        
-                        if let additionalContent = additionalContent {
-                            additionalContent
-                                .frame(maxWidth: .infinity, minHeight: 20, alignment: .leading)
-                                .padding(.horizontal, 16)
-                                .padding(.vertical, 8)
-                                .viewHeight($additionalContentHeight)
+                    } else {
+                        VStack(spacing: 0) {
+                            Spacer()
+                                .frame(height: contentHeight + (additionalContent != nil ? additionalContentHeight : 0))
+                            pageContent
                         }
                     }
-                    .background(additionalContentBackgroundColor != nil ? additionalContentBackgroundColor! : Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
-                    .cornerRadius(16)
-                    .shadow(color: Color.sbbColor(.tabshadow), radius: additionalContent == nil ? 8 : 0)
-                    .sbbScreenPadding(.horizontal)
                 }
                 
+                backgroundView
+                VStack(spacing: 0) {
+                    content
+                        .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
+                        .padding(16)
+                        .background(Color.sbbColor(.viewBackground))
+                        .cornerRadius(16)
+                        .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
+                        .viewHeight($contentHeight)
+                    
+                    if let additionalContent = additionalContent {
+                        additionalContent
+                            .frame(maxWidth: .infinity, minHeight: 20, alignment: .leading)
+                            .padding(.horizontal, 16)
+                            .padding(.vertical, 8)
+                            .viewHeight($additionalContentHeight)
+                    }
+                }
+                .background(additionalContentBackgroundColor != nil ? additionalContentBackgroundColor! : Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
+                .cornerRadius(16)
+                .shadow(color: Color.sbbColor(.tabshadow), radius: additionalContent == nil ? 8 : 0)
+                .sbbScreenPadding(.horizontal)
             }
+            
         }
     }
     
@@ -336,7 +353,7 @@ struct SBBHeaderBox_Previews: PreviewProvider {
                     Image(sbbIcon: .circle_information_small)
                 }
             }, extendNavigationBarBackground: true)
-                .previewDisplayName("With extended background")
+            .previewDisplayName("With extended background")
             SBBHeaderBox(content: {
                 Rectangle()
                     .foregroundColor(.purple)
@@ -349,19 +366,19 @@ struct SBBHeaderBox_Previews: PreviewProvider {
                     Image(sbbIcon: .circle_information_small)
                 }
             }, extendNavigationBarBackground: false)
-                .previewDisplayName("Without extended background")
+            .previewDisplayName("Without extended background")
             SBBHeaderBox(content: {
                 Rectangle()
                     .foregroundColor(.purple)
                     .frame(height: 24)
             }, extendNavigationBarBackground: true)
-                .previewDisplayName("Without additional info, with extended background")
+            .previewDisplayName("Without additional info, with extended background")
             SBBHeaderBox(content: {
                 Rectangle()
                     .foregroundColor(.purple)
                     .frame(height: 24)
             }, extendNavigationBarBackground: false)
-                .previewDisplayName("Without additional info, without extended background")
+            .previewDisplayName("Without additional info, without extended background")
         }
         .previewLayout(.sizeThatFits)
     }

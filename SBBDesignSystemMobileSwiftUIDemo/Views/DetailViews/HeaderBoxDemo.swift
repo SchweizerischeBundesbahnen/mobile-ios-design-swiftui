@@ -141,9 +141,9 @@ struct HeaderBoxDemo: View {
     var body: some View {
         VStack(spacing: 16) {
             if selectedAdditionalContent == .none {
-                SBBHeaderBox(content: { contentView }, extendNavigationBarBackground: true, pageContent: { settingsView })
+                SBBHeaderBox(content: { contentView }, extendNavigationBarBackground: true, pageContent: { settingsView }, pageContentScrollable: selectedSettings != 0)
             } else {
-                SBBHeaderBox(content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true) { settingsView }
+                SBBHeaderBox(content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: { settingsView }, pageContentScrollable: selectedSettings != 0)
             }
             
             Spacer()
