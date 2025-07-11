@@ -15,6 +15,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
     init(@ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true) {
         self.content = content()
         self.additionalContent = nil
+        self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
         self.pageContent = nil
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -30,9 +31,10 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, PageContent
         - additionalContent: The View to display as additional content.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
      */
-    init(@ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, extendNavigationBarBackground: Bool = true) {
+    init(@ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true) {
         self.content = content()
         self.additionalContent = additionalContent()
+        self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
         self.pageContent = nil
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -51,6 +53,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
     init(@ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
         self.content = content()
         self.additionalContent = nil
+        self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
         self.pageContent = pageContent()
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -67,9 +70,10 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
      */
-    init(@ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
+    init(@ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
         self.content = content()
         self.additionalContent = additionalContent()
+        self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
         self.pageContent = pageContent()
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -104,6 +108,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     
     private let content: Content
     private let additionalContent: AdditionalContent?
+    private let additionalContentBackgroundColor: Color?
     private let collapsibleContent: CollapsibleContent?
     private let pageContent: PageContent?
     private let extendNavigationBarBackground: Bool
@@ -125,9 +130,10 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
      */
-    init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
+    init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent) {
         self.content = content()
         self.additionalContent = additionalContent()
+        self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = collapsibleContent()
         self.pageContent = pageContent()
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -169,7 +175,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                                         .zIndex(2)
                                     
                                     if let additionalContent {
-                                        AdditionalView(topPadding: collapsibleContentHeight, minYParent: parentGeometry.frame(in: .global).minY + contentHeight - collapsibleContentHeight + 16, additionalContent: additionalContent, additionalContentHeight: $additionalContentHeight)
+                                        AdditionalView(topPadding: collapsibleContentHeight, minYParent: parentGeometry.frame(in: .global).minY + contentHeight - collapsibleContentHeight + 16, additionalContent: additionalContent, backgroundColor: additionalContentBackgroundColor, additionalContentHeight: $additionalContentHeight)
                                             .zIndex(1)
                                     }
                                     
@@ -215,7 +221,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                                 .viewHeight($additionalContentHeight)
                         }
                     }
-                    .background(Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
+                    .background(additionalContentBackgroundColor != nil ? additionalContentBackgroundColor! : Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
                     .cornerRadius(16)
                     .shadow(color: Color.sbbColor(.tabshadow), radius: additionalContent == nil ? 8 : 0)
                     .sbbScreenPadding(.horizontal)
@@ -281,6 +287,7 @@ struct AdditionalView<AdditionalContent: View>: View {
     let topPadding: CGFloat
     let minYParent: CGFloat
     let additionalContent: AdditionalContent
+    let backgroundColor: Color?
     @Binding var additionalContentHeight: CGFloat
     @Environment(\.colorScheme) var colorScheme
     
@@ -295,7 +302,7 @@ struct AdditionalView<AdditionalContent: View>: View {
                     .viewHeight($additionalContentHeight)
                     .frame(maxWidth: .infinity, minHeight: additionalContentHeight, alignment: .leading)
             }
-            .background(Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
+            .background(backgroundColor != nil ? backgroundColor! : Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
             .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
             .offset(y: dynamicOffset(sticking: geometry, to: minYParent))
             .sbbScreenPadding(.horizontal)
