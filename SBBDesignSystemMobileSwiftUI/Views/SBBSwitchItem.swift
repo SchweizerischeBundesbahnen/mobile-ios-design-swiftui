@@ -34,6 +34,7 @@ public struct SBBSwitchItem: View {
     private let type: SBBSwitchItemType
     private let showTopLine: Bool
     private let showBottomLine: Bool
+    private let showLoading: Bool
     
     @Binding private var isOn: Bool
     @State private var isLoading: Bool = false
@@ -51,7 +52,7 @@ public struct SBBSwitchItem: View {
         case standalone
     }
     
-    public init(isOn: Binding<Bool>, label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, showTopLine: Bool = false, showBottomLine: Bool = true, errorMessage: Text? = nil, errorCode: Text? = nil, actionOnEnable: @escaping () async -> Bool = { true }, actionOnDisable: @escaping () async -> Bool = { true }) {
+    public init(isOn: Binding<Bool>, label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, showTopLine: Bool = false, showBottomLine: Bool = true, showLoading: Bool = true, errorMessage: Text? = nil, errorCode: Text? = nil, actionOnEnable: @escaping () async -> Bool = { true }, actionOnDisable: @escaping () async -> Bool = { true }) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.image = image
@@ -64,10 +65,11 @@ public struct SBBSwitchItem: View {
         self.actionOnDisable = actionOnDisable
         self.showTopLine = showTopLine
         self.showBottomLine = showBottomLine
+        self.showLoading = showLoading
         self._isOn = isOn
     }
     
-    public init(isOn: Binding<Bool>, label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBSwitchItemType = .list, errorMessage: Text? = nil, errorCode: Text? = nil, actionOnEnable: @escaping () async -> Bool = { true }, actionOnDisable: @escaping () async -> Bool = { true }) {
+    public init(isOn: Binding<Bool>, label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBSwitchItemType = .list, showLoading: Bool = true, errorMessage: Text? = nil, errorCode: Text? = nil, actionOnEnable: @escaping () async -> Bool = { true }, actionOnDisable: @escaping () async -> Bool = { true }) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.image = image
@@ -80,6 +82,7 @@ public struct SBBSwitchItem: View {
         self.actionOnDisable = actionOnDisable
         self.showTopLine = false
         self.showBottomLine = type != .standalone ? true : false
+        self.showLoading = showLoading
         self._isOn = isOn
     }
     
@@ -135,12 +138,16 @@ public struct SBBSwitchItem: View {
                             Button(action: {
                                 Task {
                                     if isOn {
-                                        self.isLoading = true
+                                        if self.showLoading {
+                                            self.isLoading = true
+                                        }
                                         async let actionSuccess = actionOnDisable()
                                         self.actionSuccess = await actionSuccess
                                         self.isLoading = false
                                     } else {
-                                        self.isLoading = true
+                                        if self.showLoading {
+                                            self.isLoading = true
+                                        }
                                         async let actionSuccess = actionOnEnable()
                                         self.actionSuccess = await actionSuccess
                                         self.isLoading = false

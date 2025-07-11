@@ -9,10 +9,12 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
      Returns a SBBHeaderBox.
      
      - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
      */
-    init(@ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true) {
+        self.isLoading = isLoading
         self.content = content()
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
@@ -28,11 +30,14 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, PageContent
      Returns a SBBHeaderBox.
      
      - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
         - additionalContent: The View to display as additional content.
+        - additionalContentBackgroundColor: The background color of the additional content.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
      */
-    init(@ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true) {
+        self.isLoading = isLoading
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
@@ -48,12 +53,14 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
      Returns a SBBHeaderBox.
      
      - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
         - pageContentScrollable: Whether the page content is scrollable, default true.
      */
-    init(@ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
+        self.isLoading = isLoading
         self.content = content()
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
@@ -69,13 +76,16 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
      Returns a SBBHeaderBox.
      
      - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
         - additionalContent: The View to display as additional content.
+        - additionalContentBackgroundColor: The background color of the additional content.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
         - pageContentScrollable: Whether the page content is scrollable, default true.
      */
-    init(@ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
+        self.isLoading = isLoading
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
@@ -119,6 +129,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     private let pageContent: PageContent?
     private let pageContentScrollable: Bool
     private let extendNavigationBarBackground: Bool
+    private let isLoading: Bool
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.colorScheme) var colorScheme
@@ -126,19 +137,22 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     @State private var contentHeight: CGFloat = .zero
     @State private var collapsibleContentHeight: CGFloat = .zero
     @State private var additionalContentHeight: CGFloat = .zero
+    @State private var offsetX: CGFloat = 0
     
     /**
      Returns a SBBHeader with additional content
      
      - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
         - collapsibleContent: The View to display in the Header, that can be collapsed.
         - additionalContent: The View to display as additional content.
+        - additionalContentBackgroundColor: The background color of the additional content.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
         - pageContentScrollable: Whether the page content is scrollable, default true.
      */
-    init(@ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
+    init(isLoading: Bool = false, @ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
@@ -146,6 +160,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
         self.pageContent = pageContent()
         self.extendNavigationBarBackground = extendNavigationBarBackground
         self.pageContentScrollable = pageContentScrollable
+        self.isLoading = isLoading
     }
     
     @ViewBuilder
@@ -222,21 +237,45 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                 }
                 
                 backgroundView
-                VStack(spacing: 0) {
-                    content
-                        .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
-                        .padding(16)
-                        .background(Color.sbbColor(.viewBackground))
-                        .cornerRadius(16)
-                        .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
-                        .viewHeight($contentHeight)
-                    
-                    if let additionalContent = additionalContent {
-                        additionalContent
-                            .frame(maxWidth: .infinity, minHeight: 20, alignment: .leading)
-                            .padding(.horizontal, 16)
-                            .padding(.vertical, 8)
-                            .viewHeight($additionalContentHeight)
+                ZStack(alignment: .bottom) {
+                    VStack(spacing: 0) {
+                        content
+                            .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
+                            .padding(16)
+                            .background(Color.sbbColor(.viewBackground))
+                            .cornerRadius(16)
+                            .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
+                            .viewHeight($contentHeight)
+                        
+                        if let additionalContent = additionalContent {
+                            additionalContent
+                                .frame(maxWidth: .infinity, minHeight: 20, alignment: .leading)
+                                .padding(.horizontal, 16)
+                                .padding(.vertical, 8)
+                                .viewHeight($additionalContentHeight)
+                        }
+                    }
+                    if isLoading {
+                        GeometryReader { geometry in
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.clear, Color.sbbColor(.primary)]),
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .frame(width: 64, height: 2)
+                                .offset(x: offsetX, y: geometry.size.height / 2)
+                                .onAppear {
+                                    offsetX = 0
+                                    withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
+                                        self.offsetX = geometry.size.width
+                                    }
+                                }
+                        }
+                        .frame(height: 2)
+                        .accessibilityHidden(true)
                     }
                 }
                 .background(additionalContentBackgroundColor != nil ? additionalContentBackgroundColor! : Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
@@ -244,7 +283,6 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                 .shadow(color: Color.sbbColor(.tabshadow), radius: additionalContent == nil ? 8 : 0)
                 .sbbScreenPadding(.horizontal)
             }
-            
         }
     }
     

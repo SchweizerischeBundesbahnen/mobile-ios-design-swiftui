@@ -17,6 +17,7 @@ struct HeaderBoxDemo: View {
     @State private var selectedPicker: Int = 0
     @State private var pickerSelected: Int = 0
     @State private var selectedSettings: Int = 0
+    @State private var isLoading: Bool = false
     
     private enum ContentType {
         case rectangle
@@ -67,6 +68,8 @@ struct HeaderBoxDemo: View {
                     SBBRadioButton(text: Text("None"), showBottomLine: false)
                 }
             }
+            
+            SBBSwitchItem(isOn: $isLoading, label: Text("Loading"), showLoading: false)
             
             SBBSegmentedPicker(selection: $selectedSettings, tags: [0, 1]) {
                 Text("Small content")
@@ -141,9 +144,9 @@ struct HeaderBoxDemo: View {
     var body: some View {
         VStack(spacing: 16) {
             if selectedAdditionalContent == .none {
-                SBBHeaderBox(content: { contentView }, extendNavigationBarBackground: true, pageContent: { settingsView }, pageContentScrollable: selectedSettings != 0)
+                SBBHeaderBox(isLoading: isLoading, content: { contentView }, extendNavigationBarBackground: true, pageContent: { settingsView }, pageContentScrollable: selectedSettings != 0)
             } else {
-                SBBHeaderBox(content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: { settingsView }, pageContentScrollable: selectedSettings != 0)
+                SBBHeaderBox(isLoading: isLoading, content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: { settingsView }, pageContentScrollable: selectedSettings != 0)
             }
             
             Spacer()
