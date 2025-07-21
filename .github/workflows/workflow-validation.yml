@@ -1,0 +1,19 @@
+# Validates Github action workflows using [actionlint](https://github.com/rhysd/actionlint/tree/main).
+name: workflow_validation
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+    branches:
+      - develop
+
+jobs:
+  check-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint workflows using actionlint # https://github.com/rhysd/actionlint/tree/main
+        uses: raven-actions/actionlint@v2
