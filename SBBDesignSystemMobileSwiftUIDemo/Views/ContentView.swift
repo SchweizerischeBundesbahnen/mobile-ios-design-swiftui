@@ -123,7 +123,7 @@ struct ContentView: View {
                                     SBBListItem(label: Text("Notification"))
                                 }
                                 NavigationLink(destination: OnboardingViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("OnboardingView"))
+                                    SBBListItem(label: Text("Onboarding"))
                                 }
                                 NavigationLink(destination: PaginationViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("Pagination"))

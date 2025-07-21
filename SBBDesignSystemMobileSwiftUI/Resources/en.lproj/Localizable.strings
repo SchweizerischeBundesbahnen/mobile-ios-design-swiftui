@@ -35,6 +35,9 @@
 "OFF" = "OFF";
 
 // SBBOnboardingView
+"try" = "Try it out";
+"next" = "Next";
+
 "back" = "back";
 "forward" = "forward";
 "abort tour" = "end tour";

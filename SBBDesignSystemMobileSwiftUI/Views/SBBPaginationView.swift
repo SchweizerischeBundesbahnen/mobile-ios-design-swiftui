@@ -21,8 +21,9 @@ import SwiftUI
 public struct SBBPaginationView: View {
     
     @Environment(\.colorScheme) var colorScheme
-    @Binding private var currentPageIndex: Int
-    private var numberOfPages: Int
+    private var currentPageIndex: Int
+    private let numberOfPages: Int
+    private let selectedDoubleSize: Bool
     
     /**
      Returns a SBBPaginationView with a dot for every page.
@@ -30,10 +31,19 @@ public struct SBBPaginationView: View {
      - Parameters:
         - currentPageIndex: Sets the current page's index state.
         - numberOfPages: The total number of pages.
+        - selectedDoubleSize: Whether the selected page point is double the size of the other.
      */
-    public init(currentPageIndex: Binding<Int>, numberOfPages: Int) {
-        self._currentPageIndex = currentPageIndex
+    public init(currentPageIndex: Int, numberOfPages: Int, selectedDoubleSize: Bool = false) {
+        self.currentPageIndex = currentPageIndex
         self.numberOfPages = numberOfPages
+        self.selectedDoubleSize = selectedDoubleSize
+    }
+    
+    @available(*, deprecated, message: "currentPageIndex is not a Binding anymore")
+    public init(currentPageIndex: Binding<Int>, numberOfPages: Int, selectedDoubleSize: Bool = false) {
+        self.currentPageIndex = currentPageIndex.wrappedValue
+        self.numberOfPages = numberOfPages
+        self.selectedDoubleSize = selectedDoubleSize
     }
     
     public var body: some View {
@@ -43,24 +53,29 @@ public struct SBBPaginationView: View {
                     if index == self.currentPageIndex {
                         Circle()
                             .fill(colorScheme == .light ? Color.sbbColor(.primary) : Color.sbbColor(.white))
+                            .frame(width: selectedDoubleSize ? 16 : 8, height: selectedDoubleSize ? 16 : 8)
+                    } else if selectedDoubleSize {
+                        Circle()
+                            .fill(selectedDoubleSize ? Color.sbbColorInternal(.paginationInactive) : Color.clear)
                             .frame(width: 8, height: 8)
                     } else {
                         Circle()
                             .strokeBorder(Color.sbbColorInternal(.paginationInactive), lineWidth: 1.0)
-                            .frame(width: 6, height: 6)
+                            .frame(width: 6, height: 8)
                     }
                 }
             }
         }
+        .accessibility(label: Text(String.localizedStringWithFormat(NSLocalizedString("Step %lld out of %lld", tableName: nil, bundle: Helper.bundle, value: "", comment: ""), currentPageIndex + 1, numberOfPages)))
     }
 }
 
 struct SBBPaginationView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            SBBPaginationView(currentPageIndex: .constant(0), numberOfPages: 4)
+            SBBPaginationView(currentPageIndex: 0, numberOfPages: 4)
                 .previewDisplayName("light")
-            SBBPaginationView(currentPageIndex: .constant(2), numberOfPages: 4)
+            SBBPaginationView(currentPageIndex: 2, numberOfPages: 4)
                 .previewDisplayName("dark")
                 .environment(\.colorScheme, .dark)
         }

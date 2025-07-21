@@ -101,7 +101,7 @@ public struct SBBLoadingIndicator: View {
 
         _rectangleProperties = State(initialValue: [RectangleProperties(offset: rectangleOffsets[1], opacity: rectangleOpacity[1]), RectangleProperties(offset: rectangleOffsets[2], opacity: rectangleOpacity[2]), RectangleProperties(offset: rectangleOffsets[3], opacity: rectangleOpacity[3]), RectangleProperties(offset: rectangleOffsets[4], opacity: rectangleOpacity[4]), RectangleProperties(offset: rectangleOffsets[5], opacity: rectangleOpacity[5])])
     }
-        
+
     public var body: some View {
         ZStack {
             ForEach(rectangleProperties.indices, id:\.self) { index in
@@ -111,7 +111,8 @@ public struct SBBLoadingIndicator: View {
                     .opacity(rectangleProperties[index].opacity)
                     .offset(x: rectangleProperties[index].offset)
                     .onAppear {
-                        DispatchQueue.main.async {
+                        // https://stackoverflow.com/questions/65610265/swiftui-unexpected-position-changes-during-animation
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                             withAnimation(Animation.linear(duration: animationDuration)
                                     .repeatForever(autoreverses: false)
                             )
@@ -198,6 +199,6 @@ struct SBBLoadingIndicator_Previews: PreviewProvider {
                     .environment(\.colorScheme, .dark)
             }
         }
-            .previewLayout(.sizeThatFits)
+        .previewLayout(.sizeThatFits)
     }
 }

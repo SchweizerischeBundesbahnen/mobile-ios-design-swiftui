@@ -35,6 +35,9 @@
 "OFF" = "Désactivé";
 
 // SBBOnboardingView
+"try" = "Essayer";
+"next" = "Suivant";
+
 "back" = "retourner";
 "forward" = "continuer";
 "abort tour" = "Arrêter la visite de l'app";
@@ -57,7 +60,7 @@
 "entries" = "entrées";
 
 // SBBProcessFlow
-"Step %lld out of %lld" = "Pas %lld sur un total de %lld pas.";
+"Step %lld out of %lld" = "Étape %lld sur %lld.";
 
 // SBBProfile
 "You're logged in as:" = "Vous êtes connecté à votre compte:";

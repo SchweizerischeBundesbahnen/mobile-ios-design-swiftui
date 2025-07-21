@@ -27,10 +27,10 @@ public struct SBBNotification: View {
     @Environment(\.sizeCategory) var sizeCategory
     
     @Binding var isPresented: Bool
-    @State var textSize: CGSize = .zero
     let statusType: StatusType
     let title: Text?
     let text: Text
+    let overrideIcon: Image?
     let hideIcon: Bool
     let canBeClosed: Bool
     let onClose: (() -> ())?
@@ -51,17 +51,19 @@ public struct SBBNotification: View {
         - isPresented: Whether the notification is displayed.
         - statusType: The type of status for the notification.
         - text: The content text for the notification.
+        - overrideIcon: A custom icon to use instead of the default one.
         - hideIcon: Whether the status icon is shown.
         - maxNumberLines: The optional max of number of lines used by the text.
         - closeAfterSeconds: The optional time in seconds after which the notification closes.
         - onClose: The optional action to do when the notification is closed.
      */
-    public init(isPresented: Binding<Bool>, statusType: StatusType, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, closeAccessibility: String? = nil) {
+    public init(isPresented: Binding<Bool>, statusType: StatusType, text: Text, overrideIcon: Image? = nil, hideIcon: Bool = false, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, closeAccessibility: String? = nil) {
         self._isPresented = isPresented
         self.canBeClosed = true
         self.statusType = statusType
         self.title = nil
         self.text = text
+        self.overrideIcon = overrideIcon
         self.hideIcon = hideIcon
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = closeAfterSeconds
@@ -81,6 +83,7 @@ public struct SBBNotification: View {
         - statusType: The type of status for the notification.
         - title: The title of the notification.
         - text: The content text for the notification.
+        - overrideIcon: A custom icon to use instead of the default one.
         - hideIcon: Whether the status icon is shown.
         - maxNumberLines: The optional max of number of lines used by the text.
         - closeAfterSeconds: The optional time in seconds after which the notification closes.
@@ -88,12 +91,13 @@ public struct SBBNotification: View {
         - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
         -  moreInfoAccessibility: The accessibility label to announce the button action. Default: "more information".
      */
-    public init(isPresented: Binding<Bool>, statusType: StatusType, title: Text, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, closeAccessibility: String? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
+    public init(isPresented: Binding<Bool>, statusType: StatusType, title: Text, text: Text, overrideIcon: Image? = nil, hideIcon: Bool = false, maxNumberLines: Int? = nil, closeAfterSeconds: Int? = nil, onClose: (() -> ())? = nil, closeAccessibility: String? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
         self._isPresented = isPresented
         self.canBeClosed = true
         self.statusType = statusType
         self.title = title
         self.text = text
+        self.overrideIcon = overrideIcon
         self.hideIcon = hideIcon
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = closeAfterSeconds
@@ -114,15 +118,17 @@ public struct SBBNotification: View {
      - Parameters:
         - statusType: The type of status for the notification.
         - text: The content text for the notification.
+        - overrideIcon: A custom icon to use instead of the default one.
         - hideIcon: Whether the status icon is shown.
         - maxNumberLines: The optional max of number of lines used by the text.
      */
-    public init(statusType: StatusType, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil) {
+    public init(statusType: StatusType, text: Text, overrideIcon: Image? = nil, hideIcon: Bool = false, maxNumberLines: Int? = nil) {
         self._isPresented = .constant(true)
         self.canBeClosed = false
         self.statusType = statusType
         self.title = nil
         self.text = text
+        self.overrideIcon = overrideIcon
         self.hideIcon = hideIcon
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = nil
@@ -137,17 +143,19 @@ public struct SBBNotification: View {
      - Parameters:
         - statusType: The type of status for the notification.
         - text: The content text for the notification.
+        - overrideIcon: A custom icon to use instead of the default one.
         - hideIcon: Whether the status icon is shown.
         - maxNumberLines: The optional max of number of lines used by the text.
         - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
         -  moreInfoAccessibility: The accessibility label to announce the button action. Default: "more information".
      */
-    public init(statusType: StatusType, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
+    public init(statusType: StatusType, text: Text, overrideIcon: Image? = nil, hideIcon: Bool = false, maxNumberLines: Int? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
         self._isPresented = .constant(true)
         self.canBeClosed = false
         self.statusType = statusType
         self.title = nil
         self.text = text
+        self.overrideIcon = overrideIcon
         self.hideIcon = hideIcon
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = nil
@@ -166,17 +174,19 @@ public struct SBBNotification: View {
         - statusType: The type of status for the notification.
         - title: The title of the notification.
         - text: The content text for the notification.
+        - overrideIcon: A custom icon to use instead of the default one.
         - hideIcon: Whether the status icon is shown.
         - maxNumberLines: The optional max of number of lines used by the text.
         - onMoreInfo: The optional action to do when tapping on more action (only displayed if there is indeed an action).
         -  moreInfoAccessibility: The accessibility label to announce the button action. Default: "more information".
      */
-    public init(statusType: StatusType, title: Text, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
+    public init(statusType: StatusType, title: Text, text: Text, overrideIcon: Image? = nil, hideIcon: Bool = false, maxNumberLines: Int? = nil, onMoreInfo: (() -> ())? = nil, moreInfoAccessibility: String? = nil) {
         self._isPresented = .constant(true)
         self.canBeClosed = false
         self.statusType = statusType
         self.title = title
         self.text = text
+        self.overrideIcon = overrideIcon
         self.hideIcon = hideIcon
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = nil
@@ -194,17 +204,19 @@ public struct SBBNotification: View {
      - Parameters:
         - statusType: The type of status for the notification.
         - text: The content text for the notification.
+        - overrideIcon: A custom icon to use instead of the default one.
         - hideIcon: Whether the status icon is shown.
         - maxNumberLines: The optional max of number of lines used by the text.
         - onRetry: The  action to do when tapping on retry.
         -  retryAccessibility: The accessibility label to announce the button action. Default: "retry".
      */
-    public init(statusType: StatusType, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, onRetry: @escaping (() -> ()), retryAccessibility: String? = nil) {
+    public init(statusType: StatusType, text: Text, overrideIcon: Image? = nil, hideIcon: Bool = false, maxNumberLines: Int? = nil, onRetry: @escaping (() -> ()), retryAccessibility: String? = nil) {
         self._isPresented = .constant(true)
         self.canBeClosed = false
         self.statusType = statusType
         self.title = nil
         self.text = text
+        self.overrideIcon = overrideIcon
         self.hideIcon = hideIcon
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = nil
@@ -223,17 +235,19 @@ public struct SBBNotification: View {
         - statusType: The type of status for the notification.
         - title: The title of the notification.
         - text: The content text for the notification.
+        - overrideIcon: A custom icon to use instead of the default one.
         - hideIcon: Whether the status icon is shown.
         - maxNumberLines: The optional max of number of lines used by the text.
         - onRetry: The action to do when tapping on retry.
         -  retryAccessibility: The accessibility label to announce the button action. Default: "retry".
      */
-    public init(statusType: StatusType, title: Text, text: Text, hideIcon: Bool = false, maxNumberLines: Int? = nil, onRetry: @escaping (() -> ()), retryAccessibility: String? = nil) {
+    public init(statusType: StatusType, title: Text, text: Text, overrideIcon: Image? = nil, hideIcon: Bool = false, maxNumberLines: Int? = nil, onRetry: @escaping (() -> ()), retryAccessibility: String? = nil) {
         self._isPresented = .constant(true)
         self.canBeClosed = false
         self.statusType = statusType
         self.title = title
         self.text = text
+        self.overrideIcon = overrideIcon
         self.hideIcon = hideIcon
         self.maxNumberLines = maxNumberLines
         self.closeAfterSeconds = nil
@@ -261,16 +275,16 @@ public struct SBBNotification: View {
     private var icon: some View {
         switch statusType {
         case .alert:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_cross_medium : .circle_cross_small)
+            return (overrideIcon != nil ? overrideIcon! : Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_cross_medium : .circle_cross_small))
                 .foregroundColor(Color.sbbColor(.red))
         case .warning:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_exclamation_point_medium : .circle_exclamation_point_small)
+            return (overrideIcon != nil ? overrideIcon! : Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_exclamation_point_medium : .circle_exclamation_point_small))
                 .foregroundColor(Color.sbbColor(colorScheme == .dark ? .peach : .black))
         case .success:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_tick_medium : .circle_tick_small)
+            return (overrideIcon != nil ? overrideIcon! : Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_tick_medium : .circle_tick_small))
                 .foregroundColor(Color.sbbColor(.green))
         case .info:
-            return Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_information_medium : .circle_information_small)
+            return (overrideIcon != nil ? overrideIcon! : Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .circle_information_medium : .circle_information_small))
                 .foregroundColor(Color.sbbColor(.textBlack))
         }
     }
@@ -304,41 +318,41 @@ public struct SBBNotification: View {
     }
     
     private var bottomView: some View {
-        HStack(alignment: .top) {
-            if title == nil, !hideIcon {
-                icon
-                    .frame(width: iconSize, height: iconSize)
-                    .accessibilityHidden(true)
-            }
-            Group {
-                if let maxNumberLines = maxNumberLines {
-                    text
-                        .minimumScaleFactor(0.1)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .lineLimit(maxNumberLines)
-                } else {
-                    text
-                        .fixedSize(horizontal: false, vertical: true)
+        HStack(alignment: .center) {
+            HStack(alignment: .top) {
+                if title == nil, !hideIcon {
+                    icon
+                        .frame(width: iconSize, height: iconSize)
+                        .accessibilityHidden(true)
                 }
+                Group {
+                    if let maxNumberLines = maxNumberLines {
+                        text
+                            .minimumScaleFactor(0.1)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .lineLimit(maxNumberLines)
+                    } else {
+                        text
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+                .multilineTextAlignment(.leading)
+                .frame(minWidth: iconSize, minHeight: iconSize)
+                .foregroundColor(Color.sbbColor(.textBlack))
+                .sbbFont(.medium_light)
             }
-            .multilineTextAlignment(.leading)
-            .frame(minWidth: iconSize, minHeight: iconSize)
-            .foregroundColor(Color.sbbColor(.textBlack))
-            .sbbFont(.medium_light)
-            .viewSize($textSize)
             
             Spacer()
-            
             if onMoreInfo != nil {
                 Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .chevron_right_medium : .chevron_small_right_medium)
                     .foregroundColor(Color.sbbColor(.textBlack))
-                    .frame(width: iconSize, height: textSize.height)
+                    .frame(width: iconSize)
             } else if title == nil && canBeClosed {
                 closeButton
             } else if onRetry != nil {
                 Image(sbbIcon: sizeCategory.isAccessibilityCategory ? .arrows_circle_medium : .arrows_circle_small)
                     .foregroundColor(Color.sbbColor(.textBlack))
-                    .frame(width: iconSize, height: textSize.height)
+                    .frame(width: iconSize)
             }
         }
     }
