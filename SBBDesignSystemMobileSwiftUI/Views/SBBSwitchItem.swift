@@ -25,6 +25,8 @@ public struct SBBSwitchItem: View {
     private let label: Text
     private let labelAccessibility: Text?
     private let image: Image?
+    private let footnote: Text?
+    private let footnoteAccessibility: Text?
     private let errorMessage: Text?
     private let errorCode: Text?
     private let actionOnEnable: () async -> Bool
@@ -32,6 +34,7 @@ public struct SBBSwitchItem: View {
     private let type: SBBSwitchItemType
     private let showTopLine: Bool
     private let showBottomLine: Bool
+    private let showLoading: Bool
     
     @Binding private var isOn: Bool
     @State private var isLoading: Bool = false
@@ -49,10 +52,12 @@ public struct SBBSwitchItem: View {
         case standalone
     }
     
-    public init(isOn: Binding<Bool>, label: Text, labelAccessibility: Text? = nil, image: Image? = nil, showTopLine: Bool = false, showBottomLine: Bool = true, errorMessage: Text? = nil, errorCode: Text? = nil, actionOnEnable: @escaping () async -> Bool = { true }, actionOnDisable: @escaping () async -> Bool = { true }) {
+    public init(isOn: Binding<Bool>, label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, showTopLine: Bool = false, showBottomLine: Bool = true, showLoading: Bool = true, errorMessage: Text? = nil, errorCode: Text? = nil, actionOnEnable: @escaping () async -> Bool = { true }, actionOnDisable: @escaping () async -> Bool = { true }) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.image = image
+        self.footnote = footnote
+        self.footnoteAccessibility = footnoteAccessibility
         self.type = .list
         self.errorMessage = errorMessage
         self.errorCode = errorCode
@@ -60,13 +65,16 @@ public struct SBBSwitchItem: View {
         self.actionOnDisable = actionOnDisable
         self.showTopLine = showTopLine
         self.showBottomLine = showBottomLine
+        self.showLoading = showLoading
         self._isOn = isOn
     }
     
-    public init(isOn: Binding<Bool>, label: Text, labelAccessibility: Text? = nil, image: Image? = nil, type: SBBSwitchItemType = .list, errorMessage: Text? = nil, errorCode: Text? = nil, actionOnEnable: @escaping () async -> Bool = { true }, actionOnDisable: @escaping () async -> Bool = { true }) {
+    public init(isOn: Binding<Bool>, label: Text, labelAccessibility: Text? = nil, image: Image? = nil, footnote: Text? = nil, footnoteAccessibility: Text? = nil, type: SBBSwitchItemType = .list, showLoading: Bool = true, errorMessage: Text? = nil, errorCode: Text? = nil, actionOnEnable: @escaping () async -> Bool = { true }, actionOnDisable: @escaping () async -> Bool = { true }) {
         self.label = label
         self.labelAccessibility = labelAccessibility
         self.image = image
+        self.footnote = footnote
+        self.footnoteAccessibility = footnoteAccessibility
         self.type = type
         self.errorMessage = errorMessage
         self.errorCode = errorCode
@@ -74,6 +82,7 @@ public struct SBBSwitchItem: View {
         self.actionOnDisable = actionOnDisable
         self.showTopLine = false
         self.showBottomLine = type != .standalone ? true : false
+        self.showLoading = showLoading
         self._isOn = isOn
     }
     
@@ -99,6 +108,15 @@ public struct SBBSwitchItem: View {
                     }
                     .foregroundColor(Color.sbbColor(.textBlack).opacity(isLoading || !isEnabled ? 0.5 : 1.0))
                     
+                    if let footnote = footnote {
+                        footnote
+                            .fixedSize(horizontal: false, vertical: true)
+                            .sbbFont(.small_light)
+                            .foregroundColor(.sbbColor(colorScheme == .dark ? .cement : .granite).opacity(isLoading || !isEnabled ? 0.5 : 1.0))
+                            .accessibility(label: footnoteAccessibility ?? footnote)
+                            .multilineTextAlignment(.leading)
+                    }
+                    
                     if let errorMessage {
                         errorMessage
                             .sbbFont(.small_light)
@@ -120,12 +138,16 @@ public struct SBBSwitchItem: View {
                             Button(action: {
                                 Task {
                                     if isOn {
-                                        self.isLoading = true
+                                        if self.showLoading {
+                                            self.isLoading = true
+                                        }
                                         async let actionSuccess = actionOnDisable()
                                         self.actionSuccess = await actionSuccess
                                         self.isLoading = false
                                     } else {
-                                        self.isLoading = true
+                                        if self.showLoading {
+                                            self.isLoading = true
+                                        }
                                         async let actionSuccess = actionOnEnable()
                                         self.actionSuccess = await actionSuccess
                                         self.isLoading = false

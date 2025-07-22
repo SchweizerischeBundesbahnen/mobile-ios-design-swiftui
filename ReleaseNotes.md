@@ -1,7 +1,20 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.5 - 22 July 2025
+### Improvements
+* Breaking change: SBBNotification: `maxNumberLines` has been renamed to `textLineLimit`.
+* SBBNotification: `titleLineLimit` added to limit the number of lines in the title.
+* SBBHeaderBox: loading line can be shown at the bottom of the header with `isLoading`.
+* SBBHeaderBox: if there is no collapsible content, the page content can be set as non-scrollable with `pageContentScrollable`.
+* SBBHeaderBox: the background of the additional content can be changed with `additionalContentBackgroundColor`.
+* SBBBubbleView: `image` can be nil. `rightContent` can be added - displayed on the right of the bubble view.
+* SBBSwitchItem: can have a `footnote` that is displayed below the label.
+
+### Bugfix
+* SBBFooterBox: padding at the bottom is now smaller - was too big.
+
 ## v1.2.4 - 3 July 2025
-### Improvement 
+### Improvements
 * Breaking change: SBBPagination: `currentPageIndex` is not a `Binding`, as it is never changed.
 * SBBCardView has been renamed to `SBBOnboardingWrapperCardView`, `nextCard` attribute is removed, as it is not used, `onNext` does not take a `nextCard` attribute.
 * SBBTitleView has been renamed to `SBBOnboardingWrapperTitleView` for consistency.

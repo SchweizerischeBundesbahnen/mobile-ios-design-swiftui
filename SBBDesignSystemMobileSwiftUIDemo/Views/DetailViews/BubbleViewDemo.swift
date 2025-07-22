@@ -34,6 +34,15 @@ struct BubbleViewDemo: View {
                         SBBDivider()
                         SBBBubbleView(image: image, title: title, subtitle: subtitle, extendNavigationBarBackground: false)
                         SBBDivider()
+                        SBBBubbleView(image: nil, title: title, subtitle: subtitle, extendNavigationBarBackground: false)
+                        SBBDivider()
+                        SBBBubbleView(image: nil, title: title, subtitle: subtitle, extendNavigationBarBackground: false, rightContent: {
+                            Button(action: {}) {
+                                Text("Logout")
+                            }
+                            .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                        })
+                        SBBDivider()
                         SBBBubbleView(image: image, title: title, titleAccessibility: titleAccessibility, expanded: $expanded1, extendNavigationBarBackground: false, expandableContent: {
                             self.detail1
                                 .fixedSize(horizontal: false, vertical: true)
