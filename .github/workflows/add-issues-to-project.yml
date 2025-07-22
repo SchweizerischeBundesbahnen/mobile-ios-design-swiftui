@@ -1,4 +1,4 @@
-name: Add issues to project
+name: add_issues_to_project
 
 on:
   issues:
@@ -10,7 +10,15 @@ jobs:
     name: Add issue to project
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-to-project@v0.4.1
+
+      - name: Generate Token
+        id: app-token
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ vars.APPBAKERYGITHUBAPP_APPID }}
+          private-key: ${{ secrets.APPBAKERYGITHUBAPP_PRIVATEKEY }}
+
+      - uses: actions/add-to-project@v1.0.2
         with:
           project-url: https://github.com/orgs/SchweizerischeBundesbahnen/projects/5
-          github-token: ${{ secrets.ADD_TO_PROJECT_PAT }}
+          github-token: ${{ steps.app-token.outputs.token }}

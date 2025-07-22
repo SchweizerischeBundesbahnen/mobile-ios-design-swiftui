@@ -39,9 +39,9 @@ public struct SBBFooterBox<Content: View>: View {
             content
                 .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
                 .padding(16)
-                .padding(.bottom, hasTabBar ? horizontalSizeClass == .compact && verticalSizeClass == .regular ? 75 + 36 : 38 + 24 : 24)
+                .padding(.bottom, hasTabBar ? horizontalSizeClass == .compact && verticalSizeClass == .regular ? 75 + 8 : 38 + 8 : 8)
         }
-        .background(Color.sbbColor(.modalBackground))
+        .background(Color.sbbColor(.viewBackground))
         .cornerRadius(16, corners: [.topLeft, .topRight])
         .shadow(color: Color.sbbColor(.tabshadow), radius: 5)
     }
