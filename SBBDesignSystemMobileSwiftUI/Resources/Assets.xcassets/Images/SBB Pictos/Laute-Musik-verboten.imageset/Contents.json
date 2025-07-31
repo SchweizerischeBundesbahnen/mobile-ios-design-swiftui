@@ -1,15 +1,15 @@
 {
-  "images" : [
-    {
-      "filename" : "Laute-Musik-verboten.svg",
-      "idiom" : "universal"
+    "images": [
+        {
+            "filename": "Laute-Musik-verboten.svg",
+            "idiom": "universal"
+        }
+    ],
+    "info": {
+        "author": "xcode",
+        "version": 1
+    },
+    "properties": {
+        "preserves-vector-representation": true
     }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
-  }
 }

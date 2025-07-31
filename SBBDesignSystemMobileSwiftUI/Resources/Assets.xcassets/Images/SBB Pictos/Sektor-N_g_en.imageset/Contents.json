@@ -1,0 +1,15 @@
+{
+    "images": [
+        {
+            "filename": "Sektor-N_g_en.svg",
+            "idiom": "universal"
+        }
+    ],
+    "info": {
+        "author": "xcode",
+        "version": 1
+    },
+    "properties": {
+        "preserves-vector-representation": true
+    }
+}
