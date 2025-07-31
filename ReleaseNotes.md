@@ -1,5 +1,10 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.6 - 21 July 2025
+### Improvements
+* Update icons to 1.8.0
+* Update pictograms
+
 ## v1.2.5 - 22 July 2025
 ### Improvements
 * Breaking change: SBBNotification: `maxNumberLines` has been renamed to `textLineLimit`.
