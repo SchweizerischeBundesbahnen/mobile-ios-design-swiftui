@@ -12,6 +12,20 @@ There are three different types of icons:
 In general, SBB-Icons are present in three different sizes (small, medium, large), meanwhile SBB-Timetable-Icons and SBB-Pictograms have each only one size. Also, you are allowed to change the colour of some of the above icons, and some of them not. In general you can say, that only the SBB-Icons can change their color. There is a list indicating what icons can change it.
 
 ## Importing SBB Icons
+* Download the icons repo at: https://github.com/sbb-design-systems/sbb-icons/
+* Download the pictograms repo at: https://github.com/sbb-design-systems/picto-library/
+* Run the following python script to update all icons and pictograms:
+
+```
+python generate_icons.py \
+    --icons-repo <PATH_TO_ICONS_REPOSITORY> \
+    --pictos-repo <PATH_TO_PICTOGRAMS_REPOSITORY>
+```
+
+* Build the app, which will generate the updated `Resources/SBBIconName.swift`.
+
+
+## Importing SBB Icons manually
 
 ### SBB-Icons and SBB-Timetable-Icons:
 * Download the repo at: https://github.com/sbb-design-systems/sbb-icons/
@@ -22,7 +36,6 @@ In general, SBB-Icons are present in three different sizes (small, medium, large
 * Select every icon in the Assets and change from "Individual Scales" to "Single Scale"
 * Select every icon in the Assets and enable "Preserve Vector Data"
 * Select every icon in the Assets and change "Render As" to "Template Image"
-
 
 Note that the `Resources/SBBIconsIndex.json` indicate, whether the icon is able to change color or not.
 

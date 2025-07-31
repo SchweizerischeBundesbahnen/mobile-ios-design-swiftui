@@ -1,16 +1,16 @@
 {
-  "images" : [
-    {
-      "filename" : "three-gears-small.svg",
-      "idiom" : "universal"
+    "images": [
+        {
+            "filename": "three-gears-small.svg",
+            "idiom": "universal"
+        }
+    ],
+    "info": {
+        "author": "xcode",
+        "version": 1
+    },
+    "properties": {
+        "preserves-vector-representation": true,
+        "template-rendering-intent": "template"
     }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true,
-    "template-rendering-intent" : "template"
-  }
 }
