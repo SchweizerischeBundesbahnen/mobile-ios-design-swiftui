@@ -1,5 +1,5 @@
 {
-  "version": "1.7.1",
+  "version": "1.8.0",
   "icons": [
     {
       "name": "aerosol-can-small",
@@ -2620,6 +2620,28 @@
       ]
     },
     {
+      "name": "cup-hot-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "cup",
+        "hot",
+        "coffee",
+        "tea",
+        "drink",
+        "beverage",
+        "tasse",
+        "heiss",
+        "kaffee",
+        "tee",
+        "getränk",
+        "ui-icons",
+        "Basic",
+        "cup-hot",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "cutlery-small",
       "color": true,
       "scalable": false,
@@ -2683,6 +2705,28 @@
         "Basic",
         "cutlery",
         "Size=large"
+      ]
+    },
+    {
+      "name": "cutlery-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "restaurant",
+        "knife",
+        "fork",
+        "spoon",
+        "eat",
+        "eating",
+        "messer",
+        "galeb",
+        "löffel",
+        "besteck",
+        "essen",
+        "ui-icons",
+        "Basic",
+        "cutlery",
+        "Size=extra-small"
       ]
     },
     {
@@ -3005,6 +3049,23 @@
         "Basic",
         "envelope",
         "Size=large"
+      ]
+    },
+    {
+      "name": "envelope-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "e-mail",
+        "mail",
+        "contact",
+        "kotankt",
+        "benachrichtigung",
+        "brief",
+        "ui-icons",
+        "Basic",
+        "envelope",
+        "Size=extra-small"
       ]
     },
     {
@@ -3774,6 +3835,28 @@
         "Basic",
         "glass-cocktail",
         "Size=large"
+      ]
+    },
+    {
+      "name": "glass-cocktail-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "drink",
+        "cocktail",
+        "beverage",
+        "party",
+        "evening",
+        "after",
+        "work",
+        "happy",
+        "hour",
+        "getränk",
+        "abend",
+        "ui-icons",
+        "Basic",
+        "glass-cocktail",
+        "Size=extra-small"
       ]
     },
     {
@@ -5290,6 +5373,25 @@
       ]
     },
     {
+      "name": "paper-clip-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "paperclip",
+        "paper",
+        "clip",
+        "attach",
+        "attachment",
+        "anhang",
+        "anhängen",
+        "büroklammer",
+        "ui-icons",
+        "Basic",
+        "paper-clip",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "pen-small",
       "color": true,
       "scalable": false,
@@ -6555,6 +6657,25 @@
       ]
     },
     {
+      "name": "tree-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "tree",
+        "nature",
+        "environment",
+        "plant",
+        "pflanze",
+        "baum",
+        "natur",
+        "umwelt",
+        "ui-icons",
+        "Basic",
+        "tree",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "upload-small",
       "color": true,
       "scalable": false,
@@ -7149,6 +7270,54 @@
         "Basic",
         "cutlery-disabled",
         "Size=large"
+      ]
+    },
+    {
+      "name": "create-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "create",
+        "new",
+        "edit",
+        "bearbeiten",
+        "pen",
+        "ui-icons",
+        "Basic",
+        "create",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "create-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "create",
+        "new",
+        "edit",
+        "bearbeiten",
+        "pen",
+        "ui-icons",
+        "Basic",
+        "create",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "atm-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "create",
+        "new",
+        "edit",
+        "bearbeiten",
+        "pen",
+        "ui-icons",
+        "Basic",
+        "atm",
+        "Size=extra-small"
       ]
     },
     {
@@ -7835,6 +8004,34 @@
       ]
     },
     {
+      "name": "arrow-turn-right-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "right",
+        "rechts",
+        "pfeil",
+        "ui-icons",
+        "Arrow",
+        "arrow-turn-right",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "arrow-turn-right-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "right",
+        "rechts",
+        "pfeil",
+        "ui-icons",
+        "Arrow",
+        "arrow-turn-right",
+        "Size=medium"
+      ]
+    },
+    {
       "name": "arrow-turn-down-small",
       "color": true,
       "scalable": false,
@@ -7921,6 +8118,96 @@
         "ui-icons",
         "Arrow",
         "arrow-turn-up",
+        "Size=extra-small"
+      ]
+    },
+    {
+      "name": "arrow-up-left-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "up",
+        "rauf",
+        "oben",
+        "pfeil",
+        "ui-icons",
+        "Arrow",
+        "arrow-up-left",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "arrow-up-left-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "up",
+        "rauf",
+        "oben",
+        "pfeil",
+        "ui-icons",
+        "Arrow",
+        "arrow-up-left",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "arrow-up-left-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "up",
+        "rauf",
+        "oben",
+        "pfeil",
+        "ui-icons",
+        "Arrow",
+        "arrow-up-left",
+        "Size=extra-small"
+      ]
+    },
+    {
+      "name": "arrow-up-right-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "up",
+        "rauf",
+        "oben",
+        "pfeil",
+        "ui-icons",
+        "Arrow",
+        "arrow-up-right",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "arrow-up-right-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "up",
+        "rauf",
+        "oben",
+        "pfeil",
+        "ui-icons",
+        "Arrow",
+        "arrow-up-right",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "arrow-up-right-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "up",
+        "rauf",
+        "oben",
+        "pfeil",
+        "ui-icons",
+        "Arrow",
+        "arrow-up-right",
         "Size=extra-small"
       ]
     },
@@ -10029,6 +10316,18 @@
       ]
     },
     {
+      "name": "circle-plus-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "plus",
+        "ui-icons",
+        "Navigation",
+        "circle-plus",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "context-menu-small",
       "color": true,
       "scalable": false,
@@ -11576,6 +11875,23 @@
       ]
     },
     {
+      "name": "avatar-police-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "user",
+        "police",
+        "polizei",
+        "uniform",
+        "person",
+        "benutzer",
+        "ui-icons",
+        "User",
+        "avatar-police",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "circle-triangle-square-small",
       "color": true,
       "scalable": false,
@@ -12112,6 +12428,24 @@
         "User",
         "user-hat",
         "Size=large"
+      ]
+    },
+    {
+      "name": "user-hat-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "user",
+        "training",
+        "education",
+        "benutzer",
+        "lehre",
+        "lernen",
+        "ausbildung",
+        "ui-icons",
+        "User",
+        "user-hat",
+        "Size=extra-small"
       ]
     },
     {
@@ -15361,6 +15695,28 @@
       ]
     },
     {
+      "name": "tickets-class-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "tickets",
+        "SBB",
+        "fahrkarte",
+        "billett",
+        "klasse",
+        "erste",
+        "zweite",
+        "first",
+        "second",
+        "class",
+        "karte",
+        "ui-icons",
+        "Ticket",
+        "tickets-class",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "book-small",
       "color": true,
       "scalable": false,
@@ -15716,6 +16072,25 @@
       ]
     },
     {
+      "name": "locker-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "lockers",
+        "schliessfach",
+        "schliessfächer",
+        "lock",
+        "schloss",
+        "gepäck",
+        "luggage",
+        "baggage",
+        "ui-icons",
+        "Station",
+        "locker",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "lotus-small",
       "color": true,
       "scalable": false,
@@ -15796,6 +16171,22 @@
       ]
     },
     {
+      "name": "meeting-point-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "meeting",
+        "point",
+        "treffpunkt",
+        "punkt",
+        "treffen",
+        "ui-icons",
+        "Station",
+        "meeting-point",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "money-exchange-small",
       "color": true,
       "scalable": false,
@@ -15853,6 +16244,26 @@
         "Station",
         "money-exchange",
         "Size=large"
+      ]
+    },
+    {
+      "name": "money-exchange-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "currency",
+        "exchange",
+        "money",
+        "währung",
+        "wechsel",
+        "geld",
+        "euro",
+        "tausch",
+        "change",
+        "ui-icons",
+        "Station",
+        "money-exchange",
+        "Size=extra-small"
       ]
     },
     {
@@ -16077,6 +16488,23 @@
         "Station",
         "shopping-bag",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "shopping-bag-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "shopping",
+        "bag",
+        "tasche",
+        "einkauf",
+        "einkaufstasche",
+        "tüte",
+        "ui-icons",
+        "Station",
+        "shopping-bag",
+        "Size=extra-small"
       ]
     },
     {
@@ -16366,6 +16794,25 @@
       ]
     },
     {
+      "name": "ticket-machine-ticket-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "ticket",
+        "machine",
+        "automat",
+        "ticketautomat",
+        "billettautomat",
+        "purchase",
+        "kaufen",
+        "kauf",
+        "ui-icons",
+        "Station",
+        "ticket-machine-ticket",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "toilet-small",
       "color": true,
       "scalable": false,
@@ -16393,6 +16840,21 @@
         "Station",
         "toilet",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "toilet-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "wc",
+        "toilet",
+        "toilette",
+        "restroom",
+        "ui-icons",
+        "Station",
+        "toilet",
+        "Size=extra-small"
       ]
     },
     {
@@ -16487,6 +16949,29 @@
       ]
     },
     {
+      "name": "waiting-room-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "waiting",
+        "room",
+        "warte",
+        "raum",
+        "warteraum",
+        "warten",
+        "person",
+        "gepäck",
+        "luggage",
+        "baggage",
+        "uhr",
+        "clock",
+        "ui-icons",
+        "Station",
+        "waiting-room",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "wine-cheese-small",
       "color": true,
       "scalable": false,
@@ -16552,6 +17037,19 @@
         "Station",
         "umbrella-glove-question-mark",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "umbrella-glove-question-mark-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "lost",
+        "found",
+        "ui-icons",
+        "Station",
+        "umbrella-glove-question-mark",
+        "Size=extra-small"
       ]
     },
     {
@@ -18400,6 +18898,22 @@
         "Hardware",
         "suitcase",
         "Size=large"
+      ]
+    },
+    {
+      "name": "suitcase-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "suitcase",
+        "luggage",
+        "baggage",
+        "koffer",
+        "gepäck",
+        "ui-icons",
+        "Hardware",
+        "suitcase",
+        "Size=extra-small"
       ]
     },
     {
@@ -20518,6 +21032,21 @@
       ]
     },
     {
+      "name": "bicycle-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "velo",
+        "bicycle",
+        "fahrradm",
+        "bike",
+        "ui-icons",
+        "Transport",
+        "bicycle",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "bicycle-reservation-small",
       "color": true,
       "scalable": false,
@@ -20869,6 +21398,25 @@
         "Transport",
         "bike-profile-sign-parking",
         "Size=Large"
+      ]
+    },
+    {
+      "name": "bike-profile-sign-parking-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "velo",
+        "parking",
+        "parking",
+        "sign",
+        "bike",
+        "fahrrad",
+        "parken",
+        "parkplatz",
+        "ui-icons",
+        "Transport",
+        "bike-profile-sign-parking",
+        "Size=extra-small"
       ]
     },
     {
@@ -21436,6 +21984,22 @@
         "Transport",
         "car-profile-sign-parking",
         "Size=large"
+      ]
+    },
+    {
+      "name": "car-profile-sign-parking-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "car",
+        "parking",
+        "sign",
+        "auto",
+        "parkplatz",
+        "ui-icons",
+        "Transport",
+        "car-profile-sign-parking",
+        "Size=extra-small"
       ]
     },
     {
@@ -22581,6 +23145,22 @@
       ]
     },
     {
+      "name": "park-and-rail-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "park",
+        "and",
+        "rail",
+        "ride",
+        "sign",
+        "ui-icons",
+        "Transport",
+        "park-and-rail",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "petrol-station-small",
       "color": true,
       "scalable": false,
@@ -22610,6 +23190,22 @@
         "Transport",
         "petrol-station",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "petrol-station-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "petrol",
+        "fuel",
+        "petrol",
+        "station",
+        "tankstelle",
+        "ui-icons",
+        "Transport",
+        "petrol-station",
+        "Size=extra-small"
       ]
     },
     {
@@ -23322,6 +23918,40 @@
       ]
     },
     {
+      "name": "scooter-profile-sign-parking-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "stroller",
+        "kinderwagen",
+        "kind",
+        "child",
+        "family",
+        "familie",
+        "ui-icons",
+        "Transport",
+        "scooter-profile-sign-parking",
+        "Size=extra-small"
+      ]
+    },
+    {
+      "name": "bike-microscooter-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "stroller",
+        "kinderwagen",
+        "kind",
+        "child",
+        "family",
+        "familie",
+        "ui-icons",
+        "Transport",
+        "bike-microscooter",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "adult-kids-small",
       "color": true,
       "scalable": false,
@@ -23430,6 +24060,23 @@
         "Leisure",
         "balloons",
         "Size=large"
+      ]
+    },
+    {
+      "name": "balloons-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "game",
+        "fun",
+        "spiel",
+        "spass",
+        "ballons",
+        "party",
+        "ui-icons",
+        "Leisure",
+        "balloons",
+        "Size=extra-small"
       ]
     },
     {
@@ -23687,6 +24334,20 @@
         "Leisure",
         "elephant",
         "Size=large"
+      ]
+    },
+    {
+      "name": "elephant-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "zoo",
+        "elefant",
+        "tier",
+        "ui-icons",
+        "Leisure",
+        "elephant",
+        "Size=extra-small"
       ]
     },
     {
@@ -24154,6 +24815,22 @@
       ]
     },
     {
+      "name": "museum-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "art",
+        "culture",
+        "museum",
+        "kunst",
+        "kultur",
+        "ui-icons",
+        "Leisure",
+        "museum",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "music-notes-small",
       "color": true,
       "scalable": false,
@@ -24234,6 +24911,25 @@
         "Leisure",
         "roof-bed",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "roof-bed-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "hotel",
+        "unterkunft",
+        "sleeping",
+        "bed",
+        "house",
+        "accomodation",
+        "lodge",
+        "housing",
+        "ui-icons",
+        "Leisure",
+        "roof-bed",
+        "Size=extra-small"
       ]
     },
     {
@@ -25423,6 +26119,23 @@
       ]
     },
     {
+      "name": "medical-facility-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "hospital",
+        "medicine",
+        "spital",
+        "krankenhaus",
+        "arzt",
+        "doctor",
+        "ui-icons",
+        "Building",
+        "medical-facility",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "fireplace-small",
       "color": true,
       "scalable": false,
@@ -26396,6 +27109,29 @@
         "Organisation",
         "parliament",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "parliament-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "bern",
+        "bundeshaus",
+        "regierung",
+        "staat",
+        "state",
+        "government",
+        "public",
+        "affairs",
+        "refulation",
+        "öffentlich",
+        "anliegen",
+        "öffentlichkeitsarbeit",
+        "ui-icons",
+        "Organisation",
+        "parliament",
+        "Size=extra-small"
       ]
     },
     {
