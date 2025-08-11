@@ -15,6 +15,17 @@ public enum SBBIconSize: String {
     case large = "large"
 }
 
+public extension UIImage {
+    static func exists(sbbIcon: SBBIcon) -> Bool {
+        return UIImage(named: sbbIcon.rawValue, in: Helper.bundle, with: nil) != nil
+    }
+    
+    convenience init?(sbbIcon: SBBIcon) {
+        self.init(named: sbbIcon.rawValue, in: Helper.bundle, with: nil)
+        self.withRenderingMode(SBBIconsHelper.shared.hasColor(iconName: sbbIcon.rawValue) ? .alwaysTemplate : .alwaysOriginal)
+    }
+}
+
 public extension Image {
     
     /**
@@ -71,7 +82,6 @@ public extension Image {
         if SBBIconsHelper.shared.hasColor(iconName: sbbIcon.rawValue) {
            self = self.renderingMode(.template)
         }
-        
     }
     
     /**
