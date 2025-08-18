@@ -206,6 +206,8 @@ public struct SBBSwitchItem: View {
         .accessibilityElement(children: .combine)
         .onChange(of: isOn) { isOn in
             Task {
+                // Wait for toggle to be set in new position
+                try? await Task.sleep(nanoseconds: 100_000_000)
                 if isOn {
                     if self.showLoading {
                         self.isLoading = true
