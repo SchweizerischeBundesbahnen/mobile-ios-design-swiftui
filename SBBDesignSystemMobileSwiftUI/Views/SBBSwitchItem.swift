@@ -207,12 +207,16 @@ public struct SBBSwitchItem: View {
         .onChange(of: isOn) { isOn in
             Task {
                 if isOn {
-                    self.isLoading = true
+                    if self.showLoading {
+                        self.isLoading = true
+                    }
                     async let actionSuccess = actionOnDisable()
                     self.actionSuccess = await actionSuccess
                     self.isLoading = false
                 } else {
-                    self.isLoading = true
+                    if self.showLoading {
+                        self.isLoading = true
+                    }
                     async let actionSuccess = actionOnEnable()
                     self.actionSuccess = await actionSuccess
                     self.isLoading = false
