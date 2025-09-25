@@ -1,6 +1,17 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
-## v1.2.6 - 21 July 2025
+## v1.2.7 - 25 September 2025
+### Features
+* UIImage: `UIImage(sbbIcon: SBBIcon)` to get `SBBIcon`.
+
+### Improvements
+* SBBIconButtonStyle: can now have style `.primary` and `.secondary`.
+
+### Bugfix
+* SBBSwitchItem: loading state is correctly rendered, and ignored if loading state disabled. 
+
+
+## v1.2.6 - 31 July 2025
 ### Improvements
 * Update icons to 1.8.0
 * Update pictograms
