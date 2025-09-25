@@ -27,6 +27,10 @@ public struct SBBIconButtonStyle: ButtonStyle {
         case normal
         /// Negative SBBIconButton style (transparent background, to be used on colored backgrounds (e.g. NavigationBar))
         case negative
+        /// Primary: same style as SBBPrimaryButtonSyle (red background)
+        case primary
+        /// Secondary: same style as SBBSecondaryButonStyle (red outline)
+        case secondary
     }
     
     private let size: SBBButtonSize
@@ -85,6 +89,21 @@ public struct SBBIconButtonStyle: ButtonStyle {
                 )
         }
         
+        private func getBorderColor(enabled: Bool) -> Color {
+            switch style {
+            case .normal, .negative:
+                return getForegroundColor(enabled: enabled)
+            case .primary:
+                return getBackgroundColor(enabled: enabled, isPressed: configuration.isPressed)
+            case .secondary:
+                if enabled {
+                    return (colorScheme == .light) ? .sbbColor(.primary) : .sbbColor(.smoke)
+                } else {
+                    return (colorScheme == .light) ? .sbbColor(.cloud) : .sbbColor(.iron)
+                }
+            }
+        }
+        
         private func getForegroundColor(enabled: Bool) -> Color {
             switch style {
             case .normal:
@@ -95,6 +114,18 @@ public struct SBBIconButtonStyle: ButtonStyle {
                 }
             case .negative:
                 return Color.sbbColor(.white).opacity(enabled ? 1 : 0.5)
+            case .primary:
+                if enabled {
+                    return .sbbColor(.textWhite)
+                } else {
+                    return (colorScheme == .light) ? .sbbColor(.textWhite) : .sbbColor(.smoke)
+                }
+            case .secondary:
+                if enabled {
+                    return (colorScheme == .light) ? .sbbColor(.primary) : .sbbColor(.white)
+                } else {
+                    return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.smoke)
+                }
             }
         }
         
@@ -110,6 +141,22 @@ public struct SBBIconButtonStyle: ButtonStyle {
                 }
             case .negative:
                 return Color.sbbColor(.black).opacity(isPressed ? 0.2 : 0)
+            case .primary:
+                if isPressed {
+                    return .sbbColor(.secondary)
+                } else if enabled {
+                    return .sbbColor(.primary)
+                } else {
+                    return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.iron)
+                }
+            case .secondary:
+                if !enabled {
+                    return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.black)
+                } else if isPressed {
+                    return (colorScheme == .light) ? .sbbColor(.graphite) : .sbbColor(.charcoal)
+                } else {
+                    return (colorScheme == .light) ? .sbbColor(.white) : .sbbColor(.iron)
+                }
             }
         }
     }
