@@ -42,6 +42,7 @@ struct TextAreaView: View {
         }
         .navigationBarTitle("TextArea")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

@@ -38,6 +38,7 @@ struct PaginationViewDemo: View {
             .sbbScreenPadding()
             .navigationBarTitle("Pagination")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

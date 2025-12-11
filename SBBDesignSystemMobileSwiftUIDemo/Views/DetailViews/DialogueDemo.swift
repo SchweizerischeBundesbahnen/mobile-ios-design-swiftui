@@ -107,6 +107,7 @@ struct DialogueDemo: View {
             }
             .navigationBarTitle("Dialogue")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

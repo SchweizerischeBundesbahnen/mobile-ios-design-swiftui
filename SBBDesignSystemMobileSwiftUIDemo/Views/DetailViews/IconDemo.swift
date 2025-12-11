@@ -99,6 +99,7 @@ struct IconDemo: View {
         }
             .navigationBarTitle("Icons")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

@@ -63,6 +63,7 @@ struct SegmentedPickerViewDemo: View {
         }
             .navigationBarTitle("SegmentedPicker")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }
