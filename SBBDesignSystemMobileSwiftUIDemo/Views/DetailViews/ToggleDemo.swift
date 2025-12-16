@@ -89,6 +89,7 @@ struct ToggleDemo: View {
             .sbbScreenPadding()
             .navigationBarTitle("Toggle")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
     

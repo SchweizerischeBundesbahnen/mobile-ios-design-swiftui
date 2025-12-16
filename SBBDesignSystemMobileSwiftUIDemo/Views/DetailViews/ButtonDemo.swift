@@ -19,97 +19,108 @@ struct ButtonDemo: View {
                         Button(action: increment) {
                             Text("Primary Button")
                         }
-                            .buttonStyle(SBBPrimaryButtonStyle())
-                            .disabled(disabled)
+                        .buttonStyle(SBBPrimaryButtonStyle())
+                        .disabled(disabled)
                         Button(action: increment) {
                             Text("Secondary Button")
                         }
-                            .buttonStyle(SBBSecondaryButtonStyle())
-                            .disabled(disabled)
+                        .buttonStyle(SBBSecondaryButtonStyle())
+                        .disabled(disabled)
                         Button(action: increment) {
                             Text("Tertiary Large Button")
                         }
-                            .buttonStyle(SBBTertiaryButtonStyle())
-                            .disabled(disabled)
+                        .buttonStyle(SBBTertiaryButtonStyle())
+                        .disabled(disabled)
                         Button(action: increment) {
                             Text("Tertiary Small Button")
                         }
                         .buttonStyle(SBBTertiaryButtonStyle(size: .small))
-                            .disabled(disabled)
+                        .disabled(disabled)
                         Button(action: increment) {
                             HStack (spacing: 4) {
                                 Image(sbbIcon: .dog_small)
                                 Text("Tertiary Large Button w. Icon")
                             }
                         }
-                            .buttonStyle(SBBTertiaryButtonStyle())
-                            .disabled(disabled)
+                        .buttonStyle(SBBTertiaryButtonStyle())
+                        .disabled(disabled)
                         Button(action: increment) {
                             HStack (spacing: 4) {
                                 Image(sbbIcon: .dog_small)
                                 Text("Tertiary Small Button w. Icon")
                             }
                         }
-                            .buttonStyle(SBBTertiaryButtonStyle(size: .small))
-                            .disabled(disabled)
+                        .buttonStyle(SBBTertiaryButtonStyle(size: .small))
+                        .disabled(disabled)
                     }
                     Group {
                         Button(action: increment) {
                             Image(sbbIcon: .dog_small)
                         }
-                            .buttonStyle(SBBIconButtonStyle())
-                            .disabled(disabled)
+                        .buttonStyle(SBBIconButtonStyle(style: .primary))
+                        .disabled(disabled)
                         Button(action: increment) {
                             Image(sbbIcon: .dog_small)
                         }
-                            .buttonStyle(SBBIconButtonStyle(size: .small))
-                            .disabled(disabled)
+                        .buttonStyle(SBBIconButtonStyle(style: .secondary))
+                        .disabled(disabled)
                         Button(action: increment) {
                             Image(sbbIcon: .dog_small)
                         }
-                            .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
-                            .disabled(disabled)
-                            .background(Color.sbbColor(.primary))
+                        .buttonStyle(SBBIconButtonStyle())
+                        .disabled(disabled)
                         Button(action: increment) {
                             Image(sbbIcon: .dog_small)
                         }
-                            .buttonStyle(SBBIconButtonStyle(showBorder: false))
-                            .disabled(disabled)
+                        .buttonStyle(SBBIconButtonStyle(size: .small))
+                        .disabled(disabled)
                         Button(action: increment) {
                             Image(sbbIcon: .dog_small)
                         }
-                            .buttonStyle(SBBIconButtonStyle(size: .small, showBorder: false))
-                            .disabled(disabled)
+                        .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
+                        .disabled(disabled)
+                        .background(Color.sbbColor(.primary))
+                        Button(action: increment) {
+                            Image(sbbIcon: .dog_small)
+                        }
+                        .buttonStyle(SBBIconButtonStyle(showBorder: false))
+                        .disabled(disabled)
+                        Button(action: increment) {
+                            Image(sbbIcon: .dog_small)
+                        }
+                        .buttonStyle(SBBIconButtonStyle(size: .small, showBorder: false))
+                        .disabled(disabled)
                         Button(action: increment) {
                             VStack(alignment: .center, spacing: 4, content: {
                                 Image(sbbIcon: .station_large)
                                 Text("Station")
                             })
                         }
-                            .buttonStyle(SBBIconTextButtonStyle())
-                            .disabled(disabled) 
+                        .buttonStyle(SBBIconTextButtonStyle())
+                        .disabled(disabled)
                     }
                     Text("Counter: \(counter)").padding()
                     SBBCheckBox(isOn: $disabled, text: Text("Disabled"), showBottomLine: false)
                     Spacer()
                 }
-                    .sbbScreenPadding()
+                .sbbScreenPadding()
             }
             Button(action: increment) {
                 Text("My Primary Floating Button")
             }
-                .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: true))
-                .sbbScreenPadding()
-                .disabled(disabled)
+            .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: true))
+            .sbbScreenPadding()
+            .disabled(disabled)
         }
         .navigationBarTitle("Buttons")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .navigationBarItems(trailing:
-            Button(action: increment) {
-                Image(sbbIcon: .dog_small)
-            }
-                .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
-                .disabled(disabled)
+                                Button(action: increment) {
+            Image(sbbIcon: .dog_small)
+        }
+            .buttonStyle(SBBIconButtonStyle(size: .small, style: .negative))
+            .disabled(disabled)
         )
         .colorScheme(colorScheme)
     }

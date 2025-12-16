@@ -55,6 +55,7 @@ struct PromotionBoxDemo: View {
         .background(Color.sbbColor(.background))
         .navigationBarTitle("PromotionBox")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
         .alert(isPresented: $showAlert, content: {
             Alert(title: Text("Some action"), dismissButton: .cancel(Text("OK")))

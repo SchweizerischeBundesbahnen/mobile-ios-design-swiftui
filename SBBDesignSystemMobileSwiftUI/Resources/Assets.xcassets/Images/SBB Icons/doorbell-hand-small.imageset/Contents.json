@@ -1,16 +1,16 @@
 {
-  "images" : [
-    {
-      "filename" : "doorbell-hand-small.svg",
-      "idiom" : "universal"
+    "images": [
+        {
+            "filename": "doorbell-hand-small.svg",
+            "idiom": "universal"
+        }
+    ],
+    "info": {
+        "author": "xcode",
+        "version": 1
+    },
+    "properties": {
+        "preserves-vector-representation": true,
+        "template-rendering-intent": "template"
     }
-  ],
-  "info" : {
-    "author" : "xcode",
-    "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true,
-    "template-rendering-intent" : "template"
-  }
 }

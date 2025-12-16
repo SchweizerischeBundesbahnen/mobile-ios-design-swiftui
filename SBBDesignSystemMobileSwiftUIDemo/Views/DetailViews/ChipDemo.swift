@@ -40,6 +40,7 @@ struct ChipDemo: View {
         }
         .navigationBarTitle("Chip")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

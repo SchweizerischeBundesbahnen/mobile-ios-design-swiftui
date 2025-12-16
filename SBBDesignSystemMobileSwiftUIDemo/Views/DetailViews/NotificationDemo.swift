@@ -157,6 +157,7 @@ struct NotificationDemo: View {
         }
         .navigationBarTitle("Notification")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

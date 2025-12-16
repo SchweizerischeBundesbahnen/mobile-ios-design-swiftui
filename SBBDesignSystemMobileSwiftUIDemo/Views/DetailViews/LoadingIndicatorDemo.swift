@@ -61,6 +61,7 @@ struct LoadingIndicatorDemo: View {
         }
         .navigationBarTitle("LoadingIndicator")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

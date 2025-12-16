@@ -24,6 +24,7 @@ struct DividerViewDemo: View {
         }
             .sbbScreenPadding()
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

@@ -23,6 +23,7 @@ struct NavigationBarWithSBBIconDemo: View {
         }
         .sbbScreenPadding()
         .sbbStyle(showSBBIcon: false)
+        .sbbBackButtonStyle()
         .navigationBarTitle("NavBar Icon")
         .navigationBarItems(trailing: SBBNavigationBarSBBIcon(onTouchAction: {
             self.counter += 1

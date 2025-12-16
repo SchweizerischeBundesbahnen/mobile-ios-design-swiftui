@@ -48,6 +48,7 @@ struct ProcessFlowDemo: View {
         }
             .navigationBarTitle("ProcessFlow")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
             
     }

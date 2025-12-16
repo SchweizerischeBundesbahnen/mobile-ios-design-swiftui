@@ -1402,7 +1402,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx \"$TOOLCHAIN_DIR/usr/bin/\"swift \"$PROJECT_DIR\"/SBBDesignSystemMobileSwiftUI/Scripts/generate_enum_file.swift\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx swift \"$PROJECT_DIR\"/SBBDesignSystemMobileSwiftUI/Scripts/generate_enum_file.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1979,7 +1979,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2004,7 +2004,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.5;
+				MARKETING_VERSION = 1.2.8;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

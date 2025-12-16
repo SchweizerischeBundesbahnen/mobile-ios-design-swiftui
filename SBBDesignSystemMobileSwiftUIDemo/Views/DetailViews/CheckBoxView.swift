@@ -42,6 +42,7 @@ struct CheckBoxView: View {
         }
         .navigationBarTitle("CheckBox")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

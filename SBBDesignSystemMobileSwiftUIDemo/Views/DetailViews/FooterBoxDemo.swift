@@ -87,6 +87,7 @@ struct FooterBoxDemo: View {
         }
         .navigationBarTitle("FooterBox")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

@@ -41,6 +41,7 @@ struct TypographyView: View {
             .navigationBarTitle("Typography")
             .sbbScreenPadding()
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
             
     }

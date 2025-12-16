@@ -113,6 +113,7 @@ struct BubbleViewDemo: View {
         }
             .navigationBarTitle("BubbleView")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

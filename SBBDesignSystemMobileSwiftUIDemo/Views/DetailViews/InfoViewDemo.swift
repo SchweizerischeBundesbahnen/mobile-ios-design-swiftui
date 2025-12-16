@@ -23,6 +23,7 @@ struct InfoViewDemo: View {
             .sbbScreenPadding()
             .navigationBarTitle("InfoView")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

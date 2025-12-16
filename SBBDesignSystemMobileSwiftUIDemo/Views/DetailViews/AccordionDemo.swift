@@ -30,6 +30,7 @@ struct AccordionDemo: View {
         }
             .navigationBarTitle("Accordion")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

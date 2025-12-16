@@ -79,6 +79,7 @@ struct OnboardingViewDemo: View {
                     .sbbScreenPadding()
                     .navigationBarTitle("Onboarding")
                     .sbbStyle()
+                    .sbbBackButtonStyle()
             } else if onboardingState != .hidden {
                 SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: startView, endView: endView, content: createCardViews)
                     .alert(isPresented: $showingAlert) {
