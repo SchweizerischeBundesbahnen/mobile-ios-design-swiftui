@@ -1402,7 +1402,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx \"$TOOLCHAIN_DIR/usr/bin/\"swift \"$PROJECT_DIR\"/SBBDesignSystemMobileSwiftUI/Scripts/generate_enum_file.swift\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n# Type a script or drag a script file from your workspace to insert its path.\nxcrun --sdk macosx swift \"$PROJECT_DIR\"/SBBDesignSystemMobileSwiftUI/Scripts/generate_enum_file.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
