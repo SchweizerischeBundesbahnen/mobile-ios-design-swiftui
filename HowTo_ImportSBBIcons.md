@@ -22,6 +22,12 @@ python generate_icons.py \
     --pictos-repo <PATH_TO_PICTOGRAMS_REPOSITORY>
 ```
 
+or alternatively use:
+```
+./generate_icons.sh
+```
+which clones the repo, generate the icons/pictograms, deletes the repo.
+
 * Build the app, which will generate the updated `Resources/SBBIconName.swift`.
 
 

@@ -1,5 +1,5 @@
 {
-  "version": "1.8.0",
+  "version": "1.8.14",
   "icons": [
     {
       "name": "aerosol-can-small",
@@ -2513,6 +2513,48 @@
       ]
     },
     {
+      "name": "copyright-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "copyright",
+        "copy",
+        "legal",
+        "ui-icons",
+        "Basic",
+        "copyright",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "copyright-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "copyright",
+        "copy",
+        "legal",
+        "ui-icons",
+        "Basic",
+        "copyright",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "copyright-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "copyright",
+        "copy",
+        "legal",
+        "ui-icons",
+        "Basic",
+        "copyright",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "croissant-small",
       "color": true,
       "scalable": false,
@@ -2814,6 +2856,36 @@
         "Basic",
         "diamond",
         "Size=large"
+      ]
+    },
+    {
+      "name": "dinosaur-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "dino",
+        "dinosaurier",
+        "old",
+        "Brachiosaurus",
+        "ui-icons",
+        "Basic",
+        "dinosaur",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "dinosaur-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "dino",
+        "dinosaurier",
+        "old",
+        "Brachiosaurus",
+        "ui-icons",
+        "Basic",
+        "dinosaur",
+        "Size=medium"
       ]
     },
     {
@@ -6151,6 +6223,38 @@
       ]
     },
     {
+      "name": "sign-no-entry-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "stop",
+        "halt",
+        "verboten",
+        "einfahrt",
+        "verboten",
+        "ui-icons",
+        "Basic",
+        "sign-no-entry",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "sign-no-entry-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "stop",
+        "halt",
+        "verboten",
+        "einfahrt",
+        "verboten",
+        "ui-icons",
+        "Basic",
+        "sign-no-entry",
+        "Size=medium"
+      ]
+    },
+    {
       "name": "smartphone-shaking-small",
       "color": true,
       "scalable": false,
@@ -6673,6 +6777,38 @@
         "Basic",
         "tree",
         "Size=extra-small"
+      ]
+    },
+    {
+      "name": "triceratops-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "dino",
+        "dinosaurier",
+        "tier",
+        "animal",
+        "old",
+        "ui-icons",
+        "Basic",
+        "triceratops",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "triceratops-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "dino",
+        "dinosaurier",
+        "tier",
+        "animal",
+        "old",
+        "ui-icons",
+        "Basic",
+        "triceratops",
+        "Size=medium"
       ]
     },
     {
@@ -7302,6 +7438,22 @@
         "Basic",
         "create",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "atm-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "create",
+        "new",
+        "edit",
+        "bearbeiten",
+        "pen",
+        "ui-icons",
+        "Basic",
+        "atm",
+        "Size=small"
       ]
     },
     {
@@ -15289,6 +15441,22 @@
       ]
     },
     {
+      "name": "swisspass-temporary-large",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "transition",
+        "swisspass",
+        "wandel",
+        "umwandel",
+        "übertrag",
+        "ui-icons",
+        "Ticket",
+        "swisspass-temporary",
+        "Size=large"
+      ]
+    },
+    {
       "name": "ticket-day-small",
       "color": true,
       "scalable": false,
@@ -16756,6 +16924,22 @@
       ]
     },
     {
+      "name": "ticket-machine-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "ticket",
+        "machine",
+        "automat",
+        "ticketautomat",
+        "billettautomat",
+        "ui-icons",
+        "Station",
+        "ticket-machine",
+        "Size=extra-small"
+      ]
+    },
+    {
       "name": "ticket-machine-ticket-small",
       "color": true,
       "scalable": false,
@@ -16791,25 +16975,6 @@
         "Station",
         "ticket-machine-ticket",
         "Size=medium"
-      ]
-    },
-    {
-      "name": "ticket-machine-ticket-extra-small",
-      "color": true,
-      "scalable": false,
-      "tags": [
-        "ticket",
-        "machine",
-        "automat",
-        "ticketautomat",
-        "billettautomat",
-        "purchase",
-        "kaufen",
-        "kauf",
-        "ui-icons",
-        "Station",
-        "ticket-machine-ticket",
-        "Size=extra-small"
       ]
     },
     {
@@ -17040,7 +17205,7 @@
       ]
     },
     {
-      "name": "umbrella-glove-question-mark-extra-small",
+      "name": "suitcase-question-mark-small",
       "color": true,
       "scalable": false,
       "tags": [
@@ -17048,7 +17213,20 @@
         "found",
         "ui-icons",
         "Station",
-        "umbrella-glove-question-mark",
+        "suitcase-question-mark",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "suitcase-question-mark-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "lost",
+        "found",
+        "ui-icons",
+        "Station",
+        "suitcase-question-mark",
         "Size=extra-small"
       ]
     },
@@ -17838,6 +18016,40 @@
         "ui-icons",
         "Location",
         "mountain-plus",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "path-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "path",
+        "way",
+        "waypoints",
+        "pfad",
+        "weg",
+        "wegpunkte",
+        "ui-icons",
+        "Location",
+        "path",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "path-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "path",
+        "way",
+        "waypoints",
+        "pfad",
+        "weg",
+        "wegpunkte",
+        "ui-icons",
+        "Location",
+        "path",
         "Size=medium"
       ]
     },
@@ -19349,6 +19561,57 @@
         "Hardware",
         "computer-chip",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "flask-test-tube-large",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "flask",
+        "test",
+        "tube",
+        "experimental",
+        "experiment",
+        "testing",
+        "ui-icons",
+        "Hardware",
+        "flask-test-tube",
+        "Size=large"
+      ]
+    },
+    {
+      "name": "flask-test-tube-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "flask",
+        "test",
+        "tube",
+        "experimental",
+        "experiment",
+        "testing",
+        "ui-icons",
+        "Hardware",
+        "flask-test-tube",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "flask-test-tube-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "flask",
+        "test",
+        "tube",
+        "experimental",
+        "experiment",
+        "testing",
+        "ui-icons",
+        "Hardware",
+        "flask-test-tube",
+        "Size=small"
       ]
     },
     {
@@ -22558,6 +22821,63 @@
       ]
     },
     {
+      "name": "freight-wagon-container-pair-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "kombinierter",
+        "verkehr",
+        "cargo",
+        "freight",
+        "wagon",
+        "container",
+        "truck",
+        "lastwagen",
+        "ui-icons",
+        "Transport",
+        "freight-wagon-container-pair",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "freight-wagon-container-pair-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "kombinierter",
+        "verkehr",
+        "cargo",
+        "freight",
+        "wagon",
+        "container",
+        "truck",
+        "lastwagen",
+        "ui-icons",
+        "Transport",
+        "freight-wagon-container-pair",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "freight-wagon-container-pair-large",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "kombinierter",
+        "verkehr",
+        "cargo",
+        "freight",
+        "wagon",
+        "container",
+        "truck",
+        "lastwagen",
+        "ui-icons",
+        "Transport",
+        "freight-wagon-container-pair",
+        "Size=large"
+      ]
+    },
+    {
       "name": "freight-wagon-truck-container-small",
       "color": true,
       "scalable": false,
@@ -23918,6 +24238,23 @@
       ]
     },
     {
+      "name": "scooter-profile-sign-parking-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "stroller",
+        "kinderwagen",
+        "kind",
+        "child",
+        "family",
+        "familie",
+        "ui-icons",
+        "Transport",
+        "scooter-profile-sign-parking",
+        "Size=small"
+      ]
+    },
+    {
       "name": "scooter-profile-sign-parking-extra-small",
       "color": true,
       "scalable": false,
@@ -23932,6 +24269,23 @@
         "Transport",
         "scooter-profile-sign-parking",
         "Size=extra-small"
+      ]
+    },
+    {
+      "name": "bike-microscooter-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "stroller",
+        "kinderwagen",
+        "kind",
+        "child",
+        "family",
+        "familie",
+        "ui-icons",
+        "Transport",
+        "bike-microscooter",
+        "Size=small"
       ]
     },
     {
@@ -27727,6 +28081,63 @@
       ]
     },
     {
+      "name": "train-profile-signal-microphone-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "noise",
+        "detection",
+        "BLM",
+        "ZKE",
+        "bahn",
+        "lärm",
+        "monitoring",
+        "",
+        "ui-icons",
+        "Projectspecific",
+        "train-profile-signal-microphone",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "train-profile-signal-microphone-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "noise",
+        "detection",
+        "BLM",
+        "ZKE",
+        "bahn",
+        "lärm",
+        "monitoring",
+        "",
+        "ui-icons",
+        "Projectspecific",
+        "train-profile-signal-microphone",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "train-profile-signal-microphone-large",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "noise",
+        "detection",
+        "BLM",
+        "ZKE",
+        "bahn",
+        "lärm",
+        "monitoring",
+        "",
+        "ui-icons",
+        "Projectspecific",
+        "train-profile-signal-microphone",
+        "Size=large"
+      ]
+    },
+    {
       "name": "tunnel-freight-wagon-shifted-small",
       "color": true,
       "scalable": false,
@@ -28761,6 +29172,69 @@
         "Projectspecific",
         "wara-warn-app",
         "Size=medium"
+      ]
+    },
+    {
+      "name": "avatar-train-staff-das-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "train",
+        "staff",
+        "personal",
+        "mitarbeiter",
+        "personel",
+        "uniform",
+        "person",
+        "branche",
+        "neutral",
+        "das",
+        "ui-icons",
+        "Projectspecific",
+        "avatar-train-staff-das",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "avatar-train-staff-das-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "train",
+        "staff",
+        "personal",
+        "mitarbeiter",
+        "personel",
+        "uniform",
+        "person",
+        "branche",
+        "neutral",
+        "das",
+        "ui-icons",
+        "Projectspecific",
+        "avatar-train-staff-das",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "avatar-train-staff-das-large",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "train",
+        "staff",
+        "personal",
+        "mitarbeiter",
+        "personel",
+        "uniform",
+        "person",
+        "branche",
+        "neutral",
+        "das",
+        "ui-icons",
+        "Projectspecific",
+        "avatar-train-staff-das",
+        "Size=large"
       ]
     },
     {
@@ -44315,6 +44789,54 @@
       ]
     },
     {
+      "name": "fr",
+      "color": false,
+      "scalable": true,
+      "tags": [
+        "-",
+        "timetable-icons",
+        "Product-Brands",
+        "light",
+        "fr"
+      ]
+    },
+    {
+      "name": "iry",
+      "color": false,
+      "scalable": true,
+      "tags": [
+        "-",
+        "timetable-icons",
+        "Product-Brands",
+        "light",
+        "iry"
+      ]
+    },
+    {
+      "name": "fb",
+      "color": false,
+      "scalable": true,
+      "tags": [
+        "-",
+        "timetable-icons",
+        "Product-Brands",
+        "light",
+        "fb"
+      ]
+    },
+    {
+      "name": "est",
+      "color": false,
+      "scalable": true,
+      "tags": [
+        "-",
+        "timetable-icons",
+        "Product-Brands",
+        "light",
+        "est"
+      ]
+    },
+    {
       "name": "bex-negative",
       "color": false,
       "scalable": true,
@@ -57806,7 +58328,7 @@
       ]
     },
     {
-      "name": "ire",
+      "name": "ire-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57815,11 +58337,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire"
+        "ire-negative"
       ]
     },
     {
-      "name": "ire-1",
+      "name": "ire-1-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57828,11 +58350,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-1"
+        "ire-1-negative"
       ]
     },
     {
-      "name": "ire-2",
+      "name": "ire-2-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57841,11 +58363,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-2"
+        "ire-2-negative"
       ]
     },
     {
-      "name": "ire-3",
+      "name": "ire-3-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57854,11 +58376,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-3"
+        "ire-3-negative"
       ]
     },
     {
-      "name": "ire-4",
+      "name": "ire-4-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57867,11 +58389,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-4"
+        "ire-4-negative"
       ]
     },
     {
-      "name": "ire-5",
+      "name": "ire-5-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57880,11 +58402,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-5"
+        "ire-5-negative"
       ]
     },
     {
-      "name": "ire-6",
+      "name": "ire-6-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57893,11 +58415,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-6"
+        "ire-6-negative"
       ]
     },
     {
-      "name": "ire-7",
+      "name": "ire-7-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57906,11 +58428,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-7"
+        "ire-7-negative"
       ]
     },
     {
-      "name": "ire-8",
+      "name": "ire-8-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57919,11 +58441,11 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-8"
+        "ire-8-negative"
       ]
     },
     {
-      "name": "ire-9",
+      "name": "ire-9-negative",
       "color": false,
       "scalable": true,
       "tags": [
@@ -57932,7 +58454,55 @@
         "Product-Brands",
         "dark",
         "ire",
-        "ire-9"
+        "ire-9-negative"
+      ]
+    },
+    {
+      "name": "fr-negative",
+      "color": false,
+      "scalable": true,
+      "tags": [
+        "-",
+        "timetable-icons",
+        "Product-Brands",
+        "dark",
+        "fr-negative"
+      ]
+    },
+    {
+      "name": "iry-negative",
+      "color": false,
+      "scalable": true,
+      "tags": [
+        "-",
+        "timetable-icons",
+        "Product-Brands",
+        "dark",
+        "iry-negative"
+      ]
+    },
+    {
+      "name": "fb-negative",
+      "color": false,
+      "scalable": true,
+      "tags": [
+        "-",
+        "timetable-icons",
+        "Product-Brands",
+        "dark",
+        "fb-negative"
+      ]
+    },
+    {
+      "name": "est-negative",
+      "color": false,
+      "scalable": true,
+      "tags": [
+        "-",
+        "timetable-icons",
+        "Product-Brands",
+        "dark",
+        "est-negative"
       ]
     }
   ]

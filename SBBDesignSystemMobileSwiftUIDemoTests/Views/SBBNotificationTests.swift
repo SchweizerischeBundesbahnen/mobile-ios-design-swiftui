@@ -12,7 +12,7 @@ class SBBNotificationTests: XCTestCase {
     func testSBBNotificationAlert() {
         let view = SBBNotification(isPresented: .constant(true), statusType: .alert, title: Text("Title"), text: Text("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore."))
         for colorScheme in ColorScheme.allCases {
-//            view.recordDocumentationSnapshot(name: "SBBNotification", colorScheme: colorScheme)
+            view.recordDocumentationSnapshot(name: "SBBNotification", colorScheme: colorScheme)
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
