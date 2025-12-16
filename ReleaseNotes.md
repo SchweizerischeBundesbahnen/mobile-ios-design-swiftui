@@ -6,6 +6,7 @@
 
 ### Improvements
 * Modifier .sbbStyle() now also removes the liquid glass background for the SBB icon.
+* Update icons to 1.8.14
 
 ## v1.2.7 - 25 September 2025
 ### Features
