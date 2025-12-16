@@ -13,3 +13,5 @@ if [ "$XCODE_VERSION" -ge 26 ]; then
         exit 1
     fi
 fi
+
+export TOOLCHAINS=default
