@@ -41,6 +41,7 @@ struct DemoWithModalSettingsView<Demo: View, Settings: View>: View {
         }
         .navigationBarTitle(demoTitle)
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
         .sbbModal(isPresented: $showSettings) {
             SBBModalView(title: Text("Settings"), style: .bottom, isPresented: $showSettings) {

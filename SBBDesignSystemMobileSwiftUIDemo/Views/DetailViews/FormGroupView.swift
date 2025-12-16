@@ -39,6 +39,7 @@ struct FormGroupView: View {
             }
                 .navigationBarTitle("FormGroup")
                 .sbbStyle()
+                .sbbBackButtonStyle()
                 .colorScheme(colorScheme)
         }
     }

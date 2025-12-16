@@ -73,6 +73,7 @@ struct TextFieldView: View {
         }
         .navigationBarTitle("TextField")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

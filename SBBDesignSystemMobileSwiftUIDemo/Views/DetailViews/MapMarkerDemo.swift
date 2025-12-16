@@ -22,6 +22,7 @@ struct MapMarkerDemo: View {
         }
             .navigationBarTitle("Map Marker")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

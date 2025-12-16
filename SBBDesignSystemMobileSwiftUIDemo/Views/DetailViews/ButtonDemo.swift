@@ -114,6 +114,7 @@ struct ButtonDemo: View {
         }
         .navigationBarTitle("Buttons")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .navigationBarItems(trailing:
                                 Button(action: increment) {
             Image(sbbIcon: .dog_small)

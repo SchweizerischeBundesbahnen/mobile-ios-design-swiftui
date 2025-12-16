@@ -72,6 +72,7 @@ struct RadioButtonView: View {
         }
         .navigationBarTitle("RadioButton")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

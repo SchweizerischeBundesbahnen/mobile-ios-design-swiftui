@@ -42,6 +42,7 @@ struct ListItemDemo: View {
         }
             .navigationBarTitle("ListItem")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

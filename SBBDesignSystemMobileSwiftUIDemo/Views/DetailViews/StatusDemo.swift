@@ -38,6 +38,7 @@ struct StatusDemo: View {
         }
             .navigationBarTitle("Status")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

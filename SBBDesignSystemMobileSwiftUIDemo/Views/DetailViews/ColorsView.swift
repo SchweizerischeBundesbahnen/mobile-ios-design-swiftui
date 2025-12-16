@@ -72,6 +72,7 @@ struct ColorsView: View {
         }
             .navigationBarTitle("Colors")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

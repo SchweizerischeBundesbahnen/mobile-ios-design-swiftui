@@ -23,6 +23,7 @@ public struct SliderDemo: View {
         }
             .navigationBarTitle("SBBSlider")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

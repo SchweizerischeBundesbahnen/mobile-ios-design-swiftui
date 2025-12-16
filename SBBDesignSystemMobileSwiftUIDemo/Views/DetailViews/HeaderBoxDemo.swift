@@ -153,6 +153,7 @@ struct HeaderBoxDemo: View {
         }
         .navigationBarTitle("HeaderBox")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

@@ -1,5 +1,13 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.8 - 11 December 2025
+### Features
+* New modifier: .sbbBackButtonStyle() to style the navigation bar button without the liquid glass background.
+
+### Improvements
+* Modifier .sbbStyle() now also removes the liquid glass background for the SBB icon.
+* Update icons to 1.8.14
+
 ## v1.2.7 - 25 September 2025
 ### Features
 * UIImage: `UIImage(sbbIcon: SBBIcon)` to get `SBBIcon`.
@@ -9,7 +17,6 @@
 
 ### Bugfix
 * SBBSwitchItem: loading state is correctly rendered, and ignored if loading state disabled. 
-
 
 ## v1.2.6 - 31 July 2025
 ### Improvements

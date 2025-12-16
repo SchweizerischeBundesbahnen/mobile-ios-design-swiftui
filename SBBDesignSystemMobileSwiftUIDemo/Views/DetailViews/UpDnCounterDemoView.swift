@@ -36,6 +36,7 @@ struct UpDnCounterDemoView: View {
         }
             .navigationBarTitle("UpDnCounter")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

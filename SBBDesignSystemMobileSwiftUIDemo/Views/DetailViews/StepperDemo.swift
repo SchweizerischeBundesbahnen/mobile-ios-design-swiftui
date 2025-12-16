@@ -61,6 +61,7 @@ struct StepperDemo: View {
         }
         .navigationBarTitle("ProcessFlow")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
         
     }

@@ -132,6 +132,7 @@ struct ModalViewDemo: View {
         }
             .navigationBarTitle("ModalView")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }

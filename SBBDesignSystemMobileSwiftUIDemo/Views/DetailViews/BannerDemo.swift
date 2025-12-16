@@ -29,6 +29,7 @@ struct BannerDemo: View {
         .sbbScreenPadding()
         .navigationBarTitle("Banner")
         .sbbStyle()
+        .sbbBackButtonStyle()
         .colorScheme(colorScheme)
     }
 }

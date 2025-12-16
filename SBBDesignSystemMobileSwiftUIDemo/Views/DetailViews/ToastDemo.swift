@@ -55,6 +55,7 @@ struct ToastDemo: View {
             .frame(maxWidth: .infinity)
             .navigationBarTitle("Toast")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .sbbToastContainer()
             .colorScheme(colorScheme)
     }

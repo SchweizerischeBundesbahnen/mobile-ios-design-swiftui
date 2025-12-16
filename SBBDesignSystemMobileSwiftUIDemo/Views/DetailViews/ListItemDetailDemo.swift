@@ -21,6 +21,7 @@ struct ListItemDetailDemo: View {
             .sbbScreenPadding()
             .navigationBarTitle("Detail View")
             .sbbStyle()
+            .sbbBackButtonStyle()
             .colorScheme(colorScheme)
     }
 }
