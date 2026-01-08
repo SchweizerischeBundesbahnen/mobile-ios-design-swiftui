@@ -34,10 +34,11 @@ public struct SBBCheckBox: View {
         - text: The Text to be shown on the right side of the checkbox Image.
         - subText: The subText to be shown below the standard text.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+        - darkModeCheckWhite: If set, the checkmark color will be white instead of primary color.
      */
-    public init(isOn: Binding<Bool>, image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true) {
+    public init(isOn: Binding<Bool>, image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true, darkModeCheckWhite: Bool = false) {
         self._isOn = isOn
-        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: isOn, image: image, text: text, subText: subText, showBottomLine: showBottomLine)
+        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: isOn, image: image, text: text, subText: subText, showBottomLine: showBottomLine, darkModeCheckWhite: darkModeCheckWhite)
     }
     
     public var body: some View {

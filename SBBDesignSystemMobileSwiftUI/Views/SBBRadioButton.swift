@@ -30,6 +30,7 @@ public struct SBBRadioButton: View {
     private var text: Text
     private var subText: Text?
     private var showBottomLine: Bool
+    private var darkModeCheckWhite: Bool
     
     /**
      Returns a SBBRadioButton with a Text, an optional subText and an optional Image. SBBRadioButton is typically used inside a SBBRadioButtonGroup, which handles all events on it's own. If you want to use it outside of a SBBRadioButtonGroup you need to set it's selected state and handle touch events. To set its selected state use the isSelected(_ isSelected: Bool) ViewModifier. To handle touch events, use the .highPriorityGesture() ViewModifier.
@@ -39,16 +40,18 @@ public struct SBBRadioButton: View {
         - text: The text to be shown on the right side of the radioButton Image.
         - subText: The subText to be shown below the standard text.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
+        - darkModeCheckWhite: If set, the checkmark color will be white instead of primary color.
      */
-    public init(image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true) {
+    public init(image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true, darkModeCheckWhite: Bool = false) {
         self.image = image
         self.text = text
         self.subText = subText
         self.showBottomLine = showBottomLine
+        self.darkModeCheckWhite = darkModeCheckWhite
     }
     
     public var body: some View {
-        CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(isOn), image: image, text: text, subText: subText, showBottomLine: showBottomLine)
+        CheckBoxAndRadioButtonContainer(type: .radioButton, isOn: .constant(isOn), image: image, text: text, subText: subText, showBottomLine: showBottomLine, darkModeCheckWhite: darkModeCheckWhite)
     }
 }
 
