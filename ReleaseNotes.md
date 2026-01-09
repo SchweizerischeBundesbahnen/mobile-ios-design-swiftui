@@ -1,5 +1,9 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.2.9 - TBD
+### Improvements
+* SBBRadioButton, SBBCheckBox: new parameter `darkModeCheckWhite`, if enabled the checkmark is white in dark mode, instead of primary color.
+
 ## v1.2.8 - 11 December 2025
 ### Features
 * New modifier: .sbbBackButtonStyle() to style the navigation bar button without the liquid glass background.
