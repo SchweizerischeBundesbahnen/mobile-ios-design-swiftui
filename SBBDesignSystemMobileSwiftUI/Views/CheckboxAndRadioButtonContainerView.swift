@@ -34,7 +34,7 @@ struct CheckBoxAndRadioButtonContainer: View {
         case (false, _):
             return .clear
         case (true, true):
-            return darkModeCheckWhite ? .sbbColor(.white) : .sbbColor(.primary)
+            return colorScheme == .dark && darkModeCheckWhite ? .sbbColor(.white) : .sbbColor(.primary)
         case (true, false):
             return  (colorScheme == .light) ? Color.sbbColor(.metal) : Color.sbbColor(.smoke)
         }
