@@ -5,7 +5,7 @@
 import SwiftUI
 
 extension View {
-    func hspaced(_ alignment: HorizontalAlignment = .center) -> some View {
+    public func hspaced(_ alignment: HorizontalAlignment = .center) -> some View {
         return HStack {
             if alignment != .leading {
                 Spacer()
@@ -17,7 +17,7 @@ extension View {
         }
     }
     
-    func vspaced(_ alignment: VerticalAlignment = .center) -> some View {
+    public func vspaced(_ alignment: VerticalAlignment = .center) -> some View {
         return VStack {
             if alignment != .top {
                 Spacer()
