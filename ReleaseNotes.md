@@ -1,6 +1,10 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
 ## v1.2.9 - TBD
+### Features
+* New view modifiers:
+    * `hspaced(_: HorizontalAlignment)` and `vspaced(_: VerticalAlignment)`: can be used to wrap a view in an HStack/VStack with Spacer to achieve desired alignment.
+
 ### Improvements
 * SBBRadioButton, SBBCheckBox: new parameter `darkModeCheckWhite`, if enabled the checkmark is white in dark mode, instead of primary color.
 

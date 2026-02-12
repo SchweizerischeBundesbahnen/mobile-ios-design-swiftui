@@ -94,6 +94,7 @@
 		00B773C82A3C6CC8002BDB85 /* SBBMessageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */; };
 		00B773CA2A3C70A6002BDB85 /* MessageDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C92A3C70A6002BDB85 /* MessageDemo.swift */; };
 		00BB63A92A56C18A003E2FBC /* ViewSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BB63A82A56C18A003E2FBC /* ViewSize.swift */; };
+		00BE3B122F3E029600E85DC5 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BE3B112F3E029400E85DC5 /* Spacing.swift */; };
 		00C731CF2AC5742E009D5DCA /* SBBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731CE2AC5742E009D5DCA /* SBBStatus.swift */; };
 		00C731D12AC57988009D5DCA /* StatusDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731D02AC57988009D5DCA /* StatusDemo.swift */; };
 		00C731D32AC58017009D5DCA /* SBBStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C731D22AC58017009D5DCA /* SBBStatusTests.swift */; };
@@ -367,6 +368,7 @@
 		00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessageTests.swift; sourceTree = "<group>"; };
 		00B773C92A3C70A6002BDB85 /* MessageDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageDemo.swift; sourceTree = "<group>"; };
 		00BB63A82A56C18A003E2FBC /* ViewSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSize.swift; sourceTree = "<group>"; };
+		00BE3B112F3E029400E85DC5 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		00C731CE2AC5742E009D5DCA /* SBBStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SBBStatus.swift; sourceTree = "<group>"; };
 		00C731D02AC57988009D5DCA /* StatusDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusDemo.swift; sourceTree = "<group>"; };
 		00C731D22AC58017009D5DCA /* SBBStatusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStatusTests.swift; sourceTree = "<group>"; };
@@ -838,6 +840,7 @@
 		7C1F20A624E51243006FF30B /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
+				00BE3B112F3E029400E85DC5 /* Spacing.swift */,
 				005EDCB22DD350BD00E31B3D /* Backslide.swift */,
 				7C624897247E315800F54C9D /* ImageExtension.swift */,
 				7C595E4025A597010015B0FC /* SBBListItemExtension.swift */,
@@ -1542,6 +1545,7 @@
 				00FB819B278ED67F00F07D30 /* TabBarEntryViewModifier.swift in Sources */,
 				7CAF978325B87DCE002260AE /* ToastView.swift in Sources */,
 				7C47590D2552AF8000922356 /* TextFieldPlaceholderCustomColorStyle.swift in Sources */,
+				00BE3B122F3E029600E85DC5 /* Spacing.swift in Sources */,
 				002A02242DD35B8C00681736 /* SBBOnboardingWrapperState.swift in Sources */,
 				7CBA441624BDB4250078E68F /* OnboardingTitleWrapperView.swift in Sources */,
 				7C3BA8D8274E4041005CEEA3 /* Documentation.docc in Sources */,
@@ -1979,7 +1983,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.8;
+				MARKETING_VERSION = 1.2.9;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2004,7 +2008,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.8;
+				MARKETING_VERSION = 1.2.9;
 				PRODUCT_BUNDLE_IDENTIFIER = ch.sbb.DesignSystemMobileSwiftUIDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
