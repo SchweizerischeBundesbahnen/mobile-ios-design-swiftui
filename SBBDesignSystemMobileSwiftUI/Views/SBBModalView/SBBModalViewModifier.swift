@@ -16,13 +16,28 @@ public extension View {
      - Returns: A View containing the passed View with added presentable content above it.
      */
     func sbbModal<Content: View>(isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
-        ModalViewContainer(isPresented: isPresented, content: content, presentingView: self)
+        ModalViewContainer(isPresented: isPresented, onClose: nil, content: content, presentingView: self)
+    }
+    
+    /**
+     Shows a custom View (typically ``SBBModalView``) above the entire screen while blurring the View behind.
+     
+     - Parameters:
+        - isPresented: The state controlling whether the custom View passed as content is currently presented or hidden.
+        - onClose: An additional action done when the user taps outside the View, before it is closed.
+        - content: The custom content to be shown when presented (typically a ``SBBModalView`).
+     
+     - Returns: A View containing the passed View with added presentable content above it.
+     */
+    func sbbModal<Content: View>(isPresented: Binding<Bool>, onClose: @escaping () -> Void, @ViewBuilder content: @escaping () -> Content) -> some View {
+        ModalViewContainer(isPresented: isPresented, onClose: onClose, content: content, presentingView: self)
     }
 }
 
 fileprivate struct ModalViewContainer<PresentingView: View, ModalViewContent: View>: View {
         
     @Binding var isPresented: Bool
+    let onClose: (() -> Void)?
     let content: () -> ModalViewContent
     let presentingView: PresentingView
     
@@ -48,6 +63,7 @@ fileprivate struct ModalViewContainer<PresentingView: View, ModalViewContent: Vi
                 ZStack {
                     Color.sbbColor(.iron).opacity(0.8).edgesIgnoringSafeArea(.all)
                         .onTapGesture {
+                            onClose?()
                             isPresented = false
                         }
                     content()
