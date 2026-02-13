@@ -15,14 +15,15 @@ public extension View {
      
      - Returns: A View containing the passed View with added presentable content above it.
      */
-    func sbbModal<Content: View>(isPresented: Binding<Bool>, @ViewBuilder content: @escaping () -> Content) -> some View {
-        ModalViewContainer(isPresented: isPresented, content: content, presentingView: self)
+    func sbbModal<Content: View>(isPresented: Binding<Bool>, onClose: @escaping () -> Void, @ViewBuilder content: @escaping () -> Content) -> some View {
+        ModalViewContainer(isPresented: isPresented, onClose: onClose, content: content, presentingView: self)
     }
 }
 
 fileprivate struct ModalViewContainer<PresentingView: View, ModalViewContent: View>: View {
         
     @Binding var isPresented: Bool
+    let onClose: () -> Void
     let content: () -> ModalViewContent
     let presentingView: PresentingView
     
@@ -48,6 +49,7 @@ fileprivate struct ModalViewContainer<PresentingView: View, ModalViewContent: Vi
                 ZStack {
                     Color.sbbColor(.iron).opacity(0.8).edgesIgnoringSafeArea(.all)
                         .onTapGesture {
+                            onClose()
                             isPresented = false
                         }
                     content()

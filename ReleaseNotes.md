@@ -2,11 +2,12 @@
 
 ## v1.2.9 - TBD
 ### Features
-* New view modifiers:
+* New modifier:
     * `hspaced(_: HorizontalAlignment)` and `vspaced(_: VerticalAlignment)`: can be used to wrap a view in an HStack/VStack with Spacer to achieve desired alignment.
 
 ### Improvements
 * SBBRadioButton, SBBCheckBox: new parameter `darkModeCheckWhite`, if enabled the checkmark is white in dark mode, instead of primary color.
+* sbbModal: possibility to give it an `onClose` function to be called when user taps outside the modal view, and therefore closes the modal view.
 
 ## v1.2.8 - 11 December 2025
 ### Features
