@@ -7,6 +7,7 @@
 
 ### Improvements
 * SBBHeaderBox: accessibility enhancements, views can be created with `pageContentWithFocus' to have access to the focus state and scroll with the VoiceOver. 
+* SBBHeaderBox: if the 'pageContent' is scrollable, possible to add refresh on swipe.
 * SBBRadioButton, SBBCheckBox: new parameter `darkModeCheckWhite`, if enabled the checkmark is white in dark mode, instead of primary color.
 * sbbModal: possibility to give it an `onClose` function to be called when user taps outside the modal view, and therefore closes the modal view.
 

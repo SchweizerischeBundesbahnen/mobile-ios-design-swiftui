@@ -19,6 +19,7 @@ struct HeaderBoxDemo: View {
     @State private var pickerSelected: Int = 0
     @State private var selectedPageContent: PageContentType = .small
     @State private var isLoading: Bool = false
+    @State private var refreshEnabled: Bool = false
     
     @AccessibilityFocusState private var currentFocus: String?
     
@@ -101,6 +102,10 @@ struct HeaderBoxDemo: View {
             SBBSwitchItem(isOn: $isLoading, label: Text("Loading"), showLoading: false)
                 .id("loadingSwitch")
                 .accessibilityFocused(focus, equals: "loadingSwitch")
+            
+            SBBSwitchItem(isOn: $refreshEnabled, label: Text("Refresh on swipe down"), showLoading: false)
+                .id("refreshSwitch")
+                .accessibilityFocused(focus, equals: "refreshSwitch")
             
             SBBSegmentedPicker(selection: $selectedPageContent, tags: [.none, .small, .long]) {
                 Text("No content")
@@ -204,6 +209,16 @@ struct HeaderBoxDemo: View {
         }
     }
     
+    private var refresh: (() async -> Void)? {
+        if refreshEnabled {
+            {
+                try? await Task.sleep(nanoseconds: 2_000_000_000)
+            }
+        } else {
+            nil
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 16) {
             if selectedPageContent == .none {
@@ -218,15 +233,15 @@ struct HeaderBoxDemo: View {
             } else {
                 if selectedAdditionalContent == .none {
                     if selectedCollapsibleContent == .none {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long)
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     } else {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long)
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     }
                 } else {
                     if selectedCollapsibleContent == .none {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long)
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     } else {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long)
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     }
                 }
             }
