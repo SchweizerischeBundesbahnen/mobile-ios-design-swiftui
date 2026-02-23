@@ -4,6 +4,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleContent == EmptyView, PageContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -19,12 +20,14 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
+        self.pageContentWithFocus = nil
         self.pageContent = nil
         self.pageContentScrollable = false
         self.extendNavigationBarBackground = extendNavigationBarBackground
     }
 }
 
+@available(iOS 15.0, *)
 public extension SBBHeaderBox where CollapsibleContent == EmptyView, PageContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -34,7 +37,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, PageContent
         - content: The View to display in the Header.
         - additionalContent: The View to display as additional content.
         - additionalContentBackgroundColor: The background color of the additional content.
-        - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
      */
     init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true) {
         self.isLoading = isLoading
@@ -42,12 +45,14 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, PageContent
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
+        self.pageContentWithFocus = nil
         self.pageContent = nil
         self.pageContentScrollable = false
         self.extendNavigationBarBackground = extendNavigationBarBackground
     }
 }
 
+@available(iOS 15.0, *)
 public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -55,7 +60,29 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
      - Parameters:
         - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
-        - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - pageContentWithFocus: The View used as the content of the page with accessibility focus for the VoiceOver.
+        - pageContentScrollable: Whether the page content is scrollable, default true.
+     */
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true) {
+        self.isLoading = isLoading
+        self.content = content()
+        self.additionalContent = nil
+        self.additionalContentBackgroundColor = nil
+        self.collapsibleContent = nil
+        self.pageContentWithFocus = pageContent
+        self.pageContent = nil
+        self.pageContentScrollable = pageContentScrollable
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+    }
+    
+    /**
+     Returns a SBBHeaderBox.
+     
+     - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
+        - content: The View to display in the Header.
+        - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
         - pageContentScrollable: Whether the page content is scrollable, default true.
      */
@@ -65,12 +92,63 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
+        self.pageContentWithFocus = nil
         self.pageContent = pageContent()
         self.pageContentScrollable = pageContentScrollable
         self.extendNavigationBarBackground = extendNavigationBarBackground
     }
 }
 
+@available(iOS 15.0, *)
+public extension SBBHeaderBox where AdditionalContent == EmptyView {
+    /**
+     Returns a SBBHeaderBox.
+     
+     - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
+        - content: The View to display in the Header.
+        - collapsibleContent: The View to display as collapsible content.
+        - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - pageContentWithFocus: The View used as the content of the page with accessibility focus for the VoiceOver.
+        - pageContentScrollable: Whether the page content is scrollable, default true.
+     */
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true) {
+        self.isLoading = isLoading
+        self.content = content()
+        self.additionalContent = nil
+        self.additionalContentBackgroundColor = nil
+        self.collapsibleContent = collapsibleContent()
+        self.pageContentWithFocus = pageContent
+        self.pageContent = nil
+        self.pageContentScrollable = pageContentScrollable
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+    }
+    
+    /**
+     Returns a SBBHeaderBox.
+     
+     - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
+        - content: The View to display in the Header.
+        - collapsibleContent: The View to display as collapsible content.
+        - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - pageContent: The View used as the content of the page
+        - pageContentScrollable: Whether the page content is scrollable, default true.
+     */
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
+        self.isLoading = isLoading
+        self.content = content()
+        self.additionalContent = nil
+        self.additionalContentBackgroundColor = nil
+        self.collapsibleContent = collapsibleContent()
+        self.pageContentWithFocus = nil
+        self.pageContent = pageContent()
+        self.pageContentScrollable = pageContentScrollable
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+    }
+}
+
+@available(iOS 15.0, *)
 public extension SBBHeaderBox where CollapsibleContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -80,7 +158,31 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
         - content: The View to display in the Header.
         - additionalContent: The View to display as additional content.
         - additionalContentBackgroundColor: The background color of the additional content.
-        - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - pageContentWithFocus: The View used as the content of the page with accessibility focus for the VoiceOver.
+        - pageContentScrollable: Whether the page content is scrollable, default true.
+     */
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true) {
+        self.isLoading = isLoading
+        self.content = content()
+        self.additionalContent = additionalContent()
+        self.additionalContentBackgroundColor = additionalContentBackgroundColor
+        self.collapsibleContent = nil
+        self.pageContent = nil
+        self.pageContentWithFocus = pageContent
+        self.pageContentScrollable = pageContentScrollable
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+    }
+    
+    /**
+     Returns a SBBHeaderBox.
+     
+     - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
+        - content: The View to display in the Header.
+        - additionalContent: The View to display as additional content.
+        - additionalContentBackgroundColor: The background color of the additional content.
+        - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
         - pageContentScrollable: Whether the page content is scrollable, default true.
      */
@@ -91,6 +193,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
         self.pageContent = pageContent()
+        self.pageContentWithFocus = nil
         self.pageContentScrollable = pageContentScrollable
         self.extendNavigationBarBackground = extendNavigationBarBackground
     }
@@ -120,12 +223,14 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
  ```
  ![SBBHeaderBox](SBBHeaderBox)
  */
+@available(iOS 15.0, *)
 public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleContent: View, PageContent: View>: View {
     
     private let content: Content
     private let additionalContent: AdditionalContent?
     private let additionalContentBackgroundColor: Color?
     private let collapsibleContent: CollapsibleContent?
+    private let pageContentWithFocus: ((AccessibilityFocusState<String?>.Binding) -> PageContent)?
     private let pageContent: PageContent?
     private let pageContentScrollable: Bool
     private let extendNavigationBarBackground: Bool
@@ -138,6 +243,33 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     @State private var collapsibleContentHeight: CGFloat = .zero
     @State private var additionalContentHeight: CGFloat = .zero
     @State private var offsetX: CGFloat = 0
+    
+    @AccessibilityFocusState private var currentFocus: String?
+    
+    /**
+     Returns a SBBHeader with additional content
+     
+     - Parameters:
+        - isLoading: Whether it is loading, shows a red line at the bottom, default false.
+        - content: The View to display in the Header.
+        - collapsibleContent: The View to display in the Header, that can be collapsed.
+        - additionalContent: The View to display as additional content.
+        - additionalContentBackgroundColor: The background color of the additional content.
+        - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
+        - pageContentWithFocus: The View used as the content of the page with accessibility focus for the VoiceOver.
+        - pageContentScrollable: Whether the page content is scrollable, default true.
+     */
+    public init(isLoading: Bool = false, @ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, pageContent: ((AccessibilityFocusState<String?>.Binding) -> PageContent)?, pageContentScrollable: Bool = true) {
+        self.content = content()
+        self.additionalContent = additionalContent()
+        self.additionalContentBackgroundColor = additionalContentBackgroundColor
+        self.collapsibleContent = collapsibleContent()
+        self.pageContentWithFocus = pageContent
+        self.pageContent = nil
+        self.extendNavigationBarBackground = extendNavigationBarBackground
+        self.pageContentScrollable = pageContentScrollable
+        self.isLoading = isLoading
+    }
     
     /**
      Returns a SBBHeader with additional content
@@ -152,11 +284,12 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
         - pageContent: The View used as the content of the page
         - pageContentScrollable: Whether the page content is scrollable, default true.
      */
-    init(isLoading: Bool = false, @ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true) {
+    public init(isLoading: Bool = false, @ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent?, pageContentScrollable: Bool = true) {
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = collapsibleContent()
+        self.pageContentWithFocus = nil
         self.pageContent = pageContent()
         self.extendNavigationBarBackground = extendNavigationBarBackground
         self.pageContentScrollable = pageContentScrollable
@@ -190,26 +323,45 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                 GeometryReader { parentGeometry in
                     ScrollView {
                         ScrollViewReader { proxy in
-                            VStack(spacing: 0) {
+                            LazyVStack(spacing: 0) {
                                 Spacer()
                                     .frame(height: contentHeight)
                                 
                                 ZStack(alignment: .top) {
                                     CollapsibleView(minYParent: parentGeometry.frame(in: .global).minY + contentHeight, collapsibleContent: collapsibleContent, collapsibleContentHeight: $collapsibleContentHeight)
+                                        .accessibilityFocused($currentFocus, equals: "collapsibleView")
                                         .zIndex(2)
                                     
                                     if let additionalContent {
                                         AdditionalView(topPadding: collapsibleContentHeight, minYParent: parentGeometry.frame(in: .global).minY + contentHeight - collapsibleContentHeight + 16, additionalContent: additionalContent, backgroundColor: additionalContentBackgroundColor, additionalContentHeight: $additionalContentHeight)
+                                            .accessibilityFocused($currentFocus, equals: "additionalView")
                                             .zIndex(1)
                                     }
                                     
-                                    if let pageContent {
+                                    if pageContent == nil, pageContentWithFocus == nil {
                                         VStack(spacing: 0) {
                                             Spacer()
                                                 .frame(height: collapsibleContentHeight + (additionalContent != nil ? additionalContentHeight : 0))
-                                            pageContent
+                                            
+                                            Color.clear
+                                                .frame(height: 0)
+                                                .id("collapsibleView")
+                                            Color.clear
+                                                .frame(height: 0)
+                                                .id("additionalView")
+                                            
+                                            if let pageContentWithFocus {
+                                                pageContentWithFocus($currentFocus)
+                                            } else if let pageContent {
+                                                pageContent
+                                            }
                                         }
                                     }
+                                }
+                            }
+                            .onChange(of: currentFocus) { _ in
+                                if let focus = currentFocus {
+                                    proxy.scrollTo(focus, anchor: UnitPoint(x: 1.0, y: 0.7))
                                 }
                             }
                         }
@@ -220,18 +372,26 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                 contentView
                     .viewHeight($contentHeight)
             } else {
-                if let pageContent {
+                if pageContent == nil, pageContentWithFocus == nil {
                     if pageContentScrollable {
                         ScrollView {
                             Spacer()
                                 .frame(height: contentHeight + (additionalContent != nil ? additionalContentHeight : 0))
-                            pageContent
+                            if let pageContentWithFocus {
+                                pageContentWithFocus($currentFocus)
+                            } else if let pageContent {
+                                pageContent
+                            }
                         }
                     } else {
                         VStack(spacing: 0) {
                             Spacer()
                                 .frame(height: contentHeight + (additionalContent != nil ? additionalContentHeight : 0))
-                            pageContent
+                            if let pageContentWithFocus {
+                                pageContentWithFocus($currentFocus)
+                            } else if let pageContent {
+                                pageContent
+                            }
                         }
                     }
                 }
@@ -378,6 +538,7 @@ struct AdditionalView<AdditionalContent: View>: View {
     }
 }
 
+@available(iOS 15.0, *)
 struct SBBHeaderBox_Previews: PreviewProvider {
     static var previews: some View {
         Group {
