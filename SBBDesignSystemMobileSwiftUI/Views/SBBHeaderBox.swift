@@ -338,7 +338,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                                             .zIndex(1)
                                     }
                                     
-                                    if pageContent == nil, pageContentWithFocus == nil {
+                                    if pageContent != nil || pageContentWithFocus != nil {
                                         VStack(spacing: 0) {
                                             Spacer()
                                                 .frame(height: collapsibleContentHeight + (additionalContent != nil ? additionalContentHeight : 0))
@@ -372,7 +372,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                 contentView
                     .viewHeight($contentHeight)
             } else {
-                if pageContent == nil, pageContentWithFocus == nil {
+                if pageContent != nil || pageContentWithFocus != nil {
                     if pageContentScrollable {
                         ScrollView {
                             Spacer()
