@@ -20,6 +20,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
+        self.collapsedFromTop = true
         self.pageContentWithFocus = nil
         self.pageContent = nil
         self.pageContentScrollable = false
@@ -46,6 +47,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, PageContent
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
+        self.collapsedFromTop = true
         self.pageContentWithFocus = nil
         self.pageContent = nil
         self.pageContentScrollable = false
@@ -73,6 +75,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
+        self.collapsedFromTop = true
         self.pageContentWithFocus = pageContent
         self.pageContent = nil
         self.pageContentScrollable = pageContentScrollable
@@ -97,6 +100,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = nil
+        self.collapsedFromTop = true
         self.pageContentWithFocus = nil
         self.pageContent = pageContent()
         self.pageContentScrollable = pageContentScrollable
@@ -114,17 +118,19 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView {
         - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
         - collapsibleContent: The View to display as collapsible content.
+        - collapsedFromTop: If true, the collapsibleContent will scroll up and disappear under the content. Otherwise, it will stay put, but disappear as the box becomes smaller.
         - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContentWithFocus: The View used as the content of the page with accessibility focus for the VoiceOver.
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)?) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)?) {
         self.isLoading = isLoading
         self.content = content()
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = collapsibleContent()
+        self.collapsedFromTop = collapsedFromTop
         self.pageContentWithFocus = pageContent
         self.pageContent = nil
         self.pageContentScrollable = pageContentScrollable
@@ -139,17 +145,19 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView {
         - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
         - collapsibleContent: The View to display as collapsible content.
+        - collapsedFromTop: If true, the collapsibleContent will scroll up and disappear under the content. Otherwise, it will stay put, but disappear as the box becomes smaller.
         - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
         - pageContent: The View used as the content of the page
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true,extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.isLoading = isLoading
         self.content = content()
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = collapsibleContent()
+        self.collapsedFromTop = collapsedFromTop
         self.pageContentWithFocus = nil
         self.pageContent = pageContent()
         self.pageContentScrollable = pageContentScrollable
@@ -179,6 +187,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
+        self.collapsedFromTop = true
         self.pageContent = nil
         self.pageContentWithFocus = pageContent
         self.pageContentScrollable = pageContentScrollable
@@ -205,6 +214,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView {
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = nil
+        self.collapsedFromTop = true
         self.pageContent = pageContent()
         self.pageContentWithFocus = nil
         self.pageContentScrollable = pageContentScrollable
@@ -244,6 +254,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     private let additionalContent: AdditionalContent?
     private let additionalContentBackgroundColor: Color?
     private let collapsibleContent: CollapsibleContent?
+    private let collapsedFromTop: Bool
     private let pageContentWithFocus: ((AccessibilityFocusState<String?>.Binding) -> PageContent)?
     private let pageContent: PageContent?
     private let pageContentScrollable: Bool
@@ -276,11 +287,12 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down.
      */
-    public init(isLoading: Bool = false, @ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, pageContent: ((AccessibilityFocusState<String?>.Binding) -> PageContent)?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    public init(isLoading: Bool = false, @ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, collapsedFromTop: Bool = true, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, pageContent: ((AccessibilityFocusState<String?>.Binding) -> PageContent)?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = collapsibleContent()
+        self.collapsedFromTop = collapsedFromTop
         self.pageContentWithFocus = pageContent
         self.pageContent = nil
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -296,6 +308,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
         - isLoading: Whether it is loading, shows a red line at the bottom, default false.
         - content: The View to display in the Header.
         - collapsibleContent: The View to display in the Header, that can be collapsed.
+        - collapsedFromTop: If true, the collapsibleContent will scroll up and disappear under the content. Otherwise, it will stay put, but disappear as the box becomes smaller.
         - additionalContent: The View to display as additional content.
         - additionalContentBackgroundColor: The background color of the additional content.
         - extendNavigationBarBackground: Flag indicating whether the Header  is used right below a NavigationBar and if it should extend the background of the NavigationBar.
@@ -303,11 +316,12 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down.
      */
-    public init(isLoading: Bool = false, @ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    public init(isLoading: Bool = false, @ViewBuilder content: @escaping () -> Content, @ViewBuilder collapsibleContent: @escaping () -> CollapsibleContent, collapsedFromTop: Bool = true, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = collapsibleContent()
+        self.collapsedFromTop = collapsedFromTop
         self.pageContentWithFocus = nil
         self.pageContent = pageContent()
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -350,9 +364,15 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                                     .frame(height: contentHeight)
                                 
                                 ZStack(alignment: .top) {
-                                    CollapsibleView(minYParent: parentGeometry.frame(in: .global).minY + contentHeight, collapsibleContent: collapsibleContent, collapsibleContentHeight: $collapsibleContentHeight, isLoading: isLoading, isCurrentlyRefreshing: isCurrentlyRefreshing)
-                                        .accessibilityFocused($currentFocus, equals: "collapsibleView")
-                                        .zIndex(2)
+                                    if collapsedFromTop {
+                                        CollapsibleView(minYParent: parentGeometry.frame(in: .global).minY + contentHeight, collapsibleContent: collapsibleContent, collapsibleContentHeight: $collapsibleContentHeight, isLoading: isLoading)
+                                            .accessibilityFocused($currentFocus, equals: "collapsibleView")
+                                            .zIndex(2)
+                                    } else {
+                                        FixedCollapsibleView(minYParent: parentGeometry.frame(in: .global).minY + contentHeight, collapsibleContent: collapsibleContent, collapsibleContentHeight: $collapsibleContentHeight, isLoading: isLoading)
+                                            .accessibilityFocused($currentFocus, equals: "collapsibleView")
+                                            .zIndex(2)
+                                    }
                                     
                                     if let additionalContent {
                                         AdditionalView(topPadding: collapsibleContentHeight, minYParent: parentGeometry.frame(in: .global).minY + contentHeight - collapsibleContentHeight + 16, additionalContent: additionalContent, backgroundColor: additionalContentBackgroundColor, additionalContentHeight: $additionalContentHeight)
@@ -513,23 +533,101 @@ struct CollapsibleView<CollapsibleContent: View>: View {
     
     @Binding var collapsibleContentHeight: CGFloat
     var isLoading: Bool
-    var isCurrentlyRefreshing: Bool
     
     @State private var offsetX: CGFloat = 0
     @State private var offsetY: CGFloat = 0
     
     var body: some View {
-        HStack {
-            GeometryReader { geometry in
-                ZStack(alignment: .bottom) {
-                    if let collapsibleContent = collapsibleContent {
-                        collapsibleContent
-                            .padding(16)
-                            .opacity(1 - collapseProgress(in: geometry))
-                    } else {
-                        Text("") // Keep the collapsible view anyway, as it is the bottom of the bubble view (in particular for background of additional content in corner radius)
-                            .padding(16)
+        GeometryReader { geometry in
+            ZStack(alignment: .bottom) {
+                if let collapsibleContent = collapsibleContent {
+                    collapsibleContent
+                        .padding(16)
+                        .opacity(1 - collapseProgress(in: geometry))
+                } else {
+                    Text("") // Keep the collapsible view anyway, as it is the bottom of the bubble view (in particular for background of additional content in corner radius)
+                        .padding(16)
+                }
+                if isLoading {
+                    GeometryReader { geometry in
+                        Rectangle()
+                            .fill(
+                                LinearGradient(
+                                    gradient: Gradient(colors: [Color.clear, Color.sbbColor(.primary)]),
+                                    startPoint: .leading,
+                                    endPoint: .trailing
+                                )
+                            )
+                            .frame(width: 64, height: 2)
+                            .offset(x: offsetX, y: geometry.size.height / 2)
+                            .onAppear {
+                                offsetX = 0
+                                withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
+                                    self.offsetX = geometry.size.width
+                                }
+                            }
                     }
+                    .frame(height: 2)
+                    .accessibilityHidden(true)
+                }
+            }
+            .viewHeight($collapsibleContentHeight)
+            .frame(maxWidth: .infinity, minHeight: collapsibleContentHeight, alignment: .leading)
+            .background(Color.sbbColor(.viewBackground))
+            .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
+            .shadow(color: Color.sbbColor(.tabshadow), radius: 8)
+            .offset(y: dynamicOffset(sticking: geometry, to: minYParent))
+            .sbbScreenPadding(.horizontal)
+        }
+    }
+    
+    // Calculates the dynamic offset for sticking a view (inside a ScrollView) between the minYParent and maxYParent
+    private func dynamicOffset(sticking geometry: GeometryProxy, to minParent: CGFloat) -> CGFloat {
+        let minY = geometry.frame(in: .global).minY
+        // The collapsible view should be underneath the content, but with the 16 bottom sticking out.
+        let minYParent = minParent - collapsibleContentHeight + 16
+        let maxYParent = minParent
+        let limitTop = minY < minYParent ? minYParent - minY : nil
+        let limitBottom = minY > maxYParent ? maxYParent - minY : nil
+        return limitTop ?? limitBottom ?? 0
+    }
+    
+    private func collapseProgress(in geometry: GeometryProxy) -> CGFloat {
+        let minY = geometry.frame(in: .global).minY
+        let minStickY = minYParent - collapsibleContentHeight
+        let maxStickY = minYParent
+        
+        let totalRange = max(1, maxStickY - minStickY)
+        let clampedY = min(max(minY, minStickY), maxStickY)
+        return (maxStickY - clampedY) / totalRange
+    }
+}
+
+struct FixedCollapsibleView<CollapsibleContent: View>: View {
+    let minYParent: CGFloat
+    let collapsibleContent: CollapsibleContent?
+    
+    @Binding var collapsibleContentHeight: CGFloat
+    var isLoading: Bool
+    
+    @State private var offsetX: CGFloat = 0
+    
+    var body: some View {
+        GeometryReader { geometry in
+            VStack {
+                Spacer(minLength: computeTopSpacing(sticking: geometry, to: minYParent))
+                ZStack(alignment: .bottom) {
+                    Group {
+                        if let collapsibleContent = collapsibleContent {
+                            collapsibleContent
+                                .padding(16)
+                                .opacity(1 - collapseProgress(in: geometry))
+                        } else {
+                            Text("")
+                                .padding(16)
+                        }
+                    }
+                    
                     if isLoading {
                         GeometryReader { geometry in
                             Rectangle()
@@ -553,36 +651,50 @@ struct CollapsibleView<CollapsibleContent: View>: View {
                         .accessibilityHidden(true)
                     }
                 }
+                .fixedSize(horizontal: false, vertical: true)
                 .viewHeight($collapsibleContentHeight)
-                .frame(maxWidth: .infinity, minHeight: collapsibleContentHeight, alignment: .leading)
+                .frame(height: visibleHeight(in: geometry), alignment: .top)
+                .clipped()
                 .background(Color.sbbColor(.viewBackground))
                 .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
                 .shadow(color: Color.sbbColor(.tabshadow), radius: 8)
-                .offset(y: dynamicOffset(sticking: geometry, to: minYParent))
                 .sbbScreenPadding(.horizontal)
+                .offset(y: dynamicOffset(sticking: geometry, to: minYParent))
+                
+                Spacer()
             }
         }
+        .frame(height: collapsibleContentHeight > 0 ? collapsibleContentHeight : nil)
     }
     
-    // Calculates the dynamic offset for sticking a view (inside a ScrollView) between the minYParent and maxYParent
+    // Calculates the dynamic offset for sticking a view (inside a ScrollView) to minParent.
     private func dynamicOffset(sticking geometry: GeometryProxy, to minParent: CGFloat) -> CGFloat {
         let minY = geometry.frame(in: .global).minY
-        // The collapsible view should be underneath the content, but with the 16 bottom sticking out.
-        let minYParent = minParent - collapsibleContentHeight + 16
-        let maxYParent = minParent
-        let limitTop = minY < minYParent ? minYParent - minY : nil
-        let limitBottom = minY > maxYParent ? maxYParent - minY : nil
-        return limitTop ?? limitBottom ?? 0
+        let limitBottom = minY > minParent ? minParent - minY : nil
+        return limitBottom ?? 0
+    }
+    
+    private func computeTopSpacing(sticking geometry: GeometryProxy, to minParent: CGFloat) -> CGFloat {
+        let minY = geometry.frame(in: .global).minY
+        return max(0, minParent - minY)
+    }
+    
+    // Calculates the visible height of the collapsible view.
+    private func visibleHeight(in geometry: GeometryProxy) -> CGFloat {
+        let full = max(1, collapsibleContentHeight)
+        let progress = collapseProgress(in: geometry)
+        // Always keep 16 sticking out - corner radius.
+        let visible = max(16, full * (1 - progress))
+        return visible
     }
     
     private func collapseProgress(in geometry: GeometryProxy) -> CGFloat {
-        let minY = geometry.frame(in: .global).minY
-        let minStickY = minYParent - collapsibleContentHeight + 16
+        let currentMinY = geometry.frame(in: .global).minY
+        let minStickY = minYParent - collapsibleContentHeight
         let maxStickY = minYParent
-        
         let totalRange = max(1, maxStickY - minStickY)
-        let clampedY = min(max(minY, minStickY), maxStickY)
-        return (maxStickY - clampedY) / totalRange
+        let clamped = min(max(currentMinY, minStickY), maxStickY)
+        return (maxStickY - clamped) / totalRange
     }
 }
 
@@ -628,6 +740,18 @@ struct AdditionalView<AdditionalContent: View>: View {
 struct SBBHeaderBox_Previews: PreviewProvider {
     static var previews: some View {
         Group {
+            SBBHeaderBox(content: {
+                Rectangle()
+                    .foregroundColor(.purple)
+                    .frame(height: 24)
+            }, collapsibleContent: {
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
+                    .multilineTextAlignment(.leading)
+                    .minimumScaleFactor(0.1)
+                    .fixedSize(horizontal: false, vertical: true)
+            }, collapsedFromTop: true, pageContent: {
+                EmptyView()
+            })
             SBBHeaderBox(content: {
                 Rectangle()
                     .foregroundColor(.purple)
