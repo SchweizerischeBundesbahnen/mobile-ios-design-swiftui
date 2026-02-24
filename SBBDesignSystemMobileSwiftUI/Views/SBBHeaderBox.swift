@@ -542,7 +542,8 @@ struct CollapsibleView<CollapsibleContent: View>: View {
             ZStack(alignment: .bottom) {
                 if let collapsibleContent = collapsibleContent {
                     collapsibleContent
-                        .padding(16)
+                        .padding(.horizontal, 16)
+                        .padding(.bottom, 16)
                         .opacity(1 - collapseProgress(in: geometry))
                 } else {
                     Text("") // Keep the collapsible view anyway, as it is the bottom of the bubble view (in particular for background of additional content in corner radius)
@@ -614,13 +615,14 @@ struct FixedCollapsibleView<CollapsibleContent: View>: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
+            VStack(alignment: .leading, spacing: 0) {
                 Spacer(minLength: computeTopSpacing(sticking: geometry, to: minYParent))
                 ZStack(alignment: .bottom) {
                     Group {
                         if let collapsibleContent = collapsibleContent {
                             collapsibleContent
-                                .padding(16)
+                                .padding(.horizontal, 16)
+                                .padding(.bottom, 16)
                                 .opacity(1 - collapseProgress(in: geometry))
                         } else {
                             Text("")

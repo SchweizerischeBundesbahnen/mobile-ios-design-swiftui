@@ -196,17 +196,19 @@ struct HeaderBoxDemo: View {
             Rectangle()
                 .foregroundColor(Color.sbbColor(.placeholder))
                 .frame(height: 20)
+                .padding(.top, 16)
         case .longText:
             Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .multilineTextAlignment(.leading)
                 .minimumScaleFactor(0.1)
                 .fixedSize(horizontal: false, vertical: true)
+                .padding(.top, 16)
         case .textAndIcon:
             HStack {
                 Image(sbbIcon: .sign_exclamation_point_small)
+                    .foregroundStyle(Color.clear)
                 Text("Collapsible text or information")
                 Spacer()
-                Image(sbbIcon: .circle_information_small)
             }
             .accessibilityElement(children: .combine)
         case .none:
