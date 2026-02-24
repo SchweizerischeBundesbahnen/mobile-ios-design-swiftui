@@ -13,7 +13,11 @@ struct HeaderBoxDemo: View {
     @State var headerHeight: CGFloat = 0
     @State private var selectedContent: ContentType = .rectangle
     @State private var selectedCollapsibleContent: CollapsibleContentType = .none
-    @State private var selectedAdditionalContent: AdditionalContentType = .none
+    @State private var selectedAdditionalContent: AdditionalContentType = .none {
+        didSet {
+            nonCollapsable = false
+        }
+    }
     
     @State private var selectedPicker: Int = 0
     @State private var pickerSelected: Int = 0
@@ -21,6 +25,7 @@ struct HeaderBoxDemo: View {
     @State private var isLoading: Bool = false
     @State private var refreshEnabled: Bool = false
     @State private var collapsedFromTop: Bool = false
+    @State private var nonCollapsable: Bool = false
     
     @AccessibilityFocusState private var currentFocus: String?
     
@@ -102,6 +107,11 @@ struct HeaderBoxDemo: View {
                 SBBSwitchItem(isOn: $collapsedFromTop, label: Text("Collapsed from top"), showLoading: false)
                     .id("collapsedSwitch")
                     .accessibilityFocused(focus, equals: "collapsedSwitch")
+                
+                SBBSwitchItem(isOn: $nonCollapsable, label: Text("With non collapsable"), showLoading: false)
+                    .id("nonCollapsableSwitch")
+                    .accessibilityFocused(focus, equals: "nonCollapsableSwitch")
+                    .disabled(selectedAdditionalContent != .none)
             }
             
             SBBSwitchItem(isOn: $isLoading, label: Text("Loading"), showLoading: false)
@@ -203,6 +213,7 @@ struct HeaderBoxDemo: View {
                 .minimumScaleFactor(0.1)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, 16)
+                .padding(.bottom, nonCollapsable ? 16 : 0)
         case .textAndIcon:
             HStack {
                 Image(sbbIcon: .sign_exclamation_point_small)
@@ -241,8 +252,16 @@ struct HeaderBoxDemo: View {
                 if selectedAdditionalContent == .none {
                     if selectedCollapsibleContent == .none {
                         SBBHeaderBox(isLoading: isLoading, content: { contentView }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
+                    } else if nonCollapsable {
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, collapsedFromTop: collapsedFromTop, nonCollapsibleContent: {
+                            VStack {
+                                SBBDivider()
+                                Text("This part will stay visible.")
+                            }
+                        }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     } else {
                         SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, collapsedFromTop: collapsedFromTop, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
+
                     }
                 } else {
                     if selectedCollapsibleContent == .none {

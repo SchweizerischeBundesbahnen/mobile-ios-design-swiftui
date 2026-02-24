@@ -4,11 +4,13 @@
 
 import SwiftUI
 
-struct CollapsibleView<CollapsibleContent: View>: View {
+struct CollapsibleView<CollapsibleContent: View, NonCollapsibleContent: View>: View {
     let minYParent: CGFloat
     let collapsibleContent: CollapsibleContent?
+    let nonCollapsibleContent: NonCollapsibleContent?
     
     @Binding var collapsibleContentHeight: CGFloat
+    @Binding var nonCollapsibleContentHeight: CGFloat
     var isLoading: Bool
     
     @State private var offsetX: CGFloat = 0
@@ -18,10 +20,20 @@ struct CollapsibleView<CollapsibleContent: View>: View {
         GeometryReader { geometry in
             ZStack(alignment: .bottom) {
                 if let collapsibleContent = collapsibleContent {
-                    collapsibleContent
-                        .padding(.horizontal, 16)
-                        .padding(.bottom, 16)
-                        .opacity(1 - collapseProgress(in: geometry))
+                    VStack(spacing: 0) {
+                        collapsibleContent
+                            .padding(.horizontal, 16)
+                            .opacity(1 - collapseProgress(in: geometry))
+                            .viewHeight($collapsibleContentHeight)
+                            .frame(maxWidth: .infinity, minHeight: collapsibleContentHeight, alignment: .leading)
+                        
+                        if let nonCollapsibleContent {
+                            nonCollapsibleContent
+                                .viewHeight($nonCollapsibleContentHeight)
+                        }
+                    }
+                    .padding(.bottom, 16)
+                    
                 } else {
                     Text("") // Keep the collapsible view anyway, as it is the bottom of the bubble view (in particular for background of additional content in corner radius)
                         .padding(16)
@@ -49,8 +61,6 @@ struct CollapsibleView<CollapsibleContent: View>: View {
                     .accessibilityHidden(true)
                 }
             }
-            .viewHeight($collapsibleContentHeight)
-            .frame(maxWidth: .infinity, minHeight: collapsibleContentHeight, alignment: .leading)
             .background(Color.sbbColor(.viewBackground))
             .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
             .shadow(color: Color.sbbColor(.tabshadow), radius: 8)
@@ -63,7 +73,7 @@ struct CollapsibleView<CollapsibleContent: View>: View {
     private func dynamicOffset(sticking geometry: GeometryProxy, to minParent: CGFloat) -> CGFloat {
         let minY = geometry.frame(in: .global).minY
         // The collapsible view should be underneath the content, but with the 16 bottom sticking out.
-        let minYParent = minParent - collapsibleContentHeight + 16
+        let minYParent = minParent - collapsibleContentHeight
         let maxYParent = minParent
         let limitTop = minY < minYParent ? minYParent - minY : nil
         let limitBottom = minY > maxYParent ? maxYParent - minY : nil
@@ -72,7 +82,7 @@ struct CollapsibleView<CollapsibleContent: View>: View {
     
     private func collapseProgress(in geometry: GeometryProxy) -> CGFloat {
         let minY = geometry.frame(in: .global).minY
-        let minStickY = minYParent - collapsibleContentHeight
+        let minStickY = minYParent - collapsibleContentHeight - 16
         let maxStickY = minYParent
         
         let totalRange = max(1, maxStickY - minStickY)
