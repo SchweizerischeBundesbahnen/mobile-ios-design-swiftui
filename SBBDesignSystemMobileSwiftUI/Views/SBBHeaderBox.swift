@@ -653,6 +653,7 @@ struct FixedCollapsibleView<CollapsibleContent: View>: View {
                 }
                 .fixedSize(horizontal: false, vertical: true)
                 .viewHeight($collapsibleContentHeight)
+                .frame(maxWidth: .infinity)
                 .frame(height: visibleHeight(in: geometry), alignment: .top)
                 .clipped()
                 .background(Color.sbbColor(.viewBackground))
