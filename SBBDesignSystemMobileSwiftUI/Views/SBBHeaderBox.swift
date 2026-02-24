@@ -629,6 +629,7 @@ struct FixedCollapsibleView<CollapsibleContent: View>: View {
                                 .padding(16)
                         }
                     }
+                    .padding(.top, 16) // Corner radius 16 can only be done if >= 32
                     
                     if isLoading {
                         GeometryReader { geometry in
@@ -673,8 +674,8 @@ struct FixedCollapsibleView<CollapsibleContent: View>: View {
     // Calculates the dynamic offset for sticking a view (inside a ScrollView) to minParent.
     private func dynamicOffset(sticking geometry: GeometryProxy, to minParent: CGFloat) -> CGFloat {
         let minY = geometry.frame(in: .global).minY
-        let limitBottom = minY > minParent ? minParent - minY : nil
-        return limitBottom ?? 0
+        let limitBottom = minY > minParent ? minParent - minY - 16 : nil
+        return limitBottom ?? -16
     }
     
     private func computeTopSpacing(sticking geometry: GeometryProxy, to minParent: CGFloat) -> CGFloat {
@@ -687,7 +688,7 @@ struct FixedCollapsibleView<CollapsibleContent: View>: View {
         let full = max(1, collapsibleContentHeight)
         let progress = collapseProgress(in: geometry)
         // Always keep 16 sticking out - corner radius.
-        let visible = max(16, full * (1 - progress))
+        let visible = max(32, full * (1 - progress))
         return visible
     }
     
