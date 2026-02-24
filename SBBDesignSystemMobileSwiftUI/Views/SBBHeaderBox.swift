@@ -327,28 +327,30 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     }
     
     private var contentView: some View {
-        content
-            .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
-            .padding(.horizontal, 16)
-            .padding(.top, 16)
-            .background(Color.sbbColor(.viewBackground))
-            .cornerRadius(16, corners: [.topLeft, .topRight])
-            .viewHeight($contentHeight)
-            .sbbScreenPadding(.horizontal)
+        ZStack(alignment: .bottom) {
+            content
+                .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
+                .padding(.horizontal, 16)
+                .padding(.top, 16)
+                .background(Color.sbbColor(.viewBackground))
+                .cornerRadius(16, corners: [.topLeft, .topRight])
+                .viewHeight($contentHeight)
+                .sbbScreenPadding(.horizontal)
+        }
     }
     
     public var body: some View {
         ZStack(alignment: .top) {
             if let collapsibleContent {
                 GeometryReader { parentGeometry in
-                    ScrollView {
+                    ScrollView(showsIndicators: false) {
                         ScrollViewReader { proxy in
                             LazyVStack(spacing: 0) {
                                 Spacer()
                                     .frame(height: contentHeight)
                                 
                                 ZStack(alignment: .top) {
-                                    CollapsibleView(minYParent: parentGeometry.frame(in: .global).minY + contentHeight, collapsibleContent: collapsibleContent, collapsibleContentHeight: $collapsibleContentHeight)
+                                    CollapsibleView(minYParent: parentGeometry.frame(in: .global).minY + contentHeight, collapsibleContent: collapsibleContent, collapsibleContentHeight: $collapsibleContentHeight, isLoading: isLoading, isCurrentlyRefreshing: isCurrentlyRefreshing)
                                         .accessibilityFocused($currentFocus, equals: "collapsibleView")
                                         .zIndex(2)
                                     
@@ -407,7 +409,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
             } else {
                 if pageContent != nil || pageContentWithFocus != nil {
                     if pageContentScrollable {
-                        ScrollView {
+                        ScrollView(showsIndicators: false) {
                             Spacer()
                                 .frame(height: contentHeight + (additionalContent != nil ? additionalContentHeight : 0))
                             if isCurrentlyRefreshing, refresh != nil {
@@ -449,7 +451,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                             .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
                             .padding(16)
                         
-                        if isLoading || isCurrentlyRefreshing {
+                        if isLoading {
                             GeometryReader { geometry in
                                 Rectangle()
                                     .fill(
@@ -510,18 +512,45 @@ struct CollapsibleView<CollapsibleContent: View>: View {
     let collapsibleContent: CollapsibleContent?
     
     @Binding var collapsibleContentHeight: CGFloat
+    var isLoading: Bool
+    var isCurrentlyRefreshing: Bool
+    
+    @State private var offsetX: CGFloat = 0
     
     var body: some View {
         HStack {
             GeometryReader { geometry in
-                Group {
+                ZStack(alignment: .bottom) {
                     if let collapsibleContent = collapsibleContent {
                         collapsibleContent
+                            .padding(16)
                     } else {
                         Text("") // Keep the collapsible view anyway, as it is the bottom of the bubble view (in particular for background of additional content in corner radius)
+                            .padding(16)
+                    }
+                    if isLoading {
+                        GeometryReader { geometry in
+                            Rectangle()
+                                .fill(
+                                    LinearGradient(
+                                        gradient: Gradient(colors: [Color.clear, Color.sbbColor(.primary)]),
+                                        startPoint: .leading,
+                                        endPoint: .trailing
+                                    )
+                                )
+                                .frame(width: 64, height: 2)
+                                .offset(x: offsetX, y: geometry.size.height / 2)
+                                .onAppear {
+                                    offsetX = 0
+                                    withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
+                                        self.offsetX = geometry.size.width
+                                    }
+                                }
+                        }
+                        .frame(height: 2)
+                        .accessibilityHidden(true)
                     }
                 }
-                .padding(16)
                 .viewHeight($collapsibleContentHeight)
                 .frame(maxWidth: .infinity, minHeight: collapsibleContentHeight, alignment: .leading)
                 .background(Color.sbbColor(.viewBackground))
