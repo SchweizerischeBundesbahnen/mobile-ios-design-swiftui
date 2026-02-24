@@ -5,7 +5,7 @@
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-@available(iOS 15.0, *)
+
 struct HeaderBoxDemo: View {
     
     @Binding var colorScheme: ColorScheme
@@ -281,7 +281,7 @@ struct HeaderBoxDemo: View {
     }
 }
 
-@available(iOS 15.0, *)
+
 struct HeaderDemo_Previews: PreviewProvider {
     @State static var lightScheme: ColorScheme = .light
     @State static var darkScheme: ColorScheme = .dark

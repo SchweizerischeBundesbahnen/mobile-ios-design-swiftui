@@ -7,7 +7,7 @@ import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-@available(iOS 15.0, *)
+
 class SBBHeaderTests: XCTestCase {
     let content = {
         HStack {

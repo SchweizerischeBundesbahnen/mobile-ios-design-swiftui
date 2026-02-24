@@ -4,7 +4,6 @@
 
 import SwiftUI
 
-@available(iOS 15.0, *)
 public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleContent == EmptyView, NonCollapsibleContent == EmptyView, PageContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -30,7 +29,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
     }
 }
 
-@available(iOS 15.0, *)
+
 public extension SBBHeaderBox where CollapsibleContent == EmptyView, NonCollapsibleContent == EmptyView, PageContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -58,7 +57,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, NonCollapsi
     }
 }
 
-@available(iOS 15.0, *)
+
 public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleContent == EmptyView, NonCollapsibleContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -113,7 +112,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
     }
 }
 
-@available(iOS 15.0, *)
+
 public extension SBBHeaderBox where AdditionalContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -174,7 +173,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView {
     }
 }
 
-@available(iOS 15.0, *)
+
 public extension SBBHeaderBox where AdditionalContent == EmptyView, NonCollapsibleContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -233,7 +232,6 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, NonCollapsib
     }
 }
 
-@available(iOS 15.0, *)
 public extension SBBHeaderBox where CollapsibleContent == EmptyView, NonCollapsibleContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -292,7 +290,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, NonCollapsi
     }
 }
 
-@available(iOS 15.0, *)
+
 public extension SBBHeaderBox where NonCollapsibleContent == EmptyView {
     /**
      Returns a SBBHeaderBox.
@@ -379,7 +377,7 @@ public extension SBBHeaderBox where NonCollapsibleContent == EmptyView {
  ```
  ![SBBHeaderBox](SBBHeaderBox)
  */
-@available(iOS 15.0, *)
+
 public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleContent: View, NonCollapsibleContent: View, PageContent: View>: View {
     
     private let content: Content
@@ -623,7 +621,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     }
 }
 
-@available(iOS 15.0, *)
+
 struct SBBHeaderBox_Previews: PreviewProvider {
     static var previews: some View {
         Group {
