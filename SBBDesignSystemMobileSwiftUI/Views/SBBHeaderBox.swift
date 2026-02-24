@@ -516,6 +516,7 @@ struct CollapsibleView<CollapsibleContent: View>: View {
     var isCurrentlyRefreshing: Bool
     
     @State private var offsetX: CGFloat = 0
+    @State private var offsetY: CGFloat = 0
     
     var body: some View {
         HStack {
@@ -524,6 +525,7 @@ struct CollapsibleView<CollapsibleContent: View>: View {
                     if let collapsibleContent = collapsibleContent {
                         collapsibleContent
                             .padding(16)
+                            .opacity(1 - collapseProgress(in: geometry))
                     } else {
                         Text("") // Keep the collapsible view anyway, as it is the bottom of the bubble view (in particular for background of additional content in corner radius)
                             .padding(16)
@@ -571,6 +573,16 @@ struct CollapsibleView<CollapsibleContent: View>: View {
         let limitTop = minY < minYParent ? minYParent - minY : nil
         let limitBottom = minY > maxYParent ? maxYParent - minY : nil
         return limitTop ?? limitBottom ?? 0
+    }
+    
+    private func collapseProgress(in geometry: GeometryProxy) -> CGFloat {
+        let minY = geometry.frame(in: .global).minY
+        let minStickY = minYParent - collapsibleContentHeight + 16
+        let maxStickY = minYParent
+        
+        let totalRange = max(1, maxStickY - minStickY)
+        let clampedY = min(max(minY, minStickY), maxStickY)
+        return (maxStickY - clampedY) / totalRange
     }
 }
 
