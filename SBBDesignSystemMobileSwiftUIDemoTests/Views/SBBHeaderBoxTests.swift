@@ -7,6 +7,7 @@ import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
+
 class SBBHeaderTests: XCTestCase {
     let content = {
         HStack {

@@ -18,6 +18,9 @@
 		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
 		003C23542A3CABA90095C31A /* PromotionBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */; };
 		003C23562A4207790095C31A /* SBBPromotionBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */; };
+		00578C672F4DE4A20098FDDB /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00578C662F4DE49C0098FDDB /* CollapsibleView.swift */; };
+		00578C692F4DE4BB0098FDDB /* FixedCollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00578C682F4DE4B70098FDDB /* FixedCollapsibleView.swift */; };
+		00578C6B2F4DE4D70098FDDB /* AdditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00578C6A2F4DE4D40098FDDB /* AdditionalView.swift */; };
 		005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */; };
 		005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CA279A9FE4009C5CEA /* TabBarView.swift */; };
 		005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */; };
@@ -340,6 +343,9 @@
 		003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBox.swift; sourceTree = "<group>"; };
 		003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionBoxDemo.swift; sourceTree = "<group>"; };
 		003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBoxTests.swift; sourceTree = "<group>"; };
+		00578C662F4DE49C0098FDDB /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
+		00578C682F4DE4B70098FDDB /* FixedCollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedCollapsibleView.swift; sourceTree = "<group>"; };
+		00578C6A2F4DE4D40098FDDB /* AdditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalView.swift; sourceTree = "<group>"; };
 		005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinates.swift; sourceTree = "<group>"; };
 		005DC8CA279A9FE4009C5CEA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShapeView.swift; sourceTree = "<group>"; };
@@ -624,6 +630,17 @@
 				000742192B7E328C00BB7A79 /* SBBFooterModifier.swift */,
 			);
 			path = SBBFooterBox;
+			sourceTree = "<group>";
+		};
+		00578C652F4DE4890098FDDB /* SBBHeaderBox */ = {
+			isa = PBXGroup;
+			children = (
+				00578C6A2F4DE4D40098FDDB /* AdditionalView.swift */,
+				00578C682F4DE4B70098FDDB /* FixedCollapsibleView.swift */,
+				00578C662F4DE49C0098FDDB /* CollapsibleView.swift */,
+				0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */,
+			);
+			path = SBBHeaderBox;
 			sourceTree = "<group>";
 		};
 		005DC8C82799D0B2009C5CEA /* TabBarEntry */ = {
@@ -1034,7 +1051,7 @@
 				7C6454882403F50A005997AB /* SBBDivider.swift */,
 				0007421B2B7E32E800BB7A79 /* SBBFooterBox */,
 				A74C8B70243757E400BF26E3 /* SBBFormGroup.swift */,
-				0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */,
+				00578C652F4DE4890098FDDB /* SBBHeaderBox */,
 				7C9C46D624CB034000C22E97 /* SBBInfoView.swift */,
 				7C624894247E2ACB00F54C9D /* SBBListItem.swift */,
 				7CC3FACF25AED16B00D227D4 /* SBBLoadingIndicator.swift */,
@@ -1494,6 +1511,7 @@
 				00D0962F2A6ACC31009E02B1 /* SBBPickerWrapper.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
 				7C28872224BF2B3800EDBD27 /* FakeOnboardingViewModels.swift in Sources */,
+				00578C692F4DE4BB0098FDDB /* FixedCollapsibleView.swift in Sources */,
 				2D92C0152A152CF5001FE5B7 /* SBBUpDnCounterView.swift in Sources */,
 				005EDCB32DD350BE00E31B3D /* Backslide.swift in Sources */,
 				7C1F20A824E51298006FF30B /* SBBEnvironmentBanner.swift in Sources */,
@@ -1503,6 +1521,7 @@
 				0021DD5C2B5A855F00DD7E3E /* SBBNotification.swift in Sources */,
 				A74FEA1825138CCC00C4D1A4 /* SBBSwitchStyle.swift in Sources */,
 				7C89AE6226B154720087872E /* IsSelected.swift in Sources */,
+				00578C6B2F4DE4D70098FDDB /* AdditionalView.swift in Sources */,
 				7CA464DF2445F31100118D7B /* SBBAccordion.swift in Sources */,
 				7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */,
 				7C28872024BF2B2800EDBD27 /* FakeSBBOnboardingCardViews.swift in Sources */,
@@ -1556,6 +1575,7 @@
 				005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */,
 				7C28871624BF055900EDBD27 /* SBBPaginationView.swift in Sources */,
 				7CA5551B267A1473006A6F00 /* SBBStyle.swift in Sources */,
+				00578C672F4DE4A20098FDDB /* CollapsibleView.swift in Sources */,
 				7C106D1925DA803700B89ECD /* SBBModalViewModifier.swift in Sources */,
 				7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */,
 				005EDCAD2DD34AFC00E31B3D /* Multiline.swift in Sources */,
@@ -1753,7 +1773,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUIDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1774,7 +1794,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUIDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1924,7 +1944,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1952,7 +1972,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1978,7 +1998,7 @@
 				DEVELOPMENT_TEAM = AH7XG99W66;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2003,7 +2023,7 @@
 				DEVELOPMENT_TEAM = AH7XG99W66;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUIDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2024,7 +2044,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUIDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2045,7 +2065,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SBBDesignSystemMobileSwiftUIDemoTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

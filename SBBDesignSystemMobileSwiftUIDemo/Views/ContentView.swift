@@ -93,8 +93,10 @@ struct ContentView: View {
                                 NavigationLink(destination: FormGroupView(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("FormGroup"))
                                 }
-                                NavigationLink(destination: HeaderBoxDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
-                                    SBBListItem(label: Text("HeaderBox"))
+                                if #available(iOS 15.0, *) {
+                                    NavigationLink(destination: HeaderBoxDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
+                                        SBBListItem(label: Text("HeaderBox"))
+                                    }
                                 }
                                 NavigationLink(destination: InfoViewDemo(colorScheme: self.$colorScheme).environment(\.sizeCategory, contentSizeCategory)) {
                                     SBBListItem(label: Text("InfoView"))
