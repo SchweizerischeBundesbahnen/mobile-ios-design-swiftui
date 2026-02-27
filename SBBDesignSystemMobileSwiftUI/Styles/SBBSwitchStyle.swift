@@ -70,7 +70,7 @@ public struct SBBSwitchStyle: ToggleStyle {
                         .padding(2)
                         .offset(x: isOn ? configuration.isPressed ? 6.5 : 9.5 : configuration.isPressed ? -6.5 : -9.5))
                         
-                .animation(Animation.easeInOut(duration: 0.1))
+                .animation(Animation.easeInOut(duration: 0.1), value: isOn)
                 .opacity(isEnabled ? 1.0 : 0.5)
         }
     }
