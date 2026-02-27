@@ -6,7 +6,7 @@ import SwiftUI
 import UIKit
 
 /// SBBIcon sizes (for KOM icons).
-public enum SBBIconSize: String {
+public enum SBBIconSize: String, Sendable {
     /// Small SBBIcon size
     case small = "small"
     /// Medium SBBIcon size

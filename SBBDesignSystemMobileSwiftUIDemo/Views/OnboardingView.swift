@@ -38,7 +38,7 @@ struct OnboardingView: View {
             switch onboardingCard {
             case .dsm:
                 SBBOnboardingWrapperCardView(image: Image("Onboarding_Card1"), title: Text("Design System Mobile"), size: geometrySize, buttonLabel: "UX Documentation", buttonAction: {
-                    guard let url = URL(string: "https://digital.sbb.ch/en/mobile"),
+                    guard let url = URL(string: "https://digital.sbb.ch/de/design-system/mobile/overview"),
                         UIApplication.shared.canOpenURL(url) else {
                         return
                     }

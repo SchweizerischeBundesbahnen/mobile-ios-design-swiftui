@@ -5,7 +5,7 @@
 import Foundation
 
 /// SBBColor names.
-public enum SBBColorName: String {
+public enum SBBColorName: String, Sendable {
     
     // User set colors
     case primary = "Primary"

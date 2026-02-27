@@ -28,7 +28,7 @@ struct ScaledFont: ViewModifier {
 }
 
 /// SBBFont types.
-public enum SBBFont {
+public enum SBBFont: Sendable {
     
     case xlarge_light
     case large_light

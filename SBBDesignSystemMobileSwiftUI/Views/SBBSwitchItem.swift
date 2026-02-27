@@ -45,7 +45,7 @@ public struct SBBSwitchItem: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.isEnabled) private var isEnabled: Bool
     
-    public enum SBBSwitchItemType: Equatable {
+    public enum SBBSwitchItemType: Equatable, Sendable {
         /// To be used in a list with top / bottom line
         case list
         /// To be used standalone with background color, corner radius

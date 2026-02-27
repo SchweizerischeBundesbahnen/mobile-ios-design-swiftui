@@ -22,7 +22,7 @@ import SwiftUI
 public struct SBBIconButtonStyle: ButtonStyle {
     
     /// SBBIconButton style.
-    public enum Style {
+    public enum Style: Sendable {
         /// Normal SBBIconButton style (background with fixed color)
         case normal
         /// Negative SBBIconButton style (transparent background, to be used on colored backgrounds (e.g. NavigationBar))
