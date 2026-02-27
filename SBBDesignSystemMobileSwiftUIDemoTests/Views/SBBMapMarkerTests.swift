@@ -2,14 +2,14 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBMapMarkerTests: XCTestCase {
+class SBBMapMarkerTests: DSMTest {
     
-    func testMapMarkerPrimary() {
+    @Test func testMapMarkerPrimary() {
         let view = SBBMapMarker(icon: Image(sbbIcon: .construction), style: .red)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBMapMarker", colorScheme: colorScheme)
@@ -17,14 +17,14 @@ class SBBMapMarkerTests: XCTestCase {
         }
     }
     
-    func testMapMarkerBlue() {
+    @Test func testMapMarkerBlue() {
         let view = SBBMapMarker(icon: Image(sbbIcon: .construction), style: .blue)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testMapMarkerBlack() {
+    @Test func testMapMarkerBlack() {
         let view = SBBMapMarker(icon: Image(sbbIcon: .construction), style: .black)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)

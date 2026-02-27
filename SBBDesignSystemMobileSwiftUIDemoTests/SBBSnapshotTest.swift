@@ -3,7 +3,7 @@
 //
 
 import SwiftUI
-import XCTest
+import Testing
 import SnapshotTesting
 
 extension SwiftUI.View {
@@ -14,8 +14,9 @@ extension SwiftUI.View {
     }
 }
 
-extension XCTestCase {
-    
+protocol DSMTest {}
+
+extension DSMTest {
     // set to true to enable reference screenshot recording instead of snapshot comparison (make sure to set your simulator in .light appearance!)
     var recordNewReferenceSnapshots: Bool {
         return false

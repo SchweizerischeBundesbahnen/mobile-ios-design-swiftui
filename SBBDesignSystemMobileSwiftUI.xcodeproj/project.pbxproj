@@ -82,7 +82,6 @@
 		0083173C2D47B52800BB8074 /* SBBListItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C60946F274F97E7001ABF67 /* SBBListItemTests.swift */; };
 		0083173D2D47B52800BB8074 /* SBBIconButtonStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609495274FBF99001ABF67 /* SBBIconButtonStyleTests.swift */; };
 		0083173E2D47B52800BB8074 /* SBBSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92995BB1259376900042B5C5 /* SBBSnapshotTest.swift */; };
-		0083173F2D47B52800BB8074 /* SBBOnboardingViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */; };
 		008317402D47B52800BB8074 /* SBBTextFieldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609487274FB917001ABF67 /* SBBTextFieldTests.swift */; };
 		008317412D47B52800BB8074 /* SBBSwitchStyleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609499274FC04A001ABF67 /* SBBSwitchStyleTests.swift */; };
 		008317422D47B52800BB8074 /* SBBPromotionBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */; };
@@ -457,7 +456,6 @@
 		7C609473274F9A4B001ABF67 /* SBBMapMarkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMapMarkerTests.swift; sourceTree = "<group>"; };
 		7C609475274F9B03001ABF67 /* SBBModalViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBModalViewTests.swift; sourceTree = "<group>"; };
 		7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBNavigationBarWithSBBIconTests.swift; sourceTree = "<group>"; };
-		7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingViewTests.swift; sourceTree = "<group>"; };
 		7C60947B274F9F56001ABF67 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7C60947D274FB452001ABF67 /* SBBProcessFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBProcessFlowTests.swift; sourceTree = "<group>"; };
 		7C60947F274FB4FC001ABF67 /* SBBRadioButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBRadioButtonTests.swift; sourceTree = "<group>"; };
@@ -937,7 +935,6 @@
 				7C609475274F9B03001ABF67 /* SBBModalViewTests.swift */,
 				00C731DB2AC5B7A6009D5DCA /* SBBNotificationTests.swift */,
 				7C609477274F9D39001ABF67 /* SBBNavigationBarWithSBBIconTests.swift */,
-				7C609479274F9EC8001ABF67 /* SBBOnboardingViewTests.swift */,
 				00B2BC892DDB575800B9D52A /* SBBOnboardingWrapperTests.swift */,
 				92995B9F2593738D0042B5C5 /* SBBPaginationViewTests.swift */,
 				00D096342A714CD2009E02B1 /* SBBPickerTests.swift */,
@@ -1401,7 +1398,6 @@
 				0083173C2D47B52800BB8074 /* SBBListItemTests.swift in Sources */,
 				0083173D2D47B52800BB8074 /* SBBIconButtonStyleTests.swift in Sources */,
 				0083173E2D47B52800BB8074 /* SBBSnapshotTest.swift in Sources */,
-				0083173F2D47B52800BB8074 /* SBBOnboardingViewTests.swift in Sources */,
 				008317402D47B52800BB8074 /* SBBTextFieldTests.swift in Sources */,
 				008317412D47B52800BB8074 /* SBBSwitchStyleTests.swift in Sources */,
 				008317422D47B52800BB8074 /* SBBPromotionBoxTests.swift in Sources */,

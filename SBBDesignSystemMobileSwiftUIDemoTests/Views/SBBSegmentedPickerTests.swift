@@ -2,14 +2,14 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBSegmentedPickerTests: XCTestCase {
+class SBBSegmentedPickerTests: DSMTest {
 
-    func testSegmentedPickerPrimaryColor() {
+    @Test func testSegmentedPickerPrimaryColor() {
         let view = SBBSegmentedPicker(selection: .constant(0), tags: [0, 1, 2], style: .primaryColor) {
             Text("Opt 1")
             Text("Opt 2")
@@ -20,7 +20,7 @@ class SBBSegmentedPickerTests: XCTestCase {
         }
     }
     
-    func testSegmentedPickerIcon() {
+    @Test func testSegmentedPickerIcon() {
         let view = SBBSegmentedPicker(selection: .constant(0), tags: [0, 1]) {
             Image(sbbIcon: .timetable_small)
             Image(sbbIcon: .platform_display_small)
@@ -29,7 +29,7 @@ class SBBSegmentedPickerTests: XCTestCase {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
-    func testSegmentedPickerIconAndText() {
+    @Test func testSegmentedPickerIconAndText() {
         let view = SBBSegmentedPicker(selection: .constant(0), tags: [0, 1]) {
             HStack {
                 Image(sbbIcon: .timetable_small)

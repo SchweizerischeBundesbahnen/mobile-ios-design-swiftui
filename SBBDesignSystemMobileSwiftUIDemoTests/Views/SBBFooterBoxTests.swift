@@ -2,12 +2,12 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2024.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBFooterTests: XCTestCase {
+class SBBFooterTests: DSMTest {
     let content = {
         VStack(alignment: .leading) {
             Text("Title")
@@ -15,7 +15,7 @@ class SBBFooterTests: XCTestCase {
         }
     }
     
-    func testSBBFooterBox() {
+    @Test func testSBBFooterBox() {
         let view = SBBFooterBox(content: content, hasTabBar: false)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBFooterBox", colorScheme: colorScheme)
@@ -23,7 +23,7 @@ class SBBFooterTests: XCTestCase {
         }
     }
     
-    func testSBBHeaderFooterBoxHasTabBar() {
+    @Test func testSBBHeaderFooterBoxHasTabBar() {
         let view = SBBFooterBox(content: content, hasTabBar: true)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)

@@ -2,12 +2,12 @@
 //  Copyright © 2023 SBB. All rights reserved.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-final class SBBUpDnCounterTests: XCTestCase {
+final class SBBUpDnCounterTests: DSMTest {
     
     var label = Text("Label")
     var footnote = Text("Footnote")
@@ -15,42 +15,42 @@ final class SBBUpDnCounterTests: XCTestCase {
     
     @State var counter = 5
 
-    func testUpDnCounterWithLabel() throws {
+    @Test func testUpDnCounterWithLabel() throws {
         let view = SBBUpDnCounterView(label: label, value: $counter)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testUpDnCounterWithLabelAndIcon() throws {
+    @Test func testUpDnCounterWithLabelAndIcon() throws {
         let view = SBBUpDnCounterView(leftIcon: image, label: label, value: $counter)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testUpDnCounterWithLabelAndSubtext() throws {
+    @Test func testUpDnCounterWithLabelAndSubtext() throws {
         let view = SBBUpDnCounterView(label: label, subtext: footnote, value: $counter)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testUpDnCounterWithLabelImageAndSubtext() throws {
+    @Test func testUpDnCounterWithLabelImageAndSubtext() throws {
         let view = SBBUpDnCounterView(leftIcon: image, label: label, subtext: footnote, value: $counter)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 
-    func testUpDnCounterWithLabelMinimum() throws {
+    @Test func testUpDnCounterWithLabelMinimum() throws {
         let view = SBBUpDnCounterView(label: label, value: $counter, range: 5...10)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testUpDnCounterWithLabelMaximum() throws {
+    @Test func testUpDnCounterWithLabelMaximum() throws {
         let view = SBBUpDnCounterView(label: label, value: $counter, range: 0...5)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
