@@ -12,14 +12,16 @@ struct ContentView: View {
     @State var theme: Theme = .sbbDefault
     @State var selectedBanner: SBBEnvironmentBanner = .none
     @State private var navigationViewID = UUID()    // can be used to reload the View
-    #if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
     @State private var navigationViewContentID = UUID() // can be used to reload the View
-    #endif
+#endif
     @EnvironmentObject var onboardingViewModel: OnboardingViewModel
     
     var body: some View {
-        ZStack {
-            NavigationView {
+        NavigationView {
+            if onboardingViewModel.onboardingState != .hidden {
+                OnboardingView()
+            } else {
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(spacing: 16) {
                         SBBInfoView(image: Image(sbbIcon: .smartphone_medium), text: Text("This demo app showcases all features of the Design System Mobile (DSM) SwiftUI Library."))
@@ -29,15 +31,15 @@ struct ContentView: View {
                             Text("Blue")
                                 .foregroundColor(Theme.night.sbbTheme.primaryColor)
                         }
-                            .onChange(of: theme) { newTheme in
-                                SBBAppearance.setupSBBAppearance(theme: newTheme.sbbTheme)
-                                self.navigationViewID = UUID() // trigger a reload of the NavigationView
-                                #if targetEnvironment(simulator)
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
-                                        self.navigationViewContentID = UUID() // SwiftUI bug: .navigationBarTitleDisplayMode(.inline) is ignored when only reloading the NavigationView, so we also need to reload it's content in a 2nd step.
-                                    }
-                                #endif
+                        .onChange(of: theme) { newTheme in
+                            SBBAppearance.setupSBBAppearance(theme: newTheme.sbbTheme)
+                            self.navigationViewID = UUID() // trigger a reload of the NavigationView
+#if targetEnvironment(simulator)
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) {
+                                self.navigationViewContentID = UUID() // SwiftUI bug: .navigationBarTitleDisplayMode(.inline) is ignored when only reloading the NavigationView, so we also need to reload it's content in a 2nd step.
                             }
+#endif
+                        }
                         SBBSegmentedPicker(selection: $colorScheme, tags: [.light, .dark]) {
                             Text("Light")
                             Text("Dark")
@@ -177,7 +179,7 @@ struct ContentView: View {
                         SBBFormGroup(title: "Additional Information") {
                             Button(action: {
                                 guard let url = URL(string: "https://digital.sbb.ch/en/design-system/mobile/overview/"),
-                                    UIApplication.shared.canOpenURL(url) else {
+                                      UIApplication.shared.canOpenURL(url) else {
                                     return
                                 }
                                 UIApplication.shared.open(url)
@@ -186,7 +188,7 @@ struct ContentView: View {
                             }
                             Button(action: {
                                 guard let url = URL(string: "https://sbb.sharepoint.com/sites/app-bakery/SitePages/Mobile-Libraries.aspx"),
-                                    UIApplication.shared.canOpenURL(url) else {
+                                      UIApplication.shared.canOpenURL(url) else {
                                     return
                                 }
                                 UIApplication.shared.open(url)
@@ -195,31 +197,30 @@ struct ContentView: View {
                             }
                             Button(action: {
                                 onboardingViewModel.currentOnboardingCardIndex = 0
-                                onboardingViewModel.onboardingState = .startView
+                                onboardingViewModel.currentOnboardingCard = .dsm
+                                onboardingViewModel.onboardingState = .start
                             }) {
                                 SBBListItem(label: Text("Show Onboarding"), leftImage: Image(sbbIcon: .circle_information_small), showBottomLine: false)
                             }
                         }
                     }
-                        .sbbScreenPadding()
+                    .sbbScreenPadding()
                 }
-                    #if targetEnvironment(simulator)
-                    .id(navigationViewContentID)
-                    #endif
-                    .navigationBarTitle("SBB DSM SwiftUI")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .sbbStyle()
-                    .colorScheme(colorScheme)
-                    .environment(\.sizeCategory, contentSizeCategory)
-            }
-                .id(navigationViewID)
-                .navigationViewStyle(StackNavigationViewStyle())    // iPad SwiftUI SplitView issue workaround
-                .sbbEnvironmentBanner(selectedBanner)
-                .accentColor(.white)
-            if onboardingViewModel.onboardingState != .hidden {
-                OnboardingView()
+#if targetEnvironment(simulator)
+                .id(navigationViewContentID)
+#endif
+                .navigationBarTitle("SBB DSM SwiftUI")
+                .navigationBarTitleDisplayMode(.inline)
+                .sbbStyle()
+                .colorScheme(colorScheme)
+                .environment(\.sizeCategory, contentSizeCategory)
             }
         }
+        .id(navigationViewID)
+        .navigationViewStyle(StackNavigationViewStyle())    // iPad SwiftUI SplitView issue workaround
+        .sbbEnvironmentBanner(selectedBanner)
+        .accentColor(.white)
+        
     }
 }
 
@@ -228,12 +229,12 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ContentView(colorScheme: .light)
                 .previewDisplayName("Onboarding")
-                .environmentObject(OnboardingViewModel(onboardingState: .startView))
+                .environmentObject(OnboardingViewModel(onboardingState: .start))
             ContentView(colorScheme: .light)
                 .previewDisplayName("Light")
             ContentView(colorScheme: .dark)
                 .previewDisplayName("Dark")
         }
-            .environmentObject(OnboardingViewModel(onboardingState: .hidden))
+        .environmentObject(OnboardingViewModel(onboardingState: .hidden))
     }
 }

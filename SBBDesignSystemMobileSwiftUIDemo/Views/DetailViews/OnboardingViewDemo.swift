@@ -30,7 +30,6 @@ class OnboardingViewDemoModel: ObservableObject {
 struct OnboardingViewDemo: View {
     
     @Binding var colorScheme: ColorScheme
-    @State private var onboardingState: SBBOnboardingState = .hidden
     @State private var overviewState: SBBOnboardingWrapperState = .hidden
     @State private var currentOnboardingCardIndex: Int = 0
     @State private var showingAlert = false
@@ -38,12 +37,9 @@ struct OnboardingViewDemo: View {
     
     @ObservedObject private var viewModel = OnboardingViewDemoModel()
 
-    private let startView = SBBOnboardingTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"))
-    private let endView = SBBOnboardingTitleView(image: Image("Onboarding_Gang"), title: Text("Gute Fahrt"), subtitle: Text("Wir wünschen Ihnen eine gute Fahrt mit SBB DSM"))
-
     var body: some View {
         Group {
-            if onboardingState == .hidden && overviewState == .hidden {
+            if overviewState == .hidden {
                 VStack(spacing: 0) {
                     ScrollView(showsIndicators: false) {
                         VStack(spacing: 16) {
@@ -62,17 +58,9 @@ struct OnboardingViewDemo: View {
                     }
                     Button(action: {
                         self.currentOnboardingCardIndex = 0
-                        self.onboardingState = .startView
-                    }) {
-                        Text("Show Onboarding View")
-                    }
-                        .buttonStyle(SBBPrimaryButtonStyle())
-                        .padding(.bottom, 8)
-                    Button(action: {
-                        self.currentOnboardingCardIndex = 0
                         self.overviewState = .start
                     }) {
-                        Text("Show new Onboarding")
+                        Text("Show Onboarding")
                     }
                     .buttonStyle(SBBSecondaryButtonStyle())
                 }
@@ -80,11 +68,6 @@ struct OnboardingViewDemo: View {
                     .navigationBarTitle("Onboarding")
                     .sbbStyle()
                     .sbbBackButtonStyle()
-            } else if onboardingState != .hidden {
-                SBBOnboardingView(state: $onboardingState, currentCardIndex: $currentOnboardingCardIndex, startView: startView, endView: endView, content: createCardViews)
-                    .alert(isPresented: $showingAlert) {
-                        Alert(title: Text("Custom Action"), message: Text("This alert is presented as a custom executable action on card disappear."), dismissButton: .default(Text("Got it!")))
-                    }
             } else {
                 SBBOnboardingWrapper(state: overviewState, currentCard: currentOnboardingCardIndex, currentCardIndex: currentOnboardingCardIndex, nbCards: viewModel.numberOfCards, startView: {
                     SBBOnboardingWrapperTitleView(image: Image("Onboarding_Luc"), title: Text("Willkommen"), subtitle: Text("Willkommen zum Rundgang."), buttonView: {
@@ -132,43 +115,6 @@ struct OnboardingViewDemo: View {
         }
              .colorScheme(colorScheme)
     }
-
-    
-    private func createCardViews() -> [SBBOnboardingCardView] {
-        let text = Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
-        
-        var cardViews = [SBBOnboardingCardView]()
-        if viewModel.withCustomButton {
-            cardViews.append(SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card with additional custom content"), text: text) {
-                FakeSBBOnboardingCardViewCustomButton()
-            })
-        }
-        if viewModel.withCustomAction {
-            cardViews.append(SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card with custom action"), text: text, actionOnCardDisappear:{
-                self.showingAlert = true
-            }))
-        }
-        if viewModel.withCustomCard {
-            cardViews.append(SBBOnboardingCardView {
-                HStack {
-                    Spacer()
-                    VStack {
-                        Text("Custom Card")
-                        Spacer()
-                    }
-                    Spacer()
-                }
-            })
-        }
-        
-        if viewModel.numberOfCards > viewModel.minimumNumberOfCards {
-            for n in 1...(viewModel.numberOfCards - viewModel.minimumNumberOfCards) {
-                cardViews.append(SBBOnboardingCardView(image: Image("Onboarding_Train"), title: Text("Card \(n)"), text: text))
-            }
-        }
-        
-        return cardViews
-    }
     
     @ViewBuilder
     private func createCardView(_ card: Int, _ customCard: Bool, _ customAction: Bool, _ customButton: Bool, _ geometrySize: CGSize) -> some View {
@@ -206,24 +152,28 @@ struct OnboardingViewDemo: View {
                 }
             }
         } else if customButton {
-            SBBOnboardingWrapperCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, showTrySheet: $showTrySheet, onNext: {
+            SBBOnboardingWrapperCardView(image: Image("Onboarding_Card2"), title: Text("Card"), size: geometrySize, showTrySheet: $showTrySheet, onNext: {
                 currentOnboardingCardIndex += 1
                 if card == viewModel.numberOfCards - 1 {
                     overviewState = .end
                 }
-            })
+            }) {
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+            }
             .onDisappear {
                 if card == 0 && customAction {
                     showingAlert = true
                 }
             }
         } else {
-            SBBOnboardingWrapperCardView(image: Image("Onboarding_Card2"), title: Text("Card"), text: Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."), size: geometrySize, onNext: {
+            SBBOnboardingWrapperCardView(image: Image("Onboarding_Card2"), title: Text("Card"), size: geometrySize, onNext: {
                 currentOnboardingCardIndex += 1
                 if card == viewModel.numberOfCards - 1 {
                     overviewState = .end
                 }
-            })
+            }) {
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+            }
             .onDisappear {
                 if card == 0 && customAction {
                     showingAlert = true

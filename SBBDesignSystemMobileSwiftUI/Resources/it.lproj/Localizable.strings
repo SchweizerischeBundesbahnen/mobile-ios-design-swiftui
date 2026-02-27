@@ -39,10 +39,6 @@
 "next" = "Avanti";
 
 "back" = "indietro";
-"forward" = "avanti";
-"abort tour" = "Terminare il giro";
-"Start App tour" = "Partire il giro delle app";
-"End App tour" = "Terminare il giro";
 
 // SBBModalView
 "close" = "chiudere";
