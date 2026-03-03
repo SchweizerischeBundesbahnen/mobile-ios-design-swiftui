@@ -5,7 +5,7 @@
 import Foundation
 
 /// SBBButtonSize to be used with SBBButtonStyles (e.g. SBBTertiaryButtonStyle).
-public enum SBBButtonSize {
+public enum SBBButtonSize: Sendable {
     /// Small SBBButtonSize (reduced padding, same content size)
     case small
     /// Large SBBButtonSize (more padding, same content size)

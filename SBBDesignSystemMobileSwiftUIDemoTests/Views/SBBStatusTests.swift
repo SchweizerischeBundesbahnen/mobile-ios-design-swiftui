@@ -2,14 +2,14 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2023.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBStatusTests: XCTestCase {
+class SBBStatusTests: DSMTest {
     
-    func testSBBStatusAlert() {
+    @Test func testSBBStatusAlert() {
         let view = SBBStatus(statusType: .alert)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBStatus", colorScheme: colorScheme)
@@ -17,49 +17,49 @@ class SBBStatusTests: XCTestCase {
         }
     }
     
-    func testSBBStatusWarning() {
+    @Test func testSBBStatusWarning() {
         let view = SBBStatus(statusType: .warning)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBStatusSuccess() {
+    @Test func testSBBStatusSuccess() {
         let view = SBBStatus(statusType: .success)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBStatusInfo() {
+    @Test func testSBBStatusInfo() {
         let view = SBBStatus(statusType: .info)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBStatusAlertNoText() {
+    @Test func testSBBStatusAlertNoText() {
         let view = SBBStatus(statusType: .alert, showText: false)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBStatusWarningNoText() {
+    @Test func testSBBStatusWarningNoText() {
         let view = SBBStatus(statusType: .warning, showText: false)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBStatusSuccessNoText() {
+    @Test func testSBBStatusSuccessNoText() {
         let view = SBBStatus(statusType: .success, showText: false)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBStatusInfoNoText() {
+    @Test func testSBBStatusInfoNoText() {
         let view = SBBStatus(statusType: .info, showText: false)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)

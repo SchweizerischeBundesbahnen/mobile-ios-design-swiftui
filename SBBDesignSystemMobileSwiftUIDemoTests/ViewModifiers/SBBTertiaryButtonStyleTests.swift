@@ -2,18 +2,18 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBTertiaryButtonStyleTests: XCTestCase {
+class SBBTertiaryButtonStyleTests: DSMTest {
     
     var button = Button(action: {}) {
         Text("Tertiary Button")
     }
 
-    func testTertiaryButton() {
+    @Test func testTertiaryButton() {
         let view = button.buttonStyle(SBBTertiaryButtonStyle())
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBTertiaryButtonStyle", colorScheme: colorScheme)
@@ -21,14 +21,14 @@ class SBBTertiaryButtonStyleTests: XCTestCase {
         }
     }
     
-    func testTertiaryButtonDisabled() {
+    @Test func testTertiaryButtonDisabled() {
         let view = button.buttonStyle(SBBTertiaryButtonStyle()).disabled(true)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testTertiaryButtonSmall() {
+    @Test func testTertiaryButtonSmall() {
         let view = button.buttonStyle(SBBTertiaryButtonStyle(size: .small))
         for colorScheme in ColorScheme.allCases {
             view.frame(minWidth: 200).recordDocumentationSnapshot(name: "SBBTertiaryButtonStyleSmall", colorScheme: colorScheme)

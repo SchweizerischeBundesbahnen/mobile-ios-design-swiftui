@@ -134,7 +134,7 @@ public struct SBBOnboardingWrapper<Card: Equatable, CardView: View, StartView: V
     }
 
     public var body: some View {
-        Group {
+        ZStack {
             if state == .start {
                 stateView(.start, startView)
                     .transition(.backslide)

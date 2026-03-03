@@ -70,7 +70,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, CollapsibleC
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.isLoading = isLoading
         self.content = content()
         self.additionalContent = nil
@@ -128,7 +128,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView {
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, @ViewBuilder nonCollapsibleContent: () -> NonCollapsibleContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)?) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, @ViewBuilder nonCollapsibleContent: () -> NonCollapsibleContent, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)?) {
         self.isLoading = isLoading
         self.content = content()
         self.additionalContent = nil
@@ -188,7 +188,7 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView, NonCollapsib
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)?) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)?) {
         self.isLoading = isLoading
         self.content = content()
         self.additionalContent = nil
@@ -246,7 +246,7 @@ public extension SBBHeaderBox where CollapsibleContent == EmptyView, NonCollapsi
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.isLoading = isLoading
         self.content = content()
         self.additionalContent = additionalContent()
@@ -307,7 +307,7 @@ public extension SBBHeaderBox where NonCollapsibleContent == EmptyView {
         - pageContentScrollable: Whether the page content is scrollable, default true.
         - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping (AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.isLoading = isLoading
         self.content = content()
         self.additionalContent = additionalContent()
@@ -386,7 +386,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     private let collapsibleContent: CollapsibleContent?
     private let collapsedFromTop: Bool
     private let nonCollapsibleContent: NonCollapsibleContent?
-    private let pageContentWithFocus: ((AccessibilityFocusState<String?>.Binding) -> PageContent)?
+    private let pageContentWithFocus: ((AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent)?
     private let pageContent: PageContent?
     private let pageContentScrollable: Bool
     private let extendNavigationBarBackground: Bool
@@ -405,7 +405,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     @State private var isCurrentlyRefreshing: Bool = false
     @AccessibilityFocusState private var currentFocus: String?
     
-    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, @ViewBuilder nonCollapsibleContent: () -> NonCollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, pageContent: ((AccessibilityFocusState<String?>.Binding) -> PageContent)?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    init(isLoading: Bool = false, @ViewBuilder content: () -> Content, @ViewBuilder collapsibleContent: () -> CollapsibleContent, collapsedFromTop: Bool = true, @ViewBuilder nonCollapsibleContent: () -> NonCollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, pageContent: ((AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent)?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.content = content()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
@@ -480,7 +480,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                                     }
                                     
                                     if let additionalContent {
-                                        AdditionalView(topPadding: collapsibleContentHeight + nonCollapsibleContentHeight + 16, minYParent: parentGeometry.frame(in: .global).minY + contentHeight - collapsibleContentHeight - nonCollapsibleContentHeight, additionalContent: additionalContent, backgroundColor: additionalContentBackgroundColor, additionalContentHeight: $additionalContentHeight)
+                                        AdditionalView(topPadding: collapsibleContentHeight + (nonCollapsibleContent != nil ? 16 + nonCollapsibleContentHeight : 0) + 16, minYParent: parentGeometry.frame(in: .global).minY + contentHeight - collapsibleContentHeight + nonCollapsibleContentHeight, additionalContent: additionalContent, backgroundColor: additionalContentBackgroundColor, additionalContentHeight: $additionalContentHeight)
                                             .accessibilityFocused($currentFocus, equals: "additionalView")
                                             .zIndex(1)
                                     }
@@ -488,7 +488,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                                     if pageContent != nil || pageContentWithFocus != nil {
                                         VStack(spacing: 0) {
                                             Spacer()
-                                                .frame(height: collapsibleContentHeight + nonCollapsibleContentHeight + 16 + additionalContentHeight)
+                                                .frame(height: collapsibleContentHeight + 16 + (nonCollapsibleContent != nil ? 16 + nonCollapsibleContentHeight : 0) + (additionalContent != nil ? 16 + additionalContentHeight : 0))
                                             
                                             Color.clear
                                                 .frame(height: 0)
@@ -503,7 +503,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                                             }
                                             
                                             if let pageContentWithFocus {
-                                                pageContentWithFocus($currentFocus)
+                                                pageContentWithFocus($currentFocus, parentGeometry.frame(in: .global).minY + collapsibleContentHeight + 16 + (nonCollapsibleContent != nil ? 16 + nonCollapsibleContentHeight : 0) + (additionalContent != nil ? 16 + additionalContentHeight : 0))
                                             } else if let pageContent {
                                                 pageContent
                                             }
@@ -533,36 +533,39 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                     .viewHeight($contentHeight)
             } else {
                 if pageContent != nil || pageContentWithFocus != nil {
-                    if pageContentScrollable {
-                        ScrollView(showsIndicators: false) {
-                            Spacer()
-                                .frame(height: contentHeight + (additionalContent != nil ? additionalContentHeight : 0))
-                            if isCurrentlyRefreshing, refresh != nil {
-                                SBBLoadingIndicator(size: .small)
-                                    .padding(.bottom, 8)
+                    GeometryReader { parentGeometry in
+                        if pageContentScrollable {
+                            ScrollView(showsIndicators: false) {
+                                Spacer()
+                                    .frame(height: contentHeight + (additionalContent != nil ? 16 + additionalContentHeight : 0))
+                                
+                                if isCurrentlyRefreshing, refresh != nil {
+                                    SBBLoadingIndicator(size: .small)
+                                        .padding(.bottom, 8)
+                                }
+                                if let pageContentWithFocus {
+                                    pageContentWithFocus($currentFocus, parentGeometry.frame(in: .global).minY + contentHeight + (additionalContent != nil ? 16 + additionalContentHeight : 0))
+                                } else if let pageContent {
+                                    pageContent
+                                }
                             }
-                            if let pageContentWithFocus {
-                                pageContentWithFocus($currentFocus)
-                            } else if let pageContent {
-                                pageContent
+                            .refreshable {
+                                self.isCurrentlyRefreshing = true
+                                await refresh?()
+                                
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                    self.isCurrentlyRefreshing = false
+                                }
                             }
-                        }
-                        .refreshable {
-                            self.isCurrentlyRefreshing = true
-                            await refresh?()
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                self.isCurrentlyRefreshing = false
-                            }
-                        }
-                    } else {
-                        VStack(spacing: 0) {
-                            Spacer()
-                                .frame(height: contentHeight + (additionalContent != nil ? additionalContentHeight : 0))
-                            if let pageContentWithFocus {
-                                pageContentWithFocus($currentFocus)
-                            } else if let pageContent {
-                                pageContent
+                        } else {
+                            VStack(spacing: 0) {
+                                Spacer()
+                                    .frame(height: contentHeight + (additionalContent != nil ? 16 + additionalContentHeight : 0))
+                                if let pageContentWithFocus {
+                                    pageContentWithFocus($currentFocus, parentGeometry.frame(in: .global).minY + contentHeight + (additionalContent != nil ? 16 + additionalContentHeight : 0))
+                                } else if let pageContent {
+                                    pageContent
+                                }
                             }
                         }
                     }

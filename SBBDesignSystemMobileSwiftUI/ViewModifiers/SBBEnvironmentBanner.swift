@@ -53,7 +53,7 @@ public extension View {
 }
 
 /// SBBEnvironmentBanner styles.
-public enum SBBEnvironmentBanner: CaseIterable {
+public enum SBBEnvironmentBanner: CaseIterable, Sendable {
     /// Style for Prod environments (no banner)
     case none
     /// Style for Test environments

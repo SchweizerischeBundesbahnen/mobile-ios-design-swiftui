@@ -1,6 +1,8 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
-## v1.2.9 - TBD
+## v1.3.0 - 27 February 2027
+* Ready for strict swift concurrency
+
 ### Features
 * New modifier:
     * `hspaced(_: HorizontalAlignment)` and `vspaced(_: VerticalAlignment)`: can be used to wrap a view in an HStack/VStack with Spacer to achieve desired alignment.
@@ -11,6 +13,9 @@
 * SBBHeaderBox: when using `collapsibleContent, possibility to choose `collapsedFromTop`. If true, the view will disappear under the header; otherwise it stays put and disappears as the box grows smaller.
 * SBBRadioButton, SBBCheckBox: new parameter `darkModeCheckWhite`, if enabled the checkmark is white in dark mode, instead of primary color.
 * sbbModal: possibility to give it an `onClose` function to be called when user taps outside the modal view, and therefore closes the modal view.
+
+### Removals
+* All deprecated views are deleted.
 
 ## v1.2.8 - 11 December 2025
 ### Features

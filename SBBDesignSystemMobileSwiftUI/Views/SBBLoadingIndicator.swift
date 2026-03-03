@@ -19,7 +19,7 @@ import SwiftUI
 public struct SBBLoadingIndicator: View {
     
     /// SBBLoadingIndicator Size.
-    public enum Size {
+    public enum Size: Sendable {
         /// Normal SBBLoadingIndicator Size.
         case normal
         /// Small SBBLoadingIndicator Size.
@@ -40,7 +40,7 @@ public struct SBBLoadingIndicator: View {
     }
     
     /// SBBLoadingIndicator Style.
-    public enum Style {
+    public enum Style: Sendable {
         /// SBBLoadingIndicator in primary color (red by default) on a background depending on the current ColorScheme.
         case primary
         /// Grey SBBLoadingIndicator on a background depending on the current ColorScheme.

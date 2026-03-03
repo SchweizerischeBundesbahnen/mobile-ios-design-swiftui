@@ -2,13 +2,13 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2024.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
 
-class SBBHeaderTests: XCTestCase {
+class SBBHeaderTests: DSMTest {
     let content = {
         HStack {
             Image(sbbIcon: .city_small)
@@ -24,28 +24,28 @@ class SBBHeaderTests: XCTestCase {
            }
     }
     
-    func testSBBHeaderBox() {
+    @Test func testSBBHeaderBox() {
         let view = SBBHeaderBox(content: content, pageContent: {})
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
 
-    func testSBBHeaderBoxWithAdditionalContent() {
+    @Test func testSBBHeaderBoxWithAdditionalContent() {
         let view = SBBHeaderBox(content: content, additionalContent: additionalContent)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBHeaderBoxWithoutExtendedBackground() {
+    @Test func testSBBHeaderBoxWithoutExtendedBackground() {
         let view = SBBHeaderBox(content: content, extendNavigationBarBackground: false, pageContent: {})
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testSBBHeaderWithAdditionalContentWithoutExtendedBackground() {
+    @Test func testSBBHeaderWithAdditionalContentWithoutExtendedBackground() {
         let view = SBBHeaderBox(content: content, additionalContent: additionalContent, extendNavigationBarBackground: false)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)

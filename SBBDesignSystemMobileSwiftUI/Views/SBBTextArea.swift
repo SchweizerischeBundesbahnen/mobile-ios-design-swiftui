@@ -27,7 +27,7 @@ public struct SBBTextArea: View {
     private var additionalAccessibilityText: String?
     private let placeholderFontSize: FontSize
     
-    public enum FontSize: CGFloat {
+    public enum FontSize: CGFloat, Sendable {
         case small = 10
         case medium = 12
         case large = 14

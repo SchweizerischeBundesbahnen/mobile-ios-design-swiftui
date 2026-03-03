@@ -2,14 +2,14 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBEnvironmentBannerTests: XCTestCase {
+class SBBEnvironmentBannerTests: DSMTest {
         
-    func testEnvironmentBannerNone() {
+    @Test func testEnvironmentBannerNone() {
         let view = NavigationView {
             EmptyView()
                 .navigationBarTitleDisplayMode(.inline)
@@ -21,7 +21,7 @@ class SBBEnvironmentBannerTests: XCTestCase {
         }
     }
     
-    func testEnvironmentBannerDev() {
+    @Test func testEnvironmentBannerDev() {
         let view = NavigationView {
             EmptyView()
                 .navigationBarTitleDisplayMode(.inline)

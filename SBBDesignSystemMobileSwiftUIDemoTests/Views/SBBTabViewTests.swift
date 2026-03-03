@@ -2,12 +2,12 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2022.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBTabViewTests: XCTestCase {
+class SBBTabViewTests: DSMTest {
     
     private func getSBBTabView(nbTabs: Int) -> SBBTabView<Int> {
         return SBBTabView(selection: .constant(0), contentAboveBar: true) {
@@ -17,7 +17,7 @@ class SBBTabViewTests: XCTestCase {
         }!
     }
     
-    func testTabView() {
+    @Test func testTabView() {
         for nbTabs in (2...5) {
             let view = getSBBTabView(nbTabs: nbTabs)
             for colorScheme in ColorScheme.allCases {
@@ -26,7 +26,7 @@ class SBBTabViewTests: XCTestCase {
         }
     }
     
-    func testTabViewLandscape() {
+    @Test func testTabViewLandscape() {
         for nbTabs in (2...5) {
             let view = getSBBTabView(nbTabs: nbTabs)
             

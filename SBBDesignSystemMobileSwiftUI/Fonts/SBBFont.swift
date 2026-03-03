@@ -28,7 +28,7 @@ struct ScaledFont: ViewModifier {
 }
 
 /// SBBFont types.
-public enum SBBFont {
+public enum SBBFont: Sendable {
     
     case xlarge_light
     case large_light
@@ -39,34 +39,6 @@ public enum SBBFont {
     case small_bold
     case xsmall_light
     case xsmall_bold
-    
-    /// SBBFont type for headers.
-    @available(*, deprecated, message: "not used anymore in DSM")
-    case header
-    /// SBBFont type for headlines.
-    @available(*, deprecated, message: "use large_bold instead")
-    case headline
-    /// SBBFont type for default titles.
-    @available(*, deprecated, message: "use medium_bold instead")
-    case titleDefault
-    /// SBBFont type for title modules.
-    @available(*, deprecated, message: "use large_light instead")
-    case titleModul
-    /// SBBFont type for subtitles.
-    @available(*, deprecated, message: "use small_bold instead")
-    case subtitle
-    /// SBBFont type for copy styles.
-    @available(*, deprecated, message: "use large_light instead")
-    case copy
-    /// SBBFont type for body.
-    @available(*, deprecated, message: "use medium_light instead")
-    case body
-    /// SBBFont type for legends.
-    @available(*, deprecated, message: "use small_light instead")
-    case legend
-    /// SBBFont type for legends (small style).
-    @available(*, deprecated, message: "use xsmall_light instead")
-    case legendSmall
     
     /// SBBFont type for table headers.
     case tableHeader
@@ -83,17 +55,6 @@ public enum SBBFont {
         case .small_bold: return .small_bold
         case .xsmall_light: return .xsmall_light
         case .xsmall_bold: return .xsmall_bold
-            
-            // deprecated
-        case .header: return .sbbHeader
-        case .headline: return .sbbHeadline
-        case .titleDefault: return .sbbTitleDefault
-        case .titleModul: return .sbbTitleModul
-        case .subtitle: return .sbbSubtitle
-        case .copy: return .sbbCopy
-        case .body: return .sbbBody
-        case .legend: return .sbbLegend
-        case .legendSmall: return .sbbLegendSmall
             
         case .tableHeader: return .sbbTableHeader
         }
@@ -112,17 +73,6 @@ public enum SBBFont {
         case .xsmall_light: return .xsmall_light
         case .xsmall_bold: return .xsmall_bold
             
-            // deprecated
-        case .header: return .sbbHeader
-        case .headline: return .sbbHeadline
-        case .titleDefault: return .sbbTitleDefault
-        case .titleModul: return .sbbTitleModul
-        case .subtitle: return .sbbSubtitle
-        case .copy: return .sbbCopy
-        case .body: return .sbbBody
-        case .legend: return .sbbLegend
-        case .legendSmall: return .sbbLegendSmall
-            
         case .tableHeader: return .sbbTableHeader
         }
     }
@@ -139,16 +89,6 @@ public enum SBBFont {
         case .small_bold: return 6
         case .xsmall_light: return 8
         case .xsmall_bold: return 8
-            
-        case .header: return 2
-        case .headline: return 4
-        case .titleDefault: return 6
-        case .titleModul: return 8
-        case .subtitle: return 6
-        case .copy: return 6
-        case .body: return 4
-        case .legend: return 6
-        case .legendSmall: return 8
             
         case .tableHeader: return 0
         }

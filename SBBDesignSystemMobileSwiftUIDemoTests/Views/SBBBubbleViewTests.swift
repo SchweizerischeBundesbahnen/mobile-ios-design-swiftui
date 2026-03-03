@@ -2,29 +2,28 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2020.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBBubbleViewTests: XCTestCase {
+class SBBBubbleViewTests: DSMTest {
 
-
-    func testBubbleViewTitleOnly() {
+    @Test func testBubbleViewTitleOnly() {
         let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"))
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testBubbleViewSubtitle() {
+    @Test func testBubbleViewSubtitle() {
         let view = SBBBubbleView(image: Image(sbbIcon: .station_medium), title: Text("Biel / Bienne"), subtitle: Text("Gleis 2 und 3."))
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testBubbleViewDetail() {
+    @Test func testBubbleViewDetail() {
         let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         })
@@ -33,7 +32,7 @@ class SBBBubbleViewTests: XCTestCase {
         }
     }
     
-    func testBubbleViewDetailNoBackground() {
+    @Test func testBubbleViewDetailNoBackground() {
         let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), extendNavigationBarBackground: false, expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         })
@@ -42,7 +41,7 @@ class SBBBubbleViewTests: XCTestCase {
         }
     }
     
-    func testBubbleViewAccessbilityExtraExtraLarge() {
+    @Test func testBubbleViewAccessbilityExtraExtraLarge() {
         let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         }).environment(\.sizeCategory, .accessibilityExtraExtraExtraLarge)
@@ -51,7 +50,7 @@ class SBBBubbleViewTests: XCTestCase {
         }
     }
     
-    func testBubbleViewDetailMultipleView() {
+    @Test func testBubbleViewDetailMultipleView() {
         let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
             Text("ca. +12'")
@@ -64,7 +63,7 @@ class SBBBubbleViewTests: XCTestCase {
         }
     }
     
-    func testBubbleViewLongTitle() {
+    @Test func testBubbleViewLongTitle() {
         let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("R2 nach La Chaux-de-Fonds-Grenier, Armes-Réunies"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         })
@@ -73,7 +72,7 @@ class SBBBubbleViewTests: XCTestCase {
         }
     }
     
-    func testBubbleViewFixedContent() {
+    @Test func testBubbleViewFixedContent() {
         let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), fixedContent: {
             Text("Wagen")
         })
@@ -82,7 +81,7 @@ class SBBBubbleViewTests: XCTestCase {
         }
     }
     
-    func testBubbleViewExpandableFixedContent() {
+    @Test func testBubbleViewExpandableFixedContent() {
         let view = SBBBubbleView(image: Image(sbbIcon: .train_medium), title: Text("IC6 nach Basel"), expanded: .constant(true), expandableContent: {
             Text("Wagen 3, 1. Klasse.\nBusiness-Zone, Ruhezone.\nNächster Halt: Olten um 17:03.")
         }, fixedContent: {

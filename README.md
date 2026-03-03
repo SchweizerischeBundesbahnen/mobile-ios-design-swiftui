@@ -10,7 +10,7 @@ This framework contains SBB (Swiss Federal Railways) UI elements for iOS SwiftUI
 
 ## Minimum supported iOS Version
 
-* iOS 14.0
+* iOS 15.0
 
 ## Add the library to your project with Swift Package Manager
 

@@ -19,7 +19,7 @@ import SwiftUI
 public struct SBBMapMarker: View {
    
     /// SBBMapMarker Style (background color, foreground color is always white).
-    public enum Style {
+    public enum Style: Sendable {
         /// Red background for the SBBMapMarker.
         case red
         /// Blue background for the SBBMapMarker (mandatory when using SBB pictograms as icon).

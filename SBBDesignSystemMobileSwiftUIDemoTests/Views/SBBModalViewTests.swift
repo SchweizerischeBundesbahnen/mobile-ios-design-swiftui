@@ -2,12 +2,12 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBModalViewTests: XCTestCase {
+class SBBModalViewTests: DSMTest {
     
     let modalViewContent = AnyView (
         VStack(spacing: 16) {
@@ -20,7 +20,7 @@ class SBBModalViewTests: XCTestCase {
             .sbbScreenPadding(.horizontal)
     )
     
-    func testModalViewPopup() {
+    @Test func testModalViewPopup() {
         let view = SBBModalView(title: Text("Your title"), style: .popup, titleAlignment: .center, isPresented: .constant(true)) {
             self.modalViewContent
         }

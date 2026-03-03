@@ -67,7 +67,7 @@ public struct SBBListItem: View {
     }
     
     /// SBBListItem Type.
-    public enum SBBListItemType: Equatable {
+    public enum SBBListItemType: Equatable, Sendable {
         /// Normal SBBListItem Style (chevron icon)
         case normal
         /// Info SBBListItem Style (information icon)

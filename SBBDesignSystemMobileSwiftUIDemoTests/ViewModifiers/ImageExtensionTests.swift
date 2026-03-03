@@ -2,14 +2,14 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class ImageExtensionTests: XCTestCase {
+class ImageExtensionTests: DSMTest {
 
-    func testFPLIcon() {
+    @Test func testFPLIcon() {
         let view = Image(sbbIcon: .ir_40)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "ImageExtensionIconFPL", colorScheme: colorScheme)
@@ -17,14 +17,14 @@ class ImageExtensionTests: XCTestCase {
         }
     }
     
-    func testKOMIconSmall() {
+    @Test func testKOMIconSmall() {
         let view = Image(sbbIcon: .station_small).foregroundColor(Color.sbbColor(.textBlack))
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testKOMIconMedium() {
+    @Test func testKOMIconMedium() {
         let view = Image(sbbIcon: .station_medium).foregroundColor(Color.sbbColor(.textBlack))
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "ImageExtensionIconKOM", colorScheme: colorScheme)
@@ -32,14 +32,14 @@ class ImageExtensionTests: XCTestCase {
         }
     }
     
-    func testKOMIconLarge() {
+    @Test func testKOMIconLarge() {
         let view = Image(sbbIcon: .station_large).foregroundColor(Color.sbbColor(.textBlack))
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testPictogramIcon() {
+    @Test func testPictogramIcon() {
         let view = Image(sbbIcon: .Zug_r)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "ImageExtensionIconPictogram", colorScheme: colorScheme)
