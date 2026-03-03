@@ -56,7 +56,7 @@ struct HeaderBoxDemo: View {
     }
     
     @ViewBuilder
-    private func settingsView(_ focus: AccessibilityFocusState<String?>.Binding) -> some View {
+    private func settingsView(_ focus: AccessibilityFocusState<String?>.Binding, _ minY: CGFloat) -> some View {
         switch selectedPageContent {
         case .small:
             smallSettingsView(focus)
@@ -213,7 +213,6 @@ struct HeaderBoxDemo: View {
                 .minimumScaleFactor(0.1)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.top, 16)
-                .padding(.bottom, nonCollapsable ? 16 : 0)
         case .textAndIcon:
             HStack {
                 Image(sbbIcon: .sign_exclamation_point_small)
