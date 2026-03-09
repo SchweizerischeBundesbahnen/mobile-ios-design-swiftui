@@ -516,24 +516,6 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                             }
                         }
                         .coordinateSpace(name: "PageContentScrollView")
-                        .simultaneousGesture(
-                            DragGesture(minimumDistance: 0, coordinateSpace: .named("PageContentScrollView"))
-                                .onChanged { value in
-                                    scrolled = value.translation.height
-                                }
-                                .onEnded { value in
-                                    let residual = value.predictedEndTranslation.height - value.translation.height
-                                    collapsibleSnap = residual > 0 ? .open : residual < 0 ? .close : .closest
-                                }
-                        )
-                        .refreshable {
-                            self.isCurrentlyRefreshing = true
-                            await refresh?()
-                            
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                                self.isCurrentlyRefreshing = false
-                            }
-                        }
                     } else {
                         VStack(spacing: 0) {
                             Spacer()
@@ -610,6 +592,24 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                 } else {
                     collapsibleSnap = .close
                 }
+            }
+        }
+        .simultaneousGesture(
+            DragGesture(minimumDistance: 0, coordinateSpace: .named("PageContentScrollView"))
+                .onChanged { value in
+                    scrolled = value.translation.height
+                }
+                .onEnded { value in
+                    let residual = value.predictedEndTranslation.height - value.translation.height
+                    collapsibleSnap = residual > 0 ? .open : residual < 0 ? .close : .closest
+                }
+        )
+        .refreshable {
+            self.isCurrentlyRefreshing = true
+            await refresh?()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.isCurrentlyRefreshing = false
             }
         }
     }
