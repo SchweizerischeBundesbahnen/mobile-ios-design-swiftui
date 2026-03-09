@@ -570,7 +570,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                             content
                                 .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
                                 .padding(.bottom, collapsibleContent != nil ? 16 : 0)
-                                .accessibilityElement(children: .combine)
+                                .accessibilityElement(children: .contain)
                                 .accessibilityFocused($currentFocus, equals: "HeaderView")
                             
                             if let collapsibleContent {
