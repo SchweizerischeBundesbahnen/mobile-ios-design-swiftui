@@ -271,17 +271,17 @@ struct HeaderBoxDemo: View {
                 }
             } else {
                 if mergeContent {
-                    SBBHeaderBox(isLoading: isLoading, collapsedContent: { collapsedView }, extendedContent: { extendedView }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, refresh: refresh)
+                    SBBHeaderBox(isLoading: isLoading, collapsedContent: { collapsedView }, extendedContent: { extendedView }, mergeAccessibilityLabel: Text("This is the accessibility for the whole header."), extendNavigationBarBackground: true, pageContentWithFocus: settingsView, refresh: refresh)
                 } else if selectedAdditionalContent == .none {
                     if selectedCollapsibleContent == .none {
                         SBBHeaderBox(isLoading: isLoading, content: { contentView }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     } else {
                         SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, collapseType: collapsedFromTop ? .slidesUp : .swallowed, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
-
                     }
                 } else {
                     if mergeContent {
-                        SBBHeaderBox(isLoading: isLoading, collapsedContent: { collapsedView }, extendedContent: { extendedView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, refresh: refresh)
+                        SBBHeaderBox(isLoading: isLoading, collapsedContent: { collapsedView }, extendedContent: { extendedView }, mergeAccessibilityLabel: Text("This is the accessibility for the whole header."),
+                                     additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, refresh: refresh)
                     } else if selectedCollapsibleContent == .none {
                         SBBHeaderBox(isLoading: isLoading, content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     } else {

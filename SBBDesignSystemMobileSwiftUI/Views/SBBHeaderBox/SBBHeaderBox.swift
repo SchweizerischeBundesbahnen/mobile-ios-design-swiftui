@@ -170,20 +170,19 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView {
      - isLoading: Whether it is loading, shows a red line at the bottom, default false.
      - collapsedContent: The View to display when the Header is collapsed.
      - extendedContent: The View to display when the Header is extended.
-     - collapseType: Either it slides up, or get swallowed from the bottom.
      - extendNavigationBarBackground: Flag indicating whether the Header is used right below a NavigationBar and if it should extend the background of the NavigationBar.
      - pageContentWithFocus: The View used as the content of the page with accessibility focus for the VoiceOver.
      - pageContentScrollable: Whether the page content is scrollable, default true.
      - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder collapsedContent: () -> Content, @ViewBuilder extendedContent: () -> CollapsibleContent, collapseType: CollapseType = .swallowed, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContentWithFocus: @escaping (AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)?) {
+    init(isLoading: Bool = false, @ViewBuilder collapsedContent: () -> Content, @ViewBuilder extendedContent: () -> CollapsibleContent, mergeAccessibilityLabel: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContentWithFocus: @escaping (AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)?) {
         self.isLoading = isLoading
         self.content = collapsedContent()
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = extendedContent()
-        self.collapseType = collapseType
         self.mergeCollapse = true
+        self.mergeAccessibilityLabel = mergeAccessibilityLabel
         self.pageContentWithFocus = pageContentWithFocus
         self.pageContent = nil
         self.pageContentScrollable = pageContentScrollable
@@ -204,13 +203,13 @@ public extension SBBHeaderBox where AdditionalContent == EmptyView {
      - pageContentScrollable: Whether the page content is scrollable, default true.
      - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    init(isLoading: Bool = false, @ViewBuilder collapsedContent: () -> Content, @ViewBuilder extendedContent: () -> CollapsibleContent, collapseType: CollapseType = .swallowed, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: () -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    init(isLoading: Bool = false, @ViewBuilder collapsedContent: () -> Content, @ViewBuilder extendedContent: () -> CollapsibleContent, mergeAccessibilityLabel: Text? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: () -> PageContent, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.isLoading = isLoading
         self.content = collapsedContent()
         self.additionalContent = nil
         self.additionalContentBackgroundColor = nil
         self.collapsibleContent = extendedContent()
-        self.collapseType = collapseType
+        self.mergeAccessibilityLabel = mergeAccessibilityLabel
         self.mergeCollapse = true
         self.pageContentWithFocus = nil
         self.pageContent = pageContent()
@@ -309,6 +308,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     private let collapsibleContent: CollapsibleContent?
     private var collapseType: CollapseType = .swallowed
     private var mergeCollapse: Bool = false
+    private var mergeAccessibilityLabel: Text?
     private let pageContentWithFocus: ((AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent)?
     private let pageContent: PageContent?
     private let pageContentScrollable: Bool
@@ -321,6 +321,9 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     
     @State private var headerHeight: CGFloat = .zero
     @State private var offsetX: CGFloat = 0
+    
+    @State private var scrolled: CGFloat = 0
+    @State private var collapsibleSnap: CollapsibleSnap?
     
     @State private var isCurrentlyRefreshing: Bool = false
     @AccessibilityFocusState private var currentFocus: String?
@@ -399,12 +402,13 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
      - pageContentScrollable: Whether the page content is scrollable, default true.
      - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    public init(isLoading: Bool = false, @ViewBuilder collapsedContent: () -> Content, @ViewBuilder extendedContent: () -> CollapsibleContent, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, pageContentWithFocus: ((AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent)?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    public init(isLoading: Bool = false, @ViewBuilder collapsedContent: () -> Content, @ViewBuilder extendedContent: () -> CollapsibleContent, mergeAccessibilityLabel: Text? = nil, @ViewBuilder additionalContent: @escaping () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, pageContentWithFocus: ((AccessibilityFocusState<String?>.Binding, CGFloat) -> PageContent)?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.content = collapsedContent()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = extendedContent()
         self.mergeCollapse = true
+        self.mergeAccessibilityLabel = mergeAccessibilityLabel
         self.pageContentWithFocus = pageContentWithFocus
         self.pageContent = nil
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -427,12 +431,13 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
      - pageContentScrollable: Whether the page content is scrollable, default true.
      - refresh: Refresh function on swipe down if pageContentScrollable.
      */
-    public init(isLoading: Bool = false, @ViewBuilder collapsedContent: () -> Content, @ViewBuilder extendedContent: () -> CollapsibleContent, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
+    public init(isLoading: Bool = false, @ViewBuilder collapsedContent: () -> Content, @ViewBuilder extendedContent: () -> CollapsibleContent, mergeAccessibilityLabel: Text? = nil, @ViewBuilder additionalContent: () -> AdditionalContent, additionalContentBackgroundColor: Color? = nil, extendNavigationBarBackground: Bool = true, @ViewBuilder pageContent: @escaping () -> PageContent?, pageContentScrollable: Bool = true, refresh: (() async -> Void)? = nil) {
         self.content = collapsedContent()
         self.additionalContent = additionalContent()
         self.additionalContentBackgroundColor = additionalContentBackgroundColor
         self.collapsibleContent = extendedContent()
         self.mergeCollapse = true
+        self.mergeAccessibilityLabel = mergeAccessibilityLabel
         self.pageContentWithFocus = nil
         self.pageContent = pageContent()
         self.extendNavigationBarBackground = extendNavigationBarBackground
@@ -475,9 +480,6 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
             .accessibilityHidden(true)
         }
     }
-    
-    @State private var scrolled: CGFloat = 0
-    @State private var collapsibleSnap: CollapsibleSnap?
     
     public var body: some View {
         ZStack(alignment: .top) {
@@ -553,14 +555,28 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                 ZStack(alignment: .bottom) {
                     VStack(spacing: 0) {
                         if mergeCollapse, let collapsibleContent {
-                            MergeView(scrolled: $scrolled, collapsibleSnap: $collapsibleSnap, collapsedContent: content, extendedContent: collapsibleContent)
+                            if let mergeAccessibilityLabel {
+                                MergeView(scrolled: $scrolled, collapsibleSnap: $collapsibleSnap, collapsedContent: content, extendedContent: collapsibleContent)
+                                    .accessibilityElement(children: .combine)
+                                    .accessibilityLabel(mergeAccessibilityLabel)
+                                    .accessibilityFocused($currentFocus, equals: "HeaderView")
+                            } else {
+                                MergeView(scrolled: $scrolled, collapsibleSnap: $collapsibleSnap, collapsedContent: content, extendedContent: collapsibleContent)
+                                    .accessibilityElement(children: .combine)
+                                    .accessibilityFocused($currentFocus, equals: "HeaderView")
+                            }
+                            
                         } else {
                             content
                                 .frame(maxWidth: .infinity, minHeight: 24, alignment: .leading)
                                 .padding(.bottom, collapsibleContent != nil ? 16 : 0)
+                                .accessibilityElement(children: .combine)
+                                .accessibilityFocused($currentFocus, equals: "HeaderView")
                             
                             if let collapsibleContent {
                                 CollapsibleView(scrolled: $scrolled, collapsibleSnap: $collapsibleSnap, collapsibleContent: collapsibleContent, collapseType: collapseType)
+                                    .accessibilityElement(children: .contain)
+                                    .accessibilityFocused($currentFocus, equals: "HeaderView")
                             }
                         }
                     }
@@ -579,6 +595,8 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                         .frame(maxWidth: .infinity, minHeight: 20, alignment: .leading)
                         .padding(.horizontal, 16)
                         .padding(.vertical, 8)
+                        .accessibilityElement(children: .combine)
+                        .accessibilityFocused($currentFocus, equals: "HeaderView")
                 }
             }
             .background(additionalContentBackgroundColor != nil ? additionalContentBackgroundColor! : Color.sbbColor(colorScheme == .dark ? .midnight : .cloud))
@@ -586,6 +604,13 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
             .shadow(color: Color.sbbColor(.tabshadow), radius: additionalContent == nil ? 8 : 0)
             .sbbScreenPadding(.horizontal)
             .viewHeight($headerHeight)
+            .onChange(of: currentFocus) { _ in
+                if currentFocus == "HeaderView" {
+                    collapsibleSnap = .open
+                } else {
+                    collapsibleSnap = .close
+                }
+            }
         }
     }
 }
