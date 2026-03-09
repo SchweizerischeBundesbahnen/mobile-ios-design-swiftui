@@ -86,8 +86,6 @@ struct MergeView<CollapsedContent: View, ExtendedContent: View>: View {
     private func collapseProgress(_ currentHeight: CGFloat) -> CGFloat {
         let maxHeight = max(0, extendedContentHeight - collapsedContentHeight)
         let minHeight = collapsedContentHeight
-        let height = (currentHeight - minHeight) / maxHeight
-        let clamped = min(max(height, 0), 1)
-        return 1 - pow(1 - clamped, 10) // Stays 1 longer, then quickly to 0
+        return (currentHeight - minHeight) / maxHeight
     }
 }
