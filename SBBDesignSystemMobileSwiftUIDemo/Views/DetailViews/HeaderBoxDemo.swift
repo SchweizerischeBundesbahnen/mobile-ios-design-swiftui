@@ -13,11 +13,7 @@ struct HeaderBoxDemo: View {
     @State var headerHeight: CGFloat = 0
     @State private var selectedContent: ContentType = .rectangle
     @State private var selectedCollapsibleContent: CollapsibleContentType = .none
-    @State private var selectedAdditionalContent: AdditionalContentType = .none {
-        didSet {
-            nonCollapsable = false
-        }
-    }
+    @State private var selectedAdditionalContent: AdditionalContentType = .none
     
     @State private var selectedPicker: Int = 0
     @State private var pickerSelected: Int = 0
@@ -25,7 +21,7 @@ struct HeaderBoxDemo: View {
     @State private var isLoading: Bool = false
     @State private var refreshEnabled: Bool = false
     @State private var collapsedFromTop: Bool = false
-    @State private var nonCollapsable: Bool = false
+    @State private var mergeContent: Bool = false
     
     @AccessibilityFocusState private var currentFocus: String?
     
@@ -94,24 +90,26 @@ struct HeaderBoxDemo: View {
                 .id("additionalContentOptions")
                 .accessibilityFocused(focus, equals: "additionalContentOptions")
             } else {
-                SBBRadioButtonGroup(selection: $selectedCollapsibleContent, tags: [.rectangle, .textAndIcon, .longText, .none]) {
-                    SBBRadioButton(text: Text("Rectangle placeholder"))
-                    SBBRadioButton(text: Text("Text and icon"))
-                    SBBRadioButton(text: Text("Long text"))
-                    SBBRadioButton(text: Text("None"), showBottomLine: false)
+                if !mergeContent {
+                    SBBRadioButtonGroup(selection: $selectedCollapsibleContent, tags: [.rectangle, .textAndIcon, .longText, .none]) {
+                        SBBRadioButton(text: Text("Rectangle placeholder"))
+                        SBBRadioButton(text: Text("Text and icon"))
+                        SBBRadioButton(text: Text("Long text"))
+                        SBBRadioButton(text: Text("None"), showBottomLine: false)
+                    }
+                    .disabled(selectedPageContent == .none)
+                    .id("collapsibleContentOptions")
+                    .accessibilityFocused(focus, equals: "collapsibleContentOptions")
+                    
+                    SBBSwitchItem(isOn: $collapsedFromTop, label: Text("Collapsed from top"), showLoading: false)
+                        .id("collapsedSwitch")
+                        .accessibilityFocused(focus, equals: "collapsedSwitch")
+                    
                 }
-                .disabled(selectedPageContent == .none)
-                .id("collapsibleContentOptions")
-                .accessibilityFocused(focus, equals: "collapsibleContentOptions")
                 
-                SBBSwitchItem(isOn: $collapsedFromTop, label: Text("Collapsed from top"), showLoading: false)
-                    .id("collapsedSwitch")
-                    .accessibilityFocused(focus, equals: "collapsedSwitch")
-                
-                SBBSwitchItem(isOn: $nonCollapsable, label: Text("With non collapsable"), showLoading: false)
-                    .id("nonCollapsableSwitch")
-                    .accessibilityFocused(focus, equals: "nonCollapsableSwitch")
-                    .disabled(selectedAdditionalContent != .none)
+                SBBSwitchItem(isOn: $mergeContent, label: Text("Merged"), showLoading: false)
+                    .id("mergeSwitch")
+                    .accessibilityFocused(focus, equals: "mergeSwitch")
             }
             
             SBBSwitchItem(isOn: $isLoading, label: Text("Loading"), showLoading: false)
@@ -206,13 +204,11 @@ struct HeaderBoxDemo: View {
             Rectangle()
                 .foregroundColor(Color.sbbColor(.placeholder))
                 .frame(height: 20)
-                .padding(.top, 16)
         case .longText:
             Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.")
                 .multilineTextAlignment(.leading)
                 .minimumScaleFactor(0.1)
                 .fixedSize(horizontal: false, vertical: true)
-                .padding(.top, 16)
         case .textAndIcon:
             HStack {
                 Image(sbbIcon: .sign_exclamation_point_small)
@@ -236,6 +232,32 @@ struct HeaderBoxDemo: View {
         }
     }
     
+    var collapsedView: some View {
+        HStack(alignment: .center) {
+            Image(sbbIcon: .train_profile_medium)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("IC1 nach Genève-Aéroport")
+                    .sbbFont(.medium_bold)
+            }
+            Spacer()
+        }
+    }
+    
+    var extendedView: some View {
+        HStack(alignment: .top) {
+            Image(sbbIcon: .train_profile_medium)
+            VStack(alignment: .leading, spacing: 8) {
+                Text("IC1 nach Genève-Aéroport")
+                    .sbbFont(.medium_bold)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Abfahrt in Fribourg/Freiburg um 11:57.")
+                    Text("Gleis 2A-H.")
+                }
+            }
+            Spacer()
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 16) {
             if selectedPageContent == .none {
@@ -248,25 +270,22 @@ struct HeaderBoxDemo: View {
                     smallSettingsView($currentFocus)
                 }
             } else {
-                if selectedAdditionalContent == .none {
+                if mergeContent {
+                    SBBHeaderBox(isLoading: isLoading, collapsedContent: { collapsedView }, extendedContent: { extendedView }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, refresh: refresh)
+                } else if selectedAdditionalContent == .none {
                     if selectedCollapsibleContent == .none {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
-                    } else if nonCollapsable {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, collapsedFromTop: collapsedFromTop, nonCollapsibleContent: {
-                            VStack {
-                                SBBDivider()
-                                Text("This part will stay visible.")
-                            }
-                        }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     } else {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, collapsedFromTop: collapsedFromTop, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, collapseType: collapsedFromTop ? .slidesUp : .swallowed, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
 
                     }
                 } else {
-                    if selectedCollapsibleContent == .none {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
+                    if mergeContent {
+                        SBBHeaderBox(isLoading: isLoading, collapsedContent: { collapsedView }, extendedContent: { extendedView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, refresh: refresh)
+                    } else if selectedCollapsibleContent == .none {
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     } else {
-                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, collapsedFromTop: collapsedFromTop, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContent: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
+                        SBBHeaderBox(isLoading: isLoading, content: { contentView }, collapsibleContent: { collapsibleContent }, collapseType: collapsedFromTop ? .slidesUp : .swallowed, additionalContent: { additionalContent }, extendNavigationBarBackground: true, pageContentWithFocus: settingsView, pageContentScrollable: selectedPageContent == .long, refresh: refresh)
                     }
                 }
             }

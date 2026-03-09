@@ -1,92 +1,85 @@
 //
-// Copyright (c) Schweizerische Bundesbahnen SBB, 2025
+// Copyright (c) Schweizerische Bundesbahnen SBB, 2026
 //  
-
 import SwiftUI
 
-struct CollapsibleView<CollapsibleContent: View, NonCollapsibleContent: View>: View {
-    let minYParent: CGFloat
-    let collapsibleContent: CollapsibleContent?
-    let nonCollapsibleContent: NonCollapsibleContent?
+enum CollapsibleSnap {
+    case close
+    case open
+    case closest
+}
+
+struct CollapsibleView<CollapsibleContent: View>: View {
+    let collapsibleContent: CollapsibleContent
+    let collapseType: CollapseType
+    @Binding private var scrolled: CGFloat
+    @Binding private var collapsibleSnap: CollapsibleSnap?
     
-    @Binding var collapsibleContentHeight: CGFloat
-    @Binding var nonCollapsibleContentHeight: CGFloat
-    var isLoading: Bool
+    @State private var collapsibleContentHeight: CGFloat = .zero
+    @State private var referenceHeight: CGFloat = .zero // When scroll stopped
+    @State private var currentHeight: CGFloat = .zero
     
-    @State private var offsetX: CGFloat = 0
-    @State private var offsetY: CGFloat = 0
+    init(scrolled: Binding<CGFloat>, collapsibleSnap: Binding<CollapsibleSnap?>, collapsibleContent: CollapsibleContent, collapseType: CollapseType) {
+        self._scrolled = scrolled
+        self._collapsibleSnap = collapsibleSnap
+        self.collapsibleContent = collapsibleContent
+        self.collapseType = collapseType
+    }
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack(alignment: .bottom) {
-                if let collapsibleContent = collapsibleContent {
-                    VStack(spacing: 0) {
-                        collapsibleContent
-                            .padding(.horizontal, 16)
-                            .opacity(1 - collapseProgress(in: geometry))
-                            .viewHeight($collapsibleContentHeight)
-                            .frame(maxWidth: .infinity, minHeight: collapsibleContentHeight, alignment: .leading)
-                        
-                        if let nonCollapsibleContent {
-                            nonCollapsibleContent
-                                .viewHeight($nonCollapsibleContentHeight)
-                        }
-                    }
-                    .padding(.bottom, 16)
-                    
-                } else {
-                    Text("") // Keep the collapsible view anyway, as it is the bottom of the bubble view (in particular for background of additional content in corner radius)
-                        .padding(16)
+        collapsibleContent
+            .padding(.horizontal, 16)
+            .opacity(collapseProgress(currentHeight))
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(.bottom, 16)
+            .viewHeight($collapsibleContentHeight)
+            .offset(y: collapseType == .slidesUp ? currentHeight - collapsibleContentHeight : 0)
+            .frame(maxWidth: .infinity)
+            .frame(maxHeight: currentHeight, alignment: .top)
+            .clipped()
+        .onAppear {
+            self.currentHeight = collapsibleContentHeight
+            self.referenceHeight = currentHeight
+        }
+        .onChange(of: scrolled) { _ in
+            self.currentHeight = visibleHeight(scrolled)
+        }
+        .onChange(of: collapsibleSnap) { _ in
+            switch collapsibleSnap {
+            case .close:
+                withAnimation {
+                    self.currentHeight = .zero
                 }
-                if isLoading {
-                    GeometryReader { geometry in
-                        Rectangle()
-                            .fill(
-                                LinearGradient(
-                                    gradient: Gradient(colors: [Color.clear, Color.sbbColor(.primary)]),
-                                    startPoint: .leading,
-                                    endPoint: .trailing
-                                )
-                            )
-                            .frame(width: 64, height: 2)
-                            .offset(x: offsetX, y: geometry.size.height / 2)
-                            .onAppear {
-                                offsetX = 0
-                                withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
-                                    self.offsetX = geometry.size.width
-                                }
-                            }
-                    }
-                    .frame(height: 2)
-                    .accessibilityHidden(true)
+            case .open:
+                withAnimation {
+                    self.currentHeight = collapsibleContentHeight
                 }
+            case .closest:
+                withAnimation {
+                    if self.currentHeight > collapsibleContentHeight / 2 {
+                        self.currentHeight = collapsibleContentHeight
+                    } else {
+                        self.currentHeight = .zero
+                    }
+                }
+            default:
+                break
             }
-            .background(Color.sbbColor(.viewBackground))
-            .cornerRadius(16, corners: [.bottomLeft, .bottomRight])
-            .shadow(color: Color.sbbColor(.tabshadow), radius: 8)
-            .offset(y: dynamicOffset(sticking: geometry, to: minYParent))
-            .sbbScreenPadding(.horizontal)
+            self.referenceHeight = currentHeight // Set the new reference height
+            self.collapsibleSnap = nil // Reset it so that it can be trigger on next
         }
     }
     
-    // Calculates the dynamic offset for sticking a view (inside a ScrollView) between the minYParent and maxYParent
-    private func dynamicOffset(sticking geometry: GeometryProxy, to minParent: CGFloat) -> CGFloat {
-        let minY = geometry.frame(in: .global).minY
-        // The collapsible view should be underneath the content, but with the 16 bottom sticking out.
-        let minYParent = minParent - collapsibleContentHeight
-        let maxYParent = minParent
-        let limitTop = minY < minYParent ? minYParent - minY : nil
-        let limitBottom = minY > maxYParent ? maxYParent - minY : nil
-        return limitTop ?? limitBottom ?? 0
+    // Calculates the visible height of the collapsible view.
+    private func visibleHeight(_ scrolled: CGFloat) -> CGFloat {
+        let maxHeight = collapsibleContentHeight
+        let scrollHeight = referenceHeight + scrolled
+        let height = max(0, min(scrollHeight, maxHeight))
+        return height
     }
     
-    private func collapseProgress(in geometry: GeometryProxy) -> CGFloat {
-        let minY = geometry.frame(in: .global).minY
-        let minStickY = minYParent - collapsibleContentHeight - 16
-        let maxStickY = minYParent
-        
-        let totalRange = max(1, maxStickY - minStickY)
-        let clampedY = min(max(minY, minStickY), maxStickY)
-        return (maxStickY - clampedY) / totalRange
+    private func collapseProgress(_ currentHeight: CGFloat) -> CGFloat {
+        let maxHeight = collapsibleContentHeight
+        return currentHeight / maxHeight
     }
 }

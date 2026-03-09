@@ -50,7 +50,6 @@ public extension View {
     func viewWidth(_ contentFloat: Binding<CGFloat>) -> some View {
         self.modifier(ViewSize(contentSize: .constant(.zero), contentFloat: contentFloat, sizeType: .width))
     }
-    
 }
 
 
