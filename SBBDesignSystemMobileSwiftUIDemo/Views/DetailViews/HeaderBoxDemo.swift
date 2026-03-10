@@ -8,6 +8,9 @@ import SBBDesignSystemMobileSwiftUI
 
 struct HeaderBoxDemo: View {
     
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    
     @Binding var colorScheme: ColorScheme
     
     @State var headerHeight: CGFloat = 0
@@ -249,9 +252,16 @@ struct HeaderBoxDemo: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("IC1 nach Genève-Aéroport")
                     .sbbFont(.medium_bold)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("Abfahrt in Fribourg/Freiburg um 11:57.")
-                    Text("Gleis 2A-H.")
+                if horizontalSizeClass == .compact && verticalSizeClass == .regular {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("Abfahrt in Fribourg/Freiburg um 11:57.")
+                        Text("Gleis 2A-H.")
+                    }
+                } else {
+                    HStack(spacing: 4) {
+                        Text("Abfahrt in Fribourg/Freiburg um 11:57.")
+                        Text("Gleis 2A-H.")
+                    }
                 }
             }
             Spacer()

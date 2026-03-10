@@ -38,8 +38,11 @@ struct MergeView<CollapsedContent: View, ExtendedContent: View>: View {
                 .frame(maxHeight: currentHeight, alignment: .top)
                 .clipped()
         }
-        
         .onAppear {
+            self.currentHeight = extendedContentHeight
+            self.referenceHeight = currentHeight
+        }
+        .onChange(of: extendedContentHeight) { _ in
             self.currentHeight = extendedContentHeight
             self.referenceHeight = currentHeight
         }
