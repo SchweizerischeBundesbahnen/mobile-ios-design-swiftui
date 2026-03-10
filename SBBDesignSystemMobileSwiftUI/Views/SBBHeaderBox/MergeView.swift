@@ -25,13 +25,11 @@ struct MergeView<CollapsedContent: View, ExtendedContent: View>: View {
     var body: some View {
         ZStack(alignment: .top) {
             collapsedContent
-                .padding(.horizontal, 16)
                 .opacity(1 - collapseProgress(currentHeight))
                 .padding(.bottom, 16)
                 .viewHeight($collapsedContentHeight)
             
             extendedContent
-                .padding(.horizontal, 16)
                 .opacity(collapseProgress(currentHeight))
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.bottom, 16)
