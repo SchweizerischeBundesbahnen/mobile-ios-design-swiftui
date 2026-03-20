@@ -39,10 +39,6 @@
 "next" = "Next";
 
 "back" = "back";
-"forward" = "forward";
-"abort tour" = "end tour";
-"Start App tour" = "Start App tour";
-"End App tour" = "End App tour";
 
 // SBBModalView
 "close" = "close";

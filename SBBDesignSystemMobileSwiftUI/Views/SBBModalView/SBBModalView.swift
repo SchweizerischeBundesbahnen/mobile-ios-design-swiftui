@@ -5,7 +5,7 @@
 import SwiftUI
 
 /// SBBModalView TitleAlignment.
-public enum SBBModalViewTitleAlignment {
+public enum SBBModalViewTitleAlignment: Sendable {
     /// SBBModalView title alignment on the leading edge edge of the View.
     case leading
     /// SBBModalView title alignment horizontally centered inside View.
@@ -62,7 +62,7 @@ public enum SBBModalViewTitleAlignment {
 public struct SBBModalView<Content>: View where Content: View {
     
     /// SBBModalView Style.
-    public enum Style {
+    public enum Style: Sendable {
         /// Popup SBBModalView Style (to be used with the .sbbModal() ViewModifier)
         case popup
         /// Dynamic bottom sheet SBBModalView Style (to be used with the .sbbModal() ViewModifier)

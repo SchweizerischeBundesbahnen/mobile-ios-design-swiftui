@@ -172,7 +172,7 @@ public struct SBBTextField: View {
                         EmptyView()
                     }
                 } , alignment: .center)
-            .animation(.linear)
+            .animation(.linear, value: error)
     }
     
     private func emptyText() {

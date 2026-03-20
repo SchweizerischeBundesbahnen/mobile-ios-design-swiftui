@@ -175,7 +175,7 @@ public struct SBBMessage<Message: View, TopImage: View, BottomImage: View>: View
     
     @State var contentSize: CGSize = .zero
     
-    public enum ImageType: CaseIterable {
+    public enum ImageType: CaseIterable, Sendable {
         /// Used for information: the image is either a man or a woman
         case info
         /// Used for error or warnings: the image is the display board

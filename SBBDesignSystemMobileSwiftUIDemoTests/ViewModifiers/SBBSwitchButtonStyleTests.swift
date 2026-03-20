@@ -3,16 +3,16 @@
 //  
 
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBSwitchButtonStyleTests: XCTestCase {
+class SBBSwitchButtonStyleTests: DSMTest {
     
     var toggle = Toggle("", isOn: .constant(true))
 
-    func testSwitchButtonStyle() {
+    @Test func testSwitchButtonStyle() {
         
         let view = toggle.toggleStyle(SBBSwitchButtonStyle())
         for colorScheme in ColorScheme.allCases {
@@ -21,7 +21,7 @@ class SBBSwitchButtonStyleTests: XCTestCase {
         }
     }
     
-    func testSwitchButtonStyleDisabled() {
+    @Test func testSwitchButtonStyleDisabled() {
         let view = toggle.toggleStyle(SBBSwitchButtonStyle()).disabled(true)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: view.colorScheme(colorScheme).toVC(), as: imagePortrait, record: recordNewReferenceSnapshots)

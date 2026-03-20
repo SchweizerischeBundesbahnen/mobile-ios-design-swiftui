@@ -32,7 +32,7 @@ import SwiftUI
 public struct SBBSegmentedPicker<Segment, Selection>: View where Segment: View, Selection: Hashable {
     
     /// SBBSegmentedPicker Style.
-    public enum Style {
+    public enum Style: Sendable {
         /// Normal SBBSegmentedPicker Style (white/gray colors)
         case normal
         /// SBBSegmentedPicker Style wiht the custom set primary color

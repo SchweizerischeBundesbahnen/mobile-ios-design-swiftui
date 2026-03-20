@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum StatusType: CaseIterable {
+public enum StatusType: CaseIterable, Sendable {
     /// Used for alert: red
     case alert
     /// Used for warnings: yellow

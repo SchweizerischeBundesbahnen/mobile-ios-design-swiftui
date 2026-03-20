@@ -59,7 +59,7 @@ public struct SBBDatePicker: View {
     @State private var date3: Date // minute, year, hour
     @State private var date4: Date // minute
     
-    public enum PickerType: CaseIterable {
+    public enum PickerType: CaseIterable, Sendable {
         /// Date and time (date, hour, minute)
         case dateTime
         /// Date only (day, month, year)

@@ -32,7 +32,7 @@ public struct ToastView: View {
             .background((colorScheme == .light) ? Color.black.opacity(0.5): Color.white.opacity(0.3))
             .cornerRadius(19)
             .opacity(viewModel.isPresented ? 1 : 0)
-            .animation(.easeInOut(duration: viewModel.easeInOutAnimationDuration))
+            .animation(.easeInOut(duration: viewModel.easeInOutAnimationDuration), value: viewModel.isPresented)
             .padding(.bottom, viewModel.bottomPadding)
     }
 }

@@ -2,12 +2,12 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBLoadingIndicatorTests: XCTestCase {
+class SBBLoadingIndicatorTests: DSMTest {
     
     // WORKAROUND:  no 3D rotation applied on standard snapshots but Documentation snapshots renders indicator correctly (e.g. image) -> renders image and compare that
     private func renderSBBLoadingIndicator(view: any View, colorScheme: ColorScheme) -> UIViewController {
@@ -27,7 +27,7 @@ class SBBLoadingIndicatorTests: XCTestCase {
         return Image(uiImage: image).toVC()
     }
     
-    func testLoadingIndicatorNormalPrimary() {
+    @Test func testLoadingIndicatorNormalPrimary() {
         let view = SBBLoadingIndicator(size: .normal, style: .primary)
         for colorScheme in ColorScheme.allCases {
             view.recordDocumentationSnapshot(name: "SBBLoadingIndicator", colorScheme: colorScheme)
@@ -35,28 +35,28 @@ class SBBLoadingIndicatorTests: XCTestCase {
         }
     }
     
-    func testLoadingIndicatorNormalGrey() {
+    @Test func testLoadingIndicatorNormalGrey() {
         let view = SBBLoadingIndicator(size: .normal, style: .grey)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: renderSBBLoadingIndicator(view: view, colorScheme: colorScheme), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testLoadingIndicatorNormalWhite() {
+    @Test func testLoadingIndicatorNormalWhite() {
         let view = SBBLoadingIndicator(size: .normal, style: .primaryBackground)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: renderSBBLoadingIndicator(view: view, colorScheme: colorScheme), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testLoadingIndicatorSmallPrimary() {
+    @Test func testLoadingIndicatorSmallPrimary() {
         let view = SBBLoadingIndicator(size: .small, style: .primary)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: renderSBBLoadingIndicator(view: view, colorScheme: colorScheme), as: imagePortrait, record: recordNewReferenceSnapshots)
         }
     }
     
-    func testLoadingIndicatorTineyPrimary() {
+    @Test func testLoadingIndicatorTineyPrimary() {
         let view = SBBLoadingIndicator(size: .tiny, style: .primary)
         for colorScheme in ColorScheme.allCases {
             assertSnapshot(matching: renderSBBLoadingIndicator(view: view, colorScheme: colorScheme), as: imagePortrait, record: recordNewReferenceSnapshots)

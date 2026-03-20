@@ -2,14 +2,14 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBRadioButtonGroupTests: XCTestCase {
+class SBBRadioButtonGroupTests: DSMTest {
     
-    func testRadioButtonGroup() {
+    @Test func testRadioButtonGroup() {
         let view = SBBRadioButtonGroup(title: "Title", selection: .constant(0), tags: [0, 1, 2]) {
             SBBRadioButton(text: Text("Option 1"))
             SBBRadioButton(text: Text("Option 2"))

@@ -2,14 +2,14 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBFormGroupTests: XCTestCase {
+class SBBFormGroupTests: DSMTest {
 
-    func testFormGroupWithTitle() {
+    @Test func testFormGroupWithTitle() {
         let view = SBBFormGroup(title: "Title:") {
             SBBTextField(text: .constant("My Value"), label: "Placeholder")
             SBBCheckBox(isOn: .constant(true), text: Text("CheckBox"), showBottomLine: false)

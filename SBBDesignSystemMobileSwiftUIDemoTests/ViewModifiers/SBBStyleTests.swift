@@ -2,14 +2,14 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBStyleTests: XCTestCase {
+class SBBStyleTests: DSMTest {
     
-    func testNavigationBarWithSBBIcon() {
+    @Test func testNavigationBarWithSBBIcon() {
         let view = NavigationView {
             Group {
                 Text("This text has SBB styling.")

@@ -4,72 +4,13 @@
 
 import SwiftUI
 
-public struct SBBCardView<Card: Equatable>: View {
+public struct SBBOnboardingWrapperCardView<Content: View>: View {
     
     private let image: Image
     private let title: Text
-    private let text: Text
-    private let size: CGSize?
-    private let canBeTried: Bool
-    private let nextCard: Card?
-    private let onNext: (Card?) -> Void
-    @Binding private var showTrySheet: Bool
-    
-    private let contentWidthLandscape: CGFloat?
-    private let buttonWidthLandscape: CGFloat?
-    
-    private let scrollViewHeight: CGFloat?
-    
-    @available(*, deprecated, message: "renamed to `SBBOnboardingWrapperCardView` for consistency. Parameter `nextCard` not needed anymore, `onNext` takes no parameter.")
-    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, nextCard: Card, onNext: @escaping (Card?) -> Void) {
-        self.image = image
-        self.title = title
-        self.text = text
-        self.size = size
-        self.canBeTried = true
-        self._showTrySheet = showTrySheet
-        self.nextCard = nextCard
-        self.onNext = onNext
-        
-        self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
-        self.buttonWidthLandscape = size?.width != nil ? size!.width / 4 : nil
-        self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
-    }
-    
-    @available(*, deprecated, message: "renamed to `SBBOnboardingWrapperCardView` for consistency. Parameter `nextCard` not needed anymore, `onNext` takes no parameter.")
-    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, nextCard: Card, onNext: @escaping (Card?) -> Void) {
-        self.image = image
-        self.title = title
-        self.text = text
-        self.size = size
-        self.canBeTried = false
-        self._showTrySheet = .constant(false)
-        self.nextCard = nextCard
-        self.onNext = onNext
-        
-        self.contentWidthLandscape = size?.width != nil ? 3 * size!.width / 4 : nil
-        self.buttonWidthLandscape = size?.width != nil ? size!.width / 4 : nil
-        self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
-    }
-    
-    public var body: some View {
-        if canBeTried {
-            SBBOnboardingWrapperCardView(image: image, title: title, text: text, size: size, showTrySheet: $showTrySheet, onNext: {
-                onNext(nextCard)
-            })
-        } else {
-            SBBOnboardingWrapperCardView(image: image, title: title, text: text, size: size, onNext: {
-                onNext(nextCard)
-            })
-        }
-    }
-}
-
-public struct SBBOnboardingWrapperCardView: View {
-    
-    private let image: Image
-    private let title: Text
-    private let text: Text
+    private let content: Content
+    private let buttonLabel: LocalizedStringKey?
+    private let buttonAction: (() -> Void)?
     private let size: CGSize?
     private let canBeTried: Bool
     private let onNext: () -> Void
@@ -84,10 +25,12 @@ public struct SBBOnboardingWrapperCardView: View {
     
     private let scrollViewHeight: CGFloat?
     
-    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, onNext: @escaping () -> Void) {
+    public init(image: Image, title: Text, size: CGSize? = nil, showTrySheet: Binding<Bool>, onNext: @escaping () -> Void, @ViewBuilder content: () -> Content) {
         self.image = image
         self.title = title
-        self.text = text
+        self.content = content()
+        self.buttonLabel = nil
+        self.buttonAction = nil
         self.size = size
         self.canBeTried = true
         self._showTrySheet = showTrySheet
@@ -98,10 +41,12 @@ public struct SBBOnboardingWrapperCardView: View {
         self.scrollViewHeight = size?.width != nil ? size!.height - 54 - 16 : nil
     }
     
-    public init(image: Image, title: Text, text: Text, size: CGSize? = nil, onNext: @escaping () -> Void) {
+    public init(image: Image, title: Text, size: CGSize? = nil, buttonLabel: LocalizedStringKey? = nil, buttonAction: (() -> Void)? = nil, onNext: @escaping () -> Void, @ViewBuilder content: () -> Content) {
         self.image = image
         self.title = title
-        self.text = text
+        self.content = content()
+        self.buttonLabel = buttonLabel
+        self.buttonAction = buttonAction
         self.size = size
         self.canBeTried = false
         self._showTrySheet = .constant(false)
@@ -160,7 +105,7 @@ public struct SBBOnboardingWrapperCardView: View {
                 .minimumScaleFactor(0.1)
                 .multilineTextAlignment(.center)
                 .accessibility(addTraits: .isHeader)
-            text
+            content
                 .sbbFont(.medium_light)
                 .multilineTextAlignment(.center)
                 .minimumScaleFactor(0.1)
@@ -199,6 +144,15 @@ public struct SBBOnboardingWrapperCardView: View {
                         VStack(spacing: 8) {
                             if canBeTried {
                                 tryButton
+                            } else if let buttonLabel {
+                                Button(action: {
+                                    if let buttonAction {
+                                        buttonAction()
+                                    }
+                                }) {
+                                    Text(buttonLabel)
+                                }
+                                .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: !sizeCategory.isAccessibilityCategory && self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular))
                             }
                             nextButton
                         }
@@ -208,6 +162,15 @@ public struct SBBOnboardingWrapperCardView: View {
                             if canBeTried {
                                 tryButton
                                 Spacer()
+                            } else if let buttonLabel {
+                                Button(action: {
+                                    if let buttonAction {
+                                        buttonAction()
+                                    }
+                                }) {
+                                    Text(buttonLabel)
+                                }
+                                .buttonStyle(SBBPrimaryButtonStyle(sizeToFit: !sizeCategory.isAccessibilityCategory && self.horizontalSizeClass == .compact && self.verticalSizeClass == .regular))
                             }
                             nextButton
                         }
@@ -292,9 +255,13 @@ public struct SBBOnboardingWrapperCardView: View {
 }
 
 #Preview("Without try function") {
-    SBBOnboardingWrapperCardView(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), onNext: { })
+    SBBOnboardingWrapperCardView(image: Image("Onboarding_Card1"), title: Text("Title"), onNext: { }) {
+        Text("This is the content of the card")
+    }
 }
 
 #Preview("With try function") {
-    SBBOnboardingWrapperCardView(image: Image("Onboarding_Card1"), title: Text("Title"), text: Text("This is the content of the card"), showTrySheet: .constant(false), onNext: { })
+    SBBOnboardingWrapperCardView(image: Image("Onboarding_Card1"), title: Text("Title"), showTrySheet: .constant(false), onNext: { }) {
+        Text("This is the content of the card")
+    }
 }

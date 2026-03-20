@@ -4,7 +4,7 @@
 
 import Foundation
 import SnapshotTesting
-import XCTest
+import Testing
 
 public func assertSnapshot<Value, Format>(
     matching value: @autoclosure () throws -> Value,
@@ -33,6 +33,5 @@ public func assertSnapshot<Value, Format>(
         file: file,
         testName: testName
     )
-    guard let message = failure else { return }
-    XCTFail("\(message) snap: \(snapshotDirectoryUrl)", file: file, line: line)
+    #expect(failure == nil, "\(failure) snap: \(snapshotDirectoryUrl)")
 }

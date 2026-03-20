@@ -2,18 +2,18 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2021.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBDialogueTests: XCTestCase {
+class SBBDialogueTests: DSMTest {
     
     private let title = Text("Title")
     private let label = Text("Multiline Text")
     private let errorCode = Text("ErrorCode: 404")
 
-    func testSBBDialogueFullscreen() {
+    @Test func testSBBDialogueFullscreen() {
         let view = SBBDialogue(title: title, label: label, errorCode: errorCode, style: .fullscreen) {
             Button(action: { }) {
                 Text("Custom Action 2")
@@ -29,7 +29,7 @@ class SBBDialogueTests: XCTestCase {
         }
     }
     
-    func testSBBDialogueInline() {
+    @Test func testSBBDialogueInline() {
         let view = SBBDialogue(title: title, label: label, errorCode: errorCode, style: .inline) {
             Button(action: { }) {
                 Text("Custom Action 2")
@@ -46,7 +46,7 @@ class SBBDialogueTests: XCTestCase {
         }
     }
     
-    func testSBBDialogueList() {
+    @Test func testSBBDialogueList() {
         let view = SBBDialogue(title: title, label: label, errorCode: errorCode, style: .list) {
             Button(action: { }) {
                 Text("Custom Action 2")

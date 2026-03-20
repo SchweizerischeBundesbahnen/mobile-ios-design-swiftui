@@ -2,12 +2,12 @@
 // Copyright (C) Schweizerische Bundesbahnen SBB, 2023.
 //
 
-import XCTest
+import Testing
 import SnapshotTesting
 import SwiftUI
 import SBBDesignSystemMobileSwiftUI
 
-class SBBPickerTests: XCTestCase {
+class SBBPickerTests: DSMTest {
     
     let calendar = Calendar(identifier: .gregorian)
     var date: Date {
@@ -23,7 +23,7 @@ class SBBPickerTests: XCTestCase {
         return calendar.date(from: dateComponents)!
     }
     
-    func testSBBDatePicker() {
+    @Test func testSBBDatePicker() {
         let view = SBBDatePicker(selection: .constant(date), pickerType: .dateTime)
             .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
@@ -32,7 +32,7 @@ class SBBPickerTests: XCTestCase {
         }
     }
     
-    func testSBBDatePickerDateNotBoxed() {
+    @Test func testSBBDatePickerDateNotBoxed() {
         let view = SBBDatePicker(selection: .constant(date), pickerType: .date, isBoxed: false)
             .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
@@ -40,7 +40,7 @@ class SBBPickerTests: XCTestCase {
         }
     }
     
-    func testSBBDatePickerTimeNotBoxedLabel() {
+    @Test func testSBBDatePickerTimeNotBoxedLabel() {
         let view = SBBDatePicker(selection: .constant(date), pickerType: .time, isBoxed: false)
             .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
@@ -48,7 +48,7 @@ class SBBPickerTests: XCTestCase {
         }
     }
     
-    func testSBBDatePickerWithTimeRange() {
+    @Test func testSBBDatePickerWithTimeRange() {
         let view = SBBDatePicker(fromTime: .constant(date), toTime: .constant(calendar.date(byAdding: .minute, value: 15, to: date)!))
             .frame(width: 375)
         for colorScheme in ColorScheme.allCases {
@@ -57,7 +57,7 @@ class SBBPickerTests: XCTestCase {
         }
     }
     
-    func testSBBPicker() {
+    @Test func testSBBPicker() {
         let view = SBBPicker(.constant("Value 4"), tags: ["Value 1", "Value 2", "Value 3", "Value 4", "Value 5", "Value 6", "Value 7"]) { value in
             Text(value)
         }
