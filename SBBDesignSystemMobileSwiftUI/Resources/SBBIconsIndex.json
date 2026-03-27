@@ -1,5 +1,5 @@
 {
-  "version": "1.8.14",
+  "version": "1.8.18",
   "icons": [
     {
       "name": "aerosol-can-small",
@@ -9384,6 +9384,58 @@
       ]
     },
     {
+      "name": "branch-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "git",
+        "branch",
+        "ui-icons",
+        "Arrow",
+        "branch",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "branch-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "git",
+        "branch",
+        "ui-icons",
+        "Arrow",
+        "branch",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "git-merge-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "git",
+        "merge",
+        "ui-icons",
+        "Arrow",
+        "git-merge",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "git-merge-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "git",
+        "merge",
+        "ui-icons",
+        "Arrow",
+        "git-merge",
+        "Size=medium"
+      ]
+    },
+    {
       "name": "button-power-small",
       "color": true,
       "scalable": false,
@@ -10087,6 +10139,42 @@
         "ui-icons",
         "Status",
         "clipboard-tick",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "cloud-disabled-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "disconnected",
+        "wolke",
+        "signal",
+        "asynchron",
+        "getrennt",
+        "deaktiviert",
+        "deactivated",
+        "ui-icons",
+        "Status",
+        "cloud-disabled",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "cloud-disabled-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "disconnected",
+        "wolke",
+        "signal",
+        "asynchron",
+        "getrennt",
+        "deaktiviert",
+        "deactivated",
+        "ui-icons",
+        "Status",
+        "cloud-disabled",
         "Size=medium"
       ]
     },
@@ -22202,6 +22290,44 @@
       ]
     },
     {
+      "name": "car-profile-roof-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "auto",
+        "dach",
+        "überdacht",
+        "garage",
+        "gesichert",
+        "geschlossen",
+        "parking",
+        "station",
+        "ui-icons",
+        "Transport",
+        "car-profile-roof",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "car-profile-roof-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "auto",
+        "dach",
+        "überdacht",
+        "garage",
+        "gesichert",
+        "geschlossen",
+        "parking",
+        "station",
+        "ui-icons",
+        "Transport",
+        "car-profile-roof",
+        "Size=medium"
+      ]
+    },
+    {
       "name": "car-profile-sign-parking-small",
       "color": true,
       "scalable": false,
@@ -26340,6 +26466,74 @@
       ]
     },
     {
+      "name": "balcony-door-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "balkon",
+        "tür",
+        "terrasse",
+        "gebäude",
+        "fenster",
+        "window",
+        "ui-icons",
+        "Building",
+        "balcony-door",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "balcony-door-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "balkon",
+        "tür",
+        "terrasse",
+        "gebäude",
+        "fenster",
+        "window",
+        "ui-icons",
+        "Building",
+        "balcony-door",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "bed-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "room",
+        "sleeping",
+        "schlafen",
+        "bett",
+        "schlafzimmer",
+        "bedroom",
+        "ui-icons",
+        "Building",
+        "bed",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "bed-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "room",
+        "sleeping",
+        "schlafen",
+        "bett",
+        "schlafzimmer",
+        "bedroom",
+        "ui-icons",
+        "Building",
+        "bed",
+        "Size=medium"
+      ]
+    },
+    {
       "name": "building-tree-small",
       "color": true,
       "scalable": false,
@@ -26439,54 +26633,244 @@
       ]
     },
     {
-      "name": "medical-facility-small",
+      "name": "coat-rack-door-small",
       "color": true,
       "scalable": false,
       "tags": [
-        "hospital",
-        "medicine",
-        "spital",
-        "krankenhaus",
-        "arzt",
-        "doctor",
+        "entry",
+        "corridor",
+        "gang",
+        "korridor",
+        "haustür",
+        "tür",
+        "garderobe",
+        "ständer",
+        "eingang",
+        "home",
+        "zuhause",
         "ui-icons",
         "Building",
-        "medical-facility",
+        "coat-rack-door",
         "Size=small"
       ]
     },
     {
-      "name": "medical-facility-medium",
+      "name": "coat-rack-door-medium",
       "color": true,
       "scalable": false,
       "tags": [
-        "hospital",
-        "medicine",
-        "spital",
-        "krankenhaus",
-        "arzt",
-        "doctor",
+        "entry",
+        "corridor",
+        "gang",
+        "korridor",
+        "haustür",
+        "tür",
+        "garderobe",
+        "ständer",
+        "eingang",
+        "home",
+        "zuhause",
         "ui-icons",
         "Building",
-        "medical-facility",
+        "coat-rack-door",
         "Size=medium"
       ]
     },
     {
-      "name": "medical-facility-extra-small",
+      "name": "couch-lamp-small",
       "color": true,
       "scalable": false,
       "tags": [
-        "hospital",
-        "medicine",
-        "spital",
-        "krankenhaus",
-        "arzt",
-        "doctor",
+        "wohnzimmer",
+        "living",
+        "room",
+        "wohnen",
+        "möbel",
+        "furniture",
+        "zimmer",
         "ui-icons",
         "Building",
-        "medical-facility",
-        "Size=extra-small"
+        "couch-lamp",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "couch-lamp-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "wohnzimmer",
+        "living",
+        "room",
+        "wohnen",
+        "möbel",
+        "furniture",
+        "zimmer",
+        "ui-icons",
+        "Building",
+        "couch-lamp",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "desk-computer-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "büro",
+        "buero",
+        "arbeit",
+        "work",
+        "office",
+        "arbeitszimmer",
+        "business",
+        "zimmer",
+        "tisch",
+        "bildschirm",
+        "schreibtisch",
+        "desktop",
+        "ui-icons",
+        "Building",
+        "desk-computer",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "desk-computer-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "büro",
+        "buero",
+        "arbeit",
+        "work",
+        "office",
+        "arbeitszimmer",
+        "business",
+        "zimmer",
+        "tisch",
+        "bildschirm",
+        "schreibtisch",
+        "desktop",
+        "ui-icons",
+        "Building",
+        "desk-computer",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "door-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "door",
+        "tür",
+        "exit",
+        "ausgang",
+        "entry",
+        "eingang",
+        "ui-icons",
+        "Building",
+        "door",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "door-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "door",
+        "tür",
+        "exit",
+        "ausgang",
+        "entry",
+        "eingang",
+        "ui-icons",
+        "Building",
+        "door",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "doorbell-hand-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "klingel",
+        "türklingel",
+        "ringing",
+        "läuten",
+        "ui-icons",
+        "Building",
+        "doorbell-hand",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "doorbell-hand-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "klingel",
+        "türklingel",
+        "ringing",
+        "läuten",
+        "ui-icons",
+        "Building",
+        "doorbell-hand",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "eiffel-tower-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "Eiffel",
+        "Paris",
+        "Eiffelturm",
+        "landmark",
+        "wahrzeichen",
+        "frankreich",
+        "ui-icons",
+        "Building",
+        "eiffel-tower",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "eiffel-tower-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "Eiffel",
+        "Paris",
+        "Eiffelturm",
+        "landmark",
+        "wahrzeichen",
+        "frankreich",
+        "ui-icons",
+        "Building",
+        "eiffel-tower",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "eiffel-tower-large",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "Eiffel",
+        "Paris",
+        "Eiffelturm",
+        "landmark",
+        "wahrzeichen",
+        "frankreich",
+        "ui-icons",
+        "Building",
+        "eiffel-tower",
+        "Size=large"
       ]
     },
     {
@@ -26544,83 +26928,295 @@
       ]
     },
     {
-      "name": "eiffel-tower-small",
+      "name": "house-cellar-stairs-small",
       "color": true,
       "scalable": false,
       "tags": [
-        "Eiffel",
-        "Paris",
-        "Eiffelturm",
-        "landmark",
-        "wahrzeichen",
-        "frankreich",
+        "haus",
+        "heim",
+        "treppe",
+        "keller",
+        "untergrund",
+        "tief",
+        "tiefgeschoss",
+        "unter",
+        "underground",
         "ui-icons",
         "Building",
-        "eiffel-tower",
+        "house-cellar-stairs",
         "Size=small"
       ]
     },
     {
-      "name": "eiffel-tower-medium",
+      "name": "house-cellar-stairs-medium",
       "color": true,
       "scalable": false,
       "tags": [
-        "Eiffel",
-        "Paris",
-        "Eiffelturm",
-        "landmark",
-        "wahrzeichen",
-        "frankreich",
+        "haus",
+        "heim",
+        "treppe",
+        "keller",
+        "untergrund",
+        "tief",
+        "tiefgeschoss",
+        "unter",
+        "underground",
         "ui-icons",
         "Building",
-        "eiffel-tower",
+        "house-cellar-stairs",
         "Size=medium"
       ]
     },
     {
-      "name": "eiffel-tower-large",
+      "name": "medical-facility-small",
       "color": true,
       "scalable": false,
       "tags": [
-        "Eiffel",
-        "Paris",
-        "Eiffelturm",
-        "landmark",
-        "wahrzeichen",
-        "frankreich",
+        "hospital",
+        "medicine",
+        "spital",
+        "krankenhaus",
+        "arzt",
+        "doctor",
         "ui-icons",
         "Building",
-        "eiffel-tower",
-        "Size=large"
-      ]
-    },
-    {
-      "name": "doorbell-hand-small",
-      "color": true,
-      "scalable": false,
-      "tags": [
-        "klingel",
-        "türklingel",
-        "ringing",
-        "läuten",
-        "ui-icons",
-        "Building",
-        "doorbell-hand",
+        "medical-facility",
         "Size=small"
       ]
     },
     {
-      "name": "doorbell-hand-medium",
+      "name": "medical-facility-medium",
       "color": true,
       "scalable": false,
       "tags": [
-        "klingel",
-        "türklingel",
-        "ringing",
-        "läuten",
+        "hospital",
+        "medicine",
+        "spital",
+        "krankenhaus",
+        "arzt",
+        "doctor",
         "ui-icons",
         "Building",
-        "doorbell-hand",
+        "medical-facility",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "medical-facility-extra-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "hospital",
+        "medicine",
+        "spital",
+        "krankenhaus",
+        "arzt",
+        "doctor",
+        "ui-icons",
+        "Building",
+        "medical-facility",
+        "Size=extra-small"
+      ]
+    },
+    {
+      "name": "shelves-pans-bottles-plates-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "kitchen",
+        "reduit",
+        "regal",
+        "topf",
+        "flasche",
+        "teller",
+        "abstellraum",
+        "vorrat",
+        "vorratsraum",
+        "abstellen",
+        "essen",
+        "kochen",
+        "pantry",
+        "ui-icons",
+        "Building",
+        "shelves-pans-bottles-plates",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "shelves-pans-bottles-plates-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "kitchen",
+        "reduit",
+        "regal",
+        "topf",
+        "flasche",
+        "teller",
+        "abstellraum",
+        "vorrat",
+        "vorratsraum",
+        "abstellen",
+        "essen",
+        "kochen",
+        "pantry",
+        "ui-icons",
+        "Building",
+        "shelves-pans-bottles-plates",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "shop-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "store",
+        "laden",
+        "geschäft",
+        "supermarkt",
+        "business",
+        "geschäftsfläche",
+        "commercial",
+        "trade",
+        "working",
+        "unit",
+        "ui-icons",
+        "Building",
+        "shop",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "shop-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "store",
+        "laden",
+        "geschäft",
+        "supermarkt",
+        "business",
+        "geschäftsfläche",
+        "commercial",
+        "trade",
+        "working",
+        "unit",
+        "ui-icons",
+        "Building",
+        "shop",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "stove-pan-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "kitchen",
+        "küche",
+        "herd",
+        "cooking",
+        "kochen",
+        "oven",
+        "ofen",
+        "ui-icons",
+        "Building",
+        "stove-pan",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "stove-pan-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "kitchen",
+        "küche",
+        "herd",
+        "cooking",
+        "kochen",
+        "oven",
+        "ofen",
+        "ui-icons",
+        "Building",
+        "stove-pan",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "toilet-shower-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "bathroom",
+        "wc",
+        "badezimmer",
+        "toilette",
+        "dusche",
+        "duschen",
+        "ui-icons",
+        "Building",
+        "toilet-shower",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "toilet-shower-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "bathroom",
+        "wc",
+        "badezimmer",
+        "toilette",
+        "dusche",
+        "duschen",
+        "ui-icons",
+        "Building",
+        "toilet-shower",
+        "Size=medium"
+      ]
+    },
+    {
+      "name": "three-boxes-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "lager",
+        "lagerraum",
+        "kiste",
+        "kisten",
+        "move",
+        "moving",
+        "zügeln",
+        "umzug",
+        "warehouse",
+        "ware",
+        "ui-icons",
+        "Building",
+        "three-boxes",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "three-boxes-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "lager",
+        "lagerraum",
+        "kiste",
+        "kisten",
+        "move",
+        "moving",
+        "zügeln",
+        "umzug",
+        "warehouse",
+        "ware",
+        "ui-icons",
+        "Building",
+        "three-boxes",
         "Size=medium"
       ]
     },
@@ -26655,40 +27251,6 @@
         "ui-icons",
         "Building",
         "two-houses",
-        "Size=medium"
-      ]
-    },
-    {
-      "name": "door-small",
-      "color": true,
-      "scalable": false,
-      "tags": [
-        "door",
-        "tür",
-        "exit",
-        "ausgang",
-        "entry",
-        "eingang",
-        "ui-icons",
-        "Building",
-        "door",
-        "Size=small"
-      ]
-    },
-    {
-      "name": "door-medium",
-      "color": true,
-      "scalable": false,
-      "tags": [
-        "door",
-        "tür",
-        "exit",
-        "ausgang",
-        "entry",
-        "eingang",
-        "ui-icons",
-        "Building",
-        "door",
         "Size=medium"
       ]
     },
@@ -28621,6 +29183,33 @@
       ]
     },
     {
+      "name": "cloud-particles-large",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "IoT",
+        "cloud",
+        "wolke",
+        "gas",
+        "density",
+        "dichte",
+        "concentration",
+        "konzentration",
+        "particles",
+        "partikel",
+        "ratio",
+        "verhältnis",
+        "volume",
+        "volumen",
+        "mass",
+        "masse",
+        "ui-icons",
+        "Projectspecific",
+        "cloud-particles",
+        "Size=large"
+      ]
+    },
+    {
       "name": "cloud-co2-small",
       "color": true,
       "scalable": false,
@@ -29235,6 +29824,38 @@
         "Projectspecific",
         "avatar-train-staff-das",
         "Size=large"
+      ]
+    },
+    {
+      "name": "train-cockpit-small",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "train",
+        "view",
+        "traindriver",
+        "das",
+        "personal",
+        "ui-icons",
+        "Projectspecific",
+        "train-cockpit",
+        "Size=small"
+      ]
+    },
+    {
+      "name": "train-cockpit-medium",
+      "color": true,
+      "scalable": false,
+      "tags": [
+        "train",
+        "view",
+        "traindriver",
+        "das",
+        "personal",
+        "ui-icons",
+        "Projectspecific",
+        "train-cockpit",
+        "Size=medium"
       ]
     },
     {
