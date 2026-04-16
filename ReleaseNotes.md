@@ -1,5 +1,9 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
+## v1.3.1 - 16 April 2027
+### Improvements
+* Update icons to 1.8.18
+
 ## v1.3.0 - 27 February 2027
 * Ready for strict swift concurrency
 
