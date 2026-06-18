@@ -22,12 +22,26 @@ struct MergeView<CollapsedContent: View, ExtendedContent: View>: View {
         self.extendedContent = extendedContent
     }
     
+    /// The larger of the two content heights (the "open" height).
+    private var maxContentHeight: CGFloat {
+        max(collapsedContentHeight, extendedContentHeight)
+    }
+    
+    /// The smaller of the two content heights (the "closed" height).
+    private var minContentHeight: CGFloat {
+        min(collapsedContentHeight, extendedContentHeight)
+    }
+    
     var body: some View {
         ZStack(alignment: .top) {
             collapsedContent
                 .opacity(1 - collapseProgress(currentHeight))
+                .fixedSize(horizontal: false, vertical: true)
                 .padding(.bottom, 16)
                 .viewHeight($collapsedContentHeight)
+                .frame(maxWidth: .infinity)
+                .frame(maxHeight: currentHeight, alignment: .top)
+                .clipped()
             
             extendedContent
                 .opacity(collapseProgress(currentHeight))
@@ -39,11 +53,15 @@ struct MergeView<CollapsedContent: View, ExtendedContent: View>: View {
                 .clipped()
         }
         .onAppear {
-            self.currentHeight = extendedContentHeight
+            self.currentHeight = maxContentHeight
             self.referenceHeight = currentHeight
         }
         .onChange(of: extendedContentHeight) { _ in
-            self.currentHeight = extendedContentHeight
+            self.currentHeight = maxContentHeight
+            self.referenceHeight = currentHeight
+        }
+        .onChange(of: collapsedContentHeight) { _ in
+            self.currentHeight = maxContentHeight
             self.referenceHeight = currentHeight
         }
         .onChange(of: scrolled) { _ in
@@ -53,40 +71,41 @@ struct MergeView<CollapsedContent: View, ExtendedContent: View>: View {
             switch collapsibleSnap {
             case .close:
                 withAnimation {
-                    self.currentHeight = .zero
+                    self.currentHeight = minContentHeight
                 }
             case .open:
                 withAnimation {
-                    self.currentHeight = extendedContentHeight
+                    self.currentHeight = maxContentHeight
                 }
             case .closest:
                 withAnimation {
-                    if self.currentHeight > extendedContentHeight / 2 {
-                        self.currentHeight = extendedContentHeight
+                    if self.currentHeight > (maxContentHeight + minContentHeight) / 2 {
+                        self.currentHeight = maxContentHeight
                     } else {
-                        self.currentHeight = .zero
+                        self.currentHeight = minContentHeight
                     }
                 }
             default:
                 break
             }
             self.referenceHeight = currentHeight // Set the new reference height
-            self.collapsibleSnap = nil // Reset it so that it can be trigger on next
+            self.collapsibleSnap = nil // Reset it so that it can be triggered on next
         }
     }
     
     // Calculates the visible height of the collapsible view.
     private func visibleHeight(_ scrolled: CGFloat) -> CGFloat {
-        let maxHeight = extendedContentHeight
-        let minHeight = collapsedContentHeight
         let scrollHeight = referenceHeight + scrolled
-        let height = max(minHeight, min(scrollHeight, maxHeight))
-        return height
+        return max(minContentHeight, min(scrollHeight, maxContentHeight))
     }
     
+    /// Returns 0 when collapsed (show collapsedContent), 1 when extended (show extendedContent).
     private func collapseProgress(_ currentHeight: CGFloat) -> CGFloat {
-        let maxHeight = max(0, extendedContentHeight - collapsedContentHeight)
-        let minHeight = collapsedContentHeight
-        return (currentHeight - minHeight) / maxHeight
+        let heightDifference = abs(extendedContentHeight - collapsedContentHeight)
+        // If heights are equal or not yet measured, show extended content
+        guard heightDifference > 1, collapsedContentHeight > 0, extendedContentHeight > 0 else { return 1 }
+        // Progress is based on how far currentHeight is from the smaller height toward the larger height
+        let progress = (currentHeight - minContentHeight) / heightDifference
+        return min(1, max(0, progress))
     }
 }
