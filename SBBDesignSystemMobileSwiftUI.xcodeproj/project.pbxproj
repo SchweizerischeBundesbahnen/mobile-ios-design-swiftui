@@ -18,9 +18,8 @@
 		003C23522A3CA15D0095C31A /* SBBPromotionBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */; };
 		003C23542A3CABA90095C31A /* PromotionBoxDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */; };
 		003C23562A4207790095C31A /* SBBPromotionBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */; };
-		00578C672F4DE4A20098FDDB /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00578C662F4DE49C0098FDDB /* CollapsibleView.swift */; };
-		00578C692F4DE4BB0098FDDB /* FixedCollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00578C682F4DE4B70098FDDB /* FixedCollapsibleView.swift */; };
-		00578C6B2F4DE4D70098FDDB /* AdditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00578C6A2F4DE4D40098FDDB /* AdditionalView.swift */; };
+		00578C692F4DE4BB0098FDDB /* CollapsibleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00578C682F4DE4B70098FDDB /* CollapsibleView.swift */; };
+		00578C6B2F4DE4D70098FDDB /* MergeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00578C6A2F4DE4D40098FDDB /* MergeView.swift */; };
 		005DC8C72799D042009C5CEA /* TabBarCoordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */; };
 		005DC8CB279A9FE4009C5CEA /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CA279A9FE4009C5CEA /* TabBarView.swift */; };
 		005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */; };
@@ -89,6 +88,8 @@
 		008317462D47B52800BB8074 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C60947B274F9F56001ABF67 /* Assets.xcassets */; };
 		0083174C2D47B62B00BB8074 /* SBBLoadingIndicatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C609471274F9976001ABF67 /* SBBLoadingIndicatorTests.swift */; };
 		0083174D2D47B62B00BB8074 /* SBBPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096342A714CD2009E02B1 /* SBBPickerTests.swift */; };
+		00ADA36F2F5EBC6D00EB37C8 /* ViewPositionKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ADA36E2F5EBC6500EB37C8 /* ViewPositionKey.swift */; };
+		00ADA3732F5EBD9100EB37C8 /* ViewPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ADA3722F5EBD8F00EB37C8 /* ViewPosition.swift */; };
 		00B2BC8A2DDB575D00B9D52A /* SBBOnboardingWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B2BC892DDB575800B9D52A /* SBBOnboardingWrapperTests.swift */; };
 		00B2BC8B2DDB575D00B9D52A /* SBBOnboardingWrapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B2BC892DDB575800B9D52A /* SBBOnboardingWrapperTests.swift */; };
 		00B773C42A3C4BB7002BDB85 /* SBBMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */; };
@@ -331,9 +332,8 @@
 		003C23512A3CA15D0095C31A /* SBBPromotionBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBox.swift; sourceTree = "<group>"; };
 		003C23532A3CABA80095C31A /* PromotionBoxDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromotionBoxDemo.swift; sourceTree = "<group>"; };
 		003C23552A4207790095C31A /* SBBPromotionBoxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPromotionBoxTests.swift; sourceTree = "<group>"; };
-		00578C662F4DE49C0098FDDB /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
-		00578C682F4DE4B70098FDDB /* FixedCollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedCollapsibleView.swift; sourceTree = "<group>"; };
-		00578C6A2F4DE4D40098FDDB /* AdditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalView.swift; sourceTree = "<group>"; };
+		00578C682F4DE4B70098FDDB /* CollapsibleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsibleView.swift; sourceTree = "<group>"; };
+		00578C6A2F4DE4D40098FDDB /* MergeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MergeView.swift; sourceTree = "<group>"; };
 		005DC8C62799D042009C5CEA /* TabBarCoordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinates.swift; sourceTree = "<group>"; };
 		005DC8CA279A9FE4009C5CEA /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		005DC8CC279AA204009C5CEA /* TabBarShapeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarShapeView.swift; sourceTree = "<group>"; };
@@ -356,6 +356,8 @@
 		005EDCB02DD34DE800E31B3D /* SBBOnboardingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingWrapper.swift; sourceTree = "<group>"; };
 		005EDCB22DD350BD00E31B3D /* Backslide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backslide.swift; sourceTree = "<group>"; };
 		0083174A2D47B52800BB8074 /* SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBBDesignSystemMobileSwiftUIDemoTestsAll.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00ADA36E2F5EBC6500EB37C8 /* ViewPositionKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPositionKey.swift; sourceTree = "<group>"; };
+		00ADA3722F5EBD8F00EB37C8 /* ViewPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPosition.swift; sourceTree = "<group>"; };
 		00B2BC892DDB575800B9D52A /* SBBOnboardingWrapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBOnboardingWrapperTests.swift; sourceTree = "<group>"; };
 		00B773C32A3C4BB7002BDB85 /* SBBMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessage.swift; sourceTree = "<group>"; };
 		00B773C72A3C6CC8002BDB85 /* SBBMessageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBMessageTests.swift; sourceTree = "<group>"; };
@@ -611,9 +613,8 @@
 		00578C652F4DE4890098FDDB /* SBBHeaderBox */ = {
 			isa = PBXGroup;
 			children = (
-				00578C6A2F4DE4D40098FDDB /* AdditionalView.swift */,
-				00578C682F4DE4B70098FDDB /* FixedCollapsibleView.swift */,
-				00578C662F4DE49C0098FDDB /* CollapsibleView.swift */,
+				00578C6A2F4DE4D40098FDDB /* MergeView.swift */,
+				00578C682F4DE4B70098FDDB /* CollapsibleView.swift */,
 				0007420F2B7DFF2000BB7A79 /* SBBHeaderBox.swift */,
 			);
 			path = SBBHeaderBox;
@@ -843,6 +844,7 @@
 				7C89AE6126B154720087872E /* IsSelected.swift */,
 				7C7193C926E9DE7C00CD3EAF /* SBBScreenPadding.swift */,
 				00BB63A82A56C18A003E2FBC /* ViewSize.swift */,
+				00ADA3722F5EBD8F00EB37C8 /* ViewPosition.swift */,
 				005EDCAC2DD34AF500E31B3D /* Multiline.swift */,
 				00D096322A711266009E02B1 /* DateExtension.swift */,
 			);
@@ -1051,6 +1053,7 @@
 		7CAFE98423DEC816001ADBE8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				00ADA36E2F5EBC6500EB37C8 /* ViewPositionKey.swift */,
 				A74C8B722437634500BF26E3 /* ArrayBuilder.swift */,
 				7CAFE98523DECD9B001ADBE8 /* Helper.swift */,
 				7CAC69F925CAE73F003CF54E /* ViewSizeKey.swift */,
@@ -1408,12 +1411,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00ADA36F2F5EBC6D00EB37C8 /* ViewPositionKey.swift in Sources */,
 				7C6454892403F50A005997AB /* SBBDivider.swift in Sources */,
 				7C3AF99825BAA845007BBF21 /* SBBProcessFlow.swift in Sources */,
 				A7AC50D5249A45A000065C71 /* SBBSecondaryButtonStyle.swift in Sources */,
 				005EDCB12DD34DEC00E31B3D /* SBBOnboardingWrapper.swift in Sources */,
 				7C9C46D724CB034000C22E97 /* SBBInfoView.swift in Sources */,
 				005DC8DF279B1517009C5CEA /* FakeTabBarShape.swift in Sources */,
+				00ADA3732F5EBD9100EB37C8 /* ViewPosition.swift in Sources */,
 				005DC8D4279AAFD8009C5CEA /* TabCircleRowView.swift in Sources */,
 				A74C8B71243757E400BF26E3 /* SBBFormGroup.swift in Sources */,
 				7C71655E246D6155009C3FB1 /* FontExtension.swift in Sources */,
@@ -1432,7 +1437,7 @@
 				000742102B7DFF2000BB7A79 /* SBBHeaderBox.swift in Sources */,
 				00D0962F2A6ACC31009E02B1 /* SBBPickerWrapper.swift in Sources */,
 				7CDBA68F24C174AB002289EE /* SBBIconButtonStyle.swift in Sources */,
-				00578C692F4DE4BB0098FDDB /* FixedCollapsibleView.swift in Sources */,
+				00578C692F4DE4BB0098FDDB /* CollapsibleView.swift in Sources */,
 				2D92C0152A152CF5001FE5B7 /* SBBUpDnCounterView.swift in Sources */,
 				005EDCB32DD350BE00E31B3D /* Backslide.swift in Sources */,
 				7C1F20A824E51298006FF30B /* SBBEnvironmentBanner.swift in Sources */,
@@ -1440,7 +1445,7 @@
 				0021DD5C2B5A855F00DD7E3E /* SBBNotification.swift in Sources */,
 				A74FEA1825138CCC00C4D1A4 /* SBBSwitchStyle.swift in Sources */,
 				7C89AE6226B154720087872E /* IsSelected.swift in Sources */,
-				00578C6B2F4DE4D70098FDDB /* AdditionalView.swift in Sources */,
+				00578C6B2F4DE4D70098FDDB /* MergeView.swift in Sources */,
 				7CA464DF2445F31100118D7B /* SBBAccordion.swift in Sources */,
 				7C0DDFDA25A6DBA9009BB31D /* SliderExtension.swift in Sources */,
 				7C28871224BEE5D600EDBD27 /* SBBTertiaryButtonStyle.swift in Sources */,
@@ -1487,7 +1492,6 @@
 				005DC8E1279B18A3009C5CEA /* FakeTabButtons.swift in Sources */,
 				7C28871624BF055900EDBD27 /* SBBPaginationView.swift in Sources */,
 				7CA5551B267A1473006A6F00 /* SBBStyle.swift in Sources */,
-				00578C672F4DE4A20098FDDB /* CollapsibleView.swift in Sources */,
 				7C106D1925DA803700B89ECD /* SBBModalViewModifier.swift in Sources */,
 				7CC3FAD025AED16B00D227D4 /* SBBLoadingIndicator.swift in Sources */,
 				005EDCAD2DD34AFC00E31B3D /* Multiline.swift in Sources */,
