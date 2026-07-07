@@ -5,7 +5,7 @@
 import SwiftUI
 
 /**
- A ToggleStyle in SBB style (red background)
+ A classic ToggleStyle in SBB style (red background)
  
  ## Overview
  You create a normal Toggle and apply the .toggleStyle() ViewModifier:
@@ -57,18 +57,43 @@ public struct SBBSwitchStyle: ToggleStyle {
         
         @Environment(\.isEnabled) private var isEnabled: Bool
         @Environment(\.colorScheme) var colorScheme
+        @StateObject private var onOffSwitchLabelSettings = OnOffSwitchLabelsSettings()
         
         func makeBody(configuration: Self.Configuration) -> some View {
             RoundedRectangle(cornerRadius: 16, style: .circular)
                 .fill(isOn ? onColor : offColor)
                 .frame(width: 50, height: 31)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 27 / 2, style: .circular)
-                        .fill(thumbColor)
-                        .frame(width: configuration.isPressed ? 33 : 27, height: 27)
-                        .shadow(radius: 1, x: 0, y: 1)
-                        .padding(2)
-                        .offset(x: isOn ? configuration.isPressed ? 6.5 : 9.5 : configuration.isPressed ? -6.5 : -9.5))
+                    ZStack {
+                        if onOffSwitchLabelSettings.enabled {
+                            HStack {
+                                Text("I")
+                                    .sbbFont(.medium_light)
+                                    .foregroundColor(.white)
+                                    .opacity(isOn ? 1 : 0)
+                                    .animation(.easeInOut(duration: 0.1), value: isOn)
+                                    .accessibilityHidden(true)
+
+                                Spacer()
+
+                                Text("O")
+                                    .sbbFont(.medium_light)
+                                    .foregroundColor(.black)
+                                    .opacity(isOn ? 0 : 1)
+                                    .animation(.easeInOut(duration: 0.1), value: isOn)
+                                    .accessibilityHidden(true)
+                            }
+                            .padding(.horizontal, 8)
+                            .frame(width: 50)
+                        }
+                        RoundedRectangle(cornerRadius: 27 / 2, style: .circular)
+                            .fill(thumbColor)
+                            .frame(width: configuration.isPressed ? 33 : 27, height: 27)
+                            .shadow(radius: 1, x: 0, y: 1)
+                            .padding(2)
+                            .offset(x: isOn ? configuration.isPressed ? 6.5 : 9.5 : configuration.isPressed ? -6.5 : -9.5)
+                    }
+                )
                         
                 .animation(Animation.easeInOut(duration: 0.1), value: isOn)
                 .opacity(isEnabled ? 1.0 : 0.5)

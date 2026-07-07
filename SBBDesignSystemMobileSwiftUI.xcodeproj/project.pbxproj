@@ -111,6 +111,7 @@
 		00D096312A6AE437009E02B1 /* SBBDatePickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096302A6AE437009E02B1 /* SBBDatePickerHelper.swift */; };
 		00D096332A711266009E02B1 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096322A711266009E02B1 /* DateExtension.swift */; };
 		00D096382A7159D7009E02B1 /* DemoWithModalSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D096372A7159D7009E02B1 /* DemoWithModalSettingsView.swift */; };
+		00DC5AD92FFCD3F5000CAAA5 /* OnOffSwitchLabelsEnabledSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DC5AD82FFCD3E4000CAAA5 /* OnOffSwitchLabelsEnabledSettings.swift */; };
 		00E16DDB2D0339ED00C30173 /* SBBStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDA2D0339E700C30173 /* SBBStepper.swift */; };
 		00E16DDD2D033D7300C30173 /* StepperDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDC2D033D7000C30173 /* StepperDemo.swift */; };
 		00E16DDF2D06D9E000C30173 /* SBBStepperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00E16DDE2D06D9DC00C30173 /* SBBStepperTests.swift */; };
@@ -379,6 +380,7 @@
 		00D096322A711266009E02B1 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		00D096342A714CD2009E02B1 /* SBBPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBPickerTests.swift; sourceTree = "<group>"; };
 		00D096372A7159D7009E02B1 /* DemoWithModalSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoWithModalSettingsView.swift; sourceTree = "<group>"; };
+		00DC5AD82FFCD3E4000CAAA5 /* OnOffSwitchLabelsEnabledSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnOffSwitchLabelsEnabledSettings.swift; sourceTree = "<group>"; };
 		00E16DDA2D0339E700C30173 /* SBBStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStepper.swift; sourceTree = "<group>"; };
 		00E16DDC2D033D7000C30173 /* StepperDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepperDemo.swift; sourceTree = "<group>"; };
 		00E16DDE2D06D9DC00C30173 /* SBBStepperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBBStepperTests.swift; sourceTree = "<group>"; };
@@ -1121,6 +1123,7 @@
 		A7DE2067243C5A5A00557F4D /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				00DC5AD82FFCD3E4000CAAA5 /* OnOffSwitchLabelsEnabledSettings.swift */,
 				7CDBA69024C18DA1002289EE /* SBBButtonSize.swift */,
 				7CDBA68E24C174AB002289EE /* SBBIconButtonStyle.swift */,
 				7C7FB27125BEFE3900B2ED29 /* SBBIconTextButtonStyle.swift */,
@@ -1499,6 +1502,7 @@
 				005DC8CD279AA204009C5CEA /* TabBarShapeView.swift in Sources */,
 				7CAC69FA25CAE73F003CF54E /* ViewSizeKey.swift in Sources */,
 				A74C8B732437634500BF26E3 /* ArrayBuilder.swift in Sources */,
+				00DC5AD92FFCD3F5000CAAA5 /* OnOffSwitchLabelsEnabledSettings.swift in Sources */,
 				005EDCA92DD3499C00E31B3D /* SBBOnboardingWrapperTitleView.swift in Sources */,
 				00D096262A6A5987009E02B1 /* SBBDatePicker.swift in Sources */,
 				00D096332A711266009E02B1 /* DateExtension.swift in Sources */,

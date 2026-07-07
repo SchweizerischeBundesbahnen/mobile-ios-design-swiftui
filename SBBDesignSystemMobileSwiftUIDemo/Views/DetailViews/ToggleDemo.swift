@@ -68,15 +68,16 @@ struct ToggleDemo: View {
                     Spacer()
                 }
                 
-                VStack(spacing: 0) {
-                    SBBSwitchItem(isOn: $toggle5, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), showTopLine: true, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
-                    SBBSwitchItem(isOn: $toggle5, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), footnote: Text("Footnote"), showTopLine: true, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
+                SBBFormGroup(title: "In a group") {
+                    SBBSwitchItem(isOn: $toggle5, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
+                    SBBSwitchItem(isOn: $toggle5, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), footnote: Text("Footnote"), actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
                     
                     SBBSwitchItem(isOn: $toggle2, label: Text("Label on disabled"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
                         .disabled(true)
-                    SBBSwitchItem(isOn: $toggle6, label: Text("Label error"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), errorMessage: errorMessage1, errorCode: errorCode1, actionOnEnable: returnFalseAfterDelay1, actionOnDisable: returnFalseAfterDelay1)
+                    SBBSwitchItem(isOn: $toggle6, label: Text("Label error"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), showBottomLine: false, errorMessage: errorMessage1, errorCode: errorCode1, actionOnEnable: returnFalseAfterDelay1, actionOnDisable: returnFalseAfterDelay1)
                 }
                 
+                Text("Standalone")
                 SBBSwitchItem(isOn: $toggle7, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), type: .standalone, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
                 SBBSwitchItem(isOn: $toggle7, label: Text("Label"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), footnote: Text("Footnote"), type: .standalone, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
                 SBBSwitchItem(isOn: $toggle2, label: Text("Label off disabled"), labelAccessibility: nil, image: Image(sbbIcon: .unicorn_small), type: .standalone, actionOnEnable: returnTrueAfterDelay, actionOnDisable: returnTrueAfterDelay)
