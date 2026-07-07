@@ -15,7 +15,7 @@ enum Theme: CaseIterable {
         case .sbbDefault:
             return SBBTheme()
         case .night:
-            return SBBTheme(primaryColor: .sbbColor(.night), secondaryColor: .sbbColor(.blue))
+            return SBBTheme(primaryColor: .sbbColor(.night), secondaryColor: .sbbColor(.blue), contrastColor: .sbbColor(.white))
         }
     }
 }

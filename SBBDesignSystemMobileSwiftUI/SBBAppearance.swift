@@ -24,6 +24,7 @@ public class SBBAppearance {
     private class func setupColors(theme: SBBTheme) {
         Color.sbbPrimary = theme.primaryColor
         Color.sbbSecondary = theme.secondaryColor
+        Color.contrastColor = theme.contrastColor
     }
     
     private class func setupSBBFonts() {
@@ -58,6 +59,9 @@ public struct SBBTheme {
     /// The secondary color used for pressed states/backgrounds of some UI elements (e.g. ``SBBPrimaryButtonStyle`` in pressed state).
     public let secondaryColor: Color
     
+    /// The contrast color used for dark mode of some UI elements (e.g. ``SBBCheckBox``, ``SBBRadioButton``) for better contrast
+    public let contrastColor: Color
+    
     /**
      Returns a ``SBBTheme`` which you can then pass when calling setupSBBAppearance(theme: SBBTheme)  inside AppDelegate to customize the look and feel of SBB DSM.
      
@@ -65,8 +69,9 @@ public struct SBBTheme {
         - primaryColor: The primary color used for many UI elements (e.g. NavigationBar background, ``SBBPrimaryButtonStyle``)
         - secondaryColor: The secondary color used for pressed states/backgrounds of some UI elements (e.g. ``SBBPrimaryButtonStyle`` in pressed state). Typically the secondary Color should be slightly darker than the primary Color.
      */
-    public init(primaryColor: Color = .sbbColor(.red), secondaryColor: Color = .sbbColor(.red150)) {
+    public init(primaryColor: Color = .sbbColor(.red), secondaryColor: Color = .sbbColor(.red150), contrastColor: Color = .sbbColor(.redDark)) {
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor
+        self.contrastColor = contrastColor
     }
 }

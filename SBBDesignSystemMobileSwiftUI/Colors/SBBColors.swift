@@ -13,6 +13,9 @@ public extension Color {
     /// The secondary color set in SBBTheme which is used for pressed states/backgrounds of some UI elements (e.g. SBBPrimaryButton in pressed state).
     static var sbbSecondary: Color = Color.sbbColor(.red125)
     
+    /// The contract color set in SBBTheme which is used for dark mode of some UI elements (e.g. SBBRadioButton, SBBCheckBox) for better contrast.
+    static var contrastColor: Color = Color.sbbColor(.redDark)
+    
     /**
      Returns a SBB Color.
      
@@ -24,6 +27,8 @@ public extension Color {
             return sbbPrimary
         } else if name == .secondary {
             return sbbSecondary
+        } else if name == .contrast {
+            return contrastColor
         }
         return Color(UIColor.sbbColor(name))
     }

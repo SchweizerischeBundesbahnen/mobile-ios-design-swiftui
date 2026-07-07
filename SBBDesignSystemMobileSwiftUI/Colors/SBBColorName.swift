@@ -10,6 +10,7 @@ public enum SBBColorName: String, Sendable {
     // User set colors
     case primary = "Primary"
     case secondary = "Secondary"
+    case contrast = "Contrast"
     
     // Colors
     case red = "Red"

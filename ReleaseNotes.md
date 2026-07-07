@@ -3,6 +3,9 @@
 ## v1.3.2 - TBD
 ### Improvements
 * SBBHeaderBox: possibility to use merged views for the collapsed / extended view. Collapsible views are not at the top of the scroll view anymore, they simply depend on the last drag gesture to determine when/how to open or close.
+* SBBSwitchStyle / SBBSwitchButtonStyle: now support accessibility settings on/off labels. 
+* SBBTheme: new theme color `contrastColor` used in dark mode instead of primary color for better contrast in some elements.
+* SBBRadioButton / SBBCheckBox: now use `contrastColor` in dark mode instead of `primaryColor`.
 
 ## v1.3.1 - 16 April 2027
 ### Improvements
