@@ -14,7 +14,6 @@ struct CheckBoxAndRadioButtonContainer: View {
     private var text: Text
     private var subText: Text?
     private let showBottomLine: Bool
-    private let darkModeCheckWhite: Bool
     
     private var foregroundColor: Color {
         switch (isEnabled, colorScheme) {
@@ -34,7 +33,7 @@ struct CheckBoxAndRadioButtonContainer: View {
         case (false, _):
             return .clear
         case (true, true):
-            return colorScheme == .dark && darkModeCheckWhite ? .sbbColor(.white) : .sbbColor(.primary)
+            return colorScheme == .dark ? .sbbColor(.contrast) : .sbbColor(.primary)
         case (true, false):
             return  (colorScheme == .light) ? Color.sbbColor(.metal) : Color.sbbColor(.smoke)
         }
@@ -55,14 +54,13 @@ struct CheckBoxAndRadioButtonContainer: View {
         }
     }
     
-    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true, darkModeCheckWhite: Bool = false) {
+    init(type: CheckBoxAndRadioButtonContainerType, isOn: Binding<Bool>, image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true) {
         self.type = type
         self._isOn = isOn
         self.image = image
         self.text = text
         self.subText = subText
         self.showBottomLine = showBottomLine
-        self.darkModeCheckWhite = darkModeCheckWhite
     }
     
     var body: some View {

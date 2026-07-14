@@ -23,7 +23,10 @@ public struct SBBCheckBox: View {
     @Environment(\.isEnabled) private var isEnabled
     @Binding private var isOn: Bool
     
-    private var checkboxAndRadioButtonContainer: CheckBoxAndRadioButtonContainer
+    private var image: Image?
+    private var text: Text
+    private var subText: Text?
+    private var showBottomLine: Bool
         
     /**
      Returns a SBBCheckBox with a Text, an optional subText and an optional Image.
@@ -34,15 +37,17 @@ public struct SBBCheckBox: View {
         - text: The Text to be shown on the right side of the checkbox Image.
         - subText: The subText to be shown below the standard text.
         - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
-        - darkModeCheckWhite: If set, the checkmark color will be white instead of primary color.
      */
-    public init(isOn: Binding<Bool>, image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true, darkModeCheckWhite: Bool = false) {
+    public init(isOn: Binding<Bool>, image: Image? = nil, text: Text, subText: Text? = nil, showBottomLine: Bool = true) {
         self._isOn = isOn
-        self.checkboxAndRadioButtonContainer = CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: isOn, image: image, text: text, subText: subText, showBottomLine: showBottomLine, darkModeCheckWhite: darkModeCheckWhite)
+        self.image = image
+        self.text = text
+        self.subText = subText
+        self.showBottomLine = showBottomLine
     }
     
     public var body: some View {
-        checkboxAndRadioButtonContainer
+        CheckBoxAndRadioButtonContainer(type: .checkbox, isOn: $isOn, image: image, text: text, subText: subText, showBottomLine: showBottomLine)
     }
 }
 
