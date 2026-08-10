@@ -6,6 +6,7 @@
 * SBBSwitchStyle / SBBSwitchButtonStyle: now support accessibility settings on/off labels. 
 * SBBTheme: new theme color `contrastColor` used in dark mode instead of primary color for better contrast in some elements.
 * SBBRadioButton / SBBCheckBox: now use `contrastColor` in dark mode instead of `primaryColor`.
+* SBBUpDnCounterView: uses primary and contrast colors, not hard-coded red any more.
 
 ## v1.3.1 - 16 April 2027
 ### Improvements
