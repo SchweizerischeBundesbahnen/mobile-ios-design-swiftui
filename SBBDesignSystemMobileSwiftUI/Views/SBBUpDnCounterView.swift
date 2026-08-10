@@ -172,7 +172,7 @@ public struct SBBUpDnCounterView: View {
                 Rectangle()
                     .frame(width: 10, height: 2)
             )
-            .foregroundColor(hasReachedMaxValue ? reachedMinMaxColour : .red)
+            .foregroundColor(hasReachedMaxValue ? reachedMinMaxColour : Color.sbbColor(colorScheme == .dark ? .contrast : .primary))
     }
     
     private func decrementValueIfPossible() {
@@ -195,7 +195,7 @@ public struct SBBUpDnCounterView: View {
                 Rectangle()
                     .frame(width: 10, height: 2)
             )
-            .foregroundColor(hasReachedMinValue ? reachedMinMaxColour : .red)
+            .foregroundColor(hasReachedMinValue ? reachedMinMaxColour : Color.sbbColor(colorScheme == .dark ? .contrast : .primary))
     }
     
     private var hasReachedMinValue: Bool {
