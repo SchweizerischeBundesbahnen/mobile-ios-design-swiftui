@@ -28,6 +28,7 @@ struct UpDnCounterDemoView: View {
                         counter = counter - 1
                     }
                     SBBUpDnCounterView(leftIcon: Image(sbbIcon: .train_tracks_small), label: Text("Label and Icon, range 0...10"), value: $counter, range: 0...10, showBottomLine: false)
+                    SBBUpDnCounterView(leftIcon: Image(sbbIcon: .train_tracks_small), label: Text("Label and Icon, range 0...10"), value: $counter, range: 0...10, showTextfield: true, showBottomLine: false)
 
                 }
                 Spacer()

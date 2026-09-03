@@ -33,8 +33,13 @@ public struct SBBUpDnCounterView: View {
     private let incrementAction: (() -> Void)?
     private let decrementAction: (() -> Void)?
     
+    private let showTextfield: Bool
+    
     @Environment(\.sizeCategory) var sizeCategory
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.isEnabled) var isEnabled
+    
+    @FocusState private var isFocused: Bool
     
     /**
      Returns a UpDnCounter with a label, an optional image and an optional footnote. The Binding value will be increased / decreased. There is also an optional range parameter
@@ -45,9 +50,10 @@ public struct SBBUpDnCounterView: View {
      - subtext: An optional Text displayed underneath the main label
      - value: a Binding that will be increased / decreased by the stepper
      - range: a ClosedRange to limit the stepper value
+     - showTextfield: If set, a textfield will be shown and the user can directly edit the number.
      - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
      */
-    public init(leftIcon: Image? = nil, label: Text, subtext: Text? = nil, value: Binding<Int>, range: ClosedRange<Int>? = nil, showBottomLine: Bool = true) {
+    public init(leftIcon: Image? = nil, label: Text, subtext: Text? = nil, value: Binding<Int>, range: ClosedRange<Int>? = nil, showTextfield: Bool = false, showBottomLine: Bool = true) {
         self.leftIcon = leftIcon
         self.label = label
         self.subText = subtext
@@ -57,6 +63,7 @@ public struct SBBUpDnCounterView: View {
         self.maxValue = range?.upperBound
         self.incrementAction = nil
         self.decrementAction = nil
+        self.showTextfield = showTextfield
         self.showBottomLine = showBottomLine
     }
     
@@ -69,11 +76,12 @@ public struct SBBUpDnCounterView: View {
      - subtext: An optional Text displayed underneath the main label
      - displayValue: The value that will be displayed
      - range: a ClosedRange to limit the stepper value
+     - showTextfield: If set, a textfield will be shown and the user can directly edit the number.
      - showBottomLine: Shows or hides a separator line at the bottom of the View (typically only false for last elements in a List).
      - incrementAction: The action to perform then pressing the `+` of the stepper
      - decrementAction: The action to perform when pressing the `-`of the stepper
      */
-    public init(leftIcon: Image? = nil, label: Text, subtext: Text? = nil, displayValue: Int, range: ClosedRange<Int>? = nil, showBottomLine: Bool = true, incrementAction: @escaping () -> Void, decrementAction: @escaping () -> Void) {
+    public init(leftIcon: Image? = nil, label: Text, subtext: Text? = nil, displayValue: Int, range: ClosedRange<Int>? = nil, showTextfield: Bool = false, showBottomLine: Bool = true, incrementAction: @escaping () -> Void, decrementAction: @escaping () -> Void) {
         self.leftIcon = leftIcon
         self.label = label
         self.subText = subtext
@@ -83,6 +91,7 @@ public struct SBBUpDnCounterView: View {
         self.maxValue = range?.upperBound
         self.incrementAction = incrementAction
         self.decrementAction = decrementAction
+        self.showTextfield = showTextfield
         self.showBottomLine = showBottomLine
     }
     
@@ -119,11 +128,35 @@ public struct SBBUpDnCounterView: View {
             .contentShape(Rectangle().inset(by: -10))
             .disabled(hasReachedMinValue)
             .padding(.leading, 8)
-            Text("\(value)")
-                .sbbFont(.large_bold)
-                .frame(minWidth: 40)
-                .accessibilityLabel(Text("\(label) has value \(value)"))
-                .padding(.horizontal, 4)
+            if showTextfield {
+                TextField("", value: $value, format: BoundedIntFormatStyle(minValue: minValue, maxValue: maxValue))
+                    .focused($isFocused)
+                    .onChange(of: isFocused) { focused in
+                        if !focused {
+                            // Re-assign the value to force the TextField to re-render
+                            // from the binding, discarding any unparseable text
+                            value = value
+                        }
+                    }
+                    .multilineTextAlignment(.center)
+                    .keyboardType(.numbersAndPunctuation)
+                    .sbbFont(.large_bold)
+                    .accessibilityLabel(Text("\(label) has value \(value)"))
+                    .padding(4)
+                    .background(Color.sbbColor(isEnabled ? .viewBackground : .background))
+                    .clipShape(RoundedRectangle(cornerRadius: 5, style: .continuous))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 5, style: .continuous)
+                            .stroke(Color.sbbColor(.aluminium), lineWidth: 1)
+                    )
+                    .padding(.horizontal, 4)
+            } else {
+                Text("\(value)")
+                    .sbbFont(.large_bold)
+                    .frame(minWidth: 40)
+                    .accessibilityLabel(Text("\(label) has value \(value)"))
+                    .padding(.horizontal, 4)
+            }
             Button {
                 incrementValueIfPossible()
             } label: {
@@ -217,10 +250,42 @@ public struct SBBUpDnCounterView: View {
     }
 }
 
+struct BoundedIntFormatStyle: ParseableFormatStyle {
+    var minValue: Int?
+    var maxValue: Int?
+
+    var parseStrategy: BoundedIntParseStrategy {
+        BoundedIntParseStrategy(minValue: minValue, maxValue: maxValue)
+    }
+
+    func format(_ value: Int) -> String {
+        value.formatted()
+    }
+}
+
+struct BoundedIntParseStrategy: ParseStrategy {
+    var minValue: Int?
+    var maxValue: Int?
+
+    func parse(_ value: String) throws -> Int {
+        guard let parsed = Int(value) else {
+            throw ParseError()
+        }
+        var result = parsed
+        if let min = minValue { result = Swift.max(result, min) }
+        if let max = maxValue { result = Swift.min(result, max) }
+        return result
+    }
+}
+
+struct ParseError: Error {}
+
+
 struct SBBUpDnCounterView_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             SBBUpDnCounterView(label: Text("Gleisüberschreitung"), value: .constant(0))
+            SBBUpDnCounterView(label: Text("Gleisüberschreitung"), value: .constant(0), showTextfield: true)
             SBBUpDnCounterView(label: Text("Gleisüberschreitung"), subtext: Text("Ein sehr langer Text der auf meherern Zeilen geschrieben werden sollte"), value: .constant(5))
             SBBUpDnCounterView(leftIcon: Image(sbbIcon: .train_tracks_small), label: Text("Gleisüberschreitung"), value: .constant(10))
             SBBUpDnCounterView(leftIcon: Image(sbbIcon: .train_tracks_small), label: Text("Gleisüberschreitung"), value: .constant(77777))
