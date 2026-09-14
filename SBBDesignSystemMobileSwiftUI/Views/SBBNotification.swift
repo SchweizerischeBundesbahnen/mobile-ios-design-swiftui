@@ -354,7 +354,7 @@ public struct SBBNotification: View {
                         text
                     }
                 }
-                .fixedSize(horizontal: false, vertical: false)
+                .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
                 .frame(minWidth: iconSize, minHeight: iconSize)
                 .foregroundColor(Color.sbbColor(.textBlack))
