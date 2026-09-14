@@ -4,6 +4,9 @@
 ### Improvements
 * SBBUpDnCounterView: possibility to have the value as a textfield.
 
+### Bugfix
+* SBBNotification: fix its layout.
+
 ## v1.3.2 - 10 August 2026
 ### Improvements
 * SBBHeaderBox: possibility to use merged views for the collapsed / extended view. Collapsible views are not at the top of the scroll view anymore, they simply depend on the last drag gesture to determine when/how to open or close.

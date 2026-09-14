@@ -321,11 +321,11 @@ public struct SBBNotification: View {
                 if let titleLineLimit {
                     title
                         .lineLimit(titleLineLimit)
+                        .minimumScaleFactor(0.2)
                 } else {
                     title
                 }
             }
-                .minimumScaleFactor(0.2)
                 .fixedSize(horizontal: false, vertical: true)
                 .foregroundColor(Color.sbbColor(.textBlack))
                 .sbbFont(.medium_bold)
@@ -349,12 +349,12 @@ public struct SBBNotification: View {
                     if let textLineLimit {
                         text
                             .lineLimit(textLineLimit)
+                            .minimumScaleFactor(0.1)
                     } else {
                         text
                     }
                 }
-                .minimumScaleFactor(0.1)
-                .fixedSize(horizontal: false, vertical: false)
+                .fixedSize(horizontal: false, vertical: true)
                 .multilineTextAlignment(.leading)
                 .frame(minWidth: iconSize, minHeight: iconSize)
                 .foregroundColor(Color.sbbColor(.textBlack))
