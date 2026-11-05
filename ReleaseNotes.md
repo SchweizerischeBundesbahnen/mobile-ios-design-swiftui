@@ -3,6 +3,7 @@
 ## v1.3.3 - TBD
 ### Improvements
 * SBBUpDnCounterView: possibility to have the value as a textfield.
+* Update icons to 1.8.37
 
 ### Bugfix
 * SBBNotification: fix its layout.
