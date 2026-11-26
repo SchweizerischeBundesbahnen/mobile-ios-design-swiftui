@@ -1,6 +1,10 @@
 # Release Notes SBBDesignSystemMobileSwiftUI for iOS & SwiftUI
 
-## v1.3.3 - TBD
+## v1.3.4 - 26 November 2026
+### Bugfix
+* Animation applied to specific views and not via general `withAnimation`; try to avoid leak that could trigger a forever loop in a parent.
+
+## v1.3.3 - 5 November 2026
 ### Improvements
 * SBBUpDnCounterView: possibility to have the value as a textfield.
 * Update icons to 1.8.37
