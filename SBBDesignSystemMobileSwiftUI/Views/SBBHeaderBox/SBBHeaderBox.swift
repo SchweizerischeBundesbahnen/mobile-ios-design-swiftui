@@ -340,7 +340,7 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
     @Environment(\.colorScheme) var colorScheme
     
     @State private var headerHeight: CGFloat = .zero
-    @State private var offsetX: CGFloat = 0
+    @State private var isLoadingBarAnimating = false
     
     @State private var scrolled: CGFloat = 0
     @State private var collapsibleSnap: CollapsibleSnap?
@@ -492,12 +492,13 @@ public struct SBBHeaderBox<Content: View, AdditionalContent: View, CollapsibleCo
                         )
                     )
                     .frame(width: 64, height: 2)
-                    .offset(x: offsetX, y: geometry.size.height / 2)
+                    .offset(x: isLoadingBarAnimating ? geometry.size.width : 0, y: geometry.size.height / 2)
+                    .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: isLoadingBarAnimating)
                     .onAppear {
-                        offsetX = 0
-                        withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
-                            self.offsetX = geometry.size.width
-                        }
+                        isLoadingBarAnimating = true
+                    }
+                    .onDisappear {
+                        isLoadingBarAnimating = false
                     }
             }
             .frame(height: 2)

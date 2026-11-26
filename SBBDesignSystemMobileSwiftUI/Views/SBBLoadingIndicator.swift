@@ -60,14 +60,9 @@ public struct SBBLoadingIndicator: View {
         }
     }
     
-    private struct RectangleProperties {
-        var offset: CGFloat
-        var opacity: Double
-    }
-    
     private var rectangleOpacity = [0.0, 0.4, 1.0, 0.7, 0.4, 0.1]
     private var rectangleOffsets: [CGFloat]
-    @State private var rectangleProperties: [RectangleProperties]
+    @State private var isAnimating = false
     
     @Environment(\.colorScheme) var colorScheme
     
@@ -98,36 +93,29 @@ public struct SBBLoadingIndicator: View {
         self.rectangleWidth = innerWidth / CGFloat(numberOfRectangles) + paddingBetweenRectangles
         
         rectangleOffsets = [-rectangleWidth, 0, rectangleWidth, 2.0*rectangleWidth, 3.0*rectangleWidth, 4.0*rectangleWidth]
-
-        _rectangleProperties = State(initialValue: [RectangleProperties(offset: rectangleOffsets[1], opacity: rectangleOpacity[1]), RectangleProperties(offset: rectangleOffsets[2], opacity: rectangleOpacity[2]), RectangleProperties(offset: rectangleOffsets[3], opacity: rectangleOpacity[3]), RectangleProperties(offset: rectangleOffsets[4], opacity: rectangleOpacity[4]), RectangleProperties(offset: rectangleOffsets[5], opacity: rectangleOpacity[5])])
     }
 
     public var body: some View {
         ZStack {
-            ForEach(rectangleProperties.indices, id:\.self) { index in
+            ForEach(0..<numberOfRectangles, id: \.self) { index in
                 Rectangle()
                     .fill(style.color(for: colorScheme))
                     .frame(width: innerWidth / CGFloat(numberOfRectangles), height: height)
-                    .opacity(rectangleProperties[index].opacity)
-                    .offset(x: rectangleProperties[index].offset)
-                    .onAppear {
-                        // https://stackoverflow.com/questions/65610265/swiftui-unexpected-position-changes-during-animation
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                            withAnimation(Animation.linear(duration: animationDuration)
-                                    .repeatForever(autoreverses: false)
-                            )
-                            {
-                                rectangleProperties[index].offset = rectangleOffsets[index]
-                            }
-                        
-                            withAnimation(Animation.linear(duration: animationDuration)
-                                            .repeatForever(autoreverses: false)
-                            ) {
-                                rectangleProperties[index].opacity = rectangleOpacity[index]
-                            }
-                        }
-                    }
+                    .opacity(isAnimating ? rectangleOpacity[index] : rectangleOpacity[index + 1])
+                    .offset(x: isAnimating ? rectangleOffsets[index] : rectangleOffsets[index + 1])
+                    // Scoped to this rectangle: a `withAnimation(.repeatForever)` would leak into other
+                    // changes in the same update (e.g. a parent's transition) and make them loop forever.
+                    .animation(.linear(duration: animationDuration).repeatForever(autoreverses: false), value: isAnimating)
             }
+        }
+        .onAppear {
+            // https://stackoverflow.com/questions/65610265/swiftui-unexpected-position-changes-during-animation
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                isAnimating = true
+            }
+        }
+        .onDisappear {
+            isAnimating = false
         }
         .rotation3DEffect(.degrees(rotationInDegrees), axis: (x: 0, y: 1, z: 0), anchor: .leading)
         .frame(width: width, height: height, alignment: .leading)

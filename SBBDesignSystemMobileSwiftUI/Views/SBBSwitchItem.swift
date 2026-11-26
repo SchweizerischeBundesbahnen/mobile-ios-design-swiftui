@@ -38,7 +38,7 @@ public struct SBBSwitchItem: View {
     @Binding private var isOn: Bool
     @State private var isLoading: Bool = false
     @State private var actionSuccess: Bool = true
-    @State private var offsetX: CGFloat = 0
+    @State private var isLoadingBarAnimating = false
     
     @Environment(\.sizeCategory) private var sizeCategory
     @Environment(\.colorScheme) private var colorScheme
@@ -168,12 +168,13 @@ public struct SBBSwitchItem: View {
                                 )
                             )
                             .frame(width: 64, height: 2)
-                            .offset(x: offsetX, y: geometry.size.height / 2)
+                            .offset(x: isLoadingBarAnimating ? geometry.size.width : 0, y: geometry.size.height / 2)
+                            .animation(.linear(duration: 1).repeatForever(autoreverses: false), value: isLoadingBarAnimating)
                             .onAppear {
-                                offsetX = 0
-                                withAnimation(Animation.linear(duration: 1).repeatForever(autoreverses: false)) {
-                                    self.offsetX = geometry.size.width
-                                }
+                                isLoadingBarAnimating = true
+                            }
+                            .onDisappear {
+                                isLoadingBarAnimating = false
                             }
                     }
                 }
