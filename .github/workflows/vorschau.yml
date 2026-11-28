@@ -1,0 +1,36 @@
+name: Vorschau bauen
+on: workflow_dispatch
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  doku-html:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dokumentation als HTML bauen
+        run: |
+          xcodebuild docbuild \
+            -project SBBDesignSystemMobileSwiftUI.xcodeproj \
+            -scheme SBBDesignSystemMobileSwiftUI \
+            -destination 'generic/platform=iOS Simulator' \
+            -derivedDataPath build
+          ARCHIVE=$(find build -name "*.doccarchive" | head -1)
+          $(xcrun --find docc) process-archive transform-for-static-hosting "$ARCHIVE" \
+            --output-path site \
+            --hosting-base-path "${{ github.event.repository.name }}"
+          echo '<meta http-equiv="refresh" content="0; url=documentation/sbbdesignsystemmobileswiftui/">' > site/index.html
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  veroeffentlichen:
+    needs: doku-html
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4
